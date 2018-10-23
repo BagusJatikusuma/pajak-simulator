@@ -2,22 +2,22 @@ package com.bekasidev.app.model;
 
 public class Restoran {
 
-    private String idHotel;
-    private String namaHotel;
+    private String idRestoran;
+    private String namaRestoran;
 
-    public String getIdHotel() {
-        return idHotel;
+    public String getIdRestoran() {
+        return idRestoran;
     }
 
-    public void setIdHotel(String idHotel) {
-        this.idHotel = idHotel;
+    public void setIdRestoran(String idRestoran) {
+        this.idRestoran = idRestoran;
     }
 
-    public String getNamaHotel() {
-        return namaHotel;
+    public String getNamaRestoran() {
+        return namaRestoran;
     }
 
-    public void setNamaHotel(String namaHotel) {
-        this.namaHotel = namaHotel;
+    public void setNamaRestoran(String namaRestoran) {
+        this.namaRestoran = namaRestoran;
     }
 }
