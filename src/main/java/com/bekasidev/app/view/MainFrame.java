@@ -5,10 +5,31 @@
  */
 package com.bekasidev.app.view;
 
+import java.awt.HeadlessException;
+import javax.swing.JFrame;
+
 /**
  *
  * @author bagus
  */
-public class MainFrame {
+public class MainFrame extends JFrame {
+
+    public MainFrame() throws HeadlessException {
+        super();
+    }
     
+    /**
+     * init main frame with its attribute
+     */
+    public void init() {
+    }
+    /**
+     * init main frame with its attribute
+     */
+    public void init(short width, short height, short xPos, short yPos) {
+        this.setBounds(xPos, yPos, width, height);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(null);
+    }
+   
 }
