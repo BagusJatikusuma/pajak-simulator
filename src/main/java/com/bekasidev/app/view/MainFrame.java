@@ -5,8 +5,10 @@
  */
 package com.bekasidev.app.view;
 
+import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -30,20 +32,45 @@ public class MainFrame extends JFrame {
     public void init(short width, short height, short xPos, short yPos) {
         this.setBounds(xPos, yPos, width, height);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setLayout(null);
         
         /**
-         * add side menu bar
+         * add main panel to frame
+         */
+        addMainPanel();
+        
+        /**
+         * add side menu bar panel
          */
         addSideMenuBar();
+        
+        /**
+         * add content menu panel
+         */
+        addContentPanel();
+        
+        /**
+         * add copyright panel
+         */
+
     }
     
-    public void addSideMenuBar() {
+    private void addSideMenuBar() {
         SideMenuBar sideMenuBar = new SideMenuBar();
         sideMenuBar.addMenu("file");
         sideMenuBar.addMenu("option");
+    }
+    
+    private void addMainPanel() {
+        JPanel mainPanel = new JPanel(new BorderLayout());
         
-        this.setJMenuBar(sideMenuBar);
+        this.add(mainPanel);
+    }
+    
+    private void addContentPanel() {
+        ContentPanel contentPanel = new ContentPanel();
+        contentPanel.initPanel();
+        
+        this.add(contentPanel, BorderLayout.CENTER);
     }
    
 }
