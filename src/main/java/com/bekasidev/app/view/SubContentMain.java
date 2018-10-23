@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.view;
 
+import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 /**
@@ -14,8 +15,19 @@ import javax.swing.JPanel;
 public class SubContentMain extends JPanel{
 
     public SubContentMain() {
+        super(new BorderLayout());
     }
     
-    
+    public void initSubContentMain(){
+        SideContentPanel sideContentPanel = new SideContentPanel();
+        sideContentPanel.initSideContentPanel();
+        
+        ContentPanel contentPanel = new ContentPanel();
+        contentPanel.initPanel();
+        
+        this.add(sideContentPanel, BorderLayout.LINE_START);
+        this.add(contentPanel, BorderLayout.CENTER);
+
+    }
     
 }

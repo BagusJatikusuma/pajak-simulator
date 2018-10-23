@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
         /**
          * add content menu panel
          */
-        addContentPanel();
+        addSubContentPanel();
         
         /**
          * add copyright panel
@@ -67,11 +67,11 @@ public class MainFrame extends JFrame {
         this.add(mainPanel);
     }
     
-    private void addContentPanel() {
-        ContentPanel contentPanel = new ContentPanel();
-        contentPanel.initPanel();
+    private void addSubContentPanel() {
+        SubContentMain subContentMain = new SubContentMain();
+        subContentMain.initSubContentMain();
         
-        this.add(contentPanel, BorderLayout.CENTER);
+        this.add(subContentMain, BorderLayout.CENTER);
     }
    
 }
