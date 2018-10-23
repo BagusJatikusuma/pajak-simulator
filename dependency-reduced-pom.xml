@@ -27,15 +27,15 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>7</source>
+          <target>7</target>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-  <repositories>
-    <repository>
-      <id>netbeans</id>
-      <name>Netbeans rep</name>
-      <url>http://bits.netbeans.org/maven2/</url>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -50,3 +50,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
+
+  <repositories>
+      <id>netbeans</id>
+    <repository>
+      <name>Netbeans rep</name>
+      <url>http://bits.netbeans.org/maven2/</url>
+    </repository>
+  </repositories>

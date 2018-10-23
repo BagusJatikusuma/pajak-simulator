@@ -37,6 +37,13 @@
     </dependency>
 
 
+
+      <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+      <dependency>
+          <groupId>org.xerial</groupId>
+          <artifactId>sqlite-jdbc</artifactId>
+          <version>3.25.2</version>
+      </dependency>
   </dependencies>
   
   <!-- http://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/ -->
@@ -63,6 +70,14 @@
 			</configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
             </plugin>
 
         </plugins>
