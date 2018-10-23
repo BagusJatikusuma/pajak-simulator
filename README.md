@@ -1,2 +1,5 @@
 # pajak-simulator
-aplikasi simulator pajak menggunakan Java Swing dan SQLLite
+aplikasi simulator pajak menggunakan:
+- Java 8 Swing
+- SQLLite
+- Maven
