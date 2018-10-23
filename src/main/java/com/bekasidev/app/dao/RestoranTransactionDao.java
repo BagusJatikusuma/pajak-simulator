@@ -9,4 +9,6 @@ public interface RestoranTransactionDao {
     List<RestoranTransaction> getAllRestoranTransactionByIdRestoran(String idRestoran);
 
     RestoranTransaction getRestoranTransactionByIdRestoranAndIdTransaction(String idRestoran, String idTransaction);
+
+    void createRestoranTransaction(RestoranTransaction restoranTransaction);
 }

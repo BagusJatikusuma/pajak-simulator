@@ -9,4 +9,8 @@ public interface RestoranTransactionService {
     List<RestoranTransaction> getAllRestoranTransactionByIdRestoran(String idRestoran);
 
     RestoranTransaction getRestoranTransactionByIdRestoranAndIdTransaction(String idRestoran, String idTransaction);
+
+    void createRestoranTransaction(RestoranTransaction restoranTransaction);
+
+    double calculatePotensiPajakRestoran(RestoranTransaction restoranTransaction);
 }
