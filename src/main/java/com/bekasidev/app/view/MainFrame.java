@@ -24,12 +24,26 @@ public class MainFrame extends JFrame {
     public void init() {
     }
     /**
-     * init main frame with its attribute
+     * init main frame with its attribute in whole this app
+     * 
      */
     public void init(short width, short height, short xPos, short yPos) {
         this.setBounds(xPos, yPos, width, height);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(null);
+        
+        /**
+         * add side menu bar
+         */
+        addSideMenuBar();
+    }
+    
+    public void addSideMenuBar() {
+        SideMenuBar sideMenuBar = new SideMenuBar();
+        sideMenuBar.addMenu("file");
+        sideMenuBar.addMenu("option");
+        
+        this.setJMenuBar(sideMenuBar);
     }
    
 }
