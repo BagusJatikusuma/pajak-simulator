@@ -50,3 +50,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
+
+  <repositories>
+      <id>netbeans</id>
+    <repository>
+      <name>Netbeans rep</name>
+      <url>http://bits.netbeans.org/maven2/</url>
+    </repository>
+  </repositories>
