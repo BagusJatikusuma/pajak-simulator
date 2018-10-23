@@ -2,7 +2,7 @@ package com.bekasidev.app.model;
 
 public class RestoranTransaction {
 
-    private String idHotel;
+    private String idRestoran;
     private String idTransaction;
     private double omzetRamai;
     private double omzetNormal;
@@ -10,6 +10,24 @@ public class RestoranTransaction {
     private int frekuensiRamai;
     private int frekuesniNormal;
     private int frekuensiSepi;
+    private int frekuensiTotal;
+    private double omzetTotal;
+
+    public int getFrekuensiTotal() {
+        return frekuensiTotal;
+    }
+
+    public void setFrekuensiTotal(int frekuensiTotal) {
+        this.frekuensiTotal = frekuensiTotal;
+    }
+
+    public double getOmzetTotal() {
+        return omzetTotal;
+    }
+
+    public void setOmzetTotal(double omzetTotal) {
+        this.omzetTotal = omzetTotal;
+    }
 
     public String getIdTransaction() {
         return idTransaction;
@@ -19,12 +37,12 @@ public class RestoranTransaction {
         this.idTransaction = idTransaction;
     }
 
-    public String getIdHotel() {
-        return idHotel;
+    public String getIdRestoran() {
+        return idRestoran;
     }
 
-    public void setIdHotel(String idHotel) {
-        this.idHotel = idHotel;
+    public void setIdRestoran(String idRestoran) {
+        this.idRestoran = idRestoran;
     }
 
     public double getOmzetRamai() {

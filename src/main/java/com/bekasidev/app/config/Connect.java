@@ -6,9 +6,9 @@ import java.sql.Connection;
 
 public class Connect {
 
-    public Connection connect() {
+    public static Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:dbtestSqlite.db";
+        String url = "jdbc:sqlite:pajak-simulator.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

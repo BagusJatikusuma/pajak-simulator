@@ -1,10 +1,10 @@
-package com.bekasidev.app.dao;
+package com.bekasidev.app.service.backend;
 
 import com.bekasidev.app.model.RestoranTransaction;
 
 import java.util.List;
 
-public interface RestoranTransactionDao {
+public interface RestoranTransactionService {
 
     List<RestoranTransaction> getAllRestoranTransactionByIdRestoran(String idRestoran);
 
