@@ -41,12 +41,17 @@ public class MainFrame extends JFrame {
         /**
          * add side menu bar panel
          */
+        addSideMenuBar();
+        
         /**
          * add content menu panel
          */
+        addContentPanel();
+        
         /**
          * add copyright panel
          */
+
     }
     
     private void addSideMenuBar() {
@@ -59,6 +64,13 @@ public class MainFrame extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout());
         
         this.add(mainPanel);
+    }
+    
+    private void addContentPanel() {
+        ContentPanel contentPanel = new ContentPanel();
+        contentPanel.initPanel();
+        
+        this.add(contentPanel, BorderLayout.CENTER);
     }
    
 }
