@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
     public void init() {
     }
     /**
-     * init main frame with its attribute in whole this app
+     * init main frame with its attribute in this whole app
      * 
      */
     public void init(short width, short height, short xPos, short yPos) {
@@ -55,9 +55,10 @@ public class MainFrame extends JFrame {
     }
     
     private void addSideMenuBar() {
-        SideMenuBar sideMenuBar = new SideMenuBar();
-        sideMenuBar.addMenu("file");
-        sideMenuBar.addMenu("option");
+        SideMenuPanel sideMenuPanel = new SideMenuPanel();
+        sideMenuPanel.initPanel();
+        
+        this.add(sideMenuPanel, BorderLayout.LINE_START);
     }
     
     private void addMainPanel() {
