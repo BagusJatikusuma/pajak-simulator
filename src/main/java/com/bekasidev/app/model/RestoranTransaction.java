@@ -1,14 +1,23 @@
 package com.bekasidev.app.model;
 
-public class HotelTransaction {
+public class RestoranTransaction {
 
     private String idHotel;
+    private String idTransaction;
     private double omzetRamai;
     private double omzetNormal;
     private double omzetSepi;
     private int frekuensiRamai;
     private int frekuesniNormal;
     private int frekuensiSepi;
+
+    public String getIdTransaction() {
+        return idTransaction;
+    }
+
+    public void setIdTransaction(String idTransaction) {
+        this.idTransaction = idTransaction;
+    }
 
     public String getIdHotel() {
         return idHotel;

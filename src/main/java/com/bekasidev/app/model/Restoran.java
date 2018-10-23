@@ -1,6 +1,6 @@
 package com.bekasidev.app.model;
 
-public class Hotel {
+public class Restoran {
 
     private String idHotel;
     private String namaHotel;

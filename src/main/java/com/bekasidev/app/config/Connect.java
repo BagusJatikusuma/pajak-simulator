@@ -6,9 +6,7 @@ import java.sql.Connection;
 
 public class Connect {
 
-    public static Connection con = connect();
-
-    private static Connection connect() {
+    public Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:dbtestSqlite.db";
         Connection conn = null;
