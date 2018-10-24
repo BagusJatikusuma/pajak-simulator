@@ -56,23 +56,26 @@ public class MainFrame extends JFrame {
     }
     
     private void addSideMenuBar() {
-        SideMenuPanel sideMenuPanel = new SideMenuPanel();
+        SideMenuPanel sideMenuPanel = new SideMenuPanel(this);
         sideMenuPanel.initPanel();
         
-        this.add(sideMenuPanel, BorderLayout.LINE_START);
+//        this.add(sideMenuPanel, BorderLayout.LINE_START);
+        this.getContentPane().add(sideMenuPanel, BorderLayout.LINE_START);
     }
     
     private void addMainPanel() {
         JPanel mainPanel = new JPanel(new BorderLayout());
         
-        this.add(mainPanel);
+//        this.add(mainPanel);
+        this.getContentPane().add(mainPanel, 0);
     }
     
     private void addSubContentPanel() {
         SubContentMain subContentMain = new SubContentMain();
         subContentMain.initSubContentMain();
         
-        this.add(subContentMain, BorderLayout.CENTER);
+//        this.add(subContentMain, BorderLayout.CENTER);
+        this.getContentPane().add(subContentMain, BorderLayout.CENTER);
     }
    
 }

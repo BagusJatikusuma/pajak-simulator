@@ -13,6 +13,7 @@ import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -21,9 +22,15 @@ import javax.swing.JPanel;
  * @author bagus
  */
 public class SideMenuPanel extends JPanel {
-
+    JFrame mainFrame;
+    
     public SideMenuPanel() {
         super();
+    }
+    
+    public SideMenuPanel(JFrame mainFrame) {
+        super();
+        this.mainFrame = mainFrame;
     }
     
     public void initPanel() {
@@ -210,6 +217,14 @@ public class SideMenuPanel extends JPanel {
         System.out.println("ditekan tombol 1");
         setColor(btnRestaurantPanel);   
         ind_1.setOpaque(true);
+        
+//        JPanel subContentMain = (JPanel) mainFrame.getContentPane().getComponent(2);
+//        
+//        ContentPanel contentPanel = (ContentPanel) subContentMain.getComponent(1);
+//        contentPanel.addTable();
+        
+//        subContentMain.revalidate();
+//        subContentMain.repaint();  
     }
     private void hotelPanelButtonPressed(MouseEvent evt) {
         System.out.println("ditekan tombol 2");
