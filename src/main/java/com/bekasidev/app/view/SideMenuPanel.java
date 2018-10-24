@@ -217,24 +217,37 @@ public class SideMenuPanel extends JPanel {
         System.out.println("ditekan tombol 1");
         setColor(btnRestaurantPanel);   
         ind_1.setOpaque(true);
+        resetColor(new JPanel[]{btnHotelPanel,btnParkiranPanel}, new JPanel[]{ind_2,ind_3});
         
-//        JPanel subContentMain = (JPanel) mainFrame.getContentPane().getComponent(2);
-//        
-//        ContentPanel contentPanel = (ContentPanel) subContentMain.getComponent(1);
-//        contentPanel.addTable();
+        SubContentMain contentMain = new SubContentMain();
+        contentMain.initSubContentMain();
         
-//        subContentMain.revalidate();
-//        subContentMain.repaint();  
+        mainFrame.getContentPane().remove(2);
+        mainFrame.getContentPane().add(contentMain, BorderLayout.CENTER);
+        
+        mainFrame.invalidate();
+        mainFrame.validate();  
     }
     private void hotelPanelButtonPressed(MouseEvent evt) {
         System.out.println("ditekan tombol 2");
         setColor(btnHotelPanel);
         ind_2.setOpaque(true);
+        resetColor(new JPanel[]{btnRestaurantPanel,btnParkiranPanel}, new JPanel[]{ind_1,ind_3});
     }
     private void parkiranPanelButtonPressed(MouseEvent evt) {
         System.out.println("ditekan tombol 3");
         setColor(btnParkiranPanel);
         ind_3.setOpaque(true);
+        resetColor(new JPanel[]{btnHotelPanel,btnRestaurantPanel}, new JPanel[]{ind_2,ind_1});
+        
+        LandingPagePanel landingPagePanel = new LandingPagePanel();
+        landingPagePanel.init();
+        
+        mainFrame.getContentPane().remove(2);
+        mainFrame.getContentPane().add(landingPagePanel, BorderLayout.CENTER);
+        
+        mainFrame.invalidate();
+        mainFrame.validate();
     }
     
     private void setColor(JPanel pane) {

@@ -352,7 +352,7 @@ public class ContentPanel extends JPanel{
         jScrollPane1.setViewportView(jTable1);
         
         jScrollPane1.setSize(400, 300);
-        jScrollPane1.setLocation(200, 200);
+        jScrollPane1.setLocation(50, 330);
         
         this.add(jScrollPane1);
     }

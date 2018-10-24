@@ -25,7 +25,7 @@ public class SubContentMain extends JPanel{
         ContentPanel contentPanel = new ContentPanel();
         contentPanel.initPanel();
         
-        this.add(sideContentPanel, BorderLayout.LINE_START);
+//        this.add(sideContentPanel, BorderLayout.LINE_START);
         this.add(contentPanel, BorderLayout.CENTER);
 
     }
