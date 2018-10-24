@@ -4,10 +4,7 @@ import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.RestoranDao;
 import com.bekasidev.app.model.Restoran;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +27,18 @@ public class RestoranDaoImpl implements RestoranDao {
             e.printStackTrace();
         }
         return listRestoran;
+    }
+
+    public void createDataRestoran(Restoran restoran){
+        String sql = "INSERT INTO restoran VALUES(?,?)";
+
+        try (Connection conn = Connect.connect();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, restoran.getIdRestoran());
+            pstm.setString(2, restoran.getNamaRestoran());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

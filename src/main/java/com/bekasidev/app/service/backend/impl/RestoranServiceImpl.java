@@ -5,6 +5,7 @@ import com.bekasidev.app.dao.impl.RestoranDaoImpl;
 import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.backend.RestoranService;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class RestoranServiceImpl implements RestoranService {
@@ -14,5 +15,12 @@ public class RestoranServiceImpl implements RestoranService {
     @Override
     public List<Restoran> getAllRestoran() {
         return restoranDao.getAllRestoran();
+    }
+
+    @Override
+    public void createDataRestoran(Restoran restoran) {
+        Calendar cal = Calendar.getInstance();
+        restoran.setIdRestoran(Long.toString(cal.getTimeInMillis()));
+        restoranDao.createDataRestoran(restoran);
     }
 }
