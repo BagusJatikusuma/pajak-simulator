@@ -48,6 +48,28 @@ public class RestoranTransactionDaoImpl implements RestoranTransactionDao {
         return restoranTransaction;
     }
 
+    public void createRestoranTransaction(RestoranTransaction restoranTransaction) {
+        String sql = "INSERT INTO tr_restoran VALUES(?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection conn = Connect.connect();
+                PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, restoranTransaction.getIdRestoran());
+            pstm.setString(2, restoranTransaction.getIdTransaction());
+            pstm.setDouble(3, restoranTransaction.getFrekuensiRamai());
+            pstm.setDouble(4, restoranTransaction.getFrekuesniNormal());
+            pstm.setDouble(5, restoranTransaction.getFrekuensiSepi());
+            pstm.setDouble(6, restoranTransaction.getFrekuensiTotal());
+            pstm.setDouble(7, restoranTransaction.getOmzetRamai());
+            pstm.setDouble(8, restoranTransaction.getOmzetNormal());
+            pstm.setDouble(9, restoranTransaction.getOmzetSepi());
+            pstm.setDouble(10, restoranTransaction.getOmzetTotal());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private RestoranTransaction setRestoranTransaction(ResultSet rs){
         RestoranTransaction restoranTransaction = new RestoranTransaction();
         try {
