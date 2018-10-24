@@ -33,13 +33,13 @@ public class MainFrame extends JFrame {
      */
     public void init(short width, short height, short xPos, short yPos) {
 //        this.setBounds(xPos, yPos, width, height);  
-        this.setSize(width, height);
-        
         Dimension screenSize = this.getToolkit().getScreenSize();
+        
+        this.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
+        
         int x = (int) screenSize.getWidth() / 2 - this.getWidth() / 2;
         int y = (int) screenSize.getHeight() / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(true);
