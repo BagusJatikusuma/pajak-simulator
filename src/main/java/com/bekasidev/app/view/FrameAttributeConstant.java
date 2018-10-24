@@ -12,7 +12,7 @@ package com.bekasidev.app.view;
 public class FrameAttributeConstant {
     public final static short MAIN_FRAME_X = 100;
     public final static short MAIN_FRAME_Y = 100;
-    public final static short MAIN_FRAME_WIDTH = 890;
-    public final static short MAIN_FRAME_HEIGHT = 576;
+    public final static short MAIN_FRAME_WIDTH = 1290;
+    public final static short MAIN_FRAME_HEIGHT = 900;
     
 }

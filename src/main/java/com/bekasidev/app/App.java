@@ -8,6 +8,8 @@ import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
 import com.bekasidev.app.view.FrameAttributeConstant;
 import com.bekasidev.app.view.MainFrame;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  * Hello world!

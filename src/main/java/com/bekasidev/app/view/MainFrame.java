@@ -6,7 +6,9 @@
 package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -30,9 +32,20 @@ public class MainFrame extends JFrame {
      * 
      */
     public void init(short width, short height, short xPos, short yPos) {
-        this.setBounds(xPos, yPos, width, height);
+//        this.setBounds(xPos, yPos, width, height);  
+        Dimension screenSize = this.getToolkit().getScreenSize();
+        
+        this.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
+        
+        int x = (int) screenSize.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) screenSize.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setUndecorated(true);
+        FrameDragListener frameDragListener = new FrameDragListener(this);
+        this.addMouseListener(frameDragListener);
+        this.addMouseMotionListener(frameDragListener);
         
         /**
          * add main panel to frame
@@ -47,7 +60,7 @@ public class MainFrame extends JFrame {
         /**
          * add content menu panel
          */
-        addSubContentPanel();
+        addLandingPagePanel();
         
         /**
          * add copyright panel
@@ -76,6 +89,13 @@ public class MainFrame extends JFrame {
         
 //        this.add(subContentMain, BorderLayout.CENTER);
         this.getContentPane().add(subContentMain, BorderLayout.CENTER);
+    }
+    
+    private void addLandingPagePanel() {
+        LandingPagePanel landingPagePanel = new LandingPagePanel();
+        landingPagePanel.init();
+        
+        this.getContentPane().add(landingPagePanel, BorderLayout.CENTER);
     }
    
 }
