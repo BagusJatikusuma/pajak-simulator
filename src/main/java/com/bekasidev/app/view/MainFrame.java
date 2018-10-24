@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
     public void init(short width, short height, short xPos, short yPos) {
         this.setBounds(xPos, yPos, width, height);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         /**
          * add main panel to frame
