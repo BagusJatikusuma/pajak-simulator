@@ -241,6 +241,17 @@ public class SideMenuPanel extends JPanel {
         pane.setBackground(new Color(41,57,80));
     }
     
+    private void resetColor(JPanel [] pane, JPanel [] indicators)
+    {
+        for(int i=0;i<pane.length;i++){
+           pane[i].setBackground(new Color(23,35,51));
+           
+        } for(int i=0;i<indicators.length;i++){
+           indicators[i].setOpaque(false);           
+        }
+        
+    }
+    
     private JPanel btnRestaurantPanel;
     private JLabel btnRestaurantPanelLabel;
     private JPanel ind_1;
