@@ -49,7 +49,7 @@ public class RestoranTransactionDaoImpl implements RestoranTransactionDao {
     }
 
     public void createRestoranTransaction(RestoranTransaction restoranTransaction) {
-        String sql = "INSERT INTO tr_restoran VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tr_restoran VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
                 PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -63,6 +63,9 @@ public class RestoranTransactionDaoImpl implements RestoranTransactionDao {
             pstm.setDouble(8, restoranTransaction.getOmzetNormal());
             pstm.setDouble(9, restoranTransaction.getOmzetSepi());
             pstm.setDouble(10, restoranTransaction.getOmzetTotal());
+            pstm.setDouble(11, restoranTransaction.getRatarataOmzet());
+            pstm.setDouble(12, restoranTransaction.getPajakSetahun());
+            pstm.setDouble(13, restoranTransaction.getPajakPerBulan());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,6 +86,9 @@ public class RestoranTransactionDaoImpl implements RestoranTransactionDao {
             restoranTransaction.setOmzetNormal(rs.getDouble("omzet_normal"));
             restoranTransaction.setOmzetSepi(rs.getDouble("omzet_sepi"));
             restoranTransaction.setOmzetTotal(rs.getDouble("omzet_total"));
+            restoranTransaction.setRatarataOmzet(rs.getDouble("ratarata_omzet"));
+            restoranTransaction.setPajakSetahun(rs.getDouble("pajak_setahun"));
+            restoranTransaction.setPajakPerBulan(rs.getDouble("pajak_perbulan"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

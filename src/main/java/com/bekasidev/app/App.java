@@ -2,6 +2,7 @@ package com.bekasidev.app;
 
 import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.model.RestoranTransaction;
+import com.bekasidev.app.service.Singleton;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
@@ -32,13 +33,15 @@ public class App
                 110,
                 150,
                 100,
-                0,0);
+                0,0,0,0,0);
 //        Restoran restoran = new Restoran();
 //        restoran.setNamaRestoran("SOLARIA");
-        RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
+        RestoranTransactionService restoranTransactionService = Singleton.getRestoranTransactionService();
+        restoranTransactionService.calculatePotensiPajakRestoran(rt);
 //        RestoranService restoranService = new RestoranServiceImpl();
 //        restoranService.createDataRestoran(restoran);
-        System.out.println(round(restoranTransactionService.calculatePotensiPajakRestoran(rt)));
+        System.out.println("Setahun " + round(rt.getPajakSetahun()));
+        System.out.println("Perbulan " + round(rt.getPajakPerBulan()));
 //        restoranTransactionService.createRestoranTransaction(rt);
         MainFrame mainFrame = new MainFrame();
         mainFrame.init(FrameAttributeConstant.MAIN_FRAME_WIDTH, 

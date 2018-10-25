@@ -21,6 +21,7 @@ public class RestoranServiceImpl implements RestoranService {
     public void createDataRestoran(Restoran restoran) {
         Calendar cal = Calendar.getInstance();
         restoran.setIdRestoran(Long.toString(cal.getTimeInMillis()));
+        restoran.setNamaRestoran(restoran.getNamaRestoran().toUpperCase());
         restoranDao.createDataRestoran(restoran);
     }
 }

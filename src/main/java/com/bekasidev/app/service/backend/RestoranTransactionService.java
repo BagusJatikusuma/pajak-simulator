@@ -12,7 +12,7 @@ public interface RestoranTransactionService {
 
     void createRestoranTransaction(RestoranTransaction restoranTransaction);
 
-    double calculatePotensiPajakRestoran(RestoranTransaction restoranTransaction);
+    void calculatePotensiPajakRestoran(RestoranTransaction restoranTransaction);
 
-    double calculateRataRata(RestoranTransaction restoranTransaction);
+//    double calculateRataRata(RestoranTransaction restoranTransaction);
 }
