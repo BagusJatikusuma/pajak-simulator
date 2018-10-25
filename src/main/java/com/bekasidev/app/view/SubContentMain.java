@@ -7,6 +7,8 @@ package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,33 +19,25 @@ public class SubContentMain extends JPanel{
     private MainFrame mainFrame;
     
     public SubContentMain() {
-        super(new BorderLayout());
+        super();
     }
     
     public SubContentMain(MainFrame mainFrame) {
-        super(new BorderLayout());
+        super();
         this.mainFrame = mainFrame;
     }
     
     public void initSubContentMain(){
+        this.setLayout(new BorderLayout());
         SideContentPanel sideContentPanel = new SideContentPanel();
         sideContentPanel.initSideContentPanel();
-        
         ContentPanel contentPanel = new ContentPanel(mainFrame);
         contentPanel.initPanel();
-        
-        if(mainFrame == null) {
-            System.out.println("Main frame sub content main is null");
-        } else {
-            System.out.println("main frame sub content main is not null");
-        }
-        
+        //add header panel
         HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);
         headerContentPanel.init(Color.WHITE);
         
-//        this.add(sideContentPanel, BorderLayout.LINE_START);
         this.add(contentPanel, BorderLayout.CENTER);
-        this.add(headerContentPanel, BorderLayout.PAGE_START);
 
     }
         

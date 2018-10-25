@@ -34,7 +34,6 @@ public class LandingMainPanel extends JPanel {
         LandingPagePanel landingPagePanel = new LandingPagePanel(mainFrame);
         landingPagePanel.init();
         
-        this.add(headerFramePanel, BorderLayout.PAGE_START);
         this.add(landingPagePanel, BorderLayout.CENTER);
     }
     
