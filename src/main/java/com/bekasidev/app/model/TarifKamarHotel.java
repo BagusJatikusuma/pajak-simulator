@@ -5,6 +5,7 @@ package com.bekasidev.app.model;
  */
 public class TarifKamarHotel {
 
+    private String idHotel;
     private String idKamarHotel;
     private String tipeKamar;
     private Integer jumlahKamar;
@@ -12,6 +13,10 @@ public class TarifKamarHotel {
     private Double hargaPerKamar;
     private Double jumlahHargaSewaKamar;
     private Double jumlahTotalKeseluruhanHargaSewa;
+
+    public String getIdHotel() {return idHotel;}
+
+    public void setIdHotel(String idHotel) {this.idHotel = idHotel;}
 
     public String getIdKamarHotel() {return idKamarHotel; }
 

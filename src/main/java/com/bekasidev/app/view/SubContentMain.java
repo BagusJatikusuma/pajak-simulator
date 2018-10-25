@@ -29,7 +29,7 @@ public class SubContentMain extends JPanel{
         SideContentPanel sideContentPanel = new SideContentPanel();
         sideContentPanel.initSideContentPanel();
         
-        ContentPanel contentPanel = new ContentPanel();
+        ContentPanel contentPanel = new ContentPanel(mainFrame);
         contentPanel.initPanel();
         
         if(mainFrame == null) {
