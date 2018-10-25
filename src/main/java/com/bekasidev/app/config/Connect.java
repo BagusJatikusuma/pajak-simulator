@@ -8,7 +8,7 @@ public class Connect {
 
     public static Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:pajak-simulator.db";
+        String url = "jdbc:sqlite:db/pajak-simulator.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

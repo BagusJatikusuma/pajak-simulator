@@ -7,17 +7,32 @@ public class RestoranTransaction {
     private double omzetRamai;
     private double omzetNormal;
     private double omzetSepi;
-    private int frekuensiRamai;
-    private int frekuesniNormal;
-    private int frekuensiSepi;
-    private int frekuensiTotal;
+    private float frekuensiRamai;
+    private float frekuesniNormal;
+    private float frekuensiSepi;
+    private float frekuensiTotal;
     private double omzetTotal;
 
-    public int getFrekuensiTotal() {
+    public RestoranTransaction(){};
+
+    public RestoranTransaction(String idRestoran, String idTransaction, double omzetRamai, double omzetNormal, double omzetSepi, float frekuensiRamai, float frekuesniNormal, float frekuensiSepi, float frekuensiTotal, double omzetTotal) {
+        this.idRestoran = idRestoran;
+        this.idTransaction = idTransaction;
+        this.omzetRamai = omzetRamai;
+        this.omzetNormal = omzetNormal;
+        this.omzetSepi = omzetSepi;
+        this.frekuensiRamai = frekuensiRamai;
+        this.frekuesniNormal = frekuesniNormal;
+        this.frekuensiSepi = frekuensiSepi;
+        this.frekuensiTotal = frekuensiTotal;
+        this.omzetTotal = omzetTotal;
+    }
+
+    public float getFrekuensiTotal() {
         return frekuensiTotal;
     }
 
-    public void setFrekuensiTotal(int frekuensiTotal) {
+    public void setFrekuensiTotal(float frekuensiTotal) {
         this.frekuensiTotal = frekuensiTotal;
     }
 
@@ -69,27 +84,27 @@ public class RestoranTransaction {
         this.omzetSepi = omzetSepi;
     }
 
-    public int getFrekuensiRamai() {
+    public float getFrekuensiRamai() {
         return frekuensiRamai;
     }
 
-    public void setFrekuensiRamai(int frekuensiRamai) {
+    public void setFrekuensiRamai(float frekuensiRamai) {
         this.frekuensiRamai = frekuensiRamai;
     }
 
-    public int getFrekuesniNormal() {
+    public float getFrekuesniNormal() {
         return frekuesniNormal;
     }
 
-    public void setFrekuesniNormal(int frekuesniNormal) {
+    public void setFrekuesniNormal(float frekuesniNormal) {
         this.frekuesniNormal = frekuesniNormal;
     }
 
-    public int getFrekuensiSepi() {
+    public float getFrekuensiSepi() {
         return frekuensiSepi;
     }
 
-    public void setFrekuensiSepi(int frekuensiSepi) {
+    public void setFrekuensiSepi(float frekuensiSepi) {
         this.frekuensiSepi = frekuensiSepi;
     }
 }

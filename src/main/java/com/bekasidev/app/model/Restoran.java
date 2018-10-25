@@ -20,4 +20,9 @@ public class Restoran {
     public void setNamaRestoran(String namaRestoran) {
         this.namaRestoran = namaRestoran;
     }
+    
+    @Override
+    public String toString() {
+        return namaRestoran;
+    }
 }

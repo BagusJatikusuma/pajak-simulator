@@ -6,7 +6,10 @@
 package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -26,12 +29,24 @@ public class MainFrame extends JFrame {
     public void init() {
     }
     /**
-     * init main frame with its attribute in whole this app
+     * init main frame with its attribute in this whole app
      * 
      */
     public void init(short width, short height, short xPos, short yPos) {
-        this.setBounds(xPos, yPos, width, height);
+//        this.setBounds(xPos, yPos, width, height);  
+        Dimension screenSize = this.getToolkit().getScreenSize();
+        
+        this.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
+        
+        int x = (int) screenSize.getWidth() / 2 - this.getWidth() / 2;
+        int y = (int) screenSize.getHeight() / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setUndecorated(true);
+        FrameDragListener frameDragListener = new FrameDragListener(this);
+        this.addMouseListener(frameDragListener);
+        this.addMouseMotionListener(frameDragListener);
         
         /**
          * add main panel to frame
@@ -46,7 +61,7 @@ public class MainFrame extends JFrame {
         /**
          * add content menu panel
          */
-        addContentPanel();
+        addLandingPagePanel();
         
         /**
          * add copyright panel
@@ -55,22 +70,33 @@ public class MainFrame extends JFrame {
     }
     
     private void addSideMenuBar() {
-        SideMenuBar sideMenuBar = new SideMenuBar();
-        sideMenuBar.addMenu("file");
-        sideMenuBar.addMenu("option");
+        SideMenuPanel sideMenuPanel = new SideMenuPanel(this);
+        sideMenuPanel.initPanel();
+        
+//        this.add(sideMenuPanel, BorderLayout.LINE_START);
+        this.getContentPane().add(sideMenuPanel, BorderLayout.LINE_START);
     }
     
     private void addMainPanel() {
         JPanel mainPanel = new JPanel(new BorderLayout());
         
-        this.add(mainPanel);
+//        this.add(mainPanel);
+        this.getContentPane().add(mainPanel, 0);
     }
     
-    private void addContentPanel() {
-        ContentPanel contentPanel = new ContentPanel();
-        contentPanel.initPanel();
+    private void addSubContentPanel() {
+        SubContentMain subContentMain = new SubContentMain(this);
+        subContentMain.initSubContentMain();
         
-        this.add(contentPanel, BorderLayout.CENTER);
+//        this.add(subContentMain, BorderLayout.CENTER);
+        this.getContentPane().add(subContentMain, BorderLayout.CENTER);
+    }
+    
+    private void addLandingPagePanel() {
+        LandingMainPanel landingPagePanel = new LandingMainPanel(this);
+        landingPagePanel.init();
+        
+        this.getContentPane().add(landingPagePanel, BorderLayout.CENTER);
     }
    
 }

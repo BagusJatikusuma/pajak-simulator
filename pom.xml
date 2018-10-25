@@ -13,6 +13,14 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+    
+    <repositories>
+        <repository>
+          <id>netbeans</id>
+          <name>Netbeans rep</name>
+          <url>http://bits.netbeans.org/maven2/</url>
+        </repository>
+    </repositories>
   
   <dependencies>
     <dependency>
@@ -21,6 +29,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
+    <dependency>
+        <groupId>org.netbeans.external</groupId>
+        <artifactId>AbsoluteLayout</artifactId>
+        <version>RELEASE82</version>
+    </dependency>
+
+
 
       <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
       <dependency>
