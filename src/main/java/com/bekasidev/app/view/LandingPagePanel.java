@@ -56,7 +56,7 @@ public class LandingPagePanel extends JPanel {
         iconLbl.setIcon(new ImageIcon(imgResult));
         iconLbl.setSize(300, 333);
         iconLbl.setLocation(
-                ((mainFrame.getWidth()/2 - iconLbl.getWidth()/2)-100), 
+                ((mainFrame.getWidth()/2 - iconLbl.getWidth()/2)), 
                 (mainFrame.getHeight()/2 - iconLbl.getHeight()/2)-100);
         
         this.add(iconLbl);
