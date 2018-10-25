@@ -7,6 +7,7 @@ public class TarifFitnessCenter {
 
     private String idHotel;
     private String idTarifFitness;
+    private String namaFitnessCenter;
     private Double tarifFitness;
     private Integer jumlahPengunjung;
     private Double jumlahTotal;
@@ -18,6 +19,10 @@ public class TarifFitnessCenter {
     public String getIdTarifFitness() { return idTarifFitness; }
 
     public void setIdTarifFitness(String idTarifFitness) {this.idTarifFitness = idTarifFitness; }
+
+    public String getNamaFitnessCenter() {return namaFitnessCenter; }
+
+    public void setNamaFitnessCenter(String namaFitnessCenter) {this.namaFitnessCenter = namaFitnessCenter; }
 
     public Double getTarifFitness() { return tarifFitness; }
 
