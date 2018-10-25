@@ -6,6 +6,7 @@
 package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -13,9 +14,15 @@ import javax.swing.JPanel;
  * @author Bayu Arafli
  */
 public class SubContentMain extends JPanel{
-
+    private MainFrame mainFrame;
+    
     public SubContentMain() {
         super(new BorderLayout());
+    }
+    
+    public SubContentMain(MainFrame mainFrame) {
+        super(new BorderLayout());
+        this.mainFrame = mainFrame;
     }
     
     public void initSubContentMain(){
@@ -25,9 +32,19 @@ public class SubContentMain extends JPanel{
         ContentPanel contentPanel = new ContentPanel();
         contentPanel.initPanel();
         
+        if(mainFrame == null) {
+            System.out.println("Main frame sub content main is null");
+        } else {
+            System.out.println("main frame sub content main is not null");
+        }
+        
+        HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);
+        headerContentPanel.init(Color.WHITE);
+        
 //        this.add(sideContentPanel, BorderLayout.LINE_START);
         this.add(contentPanel, BorderLayout.CENTER);
+        this.add(headerContentPanel, BorderLayout.PAGE_START);
 
     }
-    
+        
 }

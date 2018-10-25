@@ -23,8 +23,14 @@ import javax.swing.JPanel;
  */
 public class LandingPagePanel extends JPanel {
 
+    private MainFrame mainFrame;
+    
     public LandingPagePanel() {
         super();
+    }
+    public LandingPagePanel(MainFrame mainFrame) {
+        super();
+        this.mainFrame = mainFrame;
     }
     
     public void init() {
@@ -35,6 +41,7 @@ public class LandingPagePanel extends JPanel {
     
     public void addLogoKabBekasi() {
         JLabel iconLbl = new JLabel();
+        JLabel iconExit = new JLabel();
         
         Image img = null;
         try {
@@ -44,13 +51,18 @@ public class LandingPagePanel extends JPanel {
             Logger.getLogger(LandingPagePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Image imgResult = getScaledImage(img, 700, 500);
+        Image imgResult = getScaledImage(img, 300, 333);
         
         iconLbl.setIcon(new ImageIcon(imgResult));
-        iconLbl.setSize(700, 700);
-        iconLbl.setLocation(50, 50);
+        iconLbl.setSize(300, 333);
+        iconLbl.setLocation(
+                ((mainFrame.getWidth()/2 - iconLbl.getWidth()/2)-100), 
+                (mainFrame.getHeight()/2 - iconLbl.getHeight()/2)-100);
         
         this.add(iconLbl);
+        
+        
+        
     }
     
     private Image getScaledImage(Image srcImg, int w, int h){

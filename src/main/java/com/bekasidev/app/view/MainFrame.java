@@ -6,6 +6,7 @@
 package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -84,7 +85,7 @@ public class MainFrame extends JFrame {
     }
     
     private void addSubContentPanel() {
-        SubContentMain subContentMain = new SubContentMain();
+        SubContentMain subContentMain = new SubContentMain(this);
         subContentMain.initSubContentMain();
         
 //        this.add(subContentMain, BorderLayout.CENTER);
@@ -92,7 +93,7 @@ public class MainFrame extends JFrame {
     }
     
     private void addLandingPagePanel() {
-        LandingPagePanel landingPagePanel = new LandingPagePanel();
+        LandingMainPanel landingPagePanel = new LandingMainPanel(this);
         landingPagePanel.init();
         
         this.getContentPane().add(landingPagePanel, BorderLayout.CENTER);

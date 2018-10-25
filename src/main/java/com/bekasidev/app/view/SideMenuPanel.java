@@ -22,13 +22,13 @@ import javax.swing.JPanel;
  * @author bagus
  */
 public class SideMenuPanel extends JPanel {
-    JFrame mainFrame;
+    MainFrame mainFrame;
     
     public SideMenuPanel() {
         super();
     }
     
-    public SideMenuPanel(JFrame mainFrame) {
+    public SideMenuPanel(MainFrame mainFrame) {
         super();
         this.mainFrame = mainFrame;
     }
@@ -219,7 +219,7 @@ public class SideMenuPanel extends JPanel {
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btnHotelPanel,btnParkiranPanel}, new JPanel[]{ind_2,ind_3});
         
-        SubContentMain contentMain = new SubContentMain();
+        SubContentMain contentMain = new SubContentMain(mainFrame);
         contentMain.initSubContentMain();
         
         mainFrame.getContentPane().remove(2);
@@ -240,7 +240,7 @@ public class SideMenuPanel extends JPanel {
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btnHotelPanel,btnRestaurantPanel}, new JPanel[]{ind_2,ind_1});
         
-        LandingPagePanel landingPagePanel = new LandingPagePanel();
+        LandingMainPanel landingPagePanel = new LandingMainPanel(mainFrame);
         landingPagePanel.init();
         
         mainFrame.getContentPane().remove(2);
