@@ -10,7 +10,7 @@ import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
 import com.bekasidev.app.service.backend.impl.TarifKamarHotelServiceImpl;
 
-public class Singleton {
+public class ServiceFactory {
 
     private static RestoranService restoranService = null;
     private static RestoranTransactionService restoranTransactionService = null;

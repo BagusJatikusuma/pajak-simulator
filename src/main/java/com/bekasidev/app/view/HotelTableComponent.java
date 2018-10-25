@@ -7,6 +7,7 @@ package com.bekasidev.app.view;
 
 import com.bekasidev.app.model.Hotel;
 import com.bekasidev.app.model.Restoran;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.HotelService;
 import com.bekasidev.app.service.backend.impl.HotelServiceImpl;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
@@ -24,7 +25,7 @@ public class HotelTableComponent extends JPanel {
     private HotelService service;
     
     public void init() {
-        service = new HotelServiceImpl();
+        service = ServiceFactory.getHotelService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
         JTable restoranTable = new JTable();

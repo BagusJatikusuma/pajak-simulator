@@ -7,10 +7,19 @@ package com.bekasidev.app.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -48,13 +57,11 @@ public class MenuBarPanel extends JPanel {
 
         //Build the first menu.
         menuFile = new JMenu("File");
-        menuFile.setMnemonic(KeyEvent.VK_A);
         menuFile.getAccessibleContext().setAccessibleDescription("Open File menu");
         menuBar.add(menuFile);
         
         //Build the first menu.
         menuHelp = new JMenu("Help");
-        menuHelp.setMnemonic(KeyEvent.VK_A);
         menuHelp.getAccessibleContext().setAccessibleDescription("Open Help menu");
         menuBar.add(menuHelp);
         
@@ -98,8 +105,16 @@ public class MenuBarPanel extends JPanel {
         });
         menuFile.add(menuItem);
         
+        
+        Image imgExit = null;
+        try {
+            imgExit
+                = ImageIO.read(getClass().getClassLoader().getResource("images/icons8-delete-48.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(LandingPagePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         menuItem = new JMenuItem("Exit",
-                         KeyEvent.VK_T);
+                         new ImageIcon(getScaledImage(imgExit, 20, 20)));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "close application");
         menuItem.addMouseListener(new MouseInputAdapter() {
@@ -157,4 +172,14 @@ public class MenuBarPanel extends JPanel {
         System.out.println("about clicked");
     }
     
+    private Image getScaledImage(Image srcImg, int w, int h){
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
 }

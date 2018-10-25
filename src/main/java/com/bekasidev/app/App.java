@@ -2,7 +2,7 @@ package com.bekasidev.app;
 
 import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.model.RestoranTransaction;
-import com.bekasidev.app.service.Singleton;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
@@ -36,7 +36,7 @@ public class App
                 0,0,0,0,0);
 //        Restoran restoran = new Restoran();
 //        restoran.setNamaRestoran("SOLARIA");
-        RestoranTransactionService restoranTransactionService = Singleton.getRestoranTransactionService();
+        RestoranTransactionService restoranTransactionService = ServiceFactory.getRestoranTransactionService();
         restoranTransactionService.calculatePotensiPajakRestoran(rt);
 //        RestoranService restoranService = new RestoranServiceImpl();
 //        restoranService.createDataRestoran(restoran);
