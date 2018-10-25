@@ -83,7 +83,11 @@ public class ContentPanel extends JPanel{
         
         // add to panelHeader
         panelHeaderFormIdentitas.add(labelHeaderFormIdentitas);
+        
+        // add to panel
+        this.add(panelHeaderFormIdentitas);
         //===== header form identitas =====//
+        
         
         //===== form restoran =====//
         JLabel labelNamaRestoran = new JLabel("Nama Restoran");
@@ -91,6 +95,9 @@ public class ContentPanel extends JPanel{
         labelNamaRestoran.setForeground(Color.BLACK);
         labelNamaRestoran.setSize(150, 20);
         labelNamaRestoran.setLocation(50, 70);
+        
+        // add to panel
+        this.add(labelNamaRestoran);
         
         //===== combo box =====//        
         List<Restoran> listRestoran = new ArrayList<>();
@@ -116,6 +123,10 @@ public class ContentPanel extends JPanel{
                 System.out.println("Nama : " + selected.getNamaRestoran() + "\nId : " + selected.getIdRestoran());
             }
         });
+        
+        // add to panel
+        this.add(cbListRestoran);
+        
         //===== combo box =====//
         //===== form restoran =====//
         
@@ -135,6 +146,10 @@ public class ContentPanel extends JPanel{
         
         // add to panelHeader
         panelHeaderFormRestoran.add(labelHeaderFormRestoran);
+        
+        // add to panel
+        this.add(panelHeaderFormRestoran);
+        
         //===== header input =====//
         
         //===== form add restoran =====//
@@ -144,16 +159,27 @@ public class ContentPanel extends JPanel{
         labelNamaAddRestoran.setSize(150, 20);
         labelNamaAddRestoran.setLocation(50, 160);
         
+        // add to panel
+        this.add(labelNamaAddRestoran);
+        
         //===== TextField =====//
         tfNamaRestoran = new JTextField();
         tfNamaRestoran.setSize(300, 20);
         tfNamaRestoran.setLocation(210, 160);
+        
+        // add to panel
+        this.add(tfNamaRestoran);
+        
         //===== TextField =====//
         
         //===== Button =====//
         JButton bFormRestoran = new JButton("Submit");
         bFormRestoran.setSize(100, 20);
         bFormRestoran.setLocation(520, 160);
+        
+        // add to panel
+        this.add(bFormRestoran);
+        
         //===== Button =====//
         
         //===== Action Button =====//
@@ -171,18 +197,8 @@ public class ContentPanel extends JPanel{
                 }
             }
         });
-        //===== Action Button =====//
+        //===== Action Button =====//        
         //===== form add restoran =====//
-        
-        
-        // add to panel
-        this.add(cbListRestoran);
-        this.add(panelHeaderFormIdentitas);
-        this.add(labelNamaRestoran);
-        this.add(panelHeaderFormRestoran);
-        this.add(labelNamaAddRestoran);
-        this.add(tfNamaRestoran);
-        this.add(bFormRestoran);
     }
     
     public int dimention(){
