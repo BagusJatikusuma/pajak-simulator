@@ -44,6 +44,7 @@ public class ContentPanel extends JPanel{
     
     // Variables declaration
     JTextField tfNamaRestoran;
+    JPanel panelHeaderFormIdentitas;
             
     // Service
     RestoranService restoranService = new RestoranServiceImpl();
@@ -67,9 +68,13 @@ public class ContentPanel extends JPanel{
                 
     }
     
+    public void resetComponentSize() {
+        panelHeaderFormIdentitas.setSize(mainFrame.getWidth(), 50);
+    }
+    
     public void restauranContent(){
         //===== header form identitas =====//
-        JPanel panelHeaderFormIdentitas = new JPanel();
+        panelHeaderFormIdentitas = new JPanel();
         panelHeaderFormIdentitas.setLayout(null);
         panelHeaderFormIdentitas.setBackground(Color.decode("#4377ca"));
         panelHeaderFormIdentitas.setSize(mainFrame.getWidth(), 50);

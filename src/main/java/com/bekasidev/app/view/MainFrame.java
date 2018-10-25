@@ -52,14 +52,6 @@ public class MainFrame extends JFrame {
         this.addMouseListener(frameDragListener);
         this.addMouseMotionListener(frameDragListener);
         
-        this.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                System.out.println("Size Changed");
-                
-            }
-        });
-        
         /**
          * add menu bar
          */
@@ -73,6 +65,9 @@ public class MainFrame extends JFrame {
         /**
          * add copyright panel
          */
+        
+        FrameSizeListener frameSizeListener = new FrameSizeListener(this);
+        this.addWindowStateListener(frameSizeListener);
 
     }
     
@@ -111,7 +106,7 @@ public class MainFrame extends JFrame {
         MenuBarPanel menuBarPanel = new MenuBarPanel(this);
         menuBarPanel.init();
         
-        this.add(menuBarPanel, BorderLayout.PAGE_START);
+        this.getContentPane().add(menuBarPanel, BorderLayout.PAGE_START);
     }
    
 }

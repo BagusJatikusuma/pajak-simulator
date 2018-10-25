@@ -8,12 +8,15 @@ package com.bekasidev.app.view;
 import java.awt.Dimension;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
+import javax.swing.JPanel;
 
 /**
  *
  * @author bagus
  */
-public class FrameSizeListener extends ComponentAdapter {
+public class FrameSizeListener implements WindowStateListener {
     
     private MainFrame mainFrame;
 
@@ -23,12 +26,25 @@ public class FrameSizeListener extends ComponentAdapter {
     public FrameSizeListener(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-    
+
     @Override
-    public void componentResized(ComponentEvent e) {
-        Dimension screenSize = mainFrame.getToolkit().getScreenSize();
+    public void windowStateChanged(WindowEvent e) {
+        Dimension screenSize = mainFrame.getBounds().getSize();
         
-        mainFrame.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
+        mainFrame.setSize((int) (screenSize.getWidth()), (int) (screenSize.getHeight()));
+        System.out.println("new size is "+mainFrame.getWidth()+"; "+mainFrame.getHeight());
+        
+        JPanel panel = (JPanel) mainFrame.getContentPane().getComponent(1);
+        
+        if (panel instanceof LandingMainPanel) {
+            //nothin currently
+        }
+        else if (panel instanceof SubContentMain) {
+            System.err.println("is subconten main");
+            ContentPanel contentPanel = (ContentPanel)panel.getComponent(0);
+            contentPanel.resetComponentSize();
+        }
+        
     }
     
 }
