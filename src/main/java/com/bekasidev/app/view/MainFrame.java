@@ -42,21 +42,17 @@ public class MainFrame extends JFrame {
         int y = (int) screenSize.getHeight() / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
         
+        this.setTitle("Aplikasi Perpajakan Kabupaten Bekasi");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
+        this.setUndecorated(false);
         FrameDragListener frameDragListener = new FrameDragListener(this);
         this.addMouseListener(frameDragListener);
         this.addMouseMotionListener(frameDragListener);
         
         /**
-         * add main panel to frame
+         * add menu bar
          */
-        addMainPanel();
-        
-        /**
-         * add side menu bar panel
-         */
-        addSideMenuBar();
+        addMenuBar();
         
         /**
          * add content menu panel
@@ -97,6 +93,14 @@ public class MainFrame extends JFrame {
         landingPagePanel.init();
         
         this.getContentPane().add(landingPagePanel, BorderLayout.CENTER);
+    }
+    
+    private void addMenuBar() {
+        //add menubar panel
+        MenuBarPanel menuBarPanel = new MenuBarPanel(this);
+        menuBarPanel.init();
+        
+        this.add(menuBarPanel, BorderLayout.PAGE_START);
     }
    
 }

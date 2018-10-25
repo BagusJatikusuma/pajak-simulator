@@ -49,10 +49,10 @@ public class HeaderFramePanel extends JPanel {
         
         JLabel iconExit = new JLabel();
         
-        Image imgExitResult = getScaledImage(imgExit, 91, 31);
+        Image imgExitResult = getScaledImage(imgExit, 61, 21);
         
         iconExit.setIcon(new ImageIcon(imgExitResult));
-        iconExit.setSize(91, 31);
+        iconExit.setSize(61, 21);
         
 //        if(mainFrame == null) {
 //            System.out.println("Main frame is null");
