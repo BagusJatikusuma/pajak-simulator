@@ -11,32 +11,34 @@ import com.bekasidev.app.view.MainFrame;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import static java.lang.Math.round;
+
 /**
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         /**
          * init main frame
          */
-//        RestoranTransaction rt = new RestoranTransaction("123123",
-//                "321321",
-//                3000000,
-//                1500000,
-//                900000,
-//                110,
-//                150,
-//                100,
-//                0,0);
+        RestoranTransaction rt = new RestoranTransaction("123123",
+                "321321",
+                3000000,
+                1500000,
+                900000,
+                110,
+                150,
+                100,
+                0,0);
 //        Restoran restoran = new Restoran();
 //        restoran.setNamaRestoran("SOLARIA");
-//        RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
+        RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
 //        RestoranService restoranService = new RestoranServiceImpl();
 //        restoranService.createDataRestoran(restoran);
-//        System.out.println((int)restoranTransactionService.calculatePotensiPajakRestoran(rt));
+        System.out.println(round(restoranTransactionService.calculatePotensiPajakRestoran(rt)));
 //        restoranTransactionService.createRestoranTransaction(rt);
         MainFrame mainFrame = new MainFrame();
         mainFrame.init(FrameAttributeConstant.MAIN_FRAME_WIDTH, 

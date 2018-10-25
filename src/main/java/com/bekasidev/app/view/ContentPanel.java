@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import static com.bekasidev.app.view.FrameAttributeConstant.MAIN_FRAME_WIDTH;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -25,6 +26,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -38,11 +40,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ContentPanel extends JPanel{
 
+    MainFrame mainFrame;
+    
     // Variables declaration
+    JTextField tfNamaRestoran;
+            
+    // Service
+    RestoranService restoranService = new RestoranServiceImpl();
     
     public ContentPanel() {
         super();
     }
+    
+    public ContentPanel(MainFrame mainFrame){
+        super();
+        this.mainFrame = mainFrame;
+    } 
     
     public void initPanel(){
         // setting layout content panel
@@ -55,27 +68,38 @@ public class ContentPanel extends JPanel{
     }
     
     public void restauranContent(){
-        //===== header =====//
-        Dimension screenSize = this.getToolkit().getScreenSize();
-        JPanel panelHeader = new JPanel();
-        panelHeader.setLayout(null);
-        panelHeader.setBackground(Color.decode("#4377ca"));
-        panelHeader.setSize((int) (screenSize.getWidth()-250), 50);
-        panelHeader.setLocation(0, 0);
+        //===== header form identitas =====//
+        JPanel panelHeaderFormIdentitas = new JPanel();
+        panelHeaderFormIdentitas.setLayout(null);
+        panelHeaderFormIdentitas.setBackground(Color.decode("#4377ca"));
+        panelHeaderFormIdentitas.setSize(dimention(), 50);
+        panelHeaderFormIdentitas.setLocation(0, 0);
         
-        JLabel labelHeader = new JLabel("FORM IDENTITAS");
-        labelHeader.setFont(new Font("Tahoma", Font.BOLD, 20));
-        labelHeader.setForeground(Color.WHITE);
-        labelHeader.setSize(200, 50);
-        labelHeader.setLocation(25, 0);
-        
-        RestoranService restoranService = new RestoranServiceImpl();
+        JLabel labelHeaderFormIdentitas = new JLabel("FORM IDENTITAS");
+        labelHeaderFormIdentitas.setFont(new Font("Tahoma", Font.BOLD, 20));
+        labelHeaderFormIdentitas.setForeground(Color.WHITE);
+        labelHeaderFormIdentitas.setSize(200, 50);
+        labelHeaderFormIdentitas.setLocation(25, 0);
         
         // add to panelHeader
-        panelHeader.add(labelHeader);
-        //===== header =====//
+        panelHeaderFormIdentitas.add(labelHeaderFormIdentitas);
         
-        //===== combo box =====//
+        // add to panel
+        this.add(panelHeaderFormIdentitas);
+        //===== header form identitas =====//
+        
+        
+        //===== form restoran =====//
+        JLabel labelNamaRestoran = new JLabel("Nama Restoran");
+        labelNamaRestoran.setFont(new Font("Tahoma", 0, 16));
+        labelNamaRestoran.setForeground(Color.BLACK);
+        labelNamaRestoran.setSize(150, 20);
+        labelNamaRestoran.setLocation(50, 70);
+        
+        // add to panel
+        this.add(labelNamaRestoran);
+        
+        //===== combo box =====//        
         List<Restoran> listRestoran = new ArrayList<>();
         listRestoran = restoranService.getAllRestoran();
         Restoran restorans[];
@@ -88,7 +112,7 @@ public class ContentPanel extends JPanel{
         cbListRestoran.setForeground(Color.BLUE);
         cbListRestoran.setFont(new Font("Tahoma", Font.BOLD, 16));
         cbListRestoran.setMaximumRowCount(5);
-        cbListRestoran.setSize(200,20);
+        cbListRestoran.setSize(300,20);
         cbListRestoran.setLocation(210,70);
         
         cbListRestoran.addActionListener(new ActionListener() {
@@ -99,21 +123,94 @@ public class ContentPanel extends JPanel{
                 System.out.println("Nama : " + selected.getNamaRestoran() + "\nId : " + selected.getIdRestoran());
             }
         });
-        //===== combo box =====//
-        
-
-        //===== form restoran =====//
-        JLabel labelNamaRestoran = new JLabel("Nama Restoran");
-        labelNamaRestoran.setFont(new Font("Tahoma", 1, 16));
-        labelNamaRestoran.setForeground(Color.BLACK);
-        labelNamaRestoran.setSize(150, 50);
-        labelNamaRestoran.setLocation(50, 70);
-        
         
         // add to panel
         this.add(cbListRestoran);
-        this.add(panelHeader);
-        this.add(labelNamaRestoran);
+        
+        //===== combo box =====//
+        //===== form restoran =====//
+        
+        
+        //===== header input =====//
+        JPanel panelHeaderFormRestoran = new JPanel();
+        panelHeaderFormRestoran.setLayout(null);
+        panelHeaderFormRestoran.setBackground(Color.decode("#4377ca"));
+        panelHeaderFormRestoran.setSize(dimention(), 50);
+        panelHeaderFormRestoran.setLocation(0, 100);
+        
+        JLabel labelHeaderFormRestoran = new JLabel("FORM ADD RESTORAN");
+        labelHeaderFormRestoran.setFont(new Font("Tahoma", Font.BOLD, 20));
+        labelHeaderFormRestoran.setForeground(Color.WHITE);
+        labelHeaderFormRestoran.setSize(250, 50);
+        labelHeaderFormRestoran.setLocation(25, 0);
+        
+        // add to panelHeader
+        panelHeaderFormRestoran.add(labelHeaderFormRestoran);
+        
+        // add to panel
+        this.add(panelHeaderFormRestoran);
+        
+        //===== header input =====//
+        
+        //===== form add restoran =====//
+        JLabel labelNamaAddRestoran = new JLabel("Nama Restoran");
+        labelNamaAddRestoran.setFont(new Font("Tahoma", 0, 16));
+        labelNamaAddRestoran.setForeground(Color.BLACK);
+        labelNamaAddRestoran.setSize(150, 20);
+        labelNamaAddRestoran.setLocation(50, 160);
+        
+        // add to panel
+        this.add(labelNamaAddRestoran);
+        
+        //===== TextField =====//
+        tfNamaRestoran = new JTextField();
+        tfNamaRestoran.setSize(300, 20);
+        tfNamaRestoran.setLocation(210, 160);
+        
+        // add to panel
+        this.add(tfNamaRestoran);
+        
+        //===== TextField =====//
+        
+        //===== Button =====//
+        JButton bFormRestoran = new JButton("Submit");
+        bFormRestoran.setSize(100, 20);
+        bFormRestoran.setLocation(520, 160);
+        
+        // add to panel
+        this.add(bFormRestoran);
+        
+        //===== Button =====//
+        
+        //===== Action Button =====//
+        bFormRestoran.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!tfNamaRestoran.getText().equals("")) {
+                    Restoran restoran = new Restoran();
+                    restoran.setNamaRestoran(tfNamaRestoran.getText());
+                    
+                    addRestoran(restoran);
+                    JOptionPane.showMessageDialog(mainFrame ,"Berhasil Menambahkan Data Restoran");
+                } else {
+                    JOptionPane.showMessageDialog(mainFrame ,"Masukkan Dahulu Data Restoran");
+                }
+            }
+        });
+        //===== Action Button =====//        
+        //===== form add restoran =====//
+    }
+    
+    public int dimention(){
+        Dimension screenSize = this.getToolkit().getScreenSize();
+        int widthPanelHeader = (int) (screenSize.getWidth()-250);
+        return widthPanelHeader;
+    }
+    
+    public void addRestoran(Restoran restoran){
+        restoranService.createDataRestoran(restoran);
+        tfNamaRestoran.setText("");
+        System.out.println("Berhasil Add Restoran");
     }
            
 }

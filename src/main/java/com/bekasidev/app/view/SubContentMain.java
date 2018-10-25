@@ -31,8 +31,7 @@ public class SubContentMain extends JPanel{
         this.setLayout(new BorderLayout());
         SideContentPanel sideContentPanel = new SideContentPanel();
         sideContentPanel.initSideContentPanel();
-        //add content panel
-        ContentPanel contentPanel = new ContentPanel();
+        ContentPanel contentPanel = new ContentPanel(mainFrame);
         contentPanel.initPanel();
         //add header panel
         HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);

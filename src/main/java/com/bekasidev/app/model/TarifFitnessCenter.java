@@ -5,10 +5,15 @@ package com.bekasidev.app.model;
  */
 public class TarifFitnessCenter {
 
+    private String idHotel;
     private String idTarifFitness;
     private Double tarifFitness;
     private Integer jumlahPengunjung;
     private Double jumlahTotal;
+
+    public String getIdHotel() {return idHotel; }
+
+    public void setIdHotel(String idHotel) {this.idHotel = idHotel; }
 
     public String getIdTarifFitness() { return idTarifFitness; }
 
