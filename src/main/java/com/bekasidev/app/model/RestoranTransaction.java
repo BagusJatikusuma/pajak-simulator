@@ -12,10 +12,13 @@ public class RestoranTransaction {
     private float frekuensiSepi;
     private float frekuensiTotal;
     private double omzetTotal;
+    private double ratarataOmzet;
+    private double pajakSetahun;
+    private double pajakPerBulan;
 
     public RestoranTransaction(){};
 
-    public RestoranTransaction(String idRestoran, String idTransaction, double omzetRamai, double omzetNormal, double omzetSepi, float frekuensiRamai, float frekuesniNormal, float frekuensiSepi, float frekuensiTotal, double omzetTotal) {
+    public RestoranTransaction(String idRestoran, String idTransaction, double omzetRamai, double omzetNormal, double omzetSepi, float frekuensiRamai, float frekuesniNormal, float frekuensiSepi, float frekuensiTotal, double omzetTotal, double ratarataOmzet, double pajakSetahun, double pajakPerBulan) {
         this.idRestoran = idRestoran;
         this.idTransaction = idTransaction;
         this.omzetRamai = omzetRamai;
@@ -26,6 +29,9 @@ public class RestoranTransaction {
         this.frekuensiSepi = frekuensiSepi;
         this.frekuensiTotal = frekuensiTotal;
         this.omzetTotal = omzetTotal;
+        this.ratarataOmzet = ratarataOmzet;
+        this.pajakSetahun = pajakSetahun;
+        this.pajakPerBulan = pajakPerBulan;
     }
 
     public float getFrekuensiTotal() {
@@ -106,5 +112,29 @@ public class RestoranTransaction {
 
     public void setFrekuensiSepi(float frekuensiSepi) {
         this.frekuensiSepi = frekuensiSepi;
+    }
+
+    public double getRatarataOmzet() {
+        return ratarataOmzet;
+    }
+
+    public void setRatarataOmzet(double ratarataOmzet) {
+        this.ratarataOmzet = ratarataOmzet;
+    }
+
+    public double getPajakSetahun() {
+        return pajakSetahun;
+    }
+
+    public void setPajakSetahun(double pajakSetahun) {
+        this.pajakSetahun = pajakSetahun;
+    }
+
+    public double getPajakPerBulan() {
+        return pajakPerBulan;
+    }
+
+    public void setPajakPerBulan(double pajakPerBulan) {
+        this.pajakPerBulan = pajakPerBulan;
     }
 }
