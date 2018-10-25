@@ -72,7 +72,7 @@ public class ContentPanel extends JPanel{
         JPanel panelHeaderFormIdentitas = new JPanel();
         panelHeaderFormIdentitas.setLayout(null);
         panelHeaderFormIdentitas.setBackground(Color.decode("#4377ca"));
-        panelHeaderFormIdentitas.setSize(dimention(), 50);
+        panelHeaderFormIdentitas.setSize(mainFrame.getWidth(), 50);
         panelHeaderFormIdentitas.setLocation(0, 0);
         
         JLabel labelHeaderFormIdentitas = new JLabel("FORM IDENTITAS");
