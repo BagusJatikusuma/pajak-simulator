@@ -42,7 +42,7 @@ public class App
 //        restoranService.createDataRestoran(restoran);
         System.out.println("Setahun " + round(rt.getPajakSetahun()));
         System.out.println("Perbulan " + round(rt.getPajakPerBulan()));
-        restoranTransactionService.createRestoranTransaction(rt);
+//        restoranTransactionService.createRestoranTransaction(rt);
         MainFrame mainFrame = new MainFrame();
         mainFrame.init(FrameAttributeConstant.MAIN_FRAME_WIDTH, 
                         FrameAttributeConstant.MAIN_FRAME_HEIGHT, 
