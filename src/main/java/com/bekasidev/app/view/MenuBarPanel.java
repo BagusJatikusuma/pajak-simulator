@@ -157,6 +157,10 @@ public class MenuBarPanel extends JPanel {
     
     private void hotelItemClicked(MouseEvent evt) {
         System.out.println("hotel clicked");
+        
+        RestaurantInputFrame restaurantInputFrame = new RestaurantInputFrame();
+        restaurantInputFrame.init();
+        restaurantInputFrame.setVisible(true);
     }
     
     private void parkiranItemClicked(MouseEvent evt) {
