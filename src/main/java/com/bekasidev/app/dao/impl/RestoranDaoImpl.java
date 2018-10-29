@@ -41,4 +41,18 @@ public class RestoranDaoImpl implements RestoranDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void deleteRestoranById(String idRestoran) {
+        String sql = "DELETE FROM restoran WHERE id_restoran=?";
+
+        try(Connection conn = Connect.connect();
+                PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, idRestoran);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
