@@ -15,6 +15,15 @@ public class RestoranTransaction {
     private double ratarataOmzet;
     private double pajakSetahun;
     private double pajakPerBulan;
+    private String tanggalBuat;
+
+    public String getTanggalBuat() {
+        return tanggalBuat;
+    }
+
+    public void setTanggalBuat(String tanggalBuat) {
+        this.tanggalBuat = tanggalBuat;
+    }
 
     public RestoranTransaction(){};
 
