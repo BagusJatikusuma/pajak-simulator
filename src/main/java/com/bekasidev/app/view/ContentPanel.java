@@ -8,6 +8,7 @@ package com.bekasidev.app.view;
 import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -67,6 +68,9 @@ public class ContentPanel extends JPanel{
            labelTotalFrekuensi,
            labelTotal;
     
+    JPanel panelTampilRestaurant;
+    ContentPanel contentPanelCover;
+    
     JButton bFormRestoran, bCalculate;
             
     // Service
@@ -82,6 +86,7 @@ public class ContentPanel extends JPanel{
     } 
     
     public void initPanel(){
+        this.contentPanelCover = this;
         // setting layout content panel
         this.setLayout(null);
         this.setBackground(Color.WHITE);
@@ -121,7 +126,9 @@ public class ContentPanel extends JPanel{
         
         identitasRestoran();
         formAddRestoran();
-        formMenghitungRataRataOmzetPenjualan();
+//        formMenghitungRataRataOmzetPenjualan();
+        addInputRestaurantButton();
+        showRestaurantTable();
     }
    
     public void addRestoran(Restoran restoran){
@@ -420,4 +427,60 @@ public class ContentPanel extends JPanel{
         this.add(panelFormOmzetPenjualan);
         //===== panel form restoran =====//
     }
+    
+    private void showRestaurantTable() {
+        //===== panel identitas restoran =====//
+        panelTampilRestaurant = new JPanel(new BorderLayout());
+        panelTampilRestaurant.setBackground(Color.WHITE);
+        panelTampilRestaurant.setLocation(50, 350);
+        panelTampilRestaurant.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createEtchedBorder(), "daftar restaurant"));
+        
+        RestaurantTableComponent restaurantTable = new RestaurantTableComponent();
+        restaurantTable.init();
+        
+        panelTampilRestaurant.setSize(mainFrame.getWidth()-115,450);
+        
+        panelTampilRestaurant.add(restaurantTable, BorderLayout.CENTER);
+        
+        this.add(panelTampilRestaurant);
+    }
+    
+    public void resetRestaurantTable() {
+        for (int i = 0; i < this.getComponents().length; i++) {
+            if (this.getComponent(i) instanceof JPanel) {
+                JPanel panel = (JPanel)this.getComponent(i);
+                if (panel.getComponents().length > 0) {
+                    if (panel.getComponent(0) instanceof RestaurantTableComponent) {
+                        this.remove(this.getComponent(i));
+                        this.invalidate();
+                        this.revalidate();
+                        this.showRestaurantTable();
+                    }
+                }
+            }
+        }
+    }
+    
+    private void addInputRestaurantButton() {
+        JButton addRestoranBtn = new JButton();
+        
+        addRestoranBtn = new JButton("tambah restoran");
+        addRestoranBtn.setSize(100, 20);
+        addRestoranBtn.setLocation(50, 320);
+        //===== Button =====//
+        
+        //===== Action Button =====//
+        addRestoranBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RestaurantInputFrame restaurantInputFrame 
+                        = new RestaurantInputFrame(contentPanelCover);
+                restaurantInputFrame.init();
+                restaurantInputFrame.setVisible(true);
+            }
+        });
+        
+        this.add(addRestoranBtn);
+    } 
 }
