@@ -46,6 +46,8 @@ public class RestaurantTableComponent extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
+                System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
+                service.deleteRestoran(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
                 ((DefaultTableModel)table.getModel()).removeRow(modelRow);
             }
         };
