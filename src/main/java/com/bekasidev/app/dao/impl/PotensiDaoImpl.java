@@ -36,7 +36,7 @@ public class PotensiDaoImpl implements PotensiDao {
 
     @Override
     public void createTarifMenu(Potensi potensi) {
-        String sql = "INSERT INTO potensi_menu VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO potensi_menu VALUES(?,?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -48,9 +48,6 @@ public class PotensiDaoImpl implements PotensiDao {
             pstm.setInt(6, potensi.getFrekuensiPenjualan());
             pstm.setDouble(7, potensi.getJumlahPenjualan());
             pstm.setDouble(8, potensi.getTotalPenjualan());
-            pstm.setInt(9, potensi.getFrekuensiPotensiJual());
-            pstm.setDouble(10, potensi.getJumlahPotensiJual());
-            pstm.setDouble(11, potensi.getTotalPotensiJual());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,9 +64,6 @@ public class PotensiDaoImpl implements PotensiDao {
         potensi.setFrekuensiPenjualan(rs.getInt("frekuensi_penjualan"));
         potensi.setJumlahPenjualan(rs.getDouble("jumlah_penjualan"));
         potensi.setTotalPenjualan(rs.getDouble("total_penjualan"));
-        potensi.setFrekuensiPotensiJual(rs.getInt("frekuensi_potensi_jual"));
-        potensi.setJumlahPotensiJual(rs.getDouble("jumlah_potensi_jual"));
-        potensi.setTotalPotensiJual(rs.getDouble("total_potensi_jual"));
         return potensi;
     }
 }
