@@ -73,6 +73,21 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
         }
     }
 
+    @Override
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel) {
+        String sql = "DELETE FROM t_kamarhotel WHERE id_hotel=? AND id_kamarhotel=?";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, idHotel);
+            pstm.setString(2, idKamarHotel);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private TarifKamarHotel setTarifKamarHotel(ResultSet rs){
         TarifKamarHotel tarifKamarHotel = new TarifKamarHotel();
         try {

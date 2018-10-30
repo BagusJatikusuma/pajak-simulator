@@ -32,4 +32,9 @@ public class TarifMeetingRoomServiceImpl implements TarifMeetingRoomService{
             tarifMeetingRoomDao.createTarifMeetingRoom(tarifMeetingRoom);
         }
 
+        @Override
+        public void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idHotel, String idMeetingRoom) {
+            tarifMeetingRoomDao.deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(idHotel, idMeetingRoom);
+        }
+
 }
