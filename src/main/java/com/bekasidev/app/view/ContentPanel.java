@@ -43,6 +43,7 @@ public class ContentPanel extends JPanel{
     // Variables declaration
     private String namaRestoran;
     private String idRestoran;
+    private int statusPage = 0;
     
     private JTextField  tfOmzetRamai,
                         tfOmzetSepi,
@@ -68,7 +69,7 @@ public class ContentPanel extends JPanel{
                     labelTotalFrekuensi,
                     labelTotal;
     
-    private JButton bCalculate;
+    private JButton bCalculate, bKembali;
             
     // Service
     private RestoranService restoranService = new RestoranServiceImpl();
@@ -85,21 +86,34 @@ public class ContentPanel extends JPanel{
     
     public void initPanel(){
         this.contentPanelCover = this;
+        
         // setting layout content panel
         this.setPreferredSize(new Dimension((mainFrame.getWidth()/2), 250));
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
+        this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
        
         // restauran
-        restauranContent();                
+        restauranContent(statusPage);                
     }
     
     public void resetComponentSize() {
         panelFormOmzetPenjualan.setSize((mainFrame.getWidth()/2)-115, 500);
     }
     
-    public void restauranContent(){
-        formMenghitungRataRataOmzetPenjualan();
+    public void restauranContent(int statusPage){
+        
+        if (this.getComponents().length > 0){
+            this.remove(0);
+            this.invalidate();
+            this.revalidate();
+        }
+        
+        if (statusPage == 0) {
+            formMenghitungRataRataOmzetPenjualan();
+        } else if (statusPage == 1) {
+            formHasilPotensiPenjualan();
+        }
     }
     
     public void formMenghitungRataRataOmzetPenjualan(){
@@ -152,7 +166,6 @@ public class ContentPanel extends JPanel{
         //===== button =====//
         bCalculate = new JButton("Calculate");
         bCalculate.setFont(new Font("Tahoma", 0, 16));
-
         //===== button =====//
         
         //===== sub panel ramai =====//
@@ -239,9 +252,7 @@ public class ContentPanel extends JPanel{
         //===== panel form omzet penjualan =====//
         panelFormOmzetPenjualan = new JPanel(new GridBagLayout());
         panelFormOmzetPenjualan.setBackground(Color.WHITE);
-        panelFormOmzetPenjualan.setSize((mainFrame.getWidth()/2)-115, 500);
-        panelFormOmzetPenjualan.setLocation(50, 20);
-       
+        
         GridBagConstraints constraintsFormOmzet = new GridBagConstraints();
         
         // add components to the panel
@@ -250,7 +261,7 @@ public class ContentPanel extends JPanel{
         // add components to the panel
         constraintsFormOmzet.gridx = 0;
         constraintsFormOmzet.gridy = 0;
-        constraintsFormOmzet.anchor = GridBagConstraints.LINE_START;
+        constraintsFormOmzet.anchor = GridBagConstraints.PAGE_START;
         panelFormOmzetPenjualan.add(panelSubRamai, constraintsFormOmzet);
         constraintsFormOmzet.gridy ++;
         panelFormOmzetPenjualan.add(panelSubNormal, constraintsFormOmzet);
@@ -258,6 +269,8 @@ public class ContentPanel extends JPanel{
         panelFormOmzetPenjualan.add(panelSubSepi, constraintsFormOmzet);
         constraintsFormOmzet.gridy ++;
         constraintsFormOmzet.anchor = GridBagConstraints.LINE_END;
+        constraintsFormOmzet.gridwidth = 3;
+        constraintsFormOmzet.fill = GridBagConstraints.HORIZONTAL;
         panelFormOmzetPenjualan.add(bCalculate, constraintsFormOmzet);
         
         // set border for the panel
@@ -265,7 +278,7 @@ public class ContentPanel extends JPanel{
                 BorderFactory.createEtchedBorder(), "Form Menghitung Rata-Rata Omzet Penjualan " + namaRestoran));
          
         // add the panel to this panel
-        this.add(panelFormOmzetPenjualan);
+        this.add(panelFormOmzetPenjualan, BorderLayout.CENTER);
         //===== panel form omzet penjualan =====//
         
         //===== Action Button =====//
@@ -292,8 +305,131 @@ public class ContentPanel extends JPanel{
                     addRestoranTransaction(restoranTransaction);
                     JOptionPane.showMessageDialog(mainFrame ,"Berhasil Calculate");
                 } else {
-                    JOptionPane.showMessageDialog(mainFrame ,"Masukkan Dahulu Data Omzet Penjualan");
+//                    JOptionPane.showMessageDialog(mainFrame ,"Masukkan Dahulu Data Omzet Penjualan");
+                    statusPage = 1;
+                    restauranContent(statusPage);
                 }
+            }
+        });
+        //===== Action Button =====//
+    }
+    
+    public void formHasilPotensiPenjualan(){
+        //===== button =====//
+        bKembali = new JButton("Kembali");
+        bKembali.setFont(new Font("Tahoma", 0, 16));
+        //===== button =====//
+        
+        //===== panel form hasil potensi penjualan Atas =====//
+        JPanel panelFormHasilPotensiPenjualanAtas = new JPanel(new GridBagLayout());
+        panelFormHasilPotensiPenjualanAtas.setBackground(Color.WHITE);
+        
+        GridBagConstraints constraintsFormHasilAtas = new GridBagConstraints();
+        
+        // add components to the panel
+        constraintsFormHasilAtas.insets = new Insets(7, 7, 7, 7);
+        
+        // add components to the panel
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 1;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_START;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Total Omzet (Ramai)"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 330.000.000"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 2;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_START;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Total Omzet (Normal)"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 225.000.000"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 3;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_START;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Total Omzet (Sepi)"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 90.000.000"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 4;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_START;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Total Keseluruhan"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 645.000.000"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 5;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_START;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rata-Rata Omzet Penjualan"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 645.000.000"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 7;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.NORTHWEST;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Potensi Pajak Restoran"), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("="), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body>Rata-Rara Omzet Penjualan x Jumlah Hari Beroprasi (360 Hari)<br>x Pajak restoran (10%)</body></html>"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 8;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.NORTHWEST;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel(""), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("="), constraintsFormHasilAtas);
+        constraintsFormHasilAtas.gridx ++;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body>Rp. 64.800.000 per tahun atau<br>Rp. 5.400.000 per bulan</body></html>"), constraintsFormHasilAtas);
+
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 0;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.CENTER;
+        constraintsFormHasilAtas.fill = GridBagConstraints.CENTER;
+        constraintsFormHasilAtas.gridwidth = 3;
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body><h2>HASIL CALCULATE</h2></body></html>"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 6;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.CENTER;
+        constraintsFormHasilAtas.fill = GridBagConstraints.CENTER;
+        constraintsFormHasilAtas.gridwidth = 3;
+        constraintsFormHasilAtas.insets = new Insets(20, 0, 7, 0);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body><h2>POTENSI PAJAK RESTORAN</h2></body></html>"), constraintsFormHasilAtas);
+        
+        constraintsFormHasilAtas.gridx = 0;
+        constraintsFormHasilAtas.gridy = 9;
+        constraintsFormHasilAtas.anchor = GridBagConstraints.LINE_END;
+        constraintsFormHasilAtas.fill = GridBagConstraints.LINE_END;
+        constraintsFormHasilAtas.gridwidth = 3;
+        constraintsFormHasilAtas.insets = new Insets(20, 0, 20, 0);
+        panelFormHasilPotensiPenjualanAtas.add(bKembali, constraintsFormHasilAtas);
+        
+        // set border for the panel
+        panelFormHasilPotensiPenjualanAtas.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createEtchedBorder(), "Potensi Pajak " + namaRestoran));
+         
+        // add the panel to this panel
+        this.add(panelFormHasilPotensiPenjualanAtas, BorderLayout.CENTER);
+        //===== panel form hasil potensi penjualan =====//
+        
+        //===== Action Button =====//
+        bKembali.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                statusPage = 0;
+                restauranContent(statusPage);
             }
         });
         //===== Action Button =====//
@@ -301,5 +437,7 @@ public class ContentPanel extends JPanel{
     
     public void addRestoranTransaction(RestoranTransaction restoranTransaction){
         restoranTransactionService.calculatePotensiPajakRestoran(restoranTransaction);
+        statusPage = 1;
+        restauranContent(statusPage);
     }
 }
