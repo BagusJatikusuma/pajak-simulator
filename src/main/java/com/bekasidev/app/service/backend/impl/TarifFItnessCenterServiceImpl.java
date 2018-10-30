@@ -5,6 +5,7 @@ import com.bekasidev.app.dao.impl.TarifFitnessCenterDaoImpl;
 import com.bekasidev.app.model.TarifFitnessCenter;
 import com.bekasidev.app.service.backend.TarifFitnessCenterService;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -23,4 +24,17 @@ public class TarifFItnessCenterServiceImpl implements TarifFitnessCenterService{
     public TarifFitnessCenter getAllTarifFitnessCenterByIdHotelAndIdTarifFitness(String idHotel, String idTarifFitness) {
         return tarifFitnessCenterDao.getAllTarifFitnessCenterByIdHotelAndIdTarifFitness(idHotel,idTarifFitness);
     }
+
+    @Override
+    public void createTarifFitnessCenter(TarifFitnessCenter tarifFitnessCenter) {
+        Calendar cal = Calendar.getInstance();
+        tarifFitnessCenter.setIdTarifFitness(Long.toString(cal.getTimeInMillis()));
+        tarifFitnessCenterDao.createTarifFitnessCenter(tarifFitnessCenter);
+    }
+
+    @Override
+    public void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter) {
+        tarifFitnessCenterDao.deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(idHotel, idFitnessCenter);
+    }
+
 }

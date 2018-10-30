@@ -5,6 +5,7 @@ import com.bekasidev.app.dao.impl.TarifKamarHotelDaoImpl;
 import com.bekasidev.app.model.TarifKamarHotel;
 import com.bekasidev.app.service.backend.TarifKamarHotelService;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -22,6 +23,18 @@ public class TarifKamarHotelServiceImpl implements TarifKamarHotelService {
     @Override
     public TarifKamarHotel getAllTarifKamarHotelByIdHotelAndIdKamarHotel(String idHotel, String idKamarHotel) {
         return tarifKamarHotelDao.getAllTarifKamarHotelByIdHotelAndIdKamarHotel(idHotel, idKamarHotel);
+    }
+
+    @Override
+    public void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel) {
+        Calendar cal = Calendar.getInstance();
+        tarifKamarHotel.setIdKamarHotel(Long.toString(cal.getTimeInMillis()));
+        tarifKamarHotelDao.createTarifKamarHotel(tarifKamarHotel);
+    }
+
+    @Override
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarhotel) {
+        tarifKamarHotelDao.deleteTarifKamarHotelByIdHotelAndidKamarHotel(idHotel, idKamarhotel);
     }
 
 }

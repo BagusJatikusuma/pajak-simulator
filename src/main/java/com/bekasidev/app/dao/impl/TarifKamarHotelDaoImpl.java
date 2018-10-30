@@ -54,6 +54,40 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
         return tarifKamarHotel;
     }
 
+    public void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel) {
+        String sql = "INSERT INTO t_kamarhotel VALUES(?,?,?,?,?,?,?,?)";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, tarifKamarHotel.getIdHotel());
+            pstm.setString(2, tarifKamarHotel.getIdKamarHotel());
+            pstm.setString(3, tarifKamarHotel.getTipeKamar());
+            pstm.setInt(4, tarifKamarHotel.getJumlahKamar());
+            pstm.setInt(5, tarifKamarHotel.getJumlahTotalKamar());
+            pstm.setDouble(6, tarifKamarHotel.getHargaPerKamar());
+            pstm.setDouble(7, tarifKamarHotel.getJumlahHargaSewaKamar());
+            pstm.setDouble(8, tarifKamarHotel.getJumlahTotalKeseluruhanHargaSewa());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel) {
+        String sql = "DELETE FROM t_kamarhotel WHERE id_hotel=? AND id_kamarhotel=?";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, idHotel);
+            pstm.setString(2, idKamarHotel);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private TarifKamarHotel setTarifKamarHotel(ResultSet rs){
         TarifKamarHotel tarifKamarHotel = new TarifKamarHotel();
         try {

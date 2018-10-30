@@ -9,6 +9,8 @@ import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
+import com.bekasidev.app.view.tablecomponent.ColumnGroup;
+import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -18,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -30,7 +34,13 @@ public class RestaurantTableComponent extends JPanel {
         service = ServiceFactory.getRestoranService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
-        JTable restoranTable = new JTable();
+        JTable restoranTable = new JTable() {
+            @Override
+            protected JTableHeader createDefaultTableHeader() {
+                return new GroupableTableHeader(columnModel);
+            }
+        };
+        
         DefaultTableModel dtm = new DefaultTableModel(0,0);
         String header[] = new String[] {"ID_RESTAURANT", "NAMA_RESTAURANT", ""};
         dtm.setColumnIdentifiers(header);
@@ -46,6 +56,8 @@ public class RestaurantTableComponent extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
+                System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
+                service.deleteRestoran(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
                 ((DefaultTableModel)table.getModel()).removeRow(modelRow);
             }
         };
@@ -54,6 +66,15 @@ public class RestaurantTableComponent extends JPanel {
                 
         restoranTable.setGridColor(new java.awt.Color(255, 255, 255));
         restoranTable.setRowHeight(22);
+        
+        TableColumnModel cm = restoranTable.getColumnModel();
+        ColumnGroup g_name = new ColumnGroup("Restoran Entity");
+        g_name.add(cm.getColumn(0));
+        g_name.add(cm.getColumn(1));
+        
+        GroupableTableHeader headerTable = (GroupableTableHeader)restoranTable.getTableHeader();
+        headerTable.addColumnGroup(g_name);
+        
         jScrollPane1.setViewportView(restoranTable);
         
         jScrollPane1.setSize(400, 300);
