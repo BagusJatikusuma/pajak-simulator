@@ -32,4 +32,9 @@ public class TarifKamarHotelServiceImpl implements TarifKamarHotelService {
         tarifKamarHotelDao.createTarifKamarHotel(tarifKamarHotel);
     }
 
+    @Override
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarhotel) {
+        tarifKamarHotelDao.deleteTarifKamarHotelByIdHotelAndidKamarHotel(idHotel, idKamarhotel);
+    }
+
 }

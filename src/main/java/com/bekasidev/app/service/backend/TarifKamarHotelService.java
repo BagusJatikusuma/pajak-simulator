@@ -14,4 +14,6 @@ public interface TarifKamarHotelService {
     TarifKamarHotel getAllTarifKamarHotelByIdHotelAndIdKamarHotel(String idHotel, String idKamarHotel);
 
     void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel);
+
+    void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel);
 }

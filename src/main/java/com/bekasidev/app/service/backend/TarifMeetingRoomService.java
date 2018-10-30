@@ -14,4 +14,6 @@ public interface TarifMeetingRoomService {
     TarifMeetingRoom getAllTarifMeetingRoomByIdHotelAndIdMeetingHotel(String idHotel, String IdMeetingRoom);
 
     void createTarifMeetingRoom(TarifMeetingRoom tarifMeetingRoom);
+
+    void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idHotel, String idMeetingRoom);
 }

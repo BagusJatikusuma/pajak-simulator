@@ -73,6 +73,21 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
         }
     }
 
+    @Override
+    public void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter) {
+        String sql = "DELETE FROM t_fitnesscenter WHERE id_hotel=? AND id_fitnesscenter=?";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, idHotel);
+            pstm.setString(2, idFitnessCenter);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private TarifFitnessCenter setTarifFitnessCenter(ResultSet rs){
         TarifFitnessCenter tarifFitnessCenter = new TarifFitnessCenter();
         try {

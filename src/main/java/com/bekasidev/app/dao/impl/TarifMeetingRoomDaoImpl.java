@@ -77,6 +77,21 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
         }
     }
 
+    @Override
+    public void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idHotel, String idMeetingRoom) {
+        String sql = "DELETE FROM t_meetingroom WHERE id_hotel=? AND id_meetingroom=?";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, idHotel);
+            pstm.setString(2, idMeetingRoom);
+            pstm.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     private TarifMeetingRoom setTarifMeetingRoom(ResultSet rs){
 
         TarifMeetingRoom tarifMeetingRoom = new TarifMeetingRoom();

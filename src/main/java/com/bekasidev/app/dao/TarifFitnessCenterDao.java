@@ -14,4 +14,6 @@ public interface TarifFitnessCenterDao {
     TarifFitnessCenter getAllTarifFitnessCenterByIdHotelAndIdTarifFitness(String idHotel, String idTarifFitness);
 
     void createTarifFitnessCenter(TarifFitnessCenter tarifFitnessCenter);
+
+    void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter);
 }
