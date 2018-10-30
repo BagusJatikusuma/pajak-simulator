@@ -13,6 +13,7 @@ import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import java.awt.BorderLayout;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -40,20 +41,17 @@ public class ContentPanel extends JPanel{
     MainFrame mainFrame;
     
     // Variables declaration
+    private String namaRestoran;
     private String idRestoran;
     
-    private JTextField  tfNamaRestoran,
-                        tfOmzetRamai,
+    private JTextField  tfOmzetRamai,
                         tfOmzetSepi,
                         tfOmzetNormal,
                         tfFrekuensiRamai,
                         tfFrekuensiSepi,
                         tfFrekuensiNormal;
     
-    private JPanel  panelHeaderFormIdentitas, 
-                    panelIdentitasRestoran, 
-                    panelFormAddRestoran,
-                    panelFormOmzetPenjualan,
+    private JPanel  panelFormOmzetPenjualan,
                     panelSubRamai,
                     panelSubNormal,
                     panelSubSepi;
@@ -61,10 +59,7 @@ public class ContentPanel extends JPanel{
     JPanel panelTampilRestaurant;
     ContentPanel contentPanelCover;
     
-    private JLabel  labelHeaderFormIdentitas,
-                    labelNamaRestoran,
-                    labelNamaAddRestoran,
-                    labelOF,
+    private JLabel  labelOF,
                     labelOFRamai,
                     labelOFNormal,
                     labelOFSepi,
@@ -73,7 +68,7 @@ public class ContentPanel extends JPanel{
                     labelTotalFrekuensi,
                     labelTotal;
     
-    private JButton bFormRestoran, bCalculate;
+    private JButton bCalculate;
             
     // Service
     private RestoranService restoranService = new RestoranServiceImpl();
@@ -91,6 +86,7 @@ public class ContentPanel extends JPanel{
     public void initPanel(){
         this.contentPanelCover = this;
         // setting layout content panel
+        this.setPreferredSize(new Dimension((mainFrame.getWidth()/2), 250));
         this.setLayout(null);
         this.setBackground(Color.WHITE);
        
@@ -99,172 +95,11 @@ public class ContentPanel extends JPanel{
     }
     
     public void resetComponentSize() {
-        panelHeaderFormIdentitas.setSize(mainFrame.getWidth(), 50);
-        panelIdentitasRestoran.setSize(mainFrame.getWidth()-115, 80);
-        panelFormAddRestoran.setSize(mainFrame.getWidth()-115, 100);
-        panelFormOmzetPenjualan.setSize(mainFrame.getWidth()-115, 350);
+        panelFormOmzetPenjualan.setSize((mainFrame.getWidth()/2)-115, 500);
     }
     
     public void restauranContent(){
-        //===== header form identitas =====//
-        panelHeaderFormIdentitas = new JPanel(new GridBagLayout());
-        panelHeaderFormIdentitas.setBackground(Color.decode("#4377ca"));
-        panelHeaderFormIdentitas.setSize(mainFrame.getWidth(), 50);
-        panelHeaderFormIdentitas.setLocation(0, 0);
-        panelHeaderFormIdentitas.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        
-        labelHeaderFormIdentitas = new JLabel("RESTORAN");
-        labelHeaderFormIdentitas.setFont(new Font("Tahoma", Font.BOLD, 20));
-        labelHeaderFormIdentitas.setForeground(Color.WHITE);
-        labelHeaderFormIdentitas.setSize(200, 50);
-        
-        // add to panelHeader
-        panelHeaderFormIdentitas.add(labelHeaderFormIdentitas);
-        
-        // add to panel
-        this.add(panelHeaderFormIdentitas);
-        //===== header form identitas =====//
-        
-        
-        identitasRestoran();
-        formAddRestoran();
         formMenghitungRataRataOmzetPenjualan();
-        addInputRestaurantButton();
-        showRestaurantTable();
-    }
-   
-    public void addRestoran(Restoran restoran){
-        restoranService.createDataRestoran(restoran);
-        tfNamaRestoran.setText("");
-        System.out.println("Berhasil Add Restoran");
-    }
-    
-    public void identitasRestoran(){
-        //===== form restoran =====//
-        labelNamaRestoran = new JLabel("Nama Restoran");
-        labelNamaRestoran.setFont(new Font("Tahoma", 0, 16));
-        labelNamaRestoran.setForeground(Color.BLACK);
-        
-        //===== combo box =====//        
-        List<Restoran> listRestoran = new ArrayList<>();
-        listRestoran = restoranService.getAllRestoran();
-        Restoran restorans[];
-        restorans = new Restoran[listRestoran.size()];
-        for (int i = 0; i < listRestoran.size(); i++) {
-            restorans[i] = listRestoran.get(i);
-        }
-        
-        JComboBox<Restoran> cbListRestoran = new JComboBox<Restoran>(restorans);
-        cbListRestoran.setFont(new Font("Tahoma", 0, 16));
-        cbListRestoran.setMaximumRowCount(5);
-        cbListRestoran.setSize(300,20);
-        
-        cbListRestoran.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                JComboBox<Restoran> combo = (JComboBox<Restoran>) event.getSource();
-                Restoran selected = (Restoran) combo.getSelectedItem();
-                idRestoran = selected.getIdRestoran();
-                System.out.println("Nama : " + selected.getNamaRestoran() + "\nId : " + selected.getIdRestoran());
-            }
-        });
-       
-        //===== combo box =====//
-        
-        //===== panel identitas restoran =====//
-        panelIdentitasRestoran = new JPanel(new GridBagLayout());
-        panelIdentitasRestoran.setBackground(Color.WHITE);
-        panelIdentitasRestoran.setSize(mainFrame.getWidth()-115,80);
-        panelIdentitasRestoran.setLocation(50, 70);
-        
-        GridBagConstraints constraintsIdentitasRestoran = new GridBagConstraints();
-        
-        // add components to the panel
-        constraintsIdentitasRestoran.insets = new Insets(5, 5, 5, 5);
-        
-        constraintsIdentitasRestoran.gridx = 0;
-        constraintsIdentitasRestoran.gridy = 0;
-        constraintsIdentitasRestoran.anchor = GridBagConstraints.LINE_END;
-        panelIdentitasRestoran.add(labelNamaRestoran, constraintsIdentitasRestoran);
- 
-        constraintsIdentitasRestoran.gridx = 1;
-        constraintsIdentitasRestoran.gridy = 0;
-        constraintsIdentitasRestoran.anchor = GridBagConstraints.LINE_START;
-        panelIdentitasRestoran.add(cbListRestoran, constraintsIdentitasRestoran);
-        
-        // set border for the panel
-        panelIdentitasRestoran.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Identitas Restoran"));
-         
-        // add the panel to this panel
-        this.add(panelIdentitasRestoran);
-        //===== panel identitas restoran =====//
-        //===== form restoran =====//
-    }
-    
-    public void formAddRestoran(){
-        //===== form add restoran =====//
-        labelNamaAddRestoran = new JLabel("Nama Restoran");
-        labelNamaAddRestoran.setFont(new Font("Tahoma", 0, 16));
-        labelNamaAddRestoran.setForeground(Color.BLACK);
-        
-        //===== TextField =====//
-        tfNamaRestoran = new JTextField(20);
-        //===== TextField =====//
-        
-        //===== Button =====//
-        bFormRestoran = new JButton("Submit");
-        bFormRestoran.setSize(100, 20);
-        //===== Button =====//
-        
-        //===== Action Button =====//
-        bFormRestoran.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!tfNamaRestoran.getText().equals("")) {
-                    Restoran restoran = new Restoran();
-                    restoran.setNamaRestoran(tfNamaRestoran.getText());
-                    
-                    addRestoran(restoran);
-                    JOptionPane.showMessageDialog(mainFrame ,"Berhasil Menambahkan Data Restoran");
-                } else {
-                    JOptionPane.showMessageDialog(mainFrame ,"Masukkan Dahulu Data Restoran");
-                }
-            }
-        });
-        //===== Action Button =====//
-
-        //===== panel form restoran =====//
-        panelFormAddRestoran = new JPanel(new GridBagLayout());
-        panelFormAddRestoran.setBackground(Color.WHITE);
-        panelFormAddRestoran.setSize(mainFrame.getWidth()-115, 100);
-        panelFormAddRestoran.setLocation(50, 170);
-        
-        GridBagConstraints constraintsFormRestoran = new GridBagConstraints();
-        
-        // add components to the panel
-        constraintsFormRestoran.insets = new Insets(5, 5, 5, 5);
-        
-        constraintsFormRestoran.gridx = 0;
-        constraintsFormRestoran.gridy = 0;
-        constraintsFormRestoran.anchor = GridBagConstraints.LINE_END;
-        panelFormAddRestoran.add(labelNamaAddRestoran, constraintsFormRestoran);
- 
-        constraintsFormRestoran.gridx = 1;
-        constraintsFormRestoran.gridy = 0;
-        constraintsFormRestoran.anchor = GridBagConstraints.LINE_START;
-        panelFormAddRestoran.add(tfNamaRestoran, constraintsFormRestoran);
-        constraintsFormRestoran.gridy ++;
-        panelFormAddRestoran.add(bFormRestoran, constraintsFormRestoran);
-        
-        // set border for the panel
-        panelFormAddRestoran.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Form Add Restoran"));
-         
-        // add the panel to this panel
-        this.add(panelFormAddRestoran);
-        //===== panel form restoran =====//
-        //===== form add restoran =====//
     }
     
     public void formMenghitungRataRataOmzetPenjualan(){
@@ -404,8 +239,8 @@ public class ContentPanel extends JPanel{
         //===== panel form omzet penjualan =====//
         panelFormOmzetPenjualan = new JPanel(new GridBagLayout());
         panelFormOmzetPenjualan.setBackground(Color.WHITE);
-        panelFormOmzetPenjualan.setSize(mainFrame.getWidth()-115, 350);
-        panelFormOmzetPenjualan.setLocation(50, 290);
+        panelFormOmzetPenjualan.setSize((mainFrame.getWidth()/2)-115, 500);
+        panelFormOmzetPenjualan.setLocation(50, 20);
        
         GridBagConstraints constraintsFormOmzet = new GridBagConstraints();
         
@@ -415,25 +250,19 @@ public class ContentPanel extends JPanel{
         // add components to the panel
         constraintsFormOmzet.gridx = 0;
         constraintsFormOmzet.gridy = 0;
-        constraintsFormOmzet.anchor = GridBagConstraints.CENTER;
+        constraintsFormOmzet.anchor = GridBagConstraints.LINE_START;
         panelFormOmzetPenjualan.add(panelSubRamai, constraintsFormOmzet);
         constraintsFormOmzet.gridy ++;
         panelFormOmzetPenjualan.add(panelSubNormal, constraintsFormOmzet);
         constraintsFormOmzet.gridy ++;
         panelFormOmzetPenjualan.add(panelSubSepi, constraintsFormOmzet);
-        
-        constraintsFormOmzet.gridx = 1;
-        constraintsFormOmzet.gridy = 0;
-        constraintsFormOmzet.anchor = GridBagConstraints.CENTER;
-        panelFormOmzetPenjualan.add(labelOFRamai, constraintsFormOmzet);
         constraintsFormOmzet.gridy ++;
-        panelFormOmzetPenjualan.add(labelOFNormal, constraintsFormOmzet);
-        constraintsFormOmzet.gridy ++;
-        panelFormOmzetPenjualan.add(labelOFSepi, constraintsFormOmzet);
+        constraintsFormOmzet.anchor = GridBagConstraints.LINE_END;
+        panelFormOmzetPenjualan.add(bCalculate, constraintsFormOmzet);
         
         // set border for the panel
         panelFormOmzetPenjualan.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Form Menghitung Rata-Rata Omzet Penjualan"));
+                BorderFactory.createEtchedBorder(), "Form Menghitung Rata-Rata Omzet Penjualan " + namaRestoran));
          
         // add the panel to this panel
         this.add(panelFormOmzetPenjualan);
@@ -473,60 +302,4 @@ public class ContentPanel extends JPanel{
     public void addRestoranTransaction(RestoranTransaction restoranTransaction){
         restoranTransactionService.calculatePotensiPajakRestoran(restoranTransaction);
     }
-    
-    private void showRestaurantTable() {
-        //===== panel identitas restoran =====//
-        panelTampilRestaurant = new JPanel(new BorderLayout());
-        panelTampilRestaurant.setBackground(Color.WHITE);
-        panelTampilRestaurant.setLocation(50, 700);
-        panelTampilRestaurant.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "daftar restaurant"));
-        
-        RestaurantTableComponent restaurantTable = new RestaurantTableComponent();
-        restaurantTable.init();
-        
-        panelTampilRestaurant.setSize(mainFrame.getWidth()-115,450);
-        
-        panelTampilRestaurant.add(restaurantTable, BorderLayout.CENTER);
-        
-        this.add(panelTampilRestaurant);
-    }
-    
-    public void resetRestaurantTable() {
-        for (int i = 0; i < this.getComponents().length; i++) {
-            if (this.getComponent(i) instanceof JPanel) {
-                JPanel panel = (JPanel)this.getComponent(i);
-                if (panel.getComponents().length > 0) {
-                    if (panel.getComponent(0) instanceof RestaurantTableComponent) {
-                        this.remove(this.getComponent(i));
-                        this.invalidate();
-                        this.revalidate();
-                        this.showRestaurantTable();
-                    }
-                }
-            }
-        }
-    }
-    
-    private void addInputRestaurantButton() {
-        JButton addRestoranBtn = new JButton();
-        
-        addRestoranBtn = new JButton("tambah restoran");
-        addRestoranBtn.setSize(100, 20);
-        addRestoranBtn.setLocation(50, 650);
-        //===== Button =====//
-        
-        //===== Action Button =====//
-        addRestoranBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RestaurantInputFrame restaurantInputFrame 
-                        = new RestaurantInputFrame(contentPanelCover);
-                restaurantInputFrame.init();
-                restaurantInputFrame.setVisible(true);
-            }
-        });
-        
-        this.add(addRestoranBtn);
-    } 
 }

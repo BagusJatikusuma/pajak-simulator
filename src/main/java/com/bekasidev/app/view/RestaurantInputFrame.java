@@ -25,13 +25,13 @@ import javax.swing.JTextField;
  * @author bagus
  */
 public class RestaurantInputFrame extends JFrame {
-    private ContentPanel rootPanel;
+    private SideContentPanel rootPanel;
     
     public RestaurantInputFrame() {
         super();
     }
     
-    public RestaurantInputFrame(ContentPanel rootPanel) {
+    public RestaurantInputFrame(SideContentPanel rootPanel) {
         super();
         this.rootPanel = rootPanel;
     }
@@ -109,7 +109,7 @@ public class RestaurantInputFrame extends JFrame {
             tfNamaRestoran.setText("");
             System.out.println("Berhasil Add Restoran");
             
-            ContentPanel rootPanel = this.restaurantInputFrame.rootPanel;
+            SideContentPanel rootPanel = this.restaurantInputFrame.rootPanel;
             rootPanel.resetRestaurantTable();
             
         }
