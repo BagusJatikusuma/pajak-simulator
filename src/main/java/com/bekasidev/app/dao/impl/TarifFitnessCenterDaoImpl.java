@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
 
-    public List<TarifFitnessCenter> getAllTarifFitnessCenterByIdHotel(String idHotel) {
+    public List<TarifFitnessCenter> getAllTarifFitnessCenterByIdHotel(String idHotel){
         List<TarifFitnessCenter> tarifFitnessCenters = new ArrayList<>();
         String sql = "SELECT * FROM t_fitnesscenter WHERE id_hotel=?";
 
@@ -70,5 +70,6 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
         }
         return tarifFitnessCenter;
     }
+
 
 }
