@@ -12,4 +12,6 @@ public interface TarifKamarHotelDao {
     List<TarifKamarHotel> getAllTarifKamarHotelByIdHotel(String idHotel);
 
     TarifKamarHotel getAllTarifKamarHotelByIdHotelAndIdKamarHotel(String idHotel, String idKamarHotel);
+
+    void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel);
 }

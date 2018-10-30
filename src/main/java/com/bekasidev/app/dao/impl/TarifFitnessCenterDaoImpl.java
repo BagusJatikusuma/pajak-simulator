@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
 
-    public List<TarifFitnessCenter> getAllTarifFitnessCenterByIdHotel(String idHotel) {
+    public List<TarifFitnessCenter> getAllTarifFitnessCenterByIdHotel(String idHotel){
         List<TarifFitnessCenter> tarifFitnessCenters = new ArrayList<>();
         String sql = "SELECT * FROM t_fitnesscenter WHERE id_hotel=?";
 
@@ -56,6 +56,23 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
         return tarifFitnessCenter;
     }
 
+    public void createTarifFitnessCenter(TarifFitnessCenter tarifFitnessCenter) {
+        String sql = "INSERT INTO t_fitnesscenter VALUES(?,?,?,?,?,?)";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1,tarifFitnessCenter.getIdHotel());
+            pstm.setString(2,tarifFitnessCenter.getIdTarifFitness());
+            pstm.setString(3,tarifFitnessCenter.getNamaFitnessCenter());
+            pstm.setInt(4,tarifFitnessCenter.getJumlahPengunjung());
+            pstm.setDouble(5,tarifFitnessCenter.getTarifFitness());
+            pstm.setDouble(6,tarifFitnessCenter.getJumlahTotal());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private TarifFitnessCenter setTarifFitnessCenter(ResultSet rs){
         TarifFitnessCenter tarifFitnessCenter = new TarifFitnessCenter();
         try {
@@ -70,5 +87,6 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
         }
         return tarifFitnessCenter;
     }
+
 
 }
