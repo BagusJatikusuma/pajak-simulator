@@ -1,16 +1,11 @@
 package com.bekasidev.app;
 
-import com.bekasidev.app.model.Restoran;
-import com.bekasidev.app.model.RestoranTransaction;
-import com.bekasidev.app.service.ServiceFactory;
-import com.bekasidev.app.service.backend.RestoranService;
-import com.bekasidev.app.service.backend.RestoranTransactionService;
-import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
-import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
+import com.bekasidev.app.model.Benchmark;
+import com.bekasidev.app.model.Menu;
 import com.bekasidev.app.view.FrameAttributeConstant;
 import com.bekasidev.app.view.MainFrame;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+
+import java.awt.*;
 
 import static java.lang.Math.round;
 
@@ -25,24 +20,10 @@ public class App
         /**
          * init main frame
          */
-        RestoranTransaction rt = new RestoranTransaction("123123",
-                "321321",
-                3000000,
-                1500000,
-                900000,
-                110,
-                150,
-                100,
-                0,0,0,0,0);
-//        Restoran restoran = new Restoran();
-//        restoran.setNamaRestoran("SOLARIA");
-        RestoranTransactionService restoranTransactionService = ServiceFactory.getRestoranTransactionService();
-        restoranTransactionService.calculatePotensiPajakRestoran(rt);
-//        RestoranService restoranService = new RestoranServiceImpl();
-//        restoranService.createDataRestoran(restoran);
-        System.out.println("Setahun " + round(rt.getPajakSetahun()));
-        System.out.println("Perbulan " + round(rt.getPajakPerBulan()));
-//        restoranTransactionService.createRestoranTransaction(rt);
+        Menu menu = new Menu("123345", "123123", "Ayam Bakar", (short) 0, 17000);
+        Benchmark benchmark = new Benchmark("123123", "321321", "123123", "1 Kg Daging",
+                8, (float) 1.5, "Kg", "", "Daging");
+
         MainFrame mainFrame = new MainFrame();
         mainFrame.init(FrameAttributeConstant.MAIN_FRAME_WIDTH, 
                         FrameAttributeConstant.MAIN_FRAME_HEIGHT, 

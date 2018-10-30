@@ -58,6 +58,24 @@ public class BenchmarkDaoImpl implements BenchmarkDao {
         }
     }
 
+    @Override
+    public float getJumlah(String idBenchmark) {
+        String sql = "SELECT jumlah_bahan FROM benchmark WHERE id_benchmark=?";
+        float jumlah = 0;
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, idBenchmark);
+
+            ResultSet rs = pstm.executeQuery();
+            rs.next();
+            jumlah = rs.getFloat("jumlah_bahan");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return jumlah;
+    }
+
     private Benchmark setBenchmark(ResultSet rs) throws SQLException {
         Benchmark benchmark = new Benchmark();
 
