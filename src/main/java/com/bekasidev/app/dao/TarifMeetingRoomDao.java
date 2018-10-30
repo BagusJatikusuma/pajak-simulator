@@ -12,4 +12,7 @@ public interface TarifMeetingRoomDao {
     List<TarifMeetingRoom> getAllTarifMeetingRoomByIdHotel(String idHotel);
 
     TarifMeetingRoom getAllTarifMeetingRoomByIdHotelAndIdMeetingHotel(String idHotel, String idMeetingRoom);
+
+    void createTarifMeetingRoom(TarifMeetingRoom tarifMeetingRoom);
+
 }

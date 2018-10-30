@@ -8,10 +8,7 @@ import com.bekasidev.app.model.Hotel;
 import com.bekasidev.app.dao.HotelDao;
 import com.bekasidev.app.config.Connect;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,4 +33,32 @@ public class HotelDaoImpl implements HotelDao {
         }
         return listHotel;
     }
+
+    public void createDataHotel(Hotel hotel) {
+        String sql = "INSERT INTO hotel VALUES(?,?)";
+
+        try (Connection conn = Connect.connect();
+             PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, hotel.getIdHotel());
+            pstm.setString(2, hotel.getNamaHotel());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public  void  deleteHotelById(String idHotel) {
+        String sql = "DELETE FROM hotel WHERE id_hotel=?";
+
+        try (Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)
+        ) {
+            pstm.setString(1, idHotel);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

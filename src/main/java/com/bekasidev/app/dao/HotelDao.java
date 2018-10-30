@@ -9,4 +9,8 @@ import java.util.List;
 public interface HotelDao {
 
    List<Hotel> getAllHotel();
+
+   void createDataHotel(Hotel hotel);
+
+   void deleteHotelById(String idHotel);
 }

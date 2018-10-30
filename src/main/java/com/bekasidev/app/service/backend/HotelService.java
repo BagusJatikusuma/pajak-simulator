@@ -9,4 +9,8 @@ import java.util.List;
 public interface HotelService {
 
     List<Hotel> getAllHotel();
+
+    void createDataHotel(Hotel hotel);
+
+    void deleteHotelById(String idHotel);
 }
