@@ -129,8 +129,8 @@ public class ContentPanel extends JPanel{
         identitasRestoran();
         formAddRestoran();
         formMenghitungRataRataOmzetPenjualan();
-//        addInputRestaurantButton();
-//        showRestaurantTable();
+        addInputRestaurantButton();
+        showRestaurantTable();
     }
    
     public void addRestoran(Restoran restoran){
@@ -478,7 +478,7 @@ public class ContentPanel extends JPanel{
         //===== panel identitas restoran =====//
         panelTampilRestaurant = new JPanel(new BorderLayout());
         panelTampilRestaurant.setBackground(Color.WHITE);
-        panelTampilRestaurant.setLocation(50, 350);
+        panelTampilRestaurant.setLocation(50, 700);
         panelTampilRestaurant.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(), "daftar restaurant"));
         
@@ -513,7 +513,7 @@ public class ContentPanel extends JPanel{
         
         addRestoranBtn = new JButton("tambah restoran");
         addRestoranBtn.setSize(100, 20);
-        addRestoranBtn.setLocation(50, 320);
+        addRestoranBtn.setLocation(50, 650);
         //===== Button =====//
         
         //===== Action Button =====//

@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -29,15 +30,23 @@ public class SubContentMain extends JPanel{
     
     public void initSubContentMain(){
         this.setLayout(new BorderLayout());
-        SideContentPanel sideContentPanel = new SideContentPanel();
-        sideContentPanel.initSideContentPanel();
+//        SideContentPanel sideContentPanel = new SideContentPanel();
+//        sideContentPanel.initSideContentPanel();
+
+        JScrollPane scroll = new JScrollPane();
+    
         ContentPanel contentPanel = new ContentPanel(mainFrame);
         contentPanel.initPanel();
-        //add header panel
-        HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);
-        headerContentPanel.init(Color.WHITE);
+        contentPanel.setPreferredSize(new Dimension(contentPanel.getWidth(), 1500));
         
-        this.add(contentPanel, BorderLayout.CENTER);
+        scroll.setPreferredSize(new Dimension(500,500));
+        scroll.setViewportView(contentPanel);
+        
+        //add header panel
+//        HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);
+//        headerContentPanel.init(Color.WHITE);
+        
+        this.add(scroll, BorderLayout.CENTER);
 
     }
         
