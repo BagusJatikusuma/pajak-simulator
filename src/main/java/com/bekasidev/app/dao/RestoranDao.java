@@ -9,4 +9,6 @@ public interface RestoranDao {
     List<Restoran> getAllRestoran();
 
     void createDataRestoran(Restoran restoran);
+
+    void deleteRestoranById(String idRestoran);
 }

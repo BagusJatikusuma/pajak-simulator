@@ -24,4 +24,9 @@ public class RestoranServiceImpl implements RestoranService {
         restoran.setNamaRestoran(restoran.getNamaRestoran().toUpperCase());
         restoranDao.createDataRestoran(restoran);
     }
+
+    @Override
+    public void deleteRestoran(String idRestoran) {
+        restoranDao.deleteRestoranById(idRestoran);
+    }
 }
