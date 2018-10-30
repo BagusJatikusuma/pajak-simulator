@@ -11,6 +11,8 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
 
 /**
  *
@@ -41,7 +43,13 @@ public class FrameSizeListener implements WindowStateListener {
         }
         else if (panel instanceof SubContentMain) {
             System.err.println("is subconten main");
-            ContentPanel contentPanel = (ContentPanel)panel.getComponent(0);
+            
+            JScrollPane scroll = (JScrollPane)panel.getComponent(0);
+            scroll.setPreferredSize(new Dimension(mainFrame.getWidth()/2, mainFrame.getHeight()-100));
+            
+            JViewport viewPort = (JViewport) scroll.getComponent(0);
+            ContentPanel contentPanel = (ContentPanel) viewPort.getView();
+            
             contentPanel.resetComponentSize();
         }
         
