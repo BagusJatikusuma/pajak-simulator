@@ -10,6 +10,19 @@ public class Potensi {
     private double jumlahPenjualan;
     private String tanggalBuat;
 
+    public Potensi() {
+    }
+
+    public Potensi(String idRestoran, String idTransaksi, String idMenu, double hargaSatuan, int frekuensiPenjualan, double jumlahPenjualan, String tanggalBuat) {
+        this.idRestoran = idRestoran;
+        this.idTransaksi = idTransaksi;
+        this.idMenu = idMenu;
+        this.hargaSatuan = hargaSatuan;
+        this.frekuensiPenjualan = frekuensiPenjualan;
+        this.jumlahPenjualan = jumlahPenjualan;
+        this.tanggalBuat = tanggalBuat;
+    }
+
     public String getTanggalBuat() {
         return tanggalBuat;
     }

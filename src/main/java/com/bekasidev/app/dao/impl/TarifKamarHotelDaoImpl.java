@@ -63,8 +63,8 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             pstm.setString(1, tarifKamarHotel.getIdHotel());
             pstm.setString(2, tarifKamarHotel.getIdKamarHotel());
             pstm.setString(3, tarifKamarHotel.getTipeKamar());
-            pstm.setInt(4, tarifKamarHotel.getJumlahKamar());
-            pstm.setInt(5, tarifKamarHotel.getJumlahTotalKamar());
+            pstm.setInt(4, tarifKamarHotel.getJumlahPemakaianKamarSebulan());
+            pstm.setInt(5, tarifKamarHotel.getJumlahTotalPemakaianKamarSebulan());
             pstm.setDouble(6, tarifKamarHotel.getHargaPerKamar());
             pstm.setDouble(7, tarifKamarHotel.getJumlahHargaSewaKamar());
             pstm.setDouble(8, tarifKamarHotel.getJumlahTotalKeseluruhanHargaSewa());
@@ -96,6 +96,8 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             tarifKamarHotel.setTipeKamar(rs.getString("tipe_kamar"));
             tarifKamarHotel.setJumlahKamar(rs.getInt("jumlah_kamar"));
             tarifKamarHotel.setJumlahTotalKamar(rs.getInt("jumlah_totalkamar"));
+            tarifKamarHotel.setJumlahPemakaianKamarSebulan(rs.getInt("jumlah_kamar"));
+            tarifKamarHotel.setJumlahTotalPemakaianKamarSebulan(rs.getInt("jumlah_totalkamar"));
             tarifKamarHotel.setHargaPerKamar(rs.getDouble("harga_perkamar"));
             tarifKamarHotel.setJumlahHargaSewaKamar(rs.getDouble("jumlah_hargasewakamar"));
             tarifKamarHotel.setJumlahTotalKeseluruhanHargaSewa(rs.getDouble("jumlah_totalkeseluruhanhargasewa"));
