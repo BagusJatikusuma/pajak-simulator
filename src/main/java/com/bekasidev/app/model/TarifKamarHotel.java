@@ -10,6 +10,8 @@ public class TarifKamarHotel {
     private String tipeKamar;
     private Integer jumlahKamar;
     private Integer jumlahTotalKamar;
+    private Integer jumlahPemakaianKamarSebulan;
+    private Integer jumlahTotalPemakaianKamarSebulan;
     private Double hargaPerKamar;
     private Double jumlahHargaSewaKamar;
     private Double jumlahTotalKeseluruhanHargaSewa;
@@ -26,17 +28,25 @@ public class TarifKamarHotel {
 
     public void setTipeKamar(String tipeKamar) {this.tipeKamar = tipeKamar; }
 
-    public Integer getJumlahKamar() {return jumlahKamar; }
+    public Integer getJumlahKamar() { return jumlahKamar; }
 
-    public void setJumlahKamar(Integer jumlahKamar) {this.jumlahKamar = jumlahKamar; }
+    public void setJumlahKamar(Integer jumlahKamar) { this.jumlahKamar = jumlahKamar; }
+
+    public Integer getJumlahTotalKamar() {return jumlahTotalKamar; }
+
+    public void setJumlahTotalKamar(Integer jumlahTotalKamar) {this.jumlahTotalKamar = jumlahTotalKamar;}
+
+    public Integer getJumlahPemakaianKamarSebulan() {return jumlahPemakaianKamarSebulan; }
+
+    public void setJumlahPemakaianKamarSebulan(Integer jumlahPemakaianKamarSebulan) {this.jumlahPemakaianKamarSebulan = jumlahPemakaianKamarSebulan; }
 
     public Double getHargaPerKamar() {return hargaPerKamar; }
 
     public void setHargaPerKamar(Double hargaPerKamar) {this.hargaPerKamar = hargaPerKamar; }
 
-    public Integer getJumlahTotalKamar() {return jumlahTotalKamar; }
+    public Integer getJumlahTotalPemakaianKamarSebulan() {return jumlahTotalPemakaianKamarSebulan; }
 
-    public void setJumlahTotalKamar(Integer jumlahTotalKamar) {this.jumlahTotalKamar = jumlahTotalKamar; }
+    public void setJumlahTotalPemakaianKamarSebulan(Integer jumlahTotalPemakaianKamarSebulan) {this.jumlahTotalPemakaianKamarSebulan = jumlahTotalPemakaianKamarSebulan; }
 
     public Double getJumlahHargaSewaKamar() {return jumlahHargaSewaKamar; }
 
