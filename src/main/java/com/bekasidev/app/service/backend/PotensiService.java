@@ -1,12 +1,17 @@
 package com.bekasidev.app.service.backend;
 
 import com.bekasidev.app.model.Potensi;
+import com.bekasidev.app.wrapper.SptpdWrapper;
 
 import java.util.List;
 
 public interface PotensiService {
 
-    List<Potensi> getAllTarif(String idRestoran, String idTransaksi);
+    SptpdWrapper getAllPotensi(String idRestoran, String idTransaksi);
 
-    void createTarifMenu(Potensi potensi);
+    void createPotensi(Potensi potensi);
+
+    void calculatePenjualan(List<Potensi> listPotensi);
+
+//    void calculatePotensi(List<SptpdWrapper> sptpdWrappers);
 }
