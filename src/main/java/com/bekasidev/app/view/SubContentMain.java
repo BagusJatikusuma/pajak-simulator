@@ -50,7 +50,7 @@ public class SubContentMain extends JPanel{
         contentPanel.initPanel();
         contentPanel.setPreferredSize(new Dimension(contentPanel.getWidth(), 500));
         
-        scroll.setPreferredSize(new Dimension(500,500));
+        scroll.setPreferredSize(new Dimension(mainFrame.getWidth()/2, mainFrame.getHeight()-100));
         scroll.setViewportView(contentPanel);
         
         //add header panel

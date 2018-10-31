@@ -11,6 +11,20 @@ public class Benchmark {
     private String tanggalBuat;
     private String label;
 
+    public Benchmark(String idRestoran, String idTransaksi, String idBenchmark, String deskripsi, int porsi, float jumlah, String satuanJumlah, String tanggalBuat, String label) {
+        this.idRestoran = idRestoran;
+        this.idTransaksi = idTransaksi;
+        this.idBenchmark = idBenchmark;
+        this.deskripsi = deskripsi;
+        this.porsi = porsi;
+        this.jumlah = jumlah;
+        this.satuanJumlah = satuanJumlah;
+        this.tanggalBuat = tanggalBuat;
+        this.label = label;
+    }
+
+    public Benchmark(){}
+
     public String getIdBenchmark() {
         return idBenchmark;
     }

@@ -58,6 +58,25 @@ public class BenchmarkDaoImpl implements BenchmarkDao {
         }
     }
 
+    @Override
+    public Benchmark getBenchmarkById(String idBenchmark) {
+        String sql = "SELECT * FROM benchmark WHERE id_benchmark=?";
+        Benchmark benchmark = new Benchmark();
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, idBenchmark);
+
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                benchmark = setBenchmark(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return benchmark;
+    }
+
     private Benchmark setBenchmark(ResultSet rs) throws SQLException {
         Benchmark benchmark = new Benchmark();
 
@@ -65,7 +84,7 @@ public class BenchmarkDaoImpl implements BenchmarkDao {
         benchmark.setIdTransaksi(rs.getString("id_transaksi"));
         benchmark.setDeskripsi(rs.getString("deskripsi"));
         benchmark.setPorsi(rs.getInt("jumlah_porsi"));
-        benchmark.setJumlah(rs.getInt("jumlah_bahan"));
+        benchmark.setJumlah(rs.getFloat("jumlah_bahan"));
         benchmark.setSatuanJumlah(rs.getString("satuan_jumlah_bahan"));
         benchmark.setTanggalBuat(rs.getString("tanggal_buat"));
         benchmark.setLabel(rs.getString("label"));

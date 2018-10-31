@@ -9,4 +9,6 @@ public interface BenchmarkDao {
     List<Benchmark> getBenchmark(String idRestoran, String idTransaksi);
 
     void createBenchmark(Benchmark benchmark);
+
+    Benchmark getBenchmarkById(String idBenchmark);
 }
