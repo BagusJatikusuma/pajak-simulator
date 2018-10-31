@@ -9,7 +9,7 @@ public interface PotensiDao {
 
     List<Potensi> getAllPotensi(String idRestoran, String idTransaksi);
 
-    void createPotensi(Potensi potensi);
+    void createPotensi(List<Potensi> potensi);
 
     List<PotensiJoinWrapper> getPotensiJoinMenu(String idRestoran, String idTransaksi);
 }

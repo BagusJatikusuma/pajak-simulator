@@ -36,18 +36,25 @@ public class PotensiDaoImpl implements PotensiDao {
     }
 
     @Override
-    public void createPotensi(Potensi potensi) {
+    public void createPotensi(List<Potensi> listPotensi) {
         String sql = "INSERT INTO potensi_menu VALUES(?,?,?,?,?,?,?)";
+        for(int i = 1; i < listPotensi.size(); i++){
+            sql += ",(?,?,?,?,?,?,?)";
+        }
 
         try (Connection conn = Connect.connect();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, potensi.getIdRestoran());
-            pstm.setString(2, potensi.getIdTransaksi());
-            pstm.setString(3, potensi.getIdMenu());;
-            pstm.setDouble(4, potensi.getHargaSatuan());
-            pstm.setInt(5, potensi.getFrekuensiPenjualan());
-            pstm.setDouble(6, potensi.getJumlahPenjualan());
-            pstm.setString(7, potensi.getTanggalBuat());
+            int j = 0;
+            for(Potensi potensi : listPotensi){
+                j += 1;
+                pstm.setString(j, potensi.getIdRestoran()); j += 1;
+                pstm.setString(j, potensi.getIdTransaksi());j += 1;
+                pstm.setString(j, potensi.getIdMenu());j += 1;
+                pstm.setDouble(j, potensi.getHargaSatuan());j += 1;
+                pstm.setInt(j, potensi.getFrekuensiPenjualan());j += 1;
+                pstm.setDouble(j, potensi.getJumlahPenjualan());j += 1;
+                pstm.setString(j, potensi.getTanggalBuat());
+            }
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,8 +63,8 @@ public class PotensiDaoImpl implements PotensiDao {
 
     @Override
     public List<PotensiJoinWrapper> getPotensiJoinMenu(String idRestoran, String idTransaksi) {
-        String sql = "SELECT * FROM potensi JOIN menu USING(id_menu) JOIN pembukuan USING (id_transaksi) " +
-                "       WHERE potensi.id_restoran=? AND potensi.id_transaksi=?";
+        String sql = "SELECT * FROM potensi_menu pt JOIN menu USING(id_menu) JOIN pembukuan USING (id_transaksi) " +
+                "       WHERE pt.id_restoran=? AND pt.id_transaksi=?";
         List<PotensiJoinWrapper> potensiJoinWrappers = new ArrayList<>();
 
         try(Connection conn = Connect.connect();
@@ -69,11 +76,10 @@ public class PotensiDaoImpl implements PotensiDao {
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()){
-                Potensi potensi = new Potensi();
-                PotensiJoinWrapper potensiJoinWrapper = (PotensiJoinWrapper) setPotensi(rs);
+                PotensiJoinWrapper potensiJoinWrapper = setPotensiJoin(rs);
                 potensiJoinWrapper.setJenisMenu(rs.getShort("jenis_menu"));
                 potensiJoinWrapper.setNamaMenu(rs.getString("nama_menu"));
-                potensiJoinWrapper.setJumlahPotensi(rs.getFloat("potensi_porsi"));
+                potensiJoinWrapper.setFrekuensiPotensi(rs.getFloat("potensi_porsi"));
 
                 potensiJoinWrappers.add(potensiJoinWrapper);
             }
@@ -93,5 +99,17 @@ public class PotensiDaoImpl implements PotensiDao {
         potensi.setJumlahPenjualan(rs.getDouble("jumlah_penjualan"));
         potensi.setTanggalBuat(rs.getString("tanggal_buat"));
         return potensi;
+    }
+
+    private PotensiJoinWrapper setPotensiJoin(ResultSet rs) throws SQLException {
+        PotensiJoinWrapper potensiJoinWrapper = new PotensiJoinWrapper();
+        potensiJoinWrapper.setIdTransaksi(rs.getString("id_transaksi"));
+        potensiJoinWrapper.setIdRestoran(rs.getString("id_restoran"));
+        potensiJoinWrapper.setIdMenu(rs.getString("id_menu"));
+        potensiJoinWrapper.setHargaSatuan(rs.getDouble("harga_satuan"));
+        potensiJoinWrapper.setFrekuensiPenjualan(rs.getInt("frekuensi_penjualan"));
+        potensiJoinWrapper.setJumlahPenjualan(rs.getDouble("jumlah_penjualan"));
+        potensiJoinWrapper.setTanggalBuat(rs.getString("tanggal_buat"));
+        return potensiJoinWrapper;
     }
 }
