@@ -43,14 +43,14 @@ public class FrameSizeListener implements WindowStateListener {
         }
         else if (panel instanceof SubContentMain) {
             System.err.println("is subconten main");
-            
-            JScrollPane scroll = (JScrollPane)panel.getComponent(0);
-            scroll.setPreferredSize(new Dimension(mainFrame.getWidth()/2, mainFrame.getHeight()-100));
-            
-            JViewport viewPort = (JViewport) scroll.getComponent(0);
-            ContentPanel contentPanel = (ContentPanel) viewPort.getView();
-            
-            contentPanel.resetComponentSize();
+//            
+//            JScrollPane scroll = (JScrollPane)panel.getComponent(0);
+//            scroll.setPreferredSize(new Dimension(mainFrame.getWidth()/2, mainFrame.getHeight()-100));
+//            
+//            JViewport viewPort = (JViewport) scroll.getComponent(0);
+//            ContentPanel contentPanel = (ContentPanel) viewPort.getView();
+//            
+//            contentPanel.resetComponentSize();
         }
         
     }
