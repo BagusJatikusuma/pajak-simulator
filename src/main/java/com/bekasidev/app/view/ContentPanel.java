@@ -5,7 +5,6 @@
  */
 package com.bekasidev.app.view;
 
-import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.model.RestoranTransaction;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
@@ -20,15 +19,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -56,19 +51,18 @@ public class ContentPanel extends JPanel{
                     panelSubRamai,
                     panelSubNormal,
                     panelSubSepi;
-    
-    JPanel panelTampilRestaurant;
+
     ContentPanel contentPanelCover;
     
-    private JLabel  labelOF,
+    private JLabel labelRataRataOmzet,
                     labelOFRamai,
                     labelOFNormal,
                     labelOFSepi,
                     labelJumlah,
-                    labelTotalOmzet,
-                    labelTotalFrekuensi,
-                    labelTotal;
-    
+            labelPotensiPajakTahun,
+            labelPotensiPajakBulan,
+                    labelTotalKeseluruhan;
+
     private JButton bCalculate, bKembali;
             
     // Service
@@ -117,32 +111,6 @@ public class ContentPanel extends JPanel{
     }
     
     public void formMenghitungRataRataOmzetPenjualan(){
-        //===== label =====//        
-        labelJumlah = new JLabel("Jumlah", SwingConstants.RIGHT);
-        labelJumlah.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelOF = new JLabel("Total Omzet", SwingConstants.CENTER);
-        labelOF.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelTotalOmzet = new JLabel("Total Omzet", SwingConstants.CENTER);
-        labelTotalOmzet.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelTotalFrekuensi = new JLabel("Total Frekuensi", SwingConstants.CENTER);
-        labelTotalFrekuensi.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelTotal = new JLabel("Total", SwingConstants.CENTER);
-        labelTotal.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelOFRamai = new JLabel("OF Ramai", SwingConstants.CENTER);
-        labelOFRamai.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelOFNormal = new JLabel("OF Normal", SwingConstants.CENTER);
-        labelOFNormal.setFont(new Font("Tahoma", Font.BOLD, 16));
-        
-        labelOFSepi = new JLabel("OF Sepi", SwingConstants.CENTER);
-        labelOFSepi.setFont(new Font("Tahoma", Font.BOLD, 16));
-        //===== label =====//
-        
         //===== text field =====//
         tfOmzetRamai = new JTextField(10);
         tfOmzetRamai.setFont(new Font("Tahoma", 0, 16));
@@ -301,6 +269,7 @@ public class ContentPanel extends JPanel{
                     restoranTransaction.setFrekuensiRamai(Float.parseFloat(tfFrekuensiRamai.getText()));
                     restoranTransaction.setFrekuesniNormal(Float.parseFloat(tfFrekuensiNormal.getText()));
                     restoranTransaction.setFrekuensiSepi(Float.parseFloat(tfFrekuensiSepi.getText()));
+
                     
                     addRestoranTransaction(restoranTransaction);
                     JOptionPane.showMessageDialog(mainFrame ,"Berhasil Calculate");
@@ -315,6 +284,29 @@ public class ContentPanel extends JPanel{
     }
     
     public void formHasilPotensiPenjualan(){
+        //===== label =====//
+        labelOFRamai = new JLabel("330.000.000");
+        labelOFRamai.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelOFNormal = new JLabel("225.000.000");
+        labelOFNormal.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelOFSepi = new JLabel("90.000.000");
+        labelOFSepi.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelTotalKeseluruhan = new JLabel("645.000.000");
+        labelTotalKeseluruhan.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelRataRataOmzet = new JLabel("1.800.000");
+        labelRataRataOmzet.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelPotensiPajakTahun = new JLabel("64.800.000");
+        labelPotensiPajakTahun.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        labelPotensiPajakBulan = new JLabel("5.400.000");
+        labelPotensiPajakBulan.setFont(new Font("Tahoma", Font.BOLD, 16));
+        //===== label =====//
+
         //===== button =====//
         bKembali = new JButton("Kembali");
         bKembali.setFont(new Font("Tahoma", 0, 16));
@@ -337,7 +329,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 330.000.000"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. " + labelOFRamai.getText()), constraintsFormHasilAtas);
         
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 2;
@@ -346,7 +338,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 225.000.000"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. " + labelOFNormal.getText()), constraintsFormHasilAtas);
         
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 3;
@@ -355,7 +347,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 90.000.000"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. " + labelOFSepi.getText()), constraintsFormHasilAtas);
         
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 4;
@@ -364,7 +356,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 645.000.000"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. " + labelTotalKeseluruhan.getText()), constraintsFormHasilAtas);
         
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 5;
@@ -373,7 +365,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel(":"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. 645.000.000"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Rp. " + labelRataRataOmzet.getText()), constraintsFormHasilAtas);
         
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 7;
@@ -391,7 +383,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel("="), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body>Rp. 64.800.000 per tahun atau<br>Rp. 5.400.000 per bulan</body></html>"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("<html><body>Rp. " + labelPotensiPajakTahun.getText() + " per tahun atau<br>Rp. "+ labelPotensiPajakBulan.getText() +" per bulan</body></html>"), constraintsFormHasilAtas);
 
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 0;
