@@ -5,11 +5,23 @@ public class Potensi {
     private String idRestoran;
     private String idTransaksi;
     private String idMenu;
-    private short tipeMenu;
     private double hargaSatuan;
     private int frekuensiPenjualan;
     private double jumlahPenjualan;
     private String tanggalBuat;
+
+    public Potensi() {
+    }
+
+    public Potensi(String idRestoran, String idTransaksi, String idMenu, double hargaSatuan, int frekuensiPenjualan, double jumlahPenjualan, String tanggalBuat) {
+        this.idRestoran = idRestoran;
+        this.idTransaksi = idTransaksi;
+        this.idMenu = idMenu;
+        this.hargaSatuan = hargaSatuan;
+        this.frekuensiPenjualan = frekuensiPenjualan;
+        this.jumlahPenjualan = jumlahPenjualan;
+        this.tanggalBuat = tanggalBuat;
+    }
 
     public String getTanggalBuat() {
         return tanggalBuat;
@@ -57,14 +69,6 @@ public class Potensi {
 
     public void setIdMenu(String namaMenu) {
         this.idMenu = namaMenu;
-    }
-
-    public short getTipeMenu() {
-        return tipeMenu;
-    }
-
-    public void setTipeMenu(short tipeMenu) {
-        this.tipeMenu = tipeMenu;
     }
 
     public double getHargaSatuan() {

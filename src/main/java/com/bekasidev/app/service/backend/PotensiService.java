@@ -9,7 +9,7 @@ public interface PotensiService {
 
     SptpdWrapper getAllPotensi(String idRestoran, String idTransaksi);
 
-    void createPotensi(Potensi potensi);
+    void createPotensi(List<Potensi> potensi);
 
     void calculatePenjualan(List<Potensi> listPotensi);
 

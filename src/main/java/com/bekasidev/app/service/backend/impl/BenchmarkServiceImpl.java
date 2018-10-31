@@ -21,7 +21,8 @@ public class BenchmarkServiceImpl implements BenchmarkService {
     public void createBenchmark(Benchmark benchmark) {
         Calendar cal = Calendar.getInstance();
         benchmark.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
-         
+        benchmark.setIdBenchmark(Long.toString(cal.getTimeInMillis()));
+
         benchmarkDao.createBenchmark(benchmark);
     }
 }

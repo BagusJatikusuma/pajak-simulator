@@ -7,6 +7,7 @@ import com.bekasidev.app.service.backend.PotensiService;
 import com.bekasidev.app.wrapper.PotensiJoinWrapper;
 import com.bekasidev.app.wrapper.SptpdWrapper;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class PotensiServiceImpl implements PotensiService {
@@ -19,8 +20,13 @@ public class PotensiServiceImpl implements PotensiService {
     }
 
     @Override
-    public void createPotensi(Potensi potensi) {
-        potensiDao.createPotensi(potensi);
+    public void createPotensi(List<Potensi> listPotensi) {
+        Calendar cal = Calendar.getInstance();
+        for(Potensi potensi : listPotensi){
+            potensi.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
+        }
+
+        potensiDao.createPotensi(listPotensi);
     }
 
     private SptpdWrapper setSPTPD(List<PotensiJoinWrapper> listPotensi) {
@@ -46,7 +52,8 @@ public class PotensiServiceImpl implements PotensiService {
         sptpdWrapper.setTotalMinuman(totalMinuman);
         sptpdWrapper.setTotalPotensiMakanan(totalPotensiMakanan);
         sptpdWrapper.setTotalPotensiMinuman(totalPotensiMinuman);
-
+        System.out.println(sptpdWrapper.getListMakanan().size());
+        System.out.println(sptpdWrapper.getListMinuman().size());
         return sptpdWrapper;
     }
 

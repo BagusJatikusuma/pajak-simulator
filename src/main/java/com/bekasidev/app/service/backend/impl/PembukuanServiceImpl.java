@@ -4,6 +4,7 @@ import com.bekasidev.app.dao.BenchmarkDao;
 import com.bekasidev.app.dao.PembukuanDao;
 import com.bekasidev.app.dao.impl.BenchmarkDaoImpl;
 import com.bekasidev.app.dao.impl.PembukuanDaoImpl;
+import com.bekasidev.app.model.Benchmark;
 import com.bekasidev.app.model.Pembukuan;
 import com.bekasidev.app.service.backend.PembukuanService;
 
@@ -26,8 +27,8 @@ public class PembukuanServiceImpl implements PembukuanService {
     public void createPembukuan(Pembukuan pembukuan) {
         Calendar cal = Calendar.getInstance();
         pembukuan.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
-        pembukuan.setPotensiPorsi(round(pembukuan.getJumlah()/benchmarkDao.getJumlah(pembukuan.getIdBenchmark())));
-
+        Benchmark benchmark = benchmarkDao.getBenchmarkById(pembukuan.getIdBenchmark());
+        pembukuan.setPotensiPorsi(round(benchmark.getPorsi()*pembukuan.getJumlah()/benchmark.getJumlah()));
         pembukuanDao.createPembukuan(pembukuan);
     }
 }

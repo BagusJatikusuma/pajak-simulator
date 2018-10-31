@@ -2,6 +2,7 @@ package com.bekasidev.app.wrapper;
 
 import com.bekasidev.app.model.Potensi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SptpdWrapper {
@@ -11,6 +12,11 @@ public class SptpdWrapper {
     private double totalMinuman;
     private double totalPotensiMakanan;
     private double totalPotensiMinuman;
+
+    public SptpdWrapper() {
+        this.listMakanan = new ArrayList<>();
+        this. listMinuman = new ArrayList<>();
+    }
 
     public double getTotalPotensiMakanan() {
         return totalPotensiMakanan;

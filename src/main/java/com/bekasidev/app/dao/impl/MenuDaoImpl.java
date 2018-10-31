@@ -8,12 +8,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuDaoImpl implements MenuDao {
     @Override
     public List<Menu> getAllMenu(String idRestoran) {
         String sql = "SELECT * FROM menu WHERE id_restoran=?";
+        List<Menu> menus = new ArrayList<>();
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql);) {
@@ -22,12 +24,12 @@ public class MenuDaoImpl implements MenuDao {
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()){
-                setMenu(rs);
+                menus.add(setMenu(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return menus;
     }
 
     @Override
