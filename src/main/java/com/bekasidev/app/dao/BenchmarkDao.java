@@ -10,5 +10,5 @@ public interface BenchmarkDao {
 
     void createBenchmark(Benchmark benchmark);
 
-    float getJumlah(String idBenchmark);
+    Benchmark getBenchmarkById(String idBenchmark);
 }
