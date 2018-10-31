@@ -10,6 +10,20 @@ public class Pembukuan {
     private float potensiPorsi;
     private String tanggalBuat;
 
+    public Pembukuan() {
+    }
+
+    public Pembukuan(String idRestoran, String idTransaksi, String idBenchmark, String deskripsi, int jumlah, String satuanJumlah, float potensiPorsi, String tanggalBuat) {
+        this.idRestoran = idRestoran;
+        this.idTransaksi = idTransaksi;
+        this.idBenchmark = idBenchmark;
+        this.deskripsi = deskripsi;
+        this.jumlah = jumlah;
+        this.satuanJumlah = satuanJumlah;
+        this.potensiPorsi = potensiPorsi;
+        this.tanggalBuat = tanggalBuat;
+    }
+
     public String getIdRestoran() {
         return idRestoran;
     }
