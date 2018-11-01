@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import com.bekasidev.app.view.tablecomponent.ColumnGroup;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -29,6 +30,16 @@ import javax.swing.table.TableColumnModel;
  */
 public class RestaurantTableComponent extends JPanel {
     private RestoranService service;
+    private JPanel subContentMainPanel;
+    private MainFrame mainFrame;
+
+    public RestaurantTableComponent() {
+    }
+
+    public RestaurantTableComponent(MainFrame mainFrame, JPanel subContentMainPanel) {
+        this.mainFrame = mainFrame;
+        this.subContentMainPanel = subContentMainPanel;
+    }
     
     public void init() {
         service = ServiceFactory.getRestoranService();
@@ -42,15 +53,16 @@ public class RestaurantTableComponent extends JPanel {
         };
         
         DefaultTableModel dtm = new DefaultTableModel(0,0);
-        String header[] = new String[] {"ID_RESTAURANT", "NAMA_RESTAURANT", ""};
+        String header[] = new String[] {"ID_RESTAURANT", "NAMA_RESTAURANT", "",""};
         dtm.setColumnIdentifiers(header);
         restoranTable.setModel(dtm);
         
         List<Restoran> restorans = service.getAllRestoran();
         
         for (Restoran obj : restorans) {
-            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(), "delete"});
+            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(), "delete","input data"});
         }
+        
         Action delete = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,8 +73,34 @@ public class RestaurantTableComponent extends JPanel {
                 ((DefaultTableModel)table.getModel()).removeRow(modelRow);
             }
         };
+        Action showContentPanel = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTable table = (JTable)e.getSource();
+                int modelRow = Integer.valueOf( e.getActionCommand() );
+                System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                
+                SubContentMain subContentMain = (SubContentMain)subContentMainPanel;
+                JScrollPane scroll = (JScrollPane)subContentMain.getComponent(0);
+                scroll.setVisible(true);
+                
+                scroll.getViewport().remove(0);
+                ContentPanel contentPanel = new ContentPanel(mainFrame);
+                contentPanel.setNamaRestoran(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                contentPanel.setIdRestoran(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
+                contentPanel.initPanel();
+                contentPanel.setPreferredSize(new Dimension(contentPanel.getWidth(), 500));
+                
+                scroll.setViewportView(contentPanel);
+                
+                subContentMain.invalidate();
+                subContentMain.revalidate();
+            }
+            
+        };
         
         ButtonColumn buttonColumn = new ButtonColumn(restoranTable, delete, 2);
+        ButtonColumn buttonColumn2 = new ButtonColumn(restoranTable, showContentPanel, 3);
                 
         restoranTable.setGridColor(new java.awt.Color(255, 255, 255));
         restoranTable.setRowHeight(22);

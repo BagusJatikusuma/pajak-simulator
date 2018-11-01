@@ -41,7 +41,7 @@ public class ContentPanel extends JPanel{
     // Variables declaration
     private String namaRestoran;
     private String idRestoran;
-    private int statusPage = 0;
+    private int statusPage = 2;
     private int totalOFRamai = 0;
     private int totalOFNormal = 0;
     private int totalOFSepi = 0;
@@ -112,15 +112,24 @@ public class ContentPanel extends JPanel{
             this.invalidate();
             this.revalidate();
         }
-        
-        if (statusPage == 0) {
-            formMenghitungRataRataOmzetPenjualan();
-        } else if (statusPage == 1) {
-            formHasilPotensiPenjualan();
+
+        switch (statusPage){
+            case 0 :
+                panelFormMenghitungRataRataOmzetPenjualan();
+                break;
+            case 1 :
+                panelFormHasilPotensiPenjualan();
+                break;
+            case 2 :
+                panelFormInformasiMenu();
+                break;
+            default :
+                panelFormMenghitungRataRataOmzetPenjualan();
+                break;
         }
     }
     
-    public void formMenghitungRataRataOmzetPenjualan(){
+    public void panelFormMenghitungRataRataOmzetPenjualan(){
         restoranTransaction = SessionProvider.getRestoranTransaction();
 
         //===== text field =====//
@@ -312,7 +321,7 @@ public class ContentPanel extends JPanel{
         //===== Action Button =====//
     }
     
-    public void formHasilPotensiPenjualan(){
+    public void panelFormHasilPotensiPenjualan(){
         restoranTransaction = SessionProvider.getRestoranTransaction();
 
         //===== label =====//
@@ -494,6 +503,14 @@ public class ContentPanel extends JPanel{
         totalOFSepi = Integer.parseInt(tfOmzetSepi.getText()) * Integer.parseInt(tfFrekuensiSepi.getText());
         jumlahHari = Integer.parseInt(tfFrekuensiRamai.getText())+Integer.parseInt(tfFrekuensiNormal.getText())+Integer.parseInt(tfFrekuensiSepi.getText());
     }
+    
+    public void setNamaRestoran(String namaRestoran) {
+        this.namaRestoran = namaRestoran;
+    }
+    
+    public void setIdRestoran(String idRestoran) {
+        this.idRestoran = idRestoran;
+    }
 
     String printMoney(double money){
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
@@ -506,5 +523,30 @@ public class ContentPanel extends JPanel{
         kursIndonesia.setDecimalFormatSymbols(formatRp);
 
         return kursIndonesia.format(money);
+    }
+
+    public void panelFormInformasiMenu(){
+        //===== panel form informasi menu =====//
+        JPanel panelFormInformasiMenu = new JPanel(new GridBagLayout());
+        panelFormInformasiMenu.setBackground(Color.WHITE);
+
+        GridBagConstraints constraintsFormInformasiMenu = new GridBagConstraints();
+
+        // add components to the panel
+        constraintsFormInformasiMenu.insets = new Insets(7, 7, 7, 7);
+
+        // add components to the panel
+        constraintsFormInformasiMenu.gridx = 0;
+        constraintsFormInformasiMenu.gridy = 0;
+        constraintsFormInformasiMenu.anchor = GridBagConstraints.CENTER;
+        panelFormInformasiMenu.add(new JLabel("<html><body><h2>DAFTAR HARGA MAKANAN</h2></body></html>"), constraintsFormInformasiMenu);
+
+        // set border for the panel
+        panelFormInformasiMenu.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createEtchedBorder(), "Informasi Daftar Menu " + namaRestoran));
+
+        // add the panel to this panel
+        this.add(panelFormInformasiMenu, BorderLayout.CENTER);
+        //===== panel form informasi menu =====//
     }
 }
