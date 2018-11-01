@@ -60,7 +60,7 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
     }
 
     public  void  createTarifMeetingRoom(TarifMeetingRoom tarifMeetingRoom) {
-        String sql = "INSERT INTO t_meetingroom VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_meetingroom VALUES(?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -69,9 +69,8 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
             pstm.setString(2, tarifMeetingRoom.getIdMeetingRoom());
             pstm.setString(3, tarifMeetingRoom.getNamaMeetingRoom());
             pstm.setInt(4, tarifMeetingRoom.getJumlahPengunjung());
-            pstm.setInt(5, tarifMeetingRoom.getJumlahPengunjungSebulan());
-            pstm.setDouble(6, tarifMeetingRoom.getHargaSewa());
-            pstm.setDouble(7, tarifMeetingRoom.getHargaSewaSebulan());
+            pstm.setDouble(5, tarifMeetingRoom.getHargaSewa());
+            pstm.setString(6, tarifMeetingRoom.getTanggalBuat());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,13 +78,12 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
 
     @Override
     public void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idHotel, String idMeetingRoom) {
-        String sql = "DELETE FROM t_meetingroom WHERE id_hotel=? AND id_meetingroom=?";
+        String sql = "DELETE FROM t_meetingroom WHERE id_meetingroom=?";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
-            pstm.setString(1, idHotel);
-            pstm.setString(2, idMeetingRoom);
+            pstm.setString(1, idMeetingRoom);
             pstm.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
@@ -100,9 +98,8 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
             tarifMeetingRoom.setIdMeetingRoom(rs.getString("id_meetingroom"));
             tarifMeetingRoom.setNamaMeetingRoom(rs.getString("nama_meetingroom"));
             tarifMeetingRoom.setJumlahPengunjung(rs.getInt("jumlah_pengunjung"));
-            tarifMeetingRoom.setJumlahPengunjungSebulan(rs.getInt("jumlah_pengunjungsebulan"));
             tarifMeetingRoom.setHargaSewa(rs.getDouble("harga_sewa"));
-            tarifMeetingRoom.setHargaSewaSebulan(rs.getDouble("harga_sewasebulan"));
+            tarifMeetingRoom.setTanggalBuat(rs.getString("tanggal_buat"));
         } catch (SQLException e) {
             e.printStackTrace();
         } return tarifMeetingRoom;

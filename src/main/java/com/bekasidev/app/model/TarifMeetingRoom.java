@@ -9,9 +9,19 @@ public class TarifMeetingRoom {
     private String idMeetingRoom;
     private String namaMeetingRoom;
     private Integer jumlahPengunjung;
-    private Integer jumlahPengunjungSebulan;
     private Double hargaSewa;
-    private Double hargaSewaSebulan;
+    private String tanggalBuat;
+
+    public TarifMeetingRoom(){}
+
+    public TarifMeetingRoom(String idHotel, String idMeetingRoom, String namaMeetingRoom, Integer jumlahPengunjung, Double hargaSewa, String tanggalBuat) {
+        this.idHotel = idHotel;
+        this.idMeetingRoom = idMeetingRoom;
+        this.namaMeetingRoom = namaMeetingRoom;
+        this.jumlahPengunjung = jumlahPengunjung;
+        this.hargaSewa = hargaSewa;
+        this.tanggalBuat = tanggalBuat;
+    }
 
     public String getIdHotel() {return idHotel;}
 
@@ -29,15 +39,12 @@ public class TarifMeetingRoom {
 
     public void setJumlahPengunjung(Integer jumlahPengunjung) {this.jumlahPengunjung = jumlahPengunjung; }
 
-    public Integer getJumlahPengunjungSebulan() {return jumlahPengunjungSebulan;}
-
-    public void setJumlahPengunjungSebulan(Integer jumlahPengunjungSebulan) {this.jumlahPengunjungSebulan = jumlahPengunjungSebulan;}
-
     public Double getHargaSewa() {return hargaSewa;}
 
     public void setHargaSewa(Double hargaSewa) {this.hargaSewa = hargaSewa; }
 
-    public Double getHargaSewaSebulan() {return hargaSewaSebulan;}
+    public String getTanggalBuat() { return tanggalBuat; }
 
-    public void setHargaSewaSebulan(Double hargaSewaSebulan) {this.hargaSewaSebulan = hargaSewaSebulan; }
+    public void setTanggalBuat(String tanggalBuat) { this.tanggalBuat = tanggalBuat; }
+
 }

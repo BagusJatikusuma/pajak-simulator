@@ -23,7 +23,7 @@ public class DataPembukuanServiceImpl implements DataPembukuanDao{
     @Override
     public void createDataPembukuan(DataPembukuan dataPembukuan) {
         Calendar cal = Calendar.getInstance();
-        dataPembukuan.setIdDataPembukuan(Long.toString(cal.getTimeInMillis()));
+        dataPembukuan.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
         dataPembukuanDao.createDataPembukuan(dataPembukuan);
     }
 }
