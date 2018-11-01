@@ -49,6 +49,8 @@ public class SideContentPanel extends JPanel{
                     panelIdentitasRestoran;
     private JLabel  labelNamaRestoran;
     
+    private JPanel parentPanel;
+    
     public SideContentPanel() {
         super();
     }
@@ -56,6 +58,11 @@ public class SideContentPanel extends JPanel{
     public SideContentPanel(MainFrame mainFrame){
         super();
         this.mainFrame = mainFrame;
+    }
+    public SideContentPanel(MainFrame mainFrame, JPanel parentPanel){
+        super();
+        this.mainFrame = mainFrame;
+        this.parentPanel = parentPanel;
     }
     
     public void initSideContentPanel(){
@@ -74,7 +81,7 @@ public class SideContentPanel extends JPanel{
         panelTampilRestaurant.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(), "daftar restaurant"));
         
-        RestaurantTableComponent restaurantTable = new RestaurantTableComponent();
+        RestaurantTableComponent restaurantTable = new RestaurantTableComponent(mainFrame, parentPanel);
         restaurantTable.init();
         
         panelTampilRestaurant.setSize(mainFrame.getWidth()-115,450);
