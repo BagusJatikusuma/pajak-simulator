@@ -64,6 +64,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
         dataPembukuan.setJumlahDataPembukuan(rs.getInt("jumlah_datapembukuan"));
         dataPembukuan.setJumlahTotalDataPembukuan(rs.getInt("jumlah_totaldatapembukuan"));
         dataPembukuan.setSatuanBarang(rs.getString("satuan_barang"));
+        dataPembukuan.setTanggalBuat(rs.getString("tanggal_buat"));
 
         return dataPembukuan;
     }

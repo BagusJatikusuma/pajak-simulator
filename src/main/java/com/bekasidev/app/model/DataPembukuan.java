@@ -11,6 +11,7 @@ public class DataPembukuan {
     private Integer jumlahDataPembukuan;
     private Integer jumlahTotalDataPembukuan;
     private String satuanBarang;
+    private String tanggalBuat;
 
     public String getIdHotel() { return idHotel;}
 
@@ -35,4 +36,8 @@ public class DataPembukuan {
     public String getSatuanBarang() { return satuanBarang; }
 
     public void setSatuanBarang(String satuanBarang) { this.satuanBarang = satuanBarang; }
+
+    public String getTanggalBuat() { return tanggalBuat; }
+
+    public void setTanggalBuat(String tanggalBuat) {this.tanggalBuat = tanggalBuat; }
 }
