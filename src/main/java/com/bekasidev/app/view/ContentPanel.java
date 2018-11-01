@@ -503,6 +503,14 @@ public class ContentPanel extends JPanel{
         totalOFSepi = Integer.parseInt(tfOmzetSepi.getText()) * Integer.parseInt(tfFrekuensiSepi.getText());
         jumlahHari = Integer.parseInt(tfFrekuensiRamai.getText())+Integer.parseInt(tfFrekuensiNormal.getText())+Integer.parseInt(tfFrekuensiSepi.getText());
     }
+    
+    public void setNamaRestoran(String namaRestoran) {
+        this.namaRestoran = namaRestoran;
+    }
+    
+    public void setIdRestoran(String idRestoran) {
+        this.idRestoran = idRestoran;
+    }
 
     String printMoney(double money){
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
