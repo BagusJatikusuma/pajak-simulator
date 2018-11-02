@@ -5,6 +5,8 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.util.ComponentCollector;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -20,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -44,6 +47,7 @@ public class MenuBarPanel extends JPanel {
     }
     
     public void init() {
+                
         this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
         
@@ -158,18 +162,32 @@ public class MenuBarPanel extends JPanel {
     private void hotelItemClicked(MouseEvent evt) {
         System.out.println("hotel clicked");
         
-        RestaurantInputFrame restaurantInputFrame = new RestaurantInputFrame();
-        restaurantInputFrame.init();
-        restaurantInputFrame.setVisible(true);
+//        RestaurantInputFrame restaurantInputFrame = new RestaurantInputFrame();
+//        restaurantInputFrame.init();
+//        restaurantInputFrame.setVisible(true);
     }
     
     private void parkiranItemClicked(MouseEvent evt) {
         System.out.println("parkiran clicked");
+        
+        TestPanel testPanel = new TestPanel(mainFrame);
+        testPanel.init();
+        
+        mainFrame.getContentPane().remove(1);
+        mainFrame.getContentPane().add(testPanel, BorderLayout.CENTER);
+        
+        mainFrame.invalidate();
+        mainFrame.validate();
     }
     
     private void exitItemClicked(MouseEvent evt) {
         System.out.println("exit clicked");
-        mainFrame.dispose();
+//        mainFrame.dispose();
+        JFrame mainF = (JFrame)ComponentCollectorProvider
+                                .getComponentMapper()
+                                .get("main_frame")
+                                .getComponent();
+        mainF.dispose();
     }
     
     private void aboutItemClicked(MouseEvent evt) {

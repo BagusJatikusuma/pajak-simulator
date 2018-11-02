@@ -5,13 +5,18 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.util.ComponentCollector;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -35,7 +40,7 @@ public class MainFrame extends JFrame {
      * 
      */
     public void init(short width, short height, short xPos, short yPos) {
-//        this.setBounds(xPos, yPos, width, height);  
+        //        this.setBounds(xPos, yPos, width, height);  
         Dimension screenSize = this.getToolkit().getScreenSize();
         
         this.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
@@ -68,6 +73,13 @@ public class MainFrame extends JFrame {
         
         FrameSizeListener frameSizeListener = new FrameSizeListener(this);
         this.addWindowStateListener(frameSizeListener);
+        
+        //add into component collector
+        Map<String, ComponentCollector> comMap 
+                = ComponentCollectorProvider.getComponentMapper();
+        ComponentCollector compCollector 
+                = new ComponentCollector("main_frame",this, new ArrayList<Component>(), null);
+        comMap.put("main_frame", compCollector);
 
     }
     
