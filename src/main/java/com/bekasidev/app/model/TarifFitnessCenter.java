@@ -10,7 +10,18 @@ public class TarifFitnessCenter {
     private String namaFitnessCenter;
     private Double tarifFitness;
     private Integer jumlahPengunjung;
-    private Double jumlahTotal;
+    private String tanggalBuat;
+
+    public TarifFitnessCenter(){}
+
+    public TarifFitnessCenter(String idHotel, String idTarifFitness, String namaFitnessCenter, Double tarifFitness, Integer jumlahPengunjung, String tanggalBuat) {
+        this.idHotel = idHotel;
+        this.idTarifFitness = idTarifFitness;
+        this.namaFitnessCenter = namaFitnessCenter;
+        this.tarifFitness = tarifFitness;
+        this.jumlahPengunjung = jumlahPengunjung;
+        this.tanggalBuat = tanggalBuat;
+    }
 
     public String getIdHotel() {return idHotel; }
 
@@ -32,7 +43,7 @@ public class TarifFitnessCenter {
 
     public void setJumlahPengunjung(Integer jumlahPengunjung) {this.jumlahPengunjung = jumlahPengunjung; }
 
-    public Double getJumlahTotal() {return jumlahTotal; }
+    public String getTanggalBuat() { return tanggalBuat; }
 
-    public void setJumlahTotal(Double jumlahTotal) {this.jumlahTotal = jumlahTotal; }
+    public void setTanggalBuat(String tanggalBuat) {this.tanggalBuat = tanggalBuat; }
 }

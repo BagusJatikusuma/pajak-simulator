@@ -37,7 +37,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
 
     @Override
     public void createDataPembukuan(DataPembukuan dataPembukuan) {
-        String sql = "INSERT INTO datapembukuan VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO datapembukuan VALUES(?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -46,8 +46,9 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
             pstm.setString(2, dataPembukuan.getIdDataPembukuan());
             pstm.setString(3, dataPembukuan.getUraianDataPembukuan());
             pstm.setInt(4, dataPembukuan.getJumlahDataPembukuan());
-            pstm.setInt(5, dataPembukuan.getJumlahTotalDataPembukuan());
-            pstm.setString(6, dataPembukuan.getSatuanBarang());
+            pstm.setString(5, dataPembukuan.getSatuanBarang());
+            pstm.setString(6, dataPembukuan.getLabelBarang());
+            pstm.setString(7, dataPembukuan.getTanggalBuat());
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -62,9 +63,9 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
         dataPembukuan.setIdDataPembukuan(rs.getString("id_datapembukuan"));
         dataPembukuan.setUraianDataPembukuan(rs.getString("uraian_datapembukuan"));
         dataPembukuan.setJumlahDataPembukuan(rs.getInt("jumlah_datapembukuan"));
-        dataPembukuan.setJumlahTotalDataPembukuan(rs.getInt("jumlah_totaldatapembukuan"));
         dataPembukuan.setSatuanBarang(rs.getString("satuan_barang"));
         dataPembukuan.setTanggalBuat(rs.getString("tanggal_buat"));
+        dataPembukuan.setLabelBarang(rs.getString("label_barang"));
 
         return dataPembukuan;
     }

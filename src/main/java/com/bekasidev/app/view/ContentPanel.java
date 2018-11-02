@@ -5,12 +5,17 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.model.Menu;
 import com.bekasidev.app.model.RestoranTransaction;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.MenuService;
 import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
 import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
 import java.awt.BorderLayout;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
+import com.bekasidev.app.view.tablecomponent.ColumnGroup;
+import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.SessionProvider;
 
 import java.awt.Color;
@@ -23,12 +28,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.util.List;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -41,7 +45,7 @@ public class ContentPanel extends JPanel{
     // Variables declaration
     private String namaRestoran;
     private String idRestoran;
-    private int statusPage = 2;
+    private int statusPage = 0;
     private int totalOFRamai = 0;
     private int totalOFNormal = 0;
     private int totalOFSepi = 0;
@@ -57,7 +61,8 @@ public class ContentPanel extends JPanel{
     private JPanel  panelFormOmzetPenjualan,
                     panelSubRamai,
                     panelSubNormal,
-                    panelSubSepi;
+                    panelSubSepi,
+                    parentPanel;
 
     ContentPanel contentPanelCover;
     
@@ -70,12 +75,13 @@ public class ContentPanel extends JPanel{
             labelPotensiPajakBulan,
                     labelTotalKeseluruhan;
 
-    private JButton bCalculate, bKembali, bSavePotensiPajak;
+    private JButton bCalculate, bKembali, bSavePotensiPajak, bTambahMenu;
 
     // model
     RestoranTransaction restoranTransaction;
 
     // Service
+    private MenuService menuService;
     private RestoranService restoranService = new RestoranServiceImpl();
     private RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
     
@@ -86,7 +92,13 @@ public class ContentPanel extends JPanel{
     public ContentPanel(MainFrame mainFrame){
         super();
         this.mainFrame = mainFrame;
-    } 
+    }
+
+    public ContentPanel(MainFrame mainFrame, JPanel parentPanel){
+        super();
+        this.mainFrame = mainFrame;
+        this.parentPanel = parentPanel;
+    }
     
     public void initPanel(){
         this.contentPanelCover = this;
@@ -351,7 +363,7 @@ public class ContentPanel extends JPanel{
         bKembali = new JButton("Kembali");
         bKembali.setFont(new Font("Tahoma", 0, 16));
 
-        bSavePotensiPajak = new JButton("  Save  ");
+        bSavePotensiPajak = new JButton("Simpan & Selanjutnya");
         bSavePotensiPajak.setFont(new Font("Tahoma", 0, 16));
 
         //===== button =====//
@@ -476,6 +488,8 @@ public class ContentPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 addPotensiPajakRestoran(restoranTransaction);
+                statusPage = 2;
+                restauranContent(statusPage);
             }
         });
 
@@ -526,6 +540,88 @@ public class ContentPanel extends JPanel{
     }
 
     public void panelFormInformasiMenu(){
+        menuService = ServiceFactory.getMenuService();
+
+        bTambahMenu = new JButton("Tambah Menu");
+
+        //===== table menu makanan =====//
+        JScrollPane jScrollPane1 = new JScrollPane();
+        JTable menuTableMakanan = new JTable() {
+            @Override
+            protected JTableHeader createDefaultTableHeader() {
+                return new GroupableTableHeader(columnModel);
+            }
+        };
+
+        DefaultTableModel dtmMakanan = new DefaultTableModel(0,0);
+        String headerMakanan[] = new String[] {"ID_MENU", "ID_RESTAURANT", "NAMA_MENU","JENIS_MENU", "HARGA",""};
+        dtmMakanan.setColumnIdentifiers(headerMakanan);
+        menuTableMakanan.setModel(dtmMakanan);
+
+        List<Menu> menusMakanan = menuService.getMenu(idRestoran);
+
+        for (Menu obj : menusMakanan) {
+            if (obj.getJenisMenu() == 0){
+                dtmMakanan.addRow(new Object[] {obj.getIdMenu(), obj.getIdRestoran(), obj.getNamaMenu(), "Makanan", obj.getHargaMenu(), "delete"});
+            }
+        }
+
+        TableColumnModel cmMakanan = menuTableMakanan.getColumnModel();
+        ColumnGroup g_nameMakanan = new ColumnGroup("Menu Makanan " + namaRestoran);
+        g_nameMakanan.add(cmMakanan.getColumn(0));
+        g_nameMakanan.add(cmMakanan.getColumn(1));
+        g_nameMakanan.add(cmMakanan.getColumn(2));
+        g_nameMakanan.add(cmMakanan.getColumn(3));
+        g_nameMakanan.add(cmMakanan.getColumn(4));
+
+        GroupableTableHeader headerTableMakanan = (GroupableTableHeader)menuTableMakanan.getTableHeader();
+        headerTableMakanan.addColumnGroup(g_nameMakanan);
+
+        jScrollPane1.setViewportView(menuTableMakanan);
+
+        jScrollPane1.setSize(500, 200);
+        jScrollPane1.setPreferredSize(new Dimension(500, 200));
+        //===== table menu makanan =====//
+
+        //===== table menu minuman =====//
+        JScrollPane jScrollPane2 = new JScrollPane();
+        JTable menuTableMinuman = new JTable() {
+            @Override
+            protected JTableHeader createDefaultTableHeader() {
+                return new GroupableTableHeader(columnModel);
+            }
+        };
+
+        DefaultTableModel dtmMinuman = new DefaultTableModel(0,0);
+        String headerMinuman[] = new String[] {"ID_MENU", "ID_RESTAURANT", "NAMA_MENU","JENIS_MENU", "HARGA",""};
+        dtmMinuman.setColumnIdentifiers(headerMinuman);
+        menuTableMinuman.setModel(dtmMinuman);
+
+        List<Menu> menusMinuman = menuService.getMenu(idRestoran);
+
+        for (Menu obj : menusMinuman) {
+            if (obj.getJenisMenu() == 1){
+                dtmMinuman.addRow(new Object[] {obj.getIdMenu(), obj.getIdRestoran(), obj.getNamaMenu(), "Minuman", obj.getHargaMenu(), "delete"});
+            }
+        }
+
+        TableColumnModel cmMinuman= menuTableMinuman.getColumnModel();
+        ColumnGroup g_nameMinuman= new ColumnGroup("Menu Minuman " + namaRestoran);
+        g_nameMinuman.add(cmMinuman.getColumn(0));
+        g_nameMinuman.add(cmMinuman.getColumn(1));
+        g_nameMinuman.add(cmMinuman.getColumn(2));
+        g_nameMinuman.add(cmMinuman.getColumn(3));
+        g_nameMinuman.add(cmMinuman.getColumn(4));
+
+        GroupableTableHeader headerTableMinuman = (GroupableTableHeader)menuTableMinuman.getTableHeader();
+        headerTableMinuman.addColumnGroup(g_nameMinuman);
+
+        jScrollPane2.setViewportView(menuTableMinuman);
+
+        jScrollPane2.setSize(500, 200);
+        jScrollPane2.setPreferredSize(new Dimension(500, 200));
+        //===== table menu minuman =====//
+
         //===== panel form informasi menu =====//
         JPanel panelFormInformasiMenu = new JPanel(new GridBagLayout());
         panelFormInformasiMenu.setBackground(Color.WHITE);
@@ -533,20 +629,38 @@ public class ContentPanel extends JPanel{
         GridBagConstraints constraintsFormInformasiMenu = new GridBagConstraints();
 
         // add components to the panel
-        constraintsFormInformasiMenu.insets = new Insets(7, 7, 7, 7);
-
-        // add components to the panel
         constraintsFormInformasiMenu.gridx = 0;
         constraintsFormInformasiMenu.gridy = 0;
         constraintsFormInformasiMenu.anchor = GridBagConstraints.CENTER;
-        panelFormInformasiMenu.add(new JLabel("<html><body><h2>DAFTAR HARGA MAKANAN</h2></body></html>"), constraintsFormInformasiMenu);
+        panelFormInformasiMenu.add(new JLabel("<html><body><h3>DAFTAR HARGA MAKANAN</h2></body></html>"), constraintsFormInformasiMenu);
+        constraintsFormInformasiMenu.gridy ++;
+        panelFormInformasiMenu.add(jScrollPane1, constraintsFormInformasiMenu);
+        constraintsFormInformasiMenu.gridy ++;
+        panelFormInformasiMenu.add(new JLabel("<html><body><h3>DAFTAR HARGA MINUMAN</h2></body></html>"), constraintsFormInformasiMenu);
+        constraintsFormInformasiMenu.gridy ++;
+        panelFormInformasiMenu.add(jScrollPane2, constraintsFormInformasiMenu);
+        constraintsFormInformasiMenu.gridy ++;
+        constraintsFormInformasiMenu.anchor = GridBagConstraints.LINE_END;
+        constraintsFormInformasiMenu.insets = new Insets(7,0,10,0);
+        panelFormInformasiMenu.add(bTambahMenu, constraintsFormInformasiMenu);
 
         // set border for the panel
         panelFormInformasiMenu.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(), "Informasi Daftar Menu " + namaRestoran));
 
         // add the panel to this panel
-        this.add(panelFormInformasiMenu, BorderLayout.CENTER);
+        this.add(panelFormInformasiMenu, BorderLayout.PAGE_START);
         //===== panel form informasi menu =====//
+
+        // action
+        bTambahMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuInputFrame menuInputFrame = new MenuInputFrame();
+                menuInputFrame.setIdRestoran(idRestoran);
+                menuInputFrame.init();
+                menuInputFrame.setVisible(true);
+            }
+        });
     }
 }
