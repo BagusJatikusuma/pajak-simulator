@@ -30,7 +30,12 @@ public class MenuInputFrame extends JFrame {
         this.setSize(
                 (int)(screenSize.getWidth()-(screenSize.getWidth()/2)),
                 (int) (screenSize.getHeight()-(screenSize.getWidth()/3)));
-        this.setLocation(350, 250);
+
+        // membuat titik x dan y
+        int x = screenSize.width / 2  - this.getSize().width / 2;
+        int y = screenSize.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
 
         MenuInputPanel panel = new MenuInputPanel(this);
         panel.init();

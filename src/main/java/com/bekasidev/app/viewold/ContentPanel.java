@@ -45,7 +45,7 @@ public class ContentPanel extends JPanel{
     // Variables declaration
     private String namaRestoran;
     private String idRestoran;
-    private int statusPage = 0;
+    private int statusPage = 2;
     private int totalOFRamai = 0;
     private int totalOFNormal = 0;
     private int totalOFSepi = 0;
