@@ -53,8 +53,14 @@ public class MainFrame extends JFrame {
     }
     
     private void addMenuBar() {
-        MenuContainer menuContainer = new MenuContainer();
+//        MenuContainer menuContainer = new MenuContainer();
+//        menuContainer.init();
         
-        this.add(menuContainer, BorderLayout.PAGE_START);
+//        this.add(menuContainer, BorderLayout.PAGE_START);
+
+        MenuBarPanelRestoran menuBarPanelRestoran = new MenuBarPanelRestoran();
+        menuBarPanelRestoran.init();
+
+        this.add(menuBarPanelRestoran, BorderLayout.PAGE_START);
     }
 }
