@@ -9,12 +9,14 @@ import com.bekasidev.app.view.util.ComponentCollector;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.viewold.FrameDragListener;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -55,14 +57,10 @@ public class MainFrame extends JFrame {
     }
     
     private void addMenuBar() {
-//        MenuContainer menuContainer = new MenuContainer();
-//        menuContainer.init();
-        
-//        this.add(menuContainer, BorderLayout.PAGE_START);
-
-        MenuBarPanelRestoran menuBarPanelRestoran = new MenuBarPanelRestoran();
-        menuBarPanelRestoran.init();
-
-        this.add(menuBarPanelRestoran, BorderLayout.PAGE_START);
+        MenuContainer menuContainer = new MenuContainer();
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        this.add(menuContainer, BorderLayout.PAGE_START);
+        this.add(panel, BorderLayout.CENTER);
     }
 }

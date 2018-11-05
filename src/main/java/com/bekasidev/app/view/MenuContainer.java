@@ -6,6 +6,7 @@
 package com.bekasidev.app.view;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
@@ -21,11 +22,15 @@ public class MenuContainer extends JPanel {
     }
     
     public void init() {
-        this.setLayout(new GridLayout(0,1));
+        this.setLayout(new BorderLayout());
         
         MenuBarPanel menuBarPanel = new MenuBarPanel();
         
-        this.add(menuBarPanel);
+        MenuBarPanelRestoran menuBarPanelRestoran = new MenuBarPanelRestoran();
+        menuBarPanelRestoran.init();
+        
+        this.add(menuBarPanel, BorderLayout.PAGE_START);
+        this.add(menuBarPanelRestoran, BorderLayout.CENTER);
     }
     
     

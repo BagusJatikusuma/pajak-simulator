@@ -18,8 +18,8 @@ public class MenuBarPanelRestoran extends JPanel {
 
     public void init(){
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
-        this.setPreferredSize(new Dimension(200,100));
-        this.setBackground(Color.RED);
+//        this.setPreferredSize(new Dimension(200,100));
+//        this.setBackground(Color.RED);
 
         // menu manajemen
         Image imgMenuManajemen = null;
