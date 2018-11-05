@@ -14,8 +14,8 @@ import com.bekasidev.app.service.backend.impl.BenchmarkServiceImpl;
 import com.bekasidev.app.service.backend.impl.MenuServiceImpl;
 import com.bekasidev.app.service.backend.impl.PembukuanServiceImpl;
 import com.bekasidev.app.service.backend.impl.PotensiServiceImpl;
-import com.bekasidev.app.view.FrameAttributeConstant;
-import com.bekasidev.app.view.MainFrame;
+import com.bekasidev.app.viewold.FrameAttributeConstant;
+import com.bekasidev.app.viewold.MainFrame;
 import com.bekasidev.app.wrapper.PotensiJoinWrapper;
 import com.bekasidev.app.wrapper.SptpdWrapper;
 

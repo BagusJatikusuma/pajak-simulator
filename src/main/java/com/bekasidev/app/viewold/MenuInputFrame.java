@@ -1,4 +1,4 @@
-package com.bekasidev.app.view;
+package com.bekasidev.app.viewold;
 
 import com.bekasidev.app.model.Menu;
 import com.bekasidev.app.service.ServiceFactory;

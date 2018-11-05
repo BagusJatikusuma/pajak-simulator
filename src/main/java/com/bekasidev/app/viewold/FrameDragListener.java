@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bekasidev.app.view;
+package com.bekasidev.app.viewold;
 
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
