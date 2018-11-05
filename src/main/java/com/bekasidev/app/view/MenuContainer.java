@@ -24,9 +24,6 @@ public class MenuContainer extends JPanel {
         this.setLayout(new GridLayout(0,1));
         
         MenuBarPanel menuBarPanel = new MenuBarPanel();
-//        MainFrame mainFrame = ComponentColle
-        menuBarPanel.setPreferredSize(
-                new Dimension(0, 0));
         
         this.add(menuBarPanel);
     }

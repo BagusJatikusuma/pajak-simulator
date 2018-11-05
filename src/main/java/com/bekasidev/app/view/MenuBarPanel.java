@@ -5,9 +5,13 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,6 +20,12 @@ import javax.swing.JPanel;
  * @author bagus
  */
 public class MenuBarPanel extends JPanel {
+    private JPanel filePanel,
+                    restoranPanel,
+                    hotelpanel,
+                    parkiranPanel;
+    private JLabel file, restoran, hotel, parkiran;
+    private Color defaultColor = Color.decode("#f1f1f1");
 
     public MenuBarPanel() {
         init();
@@ -23,17 +33,178 @@ public class MenuBarPanel extends JPanel {
     
     public void init() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.WHITE);
+        MainFrame mainFrame 
+                = (MainFrame)ComponentCollectorProvider
+                        .getComponentMapper()
+                        .get("main_frame")
+                        .getComponent();
+        this.setPreferredSize(new Dimension(mainFrame.getWidth(), 40));
         
-        JLabel file = new JLabel("File");
-        JLabel restoran = new JLabel("Restoran");
-        JLabel hotel = new JLabel("Hotel");
-        JLabel parkiran = new JLabel("Parkiran");
+        addFileMenu();
+        addRestoranMenu();
+        addHotelMenu();
+        addParkiranMenu();
+    }
+    
+    private void addFileMenu() {
+        filePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        filePanel.setPreferredSize(new Dimension(130, 40));
+        file = new JLabel("Dashboard");file.setForeground(Color.decode("#4574c6"));
         
-        this.add(file);
-        this.add(restoran);
-        this.add(hotel);
-        this.add(parkiran);
+        filePanel.add(file);
+        filePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fileMenuPressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    filePanel.setBackground(Color.decode("#f9f9f9"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    filePanel.setBackground(Color.WHITE);
+                }
+            }
+        });
+        
+        
+        this.add(filePanel);
+    }
+    
+    private void addRestoranMenu() {
+        restoranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        restoranPanel.setPreferredSize(new Dimension(130, 40));
+        restoranPanel.setBackground(this.getBackground());
+        restoran = new JLabel("Restoran"); restoran.setForeground(Color.BLACK);
+        
+        restoranPanel.add(restoran);
+        restoranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                restoranMenuPressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    restoranPanel.setBackground(Color.decode("#f9f9f9"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    restoranPanel.setBackground(Color.WHITE);
+                }
+            }
+            
+        });
+        
+        this.add(restoranPanel);
+    }
+    
+    private void addHotelMenu() {
+        hotelpanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        hotelpanel.setPreferredSize(new Dimension(130, 40));
+        hotelpanel.setBackground(this.getBackground());
+        hotel = new JLabel("Hotel"); hotel.setForeground(Color.BLACK);
+        
+        hotelpanel.add(hotel);
+        hotelpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hotelMenupressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    hotelpanel.setBackground(Color.decode("#f9f9f9"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    hotelpanel.setBackground(Color.WHITE);
+                }
+            }
+        });
+        
+        this.add(hotelpanel);
+    }
+    
+    private void addParkiranMenu() {
+        parkiranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        parkiranPanel.setPreferredSize(new Dimension(130, 40));
+        parkiranPanel.setBackground(this.getBackground());
+        parkiran = new JLabel("Parkiran"); parkiran.setForeground(Color.BLACK);
+        
+        parkiranPanel.add(parkiran);
+        parkiranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                parkiranMenuPressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    parkiranPanel.setBackground(Color.decode("#f9f9f9"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    parkiranPanel.setBackground(Color.WHITE);
+                }
+            }
+        });
+        
+        this.add(parkiranPanel);
+    }
+    
+    private void fileMenuPressed(MouseEvent evt) {
+        filePanel.setBackground(defaultColor);
+        file.setForeground(Color.decode("#4574c6"));
+        resetColor(new JPanel[]{restoranPanel, hotelpanel, parkiranPanel},
+                new JLabel[]{parkiran, hotel, restoran});
+        System.out.println("file menu clicked");
+        
+    }
+    
+    private void restoranMenuPressed(MouseEvent evt) {
+        System.out.println("restoran menu clicked");
+        restoranPanel.setBackground(defaultColor);
+        restoran.setForeground(Color.decode("#4574c6"));
+        resetColor(new JPanel[]{filePanel, hotelpanel, parkiranPanel},
+                new JLabel[]{file, hotel, parkiran});
+        
+    }
+    
+    private void hotelMenupressed(MouseEvent evt) {
+        hotelpanel.setBackground(defaultColor);
+        hotel.setForeground(Color.decode("#4574c6"));
+        resetColor(new JPanel[]{filePanel, restoranPanel, parkiranPanel},
+                new JLabel[]{file, parkiran, restoran});
+        System.out.println("hotel menu clicked");
+    }
+    
+    private void parkiranMenuPressed(MouseEvent evt) {
+        parkiranPanel.setBackground(defaultColor);
+        parkiran.setForeground(Color.decode("#4574c6") );
+        resetColor(new JPanel[]{filePanel, hotelpanel, restoranPanel},
+                new JLabel[]{file, hotel, restoran});
+        System.out.println("parkiran menu clicked");
+    }
+    
+    private void resetColor(JPanel [] pane, JLabel[] lable) {
+        for(int i=0;i<pane.length;i++){
+           pane[i].setBackground(this.getBackground());
+        }
+        for (int i=0;i<lable.length;i++) {
+            lable[i].setForeground(Color.BLACK);
+        }
     }
     
 }

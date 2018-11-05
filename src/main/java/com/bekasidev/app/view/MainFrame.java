@@ -30,6 +30,13 @@ public class MainFrame extends JFrame {
      * init main frame with its attribute
      */
     public void init() {
+        //add into component collector
+        Map<String, ComponentCollector> comMap 
+                = ComponentCollectorProvider.getComponentMapper();
+        ComponentCollector compCollector 
+                = new ComponentCollector("main_frame",this, new ArrayList<Component>(), null);
+        comMap.put("main_frame", compCollector);
+        
         Dimension screenSize = this.getToolkit().getScreenSize();
         
         this.setSize((int) (screenSize.getWidth()-50), (int) (screenSize.getHeight()-75));
@@ -44,12 +51,7 @@ public class MainFrame extends JFrame {
         
         addMenuBar();
         
-        //add into component collector
-        Map<String, ComponentCollector> comMap 
-                = ComponentCollectorProvider.getComponentMapper();
-        ComponentCollector compCollector 
-                = new ComponentCollector("main_frame",this, new ArrayList<Component>(), null);
-        comMap.put("main_frame", compCollector);
+        
     }
     
     private void addMenuBar() {
