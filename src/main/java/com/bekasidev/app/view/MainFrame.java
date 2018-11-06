@@ -7,13 +7,13 @@ package com.bekasidev.app.view;
 
 import com.bekasidev.app.view.util.ComponentCollector;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
-import com.bekasidev.app.viewold.FrameDragListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -33,11 +33,7 @@ public class MainFrame extends JFrame {
      */
     public void init() {
         //add into component collector
-        Map<String, ComponentCollector> comMap 
-                = ComponentCollectorProvider.getComponentMapper();
-        ComponentCollector compCollector 
-                = new ComponentCollector("main_frame",this, new ArrayList<Component>(), null);
-        comMap.put("main_frame", compCollector);
+        ComponentCollectorProvider.addComponent("main_frame",this, new ArrayList<Component>(), null);
         
         Dimension screenSize = this.getToolkit().getScreenSize();
         
@@ -49,7 +45,12 @@ public class MainFrame extends JFrame {
         
         this.setTitle("Aplikasi Perpajakan Kabupaten Bekasi");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setUndecorated(true);
         this.setLayout(new BorderLayout());
+        
+        FrameDragListener frameDragListener = new FrameDragListener(this);
+        this.addMouseListener(frameDragListener);
+        this.addMouseMotionListener(frameDragListener);
         
         addMenuBar();
         
@@ -62,5 +63,8 @@ public class MainFrame extends JFrame {
         panel.setBackground(Color.WHITE);
         this.add(menuContainer, BorderLayout.PAGE_START);
         this.add(panel, BorderLayout.CENTER);
+        
+        ComponentCollectorProvider.addComponentChild(
+                Arrays.asList((Component)menuContainer), "main_frame");
     }
 }

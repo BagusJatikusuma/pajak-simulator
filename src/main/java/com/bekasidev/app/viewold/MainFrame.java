@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewold;
 
+import com.bekasidev.app.view.FrameDragListener;
 import com.bekasidev.app.view.util.ComponentCollector;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.BorderLayout;

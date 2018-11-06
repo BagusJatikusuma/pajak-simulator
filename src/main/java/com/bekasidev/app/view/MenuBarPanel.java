@@ -52,6 +52,7 @@ public class MenuBarPanel extends JPanel {
         file.setForeground(Color.decode("#4574c6"));
         
         filePanel.add(file);
+        filePanel.setBackground(defaultColor);
         filePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -60,7 +61,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    filePanel.setBackground(Color.decode("#f9f9f9"));
+                    filePanel.setBackground(Color.decode("#9fd4b8"));
                 }
             }
             @Override
@@ -81,7 +82,7 @@ public class MenuBarPanel extends JPanel {
         restoranPanel.setBackground(this.getBackground());
         restoran = new JLabel("Restoran");
         restoran.setFont(new Font("Tahoma", 0, 13));
-        restoran.setForeground(Color.BLACK);
+        restoran.setForeground(Color.WHITE);
         
         restoranPanel.add(restoran);
         restoranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,7 +93,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    restoranPanel.setBackground(Color.decode("#f9f9f9"));
+                    restoranPanel.setBackground(Color.decode("#9fd4b8"));
                 }
             }
             @Override
@@ -113,7 +114,7 @@ public class MenuBarPanel extends JPanel {
         hotelpanel.setBackground(this.getBackground());
         hotel = new JLabel("Hotel");
         hotel.setFont(new Font("Tahoma", 0, 13));
-        hotel.setForeground(Color.BLACK);
+        hotel.setForeground(Color.WHITE);
         
         hotelpanel.add(hotel);
         hotelpanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,7 +125,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    hotelpanel.setBackground(Color.decode("#f9f9f9"));
+                    hotelpanel.setBackground(Color.decode("#9fd4b8"));
                 }
             }
             @Override
@@ -144,7 +145,7 @@ public class MenuBarPanel extends JPanel {
         parkiranPanel.setBackground(this.getBackground());
         parkiran = new JLabel("Parkiran");
         parkiran.setFont(new Font("Tahoma", 0, 13));
-        parkiran.setForeground(Color.BLACK);
+        parkiran.setForeground(Color.WHITE);
         
         parkiranPanel.add(parkiran);
         parkiranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,7 +156,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    parkiranPanel.setBackground(Color.decode("#f9f9f9"));
+                    parkiranPanel.setBackground(Color.decode("#9fd4b8"));
                 }
             }
             @Override
@@ -171,7 +172,7 @@ public class MenuBarPanel extends JPanel {
     
     private void fileMenuPressed(MouseEvent evt) {
         filePanel.setBackground(defaultColor);
-        file.setForeground(Color.decode("#4574c6"));
+        file.setForeground(Color.decode("#144429"));
         resetColor(new JPanel[]{restoranPanel, hotelpanel, parkiranPanel},
                 new JLabel[]{parkiran, hotel, restoran});
         System.out.println("file menu clicked");
@@ -181,7 +182,7 @@ public class MenuBarPanel extends JPanel {
     private void restoranMenuPressed(MouseEvent evt) {
         System.out.println("restoran menu clicked");
         restoranPanel.setBackground(defaultColor);
-        restoran.setForeground(Color.decode("#4574c6"));
+        restoran.setForeground(Color.decode("#144429"));
         resetColor(new JPanel[]{filePanel, hotelpanel, parkiranPanel},
                 new JLabel[]{file, hotel, parkiran});
         
@@ -189,7 +190,7 @@ public class MenuBarPanel extends JPanel {
     
     private void hotelMenupressed(MouseEvent evt) {
         hotelpanel.setBackground(defaultColor);
-        hotel.setForeground(Color.decode("#4574c6"));
+        hotel.setForeground(Color.decode("#144429"));
         resetColor(new JPanel[]{filePanel, restoranPanel, parkiranPanel},
                 new JLabel[]{file, parkiran, restoran});
         System.out.println("hotel menu clicked");
@@ -197,7 +198,7 @@ public class MenuBarPanel extends JPanel {
     
     private void parkiranMenuPressed(MouseEvent evt) {
         parkiranPanel.setBackground(defaultColor);
-        parkiran.setForeground(Color.decode("#4574c6") );
+        parkiran.setForeground(Color.decode("#144429") );
         resetColor(new JPanel[]{filePanel, hotelpanel, restoranPanel},
                 new JLabel[]{file, hotel, restoran});
         System.out.println("parkiran menu clicked");
