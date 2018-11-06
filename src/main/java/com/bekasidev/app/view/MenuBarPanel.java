@@ -6,11 +6,8 @@
 package com.bekasidev.app.view;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.ComponentOrientation;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,7 +47,9 @@ public class MenuBarPanel extends JPanel {
     private void addFileMenu() {
         filePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
         filePanel.setPreferredSize(new Dimension(130, 40));
-        file = new JLabel("Dashboard");file.setForeground(Color.decode("#4574c6"));
+        file = new JLabel("Dashboard");
+        file.setFont(new Font("Tahoma", 0, 13));
+        file.setForeground(Color.decode("#4574c6"));
         
         filePanel.add(file);
         filePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,7 +79,9 @@ public class MenuBarPanel extends JPanel {
         restoranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         restoranPanel.setPreferredSize(new Dimension(130, 40));
         restoranPanel.setBackground(this.getBackground());
-        restoran = new JLabel("Restoran"); restoran.setForeground(Color.BLACK);
+        restoran = new JLabel("Restoran");
+        restoran.setFont(new Font("Tahoma", 0, 13));
+        restoran.setForeground(Color.BLACK);
         
         restoranPanel.add(restoran);
         restoranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,7 +111,9 @@ public class MenuBarPanel extends JPanel {
         hotelpanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         hotelpanel.setPreferredSize(new Dimension(130, 40));
         hotelpanel.setBackground(this.getBackground());
-        hotel = new JLabel("Hotel"); hotel.setForeground(Color.BLACK);
+        hotel = new JLabel("Hotel");
+        hotel.setFont(new Font("Tahoma", 0, 13));
+        hotel.setForeground(Color.BLACK);
         
         hotelpanel.add(hotel);
         hotelpanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,7 +142,9 @@ public class MenuBarPanel extends JPanel {
         parkiranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         parkiranPanel.setPreferredSize(new Dimension(130, 40));
         parkiranPanel.setBackground(this.getBackground());
-        parkiran = new JLabel("Parkiran"); parkiran.setForeground(Color.BLACK);
+        parkiran = new JLabel("Parkiran");
+        parkiran.setFont(new Font("Tahoma", 0, 13));
+        parkiran.setForeground(Color.BLACK);
         
         parkiranPanel.add(parkiran);
         parkiranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
