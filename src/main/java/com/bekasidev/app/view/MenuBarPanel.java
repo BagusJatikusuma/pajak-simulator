@@ -25,7 +25,7 @@ public class MenuBarPanel extends JPanel {
                     hotelpanel,
                     parkiranPanel;
     private JLabel file, restoran, hotel, parkiran;
-    private Color defaultColor = Color.decode("#f1f1f1");
+    private Color defaultColor = Color.decode("#f3f3f3");
 
     public MenuBarPanel() {
         init();
@@ -33,7 +33,7 @@ public class MenuBarPanel extends JPanel {
     
     public void init() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.decode("#144429"));
         MainFrame mainFrame 
                 = (MainFrame)ComponentCollectorProvider
                         .getComponentMapper()
@@ -67,7 +67,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    filePanel.setBackground(Color.WHITE);
+                    filePanel.setBackground(Color.decode("#144429"));
                 }
             }
         });
@@ -80,7 +80,7 @@ public class MenuBarPanel extends JPanel {
         restoranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         restoranPanel.setPreferredSize(new Dimension(130, 40));
         restoranPanel.setBackground(this.getBackground());
-        restoran = new JLabel("Restoran"); restoran.setForeground(Color.BLACK);
+        restoran = new JLabel("Restoran"); restoran.setForeground(Color.WHITE);
         
         restoranPanel.add(restoran);
         restoranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,7 +97,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    restoranPanel.setBackground(Color.WHITE);
+                    restoranPanel.setBackground(Color.decode("#144429"));
                 }
             }
             
@@ -110,7 +110,7 @@ public class MenuBarPanel extends JPanel {
         hotelpanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         hotelpanel.setPreferredSize(new Dimension(130, 40));
         hotelpanel.setBackground(this.getBackground());
-        hotel = new JLabel("Hotel"); hotel.setForeground(Color.BLACK);
+        hotel = new JLabel("Hotel"); hotel.setForeground(Color.WHITE);
         
         hotelpanel.add(hotel);
         hotelpanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,7 +127,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    hotelpanel.setBackground(Color.WHITE);
+                    hotelpanel.setBackground(Color.decode("#144429"));
                 }
             }
         });
@@ -139,7 +139,7 @@ public class MenuBarPanel extends JPanel {
         parkiranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         parkiranPanel.setPreferredSize(new Dimension(130, 40));
         parkiranPanel.setBackground(this.getBackground());
-        parkiran = new JLabel("Parkiran"); parkiran.setForeground(Color.BLACK);
+        parkiran = new JLabel("Parkiran"); parkiran.setForeground(Color.WHITE);
         
         parkiranPanel.add(parkiran);
         parkiranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,7 +156,7 @@ public class MenuBarPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
-                    parkiranPanel.setBackground(Color.WHITE);
+                    parkiranPanel.setBackground(Color.decode("#144429"));
                 }
             }
         });
@@ -203,7 +203,7 @@ public class MenuBarPanel extends JPanel {
            pane[i].setBackground(this.getBackground());
         }
         for (int i=0;i<lable.length;i++) {
-            lable[i].setForeground(Color.BLACK);
+            lable[i].setForeground(Color.WHITE);
         }
     }
     
