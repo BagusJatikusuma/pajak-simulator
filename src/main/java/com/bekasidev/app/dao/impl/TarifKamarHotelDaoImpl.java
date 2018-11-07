@@ -55,7 +55,7 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
     }
 
     public void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel) {
-        String sql = "INSERT INTO t_kamarhotel VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_kamarhotel VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -63,11 +63,10 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             pstm.setString(1, tarifKamarHotel.getIdHotel());
             pstm.setString(2, tarifKamarHotel.getIdKamarHotel());
             pstm.setString(3, tarifKamarHotel.getTipeKamar());
-            pstm.setInt(4, tarifKamarHotel.getJumlahKamar());
-            pstm.setInt(5, tarifKamarHotel.getJumlahTotalKamar());
-            pstm.setDouble(6, tarifKamarHotel.getHargaPerKamar());
-            pstm.setDouble(7, tarifKamarHotel.getJumlahHargaSewaKamar());
-            pstm.setDouble(8, tarifKamarHotel.getJumlahTotalKeseluruhanHargaSewa());
+            pstm.setInt(4, tarifKamarHotel.getJumlahPemakaianKamarSebulan());
+            pstm.setDouble(5, tarifKamarHotel.getHargaPerKamar());
+            pstm.setString(6, tarifKamarHotel.getTanggalBuat());
+            pstm.setInt(7, tarifKamarHotel.getJumlahKamar());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,13 +74,12 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
 
     @Override
     public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel) {
-        String sql = "DELETE FROM t_kamarhotel WHERE id_hotel=? AND id_kamarhotel=?";
+        String sql = "DELETE FROM t_kamarhotel WHERE id_kamarhotel=?";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
-            pstm.setString(1, idHotel);
-            pstm.setString(2, idKamarHotel);
+            pstm.setString(1, idKamarHotel);
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,10 +93,9 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             tarifKamarHotel.setIdKamarHotel(rs.getString("id_kamarhotel"));
             tarifKamarHotel.setTipeKamar(rs.getString("tipe_kamar"));
             tarifKamarHotel.setJumlahKamar(rs.getInt("jumlah_kamar"));
-            tarifKamarHotel.setJumlahTotalKamar(rs.getInt("jumlah_totalkamar"));
+            tarifKamarHotel.setJumlahPemakaianKamarSebulan(rs.getInt("jumlah_kamarpemakaiankamarsebulan"));
             tarifKamarHotel.setHargaPerKamar(rs.getDouble("harga_perkamar"));
-            tarifKamarHotel.setJumlahHargaSewaKamar(rs.getDouble("jumlah_hargasewakamar"));
-            tarifKamarHotel.setJumlahTotalKeseluruhanHargaSewa(rs.getDouble("jumlah_totalkeseluruhanhargasewa"));
+            tarifKamarHotel.setTanggalBuat(rs.getString("tanggal_buat"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -29,6 +29,7 @@ public class RestoranTransactionServiceImpl implements RestoranTransactionServic
 //        calculateTotal(restoranTransaction);
         Calendar cal = Calendar.getInstance();
         restoranTransaction.setIdTransaction(Long.toString(cal.getTimeInMillis()));
+        restoranTransaction.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
         restoranTransactionDao.createRestoranTransaction(restoranTransaction);
     }
 

@@ -20,6 +20,22 @@ public class SessionProvider {
     }
     
     public static void resetRestoranTranstion() {
-        restoranTransaction = new RestoranTransaction();
+        if (restoranTransaction != null) {
+            restoranTransaction.setFrekuensiRamai(0);
+            restoranTransaction.setFrekuensiSepi(0);
+            restoranTransaction.setFrekuensiTotal(0);
+            restoranTransaction.setFrekuesniNormal(0);
+            restoranTransaction.setIdRestoran(null);
+            restoranTransaction.setIdTransaction(null);
+            restoranTransaction.setOmzetNormal(0);
+            restoranTransaction.setOmzetRamai(0);
+            restoranTransaction.setOmzetSepi(0);
+            restoranTransaction.setOmzetTotal(0);
+            restoranTransaction.setPajakPerBulan(0);
+            restoranTransaction.setPajakSetahun(0);
+            restoranTransaction.setRatarataOmzet(0);
+            restoranTransaction.setTanggalBuat(null);
+        }
+        else restoranTransaction = new RestoranTransaction();
     }
 }

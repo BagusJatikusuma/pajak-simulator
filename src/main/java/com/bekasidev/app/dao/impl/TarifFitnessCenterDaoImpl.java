@@ -67,7 +67,7 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
             pstm.setString(3,tarifFitnessCenter.getNamaFitnessCenter());
             pstm.setInt(4,tarifFitnessCenter.getJumlahPengunjung());
             pstm.setDouble(5,tarifFitnessCenter.getTarifFitness());
-            pstm.setDouble(6,tarifFitnessCenter.getJumlahTotal());
+            pstm.setString(6,tarifFitnessCenter.getTanggalBuat());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,13 +75,12 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
 
     @Override
     public void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter) {
-        String sql = "DELETE FROM t_fitnesscenter WHERE id_hotel=? AND id_fitnesscenter=?";
+        String sql = "DELETE FROM t_fitnesscenter WHERE id_fitnesscenter=?";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
-            pstm.setString(1, idHotel);
-            pstm.setString(2, idFitnessCenter);
+            pstm.setString(1, idFitnessCenter);
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,12 +95,10 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
             tarifFitnessCenter.setNamaFitnessCenter(rs.getString("nama_fitnesscenter"));
             tarifFitnessCenter.setTarifFitness(rs.getDouble("tarif_fitness"));
             tarifFitnessCenter.setJumlahPengunjung(rs.getInt("jumlah_pengunjung"));
-            tarifFitnessCenter.setJumlahTotal(rs.getDouble("jumlah_total"));
+            tarifFitnessCenter.setTanggalBuat(rs.getString("tanggal_buat"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return tarifFitnessCenter;
     }
-
-
 }

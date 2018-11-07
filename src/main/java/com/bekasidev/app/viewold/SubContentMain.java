@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bekasidev.app.view;
+package com.bekasidev.app.viewold;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,7 +41,7 @@ public class SubContentMain extends JPanel{
     public void initSubContentMain(){
         this.setLayout(new BorderLayout());
         
-        SideContentPanel sideContentPanel = new SideContentPanel(mainFrame);
+        SideContentPanel sideContentPanel = new SideContentPanel(mainFrame, this);
         sideContentPanel.initSideContentPanel();
 
         JScrollPane scroll = new JScrollPane();
@@ -52,6 +52,7 @@ public class SubContentMain extends JPanel{
         
         scroll.setPreferredSize(new Dimension(mainFrame.getWidth()/2, mainFrame.getHeight()-100));
         scroll.setViewportView(contentPanel);
+        scroll.setVisible(false);
         
         //add header panel
 //        HeaderFramePanel headerContentPanel = new HeaderFramePanel(mainFrame);

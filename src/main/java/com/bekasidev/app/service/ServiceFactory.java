@@ -11,6 +11,7 @@ public class ServiceFactory {
     private static HotelService hotelService = null;
     private static TarifKamarHotelService tarifKamarHotelService = null;
     private static PegawaiService pegawaiService = null;
+    private static MenuService menuService = null;
 
     public static PegawaiService getPegawaiService(){
         if(pegawaiService == null) pegawaiService = new PegawaiServiceImpl();
@@ -35,5 +36,10 @@ public class ServiceFactory {
     public static TarifKamarHotelService getTarifKamarHotelService(){
         if(tarifKamarHotelService == null) tarifKamarHotelService = new TarifKamarHotelServiceImpl();
         return tarifKamarHotelService;
+    }
+
+    public static MenuService getMenuService(){
+        if(menuService == null) menuService = new MenuServiceImpl();
+        return menuService;
     }
 }
