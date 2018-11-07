@@ -1,14 +1,8 @@
 package com.bekasidev.app.service;
 
 import com.bekasidev.app.model.RestoranTransaction;
-import com.bekasidev.app.service.backend.HotelService;
-import com.bekasidev.app.service.backend.RestoranService;
-import com.bekasidev.app.service.backend.RestoranTransactionService;
-import com.bekasidev.app.service.backend.TarifKamarHotelService;
-import com.bekasidev.app.service.backend.impl.HotelServiceImpl;
-import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
-import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
-import com.bekasidev.app.service.backend.impl.TarifKamarHotelServiceImpl;
+import com.bekasidev.app.service.backend.*;
+import com.bekasidev.app.service.backend.impl.*;
 
 public class ServiceFactory {
 
@@ -16,6 +10,12 @@ public class ServiceFactory {
     private static RestoranTransactionService restoranTransactionService = null;
     private static HotelService hotelService = null;
     private static TarifKamarHotelService tarifKamarHotelService = null;
+    private static PegawaiService pegawaiService = null;
+
+    public static PegawaiService getPegawaiService(){
+        if(pegawaiService == null) pegawaiService = new PegawaiServiceImpl();
+        return pegawaiService;
+    }
 
     public static RestoranService getRestoranService(){
         if(restoranService == null) restoranService = new RestoranServiceImpl();
