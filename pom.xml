@@ -35,14 +35,7 @@
         <artifactId>AbsoluteLayout</artifactId>
         <version>RELEASE82</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
-    <dependency>
-        <groupId>net.sf.jasperreports</groupId>
-        <artifactId>jasperreports</artifactId>
-        <version>6.5.1</version>
-    </dependency>
-
-
+    
       <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
       <dependency>
           <groupId>org.xerial</groupId>

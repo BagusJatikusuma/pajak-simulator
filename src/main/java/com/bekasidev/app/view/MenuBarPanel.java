@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.pajakrestoranview.PajakRestoranPanel;
 import com.bekasidev.app.view.timviewcomponent.TimContentPanel;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 
@@ -230,6 +231,10 @@ public class MenuBarPanel extends JPanel {
         resetColor(new JPanel[]{filePanel, hotelpanel, parkiranPanel, masterMenuPanel},
                 new JLabel[]{file, hotel, parkiran, masterMenu});
 
+        PajakRestoranPanel pajakRestoranPanel
+                = (PajakRestoranPanel) ComponentCollectorProvider
+                .getComponentMapper()
+                .get("pajak_restoran_panel").getComponent();
         ContentPanel contentPanel
                 = (ContentPanel) ComponentCollectorProvider
                 .getComponentMapper()
@@ -237,6 +242,7 @@ public class MenuBarPanel extends JPanel {
         if (contentPanel.getComponents().length > 0) {
             contentPanel.remove(0);
         }
+        contentPanel.add(pajakRestoranPanel);
         contentPanel.invalidate();
         contentPanel.revalidate();
         contentPanel.repaint();
