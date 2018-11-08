@@ -93,7 +93,7 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             tarifKamarHotel.setIdKamarHotel(rs.getString("id_kamarhotel"));
             tarifKamarHotel.setTipeKamar(rs.getString("tipe_kamar"));
             tarifKamarHotel.setJumlahKamar(rs.getInt("jumlah_kamar"));
-            tarifKamarHotel.setJumlahPemakaianKamarSebulan(rs.getInt("jumlah_kamarpemakaiankamarsebulan"));
+            tarifKamarHotel.setJumlahPemakaianKamarSebulan(rs.getInt("jumlah_pemakaiankamarsebulan"));
             tarifKamarHotel.setHargaPerKamar(rs.getDouble("harga_perkamar"));
             tarifKamarHotel.setTanggalBuat(rs.getString("tanggal_buat"));
         } catch (SQLException e) {
