@@ -7,6 +7,7 @@ public class BerkasPersiapan {
 
     private String idBerkas;
 
+    private String namaWP;
     private String kotaTerbit;
     private String npwpd;
     private String alamatJalan;
@@ -28,6 +29,10 @@ public class BerkasPersiapan {
     private String jabatanPenandatangan;
     private String namaPenandatangan;
     private String tanggalDibuat;
+
+    public String getNamaWP() { return namaWP; }
+
+    public void setNamaWP(String namaWP) { this.namaWP = namaWP; }
 
     public String getTanggalDibuat() {
         return tanggalDibuat;
