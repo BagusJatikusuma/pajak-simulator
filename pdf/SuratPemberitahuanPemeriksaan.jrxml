@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanPemeriksaan" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="72a708a6-ad7e-401c-a530-d16794691610">
 	<property name="ireport.zoom" value="1.2100000000000029"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="74"/>
+	<property name="ireport.y" value="176"/>
 	<style name="table">
 		<box>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -335,42 +335,6 @@ BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[Memberikan keterangan yang diperlukan.]]></text>
 			</staticText>
-			<componentElement>
-				<reportElement key="table" style="table" x="66" y="52" width="486" height="86" uuid="0e6e77d7-78c4-465c-9788-4fa8e2047531"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Table Dataset 1" uuid="a9a63e5e-bcd0-45d0-bf29-bdaad734fc97">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:column width="83" uuid="add266f6-f19f-43c6-b45e-fffa31ffd374">
-						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table_TH" height="31" rowSpan="1"/>
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1"/>
-					</jr:column>
-					<jr:column width="90" uuid="36581701-fb6a-4402-8808-8a57023bfd01">
-						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table_TH" height="31" rowSpan="1"/>
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1"/>
-					</jr:column>
-					<jr:column width="90" uuid="82f58c44-a8bb-4c6c-bf7b-a61384e3edb8">
-						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table_TH" height="31" rowSpan="1"/>
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1"/>
-					</jr:column>
-					<jr:column width="108" uuid="251cd72b-722a-4692-a5f7-af3341ace4d8">
-						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table_TH" height="31" rowSpan="1"/>
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1"/>
-					</jr:column>
-				</jr:table>
-			</componentElement>
 		</band>
 	</detail>
 	<columnFooter>
