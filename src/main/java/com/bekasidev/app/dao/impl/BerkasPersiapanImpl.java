@@ -38,7 +38,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
 
     @Override
     public void createBerkasPersiapan(BerkasPersiapan berkasPersiapan) {
-        String sql = "INSERT INTO berkas_persiapan VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO berkas_persiapan VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -60,6 +60,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.setString(16, berkasPersiapan.getJabatanPenandatangan());
             pstm.setString(17, berkasPersiapan.getNamaPenandatangan());
             pstm.setString(18, berkasPersiapan.getTanggalDibuat());
+            pstm.setString(19, berkasPersiapan.getNamaWP());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,6 +86,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         berkasPersiapan.setTanggalDibuat(rs.getString("tanggal_buat"));
         berkasPersiapan.setListPinjaman(setDokumenPinjaman(rs.getString("dokumen_pinjaman")));
         berkasPersiapan.setListPegawai(getPegawai(rs.getString("daftar_anggota")));
+        berkasPersiapan.setNamaWP(rs.getString("namawp"));
 
         return berkasPersiapan;
     }
