@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bekasidev.app.view;
+package com.bekasidev.app.viewold;
 
 import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.ServiceFactory;
@@ -60,7 +60,7 @@ public class RestaurantTableComponent extends JPanel {
         List<Restoran> restorans = service.getAllRestoran();
         
         for (Restoran obj : restorans) {
-            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(), "delete","input data"});
+            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(), "delete","pilih"});
         }
         
         Action delete = new AbstractAction() {
@@ -98,10 +98,10 @@ public class RestaurantTableComponent extends JPanel {
             }
             
         };
-        
+
         ButtonColumn buttonColumn = new ButtonColumn(restoranTable, delete, 2);
         ButtonColumn buttonColumn2 = new ButtonColumn(restoranTable, showContentPanel, 3);
-                
+
         restoranTable.setGridColor(new java.awt.Color(255, 255, 255));
         restoranTable.setRowHeight(22);
         

@@ -9,11 +9,13 @@ public class Pembukuan {
     private String satuanJumlah;
     private float potensiPorsi;
     private String tanggalBuat;
+    private short statusBahan;
 
     public Pembukuan() {
     }
 
-    public Pembukuan(String idRestoran, String idTransaksi, String idBenchmark, String deskripsi, int jumlah, String satuanJumlah, float potensiPorsi, String tanggalBuat) {
+    public Pembukuan(String idRestoran, String idTransaksi, String idBenchmark, String deskripsi,
+                     int jumlah, String satuanJumlah, float potensiPorsi, String tanggalBuat, short statusBahan) {
         this.idRestoran = idRestoran;
         this.idTransaksi = idTransaksi;
         this.idBenchmark = idBenchmark;
@@ -22,6 +24,15 @@ public class Pembukuan {
         this.satuanJumlah = satuanJumlah;
         this.potensiPorsi = potensiPorsi;
         this.tanggalBuat = tanggalBuat;
+        this.statusBahan = statusBahan;
+    }
+
+    public short getStatusBahan() {
+        return statusBahan;
+    }
+
+    public void setStatusBahan(short statusBahan) {
+        this.statusBahan = statusBahan;
     }
 
     public String getIdRestoran() {

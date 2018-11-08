@@ -36,7 +36,7 @@ public class PembukuanDaoImpl implements PembukuanDao {
 
     @Override
     public void createPembukuan(Pembukuan pembukuan) {
-        String sql = "INSERT INTO pembukuan VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO pembukuan VALUES(?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
                 PreparedStatement pstm = conn.prepareStatement(sql)){
@@ -48,6 +48,7 @@ public class PembukuanDaoImpl implements PembukuanDao {
             pstm.setString(6, pembukuan.getSatuanJumlah());
             pstm.setFloat(7, pembukuan.getPotensiPorsi());
             pstm.setString(8, pembukuan.getTanggalBuat());
+            pstm.setShort(9, pembukuan.getStatusBahan());
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -66,6 +67,7 @@ public class PembukuanDaoImpl implements PembukuanDao {
         pembukuan.setSatuanJumlah(rs.getString("satuan_jumlah"));
         pembukuan.setPotensiPorsi(rs.getFloat("potensi_porsi"));
         pembukuan.setTanggalBuat(rs.getString("tanggal_buat"));
+        pembukuan.setStatusBahan(rs.getShort("status_bahan"));
 
         return pembukuan;
     }

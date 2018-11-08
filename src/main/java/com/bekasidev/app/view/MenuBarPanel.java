@@ -5,185 +5,212 @@
  */
 package com.bekasidev.app.view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
+
+import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.KeyStroke;
-import javax.swing.event.MouseInputAdapter;
 
 /**
  *
  * @author bagus
  */
 public class MenuBarPanel extends JPanel {
-    private MainFrame mainFrame;
+    private JPanel filePanel,
+                    restoranPanel,
+                    hotelpanel,
+                    parkiranPanel;
+    private JLabel file, restoran, hotel, parkiran;
+    private Color defaultColor = Color.decode("#f3f3f3");
 
     public MenuBarPanel() {
-        super();
-    }
-
-    public MenuBarPanel(MainFrame mainFrame) {
-        super();
-        this.mainFrame = mainFrame;
+        init();
     }
     
     public void init() {
-        this.setLayout(new BorderLayout());
-        this.setBackground(Color.WHITE);
+        this.setLayout(new FlowLayout(FlowLayout.LEFT));
+        this.setBackground(Color.decode("#144429"));
+        MainFrame mainFrame 
+                = (MainFrame)ComponentCollectorProvider
+                        .getComponentMapper()
+                        .get("main_frame")
+                        .getComponent();
+        this.setPreferredSize(new Dimension(mainFrame.getWidth(), 40));
         
-        JMenuBar menuBar;
-        JMenu menuFile, menuHelp, submenu;
+        addFileMenu();
+        addRestoranMenu();
+        addHotelMenu();
+        addParkiranMenu();
+    }
+    
+    private void addFileMenu() {
+        filePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        filePanel.setPreferredSize(new Dimension(130, 40));
+        file = new JLabel("Dashboard");
+        file.setFont(new Font("Tahoma", 0, 13));
+        file.setForeground(Color.decode("#4574c6"));
         
-        JMenuItem menuItem;
-        
-        menuBar = new JMenuBar();
-        menuBar.setBackground(Color.WHITE);
-
-        //Build the first menu.
-        menuFile = new JMenu("File");
-        menuFile.getAccessibleContext().setAccessibleDescription("Open File menu");
-        menuBar.add(menuFile);
-        
-        //Build the first menu.
-        menuHelp = new JMenu("Help");
-        menuHelp.getAccessibleContext().setAccessibleDescription("Open Help menu");
-        menuBar.add(menuHelp);
-        
-        //menuFile item
-        menuItem = new JMenuItem("Atur Restoran",
-                         KeyEvent.VK_T);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Atur Restoran");
-        menuItem.setBackground(Color.WHITE);
-        menuItem.addMouseListener(new MouseInputAdapter() {
+        filePanel.add(file);
+        filePanel.setBackground(defaultColor);
+        filePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                restaurantItemClicked(evt);
+                fileMenuPressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    filePanel.setBackground(Color.decode("#9fd4b8"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (filePanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    filePanel.setBackground(Color.decode("#144429"));
+                }
             }
         });
-        menuFile.add(menuItem);
         
-        menuItem = new JMenuItem("Atur Hotel",
-                         KeyEvent.VK_T);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Atur Hotel");
-        menuItem.setBackground(Color.WHITE);
-        menuItem.addMouseListener(new MouseInputAdapter() {
+        
+        this.add(filePanel);
+    }
+    
+    private void addRestoranMenu() {
+        restoranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        restoranPanel.setPreferredSize(new Dimension(130, 40));
+        restoranPanel.setBackground(this.getBackground());
+        restoran = new JLabel("Restoran");
+        restoran.setFont(new Font("Tahoma", 0, 13));
+        restoran.setForeground(Color.WHITE);
+        
+        restoranPanel.add(restoran);
+        restoranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                hotelItemClicked(evt);
+                restoranMenuPressed(evt);
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    restoranPanel.setBackground(Color.decode("#9fd4b8"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (restoranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    restoranPanel.setBackground(Color.decode("#144429"));
+                }
+            }
+            
         });
-        menuFile.add(menuItem);
         
-        menuItem = new JMenuItem("Atur Parkiran",
-                         KeyEvent.VK_T);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "close application");
-        menuItem.setBackground(Color.WHITE);
-        menuItem.addMouseListener(new MouseInputAdapter() {
+        this.add(restoranPanel);
+    }
+    
+    private void addHotelMenu() {
+        hotelpanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        hotelpanel.setPreferredSize(new Dimension(130, 40));
+        hotelpanel.setBackground(this.getBackground());
+        hotel = new JLabel("Hotel");
+        hotel.setFont(new Font("Tahoma", 0, 13));
+        hotel.setForeground(Color.WHITE);
+        
+        hotelpanel.add(hotel);
+        hotelpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                parkiranItemClicked(evt);
+                hotelMenupressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    hotelpanel.setBackground(Color.decode("#9fd4b8"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (hotelpanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    hotelpanel.setBackground(Color.decode("#144429"));
+                }
             }
         });
-        menuFile.add(menuItem);
         
+        this.add(hotelpanel);
+    }
+    
+    private void addParkiranMenu() {
+        parkiranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
+        parkiranPanel.setPreferredSize(new Dimension(130, 40));
+        parkiranPanel.setBackground(this.getBackground());
+        parkiran = new JLabel("Parkiran");
+        parkiran.setFont(new Font("Tahoma", 0, 13));
+        parkiran.setForeground(Color.WHITE);
         
-        Image imgExit = null;
-        try {
-            imgExit
-                = ImageIO.read(getClass().getClassLoader().getResource("images/icons8-delete-48.png"));
-        } catch (IOException ex) {
-            Logger.getLogger(LandingPagePanel.class.getName()).log(Level.SEVERE, null, ex);
+        parkiranPanel.add(parkiran);
+        parkiranPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                parkiranMenuPressed(evt);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    parkiranPanel.setBackground(Color.decode("#9fd4b8"));
+                }
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (parkiranPanel.getBackground().getRGB() != defaultColor.getRGB()) {
+                    parkiranPanel.setBackground(Color.decode("#144429"));
+                }
+            }
+        });
+        
+        this.add(parkiranPanel);
+    }
+    
+    private void fileMenuPressed(MouseEvent evt) {
+        filePanel.setBackground(defaultColor);
+        file.setForeground(Color.decode("#144429"));
+        resetColor(new JPanel[]{restoranPanel, hotelpanel, parkiranPanel},
+                new JLabel[]{parkiran, hotel, restoran});
+        System.out.println("file menu clicked");
+        
+    }
+    
+    private void restoranMenuPressed(MouseEvent evt) {
+        System.out.println("restoran menu clicked");
+        restoranPanel.setBackground(defaultColor);
+        restoran.setForeground(Color.decode("#144429"));
+        resetColor(new JPanel[]{filePanel, hotelpanel, parkiranPanel},
+                new JLabel[]{file, hotel, parkiran});
+        
+    }
+    
+    private void hotelMenupressed(MouseEvent evt) {
+        hotelpanel.setBackground(defaultColor);
+        hotel.setForeground(Color.decode("#144429"));
+        resetColor(new JPanel[]{filePanel, restoranPanel, parkiranPanel},
+                new JLabel[]{file, parkiran, restoran});
+        System.out.println("hotel menu clicked");
+    }
+    
+    private void parkiranMenuPressed(MouseEvent evt) {
+        parkiranPanel.setBackground(defaultColor);
+        parkiran.setForeground(Color.decode("#144429") );
+        resetColor(new JPanel[]{filePanel, hotelpanel, restoranPanel},
+                new JLabel[]{file, hotel, restoran});
+        System.out.println("parkiran menu clicked");
+    }
+    
+    private void resetColor(JPanel [] pane, JLabel[] lable) {
+        for(int i=0;i<pane.length;i++){
+           pane[i].setBackground(this.getBackground());
         }
-        menuItem = new JMenuItem("Exit",
-                         new ImageIcon(getScaledImage(imgExit, 20, 20)));
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "close application");
-        menuItem.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                exitItemClicked(evt);
-            }
-        });
-        menuFile.add(menuItem);
-        
-        //menuHelp About
-        menuItem = new JMenuItem("About",
-                         KeyEvent.VK_T);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "See about us");
-        menuItem.setBackground(Color.WHITE);
-        menuItem.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                aboutItemClicked(evt);
-            }
-        });
-        menuHelp.add(menuItem);
-        
-        this.add(menuBar, BorderLayout.CENTER);
+        for (int i=0;i<lable.length;i++) {
+            lable[i].setForeground(Color.WHITE);
+        }
     }
     
-    private void restaurantItemClicked(MouseEvent evt) {
-        System.out.println("restoran clicked");
-        
-        SubContentMain contentMain = new SubContentMain(mainFrame);
-        contentMain.initSubContentMain();
-        
-        mainFrame.getContentPane().remove(1);
-        mainFrame.getContentPane().add(contentMain, BorderLayout.CENTER);
-        
-        mainFrame.invalidate();
-        mainFrame.validate();
-    }
-    
-    private void hotelItemClicked(MouseEvent evt) {
-        System.out.println("hotel clicked");
-        
-        RestaurantInputFrame restaurantInputFrame = new RestaurantInputFrame();
-        restaurantInputFrame.init();
-        restaurantInputFrame.setVisible(true);
-    }
-    
-    private void parkiranItemClicked(MouseEvent evt) {
-        System.out.println("parkiran clicked");
-    }
-    
-    private void exitItemClicked(MouseEvent evt) {
-        System.out.println("exit clicked");
-        mainFrame.dispose();
-    }
-    
-    private void aboutItemClicked(MouseEvent evt) {
-        System.out.println("about clicked");
-    }
-    
-    private Image getScaledImage(Image srcImg, int w, int h){
-        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = resizedImg.createGraphics();
-
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(srcImg, 0, 0, w, h, null);
-        g2.dispose();
-
-        return resizedImg;
-    }
 }

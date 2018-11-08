@@ -5,6 +5,7 @@ import com.bekasidev.app.dao.impl.MenuDaoImpl;
 import com.bekasidev.app.model.Menu;
 import com.bekasidev.app.service.backend.MenuService;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class MenuServiceImpl implements MenuService {
@@ -18,6 +19,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void createMenu(Menu menu) {
+        Calendar cal = Calendar.getInstance();
+        menu.setIdMenu(Long.toString(cal.getTimeInMillis()));
         menuDao.createMenu(menu);
     }
 }
