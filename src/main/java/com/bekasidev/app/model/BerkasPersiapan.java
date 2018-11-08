@@ -29,6 +29,8 @@ public class BerkasPersiapan {
     private String namaPenandatangan;
     private String tanggalDibuat;
 
+    private String namaWajibPajak;
+
     public String getTanggalDibuat() {
         return tanggalDibuat;
     }
