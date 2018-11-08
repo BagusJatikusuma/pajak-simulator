@@ -310,7 +310,7 @@ public class ContentPanel extends JPanel{
                         tfFrekuensiRamai.getText().equals("") ||
                         tfFrekuensiNormal.getText().equals("") ||
                         tfFrekuensiSepi.getText().equals(""))) {
-                    
+
                     restoranTransaction.setIdRestoran(idRestoran);
                     restoranTransaction.setIdTransaction(null);
                     restoranTransaction.setOmzetRamai((double) Integer.parseInt(tfOmzetRamai.getText()));

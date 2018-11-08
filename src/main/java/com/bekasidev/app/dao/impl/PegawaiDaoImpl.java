@@ -84,7 +84,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
     @Override
     public void createTim(Tim tim) {
         String sql = "INSERT INTO tim VALUES(?,?)";
-
+        System.out.println("id "+tim.getIdTim()+"; nama "+tim.getNamaTim());
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, tim.getIdTim());
