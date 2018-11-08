@@ -10,7 +10,19 @@ public class ServiceFactory {
     private static RestoranTransactionService restoranTransactionService = null;
     private static HotelService hotelService = null;
     private static TarifKamarHotelService tarifKamarHotelService = null;
+    private static PegawaiService pegawaiService = null;
     private static MenuService menuService = null;
+    private static BerkasPersiapanService berkasPersiapanService = null;
+
+    public static BerkasPersiapanService getBerkasPersiapanService(){
+        if(berkasPersiapanService == null) berkasPersiapanService = new BerkasPersiapanServiceImpl();
+        return berkasPersiapanService;
+    }
+
+    public static PegawaiService getPegawaiService(){
+        if(pegawaiService == null) pegawaiService = new PegawaiServiceImpl();
+        return pegawaiService;
+    }
 
     public static RestoranService getRestoranService(){
         if(restoranService == null) restoranService = new RestoranServiceImpl();

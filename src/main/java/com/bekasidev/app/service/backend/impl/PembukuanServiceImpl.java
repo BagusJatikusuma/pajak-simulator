@@ -28,6 +28,7 @@ public class PembukuanServiceImpl implements PembukuanService {
         Calendar cal = Calendar.getInstance();
         pembukuan.setTanggalBuat(Long.toString(cal.getTimeInMillis()));
         Benchmark benchmark = benchmarkDao.getBenchmarkById(pembukuan.getIdBenchmark());
+
         pembukuan.setPotensiPorsi(round(benchmark.getPorsi()*pembukuan.getJumlah()/benchmark.getJumlah()));
         pembukuanDao.createPembukuan(pembukuan);
     }
