@@ -44,7 +44,7 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(true);
         this.setLayout(new BorderLayout());
-        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+//        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         
         FrameDragListener frameDragListener = new FrameDragListener(this);
         this.addMouseListener(frameDragListener);

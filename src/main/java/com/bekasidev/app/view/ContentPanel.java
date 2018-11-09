@@ -1,5 +1,6 @@
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.pajakrestoranview.PajakRestoranPanel;
 import com.bekasidev.app.view.timviewcomponent.TimContentPanel;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 
@@ -17,5 +18,6 @@ public class ContentPanel extends JPanel {
         this.setLayout(new BorderLayout());
 
         TimContentPanel timContentPanel = new TimContentPanel();
+        PajakRestoranPanel pajakRestoranPanel = new PajakRestoranPanel();
     }
 }
