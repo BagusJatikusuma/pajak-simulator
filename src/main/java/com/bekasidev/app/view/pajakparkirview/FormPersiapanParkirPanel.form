@@ -30,31 +30,29 @@
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="labelJudul" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="labelSuratPerintahDikeluarkanOleh" max="32767" attributes="0"/>
-                      <Component id="tfSuratPerintahDikeluarkanOleh" alignment="0" max="32767" attributes="0"/>
-                      <Component id="labelNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
-                      <Component id="tfNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
-                      <Component id="labelTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
-                      <Component id="tfTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
-                      <Component id="labelTimPemeriksa" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="tfTimPemeriksa" min="-2" pref="259" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="bCekAnggotaTim" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="labelMasaPajak" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="tfMasaPajak" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="labelKeteranganMasaPajak" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="labelLamaPemeriksaan" alignment="0" max="32767" attributes="0"/>
-                      <Component id="tfLamaPemeriksaan" max="32767" attributes="0"/>
-                      <Component id="labelPenandatangan" alignment="0" max="32767" attributes="0"/>
-                      <Component id="bGenerate" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
-                      <Component id="tfPenandatangan" alignment="1" max="32767" attributes="0"/>
+                  <Component id="labelSuratPerintahDikeluarkanOleh" max="32767" attributes="0"/>
+                  <Component id="tfSuratPerintahDikeluarkanOleh" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelTimPemeriksa" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tfTimPemeriksa" min="-2" pref="259" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="bCekAnggotaTim" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="labelMasaPajak" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tfMasaPajak" min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="labelKeteranganMasaPajak" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="labelLamaPemeriksaan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfLamaPemeriksaan" max="32767" attributes="0"/>
+                  <Component id="labelPenandatangan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bGenerate" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                  <Component id="tfPenandatangan" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
@@ -113,7 +111,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="FORM PERSIAPAN"/>
+        <Property name="text" type="java.lang.String" value="FORM PERSIAPAN PARKIR"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelSuratPerintahDikeluarkanOleh">

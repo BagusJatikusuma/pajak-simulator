@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+        <BevelBorder/>
+      </Border>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="labelJudul" max="32767" attributes="0"/>
+                  <Component id="labelSuratPerintahDikeluarkanOleh" max="32767" attributes="0"/>
+                  <Component id="tfSuratPerintahDikeluarkanOleh" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfNomorSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfTanggalSuratPerintah" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelTimPemeriksa" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tfTimPemeriksa" min="-2" pref="259" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="bCekAnggotaTim" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="labelMasaPajak" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tfMasaPajak" min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="labelKeteranganMasaPajak" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="labelLamaPemeriksaan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfLamaPemeriksaan" max="32767" attributes="0"/>
+                  <Component id="labelPenandatangan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bGenerate" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                  <Component id="tfPenandatangan" alignment="1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="labelJudul" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="labelSuratPerintahDikeluarkanOleh" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfSuratPerintahDikeluarkanOleh" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelNomorSuratPerintah" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfNomorSuratPerintah" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelTanggalSuratPerintah" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfTanggalSuratPerintah" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="labelTimPemeriksa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfTimPemeriksa" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="bCekAnggotaTim" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelMasaPajak" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfMasaPajak" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelKeteranganMasaPajak" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelLamaPemeriksaan" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfLamaPemeriksaan" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="labelPenandatangan" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfPenandatangan" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="bGenerate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="labelJudul">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="FORM PERSIAPAN HIBURAN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelSuratPerintahDikeluarkanOleh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Surat Perintah Dikeluarkan Oleh"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSuratPerintahDikeluarkanOleh">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSuratPerintahDikeluarkanOlehActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNomorSuratPerintah">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nomor Surat Perintah"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNomorSuratPerintah">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNomorSuratPerintahActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelTanggalSuratPerintah">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tanggal Surat Perintah Dikeluarkan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfTanggalSuratPerintah">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelTimPemeriksa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tim Pemeriksa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfTimPemeriksa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tim 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bCekAnggotaTim">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cek Anggota Tim"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelMasaPajak">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Masa Pajak"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfMasaPajak">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1 Tahun"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelKeteranganMasaPajak">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Januari 2017   s.d   Desember 2017"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelLamaPemeriksaan">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lama Pemeriksaan ( Hari )"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfLamaPemeriksaan">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPenandatangan">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Penandatangan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfPenandatangan">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPenandatanganActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bGenerate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generate"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
