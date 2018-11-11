@@ -99,6 +99,11 @@ public class FormPersiapanHotelPanel extends javax.swing.JPanel {
         });
 
         bGenerate.setText("Generate");
+        bGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGenerateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,6 +190,10 @@ public class FormPersiapanHotelPanel extends javax.swing.JPanel {
     private void tfPenandatanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPenandatanganActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPenandatanganActionPerformed
+
+    private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bGenerateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
