@@ -7,6 +7,8 @@ package com.bekasidev.app.view.pajakrestoranview;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +23,11 @@ public class PajakRestoranTablePanel extends JPanel{
     }
     
     public void init(){
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 40));
         this.setBackground(Color.BLUE);
+        
+        PajakRestoranTableComponent restoranTableComponent = new PajakRestoranTableComponent();
+        this.add(restoranTableComponent);
     }
     
 }
