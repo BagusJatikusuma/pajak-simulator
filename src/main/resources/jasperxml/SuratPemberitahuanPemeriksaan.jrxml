@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanPemeriksaan" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="72a708a6-ad7e-401c-a530-d16794691610">
 	<property name="ireport.zoom" value="1.2100000000000029"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="141"/>
+	<property name="ireport.y" value="281"/>
 	<style name="table">
 		<box>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -257,7 +257,7 @@ BEKASI]]></text>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="359" splitType="Stretch">
+		<band height="356" splitType="Stretch">
 			<staticText>
 				<reportElement x="66" y="0" width="486" height="52" uuid="4ed9c20b-e9c8-45a5-ac8f-5d6eb06b6685"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
@@ -266,70 +266,70 @@ BEKASI]]></text>
 				<text><![CDATA[	Menindaklanjuti Surat Perintah Pemeriksaan Pajak Daerah dari (Kepala Badan) Pendapatan Daerah Kabupaten Bekasi Nomor : 800 / (isian) / Bapenda Tanggal (isian), bersama ini diberitahukan bahwa :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="138" width="486" height="45" uuid="97c076e6-5a17-4a40-a825-1f1a87ba319d"/>
+				<reportElement x="66" y="92" width="486" height="45" uuid="97c076e6-5a17-4a40-a825-1f1a87ba319d"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[	Ditugaskan untuk melaksanakan Pemeriksaan Pajak (isian jenisnya apa) terhitung masa pajak bulan (isian bulan tahun) s.d (isian bulan tahun) selama (isian angka hari) hari kerja sejak Surat Pemberitahuan ini diterima oleh Wajib Pajak yang diperiksa.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="183" width="486" height="33" uuid="91169295-d156-4d75-bcd2-00d8909046f2"/>
+				<reportElement x="66" y="137" width="486" height="33" uuid="91169295-d156-4d75-bcd2-00d8909046f2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[	Sehubungan hal tersebut, sesuai ketentuan umum perpajakan daerah bahwa Wajib Pajak yang diperiksa wajib :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="300" width="486" height="35" uuid="447999c8-dfb6-4015-892a-d17e2f23ebd5"/>
+				<reportElement x="66" y="254" width="486" height="35" uuid="447999c8-dfb6-4015-892a-d17e2f23ebd5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[	Apabila kewajiban sebagaimana dimaksud tidak dapat dipenuhi maka dapat ditindaklanjuti sesuai ketentuan peraturan perpajakan yang berlaku.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="335" width="486" height="18" uuid="280f3f06-5f10-4ad7-bcc1-3a6fbe296b2f"/>
+				<reportElement x="66" y="289" width="486" height="18" uuid="280f3f06-5f10-4ad7-bcc1-3a6fbe296b2f"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[	Demikian atas perhatian dan kerjasamanya diucapkan terima kasih.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="216" width="23" height="33" uuid="617e72bd-9335-4a2f-9f1c-558bd8a3aebd"/>
+				<reportElement x="66" y="170" width="23" height="33" uuid="617e72bd-9335-4a2f-9f1c-558bd8a3aebd"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[a.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="249" width="23" height="33" uuid="b37d0b60-1d42-47f7-a784-3a25c04bbbcf"/>
+				<reportElement x="66" y="203" width="23" height="33" uuid="b37d0b60-1d42-47f7-a784-3a25c04bbbcf"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[b.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="282" width="23" height="18" uuid="d91082c5-58e5-41dc-88fc-be9c61d4b02c"/>
+				<reportElement x="66" y="236" width="23" height="18" uuid="d91082c5-58e5-41dc-88fc-be9c61d4b02c"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[c.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="216" width="463" height="33" uuid="757b522e-e872-4f1b-9da7-122f7e01b9ca"/>
+				<reportElement x="89" y="170" width="463" height="33" uuid="757b522e-e872-4f1b-9da7-122f7e01b9ca"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Memperhatikan dan atau meminjamkan buku atau catatan, dokumen yang menjadi dasar dan dokumen lain yang berhubungan dengan objek pajak yang terutang.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="249" width="463" height="33" uuid="41124cca-75ce-44d6-8b1e-6b415b00e713"/>
+				<reportElement x="89" y="203" width="463" height="33" uuid="41124cca-75ce-44d6-8b1e-6b415b00e713"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Memberikan kesempatan untuk memasuki tempat atau ruangan yang dianggap perlu dan memberi bantuan guna kelancaran pemeriksaan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="282" width="463" height="18" uuid="4e86fb49-e693-4b7a-9b68-fad7d4403fd4"/>
+				<reportElement x="89" y="236" width="463" height="18" uuid="4e86fb49-e693-4b7a-9b68-fad7d4403fd4"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>

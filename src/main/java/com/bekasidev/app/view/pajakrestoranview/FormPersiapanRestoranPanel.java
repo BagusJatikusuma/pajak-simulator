@@ -5,18 +5,20 @@
  */
 package com.bekasidev.app.view.pajakrestoranview;
 
+import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bayu Arafli
  */
-public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
+public class FormPersiapanRestoranPanel extends JPanel {
     private ReportService reportService;
 
     /**
@@ -36,6 +38,8 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelJudul = new javax.swing.JLabel();
+        labelNomorUrutSurat = new javax.swing.JLabel();
+        tfNomorUrutSurat = new javax.swing.JTextField();
         labelSuratPerintahDikeluarkanOleh = new javax.swing.JLabel();
         cbSPDari = new javax.swing.JComboBox<>();
         labelNomorSuratPerintah = new javax.swing.JLabel();
@@ -63,6 +67,14 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
         labelJudul.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelJudul.setText("FORM PERSIAPAN RESTORAN");
+
+        labelNomorUrutSurat.setText("Nomor Urut Surat");
+
+        tfNomorUrutSurat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomorUrutSuratActionPerformed(evt);
+            }
+        });
 
         labelSuratPerintahDikeluarkanOleh.setText("Surat Perintah Dikeluarkan Oleh");
 
@@ -136,7 +148,9 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                     .addComponent(cbSPDari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(spLamaPemeriksaan)
-                    .addComponent(cbPenandatangan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbPenandatangan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelNomorUrutSurat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfNomorUrutSurat))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,6 +159,10 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                 .addGap(23, 23, 23)
                 .addComponent(labelJudul)
                 .addGap(18, 18, 18)
+                .addComponent(labelNomorUrutSurat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfNomorUrutSurat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelSuratPerintahDikeluarkanOleh)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbSPDari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,7 +174,7 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                 .addComponent(labelTanggalSuratPerintah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTimPemeriksa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,11 +184,11 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                 .addComponent(labelMasaPajak)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(mcAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(mcAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelSampai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ycAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mcAkhirMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ycAkhirMasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ycAkhirMasa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelLamaPemeriksaan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,7 +197,7 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                 .addComponent(labelPenandatangan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbPenandatangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addComponent(bGenerate)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -193,6 +211,8 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
 
     private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
         // TODO add your handling code here:
+        BerkasPersiapan bp = new BerkasPersiapan();
+        bp.setNomorSurat(tfNomorUrutSurat.getText());
         reportService
                 = ServiceFactory.getReportService();
         PersiapanPajakPOJO persiapanPajakPOJO
@@ -224,6 +244,10 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
         reportService.createPersiapanPajakRestoranReport();
     }//GEN-LAST:event_bGenerateActionPerformed
 
+    private void tfNomorUrutSuratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorUrutSuratActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomorUrutSuratActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCekAnggotaTim;
@@ -236,6 +260,7 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelLamaPemeriksaan;
     private javax.swing.JLabel labelMasaPajak;
     private javax.swing.JLabel labelNomorSuratPerintah;
+    private javax.swing.JLabel labelNomorUrutSurat;
     private javax.swing.JLabel labelPenandatangan;
     private javax.swing.JLabel labelSampai;
     private javax.swing.JLabel labelSuratPerintahDikeluarkanOleh;
@@ -245,6 +270,7 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JMonthChooser mcAwalMasa;
     private javax.swing.JSpinner spLamaPemeriksaan;
     private javax.swing.JTextField tfNomorSuratPerintah;
+    private javax.swing.JTextField tfNomorUrutSurat;
     private com.toedter.calendar.JYearChooser ycAkhirMasa;
     private com.toedter.calendar.JYearChooser ycAwalMasa;
     // End of variables declaration//GEN-END:variables
