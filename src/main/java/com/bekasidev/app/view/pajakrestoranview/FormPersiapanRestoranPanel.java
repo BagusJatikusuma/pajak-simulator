@@ -5,6 +5,8 @@
  */
 package com.bekasidev.app.view.pajakrestoranview;
 
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import java.text.DateFormat;
@@ -15,6 +17,7 @@ import java.text.SimpleDateFormat;
  * @author Bayu Arafli
  */
 public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
+    private ReportService reportService;
 
     /**
      * Creates new form FormPersiapanPanel
@@ -190,6 +193,8 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
 
     private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
         // TODO add your handling code here:
+        reportService
+                = ServiceFactory.getReportService();
         PersiapanPajakPOJO persiapanPajakPOJO
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
@@ -215,6 +220,8 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
         System.out.println("tfPenandatangan "+persiapanPajakPOJO2.getNipPenandatangan());
         System.out.println("tfSuratPerintahDikeluarkanOleh "+persiapanPajakPOJO2.getSpDari());
         System.out.println("tfTanggalSuratPerintah "+persiapanPajakPOJO2.getTanggalTurunSP());
+        
+        reportService.createPersiapanPajakRestoranReport();
     }//GEN-LAST:event_bGenerateActionPerformed
 
 

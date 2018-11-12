@@ -42,7 +42,7 @@ public class MenuContainer extends JPanel {
         PajakHiburanPanel pajakHiburanPanel = new PajakHiburanPanel();
         PajakPeneranganJalanPanel pajakPeneranganJalanPanel = new PajakPeneranganJalanPanel();
         
-        this.add(customHeaderPanel, BorderLayout.PAGE_START);
+//        this.add(customHeaderPanel, BorderLayout.PAGE_START);
         this.add(menuBarPanel, BorderLayout.CENTER);
         this.add(menuBarPanelRestoran, BorderLayout.PAGE_END);
         this.add(fileMenuBarPanel, BorderLayout.PAGE_END);

@@ -3,6 +3,8 @@ package com.bekasidev.app.service;
 import com.bekasidev.app.model.RestoranTransaction;
 import com.bekasidev.app.service.backend.*;
 import com.bekasidev.app.service.backend.impl.*;
+import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl;
 
 public class ServiceFactory {
 
@@ -13,6 +15,7 @@ public class ServiceFactory {
     private static PegawaiService pegawaiService = null;
     private static MenuService menuService = null;
     private static BerkasPersiapanService berkasPersiapanService = null;
+    private static ReportService reportService = null;
 
     public static BerkasPersiapanService getBerkasPersiapanService(){
         if(berkasPersiapanService == null) berkasPersiapanService = new BerkasPersiapanServiceImpl();
@@ -47,5 +50,10 @@ public class ServiceFactory {
     public static MenuService getMenuService(){
         if(menuService == null) menuService = new MenuServiceImpl();
         return menuService;
+    }
+    
+    public static ReportService getReportService(){
+        if(reportService == null) reportService = new ReportServiceImpl();
+        return reportService;
     }
 }

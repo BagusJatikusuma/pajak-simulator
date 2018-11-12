@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
         
         this.setTitle("Aplikasi Perpajakan Kabupaten Bekasi");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
+//        this.setUndecorated(true);
         this.setLayout(new BorderLayout());
 //        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         
