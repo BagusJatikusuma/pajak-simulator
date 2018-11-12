@@ -6,6 +6,8 @@
 package com.bekasidev.app.view.util;
 
 import com.bekasidev.app.model.RestoranTransaction;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  
@@ -13,10 +15,16 @@ import com.bekasidev.app.model.RestoranTransaction;
  */
 public class SessionProvider {
     private static RestoranTransaction restoranTransaction;
+    private static Map<String, Object> sessionPajakMap;
     
     public static RestoranTransaction getRestoranTransaction() {
         if (restoranTransaction == null) resetRestoranTranstion();
         return restoranTransaction;
+    }
+    
+    public static Map<String, Object> getPajakMapSession() {
+        if (sessionPajakMap == null) sessionPajakMap = new HashMap<>();
+        return sessionPajakMap;
     }
     
     public static void resetRestoranTranstion() {
