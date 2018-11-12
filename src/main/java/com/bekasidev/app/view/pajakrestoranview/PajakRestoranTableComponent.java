@@ -11,9 +11,13 @@ import com.bekasidev.app.service.backend.RestoranService;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import com.bekasidev.app.view.util.modelview.WajibPajak;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
+import java.util.Map;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JPanel;
@@ -62,6 +66,19 @@ public class PajakRestoranTableComponent extends JPanel {
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
                 System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                
+                WajibPajak wajibPajak = new WajibPajak();
+                wajibPajak.setNpwpd(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
+                wajibPajak.setNamaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                
+                PersiapanPajakPOJO persiapanPajakPOJO = new PersiapanPajakPOJO();
+                persiapanPajakPOJO.setNpwpd(wajibPajak);
+                
+                Map<String, Object> persiapanPajakRetoranMap
+                        = SessionProvider.getPajakMapSession();
+                persiapanPajakRetoranMap.put("persiapan_pajak_restoran", persiapanPajakPOJO);
+                
+                System.out.println("data pajak restoran telah disimpan");
             }
             
         };

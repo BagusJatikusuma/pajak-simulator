@@ -47,6 +47,11 @@
           <artifactId>sqlite-jdbc</artifactId>
           <version>3.25.2</version>
       </dependency>
+    <dependency>
+      <groupId>com.toedter</groupId>
+      <artifactId>jcalendar</artifactId>
+      <version>1.4</version>
+    </dependency>
   </dependencies>
   
   <!-- http://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/ -->
