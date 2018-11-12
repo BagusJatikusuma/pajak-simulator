@@ -6,6 +6,7 @@
 package com.bekasidev.app.service.reportservice.reportserviceimpl;
 
 import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.view.util.modelview.WajibPajak;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.InputStream;
@@ -13,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -53,10 +55,29 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+//            DataBeanList DataBeanList = new DataBeanList();
+            ArrayList<WajibPajak> dataList = new ArrayList();
+
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(dataList);
+
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            parameter.put("judul", "Prepared By Manisha");
+
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+               e.printStackTrace();
+            }
+            
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameters, 
+                    parameter, 
                     new JRBeanCollectionDataSource(new ArrayList<Object>()));
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
