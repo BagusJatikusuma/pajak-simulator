@@ -5,9 +5,9 @@
  */
 package com.bekasidev.app.viewold;
 
-import com.bekasidev.app.model.Restoran;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.service.backend.WajibPajakService;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -53,7 +53,7 @@ public class RestaurantInputFrame extends JFrame {
     private class RestaurantInputPanel extends JPanel {
         private JTextField tfNamaRestoran;
         private RestaurantInputFrame restaurantInputFrame;
-        private RestoranService restoranService;
+        private WajibPajakService wajibPajakService;
 
         public RestaurantInputPanel() {
         }
@@ -65,7 +65,7 @@ public class RestaurantInputFrame extends JFrame {
             this.setLayout(null);
             
             //===== form add restoran =====//
-            JLabel labelNamaAddRestoran = new JLabel("Nama Restoran");
+            JLabel labelNamaAddRestoran = new JLabel("Nama WajibPajak");
             labelNamaAddRestoran.setFont(new Font("Tahoma", 0, 16));
             labelNamaAddRestoran.setForeground(Color.BLACK);
             labelNamaAddRestoran.setSize(150, 20);
@@ -87,13 +87,13 @@ public class RestaurantInputFrame extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if (!tfNamaRestoran.getText().equals("")) {
-                        Restoran restoran = new Restoran();
-                        restoran.setNamaRestoran(tfNamaRestoran.getText());
+                        WajibPajak wajibPajak = new WajibPajak();
+                        wajibPajak.setNamaWajibPajak(tfNamaRestoran.getText());
 
-                        addRestoran(restoran);
-                        JOptionPane.showMessageDialog(restaurantInputFrame ,"Berhasil Menambahkan Data Restoran");
+                        addRestoran(wajibPajak);
+                        JOptionPane.showMessageDialog(restaurantInputFrame ,"Berhasil Menambahkan Data WajibPajak");
                     } else {
-                        JOptionPane.showMessageDialog(restaurantInputFrame ,"Masukkan Dahulu Data Restoran");
+                        JOptionPane.showMessageDialog(restaurantInputFrame ,"Masukkan Dahulu Data WajibPajak");
                     }
                 }
             });
@@ -102,12 +102,12 @@ public class RestaurantInputFrame extends JFrame {
         
         }
         
-        public void addRestoran(Restoran restoran){
-            restoranService = ServiceFactory.getRestoranService();
+        public void addRestoran(WajibPajak wajibPajak){
+            wajibPajakService = ServiceFactory.getWajibPajakService();
             
-            restoranService.createDataRestoran(restoran);
+            wajibPajakService.createDataWP(wajibPajak);
             tfNamaRestoran.setText("");
-            System.out.println("Berhasil Add Restoran");
+            System.out.println("Berhasil Add WajibPajak");
             
             SideContentPanel rootPanel = this.restaurantInputFrame.rootPanel;
             rootPanel.resetRestaurantTable();

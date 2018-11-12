@@ -70,10 +70,10 @@ public class MenuBarPanel extends JPanel {
         menuBar.add(menuHelp);
         
         //menuFile item
-        menuItem = new JMenuItem("Atur Restoran",
+        menuItem = new JMenuItem("Atur WajibPajak",
                          KeyEvent.VK_T);
         menuItem.getAccessibleContext().setAccessibleDescription(
-                "Atur Restoran");
+                "Atur WajibPajak");
         menuItem.setBackground(Color.WHITE);
         menuItem.addMouseListener(new MouseInputAdapter() {
             @Override

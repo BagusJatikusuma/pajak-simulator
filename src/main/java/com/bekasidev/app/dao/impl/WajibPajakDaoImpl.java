@@ -2,7 +2,7 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.RestoranDao;
-import com.bekasidev.app.model.Restoran;
+import com.bekasidev.app.model.WajibPajak;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,32 +10,32 @@ import java.util.List;
 
 public class RestoranDaoImpl implements RestoranDao {
 
-    public List<Restoran> getAllRestoran() {
+    public List<WajibPajak> getAllRestoran() {
         String sql = "SELECT * FROM restoran";
-        List<Restoran> listRestoran= new ArrayList<>();
+        List<WajibPajak> listWajibPajak = new ArrayList<>();
 
         try (Connection conn = Connect.connect();
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(sql)) {
             while(rs.next()){
-                Restoran restoran = new Restoran();
-                restoran.setIdRestoran(rs.getString("id_restoran"));
-                restoran.setNamaRestoran(rs.getString("nama_restoran"));
-                listRestoran.add(restoran);
+                WajibPajak wajibPajak = new WajibPajak();
+                wajibPajak.setIdWajibPajak(rs.getString("id_wp"));
+                wajibPajak.setNamaWajibPajak(rs.getString("nama_wp"));
+                listWajibPajak.add(wajibPajak);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return listRestoran;
+        return listWajibPajak;
     }
 
-    public void createDataRestoran(Restoran restoran){
-        String sql = "INSERT INTO restoran VALUES(?,?)";
+    public void createDataRestoran(WajibPajak wajibPajak){
+        String sql = "INSERT INTO wajib_pajak VALUES(?,?)";
 
         try (Connection conn = Connect.connect();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, restoran.getIdRestoran());
-            pstm.setString(2, restoran.getNamaRestoran());
+            pstm.setString(1, wajibPajak.getIdWajibPajak());
+            pstm.setString(2, wajibPajak.getNamaWajibPajak());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class RestoranDaoImpl implements RestoranDao {
 
     @Override
     public void deleteRestoranById(String idRestoran) {
-        String sql = "DELETE FROM restoran WHERE id_restoran=?";
+        String sql = "DELETE FROM wajib_pajak WHERE id_wp=?";
 
         try(Connection conn = Connect.connect();
                 PreparedStatement pstm = conn.prepareStatement(sql)) {

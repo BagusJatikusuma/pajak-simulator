@@ -5,9 +5,9 @@
  */
 package com.bekasidev.app.viewold;
 
-import com.bekasidev.app.model.Restoran;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.ColumnGroup;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
@@ -28,7 +28,7 @@ import javax.swing.table.TableColumnModel;
  * @author bagus
  */
 public class RestaurantTableComponent extends JPanel {
-    private RestoranService service;
+    private WajibPajakService service;
     private JPanel subContentMainPanel;
     private MainFrame mainFrame;
 
@@ -41,7 +41,7 @@ public class RestaurantTableComponent extends JPanel {
     }
     
     public void init() {
-        service = ServiceFactory.getRestoranService();
+        service = ServiceFactory.getWajibPajakService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
         JTable restoranTable = new JTable() {
@@ -56,10 +56,10 @@ public class RestaurantTableComponent extends JPanel {
         dtm.setColumnIdentifiers(header);
         restoranTable.setModel(dtm);
         
-        List<Restoran> restorans = service.getAllRestoran();
+        List<WajibPajak> wajibPajaks = service.getAllWP();
         
-        for (Restoran obj : restorans) {
-            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(), "delete","pilih"});
+        for (WajibPajak obj : wajibPajaks) {
+            dtm.addRow(new Object[] {obj.getIdWajibPajak(), obj.getNamaWajibPajak(), "delete","pilih"});
         }
         
         Action delete = new AbstractAction() {
@@ -68,7 +68,7 @@ public class RestaurantTableComponent extends JPanel {
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
                 System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
-                service.deleteRestoran(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
+                service.deleteWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
                 ((DefaultTableModel)table.getModel()).removeRow(modelRow);
             }
         };
@@ -105,7 +105,7 @@ public class RestaurantTableComponent extends JPanel {
         restoranTable.setRowHeight(22);
         
         TableColumnModel cm = restoranTable.getColumnModel();
-        ColumnGroup g_name = new ColumnGroup("Restoran Entity");
+        ColumnGroup g_name = new ColumnGroup("WajibPajak Entity");
         g_name.add(cm.getColumn(0));
         g_name.add(cm.getColumn(1));
         

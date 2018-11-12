@@ -9,9 +9,9 @@ import com.bekasidev.app.model.Menu;
 import com.bekasidev.app.model.RestoranTransaction;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.MenuService;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
-import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
+import com.bekasidev.app.service.backend.impl.WajibPajakServiceImpl;
 import java.awt.BorderLayout;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
 import com.bekasidev.app.view.tablecomponent.ColumnGroup;
@@ -82,7 +82,7 @@ public class ContentPanel extends JPanel{
 
     // Service
     private MenuService menuService;
-    private RestoranService restoranService = new RestoranServiceImpl();
+    private WajibPajakService wajibPajakService = new WajibPajakServiceImpl();
     private RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
     
     public ContentPanel() {
@@ -426,7 +426,7 @@ public class ContentPanel extends JPanel{
         constraintsFormHasilAtas.gridx = 0;
         constraintsFormHasilAtas.gridy = 7;
         constraintsFormHasilAtas.anchor = GridBagConstraints.NORTHWEST;
-        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Potensi Pajak Restoran"), constraintsFormHasilAtas);
+        panelFormHasilPotensiPenjualanAtas.add(new JLabel("Potensi Pajak WajibPajak"), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;
         panelFormHasilPotensiPenjualanAtas.add(new JLabel("="), constraintsFormHasilAtas);
         constraintsFormHasilAtas.gridx ++;

@@ -1,24 +1,9 @@
 package com.bekasidev.app;
 
-import com.bekasidev.app.dao.PembukuanDao;
-import com.bekasidev.app.dao.impl.PembukuanDaoImpl;
-import com.bekasidev.app.model.Benchmark;
-import com.bekasidev.app.model.Menu;
-import com.bekasidev.app.model.Pembukuan;
-import com.bekasidev.app.model.Potensi;
-import com.bekasidev.app.service.backend.BenchmarkService;
-import com.bekasidev.app.service.backend.MenuService;
-import com.bekasidev.app.service.backend.PembukuanService;
-import com.bekasidev.app.service.backend.PotensiService;
-import com.bekasidev.app.service.backend.impl.BenchmarkServiceImpl;
-import com.bekasidev.app.service.backend.impl.MenuServiceImpl;
-import com.bekasidev.app.service.backend.impl.PembukuanServiceImpl;
-import com.bekasidev.app.service.backend.impl.PotensiServiceImpl;
+import com.bekasidev.app.model.*;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.MainFrame;
-import com.bekasidev.app.wrapper.PotensiJoinWrapper;
-import com.bekasidev.app.wrapper.SptpdWrapper;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +22,39 @@ public class App
          */
         MainFrame mainFrame = new MainFrame();
         mainFrame.setVisible(true);
-        
+        WajibPajak wp = ServiceFactory.getWajibPajakService().getWajibPajakById("1542006560917");
+        List<Pegawai> listPegawai = new ArrayList<>();
+        listPegawai.add(new Pegawai("01", "123", "SASUKE", "IV/a", "Pelaksana Lapangan"));
+        listPegawai.add(new Pegawai("01", "321", "SAKURA", "IV/a", "Pelaksana Lapangan"));
+
+        BerkasPersiapan bp = new BerkasPersiapan();
+        bp.setIdWajibPajak("1542006560917");
+        bp.setKotaTerbit("Bekasi");
+        bp.setAlamatJalan(wp.getJalan());
+        bp.setAlamatKecamatan(wp.getKecamatan());
+        bp.setAlamatDi(wp.getDesa());
+        bp.setNpwpd(wp.getNamaWajibPajak());
+        bp.setMasaPajakAwal("7 Juni 2017");
+        bp.setMasaPajakAkhir("12 Juni 2018");
+        bp.setNomorSurat("123/321/123/2018");
+        bp.setSifat("Rahasia");
+        bp.setLampiran("1 (satu) lampiran");
+        bp.setPerihal("Pemeriksaan pajak tahunan");
+        bp.setNomorSp("321/123/SP/2018");
+        bp.setTanggalSp("12 Juni 2018");
+        ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp,WP.RESTORAN);
+        bp.setNamaTim("Tim 7");
+        bp.setListPegawai(listPegawai);
+        bp.setJabatanPenandatangan("Kepala Badan Pendapatan Daerah");
+        bp.setNamaPenandatangan("Fulan");
+        ServiceFactory.getBerkasPersiapanService().createBerkasPersiapan(bp);
+
+//        wp.setNamaWajibPajak("bebek kaleyo");
+//        wp.setJenisWp((short) 0);
+//        wp.setJalan("Jalan deltamas");
+//        wp.setKecamatan("Cikarang pusat");
+//        wp.setDesa("Sukamahi");
+//        ServiceFactory.getWajibPajakService().createDataWP(wp);
     }
 }
 //        Menu menu = new Menu("123345", "123123", "Ayam Bakar", (short) 0, 17000);

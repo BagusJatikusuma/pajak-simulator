@@ -6,11 +6,9 @@
 package com.bekasidev.app.viewold;
 
 import com.bekasidev.app.model.Hotel;
-import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.HotelService;
-import com.bekasidev.app.service.backend.impl.HotelServiceImpl;
-import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
+
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
