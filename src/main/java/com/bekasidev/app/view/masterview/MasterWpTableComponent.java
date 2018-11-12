@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bekasidev.app.view.pajakrestoranview;
+package com.bekasidev.app.view.masterview;
 
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
+import com.bekasidev.app.view.pajakrestoranview.FormPersiapanRestoranFrame;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
@@ -14,6 +15,7 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajak;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.util.Map;
@@ -27,17 +29,18 @@ import javax.swing.table.JTableHeader;
 
 /**
  *
- * @author Bayu Arafli
+ * @author USER
  */
-public class PajakRestoranTableComponent extends JPanel {
+public class MasterWpTableComponent extends JPanel {
     private WajibPajakService service;
-
-    public PajakRestoranTableComponent() {
-        ComponentCollectorProvider.addComponent("pajak_restoran_table_component", this, null, null);
+    
+    public MasterWpTableComponent() {
+        ComponentCollectorProvider.addComponent("master_wp_table_component", this, null, null);
         init();
     }
     
     public void init() {
+        this.setLayout(new FlowLayout(FlowLayout.CENTER));
         service = ServiceFactory.getWajibPajakService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
@@ -49,7 +52,7 @@ public class PajakRestoranTableComponent extends JPanel {
         };
         
         DefaultTableModel dtm = new DefaultTableModel(0,0);
-        String header[] = new String[] {"NO","ID_RESTAURANT", "NAMA_RESTAURANT", "ALAMAT","DESA","KECAMATAN",""};
+        String header[] = new String[] {"NO","ID WP", "NAMA WP", "ALAMAT","DESA","KECAMATAN","JENIS WP",""};
         dtm.setColumnIdentifiers(header);
         restoranTable.setModel(dtm);
         
@@ -64,16 +67,26 @@ public class PajakRestoranTableComponent extends JPanel {
         
         int index = 1;
         for (com.bekasidev.app.model.WajibPajak obj : restorans) {
-            if (obj.getJenisWp() == 0) {
-                dtm.addRow(new Object[] {
-                    index++,
-                    obj.getIdWajibPajak(), 
-                    obj.getNamaWajibPajak(),
-                    obj.getJalan(),
-                    obj.getDesa(),
-                    obj.getKecamatan(),
-                    "pilih"});
+            String jenisWP = "";
+            switch (obj.getJenisWp()) {
+                case 0 : 
+                    jenisWP = "Restoran";
+                    break;
+                case 1 : 
+                    jenisWP = "Hotel";
+                    break;
+                default : break;
             }
+            dtm.addRow(new Object[] {
+                index++,
+                obj.getIdWajibPajak(), 
+                obj.getNamaWajibPajak(),
+                obj.getJalan(),
+                obj.getDesa(),
+                obj.getKecamatan(),
+                jenisWP,
+                "hapus"});
+            
         }
         
         Action selectedRow = new AbstractAction() {
@@ -83,37 +96,21 @@ public class PajakRestoranTableComponent extends JPanel {
                 int modelRow = Integer.valueOf( e.getActionCommand() );
                 System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
                 
-                WajibPajak wajibPajak = new WajibPajak();
-                wajibPajak.setNpwpd(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
-                wajibPajak.setNamaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
-                
-                PersiapanPajakPOJO persiapanPajakPOJO = new PersiapanPajakPOJO();
-                persiapanPajakPOJO.setNpwpd(wajibPajak);
-                
-                Map<String, Object> persiapanPajakRetoranMap
-                        = SessionProvider.getPajakMapSession();
-                persiapanPajakRetoranMap.put("persiapan_pajak_restoran", persiapanPajakPOJO);
-                
-                System.out.println("data pajak restoran telah disimpan");
-                
-                FormPersiapanRestoranFrame formPersiapanRestoranFrame
-                        = new FormPersiapanRestoranFrame();
-                formPersiapanRestoranFrame.pack();
-                formPersiapanRestoranFrame.setVisible(true);
+                service.deleteWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                ((DefaultTableModel)table.getModel()).removeRow(modelRow);
             }
             
         };
         
-        ButtonColumn buttonColumn = new ButtonColumn(restoranTable, selectedRow, 6);
+        ButtonColumn buttonColumn = new ButtonColumn(restoranTable, selectedRow, 7);
         restoranTable.setGridColor(new java.awt.Color(255, 255, 255));
         restoranTable.setRowHeight(22);
         
         jScrollPane1.setViewportView(restoranTable);
         
-        jScrollPane1.setPreferredSize(new Dimension(900,500));
-        jScrollPane1.setLocation(50, 330);
+        jScrollPane1.setPreferredSize(new Dimension(1000,500));
+        jScrollPane1.setLocation(100, 330);
         
         this.add(jScrollPane1);
     }
-    
 }
