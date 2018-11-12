@@ -7,6 +7,8 @@ package com.bekasidev.app.view.pajakrestoranview;
 
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -192,9 +194,14 @@ public class FormPersiapanRestoranPanel extends javax.swing.JPanel {
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
                         .get("persiapan_pajak_restoran");
-        persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
+        
         persiapanPajakPOJO.setSpDari(cbSPDari.getSelectedItem().toString());
+        persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
         persiapanPajakPOJO.setJenisPajak("Restoran");
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        persiapanPajakPOJO.setTanggalTurunSP(dateFormat.format(dcTanggalSPDikeluarkan.getDate()));        
+        
         persiapanPajakPOJO.setLamaPemeriksaan(spLamaPemeriksaan.getValue().toString());        
         persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());        
         
