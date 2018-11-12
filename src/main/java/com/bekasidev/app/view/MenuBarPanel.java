@@ -92,7 +92,7 @@ public class MenuBarPanel extends JPanel {
         restoranPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10)); 
         restoranPanel.setPreferredSize(new Dimension(130, 40));
         restoranPanel.setBackground(this.getBackground());
-        restoran = new JLabel("WajibPajak");
+        restoran = new JLabel("Restoran");
         restoran.setFont(new Font("Tahoma", 0, 13));
         restoran.setForeground(Color.WHITE);
         

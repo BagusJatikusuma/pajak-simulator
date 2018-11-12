@@ -5,9 +5,8 @@
  */
 package com.bekasidev.app.view.pajakrestoranview;
 
-import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.ServiceFactory;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
@@ -31,7 +30,7 @@ import javax.swing.table.JTableHeader;
  * @author Bayu Arafli
  */
 public class PajakRestoranTableComponent extends JPanel {
-    private RestoranService service;
+    private WajibPajakService service;
 
     public PajakRestoranTableComponent() {
         ComponentCollectorProvider.addComponent("pajak_restoran_table_component", this, null, null);
@@ -39,7 +38,7 @@ public class PajakRestoranTableComponent extends JPanel {
     }
     
     public void init() {
-        service = ServiceFactory.getRestoranService();
+        service = ServiceFactory.getWajibPajakService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
         JTable restoranTable = new JTable() {
@@ -50,14 +49,29 @@ public class PajakRestoranTableComponent extends JPanel {
         };
         
         DefaultTableModel dtm = new DefaultTableModel(0,0);
-        String header[] = new String[] {"ID_RESTAURANT", "NAMA_RESTAURANT", ""};
+        String header[] = new String[] {"NO","ID_RESTAURANT", "NAMA_RESTAURANT", "ALAMAT","DESA","KECAMATAN",""};
         dtm.setColumnIdentifiers(header);
         restoranTable.setModel(dtm);
         
-        List<Restoran> restorans = service.getAllRestoran();
+        restoranTable.getColumnModel().getColumn(0).setPreferredWidth(5);
+        restoranTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        restoranTable.getColumnModel().getColumn(2).setPreferredWidth(150);
+        restoranTable.getColumnModel().getColumn(3).setPreferredWidth(200);
+        restoranTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+        restoranTable.getColumnModel().getColumn(5).setPreferredWidth(100);
         
-        for (Restoran obj : restorans) {
-            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(),"pilih"});
+        List<com.bekasidev.app.model.WajibPajak> restorans = service.getAllWP();
+        
+        int index = 0;
+        for (com.bekasidev.app.model.WajibPajak obj : restorans) {
+            dtm.addRow(new Object[] {
+                index++,
+                obj.getIdWajibPajak(), 
+                obj.getNamaWajibPajak(),
+                obj.getJalan(),
+                obj.getDesa(),
+                obj.getKecamatan(),
+                "pilih"});
         }
         
         Action selectedRow = new AbstractAction() {
@@ -79,17 +93,22 @@ public class PajakRestoranTableComponent extends JPanel {
                 persiapanPajakRetoranMap.put("persiapan_pajak_restoran", persiapanPajakPOJO);
                 
                 System.out.println("data pajak restoran telah disimpan");
+                
+                FormPersiapanRestoranFrame formPersiapanRestoranFrame
+                        = new FormPersiapanRestoranFrame();
+                formPersiapanRestoranFrame.pack();
+                formPersiapanRestoranFrame.setVisible(true);
             }
             
         };
         
-        ButtonColumn buttonColumn = new ButtonColumn(restoranTable, selectedRow, 2);
+        ButtonColumn buttonColumn = new ButtonColumn(restoranTable, selectedRow, 6);
         restoranTable.setGridColor(new java.awt.Color(255, 255, 255));
         restoranTable.setRowHeight(22);
         
         jScrollPane1.setViewportView(restoranTable);
         
-        jScrollPane1.setPreferredSize(new Dimension(500,500));
+        jScrollPane1.setPreferredSize(new Dimension(900,500));
         jScrollPane1.setLocation(50, 330);
         
         this.add(jScrollPane1);

@@ -5,7 +5,7 @@
  */
 package com.bekasidev.app.view.pajakparkirview;
 
-import com.bekasidev.app.model.Restoran;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
@@ -47,10 +47,10 @@ public class PajakParkirTableComponent extends JPanel {
         dtm.setColumnIdentifiers(header);
         restoranTable.setModel(dtm);
         
-        List<Restoran> parkirans = new ArrayList<>();
+        List<WajibPajak> parkirans = new ArrayList<>();
         
-        for (Restoran obj : parkirans) {
-            dtm.addRow(new Object[] {obj.getIdRestoran(), obj.getNamaRestoran(),"pilih"});
+        for (WajibPajak obj : parkirans) {
+            dtm.addRow(new Object[] {obj.getIdWajibPajak(), obj.getNamaWajibPajak(),"pilih"});
         }
         
         Action selectedRow = new AbstractAction() {
