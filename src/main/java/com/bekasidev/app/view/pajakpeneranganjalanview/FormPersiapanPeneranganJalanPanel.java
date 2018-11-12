@@ -1,20 +1,27 @@
-package com.bekasidev.app.view.pajakpeneranganjalanview;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.bekasidev.app.view.pajakpeneranganjalanview;
 
-import com.bekasidev.app.view.pajakhiburanview.*;
+import com.bekasidev.app.view.pajakrestoranview.*;
+import com.bekasidev.app.model.BerkasPersiapan;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bayu Arafli
  */
-public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
+public class FormPersiapanPeneranganJalanPanel extends JPanel {
+    private ReportService reportService;
 
     /**
      * Creates new form FormPersiapanPanel
@@ -33,6 +40,8 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelJudul = new javax.swing.JLabel();
+        labelNomorUrutSurat = new javax.swing.JLabel();
+        tfNomorUrutSurat = new javax.swing.JTextField();
         labelSuratPerintahDikeluarkanOleh = new javax.swing.JLabel();
         cbSPDari = new javax.swing.JComboBox<>();
         labelNomorSuratPerintah = new javax.swing.JLabel();
@@ -59,7 +68,15 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
 
         labelJudul.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelJudul.setText("FORM PERSIAPAN PENERANGAN JALAN");
+        labelJudul.setText("FORM PERSIAPAN PERSIAPAN JALAN");
+
+        labelNomorUrutSurat.setText("Nomor Urut Surat");
+
+        tfNomorUrutSurat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomorUrutSuratActionPerformed(evt);
+            }
+        });
 
         labelSuratPerintahDikeluarkanOleh.setText("Surat Perintah Dikeluarkan Oleh");
 
@@ -133,15 +150,21 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
                     .addComponent(cbSPDari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(spLamaPemeriksaan)
-                    .addComponent(cbPenandatangan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbPenandatangan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelNomorUrutSurat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfNomorUrutSurat))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addComponent(labelJudul)
                 .addGap(18, 18, 18)
+                .addComponent(labelNomorUrutSurat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfNomorUrutSurat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelSuratPerintahDikeluarkanOleh)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbSPDari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,7 +176,7 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
                 .addComponent(labelTanggalSuratPerintah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTimPemeriksa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -163,11 +186,11 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
                 .addComponent(labelMasaPajak)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(mcAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(mcAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelSampai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ycAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mcAkhirMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ycAkhirMasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ycAkhirMasa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelLamaPemeriksaan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -176,9 +199,9 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
                 .addComponent(labelPenandatangan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbPenandatangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addComponent(bGenerate)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         dcTanggalSPDikeluarkan.setDateFormatString("dd MMMM yyyy");
@@ -190,15 +213,28 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
 
     private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
         // TODO add your handling code here:
+        reportService
+                = ServiceFactory.getReportService();
         PersiapanPajakPOJO persiapanPajakPOJO
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
                         .get("persiapan_pajak_restoran");
-        persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
+        
         persiapanPajakPOJO.setSpDari(cbSPDari.getSelectedItem().toString());
+        persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
         persiapanPajakPOJO.setJenisPajak("Restoran");
+        persiapanPajakPOJO.setNomorUrutSurat(tfNomorUrutSurat.getText());
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        persiapanPajakPOJO.setTanggalTurunSP(dateFormat.format(dcTanggalSPDikeluarkan.getDate()));        
+        
         persiapanPajakPOJO.setLamaPemeriksaan(spLamaPemeriksaan.getValue().toString());        
-        persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());        
+        persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());
+        
+        persiapanPajakPOJO.setMasaPajakBulanAwal(convertBulanString(mcAwalMasa.getMonth()));        
+        persiapanPajakPOJO.setMasaPajakTahunAwal(String.valueOf(ycAwalMasa.getYear()));        
+        persiapanPajakPOJO.setMasaPajakBulanAkhir(convertBulanString(mcAkhirMasa.getMonth()));        
+        persiapanPajakPOJO.setMasaPajakTahunAkhir(String.valueOf(ycAkhirMasa.getYear()));        
         
         PersiapanPajakPOJO persiapanPajakPOJO2
                 = (PersiapanPajakPOJO)SessionProvider
@@ -210,8 +246,44 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
         System.out.println("tfPenandatangan "+persiapanPajakPOJO2.getNipPenandatangan());
         System.out.println("tfSuratPerintahDikeluarkanOleh "+persiapanPajakPOJO2.getSpDari());
         System.out.println("tfTanggalSuratPerintah "+persiapanPajakPOJO2.getTanggalTurunSP());
+        
+        reportService.createPersiapanPajakRestoranReport();
+        reportService.createPersiapanPajakRestoranReport1();
     }//GEN-LAST:event_bGenerateActionPerformed
 
+    private void tfNomorUrutSuratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorUrutSuratActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomorUrutSuratActionPerformed
+
+    public String convertBulanString(int bulan){
+        switch (bulan) {
+            case 0:
+                return "Januari";
+            case 1:
+                return "Februari";
+            case 2:
+                return "Maret";   
+            case 3:
+                return "April";   
+            case 4:
+                return "Mei";   
+            case 5:
+                return "Juni";   
+            case 6:
+                return "Juli";   
+            case 7:
+                return "Agustus";   
+            case 8:
+                return "September";   
+            case 9:
+                return "Oktober";   
+            case 10:
+                return "November";   
+            case 11:
+                return "Desember";
+        }
+        return "";
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCekAnggotaTim;
@@ -224,6 +296,7 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelLamaPemeriksaan;
     private javax.swing.JLabel labelMasaPajak;
     private javax.swing.JLabel labelNomorSuratPerintah;
+    private javax.swing.JLabel labelNomorUrutSurat;
     private javax.swing.JLabel labelPenandatangan;
     private javax.swing.JLabel labelSampai;
     private javax.swing.JLabel labelSuratPerintahDikeluarkanOleh;
@@ -233,6 +306,7 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JMonthChooser mcAwalMasa;
     private javax.swing.JSpinner spLamaPemeriksaan;
     private javax.swing.JTextField tfNomorSuratPerintah;
+    private javax.swing.JTextField tfNomorUrutSurat;
     private com.toedter.calendar.JYearChooser ycAkhirMasa;
     private com.toedter.calendar.JYearChooser ycAwalMasa;
     // End of variables declaration//GEN-END:variables

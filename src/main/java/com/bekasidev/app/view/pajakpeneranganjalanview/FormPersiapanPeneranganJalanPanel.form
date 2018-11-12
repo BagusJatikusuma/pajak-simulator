@@ -59,6 +59,8 @@
                   <Component id="dcTanggalSPDikeluarkan" max="32767" attributes="0"/>
                   <Component id="spLamaPemeriksaan" max="32767" attributes="0"/>
                   <Component id="cbPenandatangan" max="32767" attributes="0"/>
+                  <Component id="labelNomorUrutSurat" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfNomorUrutSurat" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
@@ -67,9 +69,13 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="labelJudul" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="labelNomorUrutSurat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfNomorUrutSurat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="labelSuratPerintahDikeluarkanOleh" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cbSPDari" min="-2" max="-2" attributes="0"/>
@@ -81,7 +87,7 @@
               <Component id="labelTanggalSuratPerintah" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="dcTanggalSPDikeluarkan" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="labelTimPemeriksa" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -92,11 +98,11 @@
               <Component id="labelMasaPajak" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="mcAwalMasa" alignment="0" pref="24" max="32767" attributes="0"/>
+                  <Component id="mcAwalMasa" alignment="0" max="32767" attributes="0"/>
                   <Component id="labelSampai" alignment="0" max="32767" attributes="0"/>
                   <Component id="ycAwalMasa" alignment="0" max="32767" attributes="0"/>
                   <Component id="mcAkhirMasa" alignment="0" max="32767" attributes="0"/>
-                  <Component id="ycAkhirMasa" max="32767" attributes="0"/>
+                  <Component id="ycAkhirMasa" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelLamaPemeriksaan" min="-2" max="-2" attributes="0"/>
@@ -106,9 +112,9 @@
               <Component id="labelPenandatangan" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cbPenandatangan" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="bGenerate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,8 +126,18 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="FORM PERSIAPAN PENERANGAN JALAN"/>
+        <Property name="text" type="java.lang.String" value="FORM PERSIAPAN PERSIAPAN JALAN"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNomorUrutSurat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nomor Urut Surat"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNomorUrutSurat">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNomorUrutSuratActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelSuratPerintahDikeluarkanOleh">
       <Properties>
