@@ -34,12 +34,12 @@ public class PersiapanPajakRestoranPanel extends JPanel{
                 .getComponent();
         // add component panel
         PajakRestoranTablePanel tablePanel = new PajakRestoranTablePanel();
-        tablePanel.setPreferredSize(new Dimension(mainFrame.getWidth()/2, 0));
+        tablePanel.setPreferredSize(new Dimension(mainFrame.getWidth(), 0));
         this.add(tablePanel, BorderLayout.LINE_START);
         
-        PajakRestoranFormPanel formPanel = new PajakRestoranFormPanel();
-        formPanel.setPreferredSize(new Dimension(mainFrame.getWidth()/2, 0));
-        this.add(formPanel, BorderLayout.LINE_END);
+//        PajakRestoranFormPanel formPanel = new PajakRestoranFormPanel();
+//        formPanel.setPreferredSize(new Dimension(mainFrame.getWidth()/2, 0));
+//        this.add(formPanel, BorderLayout.LINE_END);
     }
     
 }

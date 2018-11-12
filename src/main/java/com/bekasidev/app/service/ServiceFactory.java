@@ -1,6 +1,5 @@
 package com.bekasidev.app.service;
 
-import com.bekasidev.app.model.RestoranTransaction;
 import com.bekasidev.app.service.backend.*;
 import com.bekasidev.app.service.backend.impl.*;
 import com.bekasidev.app.service.reportservice.ReportService;
@@ -8,7 +7,7 @@ import com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceIm
 
 public class ServiceFactory {
 
-    private static RestoranService restoranService = null;
+    private static WajibPajakService wajibPajakService = null;
     private static RestoranTransactionService restoranTransactionService = null;
     private static HotelService hotelService = null;
     private static TarifKamarHotelService tarifKamarHotelService = null;
@@ -27,9 +26,9 @@ public class ServiceFactory {
         return pegawaiService;
     }
 
-    public static RestoranService getRestoranService(){
-        if(restoranService == null) restoranService = new RestoranServiceImpl();
-        return restoranService;
+    public static WajibPajakService getWajibPajakService(){
+        if(wajibPajakService == null) wajibPajakService = new WajibPajakServiceImpl();
+        return wajibPajakService;
     }
 
     public static RestoranTransactionService getRestoranTransactionService(){

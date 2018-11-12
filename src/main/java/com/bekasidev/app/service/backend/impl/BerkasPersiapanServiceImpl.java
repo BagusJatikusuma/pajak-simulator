@@ -1,31 +1,45 @@
 package com.bekasidev.app.service.backend.impl;
 
 import com.bekasidev.app.dao.BerkasPersiapanDao;
+import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.dao.impl.BerkasPersiapanImpl;
+import com.bekasidev.app.dao.impl.WajibPajakDaoImpl;
 import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.WP;
 import com.bekasidev.app.service.backend.BerkasPersiapanService;
+import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
 
     BerkasPersiapanDao berkasPersiapanDao = new BerkasPersiapanImpl();
+    WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
 
     @Override
-    public BerkasPersiapan getBerkasPersiapan(String idBerkas) {
-        return berkasPersiapanDao.getBerkasPersiapan(idBerkas);
+    public DokumenPersiapanWrapper getBerkasPersiapan(String idBerkas) {
+        DokumenPersiapanWrapper dokumenPersiapanWrapper = berkasPersiapanDao.getBerkasPersiapan(idBerkas);
+        dokumenPersiapanWrapper.setWp(wajibPajakDao.getWPById(dokumenPersiapanWrapper.getIdWajibPajak()));
+        return dokumenPersiapanWrapper;
     }
 
     @Override
     public void createBerkasPersiapan(BerkasPersiapan berkasPersiapan) {
+        Calendar cal = Calendar.getInstance();
+        berkasPersiapan.setTanggalDibuat(Long.toString(cal.getTimeInMillis()));
+        berkasPersiapan.setIdBerkas(Long.toString(cal.getTimeInMillis()));
         berkasPersiapanDao.createBerkasPersiapan(berkasPersiapan);
     }
 
     @Override
     public void getDokumenPinjaman(BerkasPersiapan berkasPersiapan, WP wp) {
-
+        switch(wp){
+            case HOTEL: createListPinjamanHotel(berkasPersiapan); break;
+            case RESTORAN: createListPinjamanRestoran(berkasPersiapan); break;
+            case PARKIRAN: createListPinjamanParkir(berkasPersiapan);break;
+        }
     }
 
     private void createListPinjamanRestoran(BerkasPersiapan berkasPersiapan){

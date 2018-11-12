@@ -24,7 +24,7 @@ public class PajakRestoranTablePanel extends JPanel{
     
     public void init(){
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 40));
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.decode("#f3f3f3"));
         
         PajakRestoranTableComponent restoranTableComponent = new PajakRestoranTableComponent();
         this.add(restoranTableComponent);

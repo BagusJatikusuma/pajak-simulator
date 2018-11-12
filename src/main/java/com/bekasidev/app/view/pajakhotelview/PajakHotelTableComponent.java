@@ -6,7 +6,6 @@
 package com.bekasidev.app.view.pajakhotelview;
 
 import com.bekasidev.app.model.Hotel;
-import com.bekasidev.app.model.Restoran;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.HotelService;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;

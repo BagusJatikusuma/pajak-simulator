@@ -5,15 +5,14 @@
  */
 package com.bekasidev.app.viewold;
 
-import com.bekasidev.app.model.Restoran;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.service.backend.RestoranTransactionService;
-import com.bekasidev.app.service.backend.impl.RestoranServiceImpl;
+import com.bekasidev.app.service.backend.impl.WajibPajakServiceImpl;
 import com.bekasidev.app.service.backend.impl.RestoranTransactionServiceImpl;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -23,8 +22,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -42,7 +39,7 @@ public class SideContentPanel extends JPanel{
     private SideContentPanel sideContentPanel;
     
     // Service
-    private RestoranService restoranService = new RestoranServiceImpl();
+    private WajibPajakService wajibPajakService = new WajibPajakServiceImpl();
     private RestoranTransactionService restoranTransactionService = new RestoranTransactionServiceImpl();
     
     private JPanel  panelTampilRestaurant,
@@ -131,20 +128,20 @@ public class SideContentPanel extends JPanel{
     
     public void identitasRestoran(){
         //===== form restoran =====//
-        labelNamaRestoran = new JLabel("Nama Restoran");
+        labelNamaRestoran = new JLabel("Nama WajibPajak");
         labelNamaRestoran.setFont(new Font("Tahoma", 0, 16));
         labelNamaRestoran.setForeground(Color.BLACK);
         
         //===== combo box =====//        
-        List<Restoran> listRestoran = new ArrayList<>();
-        listRestoran = restoranService.getAllRestoran();
-        Restoran restorans[];
-        restorans = new Restoran[listRestoran.size()];
-        for (int i = 0; i < listRestoran.size(); i++) {
-            restorans[i] = listRestoran.get(i);
+        List<WajibPajak> listWajibPajak = new ArrayList<>();
+        listWajibPajak = wajibPajakService.getAllWP();
+        WajibPajak wajibPajaks[];
+        wajibPajaks = new WajibPajak[listWajibPajak.size()];
+        for (int i = 0; i < listWajibPajak.size(); i++) {
+            wajibPajaks[i] = listWajibPajak.get(i);
         }
         
-        JComboBox<Restoran> cbListRestoran = new JComboBox<Restoran>(restorans);
+        JComboBox<WajibPajak> cbListRestoran = new JComboBox<WajibPajak>(wajibPajaks);
         cbListRestoran.setFont(new Font("Tahoma", 0, 16));
         cbListRestoran.setMaximumRowCount(5);
         cbListRestoran.setSize(300,20);
@@ -152,10 +149,10 @@ public class SideContentPanel extends JPanel{
         cbListRestoran.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                JComboBox<Restoran> combo = (JComboBox<Restoran>) event.getSource();
-                Restoran selected = (Restoran) combo.getSelectedItem();
-                idRestoran = selected.getIdRestoran();
-                System.out.println("Nama : " + selected.getNamaRestoran() + "\nId : " + selected.getIdRestoran());
+                JComboBox<WajibPajak> combo = (JComboBox<WajibPajak>) event.getSource();
+                WajibPajak selected = (WajibPajak) combo.getSelectedItem();
+                idRestoran = selected.getIdWajibPajak();
+                System.out.println("Nama : " + selected.getNamaWajibPajak() + "\nId : " + selected.getIdWajibPajak());
             }
         });
        
@@ -184,7 +181,7 @@ public class SideContentPanel extends JPanel{
         
         // set border for the panel
         panelIdentitasRestoran.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Identitas Restoran"));
+                BorderFactory.createEtchedBorder(), "Identitas WajibPajak"));
          
         // add the panel to this panel
         this.add(panelIdentitasRestoran);

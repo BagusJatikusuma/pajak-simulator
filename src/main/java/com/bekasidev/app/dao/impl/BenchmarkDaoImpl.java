@@ -15,7 +15,7 @@ public class BenchmarkDaoImpl implements BenchmarkDao {
 
     @Override
     public List<Benchmark> getBenchmark(String idRestoran, String idTransaksi) {
-        String sql = "SELECT * FROM benchmark WHERE id_resotran=? AND id_transaksi=?";
+        String sql = "SELECT * FROM benchmark WHERE id_wp=? AND id_transaksi=?";
         List<Benchmark> benchmarks = new ArrayList<>();
 
         try (Connection conn = Connect.connect();
@@ -80,7 +80,7 @@ public class BenchmarkDaoImpl implements BenchmarkDao {
     private Benchmark setBenchmark(ResultSet rs) throws SQLException {
         Benchmark benchmark = new Benchmark();
 
-        benchmark.setIdRestoran(rs.getString("id_restoran"));
+        benchmark.setIdRestoran(rs.getString("id_wp"));
         benchmark.setIdTransaksi(rs.getString("id_transaksi"));
         benchmark.setDeskripsi(rs.getString("deskripsi"));
         benchmark.setPorsi(rs.getInt("jumlah_porsi"));
