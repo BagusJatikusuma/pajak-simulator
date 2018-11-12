@@ -1,32 +1,37 @@
 package com.bekasidev.app.service.backend.impl;
 
-import com.bekasidev.app.dao.RestoranDao;
-import com.bekasidev.app.dao.impl.RestoranDaoImpl;
+import com.bekasidev.app.dao.WajibPajakDao;
+import com.bekasidev.app.dao.impl.WajibPajakDaoImpl;
 import com.bekasidev.app.model.WajibPajak;
-import com.bekasidev.app.service.backend.RestoranService;
+import com.bekasidev.app.service.backend.WajibPajakService;
 
 import java.util.Calendar;
 import java.util.List;
 
-public class RestoranServiceImpl implements RestoranService {
+public class WajibPajakServiceImpl implements WajibPajakService {
 
-    private RestoranDao restoranDao = new RestoranDaoImpl();
+    private WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
 
     @Override
-    public List<WajibPajak> getAllRestoran() {
-        return restoranDao.getAllRestoran();
+    public List<WajibPajak> getAllWP() {
+        return wajibPajakDao.getAllWP();
     }
 
     @Override
-    public void createDataRestoran(WajibPajak wajibPajak) {
+    public void createDataWP(WajibPajak wajibPajak) {
         Calendar cal = Calendar.getInstance();
         wajibPajak.setIdWajibPajak(Long.toString(cal.getTimeInMillis()));
         wajibPajak.setNamaWajibPajak(wajibPajak.getNamaWajibPajak().toUpperCase());
-        restoranDao.createDataRestoran(wajibPajak);
+        wajibPajakDao.createDataWP(wajibPajak);
     }
 
     @Override
-    public void deleteRestoran(String idRestoran) {
-        restoranDao.deleteRestoranById(idRestoran);
+    public void deleteWP(String idRestoran) {
+        wajibPajakDao.deleteWPById(idRestoran);
+    }
+
+    @Override
+    public WajibPajak getWajibPajakById(String idWp) {
+        return wajibPajakDao.getWPById(idWp);
     }
 }
