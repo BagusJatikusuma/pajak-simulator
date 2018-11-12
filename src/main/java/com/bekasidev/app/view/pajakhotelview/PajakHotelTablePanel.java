@@ -7,6 +7,7 @@ package com.bekasidev.app.view.pajakhotelview;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +22,10 @@ public class PajakHotelTablePanel extends JPanel{
     }
      
     public void init(){
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 40));
         this.setBackground(Color.GREEN);
+        
+        PajakHotelTableComponent pajakHotelTableComponent = new PajakHotelTableComponent();
+        this.add(pajakHotelTableComponent);
     }
 }

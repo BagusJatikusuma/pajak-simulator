@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanPemeriksaan" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="72a708a6-ad7e-401c-a530-d16794691610">
 	<property name="ireport.zoom" value="1.2100000000000029"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="176"/>
+	<property name="ireport.y" value="141"/>
 	<style name="table">
 		<box>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -133,7 +133,7 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[973 / {isian} / Bapenda]]></text>
+				<text><![CDATA[973 / (isian) / Bapenda]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="66" y="30" width="215" height="20" uuid="0b0b9422-5256-4208-934d-9dcbed2dbbac"/>
@@ -196,21 +196,21 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[{isian}]]></text>
+				<text><![CDATA[(isian)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="395" y="30" width="157" height="20" uuid="11c1aa35-17f0-4265-aea8-15b9194a3a4a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[{isian}]]></text>
+				<text><![CDATA[(isian)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="398" y="0" width="154" height="20" uuid="7dab43cd-e23b-439a-a5be-4df7559774b5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[{isian}]]></text>
+				<text><![CDATA[(isian)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="320" y="60" width="13" height="20" uuid="dc9dba69-3c7a-4f40-8840-d0994d2af1e4"/>
@@ -224,7 +224,7 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[{isian}]]></text>
+				<text><![CDATA[(isian)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="320" y="87" width="25" height="20" uuid="d3424534-659f-4eb9-a6cc-781937720e4d"/>
@@ -238,7 +238,7 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[{isian}]]></text>
+				<text><![CDATA[(isian)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="320" y="102" width="25" height="20" uuid="7bca51a6-0140-4369-8ed4-488957201b45"/>
@@ -263,14 +263,14 @@ BEKASI]]></text>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[	Menindaklanjuti Surat Perintah Pemeriksaan Pajak Daerah dari {Kepala Badan} Pendapatan Daerah Kabupaten Bekasi Nomor : 800 / {isian} / Bapenda Tanggal {isian}, bersama ini diberitahukan bahwa :]]></text>
+				<text><![CDATA[	Menindaklanjuti Surat Perintah Pemeriksaan Pajak Daerah dari (Kepala Badan) Pendapatan Daerah Kabupaten Bekasi Nomor : 800 / (isian) / Bapenda Tanggal (isian), bersama ini diberitahukan bahwa :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="66" y="138" width="486" height="45" uuid="97c076e6-5a17-4a40-a825-1f1a87ba319d"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[	Ditugaskan untuk melaksanakan Pemeriksaan Pajak {isian jenisnya apa} terhitung masa pajak bulan {isian bulan tahun} s.d {isian bulan tahun} selama {isian angka hari} hari kerja sejak Surat Pemberitahuan ini diterima oleh Wajib Pajak yang diperiksa.]]></text>
+				<text><![CDATA[	Ditugaskan untuk melaksanakan Pemeriksaan Pajak (isian jenisnya apa) terhitung masa pajak bulan (isian bulan tahun) s.d (isian bulan tahun) selama (isian angka hari) hari kerja sejak Surat Pemberitahuan ini diterima oleh Wajib Pajak yang diperiksa.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="66" y="183" width="486" height="33" uuid="91169295-d156-4d75-bcd2-00d8909046f2"/>

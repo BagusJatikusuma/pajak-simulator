@@ -1,13 +1,15 @@
+package com.bekasidev.app.view.pajakhiburanview;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bekasidev.app.view.pajakhiburanview;
 
-import com.bekasidev.app.view.pajakparkirview.*;
 import com.bekasidev.app.view.pajakhotelview.*;
-import com.bekasidev.app.view.pajakrestoranview.*;
+import com.bekasidev.app.view.pajakhiburanview.*;
+import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 
 /**
  *
@@ -33,21 +35,24 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
 
         labelJudul = new javax.swing.JLabel();
         labelSuratPerintahDikeluarkanOleh = new javax.swing.JLabel();
-        tfSuratPerintahDikeluarkanOleh = new javax.swing.JTextField();
+        cbSPDari = new javax.swing.JComboBox<>();
         labelNomorSuratPerintah = new javax.swing.JLabel();
         tfNomorSuratPerintah = new javax.swing.JTextField();
         labelTanggalSuratPerintah = new javax.swing.JLabel();
-        tfTanggalSuratPerintah = new javax.swing.JTextField();
+        dcTanggalSPDikeluarkan = new com.toedter.calendar.JDateChooser();
         labelTimPemeriksa = new javax.swing.JLabel();
-        tfTimPemeriksa = new javax.swing.JTextField();
+        cbTimPemeriksa = new javax.swing.JComboBox<>();
         bCekAnggotaTim = new javax.swing.JButton();
         labelMasaPajak = new javax.swing.JLabel();
-        tfMasaPajak = new javax.swing.JTextField();
-        labelKeteranganMasaPajak = new javax.swing.JLabel();
+        mcAwalMasa = new com.toedter.calendar.JMonthChooser();
+        ycAwalMasa = new com.toedter.calendar.JYearChooser();
+        labelSampai = new javax.swing.JLabel();
+        mcAkhirMasa = new com.toedter.calendar.JMonthChooser();
+        ycAkhirMasa = new com.toedter.calendar.JYearChooser();
         labelLamaPemeriksaan = new javax.swing.JLabel();
-        tfLamaPemeriksaan = new javax.swing.JTextField();
+        spLamaPemeriksaan = new javax.swing.JSpinner();
         labelPenandatangan = new javax.swing.JLabel();
-        tfPenandatangan = new javax.swing.JTextField();
+        cbPenandatangan = new javax.swing.JComboBox<>();
         bGenerate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -59,11 +64,7 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
 
         labelSuratPerintahDikeluarkanOleh.setText("Surat Perintah Dikeluarkan Oleh");
 
-        tfSuratPerintahDikeluarkanOleh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSuratPerintahDikeluarkanOlehActionPerformed(evt);
-            }
-        });
+        cbSPDari.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kepala Badan Pendapatan", "Sekretaris" }));
 
         labelNomorSuratPerintah.setText("Nomor Surat Perintah");
 
@@ -77,30 +78,27 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
 
         labelTimPemeriksa.setText("Tim Pemeriksa");
 
-        tfTimPemeriksa.setText("Tim 1");
+        cbTimPemeriksa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tim 1", "Tim 2", "Tim 3", "Tim 4" }));
 
         bCekAnggotaTim.setText("Cek Anggota Tim");
 
         labelMasaPajak.setText("Masa Pajak");
 
-        tfMasaPajak.setText("1 Tahun");
-
-        labelKeteranganMasaPajak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelKeteranganMasaPajak.setText("Januari 2017   s.d   Desember 2017");
+        labelSampai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSampai.setText("s.d");
 
         labelLamaPemeriksaan.setText("Lama Pemeriksaan ( Hari )");
 
-        tfLamaPemeriksaan.setText("10");
-
         labelPenandatangan.setText("Penandatangan");
 
-        tfPenandatangan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPenandatanganActionPerformed(evt);
-            }
-        });
+        cbPenandatangan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kepala Badan Pendapatan", "Sekretaris" }));
 
         bGenerate.setText("Generate");
+        bGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGenerateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,28 +107,34 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(mcAwalMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ycAwalMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelSampai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mcAkhirMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ycAkhirMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelJudul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelSuratPerintahDikeluarkanOleh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfSuratPerintahDikeluarkanOleh)
                     .addComponent(labelNomorSuratPerintah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tfNomorSuratPerintah)
                     .addComponent(labelTanggalSuratPerintah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfTanggalSuratPerintah)
                     .addComponent(labelTimPemeriksa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfTimPemeriksa, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbTimPemeriksa, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bCekAnggotaTim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(labelMasaPajak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfMasaPajak, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelKeteranganMasaPajak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(labelLamaPemeriksaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfLamaPemeriksaan)
                     .addComponent(labelPenandatangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPenandatangan, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(cbSPDari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spLamaPemeriksaan)
+                    .addComponent(cbPenandatangan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,7 +145,7 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(labelSuratPerintahDikeluarkanOleh)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfSuratPerintahDikeluarkanOleh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbSPDari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNomorSuratPerintah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -149,64 +153,88 @@ public class FormPersiapanHiburanPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTanggalSuratPerintah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfTanggalSuratPerintah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dcTanggalSPDikeluarkan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(labelTimPemeriksa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfTimPemeriksa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bCekAnggotaTim))
+                    .addComponent(bCekAnggotaTim)
+                    .addComponent(cbTimPemeriksa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelMasaPajak)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfMasaPajak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelKeteranganMasaPajak))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(mcAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(labelSampai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ycAwalMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mcAkhirMasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ycAkhirMasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelLamaPemeriksaan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfLamaPemeriksaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spLamaPemeriksaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelPenandatangan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPenandatangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbPenandatangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bGenerate)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void tfSuratPerintahDikeluarkanOlehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSuratPerintahDikeluarkanOlehActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSuratPerintahDikeluarkanOlehActionPerformed
+        dcTanggalSPDikeluarkan.setDateFormatString("dd MMMM yyyy");
+    }// </editor-fold>//GEN-END:initComponents
 
     private void tfNomorSuratPerintahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorSuratPerintahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomorSuratPerintahActionPerformed
 
-    private void tfPenandatanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPenandatanganActionPerformed
+    private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfPenandatanganActionPerformed
+        PersiapanPajakPOJO persiapanPajakPOJO
+                = (PersiapanPajakPOJO)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_pajak_restoran");
+        persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
+        persiapanPajakPOJO.setSpDari(cbSPDari.getSelectedItem().toString());
+        persiapanPajakPOJO.setJenisPajak("Restoran");
+        persiapanPajakPOJO.setLamaPemeriksaan(spLamaPemeriksaan.getValue().toString());        
+        persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());        
+        
+        PersiapanPajakPOJO persiapanPajakPOJO2
+                = (PersiapanPajakPOJO)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_pajak_restoran");
+        System.out.println("tfNamaWP "+persiapanPajakPOJO2.getNpwpd().getNamaWP());
+        System.out.println("tfLamaPemeriksaan "+persiapanPajakPOJO2.getLamaPemeriksaan());
+        System.out.println("tfNomorSuratPerintah "+persiapanPajakPOJO2.getNomorSP());
+        System.out.println("tfPenandatangan "+persiapanPajakPOJO2.getNipPenandatangan());
+        System.out.println("tfSuratPerintahDikeluarkanOleh "+persiapanPajakPOJO2.getSpDari());
+        System.out.println("tfTanggalSuratPerintah "+persiapanPajakPOJO2.getTanggalTurunSP());
+    }//GEN-LAST:event_bGenerateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCekAnggotaTim;
     private javax.swing.JButton bGenerate;
+    private javax.swing.JComboBox<String> cbPenandatangan;
+    private javax.swing.JComboBox<String> cbSPDari;
+    private javax.swing.JComboBox<String> cbTimPemeriksa;
+    private com.toedter.calendar.JDateChooser dcTanggalSPDikeluarkan;
     private javax.swing.JLabel labelJudul;
-    private javax.swing.JLabel labelKeteranganMasaPajak;
     private javax.swing.JLabel labelLamaPemeriksaan;
     private javax.swing.JLabel labelMasaPajak;
     private javax.swing.JLabel labelNomorSuratPerintah;
     private javax.swing.JLabel labelPenandatangan;
+    private javax.swing.JLabel labelSampai;
     private javax.swing.JLabel labelSuratPerintahDikeluarkanOleh;
     private javax.swing.JLabel labelTanggalSuratPerintah;
     private javax.swing.JLabel labelTimPemeriksa;
-    private javax.swing.JTextField tfLamaPemeriksaan;
-    private javax.swing.JTextField tfMasaPajak;
+    private com.toedter.calendar.JMonthChooser mcAkhirMasa;
+    private com.toedter.calendar.JMonthChooser mcAwalMasa;
+    private javax.swing.JSpinner spLamaPemeriksaan;
     private javax.swing.JTextField tfNomorSuratPerintah;
-    private javax.swing.JTextField tfPenandatangan;
-    private javax.swing.JTextField tfSuratPerintahDikeluarkanOleh;
-    private javax.swing.JTextField tfTanggalSuratPerintah;
-    private javax.swing.JTextField tfTimPemeriksa;
+    private com.toedter.calendar.JYearChooser ycAkhirMasa;
+    private com.toedter.calendar.JYearChooser ycAwalMasa;
     // End of variables declaration//GEN-END:variables
 }

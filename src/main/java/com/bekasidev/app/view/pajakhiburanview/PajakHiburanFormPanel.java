@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.view.pajakhiburanview;
 
+import com.bekasidev.app.view.pajakrestoranview.FormPersiapanRestoranPanel;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.Color;
 import java.awt.FlowLayout;

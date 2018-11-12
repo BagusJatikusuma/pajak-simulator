@@ -9,6 +9,8 @@ import com.bekasidev.app.view.MainFrame;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
