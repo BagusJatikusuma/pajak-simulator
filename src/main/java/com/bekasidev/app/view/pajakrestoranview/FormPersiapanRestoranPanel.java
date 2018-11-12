@@ -157,7 +157,7 @@ public class FormPersiapanRestoranPanel extends JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(23, 23, 23)
                 .addComponent(labelJudul)
                 .addGap(18, 18, 18)
                 .addComponent(labelNomorUrutSurat)
@@ -200,7 +200,7 @@ public class FormPersiapanRestoranPanel extends JPanel {
                 .addComponent(cbPenandatangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(bGenerate)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         dcTanggalSPDikeluarkan.setDateFormatString("dd MMMM yyyy");

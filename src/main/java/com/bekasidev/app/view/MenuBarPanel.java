@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.masterview.MasterWPPanel;
 import com.bekasidev.app.view.pajakhiburanview.PajakHiburanPanel;
 import com.bekasidev.app.view.pajakhotelview.PajakHotelPanel;
 import com.bekasidev.app.view.pajakparkirview.PajakParkirPanel;
@@ -307,6 +308,9 @@ public class MenuBarPanel extends JPanel {
                 = (PajakRestoranPanel) ComponentCollectorProvider
                 .getComponentMapper()
                 .get("pajak_restoran_panel").getComponent();
+        ComponentCollectorProvider
+                .getComponentMapper()
+                .remove("pajak_restoran_panel");
         ContentPanel contentPanel
                 = (ContentPanel) ComponentCollectorProvider
                 .getComponentMapper()
@@ -314,7 +318,8 @@ public class MenuBarPanel extends JPanel {
         if (contentPanel.getComponents().length > 0) {
             contentPanel.remove(0);
         }
-        contentPanel.add(pajakRestoranPanel);
+        PajakRestoranPanel newPajakRestoranPanel = new PajakRestoranPanel();
+        contentPanel.add(newPajakRestoranPanel);
         contentPanel.invalidate();
         contentPanel.revalidate();
         contentPanel.repaint();
@@ -430,6 +435,10 @@ public class MenuBarPanel extends JPanel {
                 = (TimContentPanel) ComponentCollectorProvider
                 .getComponentMapper()
                 .get("tim_content_panel").getComponent();
+        MasterWPPanel masterWPPanel
+                = (MasterWPPanel) ComponentCollectorProvider
+                .getComponentMapper()
+                .get("master_wp_panel").getComponent();
 
         ContentPanel contentPanel
                 = (ContentPanel) ComponentCollectorProvider
@@ -438,7 +447,8 @@ public class MenuBarPanel extends JPanel {
         if (contentPanel.getComponents().length > 0) {
             contentPanel.remove(0);
         }
-        contentPanel.add(timContentPanel, BorderLayout.LINE_START);
+        
+        contentPanel.add(masterWPPanel, BorderLayout.CENTER);
         contentPanel.invalidate();
         contentPanel.revalidate();
         contentPanel.repaint();

@@ -27,7 +27,7 @@ public class FormPersiapanRestoranFrame extends JFrame {
         this.setLocation(x, y);
         
         this.setTitle("Form persiapan pajak restoran");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         
         addFormpersiapanRestoranPanel();
     }
