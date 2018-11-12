@@ -82,11 +82,14 @@ public class PajakRestoranTableComponent extends JPanel {
                 System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
                 
                 WajibPajak wajibPajak = new WajibPajak();
-                wajibPajak.setNpwpd(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 0).toString());
-                wajibPajak.setNamaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                wajibPajak.setNpwpd(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
+                wajibPajak.setNamaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 2).toString());
+                wajibPajak.setAlamatWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 3).toString());
+                wajibPajak.setDesaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 4).toString());
+                wajibPajak.setKecamatanWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 5).toString());
                 
                 PersiapanPajakPOJO persiapanPajakPOJO = new PersiapanPajakPOJO();
-                persiapanPajakPOJO.setNpwpd(wajibPajak);
+                persiapanPajakPOJO.setWajibPajak(wajibPajak);
                 
                 Map<String, Object> persiapanPajakRetoranMap
                         = SessionProvider.getPajakMapSession();

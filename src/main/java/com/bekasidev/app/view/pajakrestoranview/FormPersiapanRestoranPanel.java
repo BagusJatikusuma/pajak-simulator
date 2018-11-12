@@ -10,6 +10,7 @@ import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JPanel;
@@ -211,8 +212,6 @@ public class FormPersiapanRestoranPanel extends JPanel {
 
     private void bGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerateActionPerformed
         // TODO add your handling code here:
-        BerkasPersiapan bp = new BerkasPersiapan();
-        bp.setNomorSurat(tfNomorUrutSurat.getText());
         reportService
                 = ServiceFactory.getReportService();
         PersiapanPajakPOJO persiapanPajakPOJO
@@ -223,18 +222,24 @@ public class FormPersiapanRestoranPanel extends JPanel {
         persiapanPajakPOJO.setSpDari(cbSPDari.getSelectedItem().toString());
         persiapanPajakPOJO.setNomorSP(tfNomorSuratPerintah.getText());
         persiapanPajakPOJO.setJenisPajak("Restoran");
+        persiapanPajakPOJO.setNomorUrutSurat(tfNomorUrutSurat.getText());
         
         DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
         persiapanPajakPOJO.setTanggalTurunSP(dateFormat.format(dcTanggalSPDikeluarkan.getDate()));        
         
         persiapanPajakPOJO.setLamaPemeriksaan(spLamaPemeriksaan.getValue().toString());        
-        persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());        
+        persiapanPajakPOJO.setNipPenandatangan(cbPenandatangan.getSelectedItem().toString());
+        
+        persiapanPajakPOJO.setMasaPajakBulanAwal(convertBulanString(mcAwalMasa.getMonth()));        
+        persiapanPajakPOJO.setMasaPajakTahunAwal(String.valueOf(ycAwalMasa.getYear()));        
+        persiapanPajakPOJO.setMasaPajakBulanAkhir(convertBulanString(mcAkhirMasa.getMonth()));        
+        persiapanPajakPOJO.setMasaPajakTahunAkhir(String.valueOf(ycAkhirMasa.getYear()));        
         
         PersiapanPajakPOJO persiapanPajakPOJO2
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
                         .get("persiapan_pajak_restoran");
-        System.out.println("tfNamaWP "+persiapanPajakPOJO2.getNpwpd().getNamaWP());
+        System.out.println("tfNamaWP "+persiapanPajakPOJO2.getWajibPajak().getNamaWP());
         System.out.println("tfLamaPemeriksaan "+persiapanPajakPOJO2.getLamaPemeriksaan());
         System.out.println("tfNomorSuratPerintah "+persiapanPajakPOJO2.getNomorSP());
         System.out.println("tfPenandatangan "+persiapanPajakPOJO2.getNipPenandatangan());
@@ -242,12 +247,42 @@ public class FormPersiapanRestoranPanel extends JPanel {
         System.out.println("tfTanggalSuratPerintah "+persiapanPajakPOJO2.getTanggalTurunSP());
         
         reportService.createPersiapanPajakRestoranReport();
+        reportService.createPersiapanPajakRestoranReport1();
     }//GEN-LAST:event_bGenerateActionPerformed
 
     private void tfNomorUrutSuratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorUrutSuratActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomorUrutSuratActionPerformed
 
+    public String convertBulanString(int bulan){
+        switch (bulan) {
+            case 0:
+                return "Januari";
+            case 1:
+                return "Februari";
+            case 2:
+                return "Maret";   
+            case 3:
+                return "April";   
+            case 4:
+                return "Mei";   
+            case 5:
+                return "Juni";   
+            case 6:
+                return "Juli";   
+            case 7:
+                return "Agustus";   
+            case 8:
+                return "September";   
+            case 9:
+                return "Oktober";   
+            case 10:
+                return "November";   
+            case 11:
+                return "Desember";
+        }
+        return "";
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCekAnggotaTim;

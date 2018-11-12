@@ -204,7 +204,7 @@ public class FormPersiapanPeneranganJalanPanel extends javax.swing.JPanel {
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
                         .get("persiapan_pajak_restoran");
-        System.out.println("tfNamaWP "+persiapanPajakPOJO2.getNpwpd().getNamaWP());
+        System.out.println("tfNamaWP "+persiapanPajakPOJO2.getWajibPajak().getNamaWP());
         System.out.println("tfLamaPemeriksaan "+persiapanPajakPOJO2.getLamaPemeriksaan());
         System.out.println("tfNomorSuratPerintah "+persiapanPajakPOJO2.getNomorSP());
         System.out.println("tfPenandatangan "+persiapanPajakPOJO2.getNipPenandatangan());

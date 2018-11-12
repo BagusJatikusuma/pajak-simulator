@@ -20,15 +20,19 @@ public class PersiapanPajakPOJO {
     private String jabatanPenandatangan;
     private TimPemeriksa timPemeriksa;
     private String jenisPajak;
-    private String masaPajak;
+    private String masaPajakBulanAwal;
+    private String masaPajakTahunAwal;
+    private String masaPajakBulanAkhir;
+    private String masaPajakTahunAkhir;
     private String lamaPemeriksaan;
+    private String nomorUrutSurat;
 
     public PersiapanPajakPOJO() {
     }
 
-    public PersiapanPajakPOJO(String tanggalSuratDibuat, WajibPajak npwpd, String spDari, String tanggalTurunSP, String nomorSP, String nipPenandatangan, String namaPenandatangan, String jabatanPenandatangan, TimPemeriksa timPemeriksa, String jenisPajak, String masaPajak, String lamaPemeriksaan) {
+    public PersiapanPajakPOJO(String tanggalSuratDibuat, WajibPajak wajibPajak, String spDari, String tanggalTurunSP, String nomorSP, String nipPenandatangan, String namaPenandatangan, String jabatanPenandatangan, TimPemeriksa timPemeriksa, String jenisPajak, String masaPajakBulanAwal, String masaPajakTahunAwal, String masaPajakBulanAkhir, String masaPajakTahunAkhir, String lamaPemeriksaan, String nomorUrutSurat) {
         this.tanggalSuratDibuat = tanggalSuratDibuat;
-        this.wajibPajak = npwpd;
+        this.wajibPajak = wajibPajak;
         this.spDari = spDari;
         this.tanggalTurunSP = tanggalTurunSP;
         this.nomorSP = nomorSP;
@@ -37,8 +41,12 @@ public class PersiapanPajakPOJO {
         this.jabatanPenandatangan = jabatanPenandatangan;
         this.timPemeriksa = timPemeriksa;
         this.jenisPajak = jenisPajak;
-        this.masaPajak = masaPajak;
+        this.masaPajakBulanAwal = masaPajakBulanAwal;
+        this.masaPajakTahunAwal = masaPajakTahunAwal;
+        this.masaPajakBulanAkhir = masaPajakBulanAkhir;
+        this.masaPajakTahunAkhir = masaPajakTahunAkhir;
         this.lamaPemeriksaan = lamaPemeriksaan;
+        this.nomorUrutSurat = nomorUrutSurat;
     }
 
     public String getTanggalSuratDibuat() {
@@ -49,12 +57,12 @@ public class PersiapanPajakPOJO {
         this.tanggalSuratDibuat = tanggalSuratDibuat;
     }
 
-    public WajibPajak getNpwpd() {
+    public WajibPajak getWajibPajak() {
         return wajibPajak;
     }
 
-    public void setNpwpd(WajibPajak npwpd) {
-        this.wajibPajak = npwpd;
+    public void setWajibPajak(WajibPajak wajibPajak) {
+        this.wajibPajak = wajibPajak;
     }
 
     public String getSpDari() {
@@ -121,12 +129,36 @@ public class PersiapanPajakPOJO {
         this.jenisPajak = jenisPajak;
     }
 
-    public String getMasaPajak() {
-        return masaPajak;
+    public String getMasaPajakBulanAwal() {
+        return masaPajakBulanAwal;
     }
 
-    public void setMasaPajak(String masaPajak) {
-        this.masaPajak = masaPajak;
+    public void setMasaPajakBulanAwal(String masaPajakBulanAwal) {
+        this.masaPajakBulanAwal = masaPajakBulanAwal;
+    }
+
+    public String getMasaPajakTahunAwal() {
+        return masaPajakTahunAwal;
+    }
+
+    public void setMasaPajakTahunAwal(String masaPajakTahunAwal) {
+        this.masaPajakTahunAwal = masaPajakTahunAwal;
+    }
+
+    public String getMasaPajakBulanAkhir() {
+        return masaPajakBulanAkhir;
+    }
+
+    public void setMasaPajakBulanAkhir(String masaPajakBulanAkhir) {
+        this.masaPajakBulanAkhir = masaPajakBulanAkhir;
+    }
+
+    public String getMasaPajakTahunAkhir() {
+        return masaPajakTahunAkhir;
+    }
+
+    public void setMasaPajakTahunAkhir(String masaPajakTahunAkhir) {
+        this.masaPajakTahunAkhir = masaPajakTahunAkhir;
     }
 
     public String getLamaPemeriksaan() {
@@ -136,6 +168,16 @@ public class PersiapanPajakPOJO {
     public void setLamaPemeriksaan(String lamaPemeriksaan) {
         this.lamaPemeriksaan = lamaPemeriksaan;
     }
+
+    public String getNomorUrutSurat() {
+        return nomorUrutSurat;
+    }
+
+    public void setNomorUrutSurat(String nomorUrutSurat) {
+        this.nomorUrutSurat = nomorUrutSurat;
+    }
+
+    
     
     
 }
