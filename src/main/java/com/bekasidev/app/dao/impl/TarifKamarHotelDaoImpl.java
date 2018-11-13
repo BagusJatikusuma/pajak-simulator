@@ -55,7 +55,7 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
     }
 
     public void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel) {
-        String sql = "INSERT INTO t_kamarhotel VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_kamarhotel VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -67,6 +67,11 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             pstm.setDouble(5, tarifKamarHotel.getHargaPerKamar());
             pstm.setString(6, tarifKamarHotel.getTanggalBuat());
             pstm.setInt(7, tarifKamarHotel.getJumlahKamar());
+            pstm.setString(8, tarifKamarHotel.getLabel());
+            pstm.setInt(9, tarifKamarHotel.getRataKamarHotel());
+            pstm.setDouble(10, tarifKamarHotel.getRataHargaKamarHotel());
+            pstm.setDouble(11, tarifKamarHotel.getTotalHargaPerKamar());
+            pstm.setDouble(12, tarifKamarHotel.getTotalHargaSeluruhKamar());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,6 +101,11 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
             tarifKamarHotel.setJumlahPemakaianKamarSebulan(rs.getInt("jumlah_pemakaiankamarsebulan"));
             tarifKamarHotel.setHargaPerKamar(rs.getDouble("harga_perkamar"));
             tarifKamarHotel.setTanggalBuat(rs.getString("tanggal_buat"));
+            tarifKamarHotel.setLabel(rs.getString("label"));
+            tarifKamarHotel.setRataHargaKamarHotel(rs.getDouble("rata_hargakamarhotel"));
+            tarifKamarHotel.setRataKamarHotel(rs.getInt("rata_kamarhotel"));
+            tarifKamarHotel.setTotalHargaPerKamar(rs.getDouble("total_hargaperkamar"));
+            tarifKamarHotel.setTotalHargaSeluruhKamar(rs.getDouble("total_hargaseluruhkamar"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

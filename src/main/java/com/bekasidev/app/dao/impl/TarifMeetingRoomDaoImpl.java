@@ -2,7 +2,6 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.TarifMeetingRoomDao;
-import com.bekasidev.app.model.TarifKamarHotel;
 import com.bekasidev.app.model.TarifMeetingRoom;
 
 import java.sql.Connection;
@@ -60,7 +59,7 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
     }
 
     public  void  createTarifMeetingRoom(TarifMeetingRoom tarifMeetingRoom) {
-        String sql = "INSERT INTO t_meetingroom VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_meetingroom VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -71,6 +70,7 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
             pstm.setInt(4, tarifMeetingRoom.getJumlahPengunjung());
             pstm.setDouble(5, tarifMeetingRoom.getHargaSewa());
             pstm.setString(6, tarifMeetingRoom.getTanggalBuat());
+            pstm.setString(7, tarifMeetingRoom.getLabel());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -100,6 +100,7 @@ public class TarifMeetingRoomDaoImpl implements TarifMeetingRoomDao{
             tarifMeetingRoom.setJumlahPengunjung(rs.getInt("jumlah_pengunjung"));
             tarifMeetingRoom.setHargaSewa(rs.getDouble("harga_sewa"));
             tarifMeetingRoom.setTanggalBuat(rs.getString("tanggal_buat"));
+            tarifMeetingRoom.setLabel(rs.getString("label"));
         } catch (SQLException e) {
             e.printStackTrace();
         } return tarifMeetingRoom;

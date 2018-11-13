@@ -11,12 +11,14 @@ public class TarifFitnessCenter {
     private Double tarifFitness;
     private Integer jumlahPengunjung;
     private String tanggalBuat;
+    private String label;
 
     public TarifFitnessCenter(){}
 
-    public TarifFitnessCenter(String idHotel, String idTarifFitness, String namaFitnessCenter, Double tarifFitness, Integer jumlahPengunjung, String tanggalBuat) {
+    public TarifFitnessCenter(String idHotel, String idTarifFitness, String label, String namaFitnessCenter, Double tarifFitness, Integer jumlahPengunjung, String tanggalBuat) {
         this.idHotel = idHotel;
         this.idTarifFitness = idTarifFitness;
+        this.label = label;
         this.namaFitnessCenter = namaFitnessCenter;
         this.tarifFitness = tarifFitness;
         this.jumlahPengunjung = jumlahPengunjung;
@@ -30,6 +32,10 @@ public class TarifFitnessCenter {
     public String getIdTarifFitness() { return idTarifFitness; }
 
     public void setIdTarifFitness(String idTarifFitness) {this.idTarifFitness = idTarifFitness; }
+
+    public String getLabel() {return label;}
+
+    public void setLabel(String label) {this.label = label; }
 
     public String getNamaFitnessCenter() {return namaFitnessCenter; }
 

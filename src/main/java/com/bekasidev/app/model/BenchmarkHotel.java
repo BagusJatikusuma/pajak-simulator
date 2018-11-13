@@ -8,7 +8,7 @@ public class BenchmarkHotel {
     private String idHotel;
     private String idBenchmarkHotel;
     private String idDataPembukuan;
-    private String labelFasilitas;
+    private String label;
     private String labelBarang;
     private Integer jumlahDataPembukuan;
     private String uraianDataPembukuan;
@@ -18,12 +18,12 @@ public class BenchmarkHotel {
 
     public BenchmarkHotel(){}
 
-    public BenchmarkHotel(String idHotel, String idDataPembukuan, String idBenchmarkHotel, Integer jumlahTerpakai, String uraianDataPembukuan, String labelFasilitas, String labelBarang, Integer jumlahDataPembukuan, String satuan, String tanggalBuat) {
+    public BenchmarkHotel(String idHotel, String idDataPembukuan, String idBenchmarkHotel, Integer jumlahTerpakai, String uraianDataPembukuan, String label, String labelBarang, Integer jumlahDataPembukuan, String satuan, String tanggalBuat) {
         this.idHotel = idHotel;
         this.idDataPembukuan = idDataPembukuan;
         this.uraianDataPembukuan = uraianDataPembukuan;
         this.idBenchmarkHotel = idBenchmarkHotel;
-        this.labelFasilitas = labelFasilitas;
+        this.label = label;
         this.labelBarang = labelBarang;
         this.jumlahTerpakai = jumlahTerpakai;
         this.jumlahDataPembukuan = jumlahDataPembukuan;
@@ -43,9 +43,9 @@ public class BenchmarkHotel {
 
     public void setIdBenchmarkHotel(String idBenchmarkHotel) {this.idBenchmarkHotel = idBenchmarkHotel;}
 
-    public String getLabelFasilitas() {return labelFasilitas;}
+    public String getLabel() {return label;}
 
-    public void setLabelFasilitas(String labelFasilitas) {this.labelFasilitas = labelFasilitas;}
+    public void setLabel(String label) {this.label = label;}
 
     public String getLabelBarang() {return labelBarang; }
 

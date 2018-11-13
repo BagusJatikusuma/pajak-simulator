@@ -7,6 +7,7 @@ public class TarifMeetingRoom {
 
     private String idHotel;
     private String idMeetingRoom;
+    private String label;
     private String namaMeetingRoom;
     private Integer jumlahPengunjung;
     private Double hargaSewa;
@@ -14,9 +15,10 @@ public class TarifMeetingRoom {
 
     public TarifMeetingRoom(){}
 
-    public TarifMeetingRoom(String idHotel, String idMeetingRoom, String namaMeetingRoom, Integer jumlahPengunjung, Double hargaSewa, String tanggalBuat) {
+    public TarifMeetingRoom(String idHotel, String idMeetingRoom, String label,String namaMeetingRoom, Integer jumlahPengunjung, Double hargaSewa, String tanggalBuat) {
         this.idHotel = idHotel;
         this.idMeetingRoom = idMeetingRoom;
+        this.label = label;
         this.namaMeetingRoom = namaMeetingRoom;
         this.jumlahPengunjung = jumlahPengunjung;
         this.hargaSewa = hargaSewa;
@@ -30,6 +32,10 @@ public class TarifMeetingRoom {
     public String getIdMeetingRoom() {return idMeetingRoom; }
 
     public void setIdMeetingRoom(String idMeetingRoom) {this.idMeetingRoom = idMeetingRoom; }
+
+    public String getLabel() {return label; }
+
+    public void setLabel(String label) {this.label = label;}
 
     public String getNamaMeetingRoom() {return namaMeetingRoom; }
 
