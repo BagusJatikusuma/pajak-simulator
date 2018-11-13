@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.service.reportservice.reportserviceimpl;
 
+import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
@@ -130,7 +131,9 @@ public class ReportServiceImpl implements ReportService {
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
-            ArrayList<WajibPajak> dataList = new ArrayList();
+            ArrayList<Pegawai> dataList = new ArrayList();
+            dataList.add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
+            dataList.add(new Pegawai("01", "141511057", "ABDUR", "IV.a", "ADMIN"));
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(dataList);
@@ -157,6 +160,7 @@ public class ReportServiceImpl implements ReportService {
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAwal());
             parameter.put("pajak_akhir", persiapanPajakPOJO.getMasaPajakBulanAkhir()
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAkhir());
+            parameter.put("tim", "Tim 1");
             
             try {
                JasperFillManager.fillReportToFile(
@@ -169,7 +173,7 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter, 
-                    new JRBeanCollectionDataSource(new ArrayList<Object>()));
+                    beanColDataSource);
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
