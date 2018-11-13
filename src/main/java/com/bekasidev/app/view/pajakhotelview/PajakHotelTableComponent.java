@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.HotelService;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -35,6 +36,7 @@ public class PajakHotelTableComponent extends JPanel {
     }
     
     public void init() {
+        this.setBackground(Color.decode("#bfbfbf"));
         service = ServiceFactory.getHotelService();
         
         JScrollPane jScrollPane1 = new JScrollPane();

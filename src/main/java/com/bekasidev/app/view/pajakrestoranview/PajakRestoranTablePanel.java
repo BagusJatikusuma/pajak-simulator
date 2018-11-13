@@ -6,10 +6,13 @@
 package com.bekasidev.app.view.pajakrestoranview;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.Font;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 /**
  *
@@ -23,11 +26,18 @@ public class PajakRestoranTablePanel extends JPanel{
     }
     
     public void init(){
-        this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 40));
+        this.setLayout(new BorderLayout());
         this.setBackground(Color.decode("#f3f3f3"));
         
+        JLabel judul = new JLabel("DAFTAR RESTORAN");
+        judul.setFont(new Font("Tahoma", Font.BOLD, 20));
+        judul.setHorizontalAlignment(JLabel.CENTER);
+        judul.setVerticalAlignment(JLabel.CENTER);
+        judul.setBorder(new EmptyBorder(15,0,10,0));
+        this.add(judul, BorderLayout.PAGE_START);
+        
         PajakRestoranTableComponent restoranTableComponent = new PajakRestoranTableComponent();
-        this.add(restoranTableComponent);
+        this.add(restoranTableComponent, BorderLayout.CENTER);
     }
     
 }

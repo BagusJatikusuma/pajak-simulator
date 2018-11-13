@@ -13,6 +13,7 @@ import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajak;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -38,6 +39,8 @@ public class PajakRestoranTableComponent extends JPanel {
     }
     
     public void init() {
+        this.setBackground(Color.decode("#f3f3f3"));
+        
         service = ServiceFactory.getWajibPajakService();
         
         JScrollPane jScrollPane1 = new JScrollPane();
