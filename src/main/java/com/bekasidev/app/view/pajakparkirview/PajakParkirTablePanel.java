@@ -23,7 +23,7 @@ public class PajakParkirTablePanel extends JPanel{
     
     public void init(){
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 40));
-        this.setBackground(Color.RED);
+        this.setBackground(Color.decode("#e6e6e6"));
         
         PajakParkirTableComponent pajakParkirTableComponent = new PajakParkirTableComponent();
         this.add(pajakParkirTableComponent);

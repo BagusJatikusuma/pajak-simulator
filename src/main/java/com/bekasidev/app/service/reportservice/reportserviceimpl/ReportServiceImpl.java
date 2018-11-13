@@ -11,7 +11,10 @@ import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajak;
 import java.awt.Dimension;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -101,6 +104,14 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter, 
                     new JRBeanCollectionDataSource(new ArrayList<Object>()));
+            
+            try {
+                OutputStream output = new FileOutputStream(new File("E:/pdf/ReportPeminjamanBuku.pdf"));
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -126,6 +137,7 @@ public class ReportServiceImpl implements ReportService {
             try {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -162,6 +174,7 @@ public class ReportServiceImpl implements ReportService {
                JasperFillManager.fillReportToFile(
                jasperPathFile, parameter, beanColDataSource);
             } catch (JRException e) {
+                System.out.println("JRException ex");
                e.printStackTrace();
             }
             
@@ -170,12 +183,21 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter, 
                     new JRBeanCollectionDataSource(new ArrayList<Object>()));
+            
+            try {
+                OutputStream output = new FileOutputStream(new File("E:/pdf/ReportPemberitahuanPemeriksaan.pdf"));
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
             frame.setVisible(true);
             
         } catch (JRException ex) {
+            System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         

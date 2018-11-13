@@ -22,7 +22,7 @@ public class PajakPeneranganJalanTablePanel extends JPanel{
     }
     
     public void init(){
-        this.setBackground(Color.RED);
+        this.setBackground(Color.decode("#e6e6e6"));
     }
     
 }
