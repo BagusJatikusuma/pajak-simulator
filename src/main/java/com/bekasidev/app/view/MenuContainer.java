@@ -5,6 +5,10 @@
  */
 package com.bekasidev.app.view;
 
+import com.bekasidev.app.view.pajakhiburanview.PajakHiburanPanel;
+import com.bekasidev.app.view.pajakhotelview.PajakHotelPanel;
+import com.bekasidev.app.view.pajakparkirview.PajakParkirPanel;
+import com.bekasidev.app.view.pajakpeneranganjalanview.PajakPeneranganJalanPanel;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -33,8 +37,12 @@ public class MenuContainer extends JPanel {
         MenuBarPanelRestoran menuBarPanelRestoran = new MenuBarPanelRestoran();
         menuBarPanelRestoran.init();
         FileMenuBarPanel fileMenuBarPanel = new FileMenuBarPanel();
+        PajakHotelPanel pajakHotelPanel = new PajakHotelPanel();
+        PajakParkirPanel pajakParkirPanel = new PajakParkirPanel();
+        PajakHiburanPanel pajakHiburanPanel = new PajakHiburanPanel();
+        PajakPeneranganJalanPanel pajakPeneranganJalanPanel = new PajakPeneranganJalanPanel();
         
-        this.add(customHeaderPanel, BorderLayout.PAGE_START);
+//        this.add(customHeaderPanel, BorderLayout.PAGE_START);
         this.add(menuBarPanel, BorderLayout.CENTER);
         this.add(menuBarPanelRestoran, BorderLayout.PAGE_END);
         this.add(fileMenuBarPanel, BorderLayout.PAGE_END);

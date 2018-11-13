@@ -5,18 +5,15 @@
  */
 package com.bekasidev.app.view;
 
-import com.bekasidev.app.view.util.ComponentCollector;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
@@ -45,8 +42,9 @@ public class MainFrame extends JFrame {
         
         this.setTitle("Aplikasi Perpajakan Kabupaten Bekasi");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
+//        this.setUndecorated(true);
         this.setLayout(new BorderLayout());
+//        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         
         FrameDragListener frameDragListener = new FrameDragListener(this);
         this.addMouseListener(frameDragListener);
@@ -59,10 +57,10 @@ public class MainFrame extends JFrame {
     
     private void addMenuBar() {
         MenuContainer menuContainer = new MenuContainer();
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.WHITE);
+        ContentPanel contentPanel = new ContentPanel();
+
         this.add(menuContainer, BorderLayout.PAGE_START);
-        this.add(panel, BorderLayout.CENTER);
+        this.add(contentPanel, BorderLayout.CENTER);
         
         ComponentCollectorProvider.addComponentChild(
                 Arrays.asList((Component)menuContainer), "main_frame");

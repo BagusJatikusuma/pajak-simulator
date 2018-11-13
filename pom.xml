@@ -35,20 +35,48 @@
         <artifactId>AbsoluteLayout</artifactId>
         <version>RELEASE82</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+    <!-- https://mvnrepository.com/artifact/jasperreports/jasperreports -->
     <dependency>
-        <groupId>net.sf.jasperreports</groupId>
+        <groupId>jasperreports</groupId>
         <artifactId>jasperreports</artifactId>
-        <version>6.5.1</version>
+        <version>6.7.0</version>
     </dependency>
-
-
       <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
       <dependency>
           <groupId>org.xerial</groupId>
           <artifactId>sqlite-jdbc</artifactId>
           <version>3.25.2</version>
       </dependency>
+    <dependency>
+      <groupId>com.toedter</groupId>
+      <artifactId>jcalendar</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+    <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+    <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.9.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>2.5.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
+    <dependency>
+        <groupId>commons-digester</groupId>
+        <artifactId>commons-digester</artifactId>
+        <version>2.1</version>
+    </dependency>
+
   </dependencies>
   
   <!-- http://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/ -->

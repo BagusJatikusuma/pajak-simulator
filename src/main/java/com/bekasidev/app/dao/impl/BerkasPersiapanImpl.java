@@ -6,6 +6,7 @@ import com.bekasidev.app.dao.PegawaiDao;
 import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.Pegawai;
+import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class BerkasPersiapanImpl implements BerkasPersiapanDao {
     @Override
-    public BerkasPersiapan getBerkasPersiapan(String idBerkas) {
+    public DokumenPersiapanWrapper getBerkasPersiapan(String idBerkas) {
         String sql = "SELECT * FROM berkas_persiapan WHERE id_berkas=?";
         BerkasPersiapan berkasPersiapan = new BerkasPersiapan();
 
@@ -38,7 +39,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
 
     @Override
     public void createBerkasPersiapan(BerkasPersiapan berkasPersiapan) {
-        String sql = "INSERT INTO berkas_persiapan VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO berkas_persiapan VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -60,14 +61,18 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.setString(16, berkasPersiapan.getJabatanPenandatangan());
             pstm.setString(17, berkasPersiapan.getNamaPenandatangan());
             pstm.setString(18, berkasPersiapan.getTanggalDibuat());
-            pstm.setString(19, berkasPersiapan.getNamaWP());
+            pstm.setString(19, berkasPersiapan.getMasaPajakAwal());
+            pstm.setString(20, berkasPersiapan.getMasaPajakAkhir());
+            pstm.setString(21, berkasPersiapan.getIdWajibPajak());
+
+            pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     private BerkasPersiapan setDokumenPersiapan(ResultSet rs) throws SQLException {
-        BerkasPersiapan berkasPersiapan = new BerkasPersiapan();
+        DokumenPersiapanWrapper berkasPersiapan = new DokumenPersiapanWrapper();
         berkasPersiapan.setIdBerkas(rs.getString("id_berkas"));
         berkasPersiapan.setKotaTerbit(rs.getString("kota_terbit"));
         berkasPersiapan.setNpwpd(rs.getString("npwpd"));
@@ -86,13 +91,15 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         berkasPersiapan.setTanggalDibuat(rs.getString("tanggal_buat"));
         berkasPersiapan.setListPinjaman(setDokumenPinjaman(rs.getString("dokumen_pinjaman")));
         berkasPersiapan.setListPegawai(getPegawai(rs.getString("daftar_anggota")));
-        berkasPersiapan.setNamaWP(rs.getString("namawp"));
+        berkasPersiapan.setMasaPajakAwal(rs.getString("masa_pajak_awal"));
+        berkasPersiapan.setMasaPajakAkhir(rs.getString("masa_pajak_akhir"));
+        berkasPersiapan.setIdWajibPajak(rs.getString("id_wp"));
 
         return berkasPersiapan;
     }
 
     private List<DokumenPinjaman> setDokumenPinjaman(String stringPinjaman){
-        String[] parts = stringPinjaman.split(";;;");
+        String[] parts = stringPinjaman.split("<p>");
         List<DokumenPinjaman> listPinjaman = new ArrayList<>();
         for(String part : parts){
             listPinjaman.add(new DokumenPinjaman(part,""));
@@ -102,10 +109,10 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
     }
 
     private List<Pegawai> getPegawai(String stringPegawai){
-        String[] parts = stringPegawai.split(";;");
+        String[] parts = stringPegawai.split("<p>");
         List<Pegawai> listPegawai = new ArrayList<>();
         for(String part : parts){
-            String[] partPegawai = part.split("--");
+            String[] partPegawai = part.split("<b>");
             listPegawai.add(new Pegawai("", partPegawai[0],partPegawai[1],partPegawai[2],""));
         }
 
@@ -115,7 +122,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
     private String setPinjamanToString(List<DokumenPinjaman> dokumenPinjamen){
         String result = dokumenPinjamen.get(0).getNamaDokumen();
         for(int i = 1; i<dokumenPinjamen.size();i++){
-            result += ";;;" + dokumenPinjamen.get(i).getKeterangan();
+            result += "<p>" + dokumenPinjamen.get(i).getNamaDokumen();
         }
 
         return result;
@@ -124,10 +131,10 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
     private String setPegawaiToString(List<Pegawai> pegawaiList){
         String result = "";
         if(pegawaiList.size() > 0){
-            result += pegawaiList.get(0).getNipPegawai() + "--" + pegawaiList.get(0).getNamaPegawai() + "--"
+            result += pegawaiList.get(0).getNipPegawai() + "<b>" + pegawaiList.get(0).getNamaPegawai() + "<b>"
                     + pegawaiList.get(0).getGolongan();
             for(int i = 1; i < pegawaiList.size();i++){
-                result += ";;" + pegawaiList.get(i).getNipPegawai() + "--" + pegawaiList.get(i).getNamaPegawai() + "--"
+                result += "<p>" + pegawaiList.get(i).getNipPegawai() + "<b>" + pegawaiList.get(i).getNamaPegawai() + "<b>"
                         + pegawaiList.get(i).getGolongan();
             }
         }

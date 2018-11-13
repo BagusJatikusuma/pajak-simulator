@@ -6,13 +6,15 @@ import java.util.List;
 public class BerkasPersiapan {
 
     private String idBerkas;
+    private String idWajibPajak;
 
-    private String namaWP;
     private String kotaTerbit;
     private String npwpd;
     private String alamatJalan;
     private String alamatKecamatan;
     private String alamatDi;
+    private String masaPajakAwal;
+    private String masaPajakAkhir;
 
     private String nomorSurat;
     private String sifat;
@@ -30,9 +32,29 @@ public class BerkasPersiapan {
     private String namaPenandatangan;
     private String tanggalDibuat;
 
-    public String getNamaWP() { return namaWP; }
+    public String getIdWajibPajak() {
+        return idWajibPajak;
+    }
 
-    public void setNamaWP(String namaWP) { this.namaWP = namaWP; }
+    public void setIdWajibPajak(String idWajibPajak) {
+        this.idWajibPajak = idWajibPajak;
+    }
+
+    public String getMasaPajakAwal() {
+        return masaPajakAwal;
+    }
+
+    public void setMasaPajakAwal(String masaPajakAwal) {
+        this.masaPajakAwal = masaPajakAwal;
+    }
+
+    public String getMasaPajakAkhir() {
+        return masaPajakAkhir;
+    }
+
+    public void setMasaPajakAkhir(String masaPajakAkhir) {
+        this.masaPajakAkhir = masaPajakAkhir;
+    }
 
     public String getTanggalDibuat() {
         return tanggalDibuat;
