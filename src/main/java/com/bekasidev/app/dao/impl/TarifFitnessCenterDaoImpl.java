@@ -57,7 +57,7 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
     }
 
     public void createTarifFitnessCenter(TarifFitnessCenter tarifFitnessCenter) {
-        String sql = "INSERT INTO t_fitnesscenter VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_fitnesscenter VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)
@@ -68,6 +68,7 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
             pstm.setInt(4,tarifFitnessCenter.getJumlahPengunjung());
             pstm.setDouble(5,tarifFitnessCenter.getTarifFitness());
             pstm.setString(6,tarifFitnessCenter.getTanggalBuat());
+            pstm.setString(7,tarifFitnessCenter.getLabel());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,6 +97,7 @@ public class TarifFitnessCenterDaoImpl implements TarifFitnessCenterDao{
             tarifFitnessCenter.setTarifFitness(rs.getDouble("tarif_fitness"));
             tarifFitnessCenter.setJumlahPengunjung(rs.getInt("jumlah_pengunjung"));
             tarifFitnessCenter.setTanggalBuat(rs.getString("tanggal_buat"));
+            tarifFitnessCenter.setLabel(rs.getString("label"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
