@@ -4,6 +4,7 @@ import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.BenchmarkHotelDao;
 import com.bekasidev.app.model.BenchmarkHotel;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +36,6 @@ public class BenchmarkHotelDaoImpl implements BenchmarkHotelDao{
         } return benchmarkHotels;
     }
 
-
     @Override
     public void createBenchmarkHotel(BenchmarkHotel benchmarkHotel) {
         String sql = "INSERT INTO benchmarkhotel VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -49,7 +49,7 @@ public class BenchmarkHotelDaoImpl implements BenchmarkHotelDao{
             pstm.setInt(4, benchmarkHotel.getJumlahDataPembukuan());
             pstm.setInt(5, benchmarkHotel.getJumlahTerpakai());
             pstm.setString(6, benchmarkHotel.getLabelBarang());
-            pstm.setString(7, benchmarkHotel.getLabelFasilitas());
+            pstm.setString(7, benchmarkHotel.getLabel());
             pstm.setString(8, benchmarkHotel.getSatuan());
             pstm.setString(9, benchmarkHotel.getTanggalBuat());
             pstm.setString(10, benchmarkHotel.getUraianDataPembukuan());
@@ -69,11 +69,12 @@ public class BenchmarkHotelDaoImpl implements BenchmarkHotelDao{
         benchmarkHotel.setJumlahDataPembukuan(rs.getInt("jumlah_datapembukuan"));
         benchmarkHotel.setJumlahTerpakai(rs.getInt("jumlah_terpakai"));
         benchmarkHotel.setLabelBarang(rs.getString("label_barang"));
-        benchmarkHotel.setLabelFasilitas(rs.getString("label_fasilitas"));
+        benchmarkHotel.setLabel(rs.getString("label"));
         benchmarkHotel.setSatuan(rs.getString("satuan"));
         benchmarkHotel.setTanggalBuat(rs.getString("tanggal_buat"));
         benchmarkHotel.setUraianDataPembukuan(rs.getString("uraian_datapembukuan"));
 
         return benchmarkHotel;
     }
+
 }

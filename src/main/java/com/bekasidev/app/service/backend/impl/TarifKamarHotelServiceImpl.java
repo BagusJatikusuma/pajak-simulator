@@ -8,6 +8,7 @@ import com.bekasidev.app.service.backend.TarifKamarHotelService;
 import java.util.Calendar;
 import java.util.List;
 
+import static java.lang.Math.round;
 /**
  * Created by waddi on 25/10/18.
  */
@@ -35,6 +36,40 @@ public class TarifKamarHotelServiceImpl implements TarifKamarHotelService {
     @Override
     public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarhotel) {
         tarifKamarHotelDao.deleteTarifKamarHotelByIdHotelAndidKamarHotel(idHotel, idKamarhotel);
+    }
+
+    private void calculateHargaPerKamar(TarifKamarHotel tk) {
+        tk.setRataHargaKamarHotel((double) round(tk.getJumlahKamar()*tk.getTotalHargaPerKamar()/tk.getRataKamarHotel()));
+    }
+
+    public Double calculateTotalHargaPerkamar(List<TarifKamarHotel> listTarifHargaPerKamar){
+        double jumlahTotalHargaPerKamar = 0;
+        for (TarifKamarHotel tarifKamarHotel : listTarifHargaPerKamar){
+            calculateHargaPerKamar(tarifKamarHotel);
+            jumlahTotalHargaPerKamar = jumlahTotalHargaPerKamar+tarifKamarHotel.getRataHargaKamarHotel();
+        }
+        return jumlahTotalHargaPerKamar;
+    }
+
+    public int calculateJumlahPemakaianKamarSebulan(List<TarifKamarHotel> listPemakaianKamarSebulan) {
+        int jumlahPemakaianKamarSebulan = 0;
+        for (TarifKamarHotel tarifKamarHotel : listPemakaianKamarSebulan) {
+            jumlahPemakaianKamarSebulan = jumlahPemakaianKamarSebulan+tarifKamarHotel.getJumlahPemakaianKamarSebulan();
+        }
+        return jumlahPemakaianKamarSebulan;
+    }
+
+    private void calculateTotalHargaPerKamar(TarifKamarHotel tkh) {
+        tkh.setTotalHargaPerKamar(tkh.getJumlahPemakaianKamarSebulan()*tkh.getHargaPerKamar());
+    }
+
+    public Double calculateTotalHargaSeluruhKamar(List<TarifKamarHotel> listTotalHargaSeluruhKamar) {
+        double jumlahTotalHargaSeluruhKamar = 0;
+        for (TarifKamarHotel tarifKamarHotel : listTotalHargaSeluruhKamar) {
+            calculateTotalHargaPerKamar(tarifKamarHotel);
+            jumlahTotalHargaSeluruhKamar = jumlahTotalHargaSeluruhKamar+tarifKamarHotel.getTotalHargaPerKamar();
+        }
+        return jumlahTotalHargaSeluruhKamar;
     }
 
 }
