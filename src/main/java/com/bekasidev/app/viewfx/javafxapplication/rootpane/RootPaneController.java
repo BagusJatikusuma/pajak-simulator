@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.rootpane;
 
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +31,8 @@ public class RootPaneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ComponentCollectorProvider
+                .addFxComponent("root_pane", rootpane);
         try {
             mainMenuPane 
                     = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/UI.fxml"));
