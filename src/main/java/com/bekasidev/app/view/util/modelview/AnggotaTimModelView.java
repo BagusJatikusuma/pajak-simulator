@@ -9,16 +9,16 @@ package com.bekasidev.app.view.util.modelview;
  *
  * @author Bayu Arafli
  */
-public class AnggotaTim {
+public class AnggotaTimModelView {
     private String nipAnggota;
     private String namaAnggota;
     private String pangkatGol;
     private String jabatanDiTim;
 
-    public AnggotaTim() {
+    public AnggotaTimModelView() {
     }
 
-    public AnggotaTim(String nipAnggota, String namaAnggota, String pangkatGol, String jabatanDiTim) {
+    public AnggotaTimModelView(String nipAnggota, String namaAnggota, String pangkatGol, String jabatanDiTim) {
         this.nipAnggota = nipAnggota;
         this.namaAnggota = namaAnggota;
         this.pangkatGol = pangkatGol;
