@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
+import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
 
 /**
@@ -62,4 +63,24 @@ public class UIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void openWajibPajak() {
+        Logger.getLogger(getClass().getName()).info("open persiapan pajak hotel");
+        Logger.getLogger(getClass().getName()).info("parent "+mainmenu.getParent().getId());
+        
+        Pane rootpane = (Pane) mainmenu.getParent();
+        Logger.getLogger(getClass().getName()).info("in menus before "+rootpane.getChildren().get(1).getId()+" : "+rootpane.getChildren().get(0).getId());
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterWajibPajakUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        rootpane.getChildren().add(contentPane);
+        Logger.getLogger(getClass().getName()).info("in menus "+rootpane.getChildren().get(1).getId()+" : "+rootpane.getChildren().get(0).getId());
+    } 
 }

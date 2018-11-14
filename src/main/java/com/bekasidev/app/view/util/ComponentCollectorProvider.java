@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -17,10 +18,16 @@ import java.util.Map;
  */
 public class ComponentCollectorProvider {
     private static Map<String, ComponentCollector> componentMapper;
+    private static Map<String, Pane> fxComponentMapper;
     
     public static Map<String, ComponentCollector> getComponentMapper() {
         if (componentMapper == null) componentMapper = new HashMap<>();
         return componentMapper;
+    }
+    
+    public static Map<String, Pane> getComponentFXMapper() {
+        if (fxComponentMapper == null) fxComponentMapper = new HashMap<>();
+        return fxComponentMapper;
     }
     
     public static void addComponent(
@@ -32,6 +39,14 @@ public class ComponentCollectorProvider {
                 = getComponentMapper();
         ComponentCollector compCollector = new ComponentCollector(componentId, component,childComponentList, componentParent);
         comMap.put(componentId, compCollector);
+    }
+    
+    public static void addFxComponent(
+            String componentId, 
+            Pane pane) {
+        Map<String, Pane> comMap 
+                = getComponentFXMapper();
+        comMap.put(componentId, pane);
     }
     
     public static void addComponentChild(List<Component> childComponentList, String componentParent) {

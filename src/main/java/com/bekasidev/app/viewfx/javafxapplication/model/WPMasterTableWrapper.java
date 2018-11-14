@@ -1,9 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.bekasidev.app.viewfx.javafxapplication.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 
-public class WajibPajakWrapperFX {
+/**
+ *
+ * @author USER
+ */
+public class WPMasterTableWrapper {
     private SimpleStringProperty no;
     private SimpleStringProperty idWajibPajak;
     private SimpleStringProperty namaWajibPajak;
@@ -13,17 +22,16 @@ public class WajibPajakWrapperFX {
     private SimpleStringProperty desa;
     private Button button;
 
-    public WajibPajakWrapperFX() {
+    public WPMasterTableWrapper() {
     }
 
-    public WajibPajakWrapperFX(
-            String no,
+    public WPMasterTableWrapper(String no, 
             String idWajibPajak, 
             String namaWajibPajak, 
             String jenisWp, 
             String jalan, 
             String kecamatan, 
-            String desa,
+            String desa, 
             Button button) {
         this.no = new SimpleStringProperty(no);
         this.idWajibPajak = new SimpleStringProperty(idWajibPajak);
@@ -33,6 +41,30 @@ public class WajibPajakWrapperFX {
         this.kecamatan = new SimpleStringProperty(kecamatan);
         this.desa = new SimpleStringProperty(desa);
         this.button = button;
+    }
+
+    public String getNo() {
+        return no.get();
+    }
+
+    public void setNo(String no) {
+        this.no.set(no);
+    }
+
+    public String getIdWajibPajak() {
+        return idWajibPajak.get();
+    }
+
+    public void setIdWajibPajak(String idWajibPajak) {
+        this.idWajibPajak.set(idWajibPajak);
+    }
+
+    public String getNamaWajibPajak() {
+        return namaWajibPajak.get();
+    }
+
+    public void setNamaWajibPajak(String namaWajibPajak) {
+        this.namaWajibPajak.set(namaWajibPajak);
     }
 
     public String getJenisWp() {
@@ -67,30 +99,6 @@ public class WajibPajakWrapperFX {
         this.desa.set(desa);
     }
 
-    public String getIdWajibPajak() {
-        return idWajibPajak.get();
-    }
-
-    public void setIdWajibPajak(String idWajibPajak) {
-        this.idWajibPajak.set(idWajibPajak);
-    }
-
-    public String getNamaWajibPajak() {
-        return namaWajibPajak.get();
-    }
-
-    public void setNamaWajibPajak(String namaWajibPajak) {
-        this.namaWajibPajak.set(namaWajibPajak);
-    }
-
-    public String getNo() {
-        return no.get();
-    }
-
-    public void setNo(String no) {
-        this.no.set(no);
-    }
-
     public Button getButton() {
         return button;
     }
@@ -98,6 +106,9 @@ public class WajibPajakWrapperFX {
     public void setButton(Button button) {
         this.button = button;
     }
-      
-   
+    
+    
+    
+    
+    
 }

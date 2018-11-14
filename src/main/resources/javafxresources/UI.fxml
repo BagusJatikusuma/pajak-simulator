@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.input.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,18 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="mainmenu" 
-      prefHeight="25.0" 
-      prefWidth="1366.0" 
-      xmlns="http://javafx.com/javafx/8" 
-      xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController">
+<VBox fx:id="mainmenu" prefHeight="25.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController">
   <children>
     <MenuBar prefHeight="20.0" useSystemMenuBar="false">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close"/>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="atur pajak">
@@ -60,6 +56,12 @@
             </Menu>
           </items>
         </Menu>
+            <Menu mnemonicParsing="false" text="master">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#openWajibPajak" text="wajib pajak" />
+                  <MenuItem mnemonicParsing="false" text="tim pemeriksa" />
+              </items>
+            </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#openAbout" text="About" />

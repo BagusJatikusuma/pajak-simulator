@@ -30,7 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import com.bekasidev.app.viewfx.javafxapplication.model.WajibPajakWrapperFX;
+import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.util.Map;
@@ -52,8 +52,8 @@ public class PajakRestoranUIController implements Initializable {
                         desa, 
                         kecamatan, 
                         anonX;
-    private ObservableList<WajibPajakWrapperFX> dataCollection;
-    private List<WajibPajakWrapperFX> dataListFromService;
+    private ObservableList<PajakRestoranTableWrapper> dataCollection;
+    private List<PajakRestoranTableWrapper> dataListFromService;
     private List<Button> btnList;
     
     private WajibPajakService service;
@@ -133,8 +133,7 @@ public class PajakRestoranUIController implements Initializable {
                     }
                 });
 
-                dataCollection.add(
-                        new WajibPajakWrapperFX(
+                dataCollection.add(new PajakRestoranTableWrapper(
                                 String.valueOf(i),
                                 obj.getIdWajibPajak(),
                                 obj.getNamaWajibPajak(),
@@ -151,20 +150,19 @@ public class PajakRestoranUIController implements Initializable {
     }
     
     private void associateDataWithColumn() {
-        no.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("no"));
-        idRestoran.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("idWajibPajak"));
-        namaRestoran.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("namaWajibPajak"));
-        alamat.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("jalan"));
-        desa.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("desa"));
-        kecamatan.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("kecamatan"));
-        anonX.setCellValueFactory(new PropertyValueFactory<WajibPajakWrapperFX, String>("button"));
+        no.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("no"));
+        idRestoran.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("idWajibPajak"));
+        namaRestoran.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("namaWajibPajak"));
+        alamat.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("jalan"));
+        desa.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("desa"));
+        kecamatan.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("kecamatan"));
+        anonX.setCellValueFactory(new PropertyValueFactory<PajakRestoranTableWrapper, String>("button"));
     }
     
     private void initDataFromService() {
         dataListFromService = new ArrayList<>();
         for (int i=0; i<100; i++) {
-            dataListFromService.add(
-                    new WajibPajakWrapperFX(
+            dataListFromService.add(new PajakRestoranTableWrapper(
                             String.valueOf(i),
                             "id wajib pajak "+i,
                             "nama wajib pajak "+i,
