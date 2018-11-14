@@ -256,63 +256,63 @@ BEKASI]]></text>
 				<textFieldExpression><![CDATA["Ditugaskan untuk melaksanakan Pemeriksaan Pajak " + $P{jenis_wp} + " terhitung masa pajak bulan " + $P{pajak_awal} + " s.d " + $P{pajak_akhir} + " selama " + $P{hari} + " hari kerja sejak Surat Pemberitahuan ini diterima oleh Wajib Pajak yang diperiksa."]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="66" y="125" width="486" height="35" uuid="df3bcec2-2cbd-49db-a08c-5c0afc6aa5df"/>
+				<reportElement x="66" y="125" width="486" height="44" uuid="df3bcec2-2cbd-49db-a08c-5c0afc6aa5df"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Sehubungan hal tersebut, sesuai ketentuan umum perpajakan daerah bahwa Wajib Pajak yang diperiksa wajib :]]></text>
+				<text><![CDATA[	Sehubungan hal tersebut, sesuai ketentuan umum perpajakan daerah bahwa Wajib Pajak yang diperiksa wajib :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="254" width="486" height="39" uuid="74137c59-244c-4ee9-bb11-286b16d76451"/>
+				<reportElement x="66" y="262" width="486" height="46" uuid="74137c59-244c-4ee9-bb11-286b16d76451"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Apabila kewajiban sebagaimana dimaksud tidak dapat dipenuhi maka dapat ditindaklanjuti sesuai ketentuan peraturan perpajakan yang berlaku.]]></text>
+				<text><![CDATA[	Apabila kewajiban sebagaimana dimaksud tidak dapat dipenuhi maka dapat ditindaklanjuti sesuai ketentuan peraturan perpajakan yang berlaku.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="298" width="486" height="18" uuid="c89c7ce3-d9b6-49cb-ae20-1afd2862bd94"/>
+				<reportElement x="66" y="308" width="486" height="18" uuid="c89c7ce3-d9b6-49cb-ae20-1afd2862bd94"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Demikian atas perhatian dan kerjasamanya diucapkan terima kasih.]]></text>
+				<text><![CDATA[	Demikian atas perhatian dan kerjasamanya diucapkan terima kasih.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="164" width="23" height="33" uuid="0cce9de5-a97d-4a4a-b652-4f7a865ba1b8"/>
+				<reportElement x="66" y="169" width="23" height="33" uuid="0cce9de5-a97d-4a4a-b652-4f7a865ba1b8"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[a.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="197" width="23" height="33" uuid="839ed8ae-93af-4658-909c-d5384d74bc26"/>
+				<reportElement x="66" y="202" width="23" height="33" uuid="839ed8ae-93af-4658-909c-d5384d74bc26"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[b.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="66" y="230" width="23" height="18" uuid="65a58c20-d91d-4fe9-88a7-e643826738d0"/>
+				<reportElement x="66" y="235" width="23" height="18" uuid="65a58c20-d91d-4fe9-88a7-e643826738d0"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[c.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="164" width="463" height="33" uuid="5fae2259-9aa0-49fb-aef5-79bd8db2ee55"/>
+				<reportElement x="89" y="169" width="463" height="33" uuid="5fae2259-9aa0-49fb-aef5-79bd8db2ee55"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Memperhatikan dan atau meminjamkan buku atau catatan, dokumen yang menjadi dasar dan dokumen lain yang berhubungan dengan objek pajak yang terutang.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="197" width="463" height="33" uuid="865da03c-c6e4-4c3e-9642-fd4eda7d73c5"/>
+				<reportElement x="89" y="202" width="463" height="33" uuid="865da03c-c6e4-4c3e-9642-fd4eda7d73c5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Memberikan kesempatan untuk memasuki tempat atau ruangan yang dianggap perlu dan memberi bantuan guna kelancaran pemeriksaan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="230" width="463" height="18" uuid="ee1baabe-2772-41a8-b7a5-2a46e84e33fc"/>
+				<reportElement x="89" y="235" width="463" height="18" uuid="ee1baabe-2772-41a8-b7a5-2a46e84e33fc"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>

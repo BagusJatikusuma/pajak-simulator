@@ -11,14 +11,14 @@ package com.bekasidev.app.view.util.modelview;
  */
 public class PersiapanPajakPOJO {
     private String tanggalSuratDibuat;
-    private WajibPajak wajibPajak;
+    private WajibPajakModelView wajibPajak;
     private String spDari;
     private String tanggalTurunSP;
     private String nomorSP;
     private String nipPenandatangan;
     private String namaPenandatangan;
     private String jabatanPenandatangan;
-    private TimPemeriksa timPemeriksa;
+    private TimPemeriksaModelView timPemeriksa;
     private String jenisPajak;
     private String masaPajakBulanAwal;
     private String masaPajakTahunAwal;
@@ -30,7 +30,7 @@ public class PersiapanPajakPOJO {
     public PersiapanPajakPOJO() {
     }
 
-    public PersiapanPajakPOJO(String tanggalSuratDibuat, WajibPajak wajibPajak, String spDari, String tanggalTurunSP, String nomorSP, String nipPenandatangan, String namaPenandatangan, String jabatanPenandatangan, TimPemeriksa timPemeriksa, String jenisPajak, String masaPajakBulanAwal, String masaPajakTahunAwal, String masaPajakBulanAkhir, String masaPajakTahunAkhir, String lamaPemeriksaan, String nomorUrutSurat) {
+    public PersiapanPajakPOJO(String tanggalSuratDibuat, WajibPajakModelView wajibPajak, String spDari, String tanggalTurunSP, String nomorSP, String nipPenandatangan, String namaPenandatangan, String jabatanPenandatangan, TimPemeriksaModelView timPemeriksa, String jenisPajak, String masaPajakBulanAwal, String masaPajakTahunAwal, String masaPajakBulanAkhir, String masaPajakTahunAkhir, String lamaPemeriksaan, String nomorUrutSurat) {
         this.tanggalSuratDibuat = tanggalSuratDibuat;
         this.wajibPajak = wajibPajak;
         this.spDari = spDari;
@@ -57,11 +57,11 @@ public class PersiapanPajakPOJO {
         this.tanggalSuratDibuat = tanggalSuratDibuat;
     }
 
-    public WajibPajak getWajibPajak() {
+    public WajibPajakModelView getWajibPajak() {
         return wajibPajak;
     }
 
-    public void setWajibPajak(WajibPajak wajibPajak) {
+    public void setWajibPajak(WajibPajakModelView wajibPajak) {
         this.wajibPajak = wajibPajak;
     }
 
@@ -113,11 +113,11 @@ public class PersiapanPajakPOJO {
         this.jabatanPenandatangan = jabatanPenandatangan;
     }
 
-    public TimPemeriksa getTimPemeriksa() {
+    public TimPemeriksaModelView getTimPemeriksa() {
         return timPemeriksa;
     }
 
-    public void setTimPemeriksa(TimPemeriksa timPemeriksa) {
+    public void setTimPemeriksa(TimPemeriksaModelView timPemeriksa) {
         this.timPemeriksa = timPemeriksa;
     }
 

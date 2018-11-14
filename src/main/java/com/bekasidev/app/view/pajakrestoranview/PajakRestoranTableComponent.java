@@ -12,7 +12,7 @@ import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajak;
+import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -86,7 +86,7 @@ public class PajakRestoranTableComponent extends JPanel {
                 int modelRow = Integer.valueOf( e.getActionCommand() );
                 System.out.println(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
                 
-                WajibPajak wajibPajak = new WajibPajak();
+                WajibPajakModelView wajibPajak = new WajibPajakModelView();
                 wajibPajak.setNpwpd(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 1).toString());
                 wajibPajak.setNamaWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 2).toString());
                 wajibPajak.setAlamatWP(((DefaultTableModel)table.getModel()).getValueAt(modelRow, 3).toString());

@@ -12,7 +12,7 @@ import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajak;
+import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -69,7 +69,7 @@ public class ReportServiceImpl implements ReportService {
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
-            ArrayList<WajibPajak> dataList = new ArrayList();
+            ArrayList<WajibPajakModelView> dataList = new ArrayList();
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(dataList);
