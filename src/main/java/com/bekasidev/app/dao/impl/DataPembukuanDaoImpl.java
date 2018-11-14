@@ -47,7 +47,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
             pstm.setString(3, dataPembukuan.getUraianDataPembukuan());
             pstm.setInt(4, dataPembukuan.getJumlahDataPembukuan());
             pstm.setString(5, dataPembukuan.getSatuanBarang());
-            pstm.setString(6, dataPembukuan.getLabelBarang());
+            pstm.setString(6, dataPembukuan.getLabel());
             pstm.setString(7, dataPembukuan.getTanggalBuat());
 
             pstm.executeUpdate();
@@ -65,7 +65,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
         dataPembukuan.setJumlahDataPembukuan(rs.getInt("jumlah_datapembukuan"));
         dataPembukuan.setSatuanBarang(rs.getString("satuan_barang"));
         dataPembukuan.setTanggalBuat(rs.getString("tanggal_buat"));
-        dataPembukuan.setLabelBarang(rs.getString("label_barang"));
+        dataPembukuan.setLabel(rs.getString("label_barang"));
 
         return dataPembukuan;
     }

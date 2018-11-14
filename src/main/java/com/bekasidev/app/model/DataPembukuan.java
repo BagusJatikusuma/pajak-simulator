@@ -7,7 +7,7 @@ public class DataPembukuan {
 
     private String idHotel;
     private String idDataPembukuan;
-    private String labelBarang;
+    private String label;
     private String uraianDataPembukuan;
     private Integer jumlahDataPembukuan;
     private String satuanBarang;
@@ -15,10 +15,10 @@ public class DataPembukuan {
 
     public DataPembukuan(){}
 
-    public DataPembukuan(String idHotel, String idDataPembukuan, String labelBarang,String uraianDataPembukuan, Integer jumlahDataPembukuan, String satuanBarang, String tanggalBuat) {
+    public DataPembukuan(String idHotel, String idDataPembukuan, String label,String uraianDataPembukuan, Integer jumlahDataPembukuan, String satuanBarang, String tanggalBuat) {
         this.idHotel = idHotel;
         this.idDataPembukuan = idDataPembukuan;
-        this.labelBarang = labelBarang;
+        this.label = label;
         this.uraianDataPembukuan = uraianDataPembukuan;
         this.jumlahDataPembukuan = jumlahDataPembukuan;
         this.satuanBarang = satuanBarang;
@@ -33,9 +33,9 @@ public class DataPembukuan {
 
     public void setIdDataPembukuan(String idDataPembukuan) {this.idDataPembukuan = idDataPembukuan; }
 
-    public String getLabelBarang() {return labelBarang; }
+    public String getLabel() {return label; }
 
-    public void setLabelBarang(String labelBarang) {this.labelBarang = labelBarang; }
+    public void setLabel(String label) {this.label = label; }
 
     public String getUraianDataPembukuan() { return uraianDataPembukuan; }
 
