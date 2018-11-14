@@ -14,5 +14,6 @@ public interface ReportService {
     void createPersiapanPajakRestoranReport1();
     void createPersiapanPajakHotelReport();
     void createPersiapanPajakParkirReport();
+    void createPersiapanDokumenPinjaman();
     
 }

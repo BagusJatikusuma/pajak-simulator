@@ -248,6 +248,7 @@ public class FormPersiapanRestoranPanel extends JPanel {
         
         reportService.createPersiapanPajakRestoranReport();
         reportService.createPersiapanPajakRestoranReport1();
+        reportService.createPersiapanDokumenPinjaman();
     }//GEN-LAST:event_bGenerateActionPerformed
 
     private void tfNomorUrutSuratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorUrutSuratActionPerformed

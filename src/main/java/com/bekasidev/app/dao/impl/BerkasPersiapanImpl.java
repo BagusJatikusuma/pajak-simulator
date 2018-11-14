@@ -98,9 +98,9 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         return berkasPersiapan;
     }
 
-    private List<DokumenPinjaman> setDokumenPinjaman(String stringPinjaman){
+    private ArrayList<DokumenPinjaman> setDokumenPinjaman(String stringPinjaman){
         String[] parts = stringPinjaman.split("<p>");
-        List<DokumenPinjaman> listPinjaman = new ArrayList<>();
+        ArrayList<DokumenPinjaman> listPinjaman = new ArrayList<DokumenPinjaman>();
         for(String part : parts){
             listPinjaman.add(new DokumenPinjaman(part,""));
         }
@@ -108,9 +108,9 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         return listPinjaman;
     }
 
-    private List<Pegawai> getPegawai(String stringPegawai){
+    private ArrayList<Pegawai> getPegawai(String stringPegawai){
         String[] parts = stringPegawai.split("<p>");
-        List<Pegawai> listPegawai = new ArrayList<>();
+        ArrayList<Pegawai> listPegawai = new ArrayList<Pegawai>();
         for(String part : parts){
             String[] partPegawai = part.split("<b>");
             listPegawai.add(new Pegawai("", partPegawai[0],partPegawai[1],partPegawai[2],""));
