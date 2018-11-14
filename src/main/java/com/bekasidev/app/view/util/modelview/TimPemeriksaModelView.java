@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.view.util.modelview;
 
+import com.bekasidev.app.model.Pegawai;
 import java.util.List;
 
 /**
@@ -13,12 +14,12 @@ import java.util.List;
  */
 public class TimPemeriksaModelView {
     private String namaTim;
-    private List<AnggotaTimModelView> anggotaTims;
+    private List<Pegawai> anggotaTims;
 
     public TimPemeriksaModelView() {
     }
 
-    public TimPemeriksaModelView(String namaTim, List<AnggotaTimModelView> anggotaTims) {
+    public TimPemeriksaModelView(String namaTim, List<Pegawai> anggotaTims) {
         this.namaTim = namaTim;
         this.anggotaTims = anggotaTims;
     }
@@ -31,11 +32,11 @@ public class TimPemeriksaModelView {
         this.namaTim = namaTim;
     }
 
-    public List<AnggotaTimModelView> getAnggotaTims() {
+    public List<Pegawai> getAnggotaTims() {
         return anggotaTims;
     }
 
-    public void setAnggotaTims(List<AnggotaTimModelView> anggotaTims) {
+    public void setAnggotaTims(List<Pegawai> anggotaTims) {
         this.anggotaTims = anggotaTims;
     }
     

@@ -3,10 +3,10 @@
 	<property name="ireport.zoom" value="1.6105100000000032"/>
 	<property name="ireport.x" value="110"/>
 	<property name="ireport.y" value="328"/>
-	<import value="com.bekasidev.app.view.util.modelview.WajibPajak"/>
+	<import value="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
-	<parameter name="wajib_pajak" class="com.bekasidev.app.view.util.modelview.WajibPajak"/>
+	<parameter name="wajib_pajak" class="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
 	<parameter name="nomor_sp" class="java.lang.String"/>
 	<parameter name="tanggal_sp" class="java.lang.String"/>
 	<parameter name="ttd_sp" class="java.lang.String"/>

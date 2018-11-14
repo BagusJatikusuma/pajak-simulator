@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="0.56447393005378"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<import value="com.bekasidev.app.view.util.modelview.WajibPajak"/>
+	<import value="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -28,7 +28,7 @@
 		<field name="namaDokumen" class="java.lang.String"/>
 		<field name="keterangan" class="java.lang.String"/>
 	</subDataset>
-	<parameter name="wajib_pajak" class="com.bekasidev.app.view.util.modelview.WajibPajak"/>
+	<parameter name="wajib_pajak" class="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="buku_peminjaman" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<background>

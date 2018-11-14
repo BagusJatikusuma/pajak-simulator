@@ -153,28 +153,19 @@ public class ReportServiceImpl implements ReportService {
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
-            ArrayList<Pegawai> dataList = new ArrayList<>();
-            
-            dataList.add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            dataList.add(new Pegawai("02", "141511057", "ABDUR", "IV.a", "ADMIN"));
-            dataList.add(new Pegawai("03", "141511056", "RISA", "IV.a", "TESTER"));
-            dataList.add(new Pegawai("03", "141511055", "PRAWITA", "IV.a", "TESTER"));
-            dataList.add(new Pegawai("03", "141511055", "PRAWITA", "IV.a", "TESTER"));
-
-
-            System.out.println("aaaaaaa " + dataList.size());
+            PersiapanPajakPOJO persiapanPajakPOJO
+                = (PersiapanPajakPOJO)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_pajak_restoran");
 
             JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(dataList);
+            new JRBeanCollectionDataSource(persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims());
             
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
-            PersiapanPajakPOJO persiapanPajakPOJO
-                = (PersiapanPajakPOJO)SessionProvider
-                        .getPajakMapSession()
-                        .get("persiapan_pajak_restoran");
+            
             System.out.println("asdasdasdasdsaadsasd" + persiapanPajakPOJO.getWajibPajak().getNamaWP());
             parameter.put("nomor_surat", persiapanPajakPOJO.getNomorUrutSurat());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
@@ -189,7 +180,7 @@ public class ReportServiceImpl implements ReportService {
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAwal());
             parameter.put("pajak_akhir", persiapanPajakPOJO.getMasaPajakBulanAkhir()
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAkhir());
-            parameter.put("tim", "Tim 1");
+            parameter.put("tim", persiapanPajakPOJO.getTimPemeriksa().getNamaTim());
             
             parameter.put("anggota_tim", beanColDataSource);
             

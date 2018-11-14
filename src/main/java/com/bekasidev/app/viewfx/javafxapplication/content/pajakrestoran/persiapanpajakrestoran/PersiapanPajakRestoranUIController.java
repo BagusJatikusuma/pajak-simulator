@@ -5,8 +5,12 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.persiapanpajakrestoran;
 
+import com.bekasidev.app.model.Tim;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import com.bekasidev.app.view.util.modelview.TimPemeriksaModelView;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +23,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,7 +52,8 @@ public class PersiapanPajakRestoranUIController implements Initializable {
     @FXML private ChoiceBox penandatanganField;
     
     @FXML private Button cancelBtn;
-
+    
+    ReportService reportService;
     /**
      * Initializes the controller class.
      */
@@ -71,6 +77,9 @@ public class PersiapanPajakRestoranUIController implements Initializable {
     public void generateDocuments(ActionEvent actionEvent) {
         System.out.println("generate documents btn pressed");
         
+        reportService
+                = ServiceFactory.getReportService();
+        
         PersiapanPajakPOJO persiapanPajakPOJO
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
@@ -92,7 +101,16 @@ public class PersiapanPajakRestoranUIController implements Initializable {
         persiapanPajakPOJO.setMasaPajakTahunAwal(masaPajakAwalTahun.getText());        
         persiapanPajakPOJO.setMasaPajakBulanAkhir(masaPajakAkhirBulan.getSelectionModel().getSelectedItem().toString());        
         persiapanPajakPOJO.setMasaPajakTahunAkhir(masaPajakAkhirTahun.getText());
+        Tim tim = (Tim) timPemeriksaField.getSelectionModel().getSelectedItem();
+        TimPemeriksaModelView timPemeriksa = new TimPemeriksaModelView();
+        timPemeriksa.setNamaTim(tim.getNamaTim());
+        timPemeriksa.setAnggotaTims(ServiceFactory.getPegawaiService().getPegawaiByTim(tim.getIdTim()));
+        persiapanPajakPOJO.setTimPemeriksa(timPemeriksa);
+//        System.out.println(tim.getIdTim());
         
+        reportService.createPersiapanPajakRestoranReport();
+        reportService.createPersiapanPajakRestoranReport1();
+        reportService.createPersiapanDokumenPinjaman();
         test();
     }
     
@@ -140,10 +158,13 @@ public class PersiapanPajakRestoranUIController implements Initializable {
     }
     
     public void populateChoiceBox() {
+        ObservableList<Tim> ov = FXCollections.observableArrayList();
+        for(Tim tim : ServiceFactory.getPegawaiService().getAllTim()){
+            ov.add(tim);
+        }
         suratPerintahDikeluarkanOlehField.setItems(
                 FXCollections.observableArrayList("Kepala Badan Pendapatan", "Sekretaris"));
-        timPemeriksaField.setItems(
-                FXCollections.observableArrayList("Tim 1", "Tim 2", "Tim 3"));
+        timPemeriksaField.setItems(ov);
         masaPajakAwalBulan.setItems(
                 FXCollections.observableArrayList(
                         "Januari", "Februari", "Maret", "April", "Mei", "Juni",
