@@ -37,4 +37,9 @@ public class TarifMeetingRoomServiceImpl implements TarifMeetingRoomService{
             tarifMeetingRoomDao.deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(idHotel, idMeetingRoom);
         }
 
+        private Double calculateTotalMeetingRoom(TarifMeetingRoom tmr) {
+            tmr.setTotalBulananMeetingRoom(tmr.getJumlahPengunjung()*tmr.getHargaSewa());
+            return tmr.getTotalBulananMeetingRoom();
+        }
+
 }

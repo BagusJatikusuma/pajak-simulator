@@ -37,4 +37,10 @@ public class TarifFItnessCenterServiceImpl implements TarifFitnessCenterService{
         tarifFitnessCenterDao.deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(idHotel, idFitnessCenter);
     }
 
+    private Double calculateBulananFitnessCenter(TarifFitnessCenter tfc) {
+        tfc.setTotalBulananFitnessCenter(tfc.getJumlahPengunjung()*tfc.getTarifFitness());
+        return tfc.getTotalBulananFitnessCenter();
+    }
+
+
 }

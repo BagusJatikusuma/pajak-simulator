@@ -15,5 +15,5 @@ public interface TarifFitnessCenterDao {
 
     void createTarifFitnessCenter(TarifFitnessCenter tarifFitnessCenter);
 
-    void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter);
+    void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idFitnessCenter);
 }
