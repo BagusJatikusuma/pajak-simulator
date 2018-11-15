@@ -25,4 +25,8 @@ public class Tim {
     public void setNamaTim(String namaTim) {
         this.namaTim = namaTim;
     }
+    
+    public String toString(){
+        return this.namaTim;
+    }
 }

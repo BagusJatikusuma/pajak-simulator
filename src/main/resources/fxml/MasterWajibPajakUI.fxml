@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox fx:id="masterWPPane" prefHeight="740.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController">
+   <children>
+      <AnchorPane prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" />
+            <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
+            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" />
+            <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="31.0" prefWidth="109.0" text="tambah wp" />
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="671.0" prefWidth="1336.0">
+         <children>
+            <TableView fx:id="wajibPajakTable" prefHeight="671.0" prefWidth="1339.0">
+               <columns>
+                  <TableColumn prefWidth="47.0" text="No" />
+                  <TableColumn prefWidth="124.0" text="Id WP" />
+                  <TableColumn prefWidth="210.0" text="Nama WP" />
+                  <TableColumn prefWidth="289.0" text="Alamat" />
+                  <TableColumn minWidth="8.0" prefWidth="182.0" text="Desa" />
+                  <TableColumn minWidth="0.0" prefWidth="206.0" text="Kecamatan" />
+                  <TableColumn prefWidth="179.0" text="Jenis WP" />
+                  <TableColumn prefWidth="99.0" text="action" />
+               </columns>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

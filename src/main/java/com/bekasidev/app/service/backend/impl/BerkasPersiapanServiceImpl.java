@@ -35,6 +35,7 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
 
     @Override
     public void getDokumenPinjaman(BerkasPersiapan berkasPersiapan, WP wp) {
+        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("", ""));
         switch(wp){
             case HOTEL: createListPinjamanHotel(berkasPersiapan); break;
             case RESTORAN: createListPinjamanRestoran(berkasPersiapan); break;

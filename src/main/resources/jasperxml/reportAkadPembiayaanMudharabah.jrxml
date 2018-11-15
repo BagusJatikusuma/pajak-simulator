@@ -1,0 +1,2605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportAkadPembiayaanMudharabah" pageWidth="595" pageHeight="842" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="72" bottomMargin="72" uuid="c38d95b7-6647-494f-a752-b591a28c43ef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="10191"/>
+	<parameter name="bismillah" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="almaidah" class="java.lang.String" isForPrompting="false"/>
+	<field name="map" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="698" splitType="Stretch">
+			<image isUsingCache="true">
+				<reportElement x="139" y="44" width="312" height="29" uuid="8eb8245a-c96c-4dac-b867-dcac80bffeb3"/>
+				<imageExpression><![CDATA[$P{almaidah}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="73" width="368" height="14" uuid="a06c8b89-b5bf-4b4d-b91e-566261bd8614"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<i>"+"“Hai orang-orang yang beriman, penuhilah aqad-aqad itu...”"+"</i>"+"<b>"+" (Al Maidah 5:1)"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="106" width="451" height="67" uuid="5f8ebae0-e66c-4582-9698-b0d705dac144"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AKAD PEMBIAYAAN MUDHARABAH
+ANTARA
+PT BANK NTB SYARIAH
+DAN
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="173" width="451" height="16" uuid="43644d70-282b-446b-97c8-ccdb0a882968"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="203" width="451" height="28" uuid="6d806d00-601a-43ae-afa4-87bd187712ea"/>
+				<textFieldExpression><![CDATA["Pada hari ini  tanggal "+ $F{map} +" bulan" + $F{map} + " tahun "+ $F{map} +" (" + $F{map} +"/"+ $F{map} +"/"+ $F{map} +") jam " +$F{map}+ ", bertempat di " + $F{map} + " yang bertanda tangan dibawah ini:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="235" width="16" height="15" uuid="d41f3dcc-57b7-47d4-b5f1-bf167da067dd"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="235" width="435" height="114" uuid="e433b079-4351-43a4-bdcf-49d58bfefad3"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Nama " + $F{map} + ", tempat dan tanggal lahir " + $F{map} + ", Pegawai PT. Bank NTB Syariah, Alamat " + $F{map} + " (sesuai KTP dan Domisili Terakhir) dalam jabatannya selaku Pimpinan " + "<b>" + $F{map} + " PT. Bank NTB Syariah Kantor" + $F{map} + "</b>" +" berdasarkan Surat Keputusan Direksi nomor "+ $F{map} +" tanggal " +$F{map}+ "/" +$F{map}+ "/" +$F{map}+ " dan Surat Kuasa Direksi "+"<b>"+"PT. Bank NTB Syariah"+"</b>"+", nomor: " +$F{map}+ " tanggal " +$F{map}+ "/"+$F{map}+"/"+$F{map}+" karenanya berhak mewakili Direksi dan oleh karena itu sah bertindak untuk dan atas nama "+"<b>"+"PT. Bank NTB Syariah"+"</b>"+" yang berkedudukan di Kota Mataram dan berkantor pusat di Mataram Jalan Pejanggik Nomor 30, selanjutnya disebut "+"<b>"+"BANK;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="349" width="16" height="15" uuid="f78683ae-ea90-4a8f-a2e8-09361c93bf70"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="349" width="435" height="114" uuid="e5072042-961c-48fd-a0ed-9f702b4e5401"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Nama"+"</b>"+" "+$F{map}+" pekerjaan "+$F{map}+", "+"<b>"+"tempat dan tanggal lahir "+"</b>"+$F{map}+" bertempat tinggal di "+$F{map}+" berdasarkan Kartu Tanda Penduduk (KTP) nomor "+$F{map}+" yang berlaku sampai tanggal "+$F{map}+"/"+$F{map}+"/"+$F{map}+" dalam hal ini bertindak untuk dan atas namanya sendiri, yang dalam melakukan tindakan hukum dalam akad ini telah mendapatkan persetujuan dari (isteri/suami) yang bernama "+$F{map}+" pekerjaan "+$F{map}+", "+"<b>"+"tempat dan tanggal lahir "+"</b>"+$F{map}+" bertempat tinggal di "+$F{map}+" berdasarkan Kartu Tanda Penduduk (KTP) nomor "+$F{map}+" yang berlaku sampai tanggal "+$F{map}+"/"+$F{map}+"/"+$F{map}+" yang turut menandatangani Akad ini selanjutnya disebut "+"<b>"+"NASABAH;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="494" width="451" height="160" uuid="e80d6e0c-a08f-40d7-816d-bcc57df8fb0d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="478" width="451" height="16" uuid="c67f2fac-0609-4168-ac85-1652b6675895"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Atau (Pilih Salah Satu)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="8" y="504" width="435" height="141" uuid="15fb5f5d-2d85-492f-af5b-c623d7871570"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Nama "+"</b>"+$F{map}+", "+"<b>"+"tempat dan tanggal lahir "+"</b>"+$F{map}+" Alamat "+$F{map}+" (sesuai KTP dan Domisili Terakhir), "+$F{map}+" dalam jabatannya selaku "+$F{map}+" yang Akta Pendiriannya telah dimuat dalam Berita Negara RI nomor "+$F{map}+" tahun "+$F{map}+", Tambahan Berita Negara RI tanggal "+$F{map}+" nomor "+$F{map}+", serta perubahan terakhir dengan Akta nomor "+$F{map}+" tanggal "+$F{map}+" dibuat dihadapan "+$F{map}+" Notaris di "+$F{map}+", yang telah/belum* mendapat pengesahan dari Kementrian Hukum dan HAM, dari dan oleh Karenanya berhak mewakili secara sah sesuai ketentuan Pasal "+$F{map}+" Anggaran Dasar untuk dan atas nama Perseroan Terbatas PT "+$F{map}+" berkedudukan di "+"<b>"+"(kota)"+"</b>"+" "+$F{map}+", dan berkantor pusat di "+$F{map}+" "+"<p>"+"(alamat lengkap kantor pusat perusahaan)"+"</b>"+" Selanjutnya disebut "+"<b>"+"NASABAH;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<image isUsingCache="true">
+				<reportElement x="121" y="0" width="211" height="30" uuid="59355362-5da1-4ae2-b149-1f4f26223335"/>
+				<imageExpression><![CDATA[$P{bismillah}]]></imageExpression>
+			</image>
+		</band>
+		<band height="697">
+			<textField>
+				<reportElement x="0" y="1" width="451" height="40" uuid="a2268785-f63f-4cd1-8fef-a796fa2ad496"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" dan "+"<b>"+"NASABAH"+"</b>"+" secara bersama-sama selanjutnya disebut "+"<b>"+"PARA PIHAK."+"</b>"+
+"<b>"+"PARA PIHAK"+"</b>"+" terlebih dahulu menerangkan hal-hal sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="41" width="16" height="15" uuid="43448fd6-1d59-4b05-9530-2a332bbe1ec4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[I.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="41" width="435" height="41" uuid="6747e491-b941-4094-95d1-1d551354c719"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Bahwa "+"<b>"+"NASABAH"+"</b>"+" telah mengajukan Pembiayaan untuk modal usaha sejumlah: "+$F{map}+", sebagaimana tertuang dalam surat permohonan pembiayaan "+$F{map}+", tanggal "+$F{map}+"/"+$F{map}+"/"+$F{map}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="82" width="435" height="63" uuid="808265d6-5970-4d13-91b9-f7d819ecfebb"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Bahwa "+"<b>"+"BANK"+"</b>"+" telah menyatakan persetujuannya untuk memberikan Pembiayaan Mudharabah kepada "+"<b>"+"NASABAH"+"</b>"+" sebagaimana tertuang dalam Surat Pemberitahuan Persetujuan Pemberian Pembiayaan (SP4) No "+$F{map}+" Tanggal "+$F{map}+"/"+$F{map}+"/"+$F{map}+" yang merupakan satu kesatuan dan bagian yang tak terpisahkan dari akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="82" width="16" height="15" uuid="50377c8e-171e-4e33-92e8-cbfadacd3f85"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[II.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="145" width="435" height="28" uuid="0e99dfb9-6e07-4766-8312-ad4718dd0557"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Bahwa hasil usaha yang dibiayai "+"<b>"+"BANK"+"</b>"+" akan dibagi sesuai dengan nisbah bagi hasil yang disepakati para pihak."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="145" width="16" height="15" uuid="f565174a-baf2-4b4d-b2be-6c028fc6b9bc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[III.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="183" width="451" height="40" uuid="1e743feb-7e62-4243-8fe8-b92ee278c472"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Selanjutnya "+"<b>"+"PARA PIHAK"+"</b>"+" dengan ini telah setuju dan sepakat untuk mengadakan Akad Pembiayaan Mudharabah (selanjutnya disebut “Akad”) berdasarkan ketentuan-ketentuan sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="235" width="451" height="27" uuid="32f09a13-4032-4b2c-8e88-971f2f741925"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 1
+DEFINISI
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="262" width="195" height="14" uuid="3fd5415a-0f60-4ee3-9de8-f58c7f777a62"/>
+				<text><![CDATA[Dalam Akad ini yang dimaksud dengan:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="276" width="16" height="15" uuid="78896ed8-f39e-411b-b85a-11d750801d3d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="276" width="435" height="28" uuid="f4e544bc-f650-4a88-9d92-124da6907ef9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Akad"+"</b>"+" adalah kesepakatan tertulis antara "+"<b>"+"PARA PIHAK"+"</b>"+" yang memuat hak dan kewajiban bagi masing-masing pihak sesuai prinsip syariah."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="304" width="435" height="27" uuid="e3ffdc7a-119c-4b4e-a360-3733a5a4100d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Angsuran"+"</b>"+" adalah sejumlah uang untuk pengembalian modal Mudharabah yang dibayar oleh "+"<b>"+"NASABAH"+"</b>"+" sesuai jadual Angsuran sebagaimana ditentukan disepakati dalam Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="304" width="16" height="15" uuid="343e29b6-78d6-46f8-b086-a1aefb4a2da4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="331" width="16" height="15" uuid="375ee5b1-176f-40cd-9913-77f0f6df0677"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="331" width="435" height="51" uuid="3cbbd4f7-693a-462a-b1d2-6c9ea52caa18"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Agunan"+"</b>"+" adalah jaminan baik berupa benda bergerak maupun benda tidak bergerak yang diserahkan oleh pemilik Agunan kepada "+"<b>"+"BANK"+"</b>"+", guna menjamin pelunasan Kewajiban Nasabah penerima fasilitas "+"<b>"+"BANK"+"</b>"+" sebagai jaminan untuk mendukung keyakinan "+"<b>"+"BANK"+"</b>"+" atas kemampuan dan kesanggupan "+"<b>"+"NASABAH"+"</b>"+" untuk melunasi utangnya sesuai Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="382" width="16" height="15" uuid="dea67404-27f5-485a-9ce4-a694e54e9edc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="382" width="435" height="40" uuid="68afa199-8312-480a-a84e-1f4a76badffd"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Bukti Kepemilikan Agunan"+"</b>"+" adalah akta-akta, surat-surat bukti kepemilikan dan surat lainnya yang merupakan bukti hak atas Agunan berikut surat-surat lain yang merupakan satu kesatuan dan bagian tidak terpisah dari Agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="422" width="16" height="15" uuid="920dd203-e0af-4383-b433-4cf2b9e51b13"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="422" width="435" height="26" uuid="0ddd1efd-0a2f-4e40-8999-f5b79b3bde4d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"<i>"+"Cessie"+"</i>"+"</b>"+" adalah pengalihan piutang dari "+"<b>"+"BANK"+"</b>"+" kepada pihak lain atas piutang Mudharabah sesuai Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="448" width="16" height="15" uuid="a70bb657-bc4e-44c3-a356-4b56a74f48ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="448" width="435" height="39" uuid="8a8c26d7-dd81-43e1-a281-2715461e72a5"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Denda ("+"<i>"+"Ta’zir"+"</i>"+")"+"</b>"+" adalah sejumlah uang yang besarnya ditentukan atas dasar kesepakatan "+"<b>"+"NASABAH"+"</b>"+" dan "+"<b>"+"BANK"+"</b>"+" dengan tujuan agar "+"<b>"+"NASABAH"+"</b>"+" lebih disiplin dalam melaksanakan kewajibannya."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="487" width="16" height="15" uuid="6f0e9e8e-364d-49c2-83fb-93cd2a9a85ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="487" width="435" height="39" uuid="5461e912-192f-429a-9a1d-94c19f1bc1d4"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"<i>"+"Force Majeure"+"</i>"+"</b>"+" adalah peristiwa/kejadian yang disebabkan oleh bencana alam, kerusuhan, huru hara, pemberontakan, epidemi, sabotase, peperangan, pemogokan, kebijakan pemerintah atau sebab-sebab lain di luar kekuasaan "+"<b>"+"PARA PIHAK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="526" width="16" height="15" uuid="63c6ec42-2900-44ed-9f2b-4945843ae2c6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[8.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="526" width="435" height="42" uuid="f7200328-40ae-41f9-95d3-f37300ef865a"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Ganti Rugi ("+"<i>"+"Ta’widh"+"</i>"+")"+"</b>"+" adalah sejumlah dana yang harus dibayarkan oleh "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" atas kerugian nyata yang dialami oleh "+"<b>"+"BANK"+"</b>"+" karena kelalaian dan/Kewajiban "+"<b>"+"NASABAH"+"</b>"+" penyimpangan dari ketentuan Akad ini yang dilakukan oleh "+"</b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="568" width="435" height="15" uuid="4fd6ece9-1fff-4c79-9758-2972c647d6e6"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Hari Kerja BANK"+"</b>"+" adalah hari kerja Bank Indonesia."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="568" width="16" height="15" uuid="67c893c5-e2bf-402a-bf1d-6a47e1defee0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[9.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="583" width="16" height="15" uuid="29ff5567-0c4f-4781-b97c-af9a057f8a01"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[10.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="583" width="435" height="26" uuid="3845dbb5-850d-4ef7-a5fb-111af792a3d1"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Jatuh Tempo Pembayaran Angsuran"+"</b>"+" adalah tanggal yang ditentukan dimana "+"<b>"+"NASABAH"+"</b>"+" berkewajiban membayar sesuai jadwal Angsuran yang disepakati dalam Akad ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="609" width="435" height="53" uuid="01614e06-440f-4c41-ba8d-92aeb3289c86"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Kewajiban NASABAH"+"</b>"+" adalah seluruh modal "+"<b>"+"BANK"+"</b>"+" yang telah diserahkan kepada "+"<b>"+"NASABAH"+"</b>"+" namun belum dikembalikan dikurangi dengan kerugian yang bukan kesalahan "+"<b>"+"NASABAH"+"</b>"+" (jika terjadi kerugian) ditambah dengan bagi hasil yang sudah menjadi haknya bank namun belum dibayar."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="609" width="16" height="15" uuid="0917a48c-f39d-4793-8449-ad6bad0b4daf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[11.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<textField>
+				<reportElement x="16" y="0" width="435" height="40" uuid="f6d99240-5745-48cd-b8cf-dab48f0d014f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Mudharabah"+"</b>"+" adalah Akad kerjasama usaha antara pemilik modal yang menyediakan seluruh modal yang menyediakan seluruh modal dengan pengelola dan keuntungan usaha dibagi di antara mereka sesuai nisbah yang disepakati dalam akad."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="40" width="435" height="53" uuid="886029bf-ea5b-4fba-be22-90c7c2636b0f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" Cidera Janji adalah suatu perbuatan yang mengakibatkan terjadinya peristiwa atau peristiwa-peristiwa sebagaimana dimaksud Pasal 20, yang menyebabkan "+"<b>"+"BANK"+"</b>"+" dapat menghentikan seluruh atau sebagian dari isi Akad ini, menagih seketika dan sekaligus jumlah kewajiban "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" sebelum Jangka Waktu Akad ini berakhir."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="16" height="15" uuid="97804c65-eff8-4dea-b764-c99ef0fb1062"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[13.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="93" width="16" height="15" uuid="71c8523b-0762-4fb1-a3e0-2096537d9689"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[14.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="93" width="435" height="40" uuid="a2ef65de-f1bb-4b0a-ad0d-f79171d723f2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Nisbah Bagi Hasil"+"</b>"+" adalah perbandingan (rasio) pembagian atas Pendapatan yang dibagikan dari usaha kerjasama antara "+"<b>"+"NASABAH"+"</b>"+" dan "+"<b>"+"BANK"+"</b>"+" yang ditetapkan berdasarkan Akad ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="133" width="435" height="77" uuid="b1b4be0e-7162-4857-a8e1-4fcadcfc263d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Pembiayaan Mudharabah"+"</b>"+" adalah pembiayaan yang disalurkan oleh "+"<b>"+"BANK"+"</b>"+" kepada pihak lain untuk suatu usaha yang produktif." +
+"<br>"+"*) disesuaikan dengan jenis penggunaan pembiayaan" +
+"<br>"+"**) Pembiayaan mudharabah adalah penyediaan dana untuk kerjasama usaha antara dua pihak dimana pimilik dana menyediakan seluruh dana, sedangkan pengelola dana bertindak selaku pengelola, dan keuntungan dibagi antara mereka sesuai dengan nisbah yang disepakati."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="133" width="16" height="15" uuid="912af981-e5c4-41de-b49c-046956922b0a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[15.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="210" width="435" height="40" uuid="12b08f35-e8be-4134-b655-a0b53240b5c9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Pendapatan yang dibagikan"+"</b>"+" adalah seluruh penerimaan yang diperoleh dari hasil usaha kerjasama yang dikelola oleh "+"<b>"+"NASABAH"+"</b>"+" dengan menggunakan Pembiayaan Mudharabah yang disediakan oleh "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="210" width="16" height="15" uuid="6f1592f7-2880-474b-a809-f38b1102c214"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[16.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="250" width="435" height="41" uuid="2a26f39c-e0c0-4db7-82f1-9bd0a8b2958a"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[""+"Proyeksi Pendapatan/Penjualan"+"</b>"+" adalah perkiraan pendapatan yang akan diterima "+"<b>"+"BANK"+"</b>"+" dari "+"<b>"+"NASABAH"+"</b>"+" atas Pembiayaan Mudharabah setelah memperhitungkan nisbah bagi hasil, dengan jumlah dan tanggal jatuh tempo yang disepakati antara "+"<b>"+"PARA PIHAK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="250" width="16" height="15" uuid="06eb9051-5b25-4881-afd7-0d84dcf7d6ab"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[17.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="291" width="16" height="15" uuid="aa345f4f-55cc-4434-b15c-7cc8143e6d0f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[18.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="291" width="435" height="65" uuid="e811b1cc-99d9-45ff-9eb9-9d20c08ac392"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Pembukuan BANK"+"</b>"+" adalah catatan/administrasi "+"<b>"+"BANK"+"</b"+" yang merupakan bukti sah dan mengikat terhadap "+"<b>"+"NASABAH"+"</b>"+" mengenai transaksi "+"<b>"+"NASABAH"+"</b>"+" dengan "+"<b>"+"BANK"+"</b>"+" berdasar Akad ini termasuk tetapi tidak terbatas pada jumlah uang yang terutang, Ganti Rugi ("+"<i>"+"Ta’widh"+"</i>"+") dan biaya-biaya lain-lain yang mungkin timbul karena Pembiayaan yang diberikan oleh "+"<b>"+"BANK"+"</b>"+" kepada "+"<b>"+"NASABAH"+"</b>"+" dan wajib dibayar oleh "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="356" width="435" height="40" uuid="ee2c8b4d-fcb8-4408-8566-1e60fec786a2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Syariah (Prinsip Syariah)"+"</b>"+" adalah prinsip hukum Islam dalam kegiatan perbankan berdasarkan fatwa yang dikeluarkan oleh lembaga yang memiliki kewenangan dalam penetapan fatwa di bidang syariah."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="356" width="16" height="15" uuid="179e4463-dd62-45a8-9453-dbb57af52242"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[19.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="396" width="16" height="15" uuid="b717690a-4653-4b50-8b94-1380b791f179"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[20.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="396" width="435" height="40" uuid="bbadf651-b831-44c3-83bd-47a83535bbb6"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"Tunggakan"+"</b>"+" adalah pengembalian sisa piutang Mudharabah yang telah jatuh tempo termasuk jatuh tempo pembayaran angsuran yang belum dibayar oleh "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="16" height="15" uuid="ef5c1e16-c0c8-4403-a142-a5a9c2cf8a8a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[12.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="451" width="451" height="27" uuid="cf4408a4-80b8-466e-beae-5326cc1df270"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 2
+KETENTUAN POKOK AKAD
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="478" width="299" height="15" uuid="2df61bfb-5c80-4109-a4a0-c9be78494250"/>
+				<text><![CDATA[Ketentuan-ketentuan pokok Akad ini meliputi sebagai berikut:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="493" width="16" height="15" uuid="7bff7e9a-db85-4c56-ba34-aa3792fb844b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="493" width="258" height="15" uuid="6a40f719-c777-48dd-afb6-ed450ac9b461"/>
+				<text><![CDATA[Nisbah Bagi Hasil untuk masing-masing pihak adalah:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="508" width="16" height="15" uuid="2765f669-7324-456e-b48e-6f402c01c17d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="508" width="419" height="15" uuid="1f1dbc7d-2249-4ecb-8cd3-c3f97021c4ca"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{map}+" ("+$F{map}+" persen) untuk "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="523" width="419" height="15" uuid="dd2cc12c-c117-4c59-ab1f-9eabcfdee5d6"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{map}+" ("+$F{map}+" persen) untuk "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="523" width="16" height="15" uuid="1f6f8246-f8c8-47c2-abcb-92794ff99e22"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="538" width="258" height="15" uuid="42d5d3d4-291a-4fe5-b5b4-93bc83486838"/>
+				<text><![CDATA[Proyeksi Pendapatan/Penjualan	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="538" width="16" height="15" uuid="08b98fb2-6349-4770-872f-aa0f64c42a55"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="538" width="11" height="15" uuid="15d8ad96-14ad-4e89-9f3f-700ec489dde3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="538" width="166" height="15" uuid="6d563b23-89eb-4c1d-9a06-cd5707a80d42"/>
+				<textFieldExpression><![CDATA[$F{map}+" terlampir"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="553" width="11" height="15" uuid="35743631-d6f4-48e7-8c86-a1c33e369aad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="553" width="16" height="15" uuid="66d5cafe-bc2a-4de2-b7ad-9c2a4deccd0e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="553" width="166" height="15" uuid="08806d11-86a0-44f4-aa08-70a075035723"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA[$F{map}+"<i>"+" (revenue sharing)"+"</i>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="553" width="258" height="15" uuid="c05a9e54-8477-445b-b425-87ba37a11abc"/>
+				<text><![CDATA[Prinsip Pembagian Bagi Hasil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="568" width="362" height="15" uuid="6ab1b572-2c04-46a8-9ae2-f9f5efbb4c4e"/>
+				<text><![CDATA[Pembagian hasil usaha akan dilakukan pada tiap-tiap realisasi hasil usaha.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="568" width="16" height="15" uuid="6c506485-0ac8-4724-bfb6-f643ed093a17"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="583" width="16" height="15" uuid="bae035bb-cd69-4aaf-ac52-3cb5adb84e24"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="583" width="435" height="27" uuid="23152489-52aa-4803-b2e6-00828982f40d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pengembalian Modal Mudharabah "+"<b>"+"BANK"+"</b>"+" akan dilakukan sesuai dengan proyeksi arus kas masuk "+"<b>"+"NASABAH"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="610" width="11" height="15" uuid="308ebec4-bcbb-4a44-9da8-0df67c2d260a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="610" width="16" height="15" uuid="250c56dd-0252-4581-8315-cb392c4126b8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="610" width="166" height="15" uuid="888d6a04-6637-4fc4-acc4-235aeac4e946"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="610" width="258" height="15" uuid="59568218-4db1-4aaf-a947-10620aff8d2f"/>
+				<text><![CDATA[Tujuan Pembiayaan ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="625" width="11" height="15" uuid="86b68078-7c1a-431e-9966-9f31df53bc50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="625" width="16" height="15" uuid="7de0f328-de98-4b8e-94c0-9eef8193ca39"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="625" width="166" height="15" uuid="ef9b6405-de87-40c0-b9b4-b34dd4299707"/>
+				<textFieldExpression><![CDATA[$F{map}+" (Terbilang) bulan"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="625" width="258" height="15" uuid="7f75ff8d-617e-4e3d-85d9-e033399c912e"/>
+				<text><![CDATA[Jangka Waktu Pembiayaan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="640" width="166" height="15" uuid="80bcabae-3377-47c4-bcea-851c03a14693"/>
+				<textFieldExpression><![CDATA[$F{map}+"/"+$F{map}+"/"+$F{map}+" (dd/mm/yy)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="640" width="16" height="15" uuid="e77fcbca-9ba3-4995-bcdb-44e16bd62f40"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[8.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="640" width="258" height="15" uuid="667b5c24-b573-4e1c-b57e-3ea146790917"/>
+				<text><![CDATA[Jatuh Tempo Pembiayaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="640" width="11" height="15" uuid="3ba6f85c-faab-462d-a1da-bccdb5fe1e7c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="655" width="11" height="26" uuid="4968efac-59e8-4393-80b3-fbed023851c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="655" width="16" height="15" uuid="d0fe4700-af54-41ec-9582-f9714c4476e2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[9.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="655" width="166" height="26" uuid="ef82b4fd-c80a-4373-b35a-6c50acc72e72"/>
+				<textFieldExpression><![CDATA["diangsur/sekaligus di akhir Akad ini"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="655" width="258" height="26" uuid="b71b1e65-e9a1-40aa-bacc-d2c5eadadfb9"/>
+				<textFieldExpression><![CDATA["Pembayaran Pengembalian Modal Mudharabah "+"<b>"+"BANK"+"</b>"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="698">
+			<textField>
+				<reportElement x="285" y="2" width="166" height="15" uuid="b2d935a1-acbd-46ad-8a36-e7cea84f15e3"/>
+				<textFieldExpression><![CDATA[$F{map}+" (Terbilang)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="16" height="15" uuid="1942908c-286c-4fbe-afd0-15347c65a9a7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[10.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="2" width="11" height="15" uuid="6464d92f-775d-4168-a534-6bb638e9e914"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="2" width="258" height="15" uuid="d74add07-6479-4147-980b-764ffce6332e"/>
+				<text><![CDATA[Biaya Administrasi	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="17" width="16" height="15" uuid="6cf544bd-3b42-4fed-9057-be40a09e2fb6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[11.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="17" width="166" height="15" uuid="c0dc1adc-f69a-4a8f-8253-244ba99b3e20"/>
+				<textFieldExpression><![CDATA[$F{map}+" (diuraikan secara rinci)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="17" width="258" height="15" uuid="38c30027-c788-4284-b7e4-9e299e9666bf"/>
+				<text><![CDATA[Agunan & Bukti Kepemilikan Agunan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="17" width="11" height="15" uuid="98802833-0c44-4b71-a614-7602110c6a5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="451" height="27" uuid="a33f9d68-f3a9-4a75-9b40-74ddcfaad308"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 3
+PELAKSANAAN PRINSIP MUDHARABAH]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="74" width="451" height="52" uuid="a4ec46de-cda3-4212-9870-aa116511e334"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pelaksanaan prinsip Mudharabah yang berlangsung antara "+"<b>"+"BANK"+"</b>"+" sebagai pemilik dana (Shahibul Maal) dengan "+"<b>"+"NASABAH"+"</b>"+" sebagai pengelola dana/usaha (Mudharib) dilaksanakan berdasarkan ketentuan Syariah dan diatur menurut ketentuan-ketentuan dan persyaratan sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="126" width="435" height="27" uuid="fd53084e-8721-44a5-a27b-278e8c5d8ebc"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" menyediakan seluruh dana sebagai Pembiayaan Mudharabah yang disalurkan kepada "+"<b>"+"NASABAH"+"</b>"+" untuk usaha yang produktif."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="126" width="16" height="15" uuid="5084aa68-13cd-4add-b868-5f54c141bf7c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="153" width="16" height="15" uuid="34045b12-c310-48d6-bb22-883a8a3389da"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="153" width="435" height="15" uuid="609f2c84-5d1f-4fa5-9016-70cb9a4c5385"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" bertindak sebagai pengelola dana/usaha ("+"<i>"+"Mudharib"+"</i>"+")."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="168" width="435" height="26" uuid="e576b638-17b6-4e64-ace4-fe3978503b53"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" boleh melakukan berbagai usaha yang telah disepakati bersama dalam Akad dan sesuai dengan Syariah."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="168" width="16" height="15" uuid="9cd8de8c-d4cc-4c1b-ac42-c4068d217dbe"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="194" width="16" height="15" uuid="dcf6a6e9-bee7-454f-80ec-367644cac4a9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="194" width="435" height="26" uuid="4b7911c5-51b8-4ded-9bb1-048ac6e4fc0b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" tidak ikut dalam manajemen perusahaan atau proyek yang dibiayai tetapi mempunyai hak untuk melakukan pembinaan dan pengawasan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="220" width="16" height="15" uuid="e8463b1c-e5ea-460e-b3bb-d878be9bb5f6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="220" width="435" height="27" uuid="839fcb84-22d4-48fd-b47e-24f9ff871668"/>
+				<text><![CDATA[Pendapatan yang dibagikan dari usaha dibagi sesuai dengan Nisbah Bagi Hasil yang disepakati.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="247" width="435" height="15" uuid="9eb1e70e-5cbb-463e-a231-254ef6b0793d"/>
+				<text><![CDATA[Nisbah bagi hasil dapat diubah sesuai kesepakatan bersama. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="247" width="16" height="15" uuid="f1f86e08-66d4-4a06-9d43-34809c84815b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="277" width="451" height="27" uuid="e81f6363-7e06-4dab-809c-c8a081b7a597"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 4
+SYARAT REALISASI PEMBIAYAAN MUDHARABAH]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="304" width="451" height="26" uuid="8c8ec25e-b8c1-45ae-86f1-686139afeffc"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" akan merealisasikan Pembiayaan berdasarkan prinsip Mudharabah sesuai dengan Akad ini, setelah "+"<b>"+"NASABAH"+"</b>"+" terlebih dahulu memenuhi seluruh persyaratan sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="330" width="16" height="15" uuid="c47ae5f4-823d-4e49-baea-9bbfb3820cfb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="330" width="435" height="65" uuid="0b64ae7d-46d5-4bcb-a683-2038514575fe"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menyerahkan kepada "+"<b>"+"BANK"+"</b>"+" seluruh dokumen yang disyaratkan oleh "+"<b>"+"BANK"+"</b>"+" termasuk tetapi tidak terbatas pada dokumen bukti diri "+"<b>"+"NASABAH"+"</b>"+", Bukti Kepemilikan Agunan dan/atau surat lainnya yang berkaitan dengan Akad ini dan pengikatan Agunan, yang ditentukan dalam Surat Pemberitahuan Persetujuan Pemberian Pembiayaan (SP4) dari "+"<b>"+"BANK"+"</b>"+"; yang merupakan satu kesatuan yang tidak dapat dipisahkan dengan akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="395" width="16" height="15" uuid="73d0b819-4f54-4391-83a4-8c0ab08ecd08"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="395" width="435" height="28" uuid="a5eacb2d-ec65-415b-a731-34302337a06e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Telah membuka dan memelihara rekening giro/tabungan pada "+"<b>"+"BANK"+"</b>"+" selama "+"<b>"+"NASABAH"+"</b>"+" mendapatkan Pembiayaan Mudharabah dari "+"<b>"+"BANK;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="423" width="16" height="15" uuid="f3aa05cc-06aa-4275-8ba7-39745e233ce5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="423" width="435" height="40" uuid="d4b7d4db-0f13-49d6-991c-575ab78965a4"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melunasi biaya-biaya yang disyaratkan oleh "+"<b>"+"BANK"+"</b>"+" sebagaimana tercantum dalam Surat Pemberitahuan Persetujuan Pemberian Pembiayaan (SP4) dan yang terkait dengan pembuatan Akad ini;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="463" width="16" height="15" uuid="7061f4f0-bf4e-42e4-9685-9d0dc4fc381b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="463" width="435" height="15" uuid="03d4532e-5eb3-42c6-b85b-d4f6ac95ec35"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menandatangani Akad ini dan perjanjian pengikatan Agunan yang disyaratkan oleh "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="492" width="451" height="27" uuid="48ac0e16-3e7a-4c0f-998f-7d1fbdc8e078"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 5
+JANGKA WAKTU PEMBIAYAAN MUDHARABAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="519" width="435" height="27" uuid="c2d482bd-02c2-4544-b725-084973ec4008"/>
+				<text><![CDATA[Jangka waktu dan Jatuh Tempo Pembiayaan ini sebagaimana diatur dalam Pasal 2 Akad ini.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="519" width="16" height="15" uuid="1a587cf5-f8da-43fe-9c7a-d9e005c7388b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="546" width="16" height="15" uuid="b3eed961-3cf3-4bca-b861-a13631e70ad6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="546" width="435" height="40" uuid="313f65b3-7951-4f92-a394-929bee0aee0d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Berakhirnya jangka waktu Pembiayaan tidak dengan sendirinya menyebabkan Pembiayaan Mudharabah lunas sepanjang masih terdapat sisa pokok Mudharabah yang belum dikembalikan oleh "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="600" width="451" height="27" uuid="9cde5dc2-4217-4b03-b664-66f74b4b34d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 6
+PERHITUNGAN USAHA
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="627" width="435" height="40" uuid="957110e1-1b69-4d5a-8056-0e3ba2bbdb12"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" wajib menyerahkan perhitungan usaha yang dibiayai dengan Fasilitas Pembiayaan berdasarkan Akad ini secara periodik pada tiap-tiap bulan, selambat-lambatnya pada hari ke "+$F{map}+" bulan berikutnya."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="627" width="16" height="15" uuid="c26c21e7-3daa-4e1a-8d6e-086b4f0977f9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<textField>
+				<reportElement x="16" y="1" width="435" height="39" uuid="45551d40-fd02-4312-8f16-a22ce5799e47"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" wajib melakukan penilaian kembali atas perhitungan usaha yang diajukan oleh "+"<b>"+"NASABAH"+"</b>"+", selambat-lambatnya pada hari ke 10 Sesudah "+"<b>"+"BANK"+"</b>"+" menerima perhitungan usaha tersebut yang disertai dengan data dan bukti-bukti lengkap dari "+"<b>"+"NASABAH"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="16" height="15" uuid="3d1f5cd6-9ab0-4f35-b817-f0a360be7fa9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="40" width="435" height="52" uuid="6a4da751-c6a9-4e45-aee1-73995c1b61c7"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" harus bertanggung jawab penuh atas kerugian yang timbul dari pengelolaan usahanya yang dibiayai dengan Akad ini, jika "+"<b>"+"NASABAH"+"</b>"+" lalai atau melakukan pelanggaran atau menjalankan usaha secara tidak jujur, tidak memenuhi standar kewajaran, melawan hukum atau cidera janji."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="40" width="16" height="15" uuid="262c203b-d105-4408-aa6e-2b253cc0ce28"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="107" width="451" height="27" uuid="96af2b85-2ae3-4a8e-9b81-164597783a4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 7
+PEMBAYARAN/PENGEMBALIAN PEMBIAYAAN MUDHARABAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="134" width="16" height="15" uuid="d1f6dc94-fde0-4cdc-afd5-7adb6d4082f6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="134" width="435" height="53" uuid="a8941a06-8395-40b4-b23b-d41ac1c53519"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" melakukan kesalahan yang disengaja, lalai dan/atau melanggar kesepakatan dalam Akad ini, "+"<b>"+"NASABAH"+"</b>"+" wajib mengembalikan kepada "+"<b>"+"BANK"+"</b>"+" sisa modal Pembiayaan mudharabah, dan menyerahkan Pendapatan yang menjadi hak yang harus dibayar oleh "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="187" width="435" height="39" uuid="a54c28bc-216e-43e1-bd91-8e28649402ea"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" tidak mengembalikan pokok dan/atau bagi hasil kepada "+"<b>"+"BANK"+"</b>"+" sebagaimana yang diatur dalam Ayat 2 Pasal ini, maka "+"<b>"+"NASABAH"+"</b>"+" dengan ini mengaku berutang kepada "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="187" width="16" height="15" uuid="5c3edfff-db43-4942-8056-04bf318712ba"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="226" width="435" height="78" uuid="da6b665a-02bc-4952-857d-415a69cdee46"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Setiap pembayaran oleh "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" atas Pembiayaan Mudharabah dilakukan pada hari kerja di Kantor "+"<b>"+"BANK"+"</b>"+" atau di tempat lain yang ditunjuk "+"<b>"+"BANK"+"</b>"+", atau dilakukan melalui rekening giro/tabungan yang dibuka oleh dan atas nama "+"<b>"+"NASABAH"+"</b>"+" di "+"<b>"+"BANK"+"</b>"+". Apabila tanggal Jatuh Tempo Pembiayaan (Angsuran atau keseluruhan) jatuh pada hari libur, maka pembayaran oleh "+"<b>"+"NASABAH"+"</b>"+" harus dilakukan pada hari kerja sebelum hari libur dimaksud."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="226" width="16" height="15" uuid="29f54c1d-c17d-4621-b185-10a9336a2c04"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="304" width="435" height="40" uuid="37e3d39c-18e3-492a-8007-575df0568933"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pembayaran pokok dan bagi hasil Mudharabah dilakukan "+"<b>"+"NASABAH"+"</b>"+" dalam mata uang Rupiah. Dalam hal pembiayaan Mudharabah diberikan "+"<b>"+"BANK"+"</b>"+" dalam mata uang asing, pembayaran dilakukan "+"<b>"+"NASABAH"+"</b>"+" dalam mata uang asing yang sama."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="304" width="16" height="15" uuid="6192829c-4c61-4699-ba01-7621e8396eeb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="344" width="16" height="15" uuid="909d975a-e76a-4052-9256-772f3e3e4f13"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="344" width="435" height="66" uuid="84c2ce91-d9d4-48c4-890e-91d82efa7d84"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" berhak untuk mengajukan keberatan/klaim kepada "+"<b>"+"BANK"+"</b>"+" dengan disertai bukti-bukti pembayaran yang sah dalam hal "+"<b>"+"NASABAH"+"</b>"+" berpendapat bahwa Pembukuan "+"<b>"+"BANK"+"</b>"+" atas kewajiban dan pembayaran yang telah dilakukannya adalah tidak benar. Apabila "+"<b>"+"NASABAH"+"</b>"+" tidak dapat menunjukkan bukti-bukti pembayaran yang sah, maka yang dianggap benar adalah catatan Pembukuan "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="425" width="451" height="27" uuid="7edf4e68-6d7e-4002-8580-7eff2c22d892"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 8
+PENARIKAN PEMBIAYAAN MUDHARABAH
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="452" width="435" height="29" uuid="c42db3cb-18b9-4ae0-898e-e9889c174ca9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Penarikan dana Pembiayaan Mudharabah yang disediakan oleh "+"<b>"+"BANK"+"</b>"+" dilakukan sesudah syarat-syarat realisasi dipenuhi oleh "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="452" width="16" height="15" uuid="2d2167e5-75b3-4eb6-9846-eff3848c76d7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="481" width="16" height="15" uuid="b82b03ae-cacc-4780-a3bb-a061933091b8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="481" width="434" height="28" uuid="f4e573ae-ecb7-4445-afea-9b88dc25e22f"/>
+				<text><![CDATA[Penarikan dana pembiayaan mudharabah dapat dilakukan secara bertahap atau sekaligus dalam bentuk uang tunai. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="509" width="16" height="15" uuid="fa4de9fa-504b-4142-b708-d2d8486eb1ea"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="509" width="435" height="54" uuid="24ddbba8-969b-4a04-90b6-7cc340f4d60e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"BANK"+"</b>"+" telah memberikan sebagian atau seluruh dana Pembiayaan Mudharabah kepada "+"<b>"+"NASABAH"+"</b>"+", maka "+"<b>"+"NASABAH"+"</b>"+" dengan ini menyatakan bahwa apabila pada waktu yang telah disepakati nasabah tidak mengembalikan modal "+"<b>"+"BANK, NASABAH"+"</b>"+" mengakui mempunyai kewajiban kepada "+"<b>"+"BANK"+"</b>"+" berdasarkan akad ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="580" width="451" height="28" uuid="7045a479-e945-4a61-90e0-362f18ea4a1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PASAL 9"+
+"<br>"+"GANTI RUGI ("+"<i>"+"TA’WIDH"+"</i>"+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="608" width="435" height="66" uuid="01bdbd41-d0bb-4476-9e6e-258ce4bf614c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" dengan sengaja atau karena kelalaian melakukan sesuatu yang menyimpang dari ketentuan Akad dan menimbulkan kerugian "+"<b>"+"BANK"+"</b>"+", maka "+"<b>"+"BANK"+"</b>"+" berhak mendapat Ganti Rugi ("+"<i>"+"Ta’widh"+"</i>"+") dari "+"<b>"+"NASABAH"+"</b>"+" sebesar kerugian nyata yang dialami oleh "+"<b>"+"BANK"+"</b>"+" berupa biaya yang telah dikeluarkan dan dapat diperhitungkan dengan jelas oleh "+"<b>"+"BANK"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="608" width="16" height="15" uuid="e611f39f-75fd-49fe-899b-20d1c13c774e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<textField>
+				<reportElement x="17" y="1" width="435" height="65" uuid="42310e06-85b8-4bb8-be20-4526d772d07c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" cidera janji sehingga "+"<b>"+"BANK"+"</b>"+" perlu menggunakan jasa Penasihat Hukum untuk menagihnya, maka "+"<b>"+"NASABAH"+"</b>"+" berjanji dan dengan ini mengikatkan diri untuk membayar seluruh biaya jasa Penasihat Hukum, jasa penagihan dan jasa-jasa lainnya sepanjang hal itu dapat dibuktikan secara sah menurut hukum dan sesuai dengan kaidah syariah yang berlaku di Indonesia"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="1" width="16" height="15" uuid="3eef3f04-0d34-40cf-b039-be92ce63d7a8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="66" width="16" height="15" uuid="790c0e02-ec4b-4d25-946b-5ec0ed4e3063"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="66" width="435" height="41" uuid="c0067aff-6e0c-46cb-a0b1-e40e6ae26a66"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Besar ganti rugi sesuai dengan nilai kerugian riil yang pasti dialami dalam transaksi tersebut dan bukan kerugian yang diperkirakan akan terjadi ("+"<i>"+"potential loss"+"</i>"+") karena adanya peluang yang hilang ("+"<i>"+"opportunity loss"+"</i>"+")."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="123" width="451" height="28" uuid="1d4ba4b3-50d4-4581-9c35-baa8913ecbcd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PASAL 10"+
+"<br>"+"DENDA ("+"<i>"+"TA’ZIR"+"</i>"+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="151" width="16" height="15" uuid="63299867-cd5c-4e6f-9d04-48b450a108fe"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="151" width="435" height="41" uuid="3d1d9924-6a82-4b88-a068-726e3960e986"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Kewajiban Nasabah yang tidak dilunasi selambat-lambatnya pada saat Jatuh Tempo Pembayaran Angsuran atau pelunasan dikenakan Denda ("+"<i>"+"Ta’zir"+"</i>"+") yang besarnya sesuai ketentuan yang berlaku pada "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="192" width="16" height="15" uuid="712b1690-2db0-4c61-85d2-3afab7b8d2db"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="192" width="435" height="27" uuid="fb17451e-e7bd-4c02-abfd-289b841750ef"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dana dari Denda ("+"<i>"+"Ta’zir"+"</i>"+") yang diterima "+"<b>"+"BANK"+"</b>"+" diperuntukkan sebagai dana sosial."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="234" width="451" height="29" uuid="e04130d8-cebc-4686-a273-a0cf7e6fd7da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 11
+BIAYA DAN PAJAK
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="263" width="16" height="15" uuid="046781b6-f086-4d86-9c5d-71b0625a9553"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="263" width="435" height="29" uuid="6f8e65fb-49e3-44cb-afbc-01db0c02391b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" berjanji dan dengan ini mengikatkan diri untuk membayar melalui "+"<b>"+"BANK"+"</b>"+", setiap biaya dan pajak yang diharuskan oleh peraturan perundang-undangan yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="292" width="16" height="15" uuid="a6981d0c-eff4-4866-89a3-bfd79c553e09"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="292" width="435" height="27" uuid="121cb634-e304-4bb7-afc5-deb96f84000e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Seluruh pajak yang timbul sehubungan dengan Akad ini merupakan tanggungan dan wajib dibayar oleh "+"<b>"+"NASABAH"+"</b>"+", kecuali Pajak Penghasilan "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="333" width="451" height="29" uuid="822bab6a-f103-4cca-beeb-57a831b83406"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 12
+KUASA YANG DIBERIKAN DARI NASABAH
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="362" width="435" height="65" uuid="537e253e-cbf1-4a9b-b879-fa2a06a1100f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal pembayaran dilakukan melalui rekening "+"<b>"+"NASABAH"+"</b>"+" di "+"<b>"+"BANK"+"</b>"+", maka dengan ini "+"<b>"+"BANK"+"</b>"+" diberi kuasa oleh "+"<b>"+"NASABAH"+"</b>"+" untuk mendebet rekening "+"<b>"+"NASABAH"+"</b>"+" pada "+"<b>"+"BANK"+"</b>"+" dari waktu ke waktu guna pembayaran seluruh Kewajiban Nasabah kepada "+"<b>"+"BANK"+"</b>"+" dan kepada pihak lain sehubungan dengan Pembiayaan Mudharabah ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="362" width="16" height="15" uuid="4810b6c3-df52-4314-836c-545d02d8fa92"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="427" width="435" height="90" uuid="794ac2a0-63ac-490d-92c0-57dc49db29b8"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Sepanjang mengenai kewajiban-kewajiban pembayaran "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" yang timbul dari Akad ini, maka "+"<b>"+"NASABAH"+"</b>"+" dengan ini memberi kuasa kepada "+"<b>"+"BANK"+"</b>"+" untuk meminta dan menerima bagian dari gaji dan/atau penerimaan/penghasilan lainnya yang menjadi hak "+"<b>"+"NASABAH"+"</b>"+" dari pejabat/pihak yang berwenang membayarkan gaji dan/atau penerimaan lainnya dari Instansi/Kantor/pihak dimana "+"<b>"+"NASABAH"+"</b>"+" bekerja dan/atau berhak menerima penghasilan untuk pembayaran Kewajiban "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="427" width="16" height="15" uuid="0af76faf-cd75-497f-801d-57b6dc0a8ad6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="524" width="451" height="87" uuid="d7cf932a-60c8-41a7-9553-58eb3106f76f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="534" width="326" height="15" uuid="eea54bbe-0b29-4f96-986a-f1d7bee85280"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<u>"+"Untuk "+"<b>"+"NASABAH"+"</b>"+" Badan Usaha;"+"</u>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="549" width="16" height="15" uuid="5c237649-da76-46b1-a8cd-7691aa302604"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="549" width="419" height="52" uuid="e7309eac-04a6-4682-8382-ef29f2e358df"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" dengan ini memberi kuasa kepada "+"<b>"+"BANK"+"</b>"+" untuk meminta dan menerima sebagian atau seluruh pendapatan dan/atau penerimaan/penghasilan lainnya yang menjadi hak "+"<b>"+"NASABAH"+"</b>"+" dari pihak manapun juga untuk pembayaran Kewajiban Nasabah."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="104" width="451" height="29" uuid="77dc9d0c-2a28-4d79-a50a-ad1f2b4b2329"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 13
+PENUNJUKAN  NASABAH SEBAGAI PENGELOLA
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="133" width="450" height="53" uuid="73f563d0-a5be-4cc8-9c59-9e23e578640c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" sepakat menunjuk "+"<b>"+"NASABAH"+"</b>"+" sebagai pengelola usaha kerjasama yang dibiayai dari Pembiayaan Mudharabah ini, sesuai dengan surat kuasa*) terlampir yang merupakan satu kesatuan yang tidak terpisahkan dari  Akad ini dan "+"<b>"+"NASABAH"+"</b>"+" menyatakan menerima penunjukan tersebut."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="190" width="450" height="13" uuid="95bb620f-b8ee-418c-b2bd-ea1b63991506"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[*) dalam surat kuasa harus dirinci selengkap mungkin dan apabila tidak dipenuhi maka surat kuasa batal.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="217" width="451" height="29" uuid="a295fcb3-0bf5-458a-b102-2c83fbf83cf1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 13
+PENUNJUKAN  NASABAH SEBAGAI PENGELOLA
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="246" width="16" height="15" uuid="7fc03e51-0278-44b3-af92-bd4a114da079"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="246" width="435" height="26" uuid="063b54dd-dd05-42d2-8b26-bb21fac009b7"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Selama Jangka Waktu Pembiayaan Mudharabah berjalan dan/atau Kewajiban Nasabah belum lunas, "+"<b>"+"NASABAH"+"</b>"+" wajib untuk melakukan hal-hal sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="272" width="419" height="39" uuid="cef82813-0e58-4311-a712-bf873765b7b1"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menjalankan usaha yang telah disepakati bersama sesuai dengan tujuan Pembiayaan menurut ketentuan-ketentuan yang berlaku dan/atau prinsip-prinsip Syariah dengan sebaik-baiknya secara layak, amanah dan efisien."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="272" width="16" height="15" uuid="4ea7bf92-1f00-4ea2-8a91-8d4ec38545a4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="311" width="419" height="27" uuid="4bb2814c-8d7b-4b17-949a-dfa306469ee9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Bertindak sebagai pengelola ("+"<i>"+"Mudharib"+"</i>"+") pada saat berhadapan dengan pihak ketiga untuk kepentingan usaha terlebih dahulu harus meminta persetujuan tertulis dari "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="311" width="16" height="15" uuid="4e844c51-3f26-4701-9150-e3995be072ce"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="338" width="419" height="15" uuid="b098a879-5aad-4c22-82ca-7fc36a5277f3"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memelihara, menjaga dan menyelamatkan dana Mudharabah."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="338" width="16" height="15" uuid="a8b5a52b-301b-4376-916e-312cd4d4fa9d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="353" width="16" height="15" uuid="ddaadbde-c9f4-46f8-86ca-206ededbcde6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[d.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="353" width="419" height="27" uuid="e357dbea-5077-4696-8701-3093caed736a"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melakukan pembayaran atas semua tagihan dari pihak ketiga melalui rekening "+"<b>"+"NASABAH"+"</b>"+" dan/atau rekening perusahaan di "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="380" width="16" height="15" uuid="5b1393d4-a664-4d6b-8887-2f1967c1007c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[e.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="380" width="419" height="27" uuid="4f409fad-ad70-44f3-b8f7-17cea19077f7"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Mengelola dan menyelenggarakan pembukuan secara jujur dan benar dengan i'tikad baik dalam pembukuan tersendiri."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="407" width="16" height="15" uuid="c1fa1ec1-b5a4-462d-b291-4366d29949bf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[f.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="407" width="419" height="51" uuid="0c5e4ecf-80bb-452f-8147-12c29d59f63e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menyerahkan perhitungan hasil usahanya kepada "+"<b>"+"BANK"+"</b>"+" atas Pembiayaan Mudharabah yang diberikan oleh "+"<b>"+"BANK"+"</b>"+" berdasarkan ketetapan dalam Pasal 2 Akad ini, dan melaporkannya pada tiap­tiap periode sesuai dengan jadual yang telah ditetapkan oleh "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="16" height="15" uuid="b26c7bfb-d46c-401c-bf45-d8914d526889"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="0" width="435" height="90" uuid="9cebce7c-da85-445f-a088-df5cdc401d28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Semua kuasa yang dibuat dan diberikan oleh "+"<b>"+"NASABAH"+"</b>"+" dalam rangka Akad ini merupakan satu kesatuan yang tidak terpisahkan dari Akad ini dan tidak dapat ditarik kembali karena sebab-sebab apapun juga yang dapat mengakhiri kuasa terutama yang dimaksud dalam Pasal 1813, 1814 dan 1816 Kitab Undang­Undang Hukum Perdata sampai dengan Pembiayaan ini lunas, dan "+"<b>"+"NASABAH"+"</b>"+" mengikatkan diri untuk tidak membuat kuasa dan/atau janji-janji yang sifat dan/atau isinya serupa kepada pihak lain, selain kepada "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="458" width="16" height="15" uuid="c62bbe6b-8884-4279-94d4-f773986522d4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[g.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="458" width="419" height="52" uuid="90f0e07e-c99a-433f-883e-b7d4b94c614f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila "+"<b>"+"NASABAH"+"</b>"+" telah menyerahkan perhitungan hasil usahanya kepada "+"<b>"+"BANK"+"</b>"+", maka "+"<b>"+"NASABAH"+"</b>"+" berkewajiban untuk membayarkan bagi hasil yang menjadi hak "+"<b>"+"BANK"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+", dan "+"<b>"+"NASABAH"+"</b>"+" dengan ini menyatakan dan mengakui mempunyai kewajiban atas bagi hasil yang menjadi hak "+"<b>"+"BANK"+"</b>"+" tersebut."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="510" width="419" height="26" uuid="30ff016c-b8ae-4bb5-ba45-ab989dd4d350"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menyerahkan kepada "+"<b>"+"BANK"+"</b>"+" setiap dokumen, bahan-bahan dan/atau keterangan-keterangan yang diminta "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="510" width="16" height="15" uuid="e3f479ec-5949-4c56-a167-5c5575c2ae88"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[h.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="536" width="16" height="15" uuid="addc8844-8ad4-40e8-af38-f4982d1d749b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[i.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="536" width="419" height="39" uuid="9514d1f5-1229-4306-aa07-600c187fe5af"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menyampaikan laporan kepada "+"<b>"+"BANK"+"</b>"+" baik secara berkala maupun sewaktu-waktu mengenai kegiatan usaha yang berkaitan dengan Pembiayaan Mudharabah yang diterima dari "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="575" width="419" height="78" uuid="a7b33fc1-4ca8-40c7-9fbe-fa3228f30583"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Mengizinkan "+"<b>"+"BANK"+"</b>"+" (petugas-petugasnya) untuk setiap saat memasuki tempat penyimpanan serta melakukan pemeriksaaan baik terhadap fisik maupun keabsahan seluruh dokumen/surat bukti kepemilikan barang yang dibeli "+"<b>"+"NASABAH"+"</b>"+" dari Pembiayaan Mudharabah dan/atau barang yang diagunkan "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" sepanjang tidak bertentangan dengan peraturan perundang-undangan yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="575" width="16" height="15" uuid="de4e44fb-fdae-4107-897c-ff9577fdf1eb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[j.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="1" width="450" height="29" uuid="285f7778-96b5-41e3-9aff-84520db467cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 15
+PEMBATASAN TINDAKAN NASABAH
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="30" width="451" height="29" uuid="932fbd45-4dea-4aad-bb35-485bd79f426c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" tidak boleh melakukan satu atau lebih hal-hal sebagai dimaksud dalam ketentuan pasal ini kecuali telah mendapatkan persetujuan tertulis terlebih dahulu dari "+"<b>"+"BANK"+"</b>"+":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="59" width="434" height="28" uuid="cdb7dae5-9c13-4fa9-bfa4-4679c88a9598"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memperoleh Kewajiban/Pembiayaan lain dari "+"<b>"+"BANK"+"</b>"+" lain atau lembaga keuangan lainnya; "+"<b>"+"atas usaha yang telah dibiayai oleh BANK"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="59" width="16" height="15" uuid="768c347b-cd3d-493d-b74f-8149dd227c4a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="87" width="16" height="15" uuid="a35a756b-7db1-4750-b421-af22616e9bbf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="87" width="434" height="28" uuid="ca35d34f-25a7-47a6-96a7-d44770f00319"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Mengagunkan/menjual/memindahtangankan/menyewakan seluruh atau sebagian harta kekayaan "+"<b>"+"NASABAH yang dipergunakan sebagai agunan"+"</b>"+" kepada pihak lain;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="115" width="434" height="15" uuid="02eba6b0-fdc3-4a93-91b3-f93abeb44ce6"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melakukan diversifikasi usaha atau mengubah maksud dan tujuan usaha;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="115" width="16" height="15" uuid="52c2c567-633e-4f29-bec2-0fd21d4b2795"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="130" width="434" height="27" uuid="66b22f81-cbb2-4586-860b-43b42b19b46f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menjual saham-sahamnya kepada pihak ketiga (apabila "+"<b>"+"NASABAH"+"</b>"+" berbentuk badan usaha) atau membeli saham-saham perusahaan lain;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="130" width="16" height="15" uuid="4be9640c-2885-42ea-93a8-884f02c5cc69"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="157" width="434" height="27" uuid="3e9bc0f3-cb18-46bf-af27-747199e7909f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melakukan merger, konsolidasi, akuisisi, restrukturisasi atau pembubaran perusahaan (apabila "+"<b>"+"NASABAH"+"</b>"+" berbentuk badan usaha);"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="157" width="16" height="15" uuid="7929270e-326d-4587-a8e8-fae759fdda5b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="184" width="16" height="15" uuid="7a00b75a-c7e9-428a-8047-fd937e138f2b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="184" width="434" height="40" uuid="4487f328-31e5-4405-b1e6-29b8b81bb106"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Mengubah Anggaran Dasar perusahaan atau mengubah susunan pengurus (termasuk komisaris) atau perubahan pendiri perseroan/perusahaan "+"<b>"+"NASABAH"+"</b>"+" (apabila "+"<b>"+"NASABAH"+"</b>"+" berbentuk badan usaha);"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="224" width="434" height="40" uuid="f99ab530-a77b-4991-906e-79d57ba9c68e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Membayarkan dividen atau kewajiban lain kepada para pendiri/pesero perusahaan "+"<b>"+"NASABAH sebelum pembagian usaha dilakukan"+"</b>"+" (apabila "+"<b>"+"NASABAH"+"</b>"+" berbentuk badan usaha)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="224" width="16" height="15" uuid="89cdcd97-1fa8-4b9a-bff2-48311e4730e3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="264" width="434" height="15" uuid="99b87007-a7f6-431c-8840-f5f279523bb2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memindah-tangankan Agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="264" width="16" height="15" uuid="5a2ec88f-a073-45a9-a281-45da4e4a3016"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[8.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="295" width="450" height="29" uuid="5ee74475-0c5f-47bf-9695-a948150cbf07"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 16
+PENGAWASAN USAHA
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="324" width="451" height="66" uuid="cfc3e70b-eee8-4a0f-9f3a-a0ddab443ee4"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"BANK"+"</b>"+" dan/atau pihak lain yang ditunjuk oleh "+"<b>"+"BANK"+"</b>"+" berhak untuk memeriksa pembukuan "+"<b>"+"NASABAH"+"</b>"+" dan segala sesuatu yang berhubungan dengan Pembiayaan Mudharabah yang diterima oleh "+"<b>"+"NASABAH"+"</b>"+" dari "+"<b>"+"BANK"+"</b>"+" berdasarkan Akad ini, baik secara langsung atau tidak langsung dan/atau melakukan tindakan-tindakan pembinaan/pengawasan lainnya untuk mengamankan kepentingan "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="405" width="450" height="29" uuid="fe87907e-47e3-4357-a1e7-c4b91b9f701f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 17
+AGUNAN DAN PENGIKATANNYA
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="434" width="434" height="79" uuid="69af886d-d001-4872-acea-b85a54fe614e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Untuk menghindari terjadinya penyimpangan, kesalahan disengaja, kelalaian atau pelanggaran yang dilakukan "+"<b>"+"NASABAH"+"</b>"+", dan untuk penyelesaian kewajiban "+"<b>"+"NASABAH"+"</b>"+" sesuai dengan akad ini, "+"<b>"+"BANK"+"</b>"+" dapat meminta "+"<b>"+"NASABAH"+"</b>"+" untuk memberikan Agunan yang dianggap cukup dan dapat diterima oleh "+"<b>"+"BANK"+"</b>"+" sebagaimana tercantum dalam Pasal 2, dan diikat dalam suatu akta tersendiri sesuai dengan ketentuan yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="434" width="16" height="15" uuid="ff6b60ec-ec89-4a10-9d96-5defe395b0b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="513" width="434" height="41" uuid="45075d35-6131-4287-8933-e6abe003b342"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" tidak mengembalikan Kewajibannya sebagaimana dimaksud dalam akad ini, maka "+"<b>"+"BANK"+"</b>"+" berhak untuk melakukan pencairan, penjualan dan/atau eksekusi Agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="513" width="16" height="15" uuid="3b1f3c1f-fc73-4735-921e-7db726edcab3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="554" width="16" height="15" uuid="a0d3ce65-4162-4608-8267-15a242c7076d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="554" width="434" height="40" uuid="c325c553-1fba-49e0-b93e-c76ca8c42b35"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila menurut pendapat "+"<b>"+"BANK"+"</b>"+" nilai dari Agunan tidak lagi cukup untuk menjamin pengembalian Kewajiban Nasabah, maka atas permintaan pertama dari "+"<b>"+"BANK, NASABAH"+"</b>"+" wajib menambah Agunan lainnya yang disetujui "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="594" width="434" height="28" uuid="2cd4c14e-6d82-4ae1-bbe8-627dd9f20a54"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" wajib memberikan bantuan sepenuhnya guna memungkinkan "+"<b>"+"BANK"+"</b>"+" melaksanakan pengikatan Agunan menurut cara dan pada saat yang dianggap baik oleh "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="594" width="16" height="15" uuid="9b181f25-2f82-4915-935c-ebef4b13efff"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="622" width="16" height="15" uuid="07a77a98-aea6-4716-bdc1-cf2074aa5a29"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="622" width="434" height="28" uuid="3c1ec50b-4b9a-4d7c-a558-6f9cd1cff317"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Bukti Kepemilikan Agunan dan Akta Pengikatan Agunan dikuasai oleh "+"<b>"+"BANK"+"</b>"+" sampai seluruh jumlah Pembiayaan dilunasi."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="650" width="434" height="15" uuid="39ce66d8-a99d-47d5-9635-44657e86389c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Seluruh biaya yang diperlukan dalam pengikatan Agunan menjadi tanggungan "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="650" width="16" height="15" uuid="01aa2406-53af-44d5-9dbe-675c4bc0d43e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="1" width="450" height="29" uuid="23f72d25-b98a-4d66-b1a9-079bd8436510"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 18
+PENGAWASAN, PEMERIKSAAN DAN TINDAKAN TERHADAP AGUNAN
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="30" width="16" height="15" uuid="7a8c70f6-df1c-451d-92fd-503568dab052"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="30" width="434" height="28" uuid="897b81ef-814b-42bc-8881-62ce24f28d3f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Selama "+"<b>"+"NASABAH"+"</b"+" belum melunasi seluruh Kewajiban Nasabah yang timbul dari Akad ini, "+"<b>"+"BANK"+"</b>"+" berhak melakukan pemeriksaan dan meminta keterangan-keterangan yang diperlukan terkait dengan Agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="58" width="16" height="15" uuid="67d16aa7-170d-449f-9924-1a477e0f15c5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="58" width="434" height="26" uuid="db541632-aa1a-478f-8111-3cba9c80fcaa"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal "+"<b>"+"NASABAH"+"</b>"+" Cidera Janji, maka "+"<b>"+"BANK"+"</b>"+" berhak setiap saat melakukan tindakan terhadap barang yang diagunkan antara lain namun tidak terbatas pada:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="84" width="16" height="15" uuid="024d93af-9387-4a52-9c34-5a7d6f561b3a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="84" width="418" height="26" uuid="4fe0357f-de17-4517-8322-28980166d59e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memasuki pekarangan dan bangunan yang menjadi Agunan dan/atau memasuki pekarangan dan bangunan dimana Agunan tersebut disimpan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="110" width="16" height="15" uuid="bc7e5e86-3c36-4232-bac4-1c099af23956"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="110" width="418" height="41" uuid="e0f3d524-6571-4eba-a374-04b52a4f3e75"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melakukan pemeriksaan atas keadaan Agunan berikut fasilitasnya yang melekat serta mendapatkan keterangan secara langsung ataupun tidak langsung dari "+"<b>"+"NASABAH"+"</b>"+" dan/atau dari siapa pun mengenai hal-hal yang perlu diketahui oleh "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="151" width="16" height="15" uuid="298b05cf-2f35-4578-a8e7-a3261701d42a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="151" width="434" height="52" uuid="b4aa6b6e-a7f3-4873-b2e6-717e0f372d9a"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Tindakan-tindakan "+"<b>"+"BANK"+"</b>"+" sebagaimana dimaksud angka 1 dan angka 2 pasal ini, bukan pencemaran nama baik, bukan merupakan perbuatan yang tidak menyenangkan dan bukan perbuatan melawan hukum; oleh karenanya "+"<b>"+"NASABAH"+"</b>"+" tidak akan melakukan tuntutan-tuntutan perdata dan/atau pidana."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="203" width="16" height="15" uuid="ad1effe9-c0ed-4408-bbc9-ecc31e2604ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="203" width="434" height="27" uuid="42edcb5a-ce63-4f20-b8cb-4e2b31ac74a1"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" wajib memberikan keterangan-keterangan secara benar atas pertanyaan-pertanyaan "+"<b>"+"BANK"+"</b>"+" dalam rangka pengawasan dan pemeriksaaan Agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="246" width="450" height="29" uuid="e789f296-0d37-4d68-940f-ff0bd74c2a7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 19
+ASURANSI
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="275" width="434" height="52" uuid="325f0b3d-03fe-48aa-81cf-2edef4eaa48c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Selama jangka waktu Pembiayaan, "+"<b>"+"NASABAH"+"</b>"+" wajib untuk menutup asuransi termasuk namun tidak terbatas pada asuransi atas Barang yang diagunkan pada perusahaan asuransi syariah atau perusahaan asuransi yang disetujui oleh "+"<b>"+"BANK"+"</b>"+" dan premi asuransinya menjadi beban "+"<b>"+"NASABAH."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="275" width="16" height="15" uuid="4a37b99f-3a78-4b52-a1b0-fae0eccb8692"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="327" width="16" height="15" uuid="76b3bb7e-cf09-471d-a18c-5fd6ae24b75d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="327" width="434" height="39" uuid="b53fcff1-2c02-4450-bfe8-ee1a6ed63420"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal terjadi hal-hal yang mengakibatkan dibayarkannya hasil klaim (uang pertanggungan) perusahaan asuransi, maka hasil klaim tersebut harus disetorkan kepada "+"<b>"+"BANK"+"</b>"+" dan diperlakukan sebagai pengganti agunan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="366" width="16" height="15" uuid="348cfbd0-a3c7-425c-8ede-9b025552ce40"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="366" width="434" height="27" uuid="59064d83-a9e5-4270-b207-710765fe8228"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal hasil uang pertanggungan tidak cukup, maka "+"<b>"+"NASABAH"+"</b>"+" harus menambah agunan sesuai dengan ketentuan "+"<b>"+"BANK"+"</b>"+" yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="409" width="450" height="29" uuid="57655e58-8a4c-4ba7-a39d-48623a96d228"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 20
+NASABAH CIDERA JANJI
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="438" width="16" height="15" uuid="b018b0e7-706c-4a47-8b86-4026305a84ce"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="438" width="434" height="26" uuid="0a18da82-425b-4206-a2a5-b113f1839451"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" dinyatakan Cidera Janji, apabila tidak memenuhi dengan baik kewajiban-kewajibannya atau melanggar ketentuan-ketentuan di dalam Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="464" width="16" height="15" uuid="f30457e8-df22-4a6e-84de-9c3d358ff401"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="464" width="434" height="26" uuid="0453b8da-e4b1-4029-baef-321821161105"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Salah satu hal atau peristiwa yang ditetapkan di bawah ini merupakan hal kelalaian/pelanggaran dalam Akad ini, yaitu:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="490" width="16" height="15" uuid="f8c417c4-f5da-46e6-bc79-b964cec783fc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="490" width="418" height="41" uuid="dfa0ab92-172a-405b-93f3-45c555948e34"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" tidak melaksanakan kewajiban pembayaran/pelunasan Kewajiban tepat pada waktu yang diperjanjikan sesuai dengan tanggal jatuh tempo pembiayaan atau jadual Angsuran yang telah disepakati "+"<b>"+"PARA PIHAK;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="531" width="16" height="15" uuid="c92c1b03-4df8-4893-8778-f8015687ab16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="531" width="418" height="41" uuid="32efaa68-b970-4ae1-a370-3618d8b80735"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dokumen atau keterangan yang dimasukkan/disuruh masukkan ke dalam dokumen yang diserahkan "+"<b>"+"NASABAH"+"</b>"+" kepada "+"<b>"+"BANK"+"</b>"+" sebagaimana dimaksud pada Pasal 4 Akad ini palsu, tidak sah, atau tidak benar;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="572" width="16" height="15" uuid="d82bb882-e6a7-4451-b877-b66b2b03ba86"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="572" width="418" height="41" uuid="0f4d9367-5b06-4b71-abc4-69ace69c1031"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" dihukum penjara atau kurungan berdasarkan putusan Pengadilan yang telah berkekuatan tetap dan pasti (in kracht van gewijsde) karena tindak pidana yang dilakukannya;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="613" width="418" height="28" uuid="a867f2d7-6a2a-462c-9e4a-5c36e54f2533"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" tidak memenuhi dan atau melanggar salah satu ketentuan atau lebih sebagaimana dimaksud Pasal 12 dan Pasal 14 Akad ini;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="613" width="16" height="15" uuid="48d27293-0ea3-4129-8bbe-10868c055f8d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[d.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="641" width="16" height="15" uuid="79f2ff82-3e80-4c84-a47e-5326016d4ef0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[e.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="641" width="418" height="42" uuid="e71799f6-cac8-416c-b1c1-5ca59a9430bc"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" melakukan pelanggaran atas peraturan perundang-undangan yang berlaku pada saat Akad ini ditandatangani atau diberlakukan dikemudian hari antara lain namun tidak terbatas pada APU-PPT;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="683" width="418" height="15" uuid="4889fa74-aa79-4472-835a-5174d4bfa798"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+" atau pihak ketiga telah memohon kepailitan terhadap "+"<b>"+"NASABAH;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="683" width="16" height="15" uuid="6f295b0e-61f3-4b46-8e50-e387ed46fabc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[f.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="17" y="1" width="16" height="15" uuid="28178e89-26dc-4392-99a0-37c8c48249f4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[g.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="1" width="418" height="65" uuid="8d3b4af1-5826-4b8d-b54b-c730ce74c990"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila karena sesuatu sebab, seluruh atau sebagian Akta Pengikatan Jaminan dinyatakan batal atau dibatalkan berdasarkan Putusan Pengadilan atau Badan Arbitrase atau nilai agunan berkurang sedemikian rupa sehingga tidak lagi merupakan Agunan yang cukup atas seluruh Kewajiban, satu dan lain menurut pertimbangan dan penetapan "+"<b>"+"BANK;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="66" width="16" height="15" uuid="8d137273-4a66-465a-a5d7-206cf5965192"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[h.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="66" width="418" height="27" uuid="e8f9a762-97f0-4a69-baa4-700dc7b5f819"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila keadaan keuangan "+"<b>"+"NASABAH"+"</b>"+"/Penjamin tidak cukup untuk melunasi kewajibannya kepada "+"<b>"+"BANK"+"</b>"+" baik karena kesengajaan atau kelalaian "+"<b>"+"NASABAH;"+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="93" width="16" height="15" uuid="b7acf680-e65e-4929-a58a-778a03200762"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[i.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="93" width="418" height="40" uuid="cb7b6099-f612-4d04-a578-2449ce4a6e60"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Harta benda "+"<b>"+"NASABAH"+"</b>"+"/Penjamin, baik sebagian atau seluruhnya yang diagunkan atau yang tidak diagunkan kepada "+"<b>"+"BANK"+"</b>"+", diletakkan sita jaminan ("+"<i>"+"conservatoir beslag"+"</i>"+") atau sita eksekusi ("+"<i>"+"executorial beslag"+"</i>"+") oleh pihak ketiga;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="133" width="418" height="26" uuid="48a61a0d-511e-4f36-a1f3-c1e685f3ad3e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+"/Penjamin masuk dalam Daftar Kredit Macet dan atau Daftar Hitam ("+"<i>"+"blacklist"+"</i>"+") yang dikeluarkan oleh Bank Indonesia atau lembaga lain yang terkait;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="133" width="16" height="15" uuid="c9a14822-d84b-45eb-ac26-96e6c1b9254f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[j.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="159" width="16" height="15" uuid="228fccd2-f651-4f59-a1d5-f4e7b362fc82"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[k.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="159" width="418" height="91" uuid="196a2bbe-d04a-4ee8-a11d-16ab88adff83"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+"/Penjamin memberikan keterangan, baik lisan atau tertulis, yang tidak benar dalam arti materiil tentang keadaan kekayaannya, penghasilan, barang agunan dan segala keterangan atau dokumen yang diberikan kepada "+"<b>"+"BANK"+"</b>"+" sehubungan Kewajiban Nasabah kepada "+"<b>"+"BANK"+"</b>"+" atau jika "+"<b>"+"NASABAH"+"</b>"+" menyerahkan tanda bukti penerimaan barang dan atau surat pemindahbukuan yang ditandatangani oleh pihak–pihak yang tidak berwenang untuk menandatanganinya sehingga tanda bukti penerimaan atau surat pemindahbukuan tersebut tidak sah;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="250" width="418" height="51" uuid="ab6b9357-288e-4a7d-a1b6-52d4ba199105"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+"/Penjamin meminta penundaan pembayaran ("+"<i>"+"surseance van betaling"+"</i>"+"), tidak mampu membayar, dinyatakan pailit, dilikuidasi, ditaruh dibawah perwalian atau pengampuan, atau karena sebab-sebab apapun juga tidak berhak lagi mengurus, mengelola atau menguasai harta bendanya;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="250" width="16" height="15" uuid="3ca461df-e7b9-4d9b-b618-8c6c385e1a24"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[l.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="301" width="16" height="15" uuid="e3df1caa-7f48-4fb5-9088-aba038605bb3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[m.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="301" width="418" height="38" uuid="337e3c51-def9-4e4e-b21b-12031f32ad12"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+", sebelum atau sesudah Mudharabah diberikan oleh "+"<b>"+"BANK"+"</b>"+", juga mempunyai Kewajiban kepada pihak ketiga dan hal yang demikian tidak diberitahukan kepada "+"<b>"+"BANK"+"</b>"+" baik sebelum diberikan atau sebelum Kewajiban lain tersebut diperoleh;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="339" width="16" height="15" uuid="8b01fb53-258f-4046-b76b-0f47c297da12"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[n.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="339" width="418" height="41" uuid="c0949077-22c1-483a-b0f3-5ca9782c71c9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+"/Penjamin lalai, melanggar atau tidak dapat/tidak memenuhi suatu ketentuan dalam Akad ini, perjanjian pengikatan agunan atau dokumen-dokumen lain sehubungan dengan Pembiayaan ini;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="380" width="16" height="15" uuid="002ef8a1-677b-467b-981e-436ca2447af3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[o.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="380" width="418" height="78" uuid="33e03fbe-9435-4df3-9389-f6bde1d4e24d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>"+"NASABAH"+"</b>"+"/Penjamin meninggal dunia/dibubarkan/bubar (apabila "+"<b>"+"NASABAH"+"</b>"+" adalah suatu badan usaha berbadan hukum atau bukan berbadan hukum), meninggalkan tempat tinggalnya/pergi ke tempat yang tidak diketahui untuk waktu lebih dari 2 (dua) bulan dan tidak menentu, ditangkap pihak yang berwajib dan atau melakukan/terlibat dalam suatu perbuatan/peristiwa yang menurut pertimbangan "+"<b>"+"BANK"+"</b>"+" dapat membahayakan Pembiayaan Mudharabah;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="458" width="16" height="15" uuid="9474f00f-89de-44c5-99e6-7f17f76ce038"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[p.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="458" width="418" height="27" uuid="b67bb54d-d726-4f55-ac46-363fb2b12806"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Terjadi peristiwa apapun yang menurut pendapat "+"<b>"+"BANK"+"</b>"+" akan dapat mengakibatkan "+"<b>"+"NASABAH"+"</b>"+"/Penjamin tidak dapat memenuhi kewajiban-kewajibannya kepada "+"<b>"+"BANK."+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="485" width="16" height="15" uuid="1cc58e6c-a66f-40d0-866a-644cc9a60212"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="485" width="434" height="27" uuid="d252bbab-31c1-4ef0-98ba-c729c5fb9517"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila "+"<b>"+"NASABAH"+"</b>"+" Cidera Janji, <b>BANK</b> berhak untuk melakukan tindakan-tindakan sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="512" width="16" height="15" uuid="5bba644c-91b2-4abb-9c9a-153e2844b8f1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="512" width="418" height="40" uuid="36ff090c-0324-4c2a-be24-f23c9c7ee386"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memberikan peringatan baik secara lisan maupun tertulis dalam bentuk pernyataan lalai/Cidera Janji berupa surat atau akta lain yang sejenis yang dikirimkan ke alamat <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="552" width="418" height="39" uuid="df073b2a-9c38-409b-bc0c-335784470cfb"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Memberikan peringatan dalam bentuk pemasangan Papan Peringatan (Plank), Stiker atau dengan cara apapun yang ditempelkan atau dituliskan pada Agunan dan objek Mudharabah ini. "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="552" width="16" height="15" uuid="71ac0a79-86a0-4d7f-a5b9-4ad9c5eacf1e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="591" width="418" height="15" uuid="74daaeb8-8536-4a38-a92f-b9bb9715ad9b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menjual Agunan dari <b>NASABAH</b> dan/atau penjamin sesuai dengan harga pasar."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="591" width="16" height="15" uuid="86107e1a-ab89-4037-9afe-c8ed96b2de0c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="606" width="16" height="15" uuid="5958148f-cb6a-4d25-840d-ffaffe1509df"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="606" width="434" height="27" uuid="44e101b1-481a-4814-93f7-10c2be6f2e87"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal <b>NASABAH</b> Cidera Janji, maka <b>NASABAH</b> bertanggung jawab atas biaya perkara dan biaya lainnya yang timbul akibat proses penyelesaian sengketa."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="1" width="450" height="32" uuid="78671e6c-6021-46cb-ab90-e90f2407827c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 21
+PENAGIHAN SEKETIKA SELURUH KEWAJIBAN NASABAH
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="33" width="16" height="15" uuid="30cdfc48-76cd-437f-9062-b200fe851b88"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="33" width="434" height="65" uuid="6370be76-92c6-4855-8158-d64cf29546b3"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Menyimpang dari Jangka Waktu Pembiayaan, <b>BANK</b> berhak mengakhiri Jangka Waktu Pembiayaan Mudharabah dan menagih pelunasan sekaligus atas seluruh sisa Kewajiban Nasabah dan <b>NASABAH</b> wajib membayar dengan seketika dan melunasi sekaligus atas sisa Kewajibannya atau <b>BANK</b> berhak melakukan upaya-upaya hukum lain untuk menyelesaikan Pembiayaan Mudharabah sesuai Akad ini, apabila:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="98" width="16" height="15" uuid="94016237-ab68-43bb-adfe-b2851cd0a364"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="98" width="418" height="15" uuid="49010cd5-6566-44d2-9b26-421c649bc08f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> Cidera Janji, sebagaimana dimaksud dalam pasal 20."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="113" width="418" height="28" uuid="67401c9a-47e2-48fc-a58d-c1eb690dfa18"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> diperkirakan tidak akan mampu lagi untuk memenuhi sesuatu ketentuan atau kewajiban di dalam Akad ini, karena terjadinya antara lain peristiwa sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="113" width="16" height="15" uuid="8c2859a0-e4c7-4ffb-aa71-601a5911edcf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="141" width="16" height="15" uuid="950a724a-c04b-4a23-b9dd-069a9b4e86d2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="49" y="141" width="402" height="39" uuid="8cb6d6df-4b38-488d-a1bf-7127550c8685"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> diberhentikan dari Kantor/Instansi yang bersangkutan, dijatuhi hukuman oleh pengadilan, mendapat cacat badan sehingga oleh karenanya belum/tidak dapat dipekerjakan lagi, atau"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="180" width="402" height="27" uuid="a5667211-20dd-455e-8831-c9abc1a012f9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> telah dinyatakan pailit atau tidak mampu membayar atau telah berada di bawah pengampuan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="180" width="16" height="15" uuid="f4a24377-30f3-4984-ab17-8f48e8857e7e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="17" y="217" width="434" height="72" uuid="882b15da-2e42-4356-a70d-e4ab9ad8c4c0"/>
+			</rectangle>
+			<textField>
+				<reportElement x="50" y="245" width="357" height="15" uuid="a214a526-6e44-4eab-9851-bcbe805073f5"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> telah dinyatakan pailit atau tidak mampu membayar"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="260" width="16" height="15" uuid="cda6ae42-f9a3-417d-935f-1fa27a5c6258"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="229" width="252" height="16" uuid="de53ec05-eaa6-4de7-8b25-2f384b74b9dd"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> berupa Badan Usaha : "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="260" width="356" height="15" uuid="5724dbaf-fc70-4814-88f1-9ab76fc8fb30"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> telah dicabut izin usaha/operasionalnya."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="245" width="16" height="15" uuid="3ccca2ad-8f35-4f42-b71e-52e0a59840cb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="301" width="16" height="15" uuid="50784e7a-51d9-4a41-9c15-ad79b7f7f04d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="301" width="418" height="39" uuid="733796bf-2aa6-4753-9392-bc1d740c427d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> membuat atau menyebabkan atau menyetujui dilakukan atau membiarkan dilakukan suatu tindakan yang membahayakan atau dapat membahayakan, mengurangi nilai atau meniadakan Agunan atas Pembiayaan Mudharabah ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="340" width="418" height="15" uuid="8fc6863e-8a09-4a2a-a623-e546d7e67d5c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Barang yang diberikan oleh <b>NASABAH</b> sebagai Agunan Pembiayaan telah musnah."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="340" width="16" height="15" uuid="ee078c99-5f16-4e32-b375-fdd3cc4e258d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[d.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="355" width="418" height="28" uuid="2c54f415-4527-4328-a991-fe82846f43f4"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> tidak atau lalai memperpanjang jangka waktu hak atas tanah/barang yang diagunkan kepada <b>BANK</b>, sesuai dengan ketentuan yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="355" width="16" height="15" uuid="1a52bbfe-1125-4ccd-9f60-4634c5cf66f2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[e.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="383" width="16" height="15" uuid="7f2e3f0a-a8d7-4b6b-bc2d-e2972c83a60b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[f.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="383" width="418" height="39" uuid="8e678da4-ff8f-408e-ab1f-2ae7a3085102"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Keterangan yang diberikan atau hal-hal yang disampaikan atau Bukti Kepemilikan Agunan yang diserahkan kepada BANK terbukti palsu atau <b>NASABAH</b> lalai atau gagal untuk memberikan keterangan yang sesungguhnya kepada <b>BANK</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="422" width="418" height="42" uuid="badeb1e6-326e-4804-a7fb-1a7df8fd48d9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> gagal dalam memenuhi atau <b>NASABAH</b> bertindak bertentangan dengan suatu peraturan perundang-undangan yang berlaku yang mempunyai akibat penting terhadap atau mempengaruhi usaha yang dikelolanya dari Pembiayaan Mudharabah."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="422" width="16" height="15" uuid="fcda1327-6ab8-42ec-8ba6-dc2bf8484f5b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[g.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="464" width="16" height="15" uuid="8a7d39b4-b4f2-42b1-8aad-ac9fdc8f5d9c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[h.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="464" width="418" height="51" uuid="928e11b5-2c2a-4a7c-9e44-d4e4992f2b3c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Setiap sebab atau kejadian apapun antara lain perubahan bidang moneter, keuangan atau politik nasional yang mempengaruhi kegiatan bisnis pada umumnya dan menurut pertimbangan bisnis <b>BANK</b> tidak mungkin lagi meneruskan Pembiayaan Mudharabahini baik untuk sementara maupun seterusnya."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="515" width="434" height="76" uuid="e336ad51-293d-4646-946f-60f7f1cd72f9"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila setelah mendapat peringatan dari <b>BANK</b>, <b>NASABAH</b> tidak dapat melunasi seluruh sisa Kewajiban Nasabah yang seketika ditagih oleh <b>BANK</b>, maka <b>BANK</b> berhak memerintahkan kepada <b>NASABAH</b> dan <b>NASABAH</b> wajib untuk mengosongkan/menyerahkan barang yang telah diagunkan oleh <b>NASABAH</b> kepada <b>BANK</b>, selambat-lambatnya dalam jangka waktu 30 (tiga puluh) hari kalender terhitung sejak tanggal perintah <b>BANK</b>, tanpa syarat-syarat dan ganti rugi apapun juga."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="515" width="16" height="15" uuid="32b376a0-6f95-4dd4-a158-ac3e946c27b0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="591" width="16" height="15" uuid="f11a5c3c-85c1-4cc1-9f45-d923e41e4a9f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="591" width="434" height="65" uuid="e3bd51dd-5a14-4e9a-995c-0d77444001d2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> ternyata tidak mengosongkan/menyerahkan agunannya dalam jangka waktu yang ditentukan dalam angka 2 Pasal ini, maka BANK berhak untuk meminta bantuan pihak yang berwenangguna mengosongkan/mengambil Agunan tersebut, dan biaya-biaya yang timbul berkenaan dengan hal tersebut menjadi beban dan tanggung jawab <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="1" width="450" height="32" uuid="6929151e-515b-446d-91a8-83a1d83c5bb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 22
+PENGUASAAN DAN PENJUALAN (EKSEKUSI) AGUNAN SERTA PENGOSONGAN AGUNAN
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="33" width="434" height="30" uuid="02d48a59-3791-46c9-88bf-8f8e88d60517"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> Cidera Janji, maka setelah memperingatkan <b>NASABAH</b>, <b>BANK</b> berhak untuk melakukan tindakan-tindakan sebagai berikut:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="33" width="16" height="15" uuid="87e3986a-ce1c-460f-8d2e-e572da09b34c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="63" width="418" height="30" uuid="149304ff-960d-4c06-9585-91d17afa05bf"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melaksanakan eksekusi terhadap Agunan berdasarkan ketentuan perundang-undangan yang berlaku."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="63" width="16" height="15" uuid="6fe2c941-7a73-47cb-af64-6a97cfdab3fc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="93" width="418" height="15" uuid="0b5b502b-9a34-4bcc-aa15-306a527819f8"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Melaksanakan penjualan terhadap Agunan sesuai dengan harga pasar."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="93" width="16" height="15" uuid="40187d9a-e712-48d8-9cae-2711f1078c48"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="108" width="434" height="53" uuid="873282d9-0fd4-44f6-bacd-40280fb5cec7"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> karena tidak mampu lagi memenuhi kewajibannya untuk membayar Kewajibannya guna melunasi Pembiayaan ini dan atas dasar tersebut <b>NASABAH</b> menyerahkan Agunan kepada <b>BANK</b> maka <b>BANK</b> berhak melaksanakan tindakan-tindakan tersebut pada angka 18 Pasal ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="108" width="16" height="15" uuid="0d120db6-6ac2-4b59-b804-0545850040f7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="161" width="16" height="15" uuid="2b9d530e-b490-4bb2-ac4f-32ec00fe97d1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="161" width="434" height="106" uuid="f2a8bc32-96bc-4e58-91e5-b2b4664ef5dd"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>BANK</b> menggunakan haknya untuk menagih pelunasan sekaligus atas Kewajiban <b>NASABAH</b> dan <b>NASABAH</b> tidak dapat memenuhi kewajibannya membayar pelunasan tersebut, <b>BANK</b> berhak untuk setiap saat menggunakan hak nya untuk mengeksekusi/menjual Agunan yang dipegangnya menurut cara dan harga sesuai harga pasar termasuk dan tidak terkecuali <b>BANK</b> berhak sepenuhnya mencarikan pihak lain yang bersedia untuk mengambil alih atau mengoper Kewajiban <b>NASABAH</b>, dan dengan Akad ini <b>NASABAH</b> memberikan kuasa kepada <b>BANK</b> untuk melakukan segala tindakan guna melaksanakan maksud tersebut di atas, tanpa ada tindakan yang dikecualikan."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="267" width="434" height="55" uuid="c225a744-ca4a-4de7-8c8d-35e1946acc0b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Hasil penjualan Agunan tersebut diprioritaskan untuk melunasi seluruh sisa Kewajiban <b>NASABAH</b> kepada <b>BANK</b>, termasuk semua biaya yang telah dikeluarkan <b>BANK</b> guna melaksanakan eksekusi Agunan, dan apabila masih ada sisanya maka jumlah sisa tersebut akan dibayarkan kepada <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="267" width="16" height="15" uuid="fff36f22-45bd-4784-8a48-1d53425aac77"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="322" width="16" height="15" uuid="7ef92d27-94a4-464e-ac2b-7b85d30a6466"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="322" width="434" height="53" uuid="d742c6fd-c390-4c90-8999-58504b316434"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila dari hasil penjualan Agunan jumlahnya belum mencukupi untuk melunasi seluruh Kewajiban <b>NASABAH</b> kepada <b>BANK</b>, maka sesuai dengan ketentuan atau peraturan yang berlaku, <b>BANK</b> berhak untuk mengambil pelunasan atas sisa Kewajiban Nasabah tersebut dari penjualan barang-barang lain milik <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="375" width="16" height="15" uuid="6da3aeec-88ec-4c71-a016-c7791be30c95"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="375" width="434" height="78" uuid="6b9c57da-5af9-49d2-875c-bdebb88f9edb"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila setelah mendapat peringatan dari <b>BANK</b>, <b>NASABAH</b> tidak dapat melunasi seluruh Kewajiban Nasabah yang seketika ditagih oleh <b>BANK</b>, maka <b>BANK</b> berhak memerintahkan kepada <b>NASABAH</b> dan <b>NASABAH</> wajib untuk mengosongkan/menyerahkan Agunan yang telah diagunkan oleh <b>NASABAH</b> kepada <b>BANK</b>, selambat-lambatnya dalam jangka waktu 30 (tiga puluh) hari kalender terhitung sejak tanggal perintah <b>BANK</b>, tanpa syarat-syarat dan ganti rugi apapun juga."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="453" width="16" height="15" uuid="4581a749-884c-4a26-aeda-04857799c133"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="453" width="434" height="54" uuid="c2e35b85-319f-4f19-9ee3-c90aa4cc374f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> ternyata tidak mengosongkan/menyerahkan Agunan dalam jangka waktu yang ditentukan dalam angka 2 Pasal ini, maka <b>BANK</b> berhak untuk meminta bantuan pihak yang berwenang guna mengosongkan/mengambil Agunan tersebut, dan biaya-biaya yang timbul berkenaan dengan hal tersebut menjadi beban dan tanggung jawab <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="507" width="434" height="28" uuid="72ebfa08-c2f2-4555-94b4-f6fc86f72a1e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>Catatan: Eksekusi pengosongan agunan Mudharabah hanya dapat dilakukan apabila telah mendapat keputusan tetap dari Pengadilan Agama.</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="550" width="451" height="35" uuid="e4ec2c75-1fd5-4df4-acb9-39a4ff377061"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PASAL 23"+
+"<br>PENGALIHAN PIUTANG MUDHARABAH KEPADA PIHAK LAIN (<i>CESSIE</i>)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="585" width="434" height="92" uuid="f290c9e1-c5a5-4e5b-9e78-a2c261b9c130"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> menyetujui dan sepakat untuk memberikan hak sepenuhnya kepada <b>BANK</b> untuk mengalihkan Piutang Mudharabah (<i>cessie</i>) dan/atau tagihan <b>BANK</b> terhadap <b>NASABAH</b> berikut semua perjanjian tambahannya, termasuk hak-hak Agunan atas Pembiayaan ini kepada pihak lain yang ditetapkan oleh <b>BANK</b> sendiri, setiap saat diperlukan oleh <b>BANK</b>, dan dengan Akad ini <b>NASABAH</b> memberikan kuasa kepada <b>BANK</b> dan <b>BANK</b> berhak untuk melakukan segala tindakan guna melaksanakan maksud tersebut di atas, tanpa ada tindakan yang dikecualikan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="585" width="16" height="15" uuid="7c4e9f73-0022-4d03-8507-fa58688baaeb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<textField>
+				<reportElement x="17" y="1" width="434" height="140" uuid="dbb00d50-1fa9-4a28-b5db-0c1f54930d11"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>BANK</b> melaksanakan penyerahan Piutang Mudharabah (<i>cessie</i>) kepada pihak lain dan pengelolaan Pembiayaan tetap dilakukan oleh <b>BANK</b>, maka <b>BANK</b> dapat memberitahukan kepada <b>NASABAH</b>, sehingga apabila kemudian pihak yang menerima penyerahan Piutang Mudharabah (penerima <i>cessie</i>) menjalankan haknya sebagai penerima pengalihan Piutang Mudharabah, maka hal demikian sudah dapat dinyatakan sepenuhnya semata-mata berdasarkan Akad yang dibuat antara <b>BANK</b> dengan pihak yang menerima penyerahan Piutang Mudharabah dan adanya pengalihan Piutang Mudharabah ini tidak mempengaruhi sama sekali pelaksanaan Kewajiban Nasabah sesuai dengan Akad ini. Apabila pengelolaan Pembiayaan tidak dilakukan oleh <b>BANK</b> setelah Piutang Mudharabah dialihkan, maka <b>BANK</b> wajib memberitahukan adanya pengalihan Piutang Mudharabah tersebut kepada <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="1" width="16" height="15" uuid="80f8d045-1105-4ae0-a7fa-353ce227bcd2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="159" width="451" height="35" uuid="f2304581-7544-4d8a-88be-fce6572050c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 24
+PERNYATAAN DAN JAMINAN
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="194" width="451" height="117" uuid="79dea1d6-15b7-493d-8b0a-acc87fa045a2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>BANK</b> melaksanakan penyerahan Piutang Mudharabah (<i>cessie</i>) kepada pihak lain dan pengelolaan Pembiayaan tetap dilakukan oleh <b>BANK</b>, maka <b>BANK</b> dapat memberitahukan kepada <b>NASABAH</b>, sehingga apabila kemudian pihak yang menerima penyerahan Piutang Mudharabah (penerima <i>cessie</i>) menjalankan haknya sebagai penerima pengalihan Piutang Mudharabah, maka hal demikian sudah dapat dinyatakan sepenuhnya semata-mata berdasarkan Akad yang dibuat antara <b>BANK</b> dengan pihak yang menerima penyerahan Piutang Mudharabah dan adanya pengalihan Piutang Mudharabah ini tidak mempengaruhi sama sekali pelaksanaan Kewajiban Nasabah sesuai dengan Akad ini. Apabila pengelolaan Pembiayaan tidak dilakukan oleh <b>BANK</b> setelah Piutang Mudharabah dialihkan, maka <b>BANK</b> wajib memberitahukan adanya pengalihan Piutang Mudharabah tersebut kepada <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="319" width="451" height="203" uuid="3112a646-1e36-4f84-a119-04c8899a0a55"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="329" width="175" height="15" uuid="7f478e3c-655c-4a8b-820e-9f311f186497"/>
+				<text><![CDATA[Untuk pembiayaan Badan Usaha;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="344" width="16" height="15" uuid="0a0a6d4a-4510-491a-8b3b-5cd0d37f602e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="27" y="344" width="416" height="78" uuid="d44fa609-03ad-4dd9-a983-934169525ae2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> menyatakan dan menjamin hal-hal sebagai berikut bahwa <b>NASABAH</b> adalah perusahaan berbadan hukum/bukan badan hukum yang didirikan dan sah menurut Undang-Undang Negara Republik Indonesia, mempunyai kuasa penuh dan berwenang dalam memenuhi kewajibannya, yang memiliki harta kekayaan dan aset dan terdaftar untuk menjalankan usahanya sebagaimana yang dijalankan sekarang dan berhak serta terdaftar untuk menjalankan usahanya di domisili hukum manapun."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="422" width="16" height="15" uuid="7aedf529-1eea-44fe-ae02-a3fbaccde0ce"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="27" y="422" width="416" height="90" uuid="e52da979-bcf4-491f-9f80-5aca32af50ae"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> dengan ini menjamin akan kebenaran, keaslian dan kelengkapan identitas yang mewakili perusahaan yang namanya tersebut dalam Akad ini dan seluruh dokumen yang menjadi dasar dibuatnya Akad ini tanpa ada yang dikecualikan, sehingga apabila dikemudian hari sejak ditandatangani Akad ini timbul sengketa dengan nama dan dalam bentuk apapun yang disebabkan karena Akad ini, maka para pihak yang membuat keterangan dengan ini berjanji dan mengikat diri untuk bertanggungjawab dan bersedia menanggung segala risiko yang timbul dan dengan ini para pihak menyatakan dengan tegas membebaskan <b>BANK</b>, dan para saksi dari turut bertanggung-jawab dan memikul baik sebagian maupun seluruh akibat hukum yang timbul karena sengketa tersebut."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="539" width="451" height="35" uuid="0ec37f4b-ec2f-4e96-bd9f-260033ea5315"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 25
+BERALIHNYA HAK-HAK DAN KEWAJIBAN NASABAH
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="574" width="16" height="15" uuid="6a776269-a712-4682-8283-357044d39241"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="574" width="434" height="52" uuid="462a7630-f61a-44f4-9898-001763c59d37"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal seluruh Kewajiban Nasabah telah dilunasi, <b>BANK</b> wajib menyerahkan kembali semua surat-surat dan/atau dokumen-dokumen mengenai barang Agunan, serta surat-surat bukti lainnya yang disimpan atau dikuasai <b>BANK</b>, termasuk apabila Agunan dimiliki Penjamin kepada:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="626" width="16" height="15" uuid="57f52275-a445-4c3b-9430-826180c248c8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="626" width="418" height="15" uuid="e594663b-3618-4e80-b96c-c2b599044e5b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> atau kuasanya berdasarkan ketentuan hukum yang berlaku;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="641" width="418" height="15" uuid="b6cbf89a-baf7-434b-a59e-55f821a7d3a1"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Ahli Waris <b>NASABAH</b>;"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="641" width="16" height="15" uuid="1b71aee2-6292-46a5-928a-61acbaf370d3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="656" width="418" height="15" uuid="ca6b02ae-1f3a-43e0-bfcc-1e7b6757e693"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pemenang lelang/pembeli Agunan; "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="671" width="16" height="15" uuid="17fa3e6a-1fce-4010-b06f-97095cb1ea25"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[d.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="671" width="420" height="15" uuid="fe2cfe3a-c74f-43e1-acb3-e876eb08e421"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pihak lain berdasarkan Putusan Pengadilan yang berkekuatan hukum tetap."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="656" width="16" height="15" uuid="54c546d2-f000-4e11-9698-87b694eae939"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="1" width="16" height="15" uuid="c0ab27a4-3ec4-4194-b6a4-4625e2d687dc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="1" width="434" height="67" uuid="aa6de78b-ee69-4502-a0dc-3ccbf842c700"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> meninggal dunia, hak dan kewajibannya beralih kepada ahli waris dan <b>BANK</b> berhak untuk meminta kepada ahli warisnya salinan akta kematian yang dilegalisir oleh pejabat atau instansi yang berwenang, surat keterangan ahli waris, akta wasiat (jika ada) atau bukti-bukti lainnya, yang menurut pertimbangan <b>BANK</b> diperlukan untuk mengetahui ahli waris yang sah."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="83" width="451" height="35" uuid="08eab6c1-d91a-4398-8e6d-d4928adf95be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PASAL 26"+
+"<br><i>FORCE MAJEURE</i>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="118" width="16" height="15" uuid="0328c952-37fe-4cbf-9b16-4b8d9f464839"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="118" width="434" height="67" uuid="7fdc2dd3-f3c4-435d-822c-62cecce69dbc"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal terjadi <i>Force Majeure</i>, maka pihak yang terkena akibat langsung dari <i>Force Majeure</i> tersebut wajib memberitahukan secara tertulis dengan melampirkan bukti-bukti dari instansi yang berwenang kepada pihak lainnya mengenai peristiwa <i>Force Majeure</i> tersebut dalam waktu selambat-lambatnya 14 (empat belas) hari kerja terhitung sejak tanggal <i>Force Majeure</i> terjadi."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="185" width="434" height="41" uuid="116cfb2d-5475-41b4-9251-096782076490"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Keterlambatan atau kelalaian pihak yang mengalami <i>Force Majeure</i> untuk memberitahukan adanya <i>Force Majeure</i> tersebut kepada pihak lainnya mengakibatkan tidak diakuinya peristiwa tersebut sebagai <i>Force Majeure</i>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="185" width="16" height="15" uuid="14692ab0-bf91-4b99-8506-53e429d309b6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="226" width="16" height="15" uuid="8d0d7297-e554-4322-ab3d-f1fd909e6b69"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="226" width="434" height="41" uuid="396788be-f44c-4e35-8f15-21899b1c4eb1"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Seluruh permasalahan yang timbul akibat terjadinya <i>Force Majeure</i> akan diselesaikan oleh <b>PARA PIHAK</b> secara musyawarah untuk mufakat. Hal tersebut tanpa mengurangi hak-hak <b>BANK</b> sebagaimana diatur dalam Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="283" width="451" height="35" uuid="39b7ccce-51c6-47e3-adcc-6c7adb15e412"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 27
+HUKUM YANG BERLAKU DAN PENYELESAIAN PERSELISIHAN
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="318" width="16" height="15" uuid="db4f0252-2079-4dd3-bcc6-0edc279240c2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="318" width="434" height="28" uuid="b1d8a82b-d175-40b6-a896-95f5f4cfeb5a"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Pelaksanaan Akad ini tunduk kepada ketentuan perundang-undangan dan ketentuan Syariah yang berlaku bagi <b>BANK</b> di Indonesia."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="346" width="16" height="15" uuid="d4a4d958-c2d3-4367-bd79-dd50278d369d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="346" width="434" height="40" uuid="6bdfbd71-736f-411f-b35d-600d499ad00d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila dikemudian hari terjadi perselisihan dalam penafsiran atau pelaksanaan ketentuan-ketentuan dari Akad ini, maka para pihak sepakat untuk terlebih dahulu menyelesaikan secara musyawarah untuk mufakat."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="386" width="434" height="51" uuid="e69ca33c-30a8-43ce-b061-7fa0b668a4ee"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal musyawarah untuk mufakat tidak menghasilkan kata sepakat mengenai penyelesaian perselisihan, maka <b>PARA PIHAK</b> sepakat untuk memilih tempat kedudukan hukum (domisili) yang tetap di Kantor Pengadilan Agama "+ $F{map} +" (sesuai dengan domisili kantor cabang pemberi pembiayaan)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="386" width="16" height="15" uuid="a4c34b69-8782-4c29-9e8d-719df308c33b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="453" width="451" height="35" uuid="37cd1791-a815-48e8-8a06-cb42129f480f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 28
+KORESPONDENSI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="488" width="434" height="39" uuid="e552b67b-714f-4af1-9442-eda54050e743"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Setiap pembayaran Kewajiban <b>NASABAH</b> dan surat menyurat harus dilakukan/ dialamatkan pada Kantor <b>BANK</b> yang telah ditentukan pada jam kerja dari Kantor yang bersangkutan."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="488" width="16" height="15" uuid="eb70f298-1fa8-4125-aa90-a0030d02f004"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="527" width="16" height="15" uuid="e9bbd79d-f638-44f3-97c8-fdec42ea9978"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="527" width="434" height="52" uuid="0afcdbaf-7d1c-4863-b4cb-dc34b76c33c8"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Semua surat menyurat, termasuk surat elektronik dan pernyataan tertulis yang timbul dari dan bersumber pada Akad ini harus dikirimkan oleh masing-masing pihak kepada pihak lain dalam Akad ini dilakukan dengan pos tercatat atau melalui jasa kurir dan/atau sarana komunikasi lain ke alamat tersebut yang diterima secara efektif di bawah ini:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="579" width="100" height="15" uuid="da282b92-0d5f-414b-a84d-241a96c0aedf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[BANK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="579" width="6" height="15" uuid="a51535b3-880d-4510-b532-f9ba30342d35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="579" width="177" height="15" uuid="00254a58-5336-4ba8-9c4f-940dc11346c0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="594" width="177" height="15" uuid="64a8dc71-da5e-4c58-bc54-d1c813ed5124"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="594" width="100" height="15" uuid="14598d36-1b80-4aa5-9e7a-d5183e89b8bc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="594" width="6" height="15" uuid="651e45af-c754-4fc5-8d69-4a5c14dfcdfa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="624" width="100" height="15" uuid="e470e83a-7c74-4547-869f-1ada30802c90"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="609" width="177" height="15" uuid="aa459791-d1b8-417b-b75d-dfcfd4ccdb51"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="117" y="624" width="6" height="15" uuid="ec8d62af-a769-4510-8064-acd6d3a07b93"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="624" width="177" height="15" uuid="4ce639f7-bc99-45f7-b8fa-f1d1fa63a18a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="609" width="100" height="15" uuid="20c2d0f8-a5b2-429e-867b-4410834653ed"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Telepon/HP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="609" width="6" height="15" uuid="9874dde1-798f-4b96-b3a6-53d7a2459662"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="639" width="100" height="15" uuid="720d9073-1bdc-4fd2-94c4-e1018efe6ed2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="639" width="177" height="15" uuid="992fdf5c-8a27-4617-9472-87857aebdc3d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="117" y="639" width="6" height="15" uuid="010c7824-1dca-4daa-a65e-d5c25f3b0a1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="654" width="434" height="13" uuid="62d9be22-32eb-440d-ad9c-3ad026fd6749"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Alamat Kantor Cabang Syariah <b>BANK</b> yang tercantum pada Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="682" width="100" height="15" uuid="d0083906-db21-468d-8bc9-216bf6b45b9a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="667" width="177" height="15" uuid="a971e4ca-403d-4e89-af32-82a2866f6fb9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="117" y="682" width="6" height="15" uuid="b59e232a-96fd-4cc0-8cc3-fd60454a834a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="682" width="177" height="15" uuid="3491ff41-c5b0-4dac-83be-dc9b1c2e9a14"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="667" width="100" height="15" uuid="f2bf9bf0-b254-4a04-8789-885803d32cdc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[NASABAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="589" width="6" height="15" uuid="59bd1df6-87f7-46f8-90f4-67ddb3a93eb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="117" y="1" width="6" height="15" uuid="c3ae3859-e729-4d1b-b63f-9ca2038e0478"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="16" width="100" height="15" uuid="03a7cbb7-b6f4-4fc6-9472-9e37f311ec55"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="31" width="177" height="15" uuid="ad1e1363-339e-4a1c-b457-105d1143a785"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="117" y="31" width="6" height="15" uuid="9e4a4643-2ac5-45d2-a544-640c4206aca4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="16" width="177" height="15" uuid="e1b4653a-92ea-44f1-b159-b608eaf7144e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="1" width="177" height="15" uuid="189be832-b79a-481c-bded-18b3b4f00f52"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="31" width="100" height="15" uuid="9bef4779-d784-436c-a0c2-229183156fd6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="1" width="100" height="15" uuid="454ac887-72fb-4d7d-9bdd-1936588d6266"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Telepon/HP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="16" width="6" height="15" uuid="b6a1e6db-ff2f-40ff-b481-54b1956fabfa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="46" width="434" height="13" uuid="a917f5c1-85ee-413f-9e34-2d1280352b52"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Alamat rumah atau alamat Kantor <b>NASABAH</b> yang tercantum pada Akad ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="59" width="434" height="39" uuid="0b9bd101-cdfa-4fef-8c30-af02b689ae6c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Semua surat menyurat atau pemberitahuan tertulis dianggap telah diterima berdasarkan bukti pengiriman atau pos tercatat atau bukti penerimaan yang ditandatangani oleh <b>PARA PIHAK</b> atau yang mewakilinya dan/ atau sebagai tanda terima. "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="59" width="16" height="15" uuid="9fb7b5d4-0f40-4e00-be6d-65a1e1d1a94f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="98" width="434" height="92" uuid="e5bdc401-fcb1-4c88-a545-63778a47384f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Dalam hal terjadi perubahan alamat dari alamat tersebut di atas atau alamat terakhir yang tercatat pada masing-masing pihak maka perubahan tersebut harus diberitahukan secara tertulis kepada pihak lainnya dalam waktu 5 (lima) hari kerja sebelum terjadinya perubahan alamat dimaksud. Jika perubahan alamat tersebut tidak diberitahukan maka semua surat-menyurat atau pemberitahuan berdasarkan Akad ini dianggap telah diberikan sebagaimana mestinya dengan dikirimnya surat atau pemberitahuan itu ke alamat tersebut di atas atau alamat terakhir yang diketahui/tercatat pada masing-masing pihak."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="98" width="16" height="15" uuid="d9920969-05f3-4b03-8736-141cca8928bf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="205" width="450" height="31" uuid="fba4ffd9-b8a1-436a-befd-474307fb49c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASAL 29
+LAIN-LAIN
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="236" width="434" height="39" uuid="60ab1079-a9e6-4446-bc90-e774d5cc4431"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Segala sesuatu yang belum diatur atau perubahan dalam Akad ini akan diatur dalam surat-menyurat dan/atau addendum berdasarkan kesepakatan bersama antara <b>PARA PIHAK</b> yang merupakan bagian yang tidak terpisahkan dari Akad ini."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="236" width="16" height="15" uuid="4a4f81a1-6ba7-4f34-bc37-b65613930590"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="275" width="16" height="15" uuid="d9ad7b27-bd1b-4323-a9eb-f1c8e49ce12b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="275" width="434" height="27" uuid="38d5231e-bb50-4a7d-b1d8-adea89389e68"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Semua pemberitahuan tertulis dari <b>BANK</b> dan semua surat menyurat antara <b>PARA PIHAK</b> dalam pelaksanaan Akad ini mengikat dan harus ditaati oleh <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="302" width="17" height="16" uuid="0964dcf5-595c-44e2-bf5a-9bb01e62dd50"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="302" width="433" height="28" uuid="e72c22bf-871f-4b5a-aeb1-4ddf045387c2"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Selama Mudaharabah ini belum dilunasi, <b>NASABAH</b> wajib memelihara rekening tabungan atau giro pada <b>BANK</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="330" width="17" height="16" uuid="76289fcf-6a52-498d-b398-b293aeb0d1ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="330" width="433" height="52" uuid="6a4779b7-826f-4f72-8ae1-9d1729eba6ab"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Apabila <b>NASABAH</b> mempunyai hubungan rekening atau simpanan dengan/pada lembaga keuangan atau lembaga lainnya, NASABAH wajib mengungkapkan secara penuh setiap rekening yang telah dibuka oleh <b>NASABAH</b> pada lembaga keuangan atau lembaga lainnya, yang merupakan syarat mutlak yang harus dipenuhi oleh <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="382" width="433" height="16" uuid="1eb3655e-092e-4b36-afa2-a0f3adda715d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>NASABAH</b> berkewajiban untuk mengutamakan pembayaran kepada <b>BANK</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="382" width="17" height="16" uuid="dc819002-53ea-4c21-9700-6670faa3beb5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="398" width="433" height="39" uuid="a51e4305-d7f6-43c6-a514-894b9af659d6"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Atas permintaan <b>BANK</b>, <b>NASABAH</b> wajib menyampaikan salinan/tembusan yang sah dari setiap rekening baik rekening Mudaharabah ataupun rekening simpanan atas nama <b>NASABAH</b> pada Lembaga Keuangan atau Lembaga lain."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="398" width="17" height="16" uuid="a79d4e86-02f3-4f00-bfb8-7861030c2757"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="437" width="433" height="39" uuid="ac5c9682-17b7-4f18-aa74-5895732de723"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Atas dasar kewenangan penuh yang diberikan oleh <b>NASABAH</b>, <b>BANK</b> dapat meminta secara langsung salinan/tembusan ataupun keterangan mengenai rekening-rekening tersebut kepada lembaga yang menyelenggarakan rekening-rekening atas nama <b>NASABAH</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="437" width="17" height="16" uuid="9836ba17-681c-4228-af20-c87484bb1cfa"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="476" width="17" height="16" uuid="e57370b7-6c3a-4bec-b353-cd90272025f4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[8.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="476" width="433" height="39" uuid="d6c29f5e-16aa-420d-b0a9-f279ac17e6ad"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<i>Severability Clause</i>. (Apabila salah satu butir ditemukan tidak berlaku/sah, hanya butir tsb yg tidak berlaku, sedangkan butir-butir yang lain tetap berlaku) disepakati oleh kedua belah pihak."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="515" width="17" height="16" uuid="49939e56-e4ee-4184-87b1-dfa6339a92b5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[9.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="515" width="433" height="39" uuid="f8df32f4-8408-4450-9e26-a23e73ad0fbb"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Lampiran-lampiran dan Akad tambahan (<i>accesoir/addendum</i>) atas Akad ini (jika ada) merupakan bagian yang tidak terpisahkan dari Akad ini serta wajib dipatuhi oleh <b>NASABAH</b> sebagaimana mestinya."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="554" width="433" height="27" uuid="8285ad49-d100-43cc-8358-4f871e9bac4d"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Uraian Pasal demi Pasal dalam Akad ini, telah dibaca, dimengerti dan dipahami serta disetujui oleh <b>PARA PIHAK</b>."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="554" width="17" height="16" uuid="e530597f-4be5-4c1b-b8b5-26ec3364fb5f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[10.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="581" width="433" height="16" uuid="4894dfb8-79f6-4f54-8ef3-0960ba97d960"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Akad ini mulai berlaku sejak tanggal ditandatangani."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="581" width="17" height="16" uuid="91dd4d25-c893-421f-8aef-590ea8ef9a4b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[11.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="612" width="450" height="30" uuid="32d0b51a-293d-4f77-939d-3de992f0a0e1"/>
+				<text><![CDATA[Demikian Akad ini dibuat dan ditandatangani oleh para pihak di atas materai cukup dalam rangkap 2 (dua) yang mempunyai kekuatan hukum yang sama.]]></text>
+			</staticText>
+		</band>
+		<band height="698">
+			<staticText>
+				<reportElement x="1" y="0" width="226" height="20" uuid="cd38f6c6-fc51-4deb-bfba-e7cf20dec690"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NASABAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="223" height="20" uuid="317b90a9-1a37-4ea9-938b-0aa46121a567"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT. BANK NTB SYARIAH]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="229" y="20" width="222" height="20" uuid="b324b9be-86af-4ea4-9703-e1bd76e63e6f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{map}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="229" y="123" width="222" height="20" uuid="93447364-1ef1-4689-af6e-0800ca9dca34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Tangan dan Nama Jelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="20" width="226" height="103" uuid="784bb4da-d4b1-43cf-8e8d-19d90bde594e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Materai
+Rp. 6.000,-
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="123" width="227" height="20" uuid="7400a1f1-b79c-403e-8c76-c39b7463e802"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Tangan dan Nama Jelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="161" width="227" height="20" uuid="ee9285ad-f21f-4eea-b3ec-0fac5d52e1cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Mengetahui/Menyetujui]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="181" width="227" height="95" uuid="5364cfa8-6b37-4ebc-bac8-14533cc2ac9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISTRI/SUAMI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="276" width="227" height="20" uuid="3fd21eb9-b23a-4f94-9af1-c7d574ad9b0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Tangan dan Nama Jelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="324" width="100" height="20" uuid="cdf86717-cd20-468a-bb5a-f8530ed98dbf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SAKSI-SAKSI**]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="439" width="227" height="20" uuid="ec0973fd-f79f-49a1-829a-9285e8386959"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Tangan dan Nama Jelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="439" width="223" height="20" uuid="c8beff10-897f-4edf-a770-e173bef8b966"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Tangan dan Nama Jelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="490" width="262" height="14" uuid="3426b335-832b-4d2a-b119-9de7f0fe48d6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[**Apabila saksi dilakukan oleh wanita maka 2 (dua) orang wanita mewakili 1 (satu) orang pria.]]></text>
+			</staticText>
+		</band>
+		<band height="50"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

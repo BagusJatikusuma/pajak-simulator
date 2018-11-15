@@ -24,9 +24,9 @@ public class BerkasPersiapan {
     private String nomorSp;
     private String tanggalSp;
 
-    private List<DokumenPinjaman> listPinjaman = new ArrayList<>();
+    private ArrayList<DokumenPinjaman> listPinjaman = new ArrayList<DokumenPinjaman>();
     private String namaTim;
-    private List<Pegawai> listPegawai = new ArrayList<>();
+    private ArrayList<Pegawai> listPegawai = new ArrayList<Pegawai>();
 
     private String jabatanPenandatangan;
     private String namaPenandatangan;
@@ -160,11 +160,11 @@ public class BerkasPersiapan {
         this.tanggalSp = tanggalSp;
     }
 
-    public List<DokumenPinjaman> getListPinjaman() {
+    public ArrayList<DokumenPinjaman> getListPinjaman() {
         return listPinjaman;
     }
 
-    public void setListPinjaman(List<DokumenPinjaman> listPinjaman) {
+    public void setListPinjaman(ArrayList<DokumenPinjaman> listPinjaman) {
         this.listPinjaman = listPinjaman;
     }
 
@@ -176,11 +176,11 @@ public class BerkasPersiapan {
         this.namaTim = namaTim;
     }
 
-    public List<Pegawai> getListPegawai() {
+    public ArrayList<Pegawai> getListPegawai() {
         return listPegawai;
     }
 
-    public void setListPegawai(List<Pegawai> listPegawai) {
+    public void setListPegawai(ArrayList<Pegawai> listPegawai) {
         this.listPegawai = listPegawai;
     }
 

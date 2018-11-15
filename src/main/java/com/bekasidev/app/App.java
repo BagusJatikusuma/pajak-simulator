@@ -3,25 +3,39 @@ package com.bekasidev.app;
 import com.bekasidev.app.model.*;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.MainFrame;
+import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
+import java.io.File;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.round;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * Hello world!
  *
  */
-public class App
+public class App extends Application
 {
+    
     public static void main( String[] args )
     {
         /**
          * init main frame
          */
-        MainFrame mainFrame = new MainFrame();
-        mainFrame.setVisible(true);
+        launch(args);
+        
+//        MainFrame mainFrame = new MainFrame();
+//        mainFrame.setVisible(true);
 //        WajibPajak wp = ServiceFactory.getWajibPajakService().getWajibPajakById("1542006560917");
 //        List<Pegawai> listPegawai = new ArrayList<>();
 //        listPegawai.add(new Pegawai("01", "123", "SASUKE", "IV/a", "Pelaksana Lapangan"));
@@ -55,6 +69,24 @@ public class App
 //        wp.setKecamatan("Cikarang pusat");
 //        wp.setDesa("Sukamahi");
 //        ServiceFactory.getWajibPajakService().createDataWP(wp);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        try {
+            primaryStage.setTitle("Aplikasi Perpajakan");
+            
+            System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("javafxresources/rootpane.css").toString());
+            primaryStage.setScene(scene);
+            primaryStage.resizableProperty().setValue(Boolean.FALSE);
+            primaryStage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(JavaFXApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
 //        Menu menu = new Menu("123345", "123123", "Ayam Bakar", (short) 0, 17000);

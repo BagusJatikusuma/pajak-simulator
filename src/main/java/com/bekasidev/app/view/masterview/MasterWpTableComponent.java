@@ -13,7 +13,7 @@ import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajak;
+import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

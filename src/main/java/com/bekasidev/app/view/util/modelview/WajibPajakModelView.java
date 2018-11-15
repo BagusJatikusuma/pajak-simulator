@@ -9,7 +9,7 @@ package com.bekasidev.app.view.util.modelview;
  *
  * @author Bayu Arafli
  */
-public class WajibPajak {
+public class WajibPajakModelView {
     private String npwpd;
     private String namaWP;
     private String jenisWP;
@@ -17,10 +17,10 @@ public class WajibPajak {
     private String desaWP;
     private String kecamatanWP;
 
-    public WajibPajak() {
+    public WajibPajakModelView() {
     }
 
-    public WajibPajak(String npwpd, String namaWP, String jenisWP, String alamatWP, String desaWP, String kecamatanWP) {
+    public WajibPajakModelView(String npwpd, String namaWP, String jenisWP, String alamatWP, String desaWP, String kecamatanWP) {
         this.npwpd = npwpd;
         this.namaWP = namaWP;
         this.jenisWP = jenisWP;
