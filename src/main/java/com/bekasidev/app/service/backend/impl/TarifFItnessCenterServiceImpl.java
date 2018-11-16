@@ -33,8 +33,8 @@ public class TarifFItnessCenterServiceImpl implements TarifFitnessCenterService{
     }
 
     @Override
-    public void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(String idHotel, String idFitnessCenter) {
-        tarifFitnessCenterDao.deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(idHotel, idFitnessCenter);
+    public void deleteTarifFitnessHotelByIdHotelAndidFitnessCenter( String idFitnessCenter) {
+        tarifFitnessCenterDao.deleteTarifFitnessHotelByIdHotelAndidFitnessCenter(idFitnessCenter);
     }
 
     private Double calculateBulananFitnessCenter(TarifFitnessCenter tfc) {
