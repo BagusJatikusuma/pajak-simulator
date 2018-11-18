@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" 
+            fx:id="formTambahTim" 
+            prefHeight="292.0" 
+            prefWidth="574.0" 
+            styleClass="mainFxmlClass" 
+            xmlns="http://javafx.com/javafx/8" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahTimUIController">
+   <children>
+      <TextField fx:id="timIdField" layoutX="51.0" layoutY="90.0" prefHeight="31.0" prefWidth="473.0" />
+      <Label layoutX="226.0" layoutY="27.0" text="FORM TAMBAH TIM" />
+      <Label layoutX="51.0" layoutY="64.0" text="Id" />
+      <Label layoutX="51.0" layoutY="134.0" text="Nama" />
+      <TextField fx:id="namaTimField" layoutX="51.0" layoutY="160.0" prefHeight="31.0" prefWidth="473.0" />
+      <Button layoutX="411.0" layoutY="233.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
+      <Button fx:id="cancelBtn" layoutX="280.0" layoutY="233.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formtambahwpui.css" />
+   </stylesheets>
+</AnchorPane>

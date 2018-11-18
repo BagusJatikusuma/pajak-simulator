@@ -50,6 +50,14 @@ public class UIController implements Initializable {
         Pane rootpane = (Pane) mainmenu.getParent();
         //reset content
         rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PajakHotelUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
     }
     
     public void openAbout(ActionEvent actionEvent) {
@@ -82,5 +90,49 @@ public class UIController implements Initializable {
         
         rootpane.getChildren().add(contentPane);
         Logger.getLogger(getClass().getName()).info("in menus "+rootpane.getChildren().get(1).getId()+" : "+rootpane.getChildren().get(0).getId());
-    } 
+    }
+    
+    public void openPersiapanPajakRestoran() {
+        Pane rootpane = (Pane) mainmenu.getParent();
+        Logger.getLogger(getClass().getName()).info("in menus before restoran "+rootpane.getChildren().get(1).getId()+" : "+rootpane.getChildren().get(0).getId());
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/PajakRestoranUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
+    }
+    
+    public void openMasterTim() {
+        Pane rootpane = (Pane) mainmenu.getParent();
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterTimUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
+    }
+    
+    public void openMasterPegawai() {
+        Pane rootpane = (Pane) mainmenu.getParent();
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterPegawaiUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
+    }
+    
 }

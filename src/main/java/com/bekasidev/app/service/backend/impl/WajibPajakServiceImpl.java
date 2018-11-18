@@ -19,8 +19,8 @@ public class WajibPajakServiceImpl implements WajibPajakService {
 
     @Override
     public void createDataWP(WajibPajak wajibPajak) {
-        Calendar cal = Calendar.getInstance();
-        wajibPajak.setIdWajibPajak(Long.toString(cal.getTimeInMillis()));
+//        Calendar cal = Calendar.getInstance();
+//        wajibPajak.setIdWajibPajak(Long.toString(cal.getTimeInMillis()));
         wajibPajak.setNamaWajibPajak(wajibPajak.getNamaWajibPajak().toUpperCase());
         wajibPajakDao.createDataWP(wajibPajak);
     }
