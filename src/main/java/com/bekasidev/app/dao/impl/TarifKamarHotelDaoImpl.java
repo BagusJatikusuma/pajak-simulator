@@ -2,6 +2,7 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.TarifKamarHotelDao;
+import com.bekasidev.app.model.TarifFitnessCenter;
 import com.bekasidev.app.model.TarifKamarHotel;
 
 import java.sql.*;
@@ -78,7 +79,7 @@ public class TarifKamarHotelDaoImpl implements TarifKamarHotelDao {
     }
 
     @Override
-    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel) {
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idKamarHotel) {
         String sql = "DELETE FROM t_kamarhotel WHERE id_kamarhotel=?";
 
         try (Connection conn = Connect.connect();

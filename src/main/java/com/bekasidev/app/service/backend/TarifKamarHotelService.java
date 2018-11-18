@@ -15,7 +15,7 @@ public interface TarifKamarHotelService {
 
     void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel);
 
-    void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel);
+    void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idKamarHotel);
 
     Double calculateTotalHargaPerkamar(List<TarifKamarHotel> listTarifHargaPerKamar);
 

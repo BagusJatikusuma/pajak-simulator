@@ -15,5 +15,5 @@ public interface TarifKamarHotelDao {
 
     void createTarifKamarHotel(TarifKamarHotel tarifKamarHotel);
 
-    void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarHotel);
+    void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idKamarHotel);
 }

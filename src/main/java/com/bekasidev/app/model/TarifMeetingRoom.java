@@ -11,46 +11,83 @@ public class TarifMeetingRoom {
     private String namaMeetingRoom;
     private Integer jumlahPengunjung;
     private Double hargaSewa;
+    private Double totalBulananMeetingRoom;
     private String tanggalBuat;
 
     public TarifMeetingRoom(){}
 
-    public TarifMeetingRoom(String idHotel, String idMeetingRoom, String label,String namaMeetingRoom, Integer jumlahPengunjung, Double hargaSewa, String tanggalBuat) {
+    public TarifMeetingRoom(String idHotel, String idMeetingRoom, String label, Double totalBulananMeetingRoom,String namaMeetingRoom, Integer jumlahPengunjung, Double hargaSewa, String tanggalBuat) {
         this.idHotel = idHotel;
         this.idMeetingRoom = idMeetingRoom;
         this.label = label;
         this.namaMeetingRoom = namaMeetingRoom;
         this.jumlahPengunjung = jumlahPengunjung;
         this.hargaSewa = hargaSewa;
+        this.totalBulananMeetingRoom = totalBulananMeetingRoom;
         this.tanggalBuat = tanggalBuat;
     }
 
-    public String getIdHotel() {return idHotel;}
+    public String getIdHotel() {
+        return idHotel;
+    }
 
-    public void setIdHotel(String idHotel) {this.idHotel = idHotel; }
+    public void setIdHotel(String idHotel) {
+        this.idHotel = idHotel;
+    }
 
-    public String getIdMeetingRoom() {return idMeetingRoom; }
+    public String getIdMeetingRoom() {
+        return idMeetingRoom;
+    }
 
-    public void setIdMeetingRoom(String idMeetingRoom) {this.idMeetingRoom = idMeetingRoom; }
+    public void setIdMeetingRoom(String idMeetingRoom) {
+        this.idMeetingRoom = idMeetingRoom;
+    }
 
-    public String getLabel() {return label; }
+    public String getLabel() {
+        return label;
+    }
 
-    public void setLabel(String label) {this.label = label;}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-    public String getNamaMeetingRoom() {return namaMeetingRoom; }
+    public String getNamaMeetingRoom() {
+        return namaMeetingRoom;
+    }
 
-    public void setNamaMeetingRoom(String namaMeetingRoom) {this.namaMeetingRoom = namaMeetingRoom;}
+    public void setNamaMeetingRoom(String namaMeetingRoom) {
+        this.namaMeetingRoom = namaMeetingRoom;
+    }
 
-    public Integer getJumlahPengunjung() {return jumlahPengunjung; }
+    public Integer getJumlahPengunjung() {
+        return jumlahPengunjung;
+    }
 
-    public void setJumlahPengunjung(Integer jumlahPengunjung) {this.jumlahPengunjung = jumlahPengunjung; }
+    public void setJumlahPengunjung(Integer jumlahPengunjung) {
+        this.jumlahPengunjung = jumlahPengunjung;
+    }
 
-    public Double getHargaSewa() {return hargaSewa;}
+    public Double getHargaSewa() {
+        return hargaSewa;
+    }
 
-    public void setHargaSewa(Double hargaSewa) {this.hargaSewa = hargaSewa; }
+    public void setHargaSewa(Double hargaSewa) {
+        this.hargaSewa = hargaSewa;
+    }
 
-    public String getTanggalBuat() { return tanggalBuat; }
+    public Double getTotalBulananMeetingRoom() {
+        return totalBulananMeetingRoom;
+    }
 
-    public void setTanggalBuat(String tanggalBuat) { this.tanggalBuat = tanggalBuat; }
+    public void setTotalBulananMeetingRoom(Double totalBulananMeetingRoom) {
+        this.totalBulananMeetingRoom = totalBulananMeetingRoom;
+    }
 
+    public String getTanggalBuat() {
+        return tanggalBuat;
+    }
+
+    public void setTanggalBuat(String tanggalBuat) {
+        this.tanggalBuat = tanggalBuat;
+    }
 }

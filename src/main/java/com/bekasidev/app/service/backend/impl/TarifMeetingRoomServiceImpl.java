@@ -33,8 +33,13 @@ public class TarifMeetingRoomServiceImpl implements TarifMeetingRoomService{
         }
 
         @Override
-        public void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idHotel, String idMeetingRoom) {
-            tarifMeetingRoomDao.deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(idHotel, idMeetingRoom);
+        public void deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(String idMeetingRoom) {
+            tarifMeetingRoomDao.deleteTarifMeetingRoomByIdHotelAndidMeetingRoom(idMeetingRoom);
+        }
+
+        private Double calculateTotalMeetingRoom(TarifMeetingRoom tmr) {
+            tmr.setTotalBulananMeetingRoom(tmr.getJumlahPengunjung()*tmr.getHargaSewa());
+            return tmr.getTotalBulananMeetingRoom();
         }
 
 }
