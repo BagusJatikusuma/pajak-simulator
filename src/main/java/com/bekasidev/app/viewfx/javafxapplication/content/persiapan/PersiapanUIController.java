@@ -10,8 +10,10 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
@@ -107,9 +109,9 @@ public class PersiapanUIController implements Initializable {
     
     private void initDataFromService() {
         dataListFromService = new ArrayList<>();
-        for (int i=0; i<100; i++) {
+        for (int i=1; i<=100; i++) {
             dataListFromService.add(new ArsipTablePersiapanWrapper(
-                    "id ",
+                    "id "+i,
                     "30 Februari 2012",
                     "Selesai",
                     null
@@ -118,6 +120,21 @@ public class PersiapanUIController implements Initializable {
     }
     
     public void addDokumenPersiapan() {
+        PersiapanWrapper persiapanWrapper
+                = new PersiapanWrapper();
+        SessionProvider.getGlobalSessionsMap()
+                        .put("persiapan_wrapper", persiapanWrapper);
         
+        Pane formPersiapanUI = null;
+        try {
+            formPersiapanUI = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormPersiapanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form Persiapan Pemeriksaan WP");
+        stage.setScene(new Scene(formPersiapanUI));
+        stage.show();
     }
 }
