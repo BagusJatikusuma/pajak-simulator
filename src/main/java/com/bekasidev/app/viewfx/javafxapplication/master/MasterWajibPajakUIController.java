@@ -8,18 +8,12 @@ package com.bekasidev.app.viewfx.javafxapplication.master;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
-import com.bekasidev.app.view.util.SessionProvider;
-import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
-import com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController;
-import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -136,7 +130,7 @@ public class MasterWajibPajakUIController implements Initializable {
             
             dataCollection.add(new WPMasterTableWrapper(
                             String.valueOf(i),
-                            obj.getIdWajibPajak(),
+                            obj.getNpwpd(),
                             obj.getNamaWajibPajak(),
                             jenisWP,
                             obj.getJalan(),

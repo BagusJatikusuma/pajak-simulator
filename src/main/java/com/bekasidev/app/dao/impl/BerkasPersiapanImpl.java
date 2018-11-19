@@ -113,7 +113,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         ArrayList<Pegawai> listPegawai = new ArrayList<Pegawai>();
         for(String part : parts){
             String[] partPegawai = part.split("<b>");
-            listPegawai.add(new Pegawai("", partPegawai[0],partPegawai[1],partPegawai[2],""));
+            listPegawai.add(new Pegawai("", partPegawai[0],partPegawai[1],partPegawai[2], partPegawai[3], partPegawai[4]));
         }
 
         return listPegawai;
@@ -132,10 +132,12 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         String result = "";
         if(pegawaiList.size() > 0){
             result += pegawaiList.get(0).getNipPegawai() + "<b>" + pegawaiList.get(0).getNamaPegawai() + "<b>"
-                    + pegawaiList.get(0).getGolongan();
+                    + pegawaiList.get(0).getGolongan() + "<b>" + pegawaiList.get(0).getPangkat() + "<b>"
+                    + pegawaiList.get(0).getJabatan();
             for(int i = 1; i < pegawaiList.size();i++){
                 result += "<p>" + pegawaiList.get(i).getNipPegawai() + "<b>" + pegawaiList.get(i).getNamaPegawai() + "<b>"
-                        + pegawaiList.get(i).getGolongan();
+                        + pegawaiList.get(i).getGolongan() + "<b>" + pegawaiList.get(i).getPangkat() + "<b>"
+                        + pegawaiList.get(i).getJabatan();
             }
         }
 

@@ -8,11 +8,9 @@ package com.bekasidev.app.viewfx.javafxapplication.master;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
-import com.bekasidev.app.view.masterview.MasterWPPanel;
-import com.bekasidev.app.view.masterview.MasterWpTableComponent;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
-import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -70,7 +68,7 @@ public class FormTambahWPUIController implements Initializable {
                 || jenisWPField.getValue().equals(""))) {
             
             WajibPajak wajibPajak = new WajibPajak();
-            wajibPajak.setIdWajibPajak(npwpdField.getText());
+            wajibPajak.setNpwpd(npwpdField.getText());
             wajibPajak.setNamaWajibPajak(namaWPField.getText());
             wajibPajak.setJalan(alamatWPField.getText());
             wajibPajak.setDesa(desaWPField.getText());

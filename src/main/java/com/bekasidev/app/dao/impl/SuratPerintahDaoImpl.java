@@ -2,7 +2,7 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.SuratPerintahDao;
-import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -68,6 +68,55 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
     }
 
+    @Override
+    public void setTim(TimSP timSP) {
+        String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?)";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, timSP.getIdSP());
+            pstm.setString(2, setPegawaiToString(timSP.getPenanggungJawab()));
+            pstm.setString(3, setPegawaiToString(timSP.getSupervisor()));
+            pstm.setString(4, timSP.getNamaTim());
+            pstm.setString(5, setListPegawaiToString(timSP.getListAnggota()));
+            pstm.setString(6, setListWPTpString(timSP.getListWP()));
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<TimSP> getListTim(String idSP) {
+        String sql = "SELECT * FROM tim_perintah WHERE id_sp=?";
+        List<TimSP> listTim = new ArrayList<>();
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, idSP);
+
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()){
+                TimSP tim = new TimSP();
+
+                tim.setIdSP(rs.getString("id_sp"));
+                tim.setNamaTim(rs.getString("nama_tim"));
+                tim.setPenanggungJawab(setPegawai(rs.getString("penanggung_jawab")));
+                tim.setSupervisor(setPegawai(rs.getString("supervisor")));
+                tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
+                tim.setListWP(setStringToWP(rs.getString("list_wp")));
+
+                listTim.add(tim);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listTim;
+    }
+
     private SuratPerintah setSuratPerintah(ResultSet rs) throws SQLException {
         SuratPerintah suratPerintah = new SuratPerintah();
 
@@ -87,5 +136,74 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         suratPerintah.setTanggalSurat(rs.getString("tanggal_surat"));
 
         return suratPerintah;
+    }
+
+    private String setListPegawaiToString(List<Pegawai> listPegawai){
+        String result = "";
+        if(listPegawai.size() > 0){
+            result += listPegawai.get(0).getNipPegawai() + "<b>"
+                    + listPegawai.get(0).getNamaPegawai() + "<b>"
+                    + listPegawai.get(0).getPangkat() + "<b>"
+                    + listPegawai.get(0).getGolongan() + "<b>"
+                    + listPegawai.get(0).getJabatan();
+            for(int i = 1; i < listPegawai.size(); i++){
+                result += "<p>" + listPegawai.get(i).getNipPegawai() + "<b>"
+                        + listPegawai.get(i).getNamaPegawai() + "<b>"
+                        + listPegawai.get(i).getPangkat() + "<b>"
+                        + listPegawai.get(i).getGolongan() + "<b>"
+                        + listPegawai.get(i).getJabatan();
+            }
+        }
+        return result;
+    }
+
+    private String setPegawaiToString(Pegawai pegawai){
+        String result = pegawai.getNipPegawai() + "<b>"
+                + pegawai.getNamaPegawai() + "<b>"
+                + pegawai.getPangkat() + "<b>"
+                + pegawai.getGolongan() + "<b>"
+                + pegawai.getJabatan();
+
+        return result;
+    }
+
+    private String setListWPTpString(List<WajibPajak> listWP){
+        String result = "";
+        if (listWP.size() > 0){
+            result += listWP.get(0).getNpwpd() + "<b>"
+                    + listWP.get(0).getNamaWajibPajak();
+            for (int i=1; i < listWP.size(); i++){
+                result += "<p>" + listWP.get(i).getNpwpd() + "<b>"
+                        + listWP.get(i).getNamaWajibPajak();
+            }
+        }
+        return result;
+    }
+
+    private List<Pegawai> setStringToPegawai(String stringPegawai){
+        String[] pegawaiParts = stringPegawai.split("<p>");
+        List<Pegawai> listPegawai = new ArrayList<>();
+
+        for(String part : pegawaiParts){
+            listPegawai.add(setPegawai(part));
+        }
+        return listPegawai;
+    }
+
+    private Pegawai setPegawai(String pegawaiString){
+        String[] attrPart = pegawaiString.split("<b>");
+        return new Pegawai("", attrPart[0], attrPart[1], attrPart[3], attrPart[2], attrPart[4]);
+    }
+
+    private List<WajibPajak> setStringToWP(String stringWP){
+        String[] wpParts = stringWP.split("<p>");
+        List<WajibPajak> listWP = new ArrayList<>();
+
+        for(String part : wpParts){
+            String[] attrPart = part.split("<b>");
+            listWP.add(new WajibPajak(attrPart[0], attrPart[1]));
+        }
+
+        return listWP;
     }
 }

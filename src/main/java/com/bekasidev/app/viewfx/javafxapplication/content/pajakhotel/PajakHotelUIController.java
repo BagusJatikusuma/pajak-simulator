@@ -5,7 +5,6 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pajakhotel;
 
-import com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.*;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.SessionProvider;
@@ -32,11 +31,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.util.Map;
-import javax.swing.table.DefaultTableModel;
 
 /**
  * FXML Controller class
@@ -107,7 +104,7 @@ public class PajakHotelUIController implements Initializable {
                             System.out.println(obj.getNamaWajibPajak()+"clicked");
                             //add the data to session object
                             WajibPajakModelView wajibPajak = new WajibPajakModelView();
-                            wajibPajak.setNpwpd(obj.getIdWajibPajak());
+                            wajibPajak.setNpwpd(obj.getNpwpd());
                             wajibPajak.setNamaWP(obj.getNamaWajibPajak());
                             wajibPajak.setAlamatWP(obj.getJalan());
                             wajibPajak.setDesaWP(obj.getDesa());
@@ -137,7 +134,7 @@ public class PajakHotelUIController implements Initializable {
 
                 dataCollection.add(new PajakHotelTableWrapper(
                                 String.valueOf(i),
-                                obj.getIdWajibPajak(),
+                                obj.getNpwpd(),
                                 obj.getNamaWajibPajak(),
                                 "0",
                                 obj.getJalan(),
