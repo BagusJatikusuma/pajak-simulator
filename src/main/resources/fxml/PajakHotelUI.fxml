@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minWidth="1100.0" prefHeight="565.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pajakhotel.PajakHotelUIController">
+   <children>
+      <AnchorPane prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
+            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" />
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </AnchorPane>
+      <HBox minHeight="575.0" prefHeight="575.0" prefWidth="1100.0">
+         <children>
+            <TableView fx:id="pajakHotelTable" prefHeight="575.0" prefWidth="1200.0">
+              <columns>
+                <TableColumn prefWidth="47.0" text="No" />
+                <TableColumn prefWidth="124.0" text="Id Hotel" />
+                  <TableColumn prefWidth="210.0" text="Nama Hotel" />
+                  <TableColumn prefWidth="348.0" text="Alamat" />
+                  <TableColumn minWidth="8.0" prefWidth="247.0" text="Desa" />
+                  <TableColumn minWidth="0.0" prefWidth="222.0" text="Kecamatan" />
+                  <TableColumn prefWidth="137.0" text="action" />
+              </columns>
+            </TableView>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

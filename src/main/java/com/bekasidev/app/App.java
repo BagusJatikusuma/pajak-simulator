@@ -42,7 +42,7 @@ public class App extends Application
 //        listPegawai.add(new Pegawai("01", "321", "SAKURA", "IV/a", "Pelaksana Lapangan"));
 //
 //        BerkasPersiapan bp = new BerkasPersiapan();
-//        bp.setIdWajibPajak("1542006560917");
+//        bp.setNpwpd("1542006560917");
 //        bp.setKotaTerbit("Bekasi");
 //        bp.setAlamatJalan(wp.getJalan());
 //        bp.setAlamatKecamatan(wp.getKecamatan());

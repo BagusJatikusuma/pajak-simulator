@@ -70,7 +70,7 @@ public class PajakRestoranTableComponent extends JPanel {
             if (obj.getJenisWp() == 0) {
                 dtm.addRow(new Object[] {
                     index++,
-                    obj.getIdWajibPajak(), 
+                    obj.getNpwpd(),
                     obj.getNamaWajibPajak(),
                     obj.getJalan(),
                     obj.getDesa(),

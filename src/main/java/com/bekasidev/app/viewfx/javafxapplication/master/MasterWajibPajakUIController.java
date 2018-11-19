@@ -8,18 +8,12 @@ package com.bekasidev.app.viewfx.javafxapplication.master;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
-import com.bekasidev.app.view.util.SessionProvider;
-import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
-import com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController;
-import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,6 +49,7 @@ public class MasterWajibPajakUIController implements Initializable {
     private ObservableList<WPMasterTableWrapper> dataCollection;
     
     private WajibPajakService service;
+    private int indexTemp;
 
     /**
      * Initializes the controller class.
@@ -84,7 +79,7 @@ public class MasterWajibPajakUIController implements Initializable {
     
     private void addFromFXML() {
         idWP 
-                = TableHelper.getTableColumnByName(wajibPajakTable, "Id WP");
+                = TableHelper.getTableColumnByName(wajibPajakTable, "NPWPD");
         no
                 = TableHelper.getTableColumnByName(wajibPajakTable, "No");
         namaWP 
@@ -107,19 +102,10 @@ public class MasterWajibPajakUIController implements Initializable {
         
         dataCollection = new ObservableArrayList<>();
         int i = 1;
+        indexTemp = i;
         for (final com.bekasidev.app.model.WajibPajak obj
                 : restorans) {
             Button btn = new Button("Hapus");
-            btn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    
-                    System.out.println(obj.getNamaWajibPajak()+"clicked");
-                    //remove data in database
-                        
-
-                }
-            });
 
             String jenisWP = "";
             switch(obj.getJenisWp()) {
@@ -144,7 +130,7 @@ public class MasterWajibPajakUIController implements Initializable {
             
             dataCollection.add(new WPMasterTableWrapper(
                             String.valueOf(i),
-                            obj.getIdWajibPajak(),
+                            obj.getNpwpd(),
                             obj.getNamaWajibPajak(),
                             jenisWP,
                             obj.getJalan(),
@@ -152,7 +138,35 @@ public class MasterWajibPajakUIController implements Initializable {
                             obj.getDesa(),
                             btn
                     ));
-            i++; 
+            i++;
+            indexTemp = i;
+        }
+        
+        //set action for every button
+        for (final WPMasterTableWrapper obj : dataCollection) {
+            Button btn = obj.getButton();
+            btn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {                    
+                    System.out.println(obj.getNamaWajibPajak()+"clicked");
+                    wajibPajakTable.getItems().remove(obj);
+                    //remove data from database
+                    service.deleteWP(obj.getIdWajibPajak());
+                    //nanti ganti method untuk mereset nomor row
+                    Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+                    rootpane.getChildren().remove(1);
+
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterWajibPajakUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rootpane.getChildren().add(contentPane);
+                    
+                }
+            });
         }
     }
     

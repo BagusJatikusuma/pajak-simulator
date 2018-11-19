@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="610.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturTimWPUIController">
+   <children>
+      <AnchorPane prefHeight="45.0" prefWidth="574.0">
+         <children>
+            <Button fx:id="backToFormPersiapanBtn" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToFormPersiapan" prefHeight="25.0" prefWidth="111.0" text="kembali" />
+            <Button layoutX="129.0" layoutY="14.0" mnemonicParsing="false" onAction="#openNewAturTimWP" prefHeight="25.0" prefWidth="111.0" text="tambah tim" />
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="517.0" prefWidth="574.0">
+         <children>
+            <TableView fx:id="PersiapanTimWPTable" prefHeight="566.0" prefWidth="574.0">
+              <columns>
+                  <TableColumn prefWidth="75.0" text="Id tim" />
+                <TableColumn prefWidth="357.0" text="Nama tim" />
+                <TableColumn prefWidth="111.0" text="Hapus action" />
+                  <TableColumn prefWidth="105.0" text="Atur action" />
+              </columns>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="53.0" prefWidth="574.0">
+         <children>
+            <Button layoutX="455.0" layoutY="14.0" mnemonicParsing="false" onAction="#finishPersiapan" prefHeight="25.0" prefWidth="111.0" text="selesai" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

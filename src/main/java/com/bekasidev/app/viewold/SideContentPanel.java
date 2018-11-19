@@ -151,8 +151,8 @@ public class SideContentPanel extends JPanel{
             public void actionPerformed(ActionEvent event) {
                 JComboBox<WajibPajak> combo = (JComboBox<WajibPajak>) event.getSource();
                 WajibPajak selected = (WajibPajak) combo.getSelectedItem();
-                idRestoran = selected.getIdWajibPajak();
-                System.out.println("Nama : " + selected.getNamaWajibPajak() + "\nId : " + selected.getIdWajibPajak());
+                idRestoran = selected.getNpwpd();
+                System.out.println("Nama : " + selected.getNamaWajibPajak() + "\nId : " + selected.getNpwpd());
             }
         });
        

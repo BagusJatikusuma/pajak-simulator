@@ -123,14 +123,14 @@ public class PersiapanPajakRestoranUIController implements Initializable {
                 }
             }
         });
-        nomorUrutSuratPerintahField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    nomorUrutSuratPerintahField.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
+//        nomorUrutSuratPerintahField.textProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//                if (!newValue.matches("\\d*")) {
+//                    nomorUrutSuratPerintahField.setText(newValue.replaceAll("[^\\d]", ""));
+//                }
+//            }
+//        });
         masaPajakAwalTahun.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

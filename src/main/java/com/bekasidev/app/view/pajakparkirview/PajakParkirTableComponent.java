@@ -50,7 +50,7 @@ public class PajakParkirTableComponent extends JPanel {
         List<WajibPajak> parkirans = new ArrayList<>();
         
         for (WajibPajak obj : parkirans) {
-            dtm.addRow(new Object[] {obj.getIdWajibPajak(), obj.getNamaWajibPajak(),"pilih"});
+            dtm.addRow(new Object[] {obj.getNpwpd(), obj.getNamaWajibPajak(),"pilih"});
         }
         
         Action selectedRow = new AbstractAction() {

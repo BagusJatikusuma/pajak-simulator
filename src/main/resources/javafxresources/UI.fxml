@@ -14,52 +14,53 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close"/>
+            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="atur pajak">
+        <Menu mnemonicParsing="false" text="Atur Pajak">
           <items>
-            <Menu mnemonicParsing="false" text="restoran">
+            <Menu mnemonicParsing="false" text="Restoran">
               <items>
-                <MenuItem mnemonicParsing="false" text="persiapan" />
-                <MenuItem mnemonicParsing="false" text="pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="pelaporan" />
+                <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakRestoran" text="Persiapan" />
+                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
+                <MenuItem mnemonicParsing="false" text="Pelaporan" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="hotel">
+            <Menu mnemonicParsing="false" text="Hotel">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakHotel" text="persiapan" />
-                <MenuItem mnemonicParsing="false" text="pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="pelaporan" />
+                <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakHotel" text="Persiapan" />
+                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
+                <MenuItem mnemonicParsing="false" text="Pelaporan" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="parkir">
+            <Menu mnemonicParsing="false" text="Parkir">
               <items>
-                <MenuItem mnemonicParsing="false" text="persiapan" />
-                <MenuItem mnemonicParsing="false" text="pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="pelaporan" />
+                <MenuItem mnemonicParsing="false" text="Persiapan" />
+                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
+                <MenuItem mnemonicParsing="false" text="Pelaporan" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="hiburan">
+            <Menu mnemonicParsing="false" text="Hiburan">
               <items>
-                <MenuItem mnemonicParsing="false" text="persiapan" />
-                <MenuItem mnemonicParsing="false" text="pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="pelaporan" />
+                <MenuItem mnemonicParsing="false" text="Persiapan" />
+                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
+                <MenuItem mnemonicParsing="false" text="Pelaporan" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="penerangan jalan">
+            <Menu mnemonicParsing="false" text="Penerangan Jalan">
               <items>
-                <MenuItem mnemonicParsing="false" text="persiapan" />
-                <MenuItem mnemonicParsing="false" text="pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="pelaporan" />
+                <MenuItem mnemonicParsing="false" text="Persiapan" />
+                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
+                <MenuItem mnemonicParsing="false" text="Pelaporan" />
               </items>
             </Menu>
           </items>
         </Menu>
-            <Menu mnemonicParsing="false" text="master">
+            <Menu mnemonicParsing="false" text="Master">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#openWajibPajak" text="wajib pajak" />
-                  <MenuItem mnemonicParsing="false" text="tim pemeriksa" />
+                <MenuItem mnemonicParsing="false" onAction="#openWajibPajak" text="Wajib Pajak" />
+                  <MenuItem mnemonicParsing="false" onAction="#openMasterTim" text="Tim Pemeriksa" />
+                  <MenuItem mnemonicParsing="false" onAction="#openMasterPegawai" text="Pegawai" />
               </items>
             </Menu>
         <Menu mnemonicParsing="false" text="Help">

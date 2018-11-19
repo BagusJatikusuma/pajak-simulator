@@ -13,7 +13,10 @@ public interface ReportService {
     void createPersiapanPajakRestoranReport();
     void createPersiapanPajakRestoranReport1();
     void createPersiapanPajakHotelReport();
+    void createPersiapanPajakHotelReport1();
+    void createPersiapanDokumenPinjamanHotel();
     void createPersiapanPajakParkirReport();
     void createPersiapanDokumenPinjaman();
+    void createSuratPerintah();
     
 }

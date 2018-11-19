@@ -19,12 +19,16 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
                 ResultSet rs = stm.executeQuery(sql)) {
             while(rs.next()){
                 WajibPajak wajibPajak = new WajibPajak();
-                wajibPajak.setIdWajibPajak(rs.getString("id_wp"));
+                wajibPajak.setNpwpd(rs.getString("id_wp"));
                 wajibPajak.setNamaWajibPajak(rs.getString("nama_wp"));
                 wajibPajak.setJalan(rs.getString("alamat_jalan"));
                 wajibPajak.setKecamatan(rs.getString("alamat_kecamatan"));
                 wajibPajak.setDesa(rs.getString("alamat_desa"));
                 wajibPajak.setJenisWp(rs.getShort("jenis_wp"));
+                wajibPajak.setNamaPemilik(rs.getString("nama_pemilik"));
+                wajibPajak.setTelepon(rs.getString("telepon"));
+                wajibPajak.setFax(rs.getString("fax"));
+                wajibPajak.setTahunMulaiOperasional(rs.getString("tahun_operasional"));
                 listWajibPajak.add(wajibPajak);
             }
         } catch (SQLException e) {
@@ -34,16 +38,20 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
     }
 
     public void createDataWP(WajibPajak wajibPajak){
-        String sql = "INSERT INTO wajib_pajak VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO wajib_pajak VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, wajibPajak.getIdWajibPajak());
+            pstm.setString(1, wajibPajak.getNpwpd());
             pstm.setString(2, wajibPajak.getNamaWajibPajak());
             pstm.setShort(3, wajibPajak.getJenisWp());
             pstm.setString(4, wajibPajak.getJalan());
             pstm.setString(5, wajibPajak.getKecamatan());
             pstm.setString(6, wajibPajak.getDesa());
+            pstm.setString(7, wajibPajak.getNamaPemilik());
+            pstm.setString(8, wajibPajak.getTelepon());
+            pstm.setString(9, wajibPajak.getFax());
+            pstm.setString(10, wajibPajak.getTahunMulaiOperasional());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,12 +83,16 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
 
             ResultSet rs = pstm.executeQuery();
             while(rs.next()){
-                wp.setIdWajibPajak(rs.getString("id_wp"));
+                wp.setNpwpd(rs.getString("id_wp"));
                 wp.setNamaWajibPajak(rs.getString("nama_wp"));
                 wp.setJalan(rs.getString("alamat_jalan"));
                 wp.setKecamatan(rs.getString("alamat_kecamatan"));
                 wp.setDesa(rs.getString("alamat_desa"));
                 wp.setJenisWp(rs.getShort("jenis_wp"));
+                wp.setNamaPemilik(rs.getString("nama_pemilik"));
+                wp.setTelepon(rs.getString("telepon"));
+                wp.setFax(rs.getString("fax"));
+                wp.setTahunMulaiOperasional(rs.getString("tahun_operasional"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

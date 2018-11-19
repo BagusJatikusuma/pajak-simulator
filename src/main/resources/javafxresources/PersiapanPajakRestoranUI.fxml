@@ -27,14 +27,14 @@
             <Label layoutX="37.0" layoutY="187.0" text="Tanggal surat perintah dikeluarkan" />
             <Label layoutX="37.0" layoutY="244.0" text="Tim pemeriksa" />
             <Label layoutX="37.0" layoutY="300.0" text="Masa pajak" />
-            <Label layoutX="37.0" layoutY="354.0" text="Lama pemeriksaan" />
+            <Label layoutX="37.0" layoutY="354.0" text="Lama pemeriksaan (satuan hari)" />
             <Label layoutX="37.0" layoutY="408.0" text="Penandatangan" />
             <TextField fx:id="nomorUrutSuratField" layoutX="37.0" layoutY="41.0" prefHeight="25.0" prefWidth="511.0" />
             <TextField fx:id="nomorUrutSuratPerintahField" layoutX="37.0" layoutY="149.0" prefHeight="25.0" prefWidth="511.0" />
             <ChoiceBox fx:id="suratPerintahDikeluarkanOlehField" layoutX="37.0" layoutY="93.0" prefHeight="25.0" prefWidth="511.0" />
             <DatePicker fx:id="tanggalSuratPerintahDikeluarkanField" layoutX="37.0" layoutY="207.0" prefHeight="25.0" prefWidth="511.0" />
             <ChoiceBox fx:id="timPemeriksaField" layoutX="37.0" layoutY="264.0" prefHeight="25.0" prefWidth="348.0" />
-            <Button layoutX="396.0" layoutY="264.0" mnemonicParsing="false" onAction="#cekAnggotaTim" prefHeight="25.0" prefWidth="152.0" text="cek anggota" />
+            <Button layoutX="396.0" layoutY="264.0" mnemonicParsing="false" onAction="#cekAnggotaTim" prefHeight="25.0" prefWidth="152.0" text="Cek Anggota" />
             <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="37.0" layoutY="320.0" prefHeight="25.0" prefWidth="115.0" />
             <TextField fx:id="masaPajakAwalTahun" layoutX="160.0" layoutY="320.0" prefHeight="25.0" prefWidth="99.0" />
             <Label layoutX="287.0" layoutY="324.0" prefHeight="17.0" prefWidth="19.0" text="s.d" />
@@ -46,8 +46,8 @@
       </AnchorPane>
       <AnchorPane prefHeight="47.0" prefWidth="574.0">
          <children>
-            <Button layoutX="385.0" layoutY="11.0" mnemonicParsing="false" onAction="#generateDocuments" text="generate documents" />
-            <Button fx:id="cancelBtn" layoutX="250.0" layoutY="11.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="126.0" text="cancel" />
+            <Button layoutX="423.0" layoutY="11.0" mnemonicParsing="false" onAction="#generateDocuments" text="Generate Documents" />
+            <Button fx:id="cancelBtn" layoutX="287.0" layoutY="11.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="126.0" text="Cancel" />
          </children>
       </AnchorPane>
    </children>
