@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="740.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController">
+<VBox minWidth="1100.0" prefHeight="565.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController">
    <children>
       <AnchorPane prefHeight="40.0" prefWidth="200.0">
          <children>
@@ -19,9 +19,9 @@
             <Insets left="5.0" right="5.0" />
          </VBox.margin>
       </AnchorPane>
-      <HBox prefHeight="671.0" prefWidth="1336.0">
+      <HBox minHeight="575.0" prefHeight="575.0" prefWidth="1100.0">
          <children>
-            <TableView fx:id="pajakRestoranTable" prefHeight="666.0" prefWidth="1336.0">
+            <TableView fx:id="pajakRestoranTable" prefHeight="575.0" prefWidth="1200.0">
               <columns>
                 <TableColumn prefWidth="47.0" text="No" />
                 <TableColumn prefWidth="124.0" text="Id Restoran" />

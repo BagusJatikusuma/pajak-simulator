@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="426.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahPegawaiUIController">
+    <stylesheets>
+        <URL value="@/styles/formtambahpegawaiui.css" />
+    </stylesheets>
+    <children>
+      <TextField fx:id="nipField" layoutX="51.0" layoutY="87.0" prefHeight="31.0" prefWidth="473.0" />
+      <Label layoutX="189.0" layoutY="24.0" text="FORM TAMBAH PEGAWAI" />
+      <Label layoutX="51.0" layoutY="61.0" text="NIP" />
+      <Label layoutX="51.0" layoutY="131.0" text="Nama" />
+      <Label layoutX="51.0" layoutY="202.0" text="Pangkat" />
+      <Label layoutX="51.0" layoutY="273.0" text="Golongan" />
+      <TextField fx:id="namaField" layoutX="51.0" layoutY="157.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="pangkatField" layoutX="51.0" layoutY="227.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="golonganField" layoutX="51.0" layoutY="297.0" prefHeight="31.0" prefWidth="473.0" />
+      <Button layoutX="408.0" layoutY="364.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
+      <Button fx:id="cancelBtn" layoutX="277.0" layoutY="364.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+   </children>
+</AnchorPane>

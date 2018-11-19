@@ -7,18 +7,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" 
-            prefHeight="437.0" 
-            prefWidth="475.0" 
-            styleClass="mainFxmlClass" 
-            xmlns:fx="http://javafx.com/fxml/1" 
-            xmlns="http://javafx.com/javafx/8" 
-            fx:controller="javafxapplication.apppage.about.AboutUIController">
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="475.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication.apppage.about.AboutUIController">
     <stylesheets>
         <URL value="@aboutui.css" />
     </stylesheets>
    <children>
       <Button layoutX="179.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="OK" />
-      <Label layoutX="172.0" layoutY="152.0" text="HELLO MOTHER FATHER" />
+      <Label layoutX="172.0" layoutY="163.0" text="APLIKASI PEMERIKSAAN" />
    </children>
 </AnchorPane>

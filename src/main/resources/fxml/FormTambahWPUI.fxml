@@ -7,25 +7,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="565.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController">
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="565.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController">
     <stylesheets>
         <URL value="@/styles/formtambahwpui.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="npwpdField" layoutX="54.0" layoutY="90.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="npwpdField" layoutX="54.0" layoutY="162.0" prefHeight="31.0" prefWidth="473.0" />
       <Label layoutX="189.0" layoutY="24.0" text="FORM TAMBAH WAJIB PAJAK" />
-      <Label layoutX="54.0" layoutY="60.0" text="NPWPD" />
-      <Label layoutX="54.0" layoutY="130.0" text="Nama WP" />
-      <Label layoutX="54.0" layoutY="200.0" text="Alamat" />
-      <Label layoutX="54.0" layoutY="410.0" text="Jenis WP" />
-      <Label layoutX="54.0" layoutY="340.0" text="Kecamatan" />
-      <Label layoutX="54.0" layoutY="270.0" text="Desa/Kelurahan" />
-      <TextField fx:id="namaWPField" layoutX="54.0" layoutY="160.0" prefHeight="31.0" prefWidth="473.0" />
-      <TextField fx:id="alamatWPField" layoutX="54.0" layoutY="230.0" prefHeight="31.0" prefWidth="473.0" />
-      <TextField fx:id="desaWPField" layoutX="54.0" layoutY="300.0" prefHeight="31.0" prefWidth="473.0" />
-      <TextField fx:id="kecamatanWPField" layoutX="54.0" layoutY="370.0" prefHeight="31.0" prefWidth="473.0" />
-      <ChoiceBox fx:id="jenisWPField" layoutX="52.0" layoutY="440.0" prefHeight="31.0" prefWidth="473.0" />
-      <Button layoutX="411.0" layoutY="499.0" mnemonicParsing="false" onAction="#tambahWPOperation" prefHeight="31.0" prefWidth="116.0" text="tambah" />
-      <Button fx:id="cancelBtn" layoutX="280.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="batal" />
+      <Label layoutX="54.0" layoutY="136.0" text="NPWPD" />
+      <Label layoutX="54.0" layoutY="206.0" text="Nama Wajib Pajak" />
+      <Label layoutX="54.0" layoutY="277.0" text="Alamat" />
+      <Label layoutX="56.0" layoutY="63.0" text="Jenis Wajib Pajak" />
+      <Label layoutX="54.0" layoutY="416.0" text="Kecamatan" />
+      <Label layoutX="54.0" layoutY="348.0" text="Desa/Kelurahan" />
+      <TextField fx:id="namaWPField" layoutX="54.0" layoutY="232.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="alamatWPField" layoutX="54.0" layoutY="302.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="desaWPField" layoutX="54.0" layoutY="372.0" prefHeight="31.0" prefWidth="473.0" />
+      <TextField fx:id="kecamatanWPField" layoutX="54.0" layoutY="442.0" prefHeight="31.0" prefWidth="473.0" />
+      <ChoiceBox fx:id="jenisWPField" layoutX="54.0" layoutY="89.0" prefHeight="31.0" prefWidth="473.0" />
+      <Button layoutX="411.0" layoutY="499.0" mnemonicParsing="false" onAction="#tambahWPOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
+      <Button fx:id="cancelBtn" layoutX="280.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
    </children>
 </AnchorPane>

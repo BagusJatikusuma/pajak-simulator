@@ -37,7 +37,7 @@ public class RootPaneController implements Initializable {
             mainMenuPane 
                     = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/UI.fxml"));
             contentPane 
-                    = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/PajakRestoranUI.fxml"));
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PersiapanUI.fxml"));
             
             rootpane.getChildren().add(mainMenuPane);
             rootpane.getChildren().add(contentPane);

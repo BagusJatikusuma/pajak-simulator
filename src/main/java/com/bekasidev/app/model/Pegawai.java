@@ -55,4 +55,10 @@ public class Pegawai {
     public void setJabatan(String jabatan) {
         this.jabatan = jabatan;
     }
+
+    @Override
+    public String toString() {
+        return this.getNamaPegawai();
+    }
+    
 }

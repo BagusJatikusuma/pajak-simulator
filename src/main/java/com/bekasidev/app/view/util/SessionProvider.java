@@ -16,6 +16,7 @@ import java.util.Map;
 public class SessionProvider {
     private static RestoranTransaction restoranTransaction;
     private static Map<String, Object> sessionPajakMap;
+    private static Map<String, Object> sessionAturAnggotaTimUIMap;
     
     public static RestoranTransaction getRestoranTransaction() {
         if (restoranTransaction == null) resetRestoranTranstion();
@@ -25,6 +26,11 @@ public class SessionProvider {
     public static Map<String, Object> getPajakMapSession() {
         if (sessionPajakMap == null) sessionPajakMap = new HashMap<>();
         return sessionPajakMap;
+    }
+    
+    public static Map<String, Object> getSessionAturAnggotaTimUIMap() {
+        if (sessionAturAnggotaTimUIMap == null) sessionAturAnggotaTimUIMap = new HashMap<>();
+        return sessionAturAnggotaTimUIMap;
     }
     
     public static void resetRestoranTranstion() {

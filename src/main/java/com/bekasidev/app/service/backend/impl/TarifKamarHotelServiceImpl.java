@@ -34,8 +34,8 @@ public class TarifKamarHotelServiceImpl implements TarifKamarHotelService {
     }
 
     @Override
-    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idHotel, String idKamarhotel) {
-        tarifKamarHotelDao.deleteTarifKamarHotelByIdHotelAndidKamarHotel(idHotel, idKamarhotel);
+    public void deleteTarifKamarHotelByIdHotelAndidKamarHotel(String idKamarhotel) {
+        tarifKamarHotelDao.deleteTarifKamarHotelByIdHotelAndidKamarHotel(idKamarhotel);
     }
 
     private void calculateHargaPerKamar(TarifKamarHotel tk) {
