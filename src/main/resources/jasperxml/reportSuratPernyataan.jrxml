@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportSuratPernyataan.jrxml" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="180a6031-2dae-499c-b73e-890ac95d72f8">
+	<property name="ireport.zoom" value="0.8264462809917393"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="171" y="18" width="193" height="20" uuid="5a36bc45-8888-4768-b7b6-de801e246be5"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SURAT PERNYATAAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="625">
+			<staticText>
+				<reportElement x="50" y="28" width="218" height="20" uuid="00b0de7a-2ca3-4604-beba-be1e9397e012"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Yang bertandatangan di bawah ini :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="58" width="60" height="20" uuid="0b557616-fc88-4afe-b991-2c2a7f5c47d2"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="78" width="60" height="20" uuid="02dc0542-8d5b-41b9-931d-087d691a5fa8"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jabatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="98" width="60" height="20" uuid="928a43d1-3faf-49f3-969b-9f326cbc372d"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="58" width="9" height="20" uuid="77acf17f-87a0-4e04-9d72-637e239eafee"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="78" width="9" height="20" uuid="f77f8e85-10ba-4158-8107-573dbfe9526f"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="98" width="9" height="20" uuid="997c76e0-8d5c-4f6e-a2e0-66d5358892d4"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="142" width="194" height="20" uuid="ad710f2a-5fba-42bd-862a-d9699b45dd02"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dalam hal ini bertindak selaku :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="35" y="167" width="19" height="15" uuid="d57be544-44f2-4e03-b105-592c2f18a776"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="64" y="167" width="74" height="20" uuid="bd5dc5c6-32c1-499b-af2d-af56aadf8d74"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Diri Sendiri]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="185" y="167" width="19" height="15" uuid="85c387ef-4512-486a-8311-dc1bf29ec7ef"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="215" y="167" width="74" height="20" uuid="35a15aa2-96d7-4297-9149-2bd9bcb1a073"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Wakil]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="322" y="167" width="19" height="15" uuid="580b52b6-7132-47fd-8ecb-5b163a51f23f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="348" y="167" width="170" height="20" uuid="e77cefd0-725c-4487-8166-be6d8d86eadd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kuasa dari Perusahaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="256" width="53" height="20" uuid="2b40f3f2-def2-4f4f-af4b-13c66c4602a4"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="230" width="9" height="20" uuid="c333cb34-268c-4142-b09a-21f0d6bf9ace"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="230" width="116" height="20" uuid="188a55d8-63c5-4a47-a898-79680740a07b"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NPWPD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="204" width="9" height="20" uuid="0aabbea8-34d0-41fc-8d95-d209699abaaf"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="204" width="127" height="20" uuid="115b38ca-51a0-4037-bfe8-2097ed42ac3f"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Wajib Pajak]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="256" width="9" height="20" uuid="410d61d2-f87c-40f3-9ad5-77c147b5124a"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="298" width="491" height="130" uuid="052f801e-3ab4-4674-96cb-472ae03cb880"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dengan ini menyatakan bahwa fotocopy catatan, buku dan dokumen yang saya sampaikan dan atau saya serahkan kepada Tim Pemeriksa Pajak Daerah untuk kepentingan pemeriksaan pajak daerah sebagaimana Surat Perintah Pemeriksaan Nomor (Nomor Surat) Tanggal (Tanggal Surat) adalah data benar yang dibuat sesuai dengan aslinya, dan tidak ada lagi berkas yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang berkaitan dengan kewajiban pemungutan dan penyetoran (Jenis Pajak) untuk Masa Pajak (Awal Bulan Pajak) s.d (Akhir Bulan pajak) (Tahun Pajak) selain yang telah kami sampaikan kepada Tim Pemeriksa"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="431" width="490" height="47" uuid="a14808b5-bce3-415d-a6da-830f6c9a7dd4"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Demikian surat pertanyaan ini saya buat dengan sebenarnya dan apabila dikemudianhari ternyata data yang saya sampaikan tidak benar adanya, saya bersedia untuk bertanggung jawab sesuai dengan ketentuan yang berlaku.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="289" y="507" width="109" height="17" uuid="0a6ff342-fdf8-43e5-912a-3adb68013400"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cikarang Pusat"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="507" width="44" height="17" uuid="dc5b43a3-3d92-47b8-a86b-5186bc75701e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2018"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="535" width="173" height="20" uuid="a590ff54-b9e9-42ac-9744-a339636e66fb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Yang membuat pernyataan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="322" y="602" width="173" height="1" uuid="7ae19603-9dba-4725-84d2-edc69507434f"/>
+			</line>
+			<textField>
+				<reportElement x="185" y="207" width="333" height="17" uuid="7b7e9a07-5642-435e-88f9-6b8b7bf96c78"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cikarang Pusat"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="233" width="333" height="17" uuid="f5f4cd89-f686-49dc-8c93-f0afa9686cfc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cikarang Pusat"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="259" width="333" height="29" uuid="409cadde-a92a-4d5d-b166-c7a313a00558"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cikarang Pusat"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="58" width="406" height="17" uuid="d7b9d522-ed50-4c7a-88cb-a41cb171662c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sra Wahyudi"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="78" width="406" height="17" uuid="1ca4f1aa-edca-48ec-ab38-dbdfa26adafe"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pengelola Teknologi Informasi"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="98" width="406" height="29" uuid="bcb4a0b0-ec32-4330-8483-f3e05d87e2ce"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kota Deltamas Perumahan Zona Eropa Blok NICE A.33"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
