@@ -25,6 +25,10 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
                 wajibPajak.setKecamatan(rs.getString("alamat_kecamatan"));
                 wajibPajak.setDesa(rs.getString("alamat_desa"));
                 wajibPajak.setJenisWp(rs.getShort("jenis_wp"));
+                wajibPajak.setNamaPemilik(rs.getString("nama_pemilik"));
+                wajibPajak.setTelepon(rs.getString("telepon"));
+                wajibPajak.setFax(rs.getString("fax"));
+                wajibPajak.setTahunMulaiOperasional(rs.getString("tahun_operasional"));
                 listWajibPajak.add(wajibPajak);
             }
         } catch (SQLException e) {
@@ -34,7 +38,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
     }
 
     public void createDataWP(WajibPajak wajibPajak){
-        String sql = "INSERT INTO wajib_pajak VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO wajib_pajak VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = Connect.connect();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -44,6 +48,10 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             pstm.setString(4, wajibPajak.getJalan());
             pstm.setString(5, wajibPajak.getKecamatan());
             pstm.setString(6, wajibPajak.getDesa());
+            pstm.setString(7, wajibPajak.getNamaPemilik());
+            pstm.setString(8, wajibPajak.getTelepon());
+            pstm.setString(9, wajibPajak.getFax());
+            pstm.setString(10, wajibPajak.getTahunMulaiOperasional());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,6 +89,10 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
                 wp.setKecamatan(rs.getString("alamat_kecamatan"));
                 wp.setDesa(rs.getString("alamat_desa"));
                 wp.setJenisWp(rs.getShort("jenis_wp"));
+                wp.setNamaPemilik(rs.getString("nama_pemilik"));
+                wp.setTelepon(rs.getString("telepon"));
+                wp.setFax(rs.getString("fax"));
+                wp.setTahunMulaiOperasional(rs.getString("tahun_operasional"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

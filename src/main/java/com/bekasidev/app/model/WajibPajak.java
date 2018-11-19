@@ -8,6 +8,42 @@ public class WajibPajak {
     private String jalan;
     private String kecamatan;
     private String desa;
+    private String namaPemilik;
+    private String telepon;
+    private String fax;
+    private String tahunMulaiOperasional;
+
+    public String getNamaPemilik() {
+        return namaPemilik;
+    }
+
+    public void setNamaPemilik(String namaPemilik) {
+        this.namaPemilik = namaPemilik;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getTahunMulaiOperasional() {
+        return tahunMulaiOperasional;
+    }
+
+    public void setTahunMulaiOperasional(String tahunMulaiOperasional) {
+        this.tahunMulaiOperasional = tahunMulaiOperasional;
+    }
 
     public short getJenisWp() {
         return jenisWp;
