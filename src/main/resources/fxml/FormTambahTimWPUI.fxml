@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="626.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormTambahTimWPUIController">
+   <children>
+      <Label layoutX="218.0" layoutY="27.0" text="FORM TAMBAH TIM PEMERIKSA" />
+      <Label layoutX="40.0" layoutY="62.0" text="Penanggung jawab" />
+      <Button layoutX="425.0" layoutY="577.0" mnemonicParsing="false" onAction="#tambahTimPemeriksaOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
+      <Button fx:id="cancelTambahTimPemeriksaBtn" layoutX="299.0" layoutY="577.0" mnemonicParsing="false" onAction="#canceTambahTimPemeriksalOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+      <ChoiceBox fx:id="pilihPenanggungJawabField" layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="500.0" />
+      <ChoiceBox fx:id="pilihSupervisorField" layoutX="40.0" layoutY="144.0" prefHeight="25.0" prefWidth="500.0" />
+      <Label layoutX="41.0" layoutY="118.0" text="Supervisor" />
+      <ChoiceBox fx:id="pilihTimField" layoutX="40.0" layoutY="200.0" prefHeight="25.0" prefWidth="500.0" />
+      <Label layoutX="41.0" layoutY="177.0" text="Tim" />
+      <HBox layoutX="42.0" layoutY="241.0" prefHeight="320.0" prefWidth="500.0">
+         <children>
+            <TableView fx:id="PersiapanPilihWPTable" prefHeight="320.0" prefWidth="504.0">
+              <columns>
+                <TableColumn prefWidth="36.0" text="pilih" />
+                <TableColumn prefWidth="116.0" text="Id WP" />
+                  <TableColumn prefWidth="209.0" text="Nama WP" />
+                  <TableColumn prefWidth="138.0" text="Jenis WP" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formtambahpegawaiui.css" />
+   </stylesheets>
+</AnchorPane>

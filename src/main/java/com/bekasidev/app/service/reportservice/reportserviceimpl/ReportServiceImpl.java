@@ -13,6 +13,7 @@ import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -252,14 +253,6 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            DataBeanList DataBeanList = new DataBeanList();
-//            ArrayList<Pegawai> dataList = new ArrayList<>();
-//            dataList.add(new Pegawai("", "", "", "", ""));
-//            
-//            dataList.add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-//            dataList.add(new Pegawai("02", "141511057", "ABDUR", "IV.a", "ADMIN"));
-//            dataList.add(new Pegawai("03", "141511056", "RISA", "IV.a", "TESTER"));
-//            System.out.println("aaaaaaa " + dataList.size());
             PersiapanPajakPOJO persiapanPajakPOJO
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
@@ -532,14 +525,6 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            DataBeanList DataBeanList = new DataBeanList();
-//            ArrayList<Pegawai> dataList = new ArrayList<>();
-//            dataList.add(new Pegawai("", "", "", "", ""));
-//            
-//            dataList.add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-//            dataList.add(new Pegawai("02", "141511057", "ABDUR", "IV.a", "ADMIN"));
-//            dataList.add(new Pegawai("03", "141511056", "RISA", "IV.a", "TESTER"));
-//            System.out.println("aaaaaaa " + dataList.size());
             PersiapanPajakPOJO persiapanPajakPOJO
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
@@ -550,7 +535,7 @@ public class ReportServiceImpl implements ReportService {
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAwal());
             bp.setMasaPajakAkhir(persiapanPajakPOJO.getMasaPajakBulanAkhir() 
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAkhir());
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, WP.RESTORAN);
+            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, WP.HOTEL);
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(bp.getListPinjaman());
@@ -612,6 +597,86 @@ public class ReportServiceImpl implements ReportService {
             frame.setVisible(true);
             
         } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createSuratPerintah() {
+        try {
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://SuratPerintah.jasper";
+            String jrxmlPathFile = "D://SuratPerintah.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_wrapper");
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
+
+            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+            parameter.put("tanggal_pengesahan", df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan()));
+            
+            parameter.put("dasar_nomor", persiapanWrapper.getDasarNomor());
+            parameter.put("dasar_tanggal", df_dasar_tanggal.format(persiapanWrapper.getDasarTanggal()));
+            parameter.put("dasar_tahun_anggaran", persiapanWrapper.getDasarTahunAnggaran());
+            parameter.put("nama_perintah", persiapanWrapper.getNama());
+            parameter.put("jabatan_perintah", persiapanWrapper.getJabatan());
+            parameter.put("masa_pajak_awal", persiapanWrapper.getMasaPajakAwalBulan()
+                    + " " + persiapanWrapper.getMasaPajakAwalTahun());
+            parameter.put("masa_pajak_akhir", persiapanWrapper.getMasaPajakAkhirbulan()
+                    + " " + persiapanWrapper.getMasaPajakAkhirTahun());
+            parameter.put("tahap_ke", persiapanWrapper.getTahapKe());
+            parameter.put("lama_pelaksanaan", persiapanWrapper.getLamaPelaksanaan());
+            parameter.put("biaya_tahun_apbed", persiapanWrapper.getBiayaTahunAPBD());
+            parameter.put("biaya_nomor_apbed", persiapanWrapper.getBiayaNomorAPBD());
+            parameter.put("biaya_tanggal_apbed", df_biaya_tanggal_apbd.format(persiapanWrapper.getBiayaTanggalAPBD()));
+            parameter.put("ditetapkan_di", persiapanWrapper.getDitetapkanDi());
+            parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPerintah.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

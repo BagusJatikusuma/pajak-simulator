@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
-	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.zoom" value="0.7513148009015834"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="28"/>
+	<property name="ireport.y" value="166"/>
+        <import value="com.bekasidev.app.model.Pegawai" />
+        
+	<parameter name="dasar_nomor" class="java.lang.String"/>
+	<parameter name="dasar_tanggal" class="java.lang.String"/>
+	<parameter name="dasar_tahun_anggaran" class="java.lang.String"/>
+	<parameter name="nama_perintah" class="java.lang.String"/>
+	<parameter name="jabatan_perintah" class="java.lang.String"/>
+	<parameter name="masa_pajak_awal" class="java.lang.String"/>
+	<parameter name="masa_pajak_akhir" class="java.lang.String"/>
+	<parameter name="tahap_ke" class="java.lang.String"/>
+	<parameter name="lama_pelaksanaan" class="java.lang.String"/>
+	<parameter name="biaya_tahun_apbd" class="java.lang.String"/>
+	<parameter name="biaya_nomor_apbd" class="java.lang.String"/>
+	<parameter name="biaya_tanggal_apbd" class="java.lang.String"/>
+	<parameter name="ditetapkan_di" class="java.lang.String"/>
+	<parameter name="tanggal_pengesahan" class="java.lang.String"/>
+	<parameter name="nomor_surat" class="java.lang.String"/>
+	<parameter name="penandatangan" class="com.bekasidev.app.model.Pegawai"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -53,13 +71,6 @@ BEKASI]]></text>
 				<text><![CDATA[SURAT PERINTAH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="32" width="535" height="30" uuid="54265890-c5df-4375-af96-4e5bde67b822"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<text><![CDATA[Nomor : 800 / (isian) / Bapenda]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="0" y="62" width="100" height="50" uuid="986efde9-d910-41c2-82cd-631bfe5d2439"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
@@ -102,27 +113,6 @@ BEKASI]]></text>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="62" width="420" height="50" uuid="0810b9b2-8722-4581-a64c-b6b6ffb70d7b"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<text><![CDATA[Surat Keputusan Bupati Nomor : 973 / Kep.84-Bapenda / 2017 tanggal 21 Februari 2018 tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran 2018]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="115" y="112" width="420" height="20" uuid="e8ca0bda-98bc-4b38-823c-6ff6a830c950"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="115" y="132" width="420" height="20" uuid="cf70b06e-1bf9-4147-a0b9-b41c815aa9d1"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<text><![CDATA[Kepala Bapan Pendapatan Daerah Kabupaten Bekasi]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="0" y="174" width="535" height="40" uuid="9c71f77a-3893-4e3d-8327-95755a262948"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="16" isBold="true" isUnderline="false"/>
@@ -130,42 +120,28 @@ BEKASI]]></text>
 				<text><![CDATA[MEMERINTAHKAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="309" width="15" height="35" uuid="9b0a07f7-c1b3-4063-a9e3-b0a0f406edf0"/>
+				<reportElement x="100" y="314" width="15" height="40" uuid="9b0a07f7-c1b3-4063-a9e3-b0a0f406edf0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="274" width="420" height="35" uuid="9d24ff5e-f292-43a0-97bf-0ed5f823479b"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan Januati 2017 s/d (Juni 2018) (Tahap I).]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="100" y="274" width="15" height="35" uuid="0f4226b7-195e-4854-86fe-d40e5a0608e8"/>
+				<reportElement x="100" y="274" width="15" height="40" uuid="0f4226b7-195e-4854-86fe-d40e5a0608e8"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="309" width="420" height="35" uuid="816a6c84-bd79-4f4b-914e-e0cecadb7c5e"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<text><![CDATA[20 (Dua Puluh) hari kerja, terhitung sejak Surat Pemberitahuan tentang Pemeriksaan Pajak Daerah diterima oleh Wajib Pajak yang menjadi objek pemeriksaan.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="309" width="100" height="35" uuid="8c07c8ce-eeeb-4846-a2bb-ed7602109cc3"/>
+				<reportElement x="0" y="314" width="100" height="40" uuid="8c07c8ce-eeeb-4846-a2bb-ed7602109cc3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Waktu Pelaksanaan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="274" width="100" height="35" uuid="f62223a4-eee0-4249-a17d-ac37891a92d2"/>
+				<reportElement x="0" y="274" width="100" height="40" uuid="f62223a4-eee0-4249-a17d-ac37891a92d2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -179,7 +155,7 @@ BEKASI]]></text>
 				<text><![CDATA[Kepada]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="344" width="100" height="35" uuid="447905ee-79d2-46f3-8286-780ba456eb08"/>
+				<reportElement x="0" y="354" width="100" height="40" uuid="447905ee-79d2-46f3-8286-780ba456eb08"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -200,14 +176,7 @@ BEKASI]]></text>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="344" width="420" height="35" uuid="bb51856a-4f5f-4d48-8d01-fa7279c8c180"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[APBD Tahun Anggaran 2018 Nomor : 915.4 / Kep.721-Adm.Pemb / 2017 Tanggal 29 Desember 2017]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="100" y="344" width="15" height="35" uuid="668d2e36-0aa6-4f6e-8cbb-703cb9dc9380"/>
+				<reportElement x="100" y="354" width="15" height="40" uuid="668d2e36-0aa6-4f6e-8cbb-703cb9dc9380"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -270,7 +239,7 @@ BEKASI]]></text>
 				<text><![CDATA[Terlampir ;]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="387" width="535" height="25" uuid="3fa048f4-bf5c-4fac-83ee-1dd673b393f2"/>
+				<reportElement x="0" y="397" width="535" height="25" uuid="3fa048f4-bf5c-4fac-83ee-1dd673b393f2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
@@ -290,20 +259,6 @@ KABUPATEN BEKASI]]></text>
 					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</graphicElement>
 			</line>
-			<staticText>
-				<reportElement x="275" y="575" width="260" height="18" uuid="a05a4876-71f5-41c8-8351-59953cb42517"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Pembina Utama Muda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="275" y="557" width="260" height="18" uuid="4edf1e74-3ea2-4e8f-8cd0-1cfdaa1530b3"/>
-				<textElement textAlignment="Left" verticalAlignment="Bottom">
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
-				</textElement>
-				<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="275" y="450" width="78" height="18" uuid="d1ec0cf3-ceeb-438f-bada-2ff8307ec8f3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -333,27 +288,6 @@ KABUPATEN BEKASI]]></text>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="368" y="432" width="167" height="18" uuid="5d14c7a8-3006-4500-9e5f-08f001ccc8ca"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Bekasi]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="368" y="450" width="167" height="18" uuid="d5a9428e-0e29-45d1-a552-6cff92c0851b"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[6 November 2018]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="274" y="593" width="260" height="18" uuid="987c768e-66d4-4db0-be97-76c30467f124"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[NIP. 19631206 199203 1 007]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="0" y="662" width="275" height="18" uuid="c5abe794-d684-4dcf-9080-de0750d43495"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="10" isBold="false"/>
@@ -381,6 +315,90 @@ KABUPATEN BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[3. Yth. Badan Kepegawaian, Pendidikan, dan Pelatihan Daerah]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="0" y="32" width="535" height="30" uuid="7b812b0c-e666-4c3d-ac4f-af441684721f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nomor : 800 / " + $P{nomor_surat} + " / Bapenda"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="62" width="420" height="50" uuid="b68196f3-56dd-4a84-9b10-37181a80babe"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Surat Keputusan Bupati Nomor : " + $P{dasar_nomor} + " tanggal " + $P{dasar_tanggal} + " tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran " + $P{dasar_tahun_anggaran} + "."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="112" width="420" height="20" uuid="4bcce249-9dff-4543-94d3-9c8d91156d94"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_perintah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="132" width="420" height="20" uuid="ea6f589f-9d8c-4476-9f84-e48e0cd31dce"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jabatan_perintah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="274" width="420" height="40" uuid="825ab430-d0b2-4922-ace4-306f925b1c28"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan " + $P{masa_pajak_awal} + " s/d " + $P{masa_pajak_akhir} + "(Tahap " + $P{tahap_ke}  + "."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="314" width="420" height="40" uuid="ee47c4ba-80a3-43f7-95f0-37a60a2f8037"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lama_pelaksanaan} + " hari kerja, terhitung sejak Surat Pemberitahuan tentang Pemeriksaan Pajak Daerah diterima oleh Wajib Pajak yang menjadi objek pemeriksaan."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="354" width="420" height="40" uuid="8c9d4d91-37cc-4fd9-855e-25fd04f7dc91"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["APBD Tahun Anggaran " + $P{biaya_tahun_apbd} + Nomor : " + $P{biaya_nomor_apbd} + " Tanggal " + $P{biaya_tanggal_apbd} + "."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="432" width="167" height="18" uuid="2837159f-3b4f-4fc0-948a-d83cbbbd0c84"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ditetapkan_di}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="452" width="167" height="16" uuid="123d26a1-f3a2-4fc9-a0c4-7bf145022d42"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tanggal_pengesahan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="556" width="260" height="18" uuid="0572c029-d29a-4c96-883b-6a7ab94d07b7"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{penandatangan}.getNamaPegawai()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="574" width="260" height="18" uuid="4b75c123-731f-48e7-b39b-ce591ae4acf4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{penandatangan}.getGolongan()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="592" width="260" height="18" uuid="99dce55a-c39e-49bb-b85d-385fd53ea3fb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan}.getNipPegawai()]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 </jasperReport>
