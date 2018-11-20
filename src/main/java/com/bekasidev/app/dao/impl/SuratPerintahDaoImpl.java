@@ -32,6 +32,8 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(15, suratPerintah.getMasaPajakAkhir());
 
             pstm.executeUpdate();
+
+            setTim(suratPerintah.getListTim());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,18 +72,22 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
     }
 
     @Override
-    public void setTim(TimSP timSP) {
+    public void setTim(List<TimSP> timSP) {
         String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?)";
-
+        for(int i = 1; i < timSP.size(); i++)
+            sql += ",(?,?,?,?,?,?)";
+        int i = 0;
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, timSP.getIdSP());
-            pstm.setString(2, setPegawaiToString(timSP.getPenanggungJawab()));
-            pstm.setString(3, setPegawaiToString(timSP.getSupervisor()));
-            pstm.setString(4, timSP.getNamaTim());
-            pstm.setString(5, setListPegawaiToString(timSP.getListAnggota()));
-            pstm.setString(6, setListWPTpString(timSP.getListWP()));
-
+            for(TimSP tim : timSP){
+                pstm.setString(i+1, tim.getIdSP());
+                pstm.setString(i+2, setPegawaiToString(tim.getPenanggungJawab()));
+                pstm.setString(i+3, setPegawaiToString(tim.getSupervisor()));
+                pstm.setString(i+4, tim.getNamaTim());
+                pstm.setString(i+5, setListPegawaiToString(tim.getListAnggota()));
+                pstm.setString(i+6, setListWPTpString(tim.getListWP()));
+                i += 6;
+            }
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -136,6 +142,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         suratPerintah.setLamaPelaksanaan(rs.getString("lama_pelaksanaan"));
         suratPerintah.setTempat(rs.getString("tempat"));
         suratPerintah.setTanggalSurat(rs.getString("tanggal_surat"));
+        suratPerintah.setListTim(getListTim(suratPerintah.getIdSP()));
 
         return suratPerintah;
     }
