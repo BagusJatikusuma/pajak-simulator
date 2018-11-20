@@ -7,12 +7,23 @@ package com.bekasidev.app.viewfx.javafxapplication.master;
 
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
+import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
+import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
+import com.bekasidev.app.viewfx.javafxapplication.content.pajakrestoran.PajakRestoranUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -75,6 +86,13 @@ public class MasterWajibPajakUIController implements Initializable {
         stage.setTitle("Form tambah WP");
         stage.setScene(new Scene(formTambahWP));
         stage.show();
+    }
+    
+    public void cariWP() {
+        System.out.println("Huut");
+        ReportService reportService = new ReportServiceImpl();
+//        reportService.createSuratPerintah();
+        reportService.createDaftarPetugasPemeriksa();
     }
     
     private void addFromFXML() {

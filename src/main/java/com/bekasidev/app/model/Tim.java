@@ -10,6 +10,9 @@ public class Tim {
         this.namaTim = namaTim;
     }
 
+    public Tim() {
+    }
+
     public String getIdTim() {
         return idTim;
     }

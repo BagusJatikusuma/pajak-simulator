@@ -26,6 +26,9 @@ public class Pegawai {
         this.pangkat = pangkat;
     }
 
+    public Pegawai() {
+    }
+
     public String getIdTim() {
         return idTim;
     }
