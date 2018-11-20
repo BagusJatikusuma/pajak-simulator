@@ -154,13 +154,13 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                     + listPegawai.get(0).getNamaPegawai() + "<b>"
                     + listPegawai.get(0).getPangkat() + "<b>"
                     + listPegawai.get(0).getGolongan() + "<b>"
-                    + listPegawai.get(0).getJabatan();
+                    + listPegawai.get(0).getJabatanTim();
             for(int i = 1; i < listPegawai.size(); i++){
                 result += "<p>" + listPegawai.get(i).getNipPegawai() + "<b>"
                         + listPegawai.get(i).getNamaPegawai() + "<b>"
                         + listPegawai.get(i).getPangkat() + "<b>"
                         + listPegawai.get(i).getGolongan() + "<b>"
-                        + listPegawai.get(i).getJabatan();
+                        + listPegawai.get(i).getJabatanTim();
             }
         }
         return result;
@@ -171,7 +171,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 + pegawai.getNamaPegawai() + "<b>"
                 + pegawai.getPangkat() + "<b>"
                 + pegawai.getGolongan() + "<b>"
-                + pegawai.getJabatan();
+                + pegawai.getJabatanTim();
 
         return result;
     }

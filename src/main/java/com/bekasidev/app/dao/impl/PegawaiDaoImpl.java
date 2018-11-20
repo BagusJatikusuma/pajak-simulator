@@ -50,7 +50,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
 
     @Override
     public void createPegawai(Pegawai pegawai) {
-        String sql = "INSERT INTO pegawai VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO pegawai VALUES(?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -58,8 +58,9 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.setString(2, pegawai.getNipPegawai());
             pstm.setString(3, pegawai.getNamaPegawai());
             pstm.setString(4, pegawai.getGolongan());
-            pstm.setString(5, pegawai.getJabatan());
+            pstm.setString(5, pegawai.getJabatanTim());
             pstm.setString(6, pegawai.getPangkat());
+            pstm.setString(7, pegawai.getJabatanDinas());
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -121,6 +122,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
                                         rs.getString("nama_pegawai"),
                                         rs.getString("golongan"),
                                         rs.getString("pangkat"),
-                                        rs.getString("jabatan"));
+                                        rs.getString("jabatan_tim"),
+                                        rs.getString("jabatan_dinas"));
     }
 }

@@ -27,8 +27,8 @@
 	<field name="golongan" class="java.lang.String">
 		<fieldDescription><![CDATA[golongan]]></fieldDescription>
 	</field>
-	<field name="jabatan" class="java.lang.String">
-		<fieldDescription><![CDATA[jabatan]]></fieldDescription>
+	<field name="jabatanTim" class="java.lang.String">
+		<fieldDescription><![CDATA[jabatanTim]]></fieldDescription>
 	</field>
 	<title>
 		<band height="100" splitType="Stretch">
@@ -391,7 +391,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{jabatan}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="66" y="90" width="23" height="20" uuid="c2105f0f-ea34-41e1-8e77-adb0d51e14d5"/>

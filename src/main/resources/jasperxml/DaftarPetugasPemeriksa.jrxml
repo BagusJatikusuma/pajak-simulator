@@ -16,7 +16,7 @@
 		<field name="namaPegawai" class="java.lang.String"/>
 		<field name="pangkat" class="java.lang.String"/>
 		<field name="golongan" class="java.lang.String"/>
-		<field name="jabatan" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="anggota_tim_wp_diperiksa" class="java.lang.String"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
@@ -209,7 +209,7 @@
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textFieldExpression><![CDATA[$F{jabatan}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

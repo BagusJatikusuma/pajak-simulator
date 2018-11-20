@@ -18,13 +18,11 @@ import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
-import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
-import java.awt.Dimension;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -38,15 +36,13 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import net.sf.jasperreports.engine.JRDataSource;
+
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.swing.JRViewer;
@@ -632,7 +628,7 @@ public class ReportServiceImpl implements ReportService {
             penandaTanggan.setNamaPegawai("Rony");
             penandaTanggan.setNipPegawai("123456789");
             penandaTanggan.setGolongan("Expert / VI.a");
-            penandaTanggan.setJabatan("Senior Group");
+            penandaTanggan.setJabatanTim("Senior Group");
             
             dummi.setPenandatangan(penandaTanggan);
             
@@ -641,14 +637,14 @@ public class ReportServiceImpl implements ReportService {
             penanggungJawab.setNamaPegawai("Bagus");
             penanggungJawab.setNipPegawai("69696969");
             penanggungJawab.setGolongan("Java / V.a");
-            penanggungJawab.setJabatan("Senior");
+            penanggungJawab.setJabatanTim("Senior");
             
             Pegawai supervisor = new Pegawai();
             supervisor.setIdTim("");
             supervisor.setNamaPegawai("Sra");
             supervisor.setNipPegawai("121212");
             supervisor.setGolongan("Angular / V.a");
-            supervisor.setJabatan("Senior Angular");
+            supervisor.setJabatanTim("Senior Angular");
             
             Tim tim = new Tim();
             tim.setIdTim("1");
@@ -819,7 +815,7 @@ public class ReportServiceImpl implements ReportService {
             penandaTanggan.setNamaPegawai("Rony");
             penandaTanggan.setNipPegawai("123456789");
             penandaTanggan.setGolongan("Expert / VI.a");
-            penandaTanggan.setJabatan("Senior Group");
+            penandaTanggan.setJabatanTim("Senior Group");
             
             dummi.setPenandatangan(penandaTanggan);
             
@@ -828,14 +824,14 @@ public class ReportServiceImpl implements ReportService {
 //            penanggungJawab.setNamaPegawai("Bagus");
 //            penanggungJawab.setNipPegawai("69696969");
 //            penanggungJawab.setGolongan("Java / V.a");
-//            penanggungJawab.setJabatan("Senior");
+//            penanggungJawab.setJabatanTim("Senior");
 //            
 //            Pegawai supervisor = new Pegawai();
 //            supervisor.setIdTim("");
 //            supervisor.setNamaPegawai("Sra");
 //            supervisor.setNipPegawai("121212");
 //            supervisor.setGolongan("Angular / V.a");
-//            supervisor.setJabatan("Senior Angular");
+//            supervisor.setJabatanTim("Senior Angular");
             
 //            Tim tim = new Tim();
 //            tim.setIdTim("1");
