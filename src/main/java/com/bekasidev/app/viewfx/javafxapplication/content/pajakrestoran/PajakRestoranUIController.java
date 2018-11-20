@@ -34,7 +34,6 @@ import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrappe
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.util.Map;
-import javax.swing.table.DefaultTableModel;
 
 /**
  * FXML Controller class
@@ -105,7 +104,7 @@ public class PajakRestoranUIController implements Initializable {
                             System.out.println(obj.getNamaWajibPajak()+"clicked");
                             //add the data to session object
                             WajibPajakModelView wajibPajak = new WajibPajakModelView();
-                            wajibPajak.setNpwpd(obj.getIdWajibPajak());
+                            wajibPajak.setNpwpd(obj.getNpwpd());
                             wajibPajak.setNamaWP(obj.getNamaWajibPajak());
                             wajibPajak.setAlamatWP(obj.getJalan());
                             wajibPajak.setDesaWP(obj.getDesa());
@@ -135,7 +134,7 @@ public class PajakRestoranUIController implements Initializable {
 
                 dataCollection.add(new PajakRestoranTableWrapper(
                                 String.valueOf(i),
-                                obj.getIdWajibPajak(),
+                                obj.getNpwpd(),
                                 obj.getNamaWajibPajak(),
                                 "0",
                                 obj.getJalan(),

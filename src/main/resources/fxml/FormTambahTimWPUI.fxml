@@ -12,7 +12,7 @@
       <Label layoutX="218.0" layoutY="27.0" text="FORM TAMBAH TIM PEMERIKSA" />
       <Label layoutX="40.0" layoutY="62.0" text="Penanggung jawab" />
       <Button layoutX="425.0" layoutY="577.0" mnemonicParsing="false" onAction="#tambahTimPemeriksaOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
-      <Button fx:id="cancelTambahTimPemeriksaBtn" layoutX="299.0" layoutY="577.0" mnemonicParsing="false" onAction="#canceTambahTimPemeriksalOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+      <Button fx:id="cancelTambahTimPemeriksaBtn" layoutX="299.0" layoutY="577.0" mnemonicParsing="false" onAction="#cancelTambahTimPemeriksalOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
       <ChoiceBox fx:id="pilihPenanggungJawabField" layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="500.0" />
       <ChoiceBox fx:id="pilihSupervisorField" layoutX="40.0" layoutY="144.0" prefHeight="25.0" prefWidth="500.0" />
       <Label layoutX="41.0" layoutY="118.0" text="Supervisor" />

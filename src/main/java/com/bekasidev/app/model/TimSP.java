@@ -3,10 +3,28 @@ package com.bekasidev.app.model;
 import java.util.List;
 
 public class TimSP {
+    private String idSP;
     private Pegawai penanggungJawab;
     private Pegawai supervisor;
     private String namaTim;
     private List<Pegawai> listAnggota;
+    private List<WajibPajak> listWP;
+
+    public String getIdSP() {
+        return idSP;
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP = idSP;
+    }
+
+    public List<WajibPajak> getListWP() {
+        return listWP;
+    }
+
+    public void setListWP(List<WajibPajak> listWP) {
+        this.listWP = listWP;
+    }
 
     public Pegawai getPenanggungJawab() {
         return penanggungJawab;

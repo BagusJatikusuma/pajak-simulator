@@ -58,6 +58,7 @@ public class FormTambahPegawaiUIController implements Initializable {
                             nipField.getText(), 
                             namaField.getText(), 
                             golonganField.getText(),
+                            pangkatField.getText(),
                             "");
             service.createPegawai(pegawai);
             Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");

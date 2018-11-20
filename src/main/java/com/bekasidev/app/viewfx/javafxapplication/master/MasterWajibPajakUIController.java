@@ -25,7 +25,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -149,7 +148,7 @@ public class MasterWajibPajakUIController implements Initializable {
             
             dataCollection.add(new WPMasterTableWrapper(
                             String.valueOf(i),
-                            obj.getIdWajibPajak(),
+                            obj.getNpwpd(),
                             obj.getNamaWajibPajak(),
                             jenisWP,
                             obj.getJalan(),

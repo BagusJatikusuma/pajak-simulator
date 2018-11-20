@@ -194,7 +194,7 @@ public class WPInputFrame extends javax.swing.JFrame {
                 || alamatWPField.getText().equals(""))) {
             
             WajibPajak wajibPajak = new WajibPajak();
-            wajibPajak.setIdWajibPajak(npwpdField.getText());
+            wajibPajak.setNpwpd(npwpdField.getText());
             wajibPajak.setNamaWajibPajak(namaWPField.getText());
             wajibPajak.setJalan(alamatWPField.getText());
             wajibPajak.setDesa(desaWPField.getText());

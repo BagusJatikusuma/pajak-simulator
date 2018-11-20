@@ -2,7 +2,7 @@ package com.bekasidev.app.model;
 
 public class WajibPajak {
 
-    private String idWajibPajak;
+    private String npwpd;
     private String namaWajibPajak;
     private short jenisWp;
     private String jalan;
@@ -12,6 +12,14 @@ public class WajibPajak {
     private String telepon;
     private String fax;
     private String tahunMulaiOperasional;
+
+    public WajibPajak(String npwpd, String namaWajibPajak) {
+        this.npwpd = npwpd;
+        this.namaWajibPajak = namaWajibPajak;
+    }
+
+    public WajibPajak() {
+    }
 
     public String getNamaPemilik() {
         return namaPemilik;
@@ -77,12 +85,12 @@ public class WajibPajak {
         this.desa = desa;
     }
 
-    public String getIdWajibPajak() {
-        return idWajibPajak;
+    public String getNpwpd() {
+        return npwpd;
     }
 
-    public void setIdWajibPajak(String idWajibPajak) {
-        this.idWajibPajak = idWajibPajak;
+    public void setNpwpd(String npwpd) {
+        this.npwpd = npwpd;
     }
 
     public String getNamaWajibPajak() {

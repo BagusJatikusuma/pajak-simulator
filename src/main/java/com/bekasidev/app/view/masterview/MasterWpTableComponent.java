@@ -7,18 +7,14 @@ package com.bekasidev.app.view.masterview;
 
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
-import com.bekasidev.app.view.pajakrestoranview.FormPersiapanRestoranFrame;
 import com.bekasidev.app.view.tablecomponent.ButtonColumn;
 import com.bekasidev.app.view.tablecomponent.GroupableTableHeader;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
-import com.bekasidev.app.view.util.SessionProvider;
-import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
-import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
-import java.util.Map;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JPanel;
@@ -79,7 +75,7 @@ public class MasterWpTableComponent extends JPanel {
             }
             dtm.addRow(new Object[] {
                 index++,
-                obj.getIdWajibPajak(), 
+                obj.getNpwpd(),
                 obj.getNamaWajibPajak(),
                 obj.getJalan(),
                 obj.getDesa(),

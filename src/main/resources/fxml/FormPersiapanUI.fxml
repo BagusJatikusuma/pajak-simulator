@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="formTambahPersiapanRoot" prefHeight="652.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
+<VBox fx:id="formDokumenPersiapanPane" prefHeight="652.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
    <children>
       <AnchorPane fx:id="formPersiapanHead" prefHeight="49.0" prefWidth="574.0">
          <children>

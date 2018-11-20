@@ -59,7 +59,7 @@ public class RestaurantTableComponent extends JPanel {
         List<WajibPajak> wajibPajaks = service.getAllWP();
         
         for (WajibPajak obj : wajibPajaks) {
-            dtm.addRow(new Object[] {obj.getIdWajibPajak(), obj.getNamaWajibPajak(), "delete","pilih"});
+            dtm.addRow(new Object[] {obj.getNpwpd(), obj.getNamaWajibPajak(), "delete","pilih"});
         }
         
         Action delete = new AbstractAction() {

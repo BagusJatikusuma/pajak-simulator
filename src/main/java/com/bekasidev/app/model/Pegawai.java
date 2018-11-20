@@ -6,14 +6,24 @@ public class Pegawai {
     private String nipPegawai;
     private String namaPegawai;
     private String golongan;
+    private String pangkat;
     private String jabatan;
 
-    public Pegawai(String idTim, String nipPegawai, String namaPegawai, String golongan, String jabatan) {
+    public String getPangkat() {
+        return pangkat;
+    }
+
+    public void setPangkat(String pangkat) {
+        this.pangkat = pangkat;
+    }
+
+    public Pegawai(String idTim, String nipPegawai, String namaPegawai, String golongan, String pangkat, String jabatan) {
         this.idTim = idTim;
         this.nipPegawai = nipPegawai;
         this.namaPegawai = namaPegawai;
         this.golongan = golongan;
         this.jabatan = jabatan;
+        this.pangkat = pangkat;
     }
 
     public Pegawai() {
@@ -62,6 +72,11 @@ public class Pegawai {
     @Override
     public String toString() {
         return this.getNamaPegawai();
+    }
+    
+    public boolean compareIdTo(Pegawai obj) {
+        if (this.getNipPegawai().equals(obj.getNipPegawai())) return true;
+        return false;
     }
     
 }
