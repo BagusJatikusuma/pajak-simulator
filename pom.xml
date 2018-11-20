@@ -88,11 +88,11 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
-    <dependency>
+<!--    <dependency>
         <groupId>com.itext</groupId>
 	<artifactId>itext</artifactId>
 	<version>2.1.7</version>
-    </dependency>
+    </dependency>-->
 <!--    <dependency>
         <groupId>com.itextpdf</groupId>
 	<artifactId>itextpdf</artifactId>

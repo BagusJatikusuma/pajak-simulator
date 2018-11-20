@@ -161,14 +161,6 @@ public class ReportServiceImpl implements ReportService {
                 = (PersiapanPajakPOJO)SessionProvider
                         .getPajakMapSession()
                         .get("persiapan_pajak_restoran");
-            
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
-            persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims().add(new Pegawai("01", "141511058", "RONY NATA", "IV.a", "PROGRAMMER"));
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(persiapanPajakPOJO.getTimPemeriksa().getAnggotaTims());

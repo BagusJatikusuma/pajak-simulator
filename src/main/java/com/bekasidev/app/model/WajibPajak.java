@@ -18,6 +18,9 @@ public class WajibPajak {
         this.namaWajibPajak = namaWajibPajak;
     }
 
+    public WajibPajak() {
+    }
+
     public String getNamaPemilik() {
         return namaPemilik;
     }

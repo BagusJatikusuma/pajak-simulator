@@ -11,7 +11,7 @@ import java.util.List;
 public class SuratPerintahDaoImpl implements SuratPerintahDao {
     @Override
     public void createSuratPerintah(SuratPerintah suratPerintah) {
-        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -24,11 +24,12 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setInt(7, suratPerintah.getTahunAnggatan());
             pstm.setString(8, suratPerintah.getNamaPemberi());
             pstm.setString(9, suratPerintah.getJabatanPemberi());
-            pstm.setString(10, suratPerintah.getMasaPajak());
+            pstm.setString(10, suratPerintah.getMasaPajakAwal());
             pstm.setShort(11, suratPerintah.getTahap());
             pstm.setString(12, suratPerintah.getLamaPelaksanaan());
             pstm.setString(13, suratPerintah.getTempat());
             pstm.setString(14, suratPerintah.getTanggalSurat());
+            pstm.setString(15, suratPerintah.getMasaPajakAkhir());
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -129,8 +130,9 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         suratPerintah.setTahunAnggatan(rs.getInt("tahun_anggaran"));
         suratPerintah.setNamaPemberi(rs.getString("nama_pemberi"));
         suratPerintah.setJabatanPemberi(rs.getString("jabatan_pemberi"));
-        suratPerintah.setMasaPajak(rs.getString(rs.getString("masa_pajak")));
-        suratPerintah.setTahap(rs.getShort("masa_pajak"));
+        suratPerintah.setMasaPajakAwal(rs.getString(rs.getString("masa_pajak_awal")));
+        suratPerintah.setMasaPajakAkhir(rs.getString("masa_pajak_akhir"));
+        suratPerintah.setTahap(rs.getShort("tahap"));
         suratPerintah.setLamaPelaksanaan(rs.getString("lama_pelaksanaan"));
         suratPerintah.setTempat(rs.getString("tempat"));
         suratPerintah.setTanggalSurat(rs.getString("tanggal_surat"));

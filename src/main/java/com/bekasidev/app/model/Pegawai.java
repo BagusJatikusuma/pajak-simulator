@@ -71,4 +71,9 @@ public class Pegawai {
         return this.getNamaPegawai();
     }
     
+    public boolean compareIdTo(Pegawai obj) {
+        if (this.getNipPegawai().equals(obj.getNipPegawai())) return true;
+        return false;
+    }
+    
 }

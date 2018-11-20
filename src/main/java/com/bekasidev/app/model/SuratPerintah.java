@@ -12,12 +12,21 @@ public class SuratPerintah {
     private int tahunAnggatan;
     private String namaPemberi;
     private String jabatanPemberi;
-    private String masaPajak;
+    private String masaPajakAwal;
+    private String masaPajakAkhir;
     private short tahap;
     private String lamaPelaksanaan;
     private String tempat;
     private String tanggalSurat;
     private List<TimSP> listTim;
+
+    public String getMasaPajakAkhir() {
+        return masaPajakAkhir;
+    }
+
+    public void setMasaPajakAkhir(String masaPajakAkhir) {
+        this.masaPajakAkhir = masaPajakAkhir;
+    }
 
     public List<TimSP> getListTim() {
         return listTim;
@@ -107,12 +116,12 @@ public class SuratPerintah {
         this.jabatanPemberi = jabatanPemberi;
     }
 
-    public String getMasaPajak() {
-        return masaPajak;
+    public String getMasaPajakAwal() {
+        return masaPajakAwal;
     }
 
-    public void setMasaPajak(String masaPajak) {
-        this.masaPajak = masaPajak;
+    public void setMasaPajakAwal(String masaPajakAwal) {
+        this.masaPajakAwal = masaPajakAwal;
     }
 
     public short getTahap() {
