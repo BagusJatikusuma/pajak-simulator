@@ -7,13 +7,19 @@ package com.bekasidev.app.service.reportservice.reportserviceimpl;
 
 import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.Pegawai;
+import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.WP;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
+import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -605,6 +611,90 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public void createSuratPerintah() {
         try {
+            //data dummi
+            PersiapanWrapper dummi = new PersiapanWrapper();
+        
+            dummi.setNomorSurat("505");
+            dummi.setTanggalPengesahan(new Date());
+            dummi.setDasarNomor("254/1564/Bugpabn");
+            dummi.setDasarTanggal(new Date());
+            dummi.setDasarTahunAnggaran("2017");
+            dummi.setNama("Bayu Arafli");
+            dummi.setJabatan("Pelajar");
+            
+            dummi.setMasaPajakAwalBulan(0);
+            dummi.setMasaPajakAwalTahun(2017);
+            dummi.setMasaPajakAkhirbulan(11);
+            dummi.setMasaPajakAkhirTahun(2017);
+            dummi.setTahapKe(1);
+            
+            dummi.setLamaPelaksanaan(10);
+            dummi.setBiayaNomorAPBD("214/145/13544");
+            dummi.setBiayaTahunAPBD(2017);
+            dummi.setBiayaTanggalAPBD(new Date());
+            
+            dummi.setDitetapkanDi("Cimahi");
+            
+            Pegawai penandaTanggan = new Pegawai();
+            penandaTanggan.setIdTim("");
+            penandaTanggan.setNamaPegawai("Rony");
+            penandaTanggan.setNipPegawai("123456789");
+            penandaTanggan.setGolongan("Expert / VI.a");
+            penandaTanggan.setJabatan("Senior Group");
+            
+            dummi.setPenandatangan(penandaTanggan);
+            
+            Pegawai penanggungJawab = new Pegawai();
+            penanggungJawab.setIdTim("");
+            penanggungJawab.setNamaPegawai("Bagus");
+            penanggungJawab.setNipPegawai("69696969");
+            penanggungJawab.setGolongan("Java / V.a");
+            penanggungJawab.setJabatan("Senior");
+            
+            Pegawai supervisor = new Pegawai();
+            supervisor.setIdTim("");
+            supervisor.setNamaPegawai("Sra");
+            supervisor.setNipPegawai("121212");
+            supervisor.setGolongan("Angular / V.a");
+            supervisor.setJabatan("Senior Angular");
+            
+            Tim tim = new Tim();
+            tim.setIdTim("1");
+            tim.setNamaTim("Tim 1");
+            
+            WajibPajak wp = new WajibPajak();
+            wp.setIdWajibPajak("wp1");
+            wp.setNamaWajibPajak("KALEYOS");
+            wp.setJenisWp((short) 0);
+            wp.setJalan("Karang Asih II");
+            wp.setKecamatan("Karang Bunga");
+            wp.setDesa("Bunga");
+            wp.setNamaPemilik("Ucok");
+            wp.setTelepon("0812345678");
+            wp.setFax("08254684");
+            wp.setTahunMulaiOperasional("2015");
+            
+            List<WajibPajak> wajibPajak = new ArrayList<WajibPajak>();
+            wajibPajak.add(wp);
+            
+//            dummi.getTimWPWrappers().add(new TimWPWrapper(
+//                    penanggungJawab,
+//                    supervisor,
+//                    tim,
+//                    wajibPajak
+//            ));
+//            dummi.getTimWPWrappers().add(new TimWPWrapper(
+//                    penanggungJawab,
+//                    supervisor,
+//                    tim,
+//                    wajibPajak
+//            ));
+            
+            
+            
+            
+            //data dummi
+            
             HashMap<String, Object> parameters = new HashMap<String, Object>();
             String jasperPathFile = "file:///D://SuratPerintah.jasper";
             String jrxmlPathFile = "D://SuratPerintah.jrxml";
@@ -625,6 +715,9 @@ public class ReportServiceImpl implements ReportService {
                         .getPajakMapSession()
                         .get("persiapan_wrapper");
             
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(dummi.getTimWPWrappers());
+            
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
@@ -633,33 +726,290 @@ public class ReportServiceImpl implements ReportService {
             DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
 
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            parameter.put("tanggal_pengesahan", df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("nomor_surat", dummi.getNomorSurat());
+            parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(dummi.getTanggalPengesahan())));
             
-            parameter.put("dasar_nomor", persiapanWrapper.getDasarNomor());
-            parameter.put("dasar_tanggal", df_dasar_tanggal.format(persiapanWrapper.getDasarTanggal()));
-            parameter.put("dasar_tahun_anggaran", persiapanWrapper.getDasarTahunAnggaran());
-            parameter.put("nama_perintah", persiapanWrapper.getNama());
-            parameter.put("jabatan_perintah", persiapanWrapper.getJabatan());
-            parameter.put("masa_pajak_awal", persiapanWrapper.getMasaPajakAwalBulan()
-                    + " " + persiapanWrapper.getMasaPajakAwalTahun());
-            parameter.put("masa_pajak_akhir", persiapanWrapper.getMasaPajakAkhirbulan()
-                    + " " + persiapanWrapper.getMasaPajakAkhirTahun());
-            parameter.put("tahap_ke", persiapanWrapper.getTahapKe());
-            parameter.put("lama_pelaksanaan", persiapanWrapper.getLamaPelaksanaan());
-            parameter.put("biaya_tahun_apbed", persiapanWrapper.getBiayaTahunAPBD());
-            parameter.put("biaya_nomor_apbed", persiapanWrapper.getBiayaNomorAPBD());
-            parameter.put("biaya_tanggal_apbed", df_biaya_tanggal_apbd.format(persiapanWrapper.getBiayaTanggalAPBD()));
-            parameter.put("ditetapkan_di", persiapanWrapper.getDitetapkanDi());
-            parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
+            parameter.put("dasar_nomor", dummi.getDasarNomor());
+            parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(dummi.getDasarTanggal())));
+            parameter.put("dasar_tahun_anggaran", dummi.getDasarTahunAnggaran());
+            parameter.put("nama_perintah", dummi.getNama());
+            parameter.put("jabatan_perintah", dummi.getJabatan());
+            parameter.put("masa_pajak_awal", String.valueOf(dummi.getMasaPajakAwalBulan())
+                    + " " + String.valueOf(dummi.getMasaPajakAwalTahun()));
+            parameter.put("masa_pajak_akhir", String.valueOf(dummi.getMasaPajakAkhirbulan())
+                    + " " + String.valueOf(dummi.getMasaPajakAkhirTahun()));
+            parameter.put("tahap_ke", String.valueOf(dummi.getTahapKe()));
+            parameter.put("lama_pelaksanaan", String.valueOf(dummi.getLamaPelaksanaan()));
+            parameter.put("biaya_tahun_apbd", String.valueOf(dummi.getBiayaTahunAPBD()));
+            parameter.put("biaya_nomor_apbd", dummi.getBiayaNomorAPBD());
+            parameter.put("biaya_tanggal_apbd", String.valueOf(df_biaya_tanggal_apbd.format(dummi.getBiayaTanggalAPBD())));
+            parameter.put("ditetapkan_di", dummi.getDitetapkanDi());
+            parameter.put("penandatangan", dummi.getPenandatangan());
+
+//            parameter.put("nomor_surat", "jd");
+//            parameter.put("tanggal_pengesahan", "ds");
+//            
+//            parameter.put("dasar_nomor", "ss");
+//            parameter.put("dasar_tanggal", "ss");
+//            parameter.put("dasar_tahun_anggaran", "ss");
+//            parameter.put("nama_perintah", "ss");
+//            parameter.put("jabatan_perintah", "ss");
+//            parameter.put("masa_pajak_awal", "ss");
+//            parameter.put("masa_pajak_akhir", "ss");
+//            parameter.put("tahap_ke", "ss");
+//            parameter.put("lama_pelaksanaan", "ss");
+//            parameter.put("biaya_tahun_apbed", "ss");
+//            parameter.put("biaya_nomor_apbed", "ss");
+//            parameter.put("biaya_tanggal_apbed", "ss");
+//            parameter.put("ditetapkan_di", "ss");
+//            parameter.put("penandatangan", dummi.getPenandatangan());
+            
             
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter);
+                    parameter,
+                    beanColDataSource);
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPerintah.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (Exception ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createDaftarPetugasPemeriksa() {
+        try {
+            //data dummi
+            PersiapanWrapperJasper dummi = new PersiapanWrapperJasper();
+        
+            dummi.setNomorSurat("505");
+            dummi.setTanggalPengesahan(new Date());
+            dummi.setDasarNomor("254/1564/Bugpabn");
+            dummi.setDasarTanggal(new Date());
+            dummi.setDasarTahunAnggaran("2017");
+            dummi.setNama("Bayu Arafli");
+            dummi.setJabatan("Pelajar");
+            
+            dummi.setMasaPajakAwalBulan(0);
+            dummi.setMasaPajakAwalTahun(2017);
+            dummi.setMasaPajakAkhirbulan(11);
+            dummi.setMasaPajakAkhirTahun(2017);
+            dummi.setTahapKe(1);
+            
+            dummi.setLamaPelaksanaan(10);
+            dummi.setBiayaNomorAPBD("214/145/13544");
+            dummi.setBiayaTahunAPBD(2017);
+            dummi.setBiayaTanggalAPBD(new Date());
+            
+            dummi.setDitetapkanDi("Cimahi");
+            
+            Pegawai penandaTanggan = new Pegawai();
+            penandaTanggan.setIdTim("");
+            penandaTanggan.setNamaPegawai("Rony");
+            penandaTanggan.setNipPegawai("123456789");
+            penandaTanggan.setGolongan("Expert / VI.a");
+            penandaTanggan.setJabatan("Senior Group");
+            
+            dummi.setPenandatangan(penandaTanggan);
+            
+//            Pegawai penanggungJawab = new Pegawai();
+//            penanggungJawab.setIdTim("");
+//            penanggungJawab.setNamaPegawai("Bagus");
+//            penanggungJawab.setNipPegawai("69696969");
+//            penanggungJawab.setGolongan("Java / V.a");
+//            penanggungJawab.setJabatan("Senior");
+//            
+//            Pegawai supervisor = new Pegawai();
+//            supervisor.setIdTim("");
+//            supervisor.setNamaPegawai("Sra");
+//            supervisor.setNipPegawai("121212");
+//            supervisor.setGolongan("Angular / V.a");
+//            supervisor.setJabatan("Senior Angular");
+            
+//            Tim tim = new Tim();
+//            tim.setIdTim("1");
+//            tim.setNamaTim("Tim 1");
+            
+            AnggotaDanWajibPajakWrapper wp1 = new AnggotaDanWajibPajakWrapper();
+            wp1.setIdWajibPajak("wp1");
+            wp1.setNamaWajibPajak("KALEYOS");
+            wp1.setJenisWp((short) 0);
+            wp1.setIdTim("1");
+            wp1.setNipPegawai("789456123");
+            wp1.setNamaPegawai("Dadang Konelo");
+            wp1.setPangkat("Komandam");
+            wp1.setGolongan("Teratas");
+            wp1.setJabatan("Bintang");
+            
+            AnggotaDanWajibPajakWrapper wp2 = new AnggotaDanWajibPajakWrapper();
+            wp2.setIdWajibPajak("wp2");
+            wp2.setNamaWajibPajak("BANGUS");
+            wp2.setJenisWp((short) 0);
+            wp2.setIdTim("1");
+            wp2.setNipPegawai("987564213");
+            wp2.setNamaPegawai("Bazid");
+            wp2.setPangkat("Jendral");
+            wp2.setGolongan("Tertengah");
+            wp2.setJabatan("Kadet");
+            
+            List<AnggotaDanWajibPajakWrapper> wajibPajak = new ArrayList<AnggotaDanWajibPajakWrapper>();
+            List<AnggotaDanWajibPajakWrapper> wajibPajak2 = new ArrayList<AnggotaDanWajibPajakWrapper>();
+            wajibPajak.add(wp1);
+            wajibPajak.add(wp2);
+            wajibPajak2.add(wp2);
+            
+//            dummi.getTimWPWrappers().add(new TimWPWrapper(
+//                    penanggungJawab,
+//                    supervisor,
+//                    tim,
+//                    wajibPajak
+//            ));
+//            dummi.getTimWPWrappers().add(new TimWPWrapper(
+//                    penanggungJawab,
+//                    supervisor,
+//                    tim,
+//                    wajibPajak
+//            ));
+
+            dummi.getTimWPWrapperJaspers().add(new TimWPWrapperJasper(
+                    "123456789",
+                    "Bayu Arafli",
+                    "Jendral",
+                    "TI.VIa",
+                    "Junior",
+                    "245124",
+                    "Bambang",
+                    "Komandan",
+                    "I.Va",
+                    "Senior",
+                    "Tim 1",
+                    wajibPajak
+            ));
+            dummi.getTimWPWrapperJaspers().add(new TimWPWrapperJasper(
+                    "123456789",
+                    "Nata BAKA",
+                    "Jendral",
+                    "TI.VIa",
+                    "Junior",
+                    "245124",
+                    "BAKA BAKA",
+                    "Komandan",
+                    "I.Va",
+                    "Senior",
+                    "Tim 2",
+                    wajibPajak2
+            ));
+            
+            
+            
+            
+            //data dummi
+            
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://DaftarPetugasPemeriksa.jasper";
+            String jrxmlPathFile = "D://DaftarPetugasPemeriksa.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_wrapper");
+            
+            JRBeanCollectionDataSource beanColDataSourceWp1 =
+            new JRBeanCollectionDataSource(dummi.getTimWPWrapperJaspers().get(0).getWajibPajaks());
+            dummi.getTimWPWrapperJaspers().get(0).setWajibPajakJasper(beanColDataSourceWp1);
+            
+            JRBeanCollectionDataSource beanColDataSourceWp2 =
+            new JRBeanCollectionDataSource(dummi.getTimWPWrapperJaspers().get(1).getWajibPajaks());
+            dummi.getTimWPWrapperJaspers().get(1).setWajibPajakJasper(beanColDataSourceWp2);
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(dummi.getTimWPWrapperJaspers());
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
+
+            parameter.put("nomor_surat", dummi.getNomorSurat());
+            parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(dummi.getTanggalPengesahan())));
+            
+            parameter.put("dasar_nomor", dummi.getDasarNomor());
+            parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(dummi.getDasarTanggal())));
+            parameter.put("dasar_tahun_anggaran", dummi.getDasarTahunAnggaran());
+            parameter.put("nama_perintah", dummi.getNama());
+            parameter.put("jabatan_perintah", dummi.getJabatan());
+            parameter.put("masa_pajak_awal", String.valueOf(dummi.getMasaPajakAwalBulan())
+                    + " " + String.valueOf(dummi.getMasaPajakAwalTahun()));
+            parameter.put("masa_pajak_akhir", String.valueOf(dummi.getMasaPajakAkhirbulan())
+                    + " " + String.valueOf(dummi.getMasaPajakAkhirTahun()));
+            parameter.put("tahap_ke", String.valueOf(dummi.getTahapKe()));
+            parameter.put("lama_pelaksanaan", String.valueOf(dummi.getLamaPelaksanaan()));
+            parameter.put("biaya_tahun_apbd", String.valueOf(dummi.getBiayaTahunAPBD()));
+            parameter.put("biaya_nomor_apbd", dummi.getBiayaNomorAPBD());
+            parameter.put("biaya_tanggal_apbd", String.valueOf(df_biaya_tanggal_apbd.format(dummi.getBiayaTanggalAPBD())));
+            parameter.put("ditetapkan_di", dummi.getDitetapkanDi());
+            parameter.put("penandatangan", dummi.getPenandatangan());
+            
+//            parameter.put("nomor_surat", "jd");
+//            parameter.put("tanggal_pengesahan", "ds");
+//            
+//            parameter.put("dasar_nomor", "ss");
+//            parameter.put("dasar_tanggal", "ss");
+//            parameter.put("dasar_tahun_anggaran", "ss");
+//            parameter.put("nama_perintah", "ss");
+//            parameter.put("jabatan_perintah", "ss");
+//            parameter.put("masa_pajak_awal", "ss");
+//            parameter.put("masa_pajak_akhir", "ss");
+//            parameter.put("tahap_ke", "ss");
+//            parameter.put("lama_pelaksanaan", "ss");
+//            parameter.put("biaya_tahun_apbed", "ss");
+//            parameter.put("biaya_nomor_apbed", "ss");
+//            parameter.put("biaya_tanggal_apbed", "ss");
+//            parameter.put("ditetapkan_di", "ss");
+//            parameter.put("penandatangan", dummi.getPenandatangan());
+            
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/DaftarPetugasPemeriksa.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);

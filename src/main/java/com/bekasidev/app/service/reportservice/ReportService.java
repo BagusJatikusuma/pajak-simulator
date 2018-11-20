@@ -18,5 +18,6 @@ public interface ReportService {
     void createPersiapanPajakParkirReport();
     void createPersiapanDokumenPinjaman();
     void createSuratPerintah();
+    void createDaftarPetugasPemeriksa();
     
 }
