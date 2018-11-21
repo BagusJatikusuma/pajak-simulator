@@ -24,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -34,6 +35,7 @@ import javafx.stage.Stage;
  */
 public class FormTambahAnggotaTimUIController implements Initializable {
     @FXML private ChoiceBox calonAnggotaField;
+    @FXML private TextField jabatanDalamTimField;
     private PegawaiService service;
     private ObservableList<Pegawai> pegawaiChoiceBox;
     

@@ -7,14 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="formDokumenPersiapanPane" prefHeight="652.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
-   <children>
-      <AnchorPane fx:id="formPersiapanHead" prefHeight="49.0" prefWidth="574.0">
-         <children>
-            <Label layoutX="208.0" layoutY="16.0" text="FORM DOKUMEN PERSIAPAN" />
-         </children>
-      </AnchorPane>
-<!--      <AnchorPane fx:id="formPersiapanContent" prefHeight="610.0" prefWidth="574.0">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanContentUIController">
+    <stylesheets>
+        <URL value="@/styles/formpersiapancontentui.css"/>
+    </stylesheets>
+    <AnchorPane fx:id="formPersiapanContent" prefHeight="610.0" prefWidth="574.0">
          <children>
             <TextField fx:id="masaPajakAwalTahun" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
             <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="41.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
@@ -47,6 +44,5 @@
             <Button layoutX="418.0" layoutY="551.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="next" />
             <Button fx:id="cancelBtn" layoutX="287.0" layoutY="551.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="cancel" />
          </children>
-      </AnchorPane>-->
-   </children>
-</VBox>
+      </AnchorPane>
+</AnchorPane>

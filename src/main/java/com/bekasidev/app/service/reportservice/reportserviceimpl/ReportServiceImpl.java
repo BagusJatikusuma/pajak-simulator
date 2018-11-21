@@ -651,7 +651,7 @@ public class ReportServiceImpl implements ReportService {
             tim.setNamaTim("Tim 1");
             
             WajibPajak wp = new WajibPajak();
-            wp.setIdWajibPajak("wp1");
+            wp.setNpwpd("wp1");
             wp.setNamaWajibPajak("KALEYOS");
             wp.setJenisWp((short) 0);
             wp.setJalan("Karang Asih II");
