@@ -51,10 +51,11 @@ public class FormTambahAnggotaTimUIController implements Initializable {
 
     public void tambahOperation() {
         if (!calonAnggotaField.getValue().equals("")) {
+            System.out.println("save pegawai to tim");
             Pegawai obj = (Pegawai) calonAnggotaField.getSelectionModel().getSelectedItem();
             String idTim = (String) SessionProvider.getSessionAturAnggotaTimUIMap()
                     .get("selected_tim");
-            service.setPegawaiTim(obj.getNipPegawai(), idTim);
+            service.setPegawaiTim(obj.getNipPegawai(), jabatanDalamTimField.getText(), idTim);
             
             Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
             rootpane.getChildren().remove(1);

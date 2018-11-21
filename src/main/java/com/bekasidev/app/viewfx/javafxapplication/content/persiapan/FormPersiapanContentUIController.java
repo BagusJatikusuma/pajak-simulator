@@ -55,6 +55,7 @@ public class FormPersiapanContentUIController implements Initializable {
     @FXML private TextField ditetapkanDiField;
     @FXML private DatePicker tanggalPengesahanField;
     @FXML private TextField nomorSuratField;
+    @FXML private TextField lamaPelaksanaanField;
     
     @FXML private Button cancelBtn;
     private PegawaiService service;
@@ -100,6 +101,7 @@ public void cancelOperation() {
         persiapanWrapper.setDitetapkanDi(ditetapkanDiField.getText());
         persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(lamaPelaksanaanField.getText()));
         
         //tampilan selanjutnya
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
@@ -175,6 +177,7 @@ public void cancelOperation() {
             ditetapkanDiField.setText(persiapanWrapper.getDitetapkanDi());
             tanggalPengesahanField.setValue(persiapanWrapper.getTanggalPengesahan().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             nomorSuratField.setText(persiapanWrapper.getNomorSurat());
+            lamaPelaksanaanField.setText(String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
             
         }
         //jika pertama kali membuat dokumen

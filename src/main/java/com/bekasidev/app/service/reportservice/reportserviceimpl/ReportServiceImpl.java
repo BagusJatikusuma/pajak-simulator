@@ -20,6 +20,7 @@ import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
 
 import java.io.File;
@@ -778,7 +779,7 @@ public class ReportServiceImpl implements ReportService {
                         wp.setNamaPegawai(anggotaTimList.get(i).getNamaPegawai());
                         wp.setPangkat(anggotaTimList.get(i).getPangkat());
                         wp.setGolongan(anggotaTimList.get(i).getGolongan());
-                        wp.setJabatan(anggotaTimList.get(i).getJabatan());
+                        wp.setJabatan(anggotaTimList.get(i).getJabatanTim());
                     } else {
                         wp.setIdTim("");
                         wp.setNipPegawai("");
@@ -796,13 +797,13 @@ public class ReportServiceImpl implements ReportService {
                                 tim.getPenanggungJawab().getNamaPegawai(),
                                 tim.getPenanggungJawab().getPangkat(),
                                 tim.getPenanggungJawab().getGolongan(),
-                                tim.getPenanggungJawab().getJabatan(),
+                                tim.getPenanggungJawab().getJabatanTim(),
 
                                 tim.getSupervisor().getNipPegawai(),
                                 tim.getSupervisor().getNamaPegawai(),
                                 tim.getSupervisor().getPangkat(),
                                 tim.getSupervisor().getGolongan(),
-                                tim.getSupervisor().getJabatan(),
+                                tim.getSupervisor().getJabatanTim(),
 
                                 tim.getTim().getNamaTim(),
                                 wajibPajakList

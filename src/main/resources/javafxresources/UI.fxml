@@ -19,6 +19,9 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Atur Pajak">
           <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openPersiapan" text="Persiapan" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPelaksanaan" text="Pelaksanaan" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPelaporan" text="Pelaporan" />
             <Menu mnemonicParsing="false" text="Restoran">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakRestoran" text="Persiapan" />

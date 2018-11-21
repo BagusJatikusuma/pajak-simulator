@@ -14,7 +14,7 @@
             <Label layoutX="208.0" layoutY="16.0" text="FORM DOKUMEN PERSIAPAN" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
+<!--      <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
          <children>
             <TextField fx:id="masaPajakAwalTahun" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
             <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="41.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
