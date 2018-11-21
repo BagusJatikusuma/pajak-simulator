@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
 	<property name="ireport.zoom" value="0.9090909090909162"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="50"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<parameter name="dasar_nomor" class="java.lang.String"/>
 	<parameter name="dasar_tanggal" class="java.lang.String"/>
@@ -288,14 +288,14 @@
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nama_perintah}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{penandatangan}.getNamaPegawai()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="115" y="248" width="420" height="20" uuid="ea6f589f-9d8c-4476-9f84-e48e0cd31dce"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{jabatan_perintah}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{penandatangan}.getJabatanDinas()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="126" y="390" width="408" height="52" uuid="825ab430-d0b2-4922-ace4-306f925b1c28"/>
@@ -384,7 +384,7 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{penandatangan}.getGolongan()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{penandatangan}.getPangkat()]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="273" y="683" width="260" height="1" uuid="a226fd47-36ce-4838-9006-a25d061f08a5"/>

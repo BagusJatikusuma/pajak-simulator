@@ -93,7 +93,7 @@ public class ReportServiceImpl implements ReportService {
             System.out.println("npwpd " + wp.getNpwpd());
             parameter.put("nomor_surat", "");
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("tanggal_surat", df.format(new Date()));
             parameter.put("wajib_pajak", wp);
             parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
             parameter.put("tanggal_sp", df.format(persiapanWrapper.getTanggalPengesahan()));
@@ -125,7 +125,7 @@ public class ReportServiceImpl implements ReportService {
                     new JRBeanCollectionDataSource(new ArrayList<Object>()));
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/restoran/ReportPeminjamanBukuRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBukuRestoran.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -190,7 +190,7 @@ public class ReportServiceImpl implements ReportService {
 //            System.out.println("asdasdasdasdsaadsasd" + persiapanPajakPOJO.getWajibPajak().getNamaWP());
             parameter.put("nomor_surat", "");
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("tanggal_surat", df.format(new Date()));
             parameter.put("wajib_pajak", wp);
             parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
             parameter.put("tanggal_sp", df.format(persiapanWrapper.getTanggalPengesahan()));
@@ -226,7 +226,7 @@ public class ReportServiceImpl implements ReportService {
                     beanColDataSource);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/restoran/ReportPemberitahuanPemeriksaanRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPemberitahuanPemeriksaanRestoran.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -316,7 +316,7 @@ public class ReportServiceImpl implements ReportService {
                     beanColDataSource);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/restoran/DaftarBukuPinjamanRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/DaftarBukuPinjamanRestoran.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -400,7 +400,7 @@ public class ReportServiceImpl implements ReportService {
                     new JRBeanCollectionDataSource(new ArrayList<Object>()));
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/hotel/ReportPeminjamanBukuHotel.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/hotel/ReportPeminjamanBukuHotel.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -492,7 +492,7 @@ public class ReportServiceImpl implements ReportService {
                     beanColDataSource);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/hotel/ReportPemberitahuanPemeriksaanHotel.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/hotel/ReportPemberitahuanPemeriksaanHotel.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -588,7 +588,7 @@ public class ReportServiceImpl implements ReportService {
                     beanColDataSource);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/hotel/DaftarBukuPinjamanHotel.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/hotel/DaftarBukuPinjamanHotel.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -905,10 +905,15 @@ public class ReportServiceImpl implements ReportService {
                     createPersiapanPajakRestoranReport1(
                             dummi, wp, timWP);
                     switch(wp.getJenisWp()){
-                        case 0: createPersiapanDokumenPinjaman(WP.RESTORAN, wp, dummi);break;
+                        case 0: createPersiapanDokumenPinjaman(WP.RESTORAN, wp, dummi);
+                                createTandaTerima(WP.RESTORAN, wp, dummi);
+                                createQuesionerRestoran(WP.RESTORAN, wp, dummi);
+                                break;
                         case 1: createPersiapanDokumenPinjaman(WP.HOTEL, wp, dummi);
+                                createTandaTerima(WP.HOTEL, wp, dummi);
+                                createQuesionerRestoran(WP.HOTEL, wp, dummi);
+                                break;
                     }
-                    
                 }
             }
             
@@ -917,49 +922,13 @@ public class ReportServiceImpl implements ReportService {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private String convertBulanIntegerIntoString(Integer bulanInt) {
-        switch(bulanInt) {
-            case 0: return "Januari";
-            case 1: return "Februari";
-            case 2: return "Maret";
-            case 3: return "April";
-            case 4: return "Mei";
-            case 5: return "Juni";
-            case 6: return "Juli";
-            case 7: return "Agustus";
-            case 8: return "September";
-            case 9: return "Oktober";
-            case 10: return "November";
-            case 11: return "Desember";
-        }
-        return "";
-    }
-    
-    private Integer convertBulanStringIntoInteger(String bulanString) {
-        switch(bulanString) {
-            case "Januari" : return 0;
-            case "Februari": return 1;
-            case "Maret": return 2;
-            case "April": return 3;
-            case "Mei": return 4;
-            case "Juni": return 5;
-            case "Juli": return 6;
-            case "Agustus": return 7;
-            case "September": return 8;
-            case "Oktober": return 9;
-            case "November": return 10;
-            case "Desember": return 11;
-        }
-        return null;
-    }
 
     @Override
-    public void createTandaTerima() {
+    public void createTandaTerima(WP wp, WajibPajak wajibPajak, PersiapanWrapperJasper persiapanWrapper) {
         try {
             HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://DaftarBukuPinjaman.jasper";
-            String jrxmlPathFile = "D://DaftarBukuPinjaman.jrxml";
+            String jasperPathFile = "file:///D://TandaTerimaBukuPinjaman.jasper";
+            String jrxmlPathFile = "D://TandaTerimaBukuPinjaman.jrxml";
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
@@ -1019,7 +988,7 @@ public class ReportServiceImpl implements ReportService {
                     beanColDataSource);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/restoran/DaftarBukuPinjamanRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/TandaTerimaBukuPinjaman.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -1043,8 +1012,140 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void createQuesionerRestoran() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createQuesionerRestoran(WP wp, WajibPajak wajibPajak, PersiapanWrapperJasper persiapanWrapper) {
+        try {
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://QuesionerRestoran.jasper";
+            String jrxmlPathFile = "D://QuesionerRestoran.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+//            PersiapanPajakPOJO persiapanPajakPOJO
+//                = (PersiapanPajakPOJO)SessionProvider
+//                        .getPajakMapSession()
+//                        .get("persiapan_pajak_restoran");
+//
+            BerkasPersiapan bp = new BerkasPersiapan();
+            bp.setMasaPajakAwal(convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAwalBulan()) + " " +
+                               persiapanWrapper.getMasaPajakAwalTahun());
+            bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
+                               persiapanWrapper.getMasaPajakAkhirTahun());
+            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
+
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(bp.getListPinjaman());
+
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
+            
+            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
+            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("wajib_pajak", wajibPajak);
+            parameter.put("jenis_wp", convertJenisWPShortIntoString(wajibPajak.getJenisWp()));
+            parameter.put("telp_fax", wajibPajak.getTelepon() + "/" + wajibPajak.getFax());
+            
+            
+            parameter.put("buku_peminjaman", beanColDataSource);
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter, 
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerRestoran.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private String convertBulanIntegerIntoString(Integer bulanInt) {
+        switch(bulanInt) {
+            case 0: return "Januari";
+            case 1: return "Februari";
+            case 2: return "Maret";
+            case 3: return "April";
+            case 4: return "Mei";
+            case 5: return "Juni";
+            case 6: return "Juli";
+            case 7: return "Agustus";
+            case 8: return "September";
+            case 9: return "Oktober";
+            case 10: return "November";
+            case 11: return "Desember";
+        }
+        return "";
+    }
+    
+    private String convertJenisWPShortIntoString(short jenisWp) {
+        switch(jenisWp) {
+            case 0: return "Restoran";
+            case 1: return "Hotel";
+            case 2: return "Parkir";
+            case 3: return "Hiburan";
+            case 4: return "Penerangan Jalan";
+        }
+        return "";
+    }
+    
+    private Integer convertBulanStringIntoInteger(String bulanString) {
+        switch(bulanString) {
+            case "Januari" : return 0;
+            case "Februari": return 1;
+            case "Maret": return 2;
+            case "April": return 3;
+            case "Mei": return 4;
+            case "Juni": return 5;
+            case "Juli": return 6;
+            case "Agustus": return 7;
+            case "September": return 8;
+            case "Oktober": return 9;
+            case "November": return 10;
+            case "Desember": return 11;
+        }
+        return null;
     }
     
 }
