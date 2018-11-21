@@ -29,5 +29,9 @@ public interface ReportService {
             PersiapanWrapperJasper persiapanWrapper);
     void createSuratPerintah();
     void createDaftarPetugasPemeriksa();
+    void createTandaTerima(WP wp, WajibPajak wajibPajak,
+            PersiapanWrapperJasper persiapanWrapper);
+    void createQuesionerRestoran(WP wp, WajibPajak wajibPajak,
+            PersiapanWrapperJasper persiapanWrapper);
     
 }

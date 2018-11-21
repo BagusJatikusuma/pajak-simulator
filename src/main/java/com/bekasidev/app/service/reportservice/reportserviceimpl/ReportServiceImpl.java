@@ -952,5 +952,98 @@ public class ReportServiceImpl implements ReportService {
         }
         return null;
     }
+
+    @Override
+    public void createTandaTerima() {
+        try {
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://DaftarBukuPinjaman.jasper";
+            String jrxmlPathFile = "D://DaftarBukuPinjaman.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+//            PersiapanPajakPOJO persiapanPajakPOJO
+//                = (PersiapanPajakPOJO)SessionProvider
+//                        .getPajakMapSession()
+//                        .get("persiapan_pajak_restoran");
+//
+            BerkasPersiapan bp = new BerkasPersiapan();
+            bp.setMasaPajakAwal(convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAwalBulan()) + " " +
+                               persiapanWrapper.getMasaPajakAwalTahun());
+            bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
+                               persiapanWrapper.getMasaPajakAkhirTahun());
+            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
+
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(bp.getListPinjaman());
+
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
+            
+            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
+            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("wajib_pajak", wajibPajak);
+            
+            
+            parameter.put("buku_peminjaman", beanColDataSource);
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter, 
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/v1/pajak-simulator-v1/pdf/restoran/DaftarBukuPinjamanRestoran.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createQuesionerRestoran() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

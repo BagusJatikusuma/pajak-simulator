@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="0.751314800901581"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="166"/>
+	<parameter name="test" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
