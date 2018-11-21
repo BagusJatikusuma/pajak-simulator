@@ -12,7 +12,6 @@ import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.MasterAnggotaTimTableWrapper;
-import com.bekasidev.app.viewfx.javafxapplication.model.MasterPegawaiTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
@@ -114,7 +113,7 @@ public class MasterPegawaiTimUIController implements Initializable {
             dataCollection.add(new MasterAnggotaTimTableWrapper(
                     obj.getNipPegawai(),
                     obj.getNamaPegawai(),
-                    obj.getJabatan(),
+                    obj.getJabatanTim(),
                     btn
             ));
         }

@@ -13,7 +13,7 @@ public interface SuratPerintahDao {
 
     void setNomorUrut(String idSP, String nomorUrut);
 
-    void setTim(TimSP timSP);
+    void setTim(List<TimSP> timSP);
 
     List<TimSP> getListTim(String idSP);
 }

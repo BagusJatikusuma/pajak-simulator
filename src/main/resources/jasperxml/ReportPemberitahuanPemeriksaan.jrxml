@@ -28,7 +28,7 @@
 	<subDataset name="anggota_tim" uuid="79014236-38cf-44a2-b7f3-11ab1ded39d6">
 		<field name="namaPegawai" class="java.lang.String"/>
 		<field name="golongan" class="java.lang.String"/>
-		<field name="jabatan" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
 		<field name="nipPegawai" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="nomor_surat" class="java.lang.String"/>
@@ -48,7 +48,7 @@
 	<field name="namaPegawai" class="java.lang.String"/>
 	<field name="pangkat" class="java.lang.String"/>
 	<field name="golongan" class="java.lang.String"/>
-	<field name="jabatan" class="java.lang.String"/>
+	<field name="jabatanTim" class="java.lang.String"/>
 	<group name="grup">
 		<groupHeader>
 			<band height="239">
@@ -86,7 +86,7 @@
 						<rightPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle"/>
-					<text><![CDATA[jabatan]]></text>
+					<text><![CDATA[jabatanTim]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="66" y="226" width="241" height="13" uuid="aec34c9c-d792-4823-a726-01b0c91dd14d"/>
@@ -468,7 +468,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{jabatan}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

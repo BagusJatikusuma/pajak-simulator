@@ -2,7 +2,6 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.BerkasPersiapanDao;
-import com.bekasidev.app.dao.PegawaiDao;
 import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.Pegawai;
@@ -133,11 +132,11 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         if(pegawaiList.size() > 0){
             result += pegawaiList.get(0).getNipPegawai() + "<b>" + pegawaiList.get(0).getNamaPegawai() + "<b>"
                     + pegawaiList.get(0).getGolongan() + "<b>" + pegawaiList.get(0).getPangkat() + "<b>"
-                    + pegawaiList.get(0).getJabatan();
+                    + pegawaiList.get(0).getJabatanTim();
             for(int i = 1; i < pegawaiList.size();i++){
                 result += "<p>" + pegawaiList.get(i).getNipPegawai() + "<b>" + pegawaiList.get(i).getNamaPegawai() + "<b>"
                         + pegawaiList.get(i).getGolongan() + "<b>" + pegawaiList.get(i).getPangkat() + "<b>"
-                        + pegawaiList.get(i).getJabatan();
+                        + pegawaiList.get(i).getJabatanTim();
             }
         }
 
