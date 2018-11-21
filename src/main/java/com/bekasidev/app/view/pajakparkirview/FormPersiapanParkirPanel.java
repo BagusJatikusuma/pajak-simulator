@@ -247,8 +247,8 @@ public class FormPersiapanParkirPanel extends JPanel {
         System.out.println("tfSuratPerintahDikeluarkanOleh "+persiapanPajakPOJO2.getSpDari());
         System.out.println("tfTanggalSuratPerintah "+persiapanPajakPOJO2.getTanggalTurunSP());
         
-        reportService.createPersiapanPajakRestoranReport();
-        reportService.createPersiapanPajakRestoranReport1();
+//        reportService.createPersiapanPajakRestoranReport();
+//        reportService.createPersiapanPajakRestoranReport1();
     }//GEN-LAST:event_bGenerateActionPerformed
 
     private void tfNomorUrutSuratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorUrutSuratActionPerformed

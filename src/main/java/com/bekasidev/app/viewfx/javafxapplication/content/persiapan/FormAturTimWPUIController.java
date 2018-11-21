@@ -6,6 +6,8 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
@@ -47,6 +49,8 @@ public class FormAturTimWPUIController implements Initializable {
     private TableColumn hapusAction;
     private TableColumn aturAction;
     @FXML private Button backToFormPersiapanBtn;
+    
+    private ReportService reportService;
     
     private ObservableList<PersiapanTimWPTableWrapper> dataCollection;
 
@@ -147,21 +151,24 @@ public class FormAturTimWPUIController implements Initializable {
     }
     
     public void finishPersiapan() {
+        reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
         PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
         
-        for (TimWPWrapper obj : persiapanWrapper.getTimWPWrappers()) {
-            System.out.println("Tim : "+obj.getTim().getNamaTim());
-            System.out.println("Penanggung jawab : "+obj.getPenanggungJawab().getNamaPegawai());
-            System.out.println("Supervisor : "+obj.getSupervisor().getNamaPegawai());
-            for (WajibPajak wp : obj.getWajibPajaks()) {
-                System.out.println("WP "+wp.getNamaWajibPajak());
-            }
-        }
+//        for (TimWPWrapper obj : persiapanWrapper.getTimWPWrappers()) {
+//            System.out.println("Tim : "+obj.getTim().getNamaTim());
+//            System.out.println("Penanggung jawab : "+obj.getPenanggungJawab().getNamaPegawai());
+//            System.out.println("Supervisor : "+obj.getSupervisor().getNamaPegawai());
+//            for (WajibPajak wp : obj.getWajibPajaks()) {
+//                System.out.println("WP "+wp.getNamaWajibPajak());
+//            }
+//        }
         
+        reportService.createSuratPerintah();
+        reportService.createDaftarPetugasPemeriksa();
     }
     
 }

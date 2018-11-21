@@ -11,7 +11,6 @@
 		<field name="namaWajibPajak" class="java.lang.String"/>
 		<field name="idWajibPajak" class="java.lang.String"/>
 		<field name="jenisWp" class="java.lang.String"/>
-		<field name="idTim" class="java.lang.String"/>
 		<field name="nipPegawai" class="java.lang.String"/>
 		<field name="namaPegawai" class="java.lang.String"/>
 		<field name="pangkat" class="java.lang.String"/>

@@ -62,6 +62,7 @@ public class FormPersiapanUIController implements Initializable {
     @FXML private TextField ditetapkanDiField;
     @FXML private DatePicker tanggalPengesahanField;
     @FXML private TextField nomorSuratField;
+    @FXML private TextField lamaPelaksanaanField;
     
     @FXML private Button cancelBtn;
     private PegawaiService service;
@@ -95,7 +96,11 @@ public class FormPersiapanUIController implements Initializable {
         Pegawai obj = (Pegawai)penandatanganField.getSelectionModel().getSelectedItem(); 
         System.out.println("penandatangan dipilih "+obj.getNamaPegawai());
         
-        persiapanWrapper.setPenandatangan((Pegawai)penandatanganField.getSelectionModel().getSelectedItem());
+        Pegawai pegawai = (Pegawai)penandatanganField.getSelectionModel().getSelectedItem();
+        persiapanWrapper.setNama(pegawai.getNamaPegawai());
+        persiapanWrapper.setJabatan(pegawai.getJabatan());
+        
+        persiapanWrapper.setPenandatangan(pegawai);
         persiapanWrapper.setMasaPajakAwalBulan(convertBulanStringIntoInteger(masaPajakAwalBulan.getSelectionModel().getSelectedItem().toString()));
         persiapanWrapper.setMasaPajakAkhirbulan(convertBulanStringIntoInteger(masaPajakAkhirBulan.getSelectionModel().getSelectedItem().toString()));
         persiapanWrapper.setMasaPajakAwalTahun(Integer.valueOf(masaPajakAwalTahun.getText()));
@@ -105,6 +110,8 @@ public class FormPersiapanUIController implements Initializable {
         persiapanWrapper.setBiayaTahunAPBD(Integer.valueOf(tahunAnggaranAPBDField.getText()));
         persiapanWrapper.setBiayaTanggalAPBD(Date.from(tanggalAPBDField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         persiapanWrapper.setBiayaNomorAPBD(nomorAPBDField.getText());
+        
+        persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(lamaPelaksanaanField.getText()));
         
         persiapanWrapper.setDitetapkanDi(ditetapkanDiField.getText());
         persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));

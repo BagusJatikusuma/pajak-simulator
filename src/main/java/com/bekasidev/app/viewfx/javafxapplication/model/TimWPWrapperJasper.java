@@ -29,8 +29,17 @@ public class TimWPWrapperJasper {
     
     private String namaTim;
 
+    private List<WajibPajak> listWP;
     private List<AnggotaDanWajibPajakWrapper> wajibPajaks;
     private JRBeanCollectionDataSource wajibPajakJasper;
+
+    public List<WajibPajak> getListWP() {
+        return listWP;
+    }
+
+    public void setListWP(List<WajibPajak> listWP) {
+        this.listWP = listWP;
+    }
 
     public TimWPWrapperJasper() {
     }
