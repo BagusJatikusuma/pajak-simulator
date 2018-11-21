@@ -45,6 +45,28 @@ import javafx.stage.Stage;
 public class FormPersiapanUIController implements Initializable {
     @FXML private Pane formDokumenPersiapanPane;
     
+    @FXML private TextField dasarNomorField;
+    @FXML private DatePicker dasarTanggalField;
+    @FXML private TextField dasarTahunAnggaranField;
+    
+    @FXML private ChoiceBox penandatanganField;
+    @FXML private ChoiceBox masaPajakAwalBulan;
+    @FXML private TextField masaPajakAwalTahun;
+    @FXML private ChoiceBox masaPajakAkhirBulan;
+    @FXML private TextField masaPajakAkhirTahun;
+    
+    @FXML private TextField tahapKeField;
+    @FXML private TextField tahunAnggaranAPBDField;
+    @FXML private DatePicker tanggalAPBDField;
+    @FXML private TextField nomorAPBDField;
+    @FXML private TextField ditetapkanDiField;
+    @FXML private DatePicker tanggalPengesahanField;
+    @FXML private TextField nomorSuratField;
+    @FXML private TextField lamaPelaksanaanField;
+    
+    @FXML private Button cancelBtn;
+    private PegawaiService service;
+    
     /**
      * Initializes the controller class.
      */

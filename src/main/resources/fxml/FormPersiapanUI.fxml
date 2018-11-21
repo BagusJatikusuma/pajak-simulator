@@ -7,14 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="formDokumenPersiapanPane" prefHeight="652.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
+<VBox fx:id="formDokumenPersiapanPane" prefHeight="696.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
    <children>
       <AnchorPane fx:id="formPersiapanHead" prefHeight="49.0" prefWidth="574.0">
          <children>
             <Label layoutX="208.0" layoutY="16.0" text="FORM DOKUMEN PERSIAPAN" />
          </children>
       </AnchorPane>
-<!--      <AnchorPane fx:id="formPersiapanContent" prefHeight="610.0" prefWidth="574.0">
+      <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
          <children>
             <TextField fx:id="masaPajakAwalTahun" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
             <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="41.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
@@ -32,20 +32,22 @@
             <TextField fx:id="masaPajakAkhirTahun" layoutX="439.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
             <Label layoutX="41.0" layoutY="242.0" text="Tahap ke" />
             <TextField fx:id="tahapKeField" layoutX="41.0" layoutY="262.0" prefHeight="25.0" prefWidth="497.0" />
-            <Label layoutX="41.0" layoutY="302.0" text="Tahun anggaran APBD" />
-            <TextField fx:id="tahunAnggaranAPBDField" layoutX="41.0" layoutY="322.0" prefHeight="25.0" prefWidth="228.0" />
-            <TextField fx:id="nomorAPBDField" layoutX="40.0" layoutY="382.0" prefHeight="25.0" prefWidth="497.0" />
-            <Label layoutX="40.0" layoutY="357.0" text="Nomor APBD" />
-            <DatePicker fx:id="tanggalAPBDField" layoutX="306.0" layoutY="322.0" prefHeight="25.0" prefWidth="228.0" />
-            <Label layoutX="306.0" layoutY="302.0" text="Tanggal APBD" />
-            <Label layoutX="307.0" layoutY="422.0" text="Tanggal pengesahan" />
-            <DatePicker fx:id="tanggalPengesahanField" layoutX="307.0" layoutY="442.0" prefHeight="25.0" prefWidth="228.0" />
-            <TextField fx:id="ditetapkanDiField" layoutX="42.0" layoutY="442.0" prefHeight="25.0" prefWidth="228.0" />
-            <Label layoutX="42.0" layoutY="422.0" text="Ditetapkan di" />
-            <Label layoutX="41.0" layoutY="482.0" text="Nomor surat" />
-            <TextField fx:id="nomorSuratField" layoutX="41.0" layoutY="502.0" prefHeight="25.0" prefWidth="497.0" />
-            <Button layoutX="418.0" layoutY="551.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="next" />
-            <Button fx:id="cancelBtn" layoutX="287.0" layoutY="551.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="cancel" />
+            <Label layoutX="42.0" layoutY="357.0" text="Tahun anggaran APBD" />
+            <TextField fx:id="tahunAnggaranAPBDField" layoutX="42.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
+            <TextField fx:id="nomorAPBDField" layoutX="41.0" layoutY="437.0" prefHeight="25.0" prefWidth="497.0" />
+            <Label layoutX="41.0" layoutY="412.0" text="Nomor APBD" />
+            <DatePicker fx:id="tanggalAPBDField" layoutX="307.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
+            <Label layoutX="307.0" layoutY="357.0" text="Tanggal APBD" />
+            <Label layoutX="308.0" layoutY="477.0" text="Tanggal pengesahan" />
+            <DatePicker fx:id="tanggalPengesahanField" layoutX="308.0" layoutY="497.0" prefHeight="25.0" prefWidth="228.0" />
+            <TextField fx:id="ditetapkanDiField" layoutX="43.0" layoutY="497.0" prefHeight="25.0" prefWidth="228.0" />
+            <Label layoutX="43.0" layoutY="477.0" text="Ditetapkan di" />
+            <Label layoutX="42.0" layoutY="537.0" text="Nomor surat" />
+            <TextField fx:id="nomorSuratField" layoutX="42.0" layoutY="557.0" prefHeight="25.0" prefWidth="497.0" />
+            <Button layoutX="418.0" layoutY="595.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="next" />
+            <Button fx:id="cancelBtn" layoutX="287.0" layoutY="595.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="cancel" />
+            <Label layoutX="43.0" layoutY="297.0" text="Lama pelaksanaan (dalam satuan hari)" />
+            <TextField fx:id="lamaPelaksanaanField" layoutX="41.0" layoutY="316.0" prefHeight="25.0" prefWidth="497.0" />
          </children>
       </AnchorPane>-->
    </children>

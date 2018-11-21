@@ -108,9 +108,9 @@ public class PersiapanPajakRestoranUIController implements Initializable {
         persiapanPajakPOJO.setTimPemeriksa(timPemeriksa);
 //        System.out.println(tim.getIdTim());
         
-        reportService.createPersiapanPajakRestoranReport();
-        reportService.createPersiapanPajakRestoranReport1();
-        reportService.createPersiapanDokumenPinjaman();
+//        reportService.createPersiapanPajakRestoranReport();
+//        reportService.createPersiapanPajakRestoranReport1();
+//        reportService.createPersiapanDokumenPinjaman();
         test();
     }
     
