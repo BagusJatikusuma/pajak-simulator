@@ -70,7 +70,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
 
     @Override
     public void setPegawaiTim(String nipPegawai, String idTim, String jabatan) {
-        String sql = "UPDATE pegawai SET id_tim=?, anggota_tim=? WHERE nip_pegawai=?";
+        String sql = "UPDATE pegawai SET id_tim=?, jabatan_tim=? WHERE nip_pegawai=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {

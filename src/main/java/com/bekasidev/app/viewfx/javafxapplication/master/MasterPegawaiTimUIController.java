@@ -109,6 +109,7 @@ public class MasterPegawaiTimUIController implements Initializable {
         
         dataCollection = new ObservableArrayList<>();
         for (Pegawai obj: pegawaiList) {
+            System.out.println("pegawai"+ obj.getNamaPegawai()+" jabatan "+obj.getJabatanTim());
             Button btn = new Button("Hapus");
             dataCollection.add(new MasterAnggotaTimTableWrapper(
                     obj.getNipPegawai(),

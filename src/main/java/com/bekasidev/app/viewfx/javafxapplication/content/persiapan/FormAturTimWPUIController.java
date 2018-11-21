@@ -128,7 +128,7 @@ public class FormAturTimWPUIController implements Initializable {
         Pane contentPane = null;
         try { 
             contentPane
-                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPersiapanUI.fxml"));
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPersiapanContentUI.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }

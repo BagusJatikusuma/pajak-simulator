@@ -29,8 +29,8 @@ public class PegawaiServiceImpl implements PegawaiService {
     }
 
     @Override
-    public void setPegawaiTim(String nipPegawai, String idTim) {
-        pegawaiDao.setPegawaiTim(nipPegawai, idTim);
+    public void setPegawaiTim(String nipPegawai, String jabatanTim, String idTim) {
+        pegawaiDao.setPegawaiTim(nipPegawai, idTim, jabatanTim);
     }
 
     @Override

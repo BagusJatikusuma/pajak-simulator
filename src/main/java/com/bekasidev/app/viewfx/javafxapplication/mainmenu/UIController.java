@@ -135,4 +135,26 @@ public class UIController implements Initializable {
         rootpane.getChildren().add(contentPane);
     }
     
+    public void openPersiapan() {
+        Pane rootpane = (Pane) mainmenu.getParent();
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try {
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PersiapanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
+    }
+    
+    public void openPelaksanaan() {
+        
+    }
+    
+    public void openPelaporan() {
+        
+    }
+    
 }

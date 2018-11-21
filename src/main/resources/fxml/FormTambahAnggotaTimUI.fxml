@@ -7,14 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="223.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahAnggotaTimUIController">
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="285.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahAnggotaTimUIController">
    <children>
       <ChoiceBox fx:id="calonAnggotaField" layoutX="51.0" layoutY="86.0" prefHeight="25.0" prefWidth="482.0" />
       <Label layoutX="208.0" layoutY="22.0" text="FORM TAMBAH ANGGOTA TIM" />
       <Label layoutX="51.0" layoutY="61.0" text="Pegawai" />
-      <Button layoutX="417.0" layoutY="135.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
-      <Button fx:id="cancelBtn" layoutX="286.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+      <Button layoutX="417.0" layoutY="230.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
+      <Button fx:id="cancelBtn" layoutX="286.0" layoutY="230.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+      <Label layoutX="51.0" layoutY="128.0" text="Jabatan dalam tim" />
+      <TextField fx:id="jabatanDalamTimField" layoutX="51.0" layoutY="152.0" prefHeight="31.0" prefWidth="482.0" />
    </children>
    <stylesheets>
       <URL value="@/styles/formtambahpegawaiui.css" />
