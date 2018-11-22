@@ -5,15 +5,12 @@
  */
 package com.bekasidev.app.service.reportservice.reportserviceimpl;
 
-import com.bekasidev.app.model.BerkasPersiapan;
-import com.bekasidev.app.model.Pegawai;
-import com.bekasidev.app.model.Tim;
-import com.bekasidev.app.model.WP;
-import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.model.*;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.service.backend.impl.PegawaiServiceImpl;
 import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
@@ -749,9 +746,9 @@ public class ReportServiceImpl implements ReportService {
 
 
             PegawaiService pegawaiService = ServiceFactory.getPegawaiService();
-            
+
             for (TimWPWrapper tim : persiapanWrapper.getTimWPWrappers()) {
-                
+
                 List<Pegawai> anggotaTimList = pegawaiService.getPegawaiByTim(tim.getTim().getIdTim());
                 List<AnggotaDanWajibPajakWrapper> wajibPajakList = new ArrayList<AnggotaDanWajibPajakWrapper>();
                 
@@ -759,7 +756,7 @@ public class ReportServiceImpl implements ReportService {
                 if(jumlah < tim.getWajibPajaks().size()){
                     jumlah = tim.getWajibPajaks().size();
                 }
-                
+
                 for (int i = 0; i < jumlah; i++) {
                     AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
                     
@@ -823,27 +820,27 @@ public class ReportServiceImpl implements ReportService {
             HashMap<String, Object> parameters = new HashMap<String, Object>();
             String jasperPathFile = "file:///D://DaftarPetugasPemeriksa.jasper";
             String jrxmlPathFile = "D://DaftarPetugasPemeriksa.jrxml";
-            
+
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
-                    
+
             JasperReport report = null;
-            
+
             try {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             for (TimWPWrapperJasper obj : dummi.getTimWPWrapperJaspers()) {
                 System.out.println(obj.getNamaPegawaiPenanggungJawab());
                 System.out.println(obj.getNamaPegawaiSupervisor());
                 System.out.println(obj.getNamaTim());
             }
-            
+
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(dummi.getTimWPWrapperJaspers());
-            
+
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
@@ -851,10 +848,10 @@ public class ReportServiceImpl implements ReportService {
             DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
-
+//
             parameter.put("nomor_surat", dummi.getNomorSurat());
             parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(dummi.getTanggalPengesahan())));
-            
+
             parameter.put("dasar_nomor", dummi.getDasarNomor());
             parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(dummi.getDasarTanggal())));
             parameter.put("dasar_tahun_anggaran", dummi.getDasarTahunAnggaran());
@@ -874,7 +871,7 @@ public class ReportServiceImpl implements ReportService {
          
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
-                    report, 
+                    report,
                     parameter,
                     beanColDataSource);
             
@@ -884,20 +881,19 @@ public class ReportServiceImpl implements ReportService {
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
                 }
-                
+
                 OutputStream output = new FileOutputStream(file);
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
             frame.setVisible(true);
             
             for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
-                System.out.println("Masuk");
                 for(WajibPajak wp : timWP.getListWP()){
                     System.out.println("Masuk wp " + wp.getNamaWajibPajak());
                     createPersiapanPajakRestoranReport(
@@ -906,17 +902,24 @@ public class ReportServiceImpl implements ReportService {
                             dummi, wp, timWP);
                     switch(wp.getJenisWp()){
                         case 0: createPersiapanDokumenPinjaman(WP.RESTORAN, wp, dummi);
-                                createTandaTerima(WP.RESTORAN, wp, dummi);
-                                createQuesionerRestoran(WP.RESTORAN, wp, dummi);
-                                break;
+                            createTandaTerima(WP.RESTORAN, wp, dummi);
+                            createQuesionerRestoran(WP.RESTORAN, wp, dummi);
+                            break;
                         case 1: createPersiapanDokumenPinjaman(WP.HOTEL, wp, dummi);
-                                createTandaTerima(WP.HOTEL, wp, dummi);
-                                createQuesionerRestoran(WP.HOTEL, wp, dummi);
-                                break;
+                            createTandaTerima(WP.HOTEL, wp, dummi);
+                            createQuesionerRestoran(WP.HOTEL, wp, dummi);
+                            break;
                     }
                 }
             }
-            
+
+            ConverterHelper sp = new ConverterHelper();
+            ServiceFactory.getSuratPerintahService().createSuratPerintah(sp.convertPersiapanWrapperIntoSuratPerintah(
+                    persiapanWrapper
+            ));
+            System.out.println("Masuk " + sp.convertPersiapanWrapperIntoSuratPerintah(
+                    persiapanWrapper
+            ).getListTim().size());
         } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

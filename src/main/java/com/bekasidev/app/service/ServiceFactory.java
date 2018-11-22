@@ -15,6 +15,12 @@ public class ServiceFactory {
     private static MenuService menuService = null;
     private static BerkasPersiapanService berkasPersiapanService = null;
     private static ReportService reportService = null;
+    private static SuratPerintahService suratPerintahService = null;
+
+    public static SuratPerintahService getSuratPerintahService(){
+        if(suratPerintahService == null) suratPerintahService = new SuratPerintahServiceImpl();
+        return suratPerintahService;
+    }
 
     public static BerkasPersiapanService getBerkasPersiapanService(){
         if(berkasPersiapanService == null) berkasPersiapanService = new BerkasPersiapanServiceImpl();

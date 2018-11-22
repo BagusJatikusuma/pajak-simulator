@@ -31,14 +31,13 @@ public class ConverterHelper {
         
         SuratPerintah suratPerintah = new SuratPerintah();
         suratPerintah.setIdSP(idSP);
-        suratPerintah.setNomorSurat(Integer.valueOf(persiapanWrapper.getNomorSurat()));
+        suratPerintah.setNomorSurat(persiapanWrapper.getNomorSurat());
         suratPerintah.setNomorUrut(persiapanWrapper.getNomorSurat());
         
         DateFormat formatter = new SimpleDateFormat("dd MMMM YYYY");
-        suratPerintah.setTanggalSP(formatter.format(new Date()));
-        suratPerintah.setTahunAnggatan(persiapanWrapper.getBiayaTahunAPBD());
-        suratPerintah.setNamaPemberi(persiapanWrapper.getNama());
-        suratPerintah.setJabatanPemberi(persiapanWrapper.getJabatan());
+        suratPerintah.setTanggalSurat(formatter.format(persiapanWrapper.getTanggalPengesahan()));
+        suratPerintah.setTahunAnggaranBiaya(persiapanWrapper.getBiayaTahunAPBD());
+        suratPerintah.setPemberiSP(persiapanWrapper.getPenandatangan());
         suratPerintah.setMasaPajakAwal(
                 String.valueOf(persiapanWrapper.getMasaPajakAwalBulan())
                         +String.valueOf(persiapanWrapper.getMasaPajakAwalTahun()));
@@ -46,8 +45,13 @@ public class ConverterHelper {
                 String.valueOf(persiapanWrapper.getMasaPajakAkhirbulan())
                         +String.valueOf(persiapanWrapper.getMasaPajakAkhirTahun()));
         suratPerintah.setTahap((short)persiapanWrapper.getTahapKe().intValue());
-        suratPerintah.setLamaPelaksanaan(String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
+        suratPerintah.setLamaPelaksanaan(persiapanWrapper.getLamaPelaksanaan().shortValue());
         suratPerintah.setTempat(persiapanWrapper.getDitetapkanDi());
+        suratPerintah.setNomorSK(persiapanWrapper.getDasarNomor());
+        suratPerintah.setTanggalSK(String.valueOf(persiapanWrapper.getDasarTanggal().getTime()));
+        suratPerintah.setTahunAnggaranSK(Integer.parseInt(persiapanWrapper.getDasarTahunAnggaran()));
+        suratPerintah.setNomorSuratBiaya(persiapanWrapper.getBiayaNomorAPBD());
+        suratPerintah.setTanggalBiaya(String.valueOf(persiapanWrapper.getBiayaTanggalAPBD().getTime()));
         
         //get tim
         List<TimSP> listTim = new ArrayList<>();
