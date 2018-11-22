@@ -913,13 +913,13 @@ public class ReportServiceImpl implements ReportService {
                 }
             }
 
-            ConverterHelper sp = new ConverterHelper();
-            ServiceFactory.getSuratPerintahService().createSuratPerintah(sp.convertPersiapanWrapperIntoSuratPerintah(
-                    persiapanWrapper
-            ));
-            System.out.println("Masuk " + sp.convertPersiapanWrapperIntoSuratPerintah(
-                    persiapanWrapper
-            ).getListTim().size());
+//            ConverterHelper sp = new ConverterHelper();
+//            ServiceFactory.getSuratPerintahService().createSuratPerintah(sp.convertPersiapanWrapperIntoSuratPerintah(
+//                    persiapanWrapper
+//            ));
+//            System.out.println("Masuk " + sp.convertPersiapanWrapperIntoSuratPerintah(
+//                    persiapanWrapper
+//            ).getListTim().size());
         } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
