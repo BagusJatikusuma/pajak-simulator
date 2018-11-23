@@ -44,6 +44,7 @@ public class MasterPegawaiUIController implements Initializable {
                         nama, 
                         pangkat, 
                         golongan,
+                        jabatan,
                         action;
     private ObservableList<MasterPegawaiTableWrapper> dataCollection;
     private PegawaiService service;
@@ -83,6 +84,8 @@ public class MasterPegawaiUIController implements Initializable {
                 = TableHelper.getTableColumnByName(masterPegawaiTable, "Pangkat");
         golongan 
                 = TableHelper.getTableColumnByName(masterPegawaiTable, "Golongan");
+        jabatan 
+                = TableHelper.getTableColumnByName(masterPegawaiTable, "Jabatan");
         action 
                 = TableHelper.getTableColumnByName(masterPegawaiTable, "Action");
     }
@@ -97,8 +100,9 @@ public class MasterPegawaiUIController implements Initializable {
             dataCollection.add(new MasterPegawaiTableWrapper(
                     obj.getNipPegawai(),
                     obj.getNamaPegawai(),
+                    obj.getPangkat(),
                     obj.getGolongan(),
-                    obj.getGolongan(),
+                    obj.getJabatanDinas(),
                     btn
             ));
         }
@@ -121,6 +125,7 @@ public class MasterPegawaiUIController implements Initializable {
         nama.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("nama"));
         pangkat.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("pangkat"));
         golongan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("golongan"));
+        jabatan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("jabatan"));
         action.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("action"));
     }
     

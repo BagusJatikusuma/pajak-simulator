@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DaftarPetugasPemeriksa" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="6680d688-52a8-4247-8bd9-551b4a662c57">
-	<property name="ireport.zoom" value="1.7715610000000075"/>
+	<property name="ireport.zoom" value="0.9090909090909127"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="421"/>
+	<property name="ireport.y" value="19"/>
+	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="36008d72-7bfa-4b7d-8bff-1d80864af3df">
-		<field name="field1" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="namaWajibPajak" class="java.lang.String"/>
+		<field name="idWajibPajak" class="java.lang.String"/>
+		<field name="jenisWp" class="java.lang.String"/>
+		<field name="nipPegawai" class="java.lang.String"/>
+		<field name="namaPegawai" class="java.lang.String"/>
+		<field name="pangkat" class="java.lang.String"/>
+		<field name="golongan" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="anggota_tim_wp_diperiksa" class="java.lang.String"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
@@ -14,11 +25,24 @@
 	<parameter name="penanggung_jawab" class="java.lang.String"/>
 	<parameter name="supervisor" class="java.lang.String"/>
 	<parameter name="tim" class="java.lang.String"/>
+	<field name="nipPegawaiPenanggungJawab" class="java.lang.String"/>
+	<field name="namaPegawaiPenanggungJawab" class="java.lang.String"/>
+	<field name="golonganPenanggungJawab" class="java.lang.String"/>
+	<field name="pangkatPenanggungJawab" class="java.lang.String"/>
+	<field name="nipPegawaiSupervisor" class="java.lang.String"/>
+	<field name="namaPegawaiSupervisor" class="java.lang.String"/>
+	<field name="golonganSupervisor" class="java.lang.String"/>
+	<field name="pangkatSupervisor" class="java.lang.String"/>
+	<field name="namaTim" class="java.lang.String"/>
+	<field name="wajibPajakJasper" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="326" splitType="Stretch">
+		<band splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="177">
 			<staticText>
 				<reportElement x="180" y="0" width="355" height="20" uuid="241bcbf7-770b-4821-9138-58466f913118"/>
 				<textElement>
@@ -82,201 +106,6 @@
 				</textElement>
 				<text><![CDATA[DI WILAYAH KABUPATEN BEKASI]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="196" width="25" height="30" uuid="c1bffd98-c88d-47db-ab26-c8502872f7bf"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[NO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="25" y="196" width="180" height="30" uuid="a964e766-c8e6-406c-bda3-b266844e45c3"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[NAMA / NIP]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="205" y="196" width="95" height="30" uuid="eb8adb8e-42a7-4c79-9b73-73c8f0db9026"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PANGKAT / GOLONGAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="300" y="196" width="65" height="30" uuid="740c27ad-8d31-438a-b3d9-f158994dd50b"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[JABATAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="365" y="196" width="170" height="30" uuid="007de50e-a845-4321-a7f6-224693c67364"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[WAJIB PAJAK YANG DIPERIKSA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="226" width="25" height="40" uuid="385c4ba5-ce6c-48b3-b681-2442adba5ccd"/>
-				<box topPadding="5">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="300" y="226" width="65" height="40" uuid="04944250-43e5-4098-9420-05aeb2d194c9"/>
-				<box topPadding="5" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Penanggung Jawab]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="365" y="226" width="170" height="40" uuid="015a1616-a63f-4d09-866c-0a11c8ba54be"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="365" y="266" width="170" height="40" uuid="a445551e-251c-4778-974c-0ba0fb92ad9a"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="300" y="266" width="65" height="40" uuid="be2e07c9-cb5a-48b2-9c01-f53aa8b208c0"/>
-				<box topPadding="5" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Supervisor]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="266" width="25" height="40" uuid="b11f3a8b-a63c-424c-bcdd-9af4b310e996"/>
-				<box topPadding="5">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="306" width="25" height="20" uuid="8294f93f-e8cc-4e44-a9d5-912af25ad6f5"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="205" y="306" width="95" height="20" uuid="dd1ea869-8ddf-4b3a-83d0-2ace137fcec4"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="300" y="306" width="65" height="20" uuid="0fe6888f-e656-4238-9283-ebeada01a69e"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="365" y="306" width="170" height="20" uuid="08ca8326-0231-4e2c-ba8c-9903f26e33d1"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="262" y="20" width="273" height="20" uuid="3b56dcac-6259-4818-b78a-f08e5fb27764"/>
 				<textElement>
@@ -298,96 +127,15 @@
 				</textElement>
 				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksa Pajak Daerah di wilayah Kabupaten Bekasi untuk Masa Pajak yang diperiksa bulan " + $P{masa_pajak_awal} + " s.d " + $P{masa_pajak_akhir}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="205" y="226" width="95" height="40" uuid="d8e44bcf-7494-46da-8f3b-fc0eb1bc3d4f"/>
-				<box topPadding="5" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{penanggung_jawab}.getPangkat() + " / " + $P{penanggung_jawab}.getGolongan()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="226" width="180" height="20" uuid="f37a66f2-10cb-4bb1-b7a0-dc9854671892"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{penanggung_jawab}.getNamaPegawai()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="246" width="180" height="20" uuid="9073aa94-cf27-4c78-b3fb-c478cdb536fe"/>
-				<box leftPadding="3" rightPadding="3">
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA["NIP. " + $P{penanggung_jawab}.getNipPegawai()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="205" y="266" width="95" height="40" uuid="57d8b0a2-7f92-4d16-9237-5c14b31748ea"/>
-				<box topPadding="5" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{supervisor}.getPangkat() + " / " + $P{supervisor}.getGolongan()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="266" width="180" height="20" uuid="ba5df02a-6190-4fcd-b727-c4b30551e20f"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{supervisor}.getNamaPegawai()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="286" width="180" height="20" uuid="bfcf3b2e-02c3-4b39-9da2-2fb2fb0ff346"/>
-				<box leftPadding="3" rightPadding="3">
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA["NIP. " + $P{supervisor}.getNipPegawai()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="306" width="180" height="20" uuid="fc01af99-a0f5-42bf-bdff-bebe307ffec3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tim}]]></textFieldExpression>
-			</textField>
 		</band>
-	</title>
+	</columnHeader>
 	<detail>
-		<band height="238" splitType="Stretch">
+		<band height="341" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" x="0" y="0" width="535" height="200" uuid="45b45cd6-2e7d-4414-9151-83f5d4e007f1"/>
+				<reportElement key="table" positionType="Float" x="0" y="131" width="535" height="47" uuid="45b45cd6-2e7d-4414-9151-83f5d4e007f1"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="anggota_tim_wp_diperiksa" uuid="c735b5c2-27ec-4715-ac98-aa4311e6cd02">
-						<dataSourceExpression><![CDATA[$P{anggota_tim_wp_diperiksa}]]></dataSourceExpression>
+					<datasetRun subDataset="anggota_tim_wp_diperiksa" uuid="5853037e-fb9b-4552-9893-fb615af2e6b5">
+						<dataSourceExpression><![CDATA[$F{wajibPajakJasper}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="25" uuid="a9a708ad-cd6e-4f0a-8298-808f32e14f74">
 						<jr:detailCell height="40" rowSpan="1">
@@ -408,92 +156,66 @@
 					</jr:column>
 					<jr:column width="180" uuid="a27c63e3-8678-4208-83ba-b110418ef547">
 						<jr:detailCell height="40" rowSpan="1">
-							<staticText>
-								<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="f08e104e-743e-4bed-ba98-37e00e140cd4"/>
-								<box topPadding="4" leftPadding="3" rightPadding="3">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="e4618aae-393e-4ae2-97dc-e5e01163d581"/>
+								<box>
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[DERIH, SE]]></text>
-							</staticText>
-							<staticText>
-								<reportElement positionType="Float" x="0" y="20" width="180" height="20" uuid="94cc5dbd-fff8-49cc-9131-6499eadde877"/>
-								<box leftPadding="3" rightPadding="3">
+								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="20" width="180" height="20" uuid="b1fef56e-efb6-4817-af25-a767ef6d76de"/>
+								<box>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[NIP. 19720707 1998203 1 007]]></text>
-							</staticText>
+								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
+							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="95" uuid="67f3586a-dccd-41cb-b1f3-fb703a01d561">
 						<jr:detailCell height="40" rowSpan="1">
-							<staticText>
-								<reportElement positionType="Float" x="0" y="0" width="95" height="40" uuid="a29bf168-754b-40ee-9ecd-4896f57333a6"/>
-								<box topPadding="5" leftPadding="3" rightPadding="3">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="20" uuid="dee372c4-946d-461d-bf2d-b180e57385da"/>
+								<box>
 									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{pangkat}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="20" width="95" height="20" uuid="ab3796c1-056f-4d26-8b39-3a41ab23e4ce"/>
+								<box>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[Penata / III.c]]></text>
-							</staticText>
+								<textFieldExpression><![CDATA[$F{golongan}]]></textFieldExpression>
+							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="65" uuid="8cff1ff2-18ea-4437-9eee-1c63a732e116">
 						<jr:detailCell height="40" rowSpan="1">
-							<staticText>
-								<reportElement positionType="Float" x="0" y="0" width="65" height="40" uuid="4d83f160-52b7-4ec9-8532-4982d8620099"/>
-								<box topPadding="5" leftPadding="3" rightPadding="3">
+							<textField>
+								<reportElement x="0" y="0" width="65" height="40" uuid="7d9f3ff5-7eb2-4190-a99f-65abf6bc2f6b"/>
+								<box>
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[Ketua]]></text>
-							</staticText>
+								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
+							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="170" uuid="77b12752-d1e7-474c-b46b-d942aadc2389">
 						<jr:detailCell height="40" rowSpan="1">
 							<staticText>
-								<reportElement positionType="Float" x="15" y="0" width="155" height="20" uuid="a990078f-fdad-4e55-a0a2-5506ce676562"/>
-								<box topPadding="4" leftPadding="3" rightPadding="3">
-									<topPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
-								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[PT. ANUGRAH BINA KARYA/NAGA SWALAYAN TAMBUN]]></text>
-							</staticText>
-							<staticText>
-								<reportElement positionType="Float" x="15" y="20" width="155" height="20" uuid="02028fe2-6dda-407a-8c3e-e32fad1b9e3a"/>
-								<box leftPadding="3" rightPadding="3">
-									<bottomPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
-								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<text><![CDATA[P.2.0000475.06.06]]></text>
-							</staticText>
-							<staticText>
-								<reportElement positionType="Float" x="0" y="0" width="15" height="40" uuid="a15335ef-fc99-4648-abab-75487b576dea"/>
+								<reportElement positionType="Float" x="0" y="0" width="21" height="40" uuid="a15335ef-fc99-4648-abab-75487b576dea"/>
 								<box topPadding="4" leftPadding="3" rightPadding="3">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
@@ -504,37 +226,319 @@
 								</textElement>
 								<text><![CDATA[1.]]></text>
 							</staticText>
+							<textField>
+								<reportElement x="21" y="0" width="149" height="20" uuid="86c27155-4ea4-473a-a377-3f780ac1e8fa"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{namaWajibPajak}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="21" y="20" width="149" height="20" uuid="4f5abbfe-31a2-48a9-a0bd-7414e653b8a1"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{idWajibPajak}]]></textFieldExpression>
+							</textField>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
-		</band>
-	</detail>
-	<pageFooter>
-		<band height="391" splitType="Stretch">
 			<staticText>
-				<reportElement x="275" y="89" width="260" height="18" uuid="0d70a026-a456-4567-945d-196e80362a8a"/>
+				<reportElement x="0" y="1" width="25" height="30" uuid="c1bffd98-c88d-47db-ab26-c8502872f7bf"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1" width="180" height="30" uuid="a964e766-c8e6-406c-bda3-b266844e45c3"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA / NIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="1" width="95" height="30" uuid="eb8adb8e-42a7-4c79-9b73-73c8f0db9026"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PANGKAT / GOLONGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="1" width="65" height="30" uuid="740c27ad-8d31-438a-b3d9-f158994dd50b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JABATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="1" width="170" height="30" uuid="007de50e-a845-4321-a7f6-224693c67364"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WAJIB PAJAK YANG DIPERIKSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="31" width="25" height="40" uuid="385c4ba5-ce6c-48b3-b681-2442adba5ccd"/>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="31" width="65" height="40" uuid="04944250-43e5-4098-9420-05aeb2d194c9"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Penanggung Jawab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="31" width="170" height="40" uuid="015a1616-a63f-4d09-866c-0a11c8ba54be"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="71" width="170" height="40" uuid="a445551e-251c-4778-974c-0ba0fb92ad9a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="71" width="65" height="40" uuid="be2e07c9-cb5a-48b2-9c01-f53aa8b208c0"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Supervisor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="71" width="25" height="40" uuid="b11f3a8b-a63c-424c-bcdd-9af4b310e996"/>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="25" height="20" uuid="8294f93f-e8cc-4e44-a9d5-912af25ad6f5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="111" width="95" height="20" uuid="dd1ea869-8ddf-4b3a-83d0-2ace137fcec4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="111" width="65" height="20" uuid="0fe6888f-e656-4238-9283-ebeada01a69e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="111" width="170" height="20" uuid="08ca8326-0231-4e2c-ba8c-9903f26e33d1"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="205" y="31" width="95" height="40" uuid="d8e44bcf-7494-46da-8f3b-fc0eb1bc3d4f"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pangkatPenanggungJawab} + " / " + $F{golonganPenanggungJawab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="205" y="71" width="95" height="40" uuid="57d8b0a2-7f92-4d16-9237-5c14b31748ea"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pangkatSupervisor} + " / " + $F{golonganSupervisor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="25" y="71" width="180" height="20" uuid="ba5df02a-6190-4fcd-b727-c4b30551e20f"/>
+				<box topPadding="4" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaPegawaiSupervisor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="25" y="91" width="180" height="20" uuid="bfcf3b2e-02c3-4b39-9da2-2fb2fb0ff346"/>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiSupervisor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="111" width="180" height="20" uuid="fc01af99-a0f5-42bf-bdff-bebe307ffec3"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaTim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="25" y="31" width="180" height="20" uuid="98656c3d-eabe-48f6-8928-072250650cd1"/>
+				<textFieldExpression><![CDATA[$F{namaPegawaiPenanggungJawab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="25" y="51" width="180" height="20" uuid="f265e2e6-5359-46ac-b8f4-e89417abd0ff"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiPenanggungJawab}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="275" y="277" width="260" height="18" uuid="0d70a026-a456-4567-945d-196e80362a8a"/>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="125" width="260" height="18" uuid="08b29666-8bac-45b4-a6f9-31552636ccc7"/>
+				<reportElement positionType="Float" x="275" y="313" width="260" height="18" uuid="08b29666-8bac-45b4-a6f9-31552636ccc7"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[NIP. 19631206 199203 1 007]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="107" width="260" height="18" uuid="dd0a3070-d176-4d2f-8425-b4a5e93294d9"/>
+				<reportElement positionType="Float" x="275" y="295" width="260" height="18" uuid="dd0a3070-d176-4d2f-8425-b4a5e93294d9"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pembina Utama Muda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="0" width="260" height="87" uuid="e24b04c3-7332-4977-952e-8aa94887eb2b"/>
+				<reportElement positionType="Float" x="275" y="188" width="260" height="87" uuid="e24b04c3-7332-4977-952e-8aa94887eb2b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
@@ -542,11 +546,20 @@
 KABUPATEN BEKASI]]></text>
 			</staticText>
 			<line>
-				<reportElement x="274" y="87" width="260" height="1" uuid="a8c7c9ba-02b4-4ea0-b321-878dbb9203c4"/>
+				<reportElement positionType="Float" x="274" y="275" width="260" height="1" uuid="a8c7c9ba-02b4-4ea0-b321-878dbb9203c4"/>
 				<graphicElement>
 					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</graphicElement>
 			</line>
+			<break>
+				<reportElement x="0" y="340" width="100" height="1" uuid="24129b4e-d234-448a-86c4-1762566acd72"/>
+			</break>
 		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>

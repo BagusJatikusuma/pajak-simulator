@@ -2,8 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DaftarBukuPinjaman" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00137682-852a-4a65-ba7e-f5970b200446">
 	<property name="ireport.zoom" value="0.9090909090909141"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="107"/>
-	<import value="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -28,7 +28,7 @@
 		<field name="namaDokumen" class="java.lang.String"/>
 		<field name="keterangan" class="java.lang.String"/>
 	</subDataset>
-	<parameter name="wajib_pajak" class="com.bekasidev.app.view.util.modelview.WajibPajakModelView"/>
+	<parameter name="wajib_pajak" class="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="buku_peminjaman" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<background>
@@ -80,7 +80,7 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getNamaWP()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{wajib_pajak}.getNamaWajibPajak()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="110" y="24" width="442" height="20" uuid="625fc299-ef02-4729-bdf6-9a3e655d95b6"/>

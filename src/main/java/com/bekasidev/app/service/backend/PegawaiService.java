@@ -12,7 +12,7 @@ public interface PegawaiService {
 
     void createPegawai(Pegawai pegawai);
 
-    void setPegawaiTim(String nipPegawai, String idTim);
+    void setPegawaiTim(String nipPegawai, String jabatanTim, String idTim);
 
     void createTim(Tim tim);
 

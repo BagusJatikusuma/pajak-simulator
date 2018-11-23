@@ -13,7 +13,7 @@ public interface PegawaiDao {
 
     void createPegawai(Pegawai pegawai);
 
-    void setPegawaiTim(String nipPegawai, String idTim);
+    void setPegawaiTim(String nipPegawai, String idTim, String jabatan);
 
     void createTim(Tim tim);
 

@@ -50,7 +50,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
 
     @Override
     public void createPegawai(Pegawai pegawai) {
-        String sql = "INSERT INTO pegawai VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO pegawai VALUES(?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -58,7 +58,9 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.setString(2, pegawai.getNipPegawai());
             pstm.setString(3, pegawai.getNamaPegawai());
             pstm.setString(4, pegawai.getGolongan());
-            pstm.setString(5, pegawai.getJabatan());
+            pstm.setString(5, pegawai.getJabatanTim());
+            pstm.setString(6, pegawai.getPangkat());
+            pstm.setString(7, pegawai.getJabatanDinas());
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -67,13 +69,14 @@ public class PegawaiDaoImpl implements PegawaiDao {
     }
 
     @Override
-    public void setPegawaiTim(String nipPegawai, String idTim) {
-        String sql = "UPDATE pegawai SET id_tim=? WHERE nip_pegawai=?";
+    public void setPegawaiTim(String nipPegawai, String idTim, String jabatan) {
+        String sql = "UPDATE pegawai SET id_tim=?, jabatan_tim=? WHERE nip_pegawai=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, idTim);
-            pstm.setString(2, nipPegawai);
+            pstm.setString(2, jabatan);
+            pstm.setString(3, nipPegawai);
 
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -119,6 +122,8 @@ public class PegawaiDaoImpl implements PegawaiDao {
                                         rs.getString("nip_pegawai"),
                                         rs.getString("nama_pegawai"),
                                         rs.getString("golongan"),
-                                        rs.getString("jabatan"));
+                                        rs.getString("pangkat"),
+                                        rs.getString("jabatan_tim"),
+                                        rs.getString("jabatan_dinas"));
     }
 }

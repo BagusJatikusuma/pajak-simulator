@@ -8,16 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox fx:id="masterPegawaiPane" 
-      maxHeight="613.0" 
-      maxWidth="1400.0" 
-      minWidth="1236.0" 
-      prefHeight="613.0" 
-      prefWidth="1236.0" 
-      xmlns="http://javafx.com/javafx/8" 
-      xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
+<VBox fx:id="masterPegawaiPane" maxHeight="613.0" maxWidth="1400.0" minWidth="1236.0" prefHeight="613.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
    <children>
       <AnchorPane prefHeight="40.0" prefWidth="200.0">
          <children>
@@ -32,10 +23,11 @@
             <TableView fx:id="masterPegawaiTable" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0">
                <columns>
                   <TableColumn prefWidth="124.0" text="NIP" />
-                  <TableColumn prefWidth="422.0" text="Nama" />
-                  <TableColumn prefWidth="410.0" text="Pangkat" />
-                  <TableColumn prefWidth="75.0" text="Golongan" />
-                  <TableColumn prefWidth="264.0" text="Action" />
+                  <TableColumn prefWidth="264.0" text="Nama" />
+                  <TableColumn prefWidth="258.0" text="Pangkat" />
+                  <TableColumn prefWidth="146.0" text="Golongan" />
+                  <TableColumn prefWidth="320.0" text="Jabatan" />
+                  <TableColumn prefWidth="108.0" text="Action" />
                </columns>
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />

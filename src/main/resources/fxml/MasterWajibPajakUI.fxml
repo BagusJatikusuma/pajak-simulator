@@ -14,7 +14,7 @@
          <children>
             <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" />
             <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
-            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" />
+            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariWP" prefHeight="25.0" prefWidth="60.0" text="cari" />
             <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="25.0" prefWidth="109.0" text="tambah wp" />
          </children>
       </AnchorPane>

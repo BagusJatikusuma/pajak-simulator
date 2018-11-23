@@ -17,6 +17,7 @@ public class MasterPegawaiTableWrapper {
     private SimpleStringProperty nama;
     private SimpleStringProperty pangkat;
     private SimpleStringProperty golongan;
+    private SimpleStringProperty jabatan;
     private Button action;
 
     public MasterPegawaiTableWrapper() {
@@ -31,6 +32,20 @@ public class MasterPegawaiTableWrapper {
         this.nama = new SimpleStringProperty(nama);
         this.pangkat = new SimpleStringProperty(pangkat);
         this.golongan = new SimpleStringProperty(golongan);
+        this.action = action;
+    }
+    
+    public MasterPegawaiTableWrapper(String nip, 
+            String nama, 
+            String pangkat, 
+            String golongan,
+            String jabatan,
+            Button action) {
+        this.nip = new SimpleStringProperty(nip);
+        this.nama = new SimpleStringProperty(nama);
+        this.pangkat = new SimpleStringProperty(pangkat);
+        this.golongan = new SimpleStringProperty(golongan);
+        this.jabatan = new SimpleStringProperty(jabatan);
         this.action = action;
     }
 
@@ -72,6 +87,14 @@ public class MasterPegawaiTableWrapper {
 
     public void setAction(Button action) {
         this.action = action;
+    }
+
+    public String getJabatan() {
+        return jabatan.get();
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan.set(jabatan);
     }
     
     

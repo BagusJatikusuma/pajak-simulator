@@ -38,13 +38,13 @@ public class PersiapanWrapper {
     
     private Pegawai penandatangan;
     
-    private List<TimWPWrapper> timWPWrappers;
+    private ArrayList<TimWPWrapper> timWPWrappers;
 
     public PersiapanWrapper() {
-        this.timWPWrappers = new ArrayList<>();
+        this.timWPWrappers = new ArrayList<TimWPWrapper>();
     }
 
-    public PersiapanWrapper(String dasarNomor, Date dasarTanggal, String dasarTahunAnggaran, String nama, String jabatan, Integer masaPajakAwalBulan, Integer masaPajakAwalTahun, Integer masaPajakAkhirbulan, Integer masaPajakAkhirTahun, Integer tahapKe, Integer lamaPelaksanaan, Integer biayaTahunAPBD, String biayaNomorAPBD, Date biayaTanggalAPBD, String ditetapkanDi, Date tanggalPengesahan, String nomorSurat, Pegawai penandatangan, List<TimWPWrapper> timWPWrappers) {
+    public PersiapanWrapper(String dasarNomor, Date dasarTanggal, String dasarTahunAnggaran, String nama, String jabatan, Integer masaPajakAwalBulan, Integer masaPajakAwalTahun, Integer masaPajakAkhirbulan, Integer masaPajakAkhirTahun, Integer tahapKe, Integer lamaPelaksanaan, Integer biayaTahunAPBD, String biayaNomorAPBD, Date biayaTanggalAPBD, String ditetapkanDi, Date tanggalPengesahan, String nomorSurat, Pegawai penandatangan, ArrayList<TimWPWrapper> timWPWrappers) {
         this.dasarNomor = dasarNomor;
         this.dasarTanggal = dasarTanggal;
         this.dasarTahunAnggaran = dasarTahunAnggaran;
@@ -210,11 +210,11 @@ public class PersiapanWrapper {
         this.penandatangan = penandatangan;
     }
 
-    public List<TimWPWrapper> getTimWPWrappers() {
+    public ArrayList<TimWPWrapper> getTimWPWrappers() {
         return timWPWrappers;
     }
 
-    public void setTimWPWrappers(List<TimWPWrapper> timWPWrappers) {
+    public void setTimWPWrappers(ArrayList<TimWPWrapper> timWPWrappers) {
         this.timWPWrappers = timWPWrappers;
     }
 

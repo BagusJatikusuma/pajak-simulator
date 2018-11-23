@@ -35,6 +35,7 @@ public class FormTambahPegawaiUIController implements Initializable {
     @FXML private TextField namaField;
     @FXML private TextField pangkatField;
     @FXML private TextField golonganField;
+    @FXML private TextField jabatanField;
     
     @FXML private Button cancelBtn;
     /**
@@ -51,14 +52,17 @@ public class FormTambahPegawaiUIController implements Initializable {
         if (!(nipField.getText().equals("")
                 || namaField.getText().equals("")
                 || pangkatField.getText().equals("")
-                || golonganField.getText().equals(""))) {
+                || golonganField.getText().equals("")
+                || jabatanField.getText().equals(""))) {
             Pegawai pegawai 
                     = new Pegawai(
                             "", 
                             nipField.getText(), 
                             namaField.getText(), 
                             golonganField.getText(),
-                            "");
+                            pangkatField.getText(),
+                            "",
+                            jabatanField.getText());
             service.createPegawai(pegawai);
             Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
             rootpane.getChildren().remove(1);

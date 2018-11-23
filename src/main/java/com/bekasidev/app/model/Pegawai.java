@@ -7,7 +7,16 @@ public class Pegawai {
     private String namaPegawai;
     private String golongan;
     private String pangkat;
-    private String jabatan;
+    private String jabatanTim;
+    private String jabatanDinas;
+
+    public String getJabatanDinas() {
+        return jabatanDinas;
+    }
+
+    public void setJabatanDinas(String jabatanDinas) {
+        this.jabatanDinas = jabatanDinas;
+    }
 
     public String getPangkat() {
         return pangkat;
@@ -17,13 +26,26 @@ public class Pegawai {
         this.pangkat = pangkat;
     }
 
-    public Pegawai(String idTim, String nipPegawai, String namaPegawai, String golongan, String pangkat, String jabatan) {
+    public Pegawai(String idTim, String nipPegawai, String namaPegawai, String golongan, String pangkat, String jabatanTim, String jabatanDinas) {
         this.idTim = idTim;
         this.nipPegawai = nipPegawai;
         this.namaPegawai = namaPegawai;
         this.golongan = golongan;
-        this.jabatan = jabatan;
         this.pangkat = pangkat;
+        this.jabatanTim = jabatanTim;
+        this.jabatanDinas = jabatanDinas;
+    }
+
+    public Pegawai(String idTim, String nipPegawai, String namaPegawai, String golongan, String pangkat, String jabatanTim) {
+        this.idTim = idTim;
+        this.nipPegawai = nipPegawai;
+        this.namaPegawai = namaPegawai;
+        this.golongan = golongan;
+        this.jabatanTim = jabatanTim;
+        this.pangkat = pangkat;
+    }
+
+    public Pegawai() {
     }
 
     public String getIdTim() {
@@ -58,17 +80,22 @@ public class Pegawai {
         this.golongan = golongan;
     }
 
-    public String getJabatan() {
-        return jabatan;
+    public String getJabatanTim() {
+        return jabatanTim;
     }
 
-    public void setJabatan(String jabatan) {
-        this.jabatan = jabatan;
+    public void setJabatanTim(String jabatanTim) {
+        this.jabatanTim = jabatanTim;
     }
 
     @Override
     public String toString() {
         return this.getNamaPegawai();
+    }
+    
+    public boolean compareIdTo(Pegawai obj) {
+        if (this.getNipPegawai().equals(obj.getNipPegawai())) return true;
+        return false;
     }
     
 }
