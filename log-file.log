@@ -1,0 +1,76 @@
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective settings
+[WARNING] Unrecognised tag: 'id' (position: START_TAG seen ...</profile>\n    -->\n\t<id>... @212:6)  @ /home/sudoroot/.m2/settings.xml, line 212, column 6
+[WARNING] 
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.bekasidev.app:pajak-simulator:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 129, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------< com.bekasidev.app:pajak-simulator >------------------
+[INFO] Building pajak-simulator 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom
+Progress (1): 2.2/3.9 kBProgress (1): 3.9 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (3.9 kB at 3.3 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+Progress (1): 2.8/25 kBProgress (1): 5.5/25 kBProgress (1): 8.3/25 kBProgress (1): 11/25 kB Progress (1): 14/25 kBProgress (1): 16/25 kBProgress (1): 19/25 kBProgress (1): 22/25 kBProgress (1): 25 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (25 kB at 43 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ pajak-simulator ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom
+Progress (1): 2.8/4.1 kBProgress (1): 4.1 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom (4.1 kB at 10 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/16/spice-parent-16.pom
+Progress (1): 2.8/8.4 kBProgress (1): 5.5/8.4 kBProgress (1): 8.3/8.4 kBProgress (1): 8.4 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/16/spice-parent-16.pom (8.4 kB at 21 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+Progress (1): 2.2/8.4 kBProgress (1): 2.4/8.4 kBProgress (1): 5.2/8.4 kBProgress (1): 7.9/8.4 kBProgress (1): 8.4 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/5/forge-parent-5.pom (8.4 kB at 22 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+Progress (1): 2.2/226 kBProgress (1): 5.0/226 kBProgress (1): 7.7/226 kBProgress (1): 10/226 kB Progress (1): 13/226 kBProgress (1): 16/226 kBProgress (1): 19/226 kBProgress (1): 21/226 kBProgress (1): 24/226 kBProgress (1): 27/226 kBProgress (1): 30/226 kBProgress (1): 32/226 kBProgress (1): 36/226 kBProgress (1): 40/226 kBProgress (1): 45/226 kBProgress (1): 49/226 kBProgress (1): 53/226 kBProgress (1): 57/226 kBProgress (1): 61/226 kBProgress (1): 65/226 kBProgress (1): 69/226 kBProgress (1): 73/226 kBProgress (1): 77/226 kBProgress (1): 81/226 kBProgress (1): 85/226 kBProgress (1): 90/226 kBProgress (1): 94/226 kBProgress (1): 98/226 kBProgress (1): 102/226 kBProgress (1): 106/226 kBProgress (1): 110/226 kBProgress (1): 114/226 kBProgress (1): 118/226 kBProgress (1): 122/226 kBProgress (1): 126/226 kBProgress (1): 131/226 kBProgress (1): 135/226 kBProgress (1): 139/226 kBProgress (1): 143/226 kBProgress (1): 147/226 kBProgress (1): 151/226 kBProgress (1): 155/226 kBProgress (1): 159/226 kBProgress (1): 163/226 kBProgress (1): 167/226 kBProgress (1): 171/226 kBProgress (1): 176/226 kBProgress (1): 180/226 kBProgress (1): 184/226 kBProgress (1): 188/226 kBProgress (1): 192/226 kBProgress (1): 196/226 kBProgress (1): 200/226 kBProgress (1): 204/226 kBProgress (1): 208/226 kBProgress (1): 212/226 kBProgress (1): 217/226 kBProgress (1): 221/226 kBProgress (1): 225/226 kBProgress (1): 226 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar (226 kB at 296 kB/s)
+[INFO] Deleting /home/sudoroot/GitLocalRepository/pajak-simulator/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ pajak-simulator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 81 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ pajak-simulator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 206 source files to /home/sudoroot/GitLocalRepository/pajak-simulator/target/classes
+[WARNING] /home/sudoroot/GitLocalRepository/pajak-simulator/src/main/java/com/bekasidev/app/viewold/SideContentPanel.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/sudoroot/GitLocalRepository/pajak-simulator/src/main/java/com/bekasidev/app/viewold/SideContentPanel.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ pajak-simulator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sudoroot/GitLocalRepository/pajak-simulator/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ pajak-simulator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/sudoroot/GitLocalRepository/pajak-simulator/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ pajak-simulator ---
+[INFO] Surefire report directory: /home/sudoroot/GitLocalRepository/pajak-simulator/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Error: Could not find or load main class org.apache.maven.surefire.booter.ForkedBooter
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.217 s
+[INFO] Finished at: 2018-11-23T09:16:47+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project pajak-simulator: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test failed: The forked VM terminated without saying properly goodbye. VM crash or System.exit called ? -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException

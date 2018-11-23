@@ -137,4 +137,9 @@ public class PersiapanUIController implements Initializable {
         stage.setScene(new Scene(formPersiapanUI));
         stage.show();
     }
+    
+    public void cariArsip() {
+        
+    }
+    
 }
