@@ -1,7 +1,10 @@
 package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
+import com.bekasidev.app.dao.BerkasPersiapanDao;
+import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.dao.SuratPerintahDao;
+import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.*;
 
 import java.sql.*;
@@ -11,29 +14,32 @@ import java.util.List;
 public class SuratPerintahDaoImpl implements SuratPerintahDao {
     @Override
     public void createSuratPerintah(SuratPerintah suratPerintah) {
-        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, suratPerintah.getIdSP());
-            pstm.setInt(2, suratPerintah.getNomorSurat());
-            pstm.setString(3, suratPerintah.getKodeSkpd());
-            pstm.setString(4, suratPerintah.getNomorUrut());
-            pstm.setString(5, suratPerintah.getNomorSP());
-            pstm.setString(6, suratPerintah.getTanggalSP());
-            pstm.setInt(7, suratPerintah.getTahunAnggatan());
-            pstm.setString(8, suratPerintah.getNamaPemberi());
-            pstm.setString(9, suratPerintah.getJabatanPemberi());
-            pstm.setString(10, suratPerintah.getMasaPajakAwal());
-            pstm.setShort(11, suratPerintah.getTahap());
-            pstm.setString(12, suratPerintah.getLamaPelaksanaan());
-            pstm.setString(13, suratPerintah.getTempat());
-            pstm.setString(14, suratPerintah.getTanggalSurat());
-            pstm.setString(15, suratPerintah.getMasaPajakAkhir());
+            pstm.setString(2, suratPerintah.getNomorSurat());
+            pstm.setString(3, suratPerintah.getNomorUrut());
+            pstm.setString(4, suratPerintah.getNomorSK());
+            pstm.setString(5, suratPerintah.getTanggalSK());
+            pstm.setString(6, suratPerintah.getPemberiSK());
+            pstm.setInt(7, suratPerintah.getTahunAnggaranSK());
+            pstm.setInt(8, suratPerintah.getTahunAnggaranBiaya());
+            pstm.setString(9, suratPerintah.getNomorSuratBiaya());
+            pstm.setString(10, suratPerintah.getTanggalBiaya());
+            pstm.setString(11, setPegawaiToString(suratPerintah.getPemberiSP()));
+            pstm.setString(12, suratPerintah.getMasaPajakAwal());
+            pstm.setString(13, suratPerintah.getMasaPajakAkhir());
+            pstm.setShort(14, suratPerintah.getTahap());
+            pstm.setShort(15, suratPerintah.getLamaPelaksanaan());
+            pstm.setString(16, suratPerintah.getTempat());
+            pstm.setString(17, suratPerintah.getTanggalSurat());
 
             pstm.executeUpdate();
 
             setTim(suratPerintah.getListTim());
+            createNomorBerkas(suratPerintah);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -113,7 +119,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 tim.setPenanggungJawab(setPegawai(rs.getString("penanggung_jawab")));
                 tim.setSupervisor(setPegawai(rs.getString("supervisor")));
                 tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
-                tim.setListWP(setStringToWP(rs.getString("list_wp")));
+                tim.setListWP(setStringToWP(rs.getString("list_wp"), tim.getIdSP()));
 
                 listTim.add(tim);
             }
@@ -124,22 +130,33 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         return listTim;
     }
 
+    private void createNomorBerkas(SuratPerintah suratPerintah){
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
+        for(TimSP tim : suratPerintah.getListTim()){
+            for(WajibPajak wp : tim.getListWP()){
+                nomorBerkasDao.createNomorSurat(suratPerintah.getIdSP(), wp.getNpwpd());
+            }
+        }
+    }
+
     private SuratPerintah setSuratPerintah(ResultSet rs) throws SQLException {
         SuratPerintah suratPerintah = new SuratPerintah();
 
         suratPerintah.setIdSP(rs.getString("id_sp"));
-        suratPerintah.setNomorSurat(rs.getInt("nomor_surat"));
-        suratPerintah.setKodeSkpd(rs.getString("kode_skpd"));
+        suratPerintah.setNomorSurat(rs.getString("nomor_surat"));
         suratPerintah.setNomorUrut(rs.getString("nomor_urut"));
-        suratPerintah.setNomorSP(rs.getString("nomor_sp"));
-        suratPerintah.setTanggalSP(rs.getString("tanggal_sp"));
-        suratPerintah.setTahunAnggatan(rs.getInt("tahun_anggaran"));
-        suratPerintah.setNamaPemberi(rs.getString("nama_pemberi"));
-        suratPerintah.setJabatanPemberi(rs.getString("jabatan_pemberi"));
-        suratPerintah.setMasaPajakAwal(rs.getString(rs.getString("masa_pajak_awal")));
+        suratPerintah.setNomorSK(rs.getString("nomor_sk"));
+        suratPerintah.setTanggalSK(rs.getString("tanggal_sk"));
+        suratPerintah.setPemberiSK(rs.getString("pemberi_sk"));
+        suratPerintah.setTahunAnggaranSK(rs.getInt("tahun_anggaran_sk"));
+        suratPerintah.setTahunAnggaranBiaya(rs.getInt("tahun_anggaran_biaya"));
+        suratPerintah.setNomorSuratBiaya(rs.getString("nomor_surat_biaya"));
+        suratPerintah.setTanggalBiaya(rs.getString("tanggal_biaya"));
+        suratPerintah.setPemberiSP(setPegawai(rs.getString("pemberi_sp")));
+        suratPerintah.setMasaPajakAwal(rs.getString("masa_pajak_awal"));
         suratPerintah.setMasaPajakAkhir(rs.getString("masa_pajak_akhir"));
         suratPerintah.setTahap(rs.getShort("tahap"));
-        suratPerintah.setLamaPelaksanaan(rs.getString("lama_pelaksanaan"));
+        suratPerintah.setLamaPelaksanaan(rs.getShort("lama_pelaksanaan"));
         suratPerintah.setTempat(rs.getString("tempat"));
         suratPerintah.setTanggalSurat(rs.getString("tanggal_surat"));
         suratPerintah.setListTim(getListTim(suratPerintah.getIdSP()));
@@ -154,13 +171,15 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                     + listPegawai.get(0).getNamaPegawai() + "<b>"
                     + listPegawai.get(0).getPangkat() + "<b>"
                     + listPegawai.get(0).getGolongan() + "<b>"
-                    + listPegawai.get(0).getJabatanTim();
+                    + listPegawai.get(0).getJabatanTim() + "<b>"
+                    + listPegawai.get(0).getJabatanDinas();
             for(int i = 1; i < listPegawai.size(); i++){
                 result += "<p>" + listPegawai.get(i).getNipPegawai() + "<b>"
                         + listPegawai.get(i).getNamaPegawai() + "<b>"
                         + listPegawai.get(i).getPangkat() + "<b>"
                         + listPegawai.get(i).getGolongan() + "<b>"
-                        + listPegawai.get(i).getJabatanTim();
+                        + listPegawai.get(i).getJabatanTim() + "<b>"
+                        + listPegawai.get(0).getJabatanDinas();
             }
         }
         return result;
@@ -171,7 +190,8 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 + pegawai.getNamaPegawai() + "<b>"
                 + pegawai.getPangkat() + "<b>"
                 + pegawai.getGolongan() + "<b>"
-                + pegawai.getJabatanTim();
+                + pegawai.getJabatanTim() + "<b>"
+                + pegawai.getJabatanDinas();
 
         return result;
     }
@@ -179,11 +199,9 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
     private String setListWPTpString(List<WajibPajak> listWP){
         String result = "";
         if (listWP.size() > 0){
-            result += listWP.get(0).getNpwpd() + "<b>"
-                    + listWP.get(0).getNamaWajibPajak();
+            result += listWP.get(0).getNpwpd();
             for (int i=1; i < listWP.size(); i++){
-                result += "<p>" + listWP.get(i).getNpwpd() + "<b>"
-                        + listWP.get(i).getNamaWajibPajak();
+                result += "<p>" + listWP.get(i).getNpwpd();
             }
         }
         return result;
@@ -201,16 +219,21 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
 
     private Pegawai setPegawai(String pegawaiString){
         String[] attrPart = pegawaiString.split("<b>");
-        return new Pegawai("", attrPart[0], attrPart[1], attrPart[3], attrPart[2], attrPart[4]);
+        return new Pegawai("", attrPart[0], attrPart[1], attrPart[3], attrPart[2], attrPart[4], attrPart[5]);
     }
 
-    private List<WajibPajak> setStringToWP(String stringWP){
+    private List<WajibPajak> setStringToWP(String stringWP, String idSP){
         String[] wpParts = stringWP.split("<p>");
         List<WajibPajak> listWP = new ArrayList<>();
+        WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
+        BerkasPersiapanDao berkasPersiapanDao = new BerkasPersiapanImpl();
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
 
         for(String part : wpParts){
-            String[] attrPart = part.split("<b>");
-            listWP.add(new WajibPajak(attrPart[0], attrPart[1]));
+            WajibPajak wajibPajak = wajibPajakDao.getWPById(part);
+            berkasPersiapanDao.getBerkasPersiapan(idSP, wajibPajak);
+            wajibPajak.setNomorBerkas(nomorBerkasDao.getNomotBerkas(idSP, wajibPajak.getNpwpd()));
+            listWP.add(wajibPajak);
         }
 
         return listWP;

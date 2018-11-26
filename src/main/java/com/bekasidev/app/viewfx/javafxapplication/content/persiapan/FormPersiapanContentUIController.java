@@ -53,8 +53,6 @@ public class FormPersiapanContentUIController implements Initializable {
     @FXML private DatePicker tanggalAPBDField;
     @FXML private TextField nomorAPBDField;
     @FXML private TextField ditetapkanDiField;
-    @FXML private DatePicker tanggalPengesahanField;
-    @FXML private TextField nomorSuratField;
     @FXML private TextField lamaPelaksanaanField;
     
     @FXML private Button cancelBtn;
@@ -99,8 +97,7 @@ public void cancelOperation() {
         persiapanWrapper.setBiayaNomorAPBD(nomorAPBDField.getText());
         
         persiapanWrapper.setDitetapkanDi(ditetapkanDiField.getText());
-        persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(lamaPelaksanaanField.getText()));
         
         //tampilan selanjutnya
@@ -175,8 +172,8 @@ public void cancelOperation() {
             nomorAPBDField.setText(persiapanWrapper.getBiayaNomorAPBD());
             
             ditetapkanDiField.setText(persiapanWrapper.getDitetapkanDi());
-            tanggalPengesahanField.setValue(persiapanWrapper.getTanggalPengesahan().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            nomorSuratField.setText(persiapanWrapper.getNomorSurat());
+//            tanggalPengesahanField.setValue(persiapanWrapper.getTanggalPengesahan().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+//            nomorSuratField.setText(persiapanWrapper.getNomorSurat());
             lamaPelaksanaanField.setText(String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
             
         }

@@ -4,44 +4,31 @@ import java.util.List;
 
 public class SuratPerintah {
     private String idSP;
-    private int nomorSurat;
-    private String kodeSkpd;
+    private String nomorSurat;
     private String nomorUrut;
-    private String nomorSP;
-    private String tanggalSP;
-    private int tahunAnggatan;
-    private String namaPemberi;
-    private String jabatanPemberi;
+    private String nomorSK;
+    private String tanggalSK;
+    private int tahunAnggaranSK;
+    private String pemberiSK;
+    private String nomorSuratBiaya;
+    private String tanggalBiaya;
+    private int tahunAnggaranBiaya;
+    private Pegawai pemberiSP;
     private String masaPajakAwal;
     private String masaPajakAkhir;
     private short tahap;
-    private String lamaPelaksanaan;
+    private short lamaPelaksanaan;
     private String tempat;
     private String tanggalSurat;
+    private NomorBerkas nomorBerkas;
     private List<TimSP> listTim;
 
-    public String getMasaPajakAkhir() {
-        return masaPajakAkhir;
+    public NomorBerkas getNomorBerkas() {
+        return nomorBerkas;
     }
 
-    public void setMasaPajakAkhir(String masaPajakAkhir) {
-        this.masaPajakAkhir = masaPajakAkhir;
-    }
-
-    public List<TimSP> getListTim() {
-        return listTim;
-    }
-
-    public void setListTim(List<TimSP> listTim) {
-        this.listTim = listTim;
-    }
-
-    public String getTempat() {
-        return tempat;
-    }
-
-    public void setTempat(String tempat) {
-        this.tempat = tempat;
+    public void setNomorBerkas(NomorBerkas nomorBerkas) {
+        this.nomorBerkas = nomorBerkas;
     }
 
     public String getIdSP() {
@@ -52,20 +39,12 @@ public class SuratPerintah {
         this.idSP = idSP;
     }
 
-    public int getNomorSurat() {
+    public String getNomorSurat() {
         return nomorSurat;
     }
 
-    public void setNomorSurat(int nomorSurat) {
+    public void setNomorSurat(String nomorSurat) {
         this.nomorSurat = nomorSurat;
-    }
-
-    public String getKodeSkpd() {
-        return kodeSkpd;
-    }
-
-    public void setKodeSkpd(String kodeSkpd) {
-        this.kodeSkpd = kodeSkpd;
     }
 
     public String getNomorUrut() {
@@ -76,44 +55,68 @@ public class SuratPerintah {
         this.nomorUrut = nomorUrut;
     }
 
-    public String getNomorSP() {
-        return nomorSP;
+    public String getNomorSK() {
+        return nomorSK;
     }
 
-    public void setNomorSP(String nomorSP) {
-        this.nomorSP = nomorSP;
+    public void setNomorSK(String nomorSK) {
+        this.nomorSK = nomorSK;
     }
 
-    public String getTanggalSP() {
-        return tanggalSP;
+    public String getTanggalSK() {
+        return tanggalSK;
     }
 
-    public void setTanggalSP(String tanggalSP) {
-        this.tanggalSP = tanggalSP;
+    public void setTanggalSK(String tanggalSK) {
+        this.tanggalSK = tanggalSK;
     }
 
-    public int getTahunAnggatan() {
-        return tahunAnggatan;
+    public int getTahunAnggaranSK() {
+        return tahunAnggaranSK;
     }
 
-    public void setTahunAnggatan(int tahunAnggatan) {
-        this.tahunAnggatan = tahunAnggatan;
+    public void setTahunAnggaranSK(int tahunAnggaranSK) {
+        this.tahunAnggaranSK = tahunAnggaranSK;
     }
 
-    public String getNamaPemberi() {
-        return namaPemberi;
+    public String getPemberiSK() {
+        return pemberiSK;
     }
 
-    public void setNamaPemberi(String namaPemberi) {
-        this.namaPemberi = namaPemberi;
+    public void setPemberiSK(String pemberiSK) {
+        this.pemberiSK = pemberiSK;
     }
 
-    public String getJabatanPemberi() {
-        return jabatanPemberi;
+    public String getNomorSuratBiaya() {
+        return nomorSuratBiaya;
     }
 
-    public void setJabatanPemberi(String jabatanPemberi) {
-        this.jabatanPemberi = jabatanPemberi;
+    public void setNomorSuratBiaya(String nomorSuratBiaya) {
+        this.nomorSuratBiaya = nomorSuratBiaya;
+    }
+
+    public String getTanggalBiaya() {
+        return tanggalBiaya;
+    }
+
+    public void setTanggalBiaya(String tanggalBiaya) {
+        this.tanggalBiaya = tanggalBiaya;
+    }
+
+    public int getTahunAnggaranBiaya() {
+        return tahunAnggaranBiaya;
+    }
+
+    public void setTahunAnggaranBiaya(int tahunAnggaranBiaya) {
+        this.tahunAnggaranBiaya = tahunAnggaranBiaya;
+    }
+
+    public Pegawai getPemberiSP() {
+        return pemberiSP;
+    }
+
+    public void setPemberiSP(Pegawai pemberiSP) {
+        this.pemberiSP = pemberiSP;
     }
 
     public String getMasaPajakAwal() {
@@ -124,6 +127,14 @@ public class SuratPerintah {
         this.masaPajakAwal = masaPajakAwal;
     }
 
+    public String getMasaPajakAkhir() {
+        return masaPajakAkhir;
+    }
+
+    public void setMasaPajakAkhir(String masaPajakAkhir) {
+        this.masaPajakAkhir = masaPajakAkhir;
+    }
+
     public short getTahap() {
         return tahap;
     }
@@ -132,12 +143,20 @@ public class SuratPerintah {
         this.tahap = tahap;
     }
 
-    public String getLamaPelaksanaan() {
+    public short getLamaPelaksanaan() {
         return lamaPelaksanaan;
     }
 
-    public void setLamaPelaksanaan(String lamaPelaksanaan) {
+    public void setLamaPelaksanaan(short lamaPelaksanaan) {
         this.lamaPelaksanaan = lamaPelaksanaan;
+    }
+
+    public String getTempat() {
+        return tempat;
+    }
+
+    public void setTempat(String tempat) {
+        this.tempat = tempat;
     }
 
     public String getTanggalSurat() {
@@ -146,5 +165,13 @@ public class SuratPerintah {
 
     public void setTanggalSurat(String tanggalSurat) {
         this.tanggalSurat = tanggalSurat;
+    }
+
+    public List<TimSP> getListTim() {
+        return listTim;
+    }
+
+    public void setListTim(List<TimSP> listTim) {
+        this.listTim = listTim;
     }
 }

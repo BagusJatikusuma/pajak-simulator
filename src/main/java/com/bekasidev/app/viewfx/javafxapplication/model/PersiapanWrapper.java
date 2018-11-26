@@ -39,9 +39,13 @@ public class PersiapanWrapper {
     private Pegawai penandatangan;
     
     private ArrayList<TimWPWrapper> timWPWrappers;
+    private List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList;
+    private List<DokumenPinjamanWajibPajakWrapper> dokumenPinjamanWajibPajakWrappers;
 
     public PersiapanWrapper() {
         this.timWPWrappers = new ArrayList<TimWPWrapper>();
+        this.nomorTanggalWPList = new ArrayList<>();
+        this.dokumenPinjamanWajibPajakWrappers = new ArrayList<>();
     }
 
     public PersiapanWrapper(String dasarNomor, Date dasarTanggal, String dasarTahunAnggaran, String nama, String jabatan, Integer masaPajakAwalBulan, Integer masaPajakAwalTahun, Integer masaPajakAkhirbulan, Integer masaPajakAkhirTahun, Integer tahapKe, Integer lamaPelaksanaan, Integer biayaTahunAPBD, String biayaNomorAPBD, Date biayaTanggalAPBD, String ditetapkanDi, Date tanggalPengesahan, String nomorSurat, Pegawai penandatangan, ArrayList<TimWPWrapper> timWPWrappers) {
@@ -64,7 +68,58 @@ public class PersiapanWrapper {
         this.nomorSurat = nomorSurat;
         this.penandatangan = penandatangan;
         this.timWPWrappers = timWPWrappers;
+        this.nomorTanggalWPList = new ArrayList<>();
+        this.dokumenPinjamanWajibPajakWrappers = new ArrayList<>();
     }
+
+    public PersiapanWrapper(String dasarNomor, Date dasarTanggal, String dasarTahunAnggaran, String nama, String jabatan, Integer masaPajakAwalBulan, Integer masaPajakAwalTahun, Integer masaPajakAkhirbulan, Integer masaPajakAkhirTahun, Integer tahapKe, Integer lamaPelaksanaan, Integer biayaTahunAPBD, String biayaNomorAPBD, Date biayaTanggalAPBD, String ditetapkanDi, Date tanggalPengesahan, String nomorSurat, Pegawai penandatangan, ArrayList<TimWPWrapper> timWPWrappers, List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList) {
+        this.dasarNomor = dasarNomor;
+        this.dasarTanggal = dasarTanggal;
+        this.dasarTahunAnggaran = dasarTahunAnggaran;
+        this.nama = nama;
+        this.jabatan = jabatan;
+        this.masaPajakAwalBulan = masaPajakAwalBulan;
+        this.masaPajakAwalTahun = masaPajakAwalTahun;
+        this.masaPajakAkhirbulan = masaPajakAkhirbulan;
+        this.masaPajakAkhirTahun = masaPajakAkhirTahun;
+        this.tahapKe = tahapKe;
+        this.lamaPelaksanaan = lamaPelaksanaan;
+        this.biayaTahunAPBD = biayaTahunAPBD;
+        this.biayaNomorAPBD = biayaNomorAPBD;
+        this.biayaTanggalAPBD = biayaTanggalAPBD;
+        this.ditetapkanDi = ditetapkanDi;
+        this.tanggalPengesahan = tanggalPengesahan;
+        this.nomorSurat = nomorSurat;
+        this.penandatangan = penandatangan;
+        this.timWPWrappers = timWPWrappers;
+        this.nomorTanggalWPList = nomorTanggalWPList;
+        this.dokumenPinjamanWajibPajakWrappers = new ArrayList<>();
+    }
+
+    public PersiapanWrapper(String dasarNomor, Date dasarTanggal, String dasarTahunAnggaran, String nama, String jabatan, Integer masaPajakAwalBulan, Integer masaPajakAwalTahun, Integer masaPajakAkhirbulan, Integer masaPajakAkhirTahun, Integer tahapKe, Integer lamaPelaksanaan, Integer biayaTahunAPBD, String biayaNomorAPBD, Date biayaTanggalAPBD, String ditetapkanDi, Date tanggalPengesahan, String nomorSurat, Pegawai penandatangan, ArrayList<TimWPWrapper> timWPWrappers, List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList, List<DokumenPinjamanWajibPajakWrapper> dokumenPinjamanWajibPajakWrappers) {
+        this.dasarNomor = dasarNomor;
+        this.dasarTanggal = dasarTanggal;
+        this.dasarTahunAnggaran = dasarTahunAnggaran;
+        this.nama = nama;
+        this.jabatan = jabatan;
+        this.masaPajakAwalBulan = masaPajakAwalBulan;
+        this.masaPajakAwalTahun = masaPajakAwalTahun;
+        this.masaPajakAkhirbulan = masaPajakAkhirbulan;
+        this.masaPajakAkhirTahun = masaPajakAkhirTahun;
+        this.tahapKe = tahapKe;
+        this.lamaPelaksanaan = lamaPelaksanaan;
+        this.biayaTahunAPBD = biayaTahunAPBD;
+        this.biayaNomorAPBD = biayaNomorAPBD;
+        this.biayaTanggalAPBD = biayaTanggalAPBD;
+        this.ditetapkanDi = ditetapkanDi;
+        this.tanggalPengesahan = tanggalPengesahan;
+        this.nomorSurat = nomorSurat;
+        this.penandatangan = penandatangan;
+        this.timWPWrappers = timWPWrappers;
+        this.nomorTanggalWPList = nomorTanggalWPList;
+        this.dokumenPinjamanWajibPajakWrappers = dokumenPinjamanWajibPajakWrappers;
+    }
+        
 
     public String getDasarNomor() {
         return dasarNomor;
@@ -218,7 +273,21 @@ public class PersiapanWrapper {
         this.timWPWrappers = timWPWrappers;
     }
 
-    
+    public List<NomorTanggalWajibPajakWrapper> getNomorTanggalWPList() {
+        return nomorTanggalWPList;
+    }
+
+    public void setNomorTanggalWPList(List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList) {
+        this.nomorTanggalWPList = nomorTanggalWPList;
+    }
+
+    public List<DokumenPinjamanWajibPajakWrapper> getDokumenPinjamanWajibPajakWrappers() {
+        return dokumenPinjamanWajibPajakWrappers;
+    }
+
+    public void setDokumenPinjamanWajibPajakWrappers(List<DokumenPinjamanWajibPajakWrapper> dokumenPinjamanWajibPajakWrappers) {
+        this.dokumenPinjamanWajibPajakWrappers = dokumenPinjamanWajibPajakWrappers;
+    }
     
     
 }

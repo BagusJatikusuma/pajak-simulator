@@ -49,6 +49,7 @@ public class FormAturTimWPUIController implements Initializable {
     private TableColumn hapusAction;
     private TableColumn aturAction;
     @FXML private Button backToFormPersiapanBtn;
+    @FXML private Button cancelBtn;
     
     private ReportService reportService;
     
@@ -150,25 +151,22 @@ public class FormAturTimWPUIController implements Initializable {
         stage.show();
     }
     
-    public void finishPersiapan() {
-        reportService = ServiceFactory.getReportService();
-        System.out.println("finishPersiapan");
-        PersiapanWrapper persiapanWrapper
-                = (PersiapanWrapper) SessionProvider
-                .getGlobalSessionsMap()
-                .get("persiapan_wrapper");
+    public void cancelOperation() {
         
-//        for (TimWPWrapper obj : persiapanWrapper.getTimWPWrappers()) {
-//            System.out.println("Tim : "+obj.getTim().getNamaTim());
-//            System.out.println("Penanggung jawab : "+obj.getPenanggungJawab().getNamaPegawai());
-//            System.out.println("Supervisor : "+obj.getSupervisor().getNamaPegawai());
-//            for (WajibPajak wp : obj.getWajibPajaks()) {
-//                System.out.println("WP "+wp.getNamaWajibPajak());
-//            }
-//        }
-        
-        reportService.createSuratPerintah();
-        reportService.createDaftarPetugasPemeriksa();
+    }
+    
+    public void aturSuratPerintah() {
+        Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        rootpaneFormPersiapan.getChildren().remove(1);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormAturNomorTanggalSPUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPersiapan.getChildren().add(contentPane);
     }
     
 }

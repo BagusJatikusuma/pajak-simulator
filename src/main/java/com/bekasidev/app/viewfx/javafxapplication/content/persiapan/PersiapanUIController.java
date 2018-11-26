@@ -5,6 +5,10 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
+import com.bekasidev.app.model.Pegawai;
+import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.TimSP;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
@@ -62,8 +66,8 @@ public class PersiapanUIController implements Initializable {
         addFromFXML();
         populateData();
         associateDataWithColumn();
-        
         arsipPersiapanTable.setItems(dataCollection);
+
     }
 
     private void addFromFXML() {
@@ -137,4 +141,9 @@ public class PersiapanUIController implements Initializable {
         stage.setScene(new Scene(formPersiapanUI));
         stage.show();
     }
+    
+    public void cariArsip() {
+        
+    }
+    
 }

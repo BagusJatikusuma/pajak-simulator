@@ -33,7 +33,8 @@
       </HBox>
       <AnchorPane prefHeight="53.0" prefWidth="574.0">
          <children>
-            <Button layoutX="455.0" layoutY="14.0" mnemonicParsing="false" onAction="#finishPersiapan" prefHeight="25.0" prefWidth="111.0" text="selesai" />
+            <Button fx:id="cancelBtn" layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+            <Button layoutX="387.0" layoutY="14.0" mnemonicParsing="false" onAction="#aturSuratPerintah" prefHeight="25.0" prefWidth="181.0" text="Atur Surat Perintah" />
          </children>
       </AnchorPane>
    </children>
