@@ -8,14 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox fx:id="persiapanPane" maxHeight="613.0" maxWidth="1400.0" minWidth="1236.0" prefHeight="613.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
    <children>
       <AnchorPane prefHeight="40.0" prefWidth="200.0">
          <children>
             <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" />
             <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
-            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" />
+            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariArsip" prefHeight="25.0" prefWidth="60.0" text="cari" />
             <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addDokumenPersiapan" prefHeight="25.0" prefWidth="181.0" text="tambah dokumen persiapan" />
          </children>
       </AnchorPane>
