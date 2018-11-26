@@ -1,5 +1,8 @@
 package com.bekasidev.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WajibPajak {
 
     private String npwpd;
@@ -12,6 +15,24 @@ public class WajibPajak {
     private String telepon;
     private String fax;
     private String tahunMulaiOperasional;
+    private List<DokumenPinjaman> listPinjaman = new ArrayList<>();
+    private NomorBerkas nomorBerkas;
+
+    public List<DokumenPinjaman> getListPinjaman() {
+        return listPinjaman;
+    }
+
+    public void setListPinjaman(List<DokumenPinjaman> listPinjaman) {
+        this.listPinjaman = listPinjaman;
+    }
+
+    public NomorBerkas getNomorBerkas() {
+        return nomorBerkas;
+    }
+
+    public void setNomorBerkas(NomorBerkas nomorBerkas) {
+        this.nomorBerkas = nomorBerkas;
+    }
 
     public WajibPajak(String npwpd, String namaWajibPajak) {
         this.npwpd = npwpd;
@@ -19,6 +40,7 @@ public class WajibPajak {
     }
 
     public WajibPajak() {
+//        this.listPinjaman = new ArrayList<>();
     }
 
     public String getNamaPemilik() {

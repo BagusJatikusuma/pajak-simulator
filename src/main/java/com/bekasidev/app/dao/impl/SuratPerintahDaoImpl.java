@@ -1,6 +1,8 @@
 package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
+import com.bekasidev.app.dao.BerkasPersiapanDao;
+import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.dao.SuratPerintahDao;
 import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.*;
@@ -37,6 +39,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
 
             setTim(suratPerintah.getListTim());
+            createNomorBerkas(suratPerintah);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -116,7 +119,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 tim.setPenanggungJawab(setPegawai(rs.getString("penanggung_jawab")));
                 tim.setSupervisor(setPegawai(rs.getString("supervisor")));
                 tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
-                tim.setListWP(setStringToWP(rs.getString("list_wp")));
+                tim.setListWP(setStringToWP(rs.getString("list_wp"), tim.getIdSP()));
 
                 listTim.add(tim);
             }
@@ -125,6 +128,15 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
 
         return listTim;
+    }
+
+    private void createNomorBerkas(SuratPerintah suratPerintah){
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
+        for(TimSP tim : suratPerintah.getListTim()){
+            for(WajibPajak wp : tim.getListWP()){
+                nomorBerkasDao.createNomorSurat(suratPerintah.getIdSP(), wp.getNpwpd());
+            }
+        }
     }
 
     private SuratPerintah setSuratPerintah(ResultSet rs) throws SQLException {
@@ -210,13 +222,18 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         return new Pegawai("", attrPart[0], attrPart[1], attrPart[3], attrPart[2], attrPart[4], attrPart[5]);
     }
 
-    private List<WajibPajak> setStringToWP(String stringWP){
+    private List<WajibPajak> setStringToWP(String stringWP, String idSP){
         String[] wpParts = stringWP.split("<p>");
         List<WajibPajak> listWP = new ArrayList<>();
         WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
+        BerkasPersiapanDao berkasPersiapanDao = new BerkasPersiapanImpl();
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
 
         for(String part : wpParts){
-            listWP.add(wajibPajakDao.getWPById(part));
+            WajibPajak wajibPajak = wajibPajakDao.getWPById(part);
+            berkasPersiapanDao.getBerkasPersiapan(idSP, wajibPajak);
+            wajibPajak.setNomorBerkas(nomorBerkasDao.getNomotBerkas(idSP, wajibPajak.getNpwpd()));
+            listWP.add(wajibPajak);
         }
 
         return listWP;
