@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DaftarBukuPinjaman" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00137682-852a-4a65-ba7e-f5970b200446">
 	<property name="ireport.zoom" value="0.9090909090909141"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="142"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<style name="table">
 		<box>
@@ -208,32 +208,26 @@
 				<textFieldExpression><![CDATA["Cikarang Pusat, " + $P{tanggal_surat}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="292" y="109" width="260" height="18" uuid="c7528968-56cf-4c66-a4a3-4bc1adde7328"/>
+				<reportElement x="292" y="107" width="260" height="18" uuid="c7528968-56cf-4c66-a4a3-4bc1adde7328"/>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="292" y="127" width="260" height="18" uuid="e3bbfac6-ab8b-454d-b1aa-1919aa2571fb"/>
+				<reportElement x="292" y="125" width="260" height="18" uuid="e3bbfac6-ab8b-454d-b1aa-1919aa2571fb"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pembina Utama Muda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="292" y="145" width="260" height="18" uuid="d416390f-4e54-49e7-8e86-ab89c5655ad3"/>
+				<reportElement x="292" y="143" width="260" height="18" uuid="d416390f-4e54-49e7-8e86-ab89c5655ad3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[NIP. 19631206 199203 1 007]]></text>
 			</staticText>
-			<line>
-				<reportElement x="291" y="107" width="260" height="1" uuid="a7922d76-b75a-45b5-8f6b-a5283ef67112"/>
-				<graphicElement>
-					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-				</graphicElement>
-			</line>
 			<staticText>
 				<reportElement x="292" y="20" width="260" height="87" uuid="4cea0c67-6d07-4f49-9f42-b770819718c5"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">

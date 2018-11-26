@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerRestoran" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8615123e-a2b9-41c0-aa1c-6f807e29c0ee">
-	<property name="ireport.zoom" value="1.2100000000000075"/>
+	<property name="ireport.zoom" value="0.9090909090909145"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="1908"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="wajib_pajak" class="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="telp_fax" class="java.lang.String"/>
@@ -327,55 +327,69 @@ BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="228" y="266" width="306" height="20" uuid="3eb9cf7e-ccca-4a5b-9da1-5c7d4c274656"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+			<staticText>
+				<reportElement x="228" y="426" width="307" height="20" uuid="6cc175b5-6175-4a8f-a5a7-c32d530eb8b5"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getNamaWajibPajak()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="229" y="286" width="306" height="20" uuid="9ea419b9-b0d3-4350-91bb-415a7e9717b9"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="406" width="307" height="20" uuid="f4277c3e-d65a-4ac7-a187-c818fbed1dbe"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getNpwpd()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="229" y="306" width="306" height="20" uuid="f6524864-8f2d-4858-853e-ae166c565dd8"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="386" width="307" height="20" uuid="85f03ea7-3f2e-4b5d-abb2-17c18b5feced"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getNamaPemilik()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="229" y="326" width="306" height="60" uuid="f93110cb-7c8b-4e23-b970-41d1d56f6d03"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="266" width="307" height="20" uuid="0ad4c8ee-c349-47f6-a9bd-a91590e48936"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getJalan()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="229" y="386" width="305" height="20" uuid="c029c6ee-e9ec-4b7d-ae66-71f2d2e9bc25"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="286" width="307" height="20" uuid="629edf03-941e-4107-ad79-196e3b767c80"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{telp_fax}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="228" y="406" width="306" height="20" uuid="63c99eba-564a-40e8-8e9f-45f9fde34a75"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="306" width="307" height="20" uuid="2ba470a1-a5b5-4598-bc5c-244bd5626a01"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{jenis_wp}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="229" y="426" width="306" height="20" uuid="871a55e2-bef6-410a-8c32-ef0fc4880d1e"/>
-				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="326" width="307" height="20" uuid="348b72f5-6e54-40b8-93a7-d2bb2b4d1a82"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{wajib_pajak}.getTahunMulaiOperasional()]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="346" width="307" height="20" uuid="073191d3-4593-4582-9589-0adac7bc6840"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="366" width="307" height="20" uuid="bb894652-c43d-41d2-b166-8f40c9603605"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[..............................................................................................]]></text>
+			</staticText>
 		</band>
 		<band height="875">
 			<staticText>

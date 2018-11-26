@@ -779,7 +779,7 @@ public class ReportServiceImpl implements ReportService {
                         wp.setNamaPegawai(anggotaTimList.get(i).getNamaPegawai());
                         wp.setPangkat(anggotaTimList.get(i).getPangkat());
                         wp.setGolongan(anggotaTimList.get(i).getGolongan());
-                        wp.setJabatan(anggotaTimList.get(i).getJabatanTim());
+                        wp.setJabatanTim(anggotaTimList.get(i).getJabatanTim());
                     } else {
                         wp.setIdTim("");
                         wp.setNipPegawai("");

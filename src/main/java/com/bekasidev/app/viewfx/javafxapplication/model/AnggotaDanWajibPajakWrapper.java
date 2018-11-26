@@ -19,7 +19,7 @@ public class AnggotaDanWajibPajakWrapper {
     private String namaPegawai;
     private String pangkat;
     private String golongan;
-    private String jabatan;
+    private String jabatanTim;
 
     public AnggotaDanWajibPajakWrapper() {
     }
@@ -33,7 +33,7 @@ public class AnggotaDanWajibPajakWrapper {
         this.namaPegawai = namaPegawai;
         this.pangkat = pangkat;
         this.golongan = golongan;
-        this.jabatan = jabatan;
+        this.jabatanTim = jabatan;
     }
 
     public String getIdWajibPajak() {
@@ -100,12 +100,12 @@ public class AnggotaDanWajibPajakWrapper {
         this.golongan = golongan;
     }
 
-    public String getJabatan() {
-        return jabatan;
+    public String getJabatanTim() {
+        return jabatanTim;
     }
 
-    public void setJabatan(String jabatan) {
-        this.jabatan = jabatan;
+    public void setJabatanTim(String jabatan) {
+        this.jabatanTim = jabatan;
     }
     
     
