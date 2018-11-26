@@ -7,44 +7,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanContentUIController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanContentUIController">
     <stylesheets>
-        <URL value="@/styles/formpersiapancontentui.css"/>
+        <URL value="@/styles/formpersiapancontentui.css" />
     </stylesheets>
-    <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
-        <children>
-           <TextField fx:id="masaPajakAwalTahun" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
-           <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="41.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
-           <Label layoutX="41.0" layoutY="182.0" text="Masa pajak" />
-           <Label layoutX="40.0" layoutY="6.0" text="Dasar nomor" />
-           <Label layoutX="40.0" layoutY="66.0" text="Dasar tanggal" />
-           <Label layoutX="305.0" layoutY="66.0" text="Dasar tahun anggaran" />
-           <Label layoutX="41.0" layoutY="124.0" text="Penandatangan" />
-           <TextField fx:id="dasarNomorField" layoutX="40.0" layoutY="26.0" prefHeight="25.0" prefWidth="497.0" />
-           <ChoiceBox fx:id="penandatanganField" layoutX="41.0" layoutY="142.0" prefHeight="25.0" prefWidth="497.0" />
-           <DatePicker fx:id="dasarTanggalField" layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="228.0" />
-           <TextField fx:id="dasarTahunAnggaranField" layoutX="305.0" layoutY="86.0" prefHeight="25.0" prefWidth="228.0" />
-           <Label layoutX="279.0" layoutY="206.0" prefHeight="17.0" prefWidth="19.0" text="s.d" />
-           <ChoiceBox fx:id="masaPajakAkhirBulan" layoutX="320.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
-           <TextField fx:id="masaPajakAkhirTahun" layoutX="439.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
-           <Label layoutX="41.0" layoutY="242.0" text="Tahap ke" />
-           <TextField fx:id="tahapKeField" layoutX="41.0" layoutY="262.0" prefHeight="25.0" prefWidth="497.0" />
-           <Label layoutX="42.0" layoutY="357.0" text="Tahun anggaran APBD" />
-           <TextField fx:id="tahunAnggaranAPBDField" layoutX="42.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
-           <TextField fx:id="nomorAPBDField" layoutX="41.0" layoutY="437.0" prefHeight="25.0" prefWidth="497.0" />
-           <Label layoutX="41.0" layoutY="412.0" text="Nomor APBD" />
-           <DatePicker fx:id="tanggalAPBDField" layoutX="307.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
-           <Label layoutX="307.0" layoutY="357.0" text="Tanggal APBD" />
-           <Label layoutX="308.0" layoutY="477.0" text="Tanggal pengesahan" />
-           <DatePicker fx:id="tanggalPengesahanField" layoutX="308.0" layoutY="497.0" prefHeight="25.0" prefWidth="228.0" />
-           <TextField fx:id="ditetapkanDiField" layoutX="43.0" layoutY="497.0" prefHeight="25.0" prefWidth="228.0" />
-           <Label layoutX="43.0" layoutY="477.0" text="Ditetapkan di" />
-           <Label layoutX="42.0" layoutY="537.0" text="Nomor surat" />
-           <TextField fx:id="nomorSuratField" layoutX="42.0" layoutY="557.0" prefHeight="25.0" prefWidth="497.0" />
-           <Button layoutX="418.0" layoutY="595.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="next" />
-           <Button fx:id="cancelBtn" layoutX="287.0" layoutY="595.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="cancel" />
-           <Label layoutX="43.0" layoutY="297.0" text="Lama pelaksanaan (dalam satuan hari)" />
-           <TextField fx:id="lamaPelaksanaanField" layoutX="41.0" layoutY="316.0" prefHeight="25.0" prefWidth="497.0" />
-        </children>
-     </AnchorPane>
+   <children>
+       <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
+           <children>
+              <TextField fx:id="masaPajakAwalTahun" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
+              <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="41.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
+              <Label layoutX="41.0" layoutY="182.0" text="Masa pajak" />
+              <Label layoutX="40.0" layoutY="6.0" text="Dasar nomor" />
+              <Label layoutX="40.0" layoutY="66.0" text="Dasar tanggal" />
+              <Label layoutX="305.0" layoutY="66.0" text="Dasar tahun anggaran" />
+              <Label layoutX="41.0" layoutY="124.0" text="Penandatangan" />
+              <TextField fx:id="dasarNomorField" layoutX="40.0" layoutY="26.0" prefHeight="25.0" prefWidth="497.0" />
+              <ChoiceBox fx:id="penandatanganField" layoutX="41.0" layoutY="142.0" prefHeight="25.0" prefWidth="497.0" />
+              <DatePicker fx:id="dasarTanggalField" layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="228.0" />
+              <TextField fx:id="dasarTahunAnggaranField" layoutX="305.0" layoutY="86.0" prefHeight="25.0" prefWidth="228.0" />
+              <Label layoutX="279.0" layoutY="206.0" prefHeight="17.0" prefWidth="19.0" text="s.d" />
+              <ChoiceBox fx:id="masaPajakAkhirBulan" layoutX="320.0" layoutY="202.0" prefHeight="25.0" prefWidth="115.0" />
+              <TextField fx:id="masaPajakAkhirTahun" layoutX="439.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" />
+              <Label layoutX="41.0" layoutY="242.0" text="Tahap ke" />
+              <TextField fx:id="tahapKeField" layoutX="41.0" layoutY="262.0" prefHeight="25.0" prefWidth="497.0" />
+              <Label layoutX="42.0" layoutY="357.0" text="Tahun anggaran APBD" />
+              <TextField fx:id="tahunAnggaranAPBDField" layoutX="42.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
+              <TextField fx:id="nomorAPBDField" layoutX="41.0" layoutY="437.0" prefHeight="25.0" prefWidth="497.0" />
+              <Label layoutX="41.0" layoutY="412.0" text="Nomor APBD" />
+              <DatePicker fx:id="tanggalAPBDField" layoutX="307.0" layoutY="377.0" prefHeight="25.0" prefWidth="228.0" />
+              <Label layoutX="307.0" layoutY="357.0" text="Tanggal APBD" />
+              <TextField fx:id="ditetapkanDiField" layoutX="43.0" layoutY="497.0" prefHeight="25.0" prefWidth="497.0" />
+              <Label layoutX="43.0" layoutY="477.0" text="Ditetapkan di" />
+              <Button layoutX="418.0" layoutY="595.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="next" />
+              <Button fx:id="cancelBtn" layoutX="287.0" layoutY="595.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="cancel" />
+              <Label layoutX="43.0" layoutY="297.0" text="Lama pelaksanaan (dalam satuan hari)" />
+              <TextField fx:id="lamaPelaksanaanField" layoutX="41.0" layoutY="316.0" prefHeight="25.0" prefWidth="497.0" />
+           </children>
+        </AnchorPane>
+   </children>
 </AnchorPane>
