@@ -271,24 +271,25 @@ public class ReportServiceImpl implements ReportService {
 //                        .getPajakMapSession()
 //                        .get("persiapan_pajak_restoran");
 //
-            BerkasPersiapan bp = new BerkasPersiapan();
-            bp.setMasaPajakAwal(convertBulanIntegerIntoString(
+//            BerkasPersiapan bp = new BerkasPersiapan();
+            String masaAwal = convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAwalBulan()) + " " +
-                               persiapanWrapper.getMasaPajakAwalTahun());
-            bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAwalTahun();
+            String masaAkhir = convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
-                               persiapanWrapper.getMasaPajakAkhirTahun());
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
+                               persiapanWrapper.getMasaPajakAkhirTahun();
+            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(
+                    wajibPajak, masaAwal, masaAkhir);
 
             JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(bp.getListPinjaman());
+            new JRBeanCollectionDataSource(wajibPajak.getListPinjaman());
 
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
             
-            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
+            System.out.println("asdasdasdasdsaadsasd" + wajibPajak.getListPinjaman().size());
             
             parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
@@ -541,7 +542,7 @@ public class ReportServiceImpl implements ReportService {
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAwal());
             bp.setMasaPajakAkhir(persiapanPajakPOJO.getMasaPajakBulanAkhir() 
                     + " " + persiapanPajakPOJO.getMasaPajakTahunAkhir());
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, WP.HOTEL);
+//            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, WP.HOTEL);
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(bp.getListPinjaman());
@@ -551,7 +552,7 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
+//            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
             
             parameter.put("nomor_surat", persiapanPajakPOJO.getNomorUrutSurat());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
@@ -702,7 +703,7 @@ public class ReportServiceImpl implements ReportService {
             
             //data dummi
             PersiapanWrapperJasper dummi = new PersiapanWrapperJasper();
-        
+
             dummi.setNomorSurat(persiapanWrapper.getNomorSurat());
             dummi.setTanggalPengesahan(persiapanWrapper.getTanggalPengesahan());
             dummi.setDasarNomor(persiapanWrapper.getDasarNomor());
@@ -710,36 +711,36 @@ public class ReportServiceImpl implements ReportService {
             dummi.setDasarTahunAnggaran(persiapanWrapper.getDasarTahunAnggaran());
             dummi.setNama(persiapanWrapper.getNama());
             dummi.setJabatan(persiapanWrapper.getJabatan());
-            
+
             dummi.setMasaPajakAwalBulan(persiapanWrapper.getMasaPajakAwalBulan());
             dummi.setMasaPajakAwalTahun(persiapanWrapper.getMasaPajakAwalTahun());
             dummi.setMasaPajakAkhirbulan(persiapanWrapper.getMasaPajakAkhirbulan());
             dummi.setMasaPajakAkhirTahun(persiapanWrapper.getMasaPajakAkhirTahun());
             dummi.setTahapKe(persiapanWrapper.getTahapKe());
-            
+
             dummi.setLamaPelaksanaan(persiapanWrapper.getLamaPelaksanaan());
             dummi.setBiayaNomorAPBD(persiapanWrapper.getBiayaNomorAPBD());
             dummi.setBiayaTahunAPBD(persiapanWrapper.getBiayaTahunAPBD());
             dummi.setBiayaTanggalAPBD(persiapanWrapper.getBiayaTanggalAPBD());
-            
+
             dummi.setDitetapkanDi(persiapanWrapper.getDitetapkanDi());
-            
+
             dummi.setPenandatangan(persiapanWrapper.getPenandatangan());
-            
+
 //            Pegawai penanggungJawab = new Pegawai();
 //            penanggungJawab.setIdTim("");
 //            penanggungJawab.setNamaPegawai("Bagus");
 //            penanggungJawab.setNipPegawai("69696969");
 //            penanggungJawab.setGolongan("Java / V.a");
 //            penanggungJawab.setJabatanTim("Senior");
-//            
+//
 //            Pegawai supervisor = new Pegawai();
 //            supervisor.setIdTim("");
 //            supervisor.setNamaPegawai("Sra");
 //            supervisor.setNipPegawai("121212");
 //            supervisor.setGolongan("Angular / V.a");
 //            supervisor.setJabatanTim("Senior Angular");
-            
+
 //            Tim tim = new Tim();
 //            tim.setIdTim("1");
 //            tim.setNamaTim("Tim 1");
@@ -751,7 +752,7 @@ public class ReportServiceImpl implements ReportService {
 
                 List<Pegawai> anggotaTimList = pegawaiService.getPegawaiByTim(tim.getTim().getIdTim());
                 List<AnggotaDanWajibPajakWrapper> wajibPajakList = new ArrayList<AnggotaDanWajibPajakWrapper>();
-                
+
                 int jumlah = anggotaTimList.size();
                 if(jumlah < tim.getWajibPajaks().size()){
                     jumlah = tim.getWajibPajaks().size();
@@ -759,7 +760,7 @@ public class ReportServiceImpl implements ReportService {
 
                 for (int i = 0; i < jumlah; i++) {
                     AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
-                    
+
                     if(i < tim.getWajibPajaks().size()){
                         wp.setIdWajibPajak(tim.getWajibPajaks().get(i).getNpwpd());
                         wp.setNamaWajibPajak(tim.getWajibPajaks().get(i).getNamaWajibPajak());
@@ -769,7 +770,7 @@ public class ReportServiceImpl implements ReportService {
                         wp.setNamaWajibPajak("");
                         wp.setJenisWp((short) -1);
                     }
-                    
+
                     if (i < anggotaTimList.size()) {
                         wp.setIdTim(anggotaTimList.get(i).getIdTim());
                         wp.setNipPegawai(anggotaTimList.get(i).getNipPegawai());
@@ -784,11 +785,11 @@ public class ReportServiceImpl implements ReportService {
                         wp.setPangkat("");
                         wp.setGolongan("");
                     }
-                    
+
                     wajibPajakList.add(wp);
                 }
-                
-                TimWPWrapperJasper objTimWPWrapper 
+
+                TimWPWrapperJasper objTimWPWrapper
                         = new TimWPWrapperJasper(
                                 tim.getPenanggungJawab().getNipPegawai(),
                                 tim.getPenanggungJawab().getNamaPegawai(),
@@ -804,19 +805,19 @@ public class ReportServiceImpl implements ReportService {
 
                                 tim.getTim().getNamaTim(),
                                 wajibPajakList
-                        ); 
+                        );
                 JRBeanCollectionDataSource beanColDataSourceWp =
                         new JRBeanCollectionDataSource(wajibPajakList);
                 objTimWPWrapper.setWajibPajakJasper(beanColDataSourceWp);
                 objTimWPWrapper.setListWP(tim.getWajibPajaks());
-                
+
                 dummi.getTimWPWrapperJaspers().add(objTimWPWrapper);
-                
+
             }
-            
-            
+
+
             //data dummi
-            
+
             HashMap<String, Object> parameters = new HashMap<String, Object>();
             String jasperPathFile = "file:///D://DaftarPetugasPemeriksa.jasper";
             String jrxmlPathFile = "D://DaftarPetugasPemeriksa.jrxml";
@@ -868,13 +869,13 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("biaya_tanggal_apbd", String.valueOf(df_biaya_tanggal_apbd.format(dummi.getBiayaTanggalAPBD())));
             parameter.put("ditetapkan_di", dummi.getDitetapkanDi());
             parameter.put("penandatangan", dummi.getPenandatangan());
-         
+
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report,
                     parameter,
                     beanColDataSource);
-            
+
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/DaftarPetugasPemeriksa.pdf");
                 File parent = file.getParentFile();
@@ -892,7 +893,7 @@ public class ReportServiceImpl implements ReportService {
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
             frame.setVisible(true);
-            
+
             for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
                 for(WajibPajak wp : timWP.getListWP()){
                     System.out.println("Masuk wp " + wp.getNamaWajibPajak());
@@ -956,7 +957,7 @@ public class ReportServiceImpl implements ReportService {
             bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
                                persiapanWrapper.getMasaPajakAkhirTahun());
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
+//            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(bp.getListPinjaman());
@@ -1044,7 +1045,7 @@ public class ReportServiceImpl implements ReportService {
             bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
                                persiapanWrapper.getMasaPajakAkhirTahun());
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
+//            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
 
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(bp.getListPinjaman());

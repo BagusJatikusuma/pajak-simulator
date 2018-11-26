@@ -20,7 +20,16 @@ public class SuratPerintah {
     private short lamaPelaksanaan;
     private String tempat;
     private String tanggalSurat;
+    private NomorBerkas nomorBerkas;
     private List<TimSP> listTim;
+
+    public NomorBerkas getNomorBerkas() {
+        return nomorBerkas;
+    }
+
+    public void setNomorBerkas(NomorBerkas nomorBerkas) {
+        this.nomorBerkas = nomorBerkas;
+    }
 
     public String getIdSP() {
         return idSP;

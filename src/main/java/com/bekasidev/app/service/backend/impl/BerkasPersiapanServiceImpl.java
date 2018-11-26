@@ -7,6 +7,7 @@ import com.bekasidev.app.dao.impl.WajibPajakDaoImpl;
 import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.WP;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.backend.BerkasPersiapanService;
 import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
@@ -18,169 +19,166 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
     BerkasPersiapanDao berkasPersiapanDao = new BerkasPersiapanImpl();
     WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
 
+//    @Override
+//    public DokumenPersiapanWrapper getBerkasPersiapan(String idBerkas) {
+//        DokumenPersiapanWrapper dokumenPersiapanWrapper = berkasPersiapanDao.getBerkasPersiapan(idBerkas);
+//        dokumenPersiapanWrapper.setWp(wajibPajakDao.getWPById(dokumenPersiapanWrapper.getIdWajibPajak()));
+//        return dokumenPersiapanWrapper;
+//    }
+//
     @Override
-    public DokumenPersiapanWrapper getBerkasPersiapan(String idBerkas) {
-        DokumenPersiapanWrapper dokumenPersiapanWrapper = berkasPersiapanDao.getBerkasPersiapan(idBerkas);
-        dokumenPersiapanWrapper.setWp(wajibPajakDao.getWPById(dokumenPersiapanWrapper.getIdWajibPajak()));
-        return dokumenPersiapanWrapper;
+    public void createBerkasPersiapan(String idSP, WajibPajak wajibPajak) {
+        berkasPersiapanDao.createBerkasPersiapan(wajibPajak, idSP);
     }
 
     @Override
-    public void createBerkasPersiapan(BerkasPersiapan berkasPersiapan) {
-        Calendar cal = Calendar.getInstance();
-        berkasPersiapan.setTanggalDibuat(Long.toString(cal.getTimeInMillis()));
-        berkasPersiapan.setIdBerkas(Long.toString(cal.getTimeInMillis()));
-        berkasPersiapanDao.createBerkasPersiapan(berkasPersiapan);
-    }
-
-    @Override
-    public void getDokumenPinjaman(BerkasPersiapan berkasPersiapan, WP wp) {
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("", ""));
-        switch(wp){
-            case HOTEL: createListPinjamanHotel(berkasPersiapan); break;
-            case RESTORAN: createListPinjamanRestoran(berkasPersiapan); break;
-            case PARKIRAN: createListPinjamanParkir(berkasPersiapan);break;
+    public void getDokumenPinjaman(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir) {
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("", ""));
+        switch(wajibPajak.getJenisWp()){
+            case 1: createListPinjamanHotel(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
+            case 0: createListPinjamanRestoran(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
+            case 2: createListPinjamanParkir(wajibPajak, masaPajakAwal, masaPajakAkhir);break;
         }
     }
 
-    private void createListPinjamanRestoran(BerkasPersiapan berkasPersiapan){
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("STPD DAN SSPD bulan " + berkasPersiapan.getMasaPajakAwal() +
-                                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Laporan Keuangan per bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Bill/Cash Register bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+    private void createListPinjamanRestoran(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
+                                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Laporan Keuangan per bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Bill/Cash Register bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Catatan penjualan/penerimaan harian/record per kasir bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Dokumen pemesanan makanan dan minuman bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Buku persediaan barang dan daftar pengeluaran bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("Daftar menu/harga", ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("Daftar menu/harga", ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah karyawan dan gaji karyawan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar komponen penghasilan yang diterima pegawai " +
                         "(termasuk pembagian service charge)", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah Ruangan/Meja/Kursi",""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pemilik/Pemegang Paham", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pengelola/Direksi", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Akte Pendirian Perusahaan terakhir", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Berkas Perizinan Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Struktur Organisasi Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data/dokumen lain yang diperlukan tim pemeriksa", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
     }
 
-    private void createListPinjamanHotel(BerkasPersiapan berkasPersiapan){
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("STPD DAN SSPD bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Laporan Keuangan per bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Bill/Cash Register bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+    private void createListPinjamanHotel(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Laporan Keuangan per bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Bill/Cash Register bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Catatan penjualan/penerimaan harian/record per kasir bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Dokumen pemesanan Kamar/Ruangan bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar fasilitas Hotel bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah kamar berdasarkan kelas dan harga kamar", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah karyawan dan gaji karyawan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar komponen penghasilan yang diterima pegawai " +
                         "(termasuk pembagian service charge)", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pemilik/Pemegang Saham", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pengelola/Direksi", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Berkas Perizinan Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Akte Pendirian Perusahaan terakhir", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Struktur Organisasi Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data/dokumen lain yang diperlukan tim pemeriksa", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
     }
 
-    private void createListPinjamanParkir(BerkasPersiapan berkasPersiapan){
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("STPD DAN SSPD bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Laporan Keuangan per bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
-                new DokumenPinjaman("Bill/Cash Register bulan " + berkasPersiapan.getMasaPajakAwal() +
-                        " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+    private void createListPinjamanParkir(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Laporan Keuangan per bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
+                new DokumenPinjaman("Bill/Cash Register bulan " + masaPajakAwal +
+                        " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Catatan penjualan/penerimaan harian kasir bulan " +
-                        berkasPersiapan.getMasaPajakAwal() + " s.d " + berkasPersiapan.getMasaPajakAkhir(), ""));
-        berkasPersiapan.getListPinjaman().add(
+                        masaPajakAwal + " s.d " + masaPajakAkhir, ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah karyawan dan gaji karyawan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar komponen penghasilan yang diterima pegawai " +
                         "(termasuk pembagian service charge)", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar harga/tarif parkir per jenis kendaraan", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        berkasPersiapan.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pemilik/Pemegang Paham", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pengelola/Direksi", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Berkas Perizinan Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Akte Pendirian Perusahaan terakhir", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Struktur Organisasi Perusahaan", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data/dokumen lain yang diperlukan tim pemeriksa", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
-        berkasPersiapan.getListPinjaman().add(
+        wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("...............................................", ""));
     }
 }
