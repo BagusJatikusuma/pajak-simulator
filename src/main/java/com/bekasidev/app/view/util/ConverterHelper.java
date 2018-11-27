@@ -7,9 +7,13 @@ package com.bekasidev.app.view.util;
 
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.TimSP;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
+import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import java.text.DateFormat;
@@ -83,6 +87,7 @@ public class ConverterHelper {
             
             TimSP timSP = new TimSP();
             timSP.setIdSP(idSP);
+            timSP.setIdTim(obj.getTim().getIdTim());
             timSP.setListWP(obj.getWajibPajaks());
             timSP.setNamaTim(obj.getTim().getNamaTim());
             timSP.setPenanggungJawab(obj.getPenanggungJawab());
@@ -133,6 +138,38 @@ public class ConverterHelper {
         persiapanWrapper.setDitetapkanDi(suratPerintah.getTempat());
         
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(suratPerintah.getLamaPelaksanaan()));
+        
+        ArrayList<TimWPWrapper> timWPWrappers = new ArrayList<>();
+        List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList = new ArrayList<>();
+        List<DokumenPinjamanWajibPajakWrapper> dokumenPinjamanWajibPajakWrappers = new ArrayList<>();
+        
+        for (TimSP timSP : suratPerintah.getListTim()) {
+            for (WajibPajak wp : timSP.getListWP()) {
+                NomorTanggalWajibPajakWrapper nt = new NomorTanggalWajibPajakWrapper();
+                nt.setWajibPajak(wp);
+                nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
+                nt.setNomorPeminjamanDokumen(wp.getNomorBerkas().getNomorSuratPeminjaman());
+                if (wp.getNomorBerkas().getTanggalSuratPemberitahuan() != null)
+                    nt.setTanggalPemberitahuanPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPemberitahuan())));
+                if (wp.getNomorBerkas().getTanggalSuratPeminjaman() != null)
+                    nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
+                
+                nomorTanggalWPList.add(nt);
+            }
+            
+            TimWPWrapper timWPWrapper 
+                    = new TimWPWrapper();
+            timWPWrapper.setPenanggungJawab(timSP.getPenanggungJawab());
+            timWPWrapper.setSupervisor(timSP.getSupervisor());
+            timWPWrapper.setWajibPajaks(timSP.getListWP());
+            Tim tim = new Tim(timSP.getIdTim(), timSP.getNamaTim());
+            timWPWrapper.setTim(tim);
+            
+            timWPWrappers.add(timWPWrapper);
+        }
+        
+        persiapanWrapper.setTimWPWrappers(timWPWrappers);
+        persiapanWrapper.setNomorTanggalWPList(nomorTanggalWPList);
         
         return persiapanWrapper;
     }

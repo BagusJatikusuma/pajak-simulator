@@ -6,6 +6,7 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
@@ -74,7 +75,10 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         //simpan menggunakan suratPerintahService update
         SuratPerintah suratPerintah
                 = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
-        
+        System.out.println("list tim "+suratPerintah.getListTim().size());
+        for (TimSP timSP : suratPerintah.getListTim()) {
+            System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
+        }
         suratPerintahService.createSuratPerintah(suratPerintah);
         
         Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
