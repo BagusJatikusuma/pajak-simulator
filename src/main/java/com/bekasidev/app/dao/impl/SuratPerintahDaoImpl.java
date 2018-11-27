@@ -65,13 +65,14 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
     }
 
     @Override
-    public void setNomorUrut(String idSP, String nomorUrut) {
-        String sql = "UPDATE surat_perintah SET nomor_urut=? WHERE id_sp=?";
+    public void setNomorUrut(String idSP, String nomorUrut, String tanggal) {
+        String sql = "UPDATE surat_perintah SET nomor_urut=?, tanggal_surat=? WHERE id_sp=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, nomorUrut);
-            pstm.setString(2, idSP);
+            pstm.setString(2, tanggal);
+            pstm.setString(3, idSP);
         } catch (SQLException e) {
             e.printStackTrace();
         }
