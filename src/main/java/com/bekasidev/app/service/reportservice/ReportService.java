@@ -34,4 +34,9 @@ public interface ReportService {
     void createQuesionerRestoran(WP wp, WajibPajak wajibPajak,
             PersiapanWrapperJasper persiapanWrapper);
     
+    void createPersiapanPeminjamanBuku(
+            PersiapanWrapper persiapanWrapper, WajibPajak wp);
+    void createPemberitahuanPemeriksaan(
+            PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP);
+    
 }

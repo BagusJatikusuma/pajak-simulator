@@ -24,7 +24,7 @@
       </AnchorPane>
       <HBox layoutX="14.0" layoutY="47.0" prefHeight="547.0" prefWidth="1208.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
          <children>
-            <TableView prefHeight="547.0" prefWidth="1208.0">
+            <TableView fx:id="arsipPelaksanaanTable" prefHeight="547.0" prefWidth="1208.0">
               <columns>
                 <TableColumn prefWidth="124.0" text="Id" />
                 <TableColumn prefWidth="422.0" text="Tanggal Dibuat" />

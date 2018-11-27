@@ -643,8 +643,13 @@ public class ReportServiceImpl implements ReportService {
             DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
 
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+                parameter.put("nomor_surat", "   ");
+                parameter.put("tanggal_pengesahan", "    ");
+            } else {
+                parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+                parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            }
             
             parameter.put("dasar_nomor", persiapanWrapper.getDasarNomor());
             parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(persiapanWrapper.getDasarTanggal())));
@@ -849,18 +854,23 @@ public class ReportServiceImpl implements ReportService {
             DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
             DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
-//
-            parameter.put("nomor_surat", dummi.getNomorSurat());
-            parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(dummi.getTanggalPengesahan())));
 
+            if(dummi.getNomorSurat() == null && dummi.getTanggalPengesahan() == null){
+                parameter.put("nomor_surat", "   ");
+                parameter.put("tanggal_pengesahan", "    ");
+            } else {
+                parameter.put("nomor_surat", dummi.getNomorSurat());
+                parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(dummi.getTanggalPengesahan())));
+            }
+            
             parameter.put("dasar_nomor", dummi.getDasarNomor());
             parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(dummi.getDasarTanggal())));
             parameter.put("dasar_tahun_anggaran", dummi.getDasarTahunAnggaran());
             parameter.put("nama_perintah", dummi.getNama());
             parameter.put("jabatan_perintah", dummi.getJabatan());
-            parameter.put("masa_pajak_awal", String.valueOf(dummi.getMasaPajakAwalBulan())
+            parameter.put("masa_pajak_awal", convertBulanIntegerIntoString(dummi.getMasaPajakAwalBulan())
                     + " " + String.valueOf(dummi.getMasaPajakAwalTahun()));
-            parameter.put("masa_pajak_akhir", String.valueOf(dummi.getMasaPajakAkhirbulan())
+            parameter.put("masa_pajak_akhir", convertBulanIntegerIntoString(dummi.getMasaPajakAkhirbulan())
                     + " " + String.valueOf(dummi.getMasaPajakAkhirTahun()));
             parameter.put("tahap_ke", String.valueOf(dummi.getTahapKe()));
             parameter.put("lama_pelaksanaan", String.valueOf(dummi.getLamaPelaksanaan()));
@@ -1150,6 +1160,176 @@ public class ReportServiceImpl implements ReportService {
             case "Desember": return 11;
         }
         return null;
+    }
+
+    @Override
+    public void createPersiapanPeminjamanBuku(PersiapanWrapper persiapanWrapper, WajibPajak wp) {
+        try {
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://ReportPeminjamanBuku.jasper";
+            String jrxmlPathFile = "D://ReportPeminjamanBuku.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(persiapanWrapper.getTimWPWrappers());
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
+
+            parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
+            parameter.put("tanggal_sp", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            
+            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+            parameter.put("tanggal_surat", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            
+            parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
+            parameter.put("wajib_pajak", wp);
+            switch(wp.getJenisWp()){
+                case 0: parameter.put("jenis_wp", "Restoran");break;
+                case 1: parameter.put("jenis_wp", "Hotel");break;
+            }
+
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBukuRestoran.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createPemberitahuanPemeriksaan(PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP) {
+        try {
+            HashMap<String, Object> parameters = new HashMap<String, Object>();
+            String jasperPathFile = "file:///D://ReportPemberitahuanPemeriksaan.jasper";
+            String jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan.jrxml";
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            
+            jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+//            DataBeanList DataBeanList = new DataBeanList();
+            PersiapanPajakPOJO persiapanPajakPOJO
+                = (PersiapanPajakPOJO)SessionProvider
+                        .getPajakMapSession()
+                        .get("persiapan_pajak_restoran");
+//            List<AnggotaDanWajibPajakWrapper> peg = new ArrayList<>();
+//            peg.add(new AnggotaDanWajibPajakWrapper(
+//                    "qwe", "qwe", (short) 0,"123", "123123", "BAKA", "IV", "PRANATA", "Anggota"));
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(timWP.getWajibPajaks());
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+//            System.out.println("asdasdasdasdsaadsasd" + persiapanPajakPOJO.getWajibPajak().getNamaWP());
+            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
+            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("wajib_pajak", wp);
+            parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
+            parameter.put("tanggal_sp", df.format(persiapanWrapper.getTanggalPengesahan()));
+            parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
+            parameter.put("hari", String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
+            switch(wp.getJenisWp()){
+                case 0: parameter.put("jenis_wp", "Restoran");break;
+                case 1: parameter.put("jenis_wp", "Hotel");break;
+            }
+            
+            parameter.put("pajak_awal", convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAwalBulan()) + " " +
+                               persiapanWrapper.getMasaPajakAwalTahun());
+            parameter.put("pajak_akhir", convertBulanIntegerIntoString(
+                               persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
+                               persiapanWrapper.getMasaPajakAkhirTahun());
+            parameter.put("tim", timWP.getNamaTim());
+            
+            parameter.put("anggota_tim", timWP.getWajibPajakJasper());
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, timWP.getWajibPajakJasper());
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter, 
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPemberitahuanPemeriksaanRestoran.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

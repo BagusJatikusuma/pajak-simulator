@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
 	<property name="ireport.zoom" value="1.1000000000000094"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="197"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<parameter name="dasar_nomor" class="java.lang.String"/>
 	<parameter name="dasar_tanggal" class="java.lang.String"/>
@@ -302,7 +302,7 @@
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan " + $P{masa_pajak_awal} + " s/d " + $P{masa_pajak_akhir} + "(Tahap " + $P{tahap_ke}  + ")."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan " + $P{masa_pajak_awal} + " s/d " + $P{masa_pajak_akhir} + " (Tahap " + $P{tahap_ke}  + ")."]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="126" y="442" width="409" height="46" uuid="ee47c4ba-80a3-43f7-95f0-37a60a2f8037"/>

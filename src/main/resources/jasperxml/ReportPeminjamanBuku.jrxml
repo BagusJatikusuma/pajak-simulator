@@ -2,14 +2,15 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPeminjamanBuku" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
 	<property name="ireport.zoom" value="1.000000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="384"/>
+	<property name="ireport.y" value="0"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
+	<import value="com.bekasidev.app.model.Pegawai"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="wajib_pajak" class="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="nomor_sp" class="java.lang.String"/>
 	<parameter name="tanggal_sp" class="java.lang.String"/>
-	<parameter name="ttd_sp" class="java.lang.String"/>
+	<parameter name="penandatangan" class="com.bekasidev.app.model.Pegawai"/>
 	<title>
 		<band height="100" splitType="Stretch">
 			<line>
@@ -207,7 +208,7 @@ BEKASI]]></text>
 				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Sehubungan dengan Surat Perintah Pemeriksaan Pajak Daerah dari " + $P{ttd_sp} + " Daerah Kabupaten Bekasi :"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Sehubungan dengan Surat Perintah Pemeriksaan Pajak Daerah dari " + $P{penandatangan}.getJabatanDinas() + " Daerah Kabupaten Bekasi :"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="66" y="35" width="56" height="20" uuid="735a001c-92bc-4122-a1f0-7acf870ed2b8"/>

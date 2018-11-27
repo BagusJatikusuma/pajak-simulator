@@ -13,53 +13,43 @@ import javafx.scene.control.Button;
  * @author Bayu Arafli
  */
 public class ArsipTablePelaksanaanWrapper {
-    private SimpleStringProperty nomor;
-    private SimpleStringProperty bulan;
-    private SimpleStringProperty omzetHasilPemeriksaan;
-    private SimpleStringProperty omzetYangDilaporkan;
+    private SimpleStringProperty id;
+    private SimpleStringProperty tanggalDiBuat;
+    private SimpleStringProperty status;
     private Button action;
 
     public ArsipTablePelaksanaanWrapper() {
     }
 
-    public ArsipTablePelaksanaanWrapper(String nomor, String bulan, String omzetHasilPemeriksaan, String omzetYangDilaporkan, Button action) {
-        this.nomor = new SimpleStringProperty(nomor);
-        this.bulan = new SimpleStringProperty(bulan);
-        this.omzetHasilPemeriksaan = new SimpleStringProperty(omzetHasilPemeriksaan);
-        this.omzetYangDilaporkan = new SimpleStringProperty(omzetYangDilaporkan);
+    public ArsipTablePelaksanaanWrapper(String id, String tanggalDiBuat, String status, Button action) {
+        this.id = new SimpleStringProperty(id);
+        this.tanggalDiBuat = new SimpleStringProperty(tanggalDiBuat);
+        this.status = new SimpleStringProperty(status);
         this.action = action;
     }
 
-    public String getNomor() {
-        return nomor.get();
+    public String getId() {
+        return id.get();
     }
 
-    public void setNomor(String nomor) {
-        this.nomor.set(nomor);
+    public void setId(String id) {
+        this.id.set(id);
     }
 
-    public String getBulan() {
-        return bulan.get();
+    public String getTanggalDiBuat() {
+        return tanggalDiBuat.get();
     }
 
-    public void setBulan(String bulan) {
-        this.bulan.set(bulan);
+    public void setTanggalDiBuat(String tanggalDiBuat) {
+        this.tanggalDiBuat.set(tanggalDiBuat);
     }
 
-    public String getOmzetHasilPemeriksaan() {
-        return omzetHasilPemeriksaan.get();
+    public String getStatus() {
+        return status.get();
     }
 
-    public void setOmzetHasilPemeriksaan(String omzetHasilPemeriksaan) {
-        this.omzetHasilPemeriksaan.set(omzetHasilPemeriksaan);
-    }
-
-    public String getOmzetYangDilaporkan() {
-        return omzetYangDilaporkan.get();
-    }
-
-    public void setOmzetYangDilaporkan(String omzetYangDilaporkan) {
-        this.omzetYangDilaporkan.set(omzetYangDilaporkan);
+    public void setStatus(String status) {
+        this.status.set(status);
     }
 
     public Button getAction() {
@@ -68,8 +58,7 @@ public class ArsipTablePelaksanaanWrapper {
 
     public void setAction(Button action) {
         this.action = action;
-    }
-    
+    }    
     
     
     

@@ -29,10 +29,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class PelaksanaanUIController implements Initializable {
     @FXML private TableView arsipPelaksanaanTable;
-    private TableColumn nomor,
-                        bulan,
-                        omzetHasilPemeriksaan,
-                        omzetYangDilaporkan,
+    private TableColumn id,
+                        tanggalDiBuat,
+                        status,
                         action;
     private ObservableList<ArsipTablePelaksanaanWrapper> dataCollection;
     private List<ArsipTablePelaksanaanWrapper> dataListFromService;
@@ -52,16 +51,14 @@ public class PelaksanaanUIController implements Initializable {
     }
     
     private void addFromFXML() {
-        nomor 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NO");
-        bulan 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "BULAN");
-        omzetHasilPemeriksaan 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "OMZET HASIL PEMERIKSAAN");
-        omzetYangDilaporkan 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "OMZET YANG DILAPORKAN");
+        id 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Id");
+        tanggalDiBuat 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Tanggal Dibuat");
+        status 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Status");
         action 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "ACTION");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Action");
     }
     
     private void populateData() {
@@ -78,10 +75,9 @@ public class PelaksanaanUIController implements Initializable {
             });
 
             dataCollection.add(new ArsipTablePelaksanaanWrapper(
-                    obj.getNomor(),
-                    obj.getBulan(),
-                    obj.getOmzetHasilPemeriksaan(),
-                    obj.getOmzetYangDilaporkan(),
+                    obj.getId(),
+                    obj.getTanggalDiBuat(),
+                    obj.getStatus(),
                     btn
             ));
             i++; 
@@ -90,12 +86,11 @@ public class PelaksanaanUIController implements Initializable {
     
     private void initDataFromService() {
         dataListFromService = new ArrayList<>();
-        for (int i=0; i<11; i++) {
+        for (int i=1; i<=100; i++) {
             dataListFromService.add(new ArsipTablePelaksanaanWrapper(
-                    String.valueOf(i+1),
-                    convertBulanIntegerIntoString(i),
-                    "50000000",
-                    "40000000",
+                    "id "+i,
+                    "30 Februari 2012",
+                    "Selesai",
                     null
             ));
         }
@@ -120,21 +115,4 @@ public class PelaksanaanUIController implements Initializable {
 //        stage.show();
 //    }
     
-    private String convertBulanIntegerIntoString(Integer bulanInt) {
-        switch(bulanInt) {
-            case 0: return "Januari";
-            case 1: return "Februari";
-            case 2: return "Maret";
-            case 3: return "April";
-            case 4: return "Mei";
-            case 5: return "Juni";
-            case 6: return "Juli";
-            case 7: return "Agustus";
-            case 8: return "September";
-            case 9: return "Oktober";
-            case 10: return "November";
-            case 11: return "Desember";
-        }
-        return "";
-    }
 }
