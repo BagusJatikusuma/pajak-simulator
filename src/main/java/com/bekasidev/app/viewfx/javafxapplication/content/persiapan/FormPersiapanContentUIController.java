@@ -41,6 +41,7 @@ public class FormPersiapanContentUIController implements Initializable {
     @FXML private TextField dasarNomorField;
     @FXML private DatePicker dasarTanggalField;
     @FXML private TextField dasarTahunAnggaranField;
+    @FXML private TextField pemberiSKField;
     
     @FXML private ChoiceBox penandatanganField;
     @FXML private ChoiceBox masaPajakAwalBulan;
@@ -81,6 +82,7 @@ public void cancelOperation() {
         persiapanWrapper.setDasarNomor(dasarNomorField.getText());
         persiapanWrapper.setDasarTanggal(Date.from(dasarTanggalField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         persiapanWrapper.setDasarTahunAnggaran(dasarTahunAnggaranField.getText());
+        persiapanWrapper.setPemberiSK(pemberiSKField.getText());
         
         Pegawai obj = (Pegawai)penandatanganField.getSelectionModel().getSelectedItem(); 
         System.out.println("penandatangan dipilih "+obj.getNamaPegawai());
@@ -131,6 +133,7 @@ public void cancelOperation() {
                 .toInstant()
                 .atZone(ZoneId.systemDefault()).toLocalDate());
             dasarTahunAnggaranField.setText(persiapanWrapper.getDasarTahunAnggaran());
+            pemberiSKField.setText(persiapanWrapper.getPemberiSK());
             
 //            penandatanganField.setValue(persiapanWrapper.getPenandatangan());
             ObservableList<Pegawai> ov = FXCollections.observableArrayList();
