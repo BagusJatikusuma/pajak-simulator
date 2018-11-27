@@ -20,6 +20,7 @@
 	<parameter name="tanggal_pengesahan" class="java.lang.String"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="penandatangan" class="com.bekasidev.app.model.Pegawai"/>
+	<parameter name="pemberi_sk" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -281,7 +282,7 @@
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Surat Keputusan (Bupati) Nomor : " + $P{dasar_nomor} + " tanggal " + $P{dasar_tanggal} + " tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran " + $P{dasar_tahun_anggaran} + "."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Surat Keputusan " + $P{pemberi_sk} + " Nomor : " + $P{dasar_nomor} + " tanggal " + $P{dasar_tanggal} + " tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran " + $P{dasar_tahun_anggaran} + "."]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="115" y="228" width="420" height="20" uuid="4bcce249-9dff-4543-94d3-9c8d91156d94"/>

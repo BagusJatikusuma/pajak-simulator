@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DaftarPetugasPemeriksa" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="6680d688-52a8-4247-8bd9-551b4a662c57">
 	<property name="ireport.zoom" value="1.331000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="233"/>
 	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="36008d72-7bfa-4b7d-8bff-1d80864af3df">
 		<queryString>
@@ -185,28 +185,17 @@
 					<jr:column width="95" uuid="67f3586a-dccd-41cb-b1f3-fb703a01d561">
 						<jr:detailCell height="40" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="95" height="20" uuid="dee372c4-946d-461d-bf2d-b180e57385da"/>
+								<reportElement x="0" y="0" width="95" height="40" uuid="dee372c4-946d-461d-bf2d-b180e57385da"/>
 								<box topPadding="4" leftPadding="3" rightPadding="3">
 									<topPen lineWidth="1.0"/>
-									<leftPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
-								</box>
-								<textElement textAlignment="Center">
-									<font fontName="Times New Roman"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{pangkat}]]></textFieldExpression>
-							</textField>
-							<textField>
-								<reportElement x="0" y="20" width="95" height="20" uuid="ab3796c1-056f-4d26-8b39-3a41ab23e4ce"/>
-								<box topPadding="4" leftPadding="3" rightPadding="3">
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
+								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Times New Roman"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{golongan}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{pangkat} + " / " + $F{golongan} ]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

@@ -5,22 +5,37 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
+import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
+import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -96,23 +111,23 @@ public class PelaksanaanUIController implements Initializable {
         }
     }
     
-//    public void addDokumenPersiapan() {
-//        PersiapanWrapper persiapanWrapper
-//                = new PersiapanWrapper();
-//        SessionProvider.getGlobalSessionsMap()
-//                        .put("persiapan_wrapper", persiapanWrapper);
-//        
-//        Pane formPersiapanUI = null;
-//        try {
-//            formPersiapanUI = FXMLLoader
-//                    .load(getClass().getClassLoader().getResource("fxml/FormPersiapanUI.fxml"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        Stage stage = new Stage();
-//        stage.setTitle("Form Persiapan Pemeriksaan WP");
-//        stage.setScene(new Scene(formPersiapanUI));
-//        stage.show();
-//    }
+    public void addDokumenPelaksanaan() {
+        PersiapanWrapper persiapanWrapper
+                = new PersiapanWrapper();
+        SessionProvider.getGlobalSessionsMap()
+                        .put("persiapan_wrapper", persiapanWrapper);
+        
+        Pane formPelaksanaanUI = null;
+        try {
+            formPelaksanaanUI = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
+        stage.setScene(new Scene(formPelaksanaanUI));
+        stage.show();
+    }
     
 }
