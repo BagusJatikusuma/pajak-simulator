@@ -17,6 +17,7 @@ public class ServiceFactory {
     private static ReportService reportService = null;
     private static SuratPerintahService suratPerintahService = null;
     private static RekapitulasiService rekapitulasiService = null;
+    private static NomorBerkasService nomorBerkasService = null;
 
     public static RekapitulasiService getRekapitulasiService(){
         if(rekapitulasiService == null) rekapitulasiService = new RekapitulasiServiceImpl();
@@ -66,5 +67,10 @@ public class ServiceFactory {
     public static ReportService getReportService(){
         if(reportService == null) reportService = new ReportServiceImpl();
         return reportService;
+    }
+    
+    public static NomorBerkasService getNomorBerkasService() {
+        if (nomorBerkasService == null) nomorBerkasService = new NomorBerkasServiceImpl();
+        return nomorBerkasService;
     }
 }

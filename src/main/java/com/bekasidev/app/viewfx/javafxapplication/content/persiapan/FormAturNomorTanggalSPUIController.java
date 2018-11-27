@@ -80,12 +80,13 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
         }
         suratPerintahService.createSuratPerintah(suratPerintah);
+        System.out.println("create success");
         
         Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
         rootpane.getChildren().remove(1);
 
         Pane contentPane = null;
-        try { 
+        try {
             contentPane
                     = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PersiapanUI.fxml"));
         } catch (IOException ex) {
@@ -124,6 +125,12 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
+        
+        if (tanggalPengesahanField.getValue() != null
+                && !nomorSuratField.getText().equals("")) {
+            persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        }
         
         List<TimWPWrapper> timWPWrappers 
                 = persiapanWrapper.getTimWPWrappers();

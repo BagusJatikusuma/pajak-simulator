@@ -56,11 +56,18 @@ public class ConverterHelper {
         
         suratPerintah.setPemberiSP(persiapanWrapper.getPenandatangan());
         
-        String masaPajakAwal = "1/"+persiapanWrapper.getMasaPajakAwalBulan()+"/"+persiapanWrapper.getMasaPajakAwalTahun();
+        String masaPajakAwal = "01."+(persiapanWrapper.getMasaPajakAwalBulan()+1)+"."+persiapanWrapper.getMasaPajakAwalTahun();
         System.out.println("masa pajak awal "+masaPajakAwal);
-        String masaPajakAkhir = "1/"+persiapanWrapper.getMasaPajakAkhirbulan()+"/"+persiapanWrapper.getMasaPajakAkhirTahun();
+        String masaPajakAkhir = "01."+(persiapanWrapper.getMasaPajakAkhirbulan()+1)+"."+persiapanWrapper.getMasaPajakAkhirTahun();
         System.out.println("masa pajak awal "+masaPajakAkhir);
-        DateFormat dateFormatter = new SimpleDateFormat("d/MM/yyyy", Locale.forLanguageTag("id-ID"));
+        DateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        
+        try {
+            System.out.println("dd awal "+String.valueOf(dateFormatter.parse(masaPajakAwal).getTime()));
+            System.out.println("dd akhir "+String.valueOf(dateFormatter.parse(masaPajakAkhir).getTime()));
+        } catch (ParseException ex) {
+            Logger.getLogger(ConverterHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
             suratPerintah.setMasaPajakAwal(
@@ -103,6 +110,7 @@ public class ConverterHelper {
     
     public static PersiapanWrapper convertSuratPerintahToPersiapanWrapper(SuratPerintah suratPerintah) {
         PersiapanWrapper persiapanWrapper = new PersiapanWrapper();
+        persiapanWrapper.setIdSP(suratPerintah.getIdSP());
         persiapanWrapper.setDasarNomor(suratPerintah.getNomorSK());
         persiapanWrapper.setDasarTanggal(new Date(Long.valueOf(suratPerintah.getTanggalSK())));
         persiapanWrapper.setDasarTahunAnggaran(String.valueOf(suratPerintah.getTahunAnggaranSK()));
@@ -114,12 +122,12 @@ public class ConverterHelper {
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
-                .getMonthValue());
+                .getMonthValue()-1);
         persiapanWrapper.setMasaPajakAkhirbulan(new Date(Long.valueOf(suratPerintah.getMasaPajakAkhir()))
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
-                .getMonthValue());
+                .getMonthValue()-1);
         persiapanWrapper.setMasaPajakAwalTahun(new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
