@@ -14,6 +14,7 @@ import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +24,8 @@ import java.util.List;
  * @author USER
  */
 public class ConverterHelper {
-    private PegawaiService pegawaiService;
-    public SuratPerintah convertPersiapanWrapperIntoSuratPerintah(PersiapanWrapper persiapanWrapper) {
+    private static PegawaiService pegawaiService;
+    public static SuratPerintah convertPersiapanWrapperIntoSuratPerintah(PersiapanWrapper persiapanWrapper) {
         pegawaiService = ServiceFactory.getPegawaiService();
         
         String idSP = String.valueOf(new Date().getTime());
@@ -35,8 +36,13 @@ public class ConverterHelper {
         suratPerintah.setNomorUrut(persiapanWrapper.getNomorSurat());
         
         DateFormat formatter = new SimpleDateFormat("dd MMMM YYYY");
-        suratPerintah.setTanggalSurat(formatter.format(persiapanWrapper.getTanggalPengesahan()));
+        
+        if (persiapanWrapper.getTanggalPengesahan() != null)
+            suratPerintah.setTanggalSurat(formatter.format(persiapanWrapper.getTanggalPengesahan()));
+        
         suratPerintah.setTahunAnggaranBiaya(persiapanWrapper.getBiayaTahunAPBD());
+        suratPerintah.setPemberiSK(persiapanWrapper.getPemberiSK());
+        
         suratPerintah.setPemberiSP(persiapanWrapper.getPenandatangan());
         suratPerintah.setMasaPajakAwal(
                 String.valueOf(persiapanWrapper.getMasaPajakAwalBulan())
@@ -73,9 +79,26 @@ public class ConverterHelper {
         return suratPerintah;
     }
     
-    public PersiapanWrapper convertSuratPerintahToPersiapanWrapper(SuratPerintah suratPerintah) {
+    public static PersiapanWrapper convertSuratPerintahToPersiapanWrapper(SuratPerintah suratPerintah) {
         PersiapanWrapper persiapanWrapper = new PersiapanWrapper();
+        persiapanWrapper.setDasarNomor(suratPerintah.getNomorSK());
+        persiapanWrapper.setDasarTanggal(new Date(Long.valueOf(suratPerintah.getTanggalSK())));
+        persiapanWrapper.setDasarTahunAnggaran(String.valueOf(suratPerintah.getTahunAnggaranSK()));
         
+        persiapanWrapper.setPemberiSK(suratPerintah.getPemberiSK());
+        persiapanWrapper.setPenandatangan(suratPerintah.getPemberiSP());
+//        persiapanWrapper.setMasaPajakAwalBulan(
+//                convertBulanStringIntoInteger());
+//        persiapanWrapper.setMasaPajakAkhirbulan(convertBulanStringIntoInteger(masaPajakAkhirBulan.getSelectionModel().getSelectedItem().toString()));
+//        persiapanWrapper.setMasaPajakAwalTahun(Integer.valueOf(masaPajakAwalTahun.getText()));
+//        persiapanWrapper.setMasaPajakAkhirTahun(Integer.valueOf(masaPajakAkhirTahun.getText()));
+        persiapanWrapper.setTahapKe(Integer.valueOf(suratPerintah.getTahap()));
+        persiapanWrapper.setBiayaTahunAPBD(suratPerintah.getTahunAnggaranBiaya());
+        persiapanWrapper.setBiayaTanggalAPBD(new Date(Long.parseLong(suratPerintah.getTanggalBiaya())));
+        persiapanWrapper.setBiayaNomorAPBD(suratPerintah.getNomorSuratBiaya());
+        persiapanWrapper.setDitetapkanDi(suratPerintah.getTempat());
+        
+        persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(suratPerintah.getLamaPelaksanaan()));
         
         return persiapanWrapper;
     }

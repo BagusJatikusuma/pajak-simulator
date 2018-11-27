@@ -5,10 +5,13 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
+import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
@@ -40,6 +43,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @FXML private TextField nomorSuratField;
     
     private ReportService reportService;
+    private SuratPerintahService suratPerintahService;
     
     /**
      * Initializes the controller class.
@@ -47,6 +51,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
     }
 
     public void cancelOperation() {
@@ -58,12 +63,16 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
-        System.out.println("date "+tanggalPengesahanField.getValue());
-        persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        persiapanWrapper.setNomorSurat(nomorSuratField.getText());
-        
+        if (tanggalPengesahanField.getValue() != null
+                && !nomorSuratField.getText().equals("")) {
+            persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        }
         //simpan menggunakan suratPerintahService update
+        SuratPerintah suratPerintah
+                = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
         
+        suratPerintahService.createSuratPerintah(suratPerintah);
     }
     
     public void printSuratPerintah() {

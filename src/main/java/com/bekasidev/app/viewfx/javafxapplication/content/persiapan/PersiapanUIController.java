@@ -10,6 +10,7 @@ import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
@@ -22,7 +23,10 @@ import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -56,12 +60,15 @@ public class PersiapanUIController implements Initializable {
     private ObservableList<ArsipTablePersiapanWrapper> dataCollection;
     private List<ArsipTablePersiapanWrapper> dataListFromService;
     private List<Button> btnList;
+    
+    private SuratPerintahService suratPerintahService;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
         initDataFromService();
         addFromFXML();
         populateData();
@@ -113,14 +120,26 @@ public class PersiapanUIController implements Initializable {
     
     private void initDataFromService() {
         dataListFromService = new ArrayList<>();
-        for (int i=1; i<=100; i++) {
+        List<SuratPerintah> suratPerintahList
+                = suratPerintahService.getAllSuratPerintah();
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM YYYY");
+        for (SuratPerintah sp : suratPerintahList) {
             dataListFromService.add(new ArsipTablePersiapanWrapper(
-                    "id "+i,
-                    "30 Februari 2012",
+                    sp.getIdSP(),
+                    dateFormat.format(new Date(Long.valueOf(sp.getIdSP()))),
                     "Selesai",
                     null
             ));
         }
+//        for (int i=1; i<=100; i++) {
+//            dataListFromService.add(new ArsipTablePersiapanWrapper(
+//                    "id "+i,
+//                    "30 Februari 2012",
+//                    "Selesai",
+//                    null
+//            ));
+//        }
+        
     }
     
     public void addDokumenPersiapan() {
