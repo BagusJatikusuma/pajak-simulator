@@ -5,6 +5,8 @@ import com.bekasidev.app.model.Rekapitulasi;
 import java.util.List;
 
 public class RekapitulasiWrapper {
+    private String idSP;
+    private String idWP;
     List<Rekapitulasi> listRekapitulasi;
     private Double totalOmzetPeriksa;
     private Double totalPajakPeriksa;
@@ -14,6 +16,22 @@ public class RekapitulasiWrapper {
     private Double totalPokokPajak;
     private Double totalDenda;
     private Double totalJumlah;
+
+    public String getIdSP() {
+        return idSP;
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP = idSP;
+    }
+
+    public String getIdWP() {
+        return idWP;
+    }
+
+    public void setIdWP(String idWP) {
+        this.idWP = idWP;
+    }
 
     public List<Rekapitulasi> getListRekapitulasi() {
         return listRekapitulasi;
