@@ -87,6 +87,7 @@ public class ConverterHelper {
             
             TimSP timSP = new TimSP();
             timSP.setIdSP(idSP);
+            timSP.setIdTim(obj.getTim().getIdTim());
             timSP.setListWP(obj.getWajibPajaks());
             timSP.setNamaTim(obj.getTim().getNamaTim());
             timSP.setPenanggungJawab(obj.getPenanggungJawab());
@@ -148,8 +149,10 @@ public class ConverterHelper {
                 nt.setWajibPajak(wp);
                 nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
                 nt.setNomorPeminjamanDokumen(wp.getNomorBerkas().getNomorSuratPeminjaman());
-                nt.setTanggalPemberitahuanPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPemberitahuan())));
-                nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
+                if (wp.getNomorBerkas().getTanggalSuratPemberitahuan() != null)
+                    nt.setTanggalPemberitahuanPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPemberitahuan())));
+                if (wp.getNomorBerkas().getTanggalSuratPeminjaman() != null)
+                    nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
                 
                 nomorTanggalWPList.add(nt);
             }
@@ -159,7 +162,7 @@ public class ConverterHelper {
             timWPWrapper.setPenanggungJawab(timSP.getPenanggungJawab());
             timWPWrapper.setSupervisor(timSP.getSupervisor());
             timWPWrapper.setWajibPajaks(timSP.getListWP());
-            Tim tim = new Tim("", timSP.getNamaTim());
+            Tim tim = new Tim(timSP.getIdTim(), timSP.getNamaTim());
             timWPWrapper.setTim(tim);
             
             timWPWrappers.add(timWPWrapper);
