@@ -80,9 +80,9 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
 
     @Override
     public void setTim(List<TimSP> timSP) {
-        String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?,?)";
         for(int i = 1; i < timSP.size(); i++)
-            sql += ",(?,?,?,?,?,?)";
+            sql += ",(?,?,?,?,?,?,?)";
         int i = 0;
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -90,10 +90,11 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 pstm.setString(i+1, tim.getIdSP());
                 pstm.setString(i+2, setPegawaiToString(tim.getPenanggungJawab()));
                 pstm.setString(i+3, setPegawaiToString(tim.getSupervisor()));
-                pstm.setString(i+4, tim.getNamaTim());
-                pstm.setString(i+5, setListPegawaiToString(tim.getListAnggota()));
-                pstm.setString(i+6, setListWPTpString(tim.getListWP()));
-                i += 6;
+                pstm.setString(i+4, tim.getIdTim());
+                pstm.setString(i+5, tim.getNamaTim());
+                pstm.setString(i+6, setListPegawaiToString(tim.getListAnggota()));
+                pstm.setString(i+7, setListWPTpString(tim.getListWP()));
+                i += 7;
             }
             pstm.executeUpdate();
         } catch (SQLException e) {
