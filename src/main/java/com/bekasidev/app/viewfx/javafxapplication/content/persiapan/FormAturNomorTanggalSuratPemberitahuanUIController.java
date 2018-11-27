@@ -5,7 +5,10 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
+import com.bekasidev.app.model.Surat;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.NomorBerkasService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
@@ -19,8 +22,11 @@ import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,6 +59,8 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     private TableColumn tanggalSurat;
     private TableColumn action;
     
+    private NomorBerkasService nomorBerkasService;
+    
     private ObservableList<PersiapanNomorTanggalSuratPemberitahuanTableWrapper> dataCollection;
     /**
      * Initializes the controller class.
@@ -60,6 +68,7 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        nomorBerkasService = ServiceFactory.getNomorBerkasService();
         addFromFXML();
         populateData();
         associateDataWithColumn();
@@ -67,6 +76,30 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     }    
     
     public void simpanNomorTanggalSuratPemberitahuan() {
+        PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider.getGlobalSessionsMap()
+                .get("persiapan_wrapper");
+        
+        DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
+        
+        for (Iterator it = AturNomorTanggalSuratPemberitahuanTable.getItems().iterator(); it.hasNext();) {
+            PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
+                    = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) it.next();
+            
+            System.out.println("nomor "+wrapper.getNomorSurat());
+            System.out.println("tanggal "+wrapper.getTanggalSurat());
+            
+            try {
+                nomorBerkasService.setNomorBerkas(
+                        persiapanWrapper.getIdSP(),
+                        wrapper.getIdWP(),
+                        wrapper.getNomorSurat(),
+                        String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
+                        Surat.PEMBERITAHUAN);
+            } catch (ParseException ex) {
+                Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
     }
     
@@ -112,7 +145,7 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                 .get("persiapan_wrapper");
         dataCollection = FXCollections.observableArrayList();
         
-        DateFormat formatter = new SimpleDateFormat();
+        DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
         for (NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()) {
             Button aturBtn = new Button("Atur");
             
