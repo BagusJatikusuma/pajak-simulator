@@ -6,30 +6,27 @@ public class SuratPerintah {
     private String idSP;
     private String nomorSurat;
     private String nomorUrut;
+    
     private String nomorSK;
     private String tanggalSK;
     private int tahunAnggaranSK;
     private String pemberiSK;
+    
     private String nomorSuratBiaya;
     private String tanggalBiaya;
     private int tahunAnggaranBiaya;
+    
     private Pegawai pemberiSP;
+    
     private String masaPajakAwal;
     private String masaPajakAkhir;
+    
     private short tahap;
+    
     private short lamaPelaksanaan;
     private String tempat;
     private String tanggalSurat;
-    private NomorBerkas nomorBerkas;
     private List<TimSP> listTim;
-
-    public NomorBerkas getNomorBerkas() {
-        return nomorBerkas;
-    }
-
-    public void setNomorBerkas(NomorBerkas nomorBerkas) {
-        this.nomorBerkas = nomorBerkas;
-    }
 
     public String getIdSP() {
         return idSP;
