@@ -30,7 +30,7 @@ public class SuratPerintahServiceImpl implements SuratPerintahService {
     }
 
     @Override
-    public void setNomorUrut(String idSP, String nomorUrut) {
-        suratPerintahDao.setNomorUrut(idSP, nomorUrut);
+    public void setNomorUrut(String idSP, String nomorUrut, String tanggal) {
+        suratPerintahDao.setNomorUrut(idSP, nomorUrut, tanggal);
     }
 }

@@ -1,11 +1,12 @@
 package com.bekasidev.app.dao;
 
 import com.bekasidev.app.model.BerkasPersiapan;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
 public interface BerkasPersiapanDao {
 
-    DokumenPersiapanWrapper getBerkasPersiapan(String idBerkas);
+    void getBerkasPersiapan(String idSP, WajibPajak wajibPajak);
 
-    void createBerkasPersiapan(BerkasPersiapan berkasPersiapan);
+    void createBerkasPersiapan(WajibPajak wajibPajak, String idSP);
 }

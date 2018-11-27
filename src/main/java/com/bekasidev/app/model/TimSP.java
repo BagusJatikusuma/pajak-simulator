@@ -6,9 +6,18 @@ public class TimSP {
     private String idSP;
     private Pegawai penanggungJawab;
     private Pegawai supervisor;
+    private String idTim;
     private String namaTim;
     private List<Pegawai> listAnggota;
     private List<WajibPajak> listWP;
+
+    public String getIdTim() {
+        return idTim;
+    }
+
+    public void setIdTim(String idTim) {
+        this.idTim = idTim;
+    }
 
     public String getIdSP() {
         return idSP;

@@ -1,6 +1,8 @@
 package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
+import com.bekasidev.app.dao.BerkasPersiapanDao;
+import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.dao.SuratPerintahDao;
 import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.*;
@@ -37,6 +39,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
 
             setTim(suratPerintah.getListTim());
+            createNomorBerkas(suratPerintah);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -62,13 +65,14 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
     }
 
     @Override
-    public void setNomorUrut(String idSP, String nomorUrut) {
-        String sql = "UPDATE surat_perintah SET nomor_urut=? WHERE id_sp=?";
+    public void setNomorUrut(String idSP, String nomorUrut, String tanggal) {
+        String sql = "UPDATE surat_perintah SET nomor_urut=?, tanggal_surat=? WHERE id_sp=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, nomorUrut);
-            pstm.setString(2, idSP);
+            pstm.setString(2, tanggal);
+            pstm.setString(3, idSP);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,9 +80,9 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
 
     @Override
     public void setTim(List<TimSP> timSP) {
-        String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO tim_perintah VALUES(?,?,?,?,?,?,?)";
         for(int i = 1; i < timSP.size(); i++)
-            sql += ",(?,?,?,?,?,?)";
+            sql += ",(?,?,?,?,?,?,?)";
         int i = 0;
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -86,10 +90,11 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 pstm.setString(i+1, tim.getIdSP());
                 pstm.setString(i+2, setPegawaiToString(tim.getPenanggungJawab()));
                 pstm.setString(i+3, setPegawaiToString(tim.getSupervisor()));
-                pstm.setString(i+4, tim.getNamaTim());
-                pstm.setString(i+5, setListPegawaiToString(tim.getListAnggota()));
-                pstm.setString(i+6, setListWPTpString(tim.getListWP()));
-                i += 6;
+                pstm.setString(i+4, tim.getIdTim());
+                pstm.setString(i+5, tim.getNamaTim());
+                pstm.setString(i+6, setListPegawaiToString(tim.getListAnggota()));
+                pstm.setString(i+7, setListWPTpString(tim.getListWP()));
+                i += 7;
             }
             pstm.executeUpdate();
         } catch (SQLException e) {
@@ -116,7 +121,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 tim.setPenanggungJawab(setPegawai(rs.getString("penanggung_jawab")));
                 tim.setSupervisor(setPegawai(rs.getString("supervisor")));
                 tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
-                tim.setListWP(setStringToWP(rs.getString("list_wp")));
+                tim.setListWP(setStringToWP(rs.getString("list_wp"), tim.getIdSP()));
 
                 listTim.add(tim);
             }
@@ -125,6 +130,15 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
 
         return listTim;
+    }
+
+    private void createNomorBerkas(SuratPerintah suratPerintah){
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
+        for(TimSP tim : suratPerintah.getListTim()){
+            for(WajibPajak wp : tim.getListWP()){
+                nomorBerkasDao.createNomorSurat(suratPerintah.getIdSP(), wp.getNpwpd());
+            }
+        }
     }
 
     private SuratPerintah setSuratPerintah(ResultSet rs) throws SQLException {
@@ -210,13 +224,18 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         return new Pegawai("", attrPart[0], attrPart[1], attrPart[3], attrPart[2], attrPart[4], attrPart[5]);
     }
 
-    private List<WajibPajak> setStringToWP(String stringWP){
+    private List<WajibPajak> setStringToWP(String stringWP, String idSP){
         String[] wpParts = stringWP.split("<p>");
         List<WajibPajak> listWP = new ArrayList<>();
         WajibPajakDao wajibPajakDao = new WajibPajakDaoImpl();
+        BerkasPersiapanDao berkasPersiapanDao = new BerkasPersiapanImpl();
+        NomorBerkasDao nomorBerkasDao = new NomorBerkasDaoImpl();
 
         for(String part : wpParts){
-            listWP.add(wajibPajakDao.getWPById(part));
+            WajibPajak wajibPajak = wajibPajakDao.getWPById(part);
+            berkasPersiapanDao.getBerkasPersiapan(idSP, wajibPajak);
+            wajibPajak.setNomorBerkas(nomorBerkasDao.getNomotBerkas(idSP, wajibPajak.getNpwpd()));
+            listWP.add(wajibPajak);
         }
 
         return listWP;

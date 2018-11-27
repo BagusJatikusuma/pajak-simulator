@@ -41,6 +41,7 @@ public class FormPersiapanContentUIController implements Initializable {
     @FXML private TextField dasarNomorField;
     @FXML private DatePicker dasarTanggalField;
     @FXML private TextField dasarTahunAnggaranField;
+    @FXML private TextField pemberiSKField;
     
     @FXML private ChoiceBox penandatanganField;
     @FXML private ChoiceBox masaPajakAwalBulan;
@@ -53,8 +54,6 @@ public class FormPersiapanContentUIController implements Initializable {
     @FXML private DatePicker tanggalAPBDField;
     @FXML private TextField nomorAPBDField;
     @FXML private TextField ditetapkanDiField;
-    @FXML private DatePicker tanggalPengesahanField;
-    @FXML private TextField nomorSuratField;
     @FXML private TextField lamaPelaksanaanField;
     
     @FXML private Button cancelBtn;
@@ -83,6 +82,7 @@ public void cancelOperation() {
         persiapanWrapper.setDasarNomor(dasarNomorField.getText());
         persiapanWrapper.setDasarTanggal(Date.from(dasarTanggalField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         persiapanWrapper.setDasarTahunAnggaran(dasarTahunAnggaranField.getText());
+        persiapanWrapper.setPemberiSK(pemberiSKField.getText());
         
         Pegawai obj = (Pegawai)penandatanganField.getSelectionModel().getSelectedItem(); 
         System.out.println("penandatangan dipilih "+obj.getNamaPegawai());
@@ -99,8 +99,7 @@ public void cancelOperation() {
         persiapanWrapper.setBiayaNomorAPBD(nomorAPBDField.getText());
         
         persiapanWrapper.setDitetapkanDi(ditetapkanDiField.getText());
-        persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(lamaPelaksanaanField.getText()));
         
         //tampilan selanjutnya
@@ -134,6 +133,7 @@ public void cancelOperation() {
                 .toInstant()
                 .atZone(ZoneId.systemDefault()).toLocalDate());
             dasarTahunAnggaranField.setText(persiapanWrapper.getDasarTahunAnggaran());
+            pemberiSKField.setText(persiapanWrapper.getPemberiSK());
             
 //            penandatanganField.setValue(persiapanWrapper.getPenandatangan());
             ObservableList<Pegawai> ov = FXCollections.observableArrayList();
@@ -175,8 +175,8 @@ public void cancelOperation() {
             nomorAPBDField.setText(persiapanWrapper.getBiayaNomorAPBD());
             
             ditetapkanDiField.setText(persiapanWrapper.getDitetapkanDi());
-            tanggalPengesahanField.setValue(persiapanWrapper.getTanggalPengesahan().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            nomorSuratField.setText(persiapanWrapper.getNomorSurat());
+//            tanggalPengesahanField.setValue(persiapanWrapper.getTanggalPengesahan().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+//            nomorSuratField.setText(persiapanWrapper.getNomorSurat());
             lamaPelaksanaanField.setText(String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
             
         }
