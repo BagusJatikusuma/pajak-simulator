@@ -28,7 +28,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
                 nomorBerkas.setNomorSuratPeminjaman(rs.getString("nomor_peminjaman"));
                 nomorBerkas.setTanggalSuratPemberitahuan(rs.getString("tanggal_pemberitahuan"));
                 nomorBerkas.setTanggalSuratHasil(rs.getString("tanggal_hasil"));
-                nomorBerkas.setTanggalSuratPeminjaman("tanggal_peminjaman");
+                nomorBerkas.setTanggalSuratPeminjaman(rs.getString("tanggal_peminjaman"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
