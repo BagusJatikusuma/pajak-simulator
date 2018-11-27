@@ -11,7 +11,7 @@ public interface SuratPerintahDao {
 
     List<SuratPerintah> getAllSuratPerintah();
 
-    void setNomorUrut(String idSP, String nomorUrut);
+    void setNomorUrut(String idSP, String nomorUrut, String tanggal);
 
     void setTim(List<TimSP> timSP);
 

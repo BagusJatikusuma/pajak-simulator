@@ -26,7 +26,6 @@ public class SuratPerintah {
     private short lamaPelaksanaan;
     private String tempat;
     private String tanggalSurat;
-    
     private List<TimSP> listTim;
 
     public String getIdSP() {
