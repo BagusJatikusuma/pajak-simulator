@@ -13,6 +13,27 @@ public class Rekapitulasi {
     private int persentaseDenda;
     private Double jumlah;
 
+    public Rekapitulasi(String bulan, int persentaseDenda) {
+        this.bulan = bulan;
+        this.persentaseDenda = persentaseDenda;
+    }
+
+    public Rekapitulasi() {
+    }
+
+    public Rekapitulasi(String bulan, Double omzetHasilPeriksa, Double pajakHasilPeriksa, Double omzetLaporan, Double pajakDisetor, Double omzet, Double pokokPajak, Double denda, int persentaseDenda, Double jumlah) {
+        this.bulan = bulan;
+        this.omzetHasilPeriksa = omzetHasilPeriksa;
+        this.pajakHasilPeriksa = pajakHasilPeriksa;
+        this.omzetLaporan = omzetLaporan;
+        this.pajakDisetor = pajakDisetor;
+        this.omzet = omzet;
+        this.pokokPajak = pokokPajak;
+        this.denda = denda;
+        this.persentaseDenda = persentaseDenda;
+        this.jumlah = jumlah;
+    }
+
     public String getBulan() {
         return bulan;
     }

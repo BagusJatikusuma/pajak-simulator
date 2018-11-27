@@ -2,12 +2,13 @@ package com.bekasidev.app.wrapper;
 
 import com.bekasidev.app.model.Rekapitulasi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RekapitulasiWrapper {
     private String idSP;
     private String idWP;
-    List<Rekapitulasi> listRekapitulasi;
+    List<Rekapitulasi> listRekapitulasi = new ArrayList<>();
     private Double totalOmzetPeriksa;
     private Double totalPajakPeriksa;
     private Double totalOmzetLaporan;
