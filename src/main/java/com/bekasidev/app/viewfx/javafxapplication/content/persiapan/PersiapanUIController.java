@@ -97,7 +97,7 @@ public class PersiapanUIController implements Initializable {
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-
+                    openSPHandler(event, obj);
                 }
             });
 
@@ -163,6 +163,10 @@ public class PersiapanUIController implements Initializable {
     
     public void cariArsip() {
         
+    }
+    
+    public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
+        System.out.println("clicked "+obj.getId());
     }
     
 }
