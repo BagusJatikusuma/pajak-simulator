@@ -75,7 +75,8 @@ public class App extends Application
     public void start(Stage primaryStage) throws Exception {
         try {
             primaryStage.setTitle("Aplikasi Perpajakan");
-            
+
+            ServiceFactory.getSuratPerintahService().getAllSuratPerintah();
             System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
             Scene scene = new Scene(root);

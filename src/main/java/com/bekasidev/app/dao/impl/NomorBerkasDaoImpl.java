@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class NomorBerkasDaoImpl implements NomorBerkasDao {
     @Override
     public NomorBerkas getNomotBerkas(String idSP, String idWp) {
-        String sql = "SELECT * FROM nomor_bekas WHERE id_sp=? AND id_wp=?";
+        String sql = "SELECT * FROM nomor_berkas WHERE id_sp=? AND id_wp=?";
         NomorBerkas nomorBerkas = new NomorBerkas();
 
         try(Connection conn = Connect.connect();

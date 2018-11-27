@@ -122,6 +122,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 tim.setSupervisor(setPegawai(rs.getString("supervisor")));
                 tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
                 tim.setListWP(setStringToWP(rs.getString("list_wp"), tim.getIdSP()));
+                tim.setIdTim(rs.getString("id_tim"));
 
                 listTim.add(tim);
             }
