@@ -29,9 +29,11 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -41,6 +43,7 @@ import javafx.scene.layout.Pane;
 public class FormAturNomorTanggalSPUIController implements Initializable {
     @FXML private DatePicker tanggalPengesahanField;
     @FXML private TextField nomorSuratField;
+    @FXML private Button cancelBtn;
     
     private ReportService reportService;
     private SuratPerintahService suratPerintahService;
@@ -73,6 +76,21 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
         
         suratPerintahService.createSuratPerintah(suratPerintah);
+        
+        Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+        rootpane.getChildren().remove(1);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PersiapanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
+        
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();
     }
     
     public void printSuratPerintah() {

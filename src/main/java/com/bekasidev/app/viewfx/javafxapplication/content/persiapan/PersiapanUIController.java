@@ -11,6 +11,7 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
@@ -27,6 +28,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -60,6 +62,7 @@ public class PersiapanUIController implements Initializable {
     private ObservableList<ArsipTablePersiapanWrapper> dataCollection;
     private List<ArsipTablePersiapanWrapper> dataListFromService;
     private List<Button> btnList;
+    private Map<String, SuratPerintah> suratPerintahMapper = new HashMap<>();
     
     private SuratPerintahService suratPerintahService;
     /**
@@ -130,6 +133,7 @@ public class PersiapanUIController implements Initializable {
                     "Selesai",
                     null
             ));
+            suratPerintahMapper.put(sp.getIdSP(), sp);
         }
 //        for (int i=1; i<=100; i++) {
 //            dataListFromService.add(new ArsipTablePersiapanWrapper(
@@ -167,6 +171,24 @@ public class PersiapanUIController implements Initializable {
     
     public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
         System.out.println("clicked "+obj.getId());
+        
+        PersiapanWrapper persiapanWrapper
+                = ConverterHelper
+                        .convertSuratPerintahToPersiapanWrapper(suratPerintahMapper.get(obj.getId()));
+        SessionProvider.getGlobalSessionsMap()
+                        .put("persiapan_wrapper", persiapanWrapper);
+        
+        Pane formPersiapanUI = null;
+        try {
+            formPersiapanUI = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormPersiapanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form Persiapan Pemeriksaan WP");
+        stage.setScene(new Scene(formPersiapanUI));
+        stage.show();
     }
     
 }
