@@ -7,9 +7,13 @@ package com.bekasidev.app.view.util;
 
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.TimSP;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
+import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import java.text.DateFormat;
@@ -52,11 +56,18 @@ public class ConverterHelper {
         
         suratPerintah.setPemberiSP(persiapanWrapper.getPenandatangan());
         
-        String masaPajakAwal = "1/"+persiapanWrapper.getMasaPajakAwalBulan()+"/"+persiapanWrapper.getMasaPajakAwalTahun();
+        String masaPajakAwal = "01."+(persiapanWrapper.getMasaPajakAwalBulan()+1)+"."+persiapanWrapper.getMasaPajakAwalTahun();
         System.out.println("masa pajak awal "+masaPajakAwal);
-        String masaPajakAkhir = "1/"+persiapanWrapper.getMasaPajakAkhirbulan()+"/"+persiapanWrapper.getMasaPajakAkhirTahun();
+        String masaPajakAkhir = "01."+(persiapanWrapper.getMasaPajakAkhirbulan()+1)+"."+persiapanWrapper.getMasaPajakAkhirTahun();
         System.out.println("masa pajak awal "+masaPajakAkhir);
-        DateFormat dateFormatter = new SimpleDateFormat("d/MM/yyyy", Locale.forLanguageTag("id-ID"));
+        DateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        
+        try {
+            System.out.println("dd awal "+String.valueOf(dateFormatter.parse(masaPajakAwal).getTime()));
+            System.out.println("dd akhir "+String.valueOf(dateFormatter.parse(masaPajakAkhir).getTime()));
+        } catch (ParseException ex) {
+            Logger.getLogger(ConverterHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
             suratPerintah.setMasaPajakAwal(
@@ -83,6 +94,7 @@ public class ConverterHelper {
             
             TimSP timSP = new TimSP();
             timSP.setIdSP(idSP);
+            timSP.setIdTim(obj.getTim().getIdTim());
             timSP.setListWP(obj.getWajibPajaks());
             timSP.setNamaTim(obj.getTim().getNamaTim());
             timSP.setPenanggungJawab(obj.getPenanggungJawab());
@@ -98,6 +110,7 @@ public class ConverterHelper {
     
     public static PersiapanWrapper convertSuratPerintahToPersiapanWrapper(SuratPerintah suratPerintah) {
         PersiapanWrapper persiapanWrapper = new PersiapanWrapper();
+        persiapanWrapper.setIdSP(suratPerintah.getIdSP());
         persiapanWrapper.setDasarNomor(suratPerintah.getNomorSK());
         persiapanWrapper.setDasarTanggal(new Date(Long.valueOf(suratPerintah.getTanggalSK())));
         persiapanWrapper.setDasarTahunAnggaran(String.valueOf(suratPerintah.getTahunAnggaranSK()));
@@ -109,12 +122,12 @@ public class ConverterHelper {
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
-                .getMonthValue());
+                .getMonthValue()-1);
         persiapanWrapper.setMasaPajakAkhirbulan(new Date(Long.valueOf(suratPerintah.getMasaPajakAkhir()))
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
-                .getMonthValue());
+                .getMonthValue()-1);
         persiapanWrapper.setMasaPajakAwalTahun(new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
@@ -133,6 +146,43 @@ public class ConverterHelper {
         persiapanWrapper.setDitetapkanDi(suratPerintah.getTempat());
         
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(suratPerintah.getLamaPelaksanaan()));
+        
+        ArrayList<TimWPWrapper> timWPWrappers = new ArrayList<>();
+        List<NomorTanggalWajibPajakWrapper> nomorTanggalWPList = new ArrayList<>();
+        List<DokumenPinjamanWajibPajakWrapper> dokumenPinjamanWajibPajakWrappers = new ArrayList<>();
+        
+        for (TimSP timSP : suratPerintah.getListTim()) {
+            for (WajibPajak wp : timSP.getListWP()) {
+                NomorTanggalWajibPajakWrapper nt = new NomorTanggalWajibPajakWrapper();
+                nt.setWajibPajak(wp);
+                nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
+                nt.setNomorPeminjamanDokumen(wp.getNomorBerkas().getNomorSuratPeminjaman());
+                if (wp.getNomorBerkas().getTanggalSuratPemberitahuan() != null)
+                    nt.setTanggalPemberitahuanPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPemberitahuan())));
+                if (wp.getNomorBerkas().getTanggalSuratPeminjaman() != null)
+                    nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
+                
+                nomorTanggalWPList.add(nt);
+            }
+            
+            TimWPWrapper timWPWrapper 
+                    = new TimWPWrapper();
+            timWPWrapper.setPenanggungJawab(timSP.getPenanggungJawab());
+            timWPWrapper.setSupervisor(timSP.getSupervisor());
+            timWPWrapper.setWajibPajaks(timSP.getListWP());
+            Tim tim = new Tim(timSP.getIdTim(), timSP.getNamaTim());
+            timWPWrapper.setTim(tim);
+            
+            timWPWrappers.add(timWPWrapper);
+        }
+        
+        persiapanWrapper.setTimWPWrappers(timWPWrappers);
+        persiapanWrapper.setNomorTanggalWPList(nomorTanggalWPList);
+        
+        System.out.println("Test converter");
+        for (NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()) {
+            System.out.println("-- obj -- "+obj.getNomorPemberitahuanPemeriksaan());
+        }
         
         return persiapanWrapper;
     }

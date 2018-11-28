@@ -6,6 +6,7 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
@@ -21,7 +22,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,14 +77,18 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         //simpan menggunakan suratPerintahService update
         SuratPerintah suratPerintah
                 = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
-        
+        System.out.println("list tim "+suratPerintah.getListTim().size());
+        for (TimSP timSP : suratPerintah.getListTim()) {
+            System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
+        }
         suratPerintahService.createSuratPerintah(suratPerintah);
+        System.out.println("create success");
         
         Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
         rootpane.getChildren().remove(1);
 
         Pane contentPane = null;
-        try { 
+        try {
             contentPane
                     = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PersiapanUI.fxml"));
         } catch (IOException ex) {
@@ -121,17 +128,37 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
         
+        if (tanggalPengesahanField.getValue() != null
+                && !nomorSuratField.getText().equals("")) {
+            persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        }
+        
         List<TimWPWrapper> timWPWrappers 
                 = persiapanWrapper.getTimWPWrappers();
+        //reset array before
+        Map<String, NomorBerkasContainer> nomMap = new HashMap<>();
+        for (NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()) {
+            System.out.println("nomor pin "+obj.getNomorPeminjamanDokumen());
+            nomMap.put(obj.getWajibPajak().getNpwpd(), 
+                    new NomorBerkasContainer(
+                            obj.getNomorPemberitahuanPemeriksaan(), 
+                            obj.getTanggalPemberitahuanPemeriksaan(),
+                            obj.getNomorPeminjamanDokumen(),
+                            obj.getTanggalPeminjamanDokumen()));
+        }
+        persiapanWrapper.getNomorTanggalWPList().clear();
         for (TimWPWrapper obj : timWPWrappers) {
             for (WajibPajak objWP : obj.getWajibPajaks()) {
+                NomorBerkasContainer nm = nomMap.get(objWP.getNpwpd());
                 persiapanWrapper.getNomorTanggalWPList().add(new NomorTanggalWajibPajakWrapper(
                         objWP,
-                        null,
-                        null,
-                        null,
-                        null
+                        (nm!=null)?nm.getNomorPemberitahuanPemeriksaan():null,
+                        (nm!=null)?nm.getTanggalPemberitahuanPemeriksaan():null,
+                        (nm!=null)?nm.getNomorPeminjamanDokumen():null,
+                        (nm!=null)?nm.getTanggalPeminjamanDokumen():null
                 ));
+                
             }
         }
         //====================================================================================//
@@ -148,6 +175,57 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         rootpaneFormPersiapan.getChildren().add(contentPane);
     }
     
-    
+    private class NomorBerkasContainer {
+        private String nomorPemberitahuanPemeriksaan;
+        private Date tanggalPemberitahuanPemeriksaan;
+        private String nomorPeminjamanDokumen;
+        private Date tanggalPeminjamanDokumen;
+
+        public NomorBerkasContainer() {
+        }
+
+        public NomorBerkasContainer(String nomorPemberitahuanPemeriksaan, Date tanggalPemberitahuanPemeriksaan, String nomorPeminjamanDokumen, Date tanggalPeminjamanDokumen) {
+            this.nomorPemberitahuanPemeriksaan = nomorPemberitahuanPemeriksaan;
+            this.tanggalPemberitahuanPemeriksaan = tanggalPemberitahuanPemeriksaan;
+            this.nomorPeminjamanDokumen = nomorPeminjamanDokumen;
+            this.tanggalPeminjamanDokumen = tanggalPeminjamanDokumen;
+        }
+
+        
+
+        public String getNomorPemberitahuanPemeriksaan() {
+            return nomorPemberitahuanPemeriksaan;
+        }
+
+        public void setNomorPemberitahuanPemeriksaan(String nomorPemberitahuanPemeriksaan) {
+            this.nomorPemberitahuanPemeriksaan = nomorPemberitahuanPemeriksaan;
+        }
+
+        public Date getTanggalPemberitahuanPemeriksaan() {
+            return tanggalPemberitahuanPemeriksaan;
+        }
+
+        public void setTanggalPemberitahuanPemeriksaan(Date tanggalPemberitahuanPemeriksaan) {
+            this.tanggalPemberitahuanPemeriksaan = tanggalPemberitahuanPemeriksaan;
+        }
+
+        public String getNomorPeminjamanDokumen() {
+            return nomorPeminjamanDokumen;
+        }
+
+        public void setNomorPeminjamanDokumen(String nomorPeminjamanDokumen) {
+            this.nomorPeminjamanDokumen = nomorPeminjamanDokumen;
+        }
+
+        public Date getTanggalPeminjamanDokumen() {
+            return tanggalPeminjamanDokumen;
+        }
+
+        public void setTanggalPeminjamanDokumen(Date tanggalPeminjamanDokumen) {
+            this.tanggalPeminjamanDokumen = tanggalPeminjamanDokumen;
+        }
+        
+        
+    }
     
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
-	<property name="ireport.zoom" value="0.9090909090909162"/>
+	<property name="ireport.zoom" value="1.1000000000000094"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="50"/>
+	<property name="ireport.y" value="197"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<parameter name="dasar_nomor" class="java.lang.String"/>
 	<parameter name="dasar_tanggal" class="java.lang.String"/>
@@ -20,6 +20,7 @@
 	<parameter name="tanggal_pengesahan" class="java.lang.String"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="penandatangan" class="com.bekasidev.app.model.Pegawai"/>
+	<parameter name="pemberi_sk" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -211,7 +212,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Demikian Surat Perintah ini dibuat agar dilaksanakan dengan pemuh rasa tanggungjawab.]]></text>
+				<text><![CDATA[Demikian Surat Perintah ini dibuat agar dilaksanakan dengan penuh rasa tanggung jawab.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="275" y="578" width="78" height="18" uuid="d1ec0cf3-ceeb-438f-bada-2ff8307ec8f3"/>
@@ -281,7 +282,7 @@
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Surat Keputusan Bupati Nomor : " + $P{dasar_nomor} + " tanggal " + $P{dasar_tanggal} + " tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran " + $P{dasar_tahun_anggaran} + "."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Surat Keputusan " + $P{pemberi_sk} + " Nomor : " + $P{dasar_nomor} + " tanggal " + $P{dasar_tanggal} + " tentang Pembentukan Tim Pemeriksa Pajak Daerah Kabupaten Bekasi Tahun Anggaran " + $P{dasar_tahun_anggaran} + "."]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="115" y="228" width="420" height="20" uuid="4bcce249-9dff-4543-94d3-9c8d91156d94"/>
@@ -302,7 +303,7 @@
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan " + $P{masa_pajak_awal} + " s/d " + $P{masa_pajak_akhir} + "(Tahap " + $P{tahap_ke}  + ")."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Melaksanakan kegiatan Pemeriksaan Pajak Daerah Masa Pajak bulan " + $P{masa_pajak_awal} + " s/d " + $P{masa_pajak_akhir} + " (Tahap " + $P{tahap_ke}  + ")."]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="126" y="442" width="409" height="46" uuid="ee47c4ba-80a3-43f7-95f0-37a60a2f8037"/>
@@ -366,34 +367,28 @@ BEKASI]]></text>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="274" y="684" width="260" height="18" uuid="c026f7d6-fb41-49de-92b3-1323f63e7f85"/>
+				<reportElement x="275" y="683" width="260" height="18" uuid="c026f7d6-fb41-49de-92b3-1323f63e7f85"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan}.getNamaPegawai()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="273" y="720" width="260" height="18" uuid="087d1a01-a834-4ad7-bb2b-2daa0e804428"/>
+				<reportElement x="275" y="719" width="260" height="18" uuid="087d1a01-a834-4ad7-bb2b-2daa0e804428"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan}.getNipPegawai()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="274" y="702" width="260" height="18" uuid="f3d16748-96dd-4444-9f4f-8e7645ccf6ef"/>
+				<reportElement x="275" y="701" width="260" height="18" uuid="f3d16748-96dd-4444-9f4f-8e7645ccf6ef"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan}.getPangkat()]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="273" y="683" width="260" height="1" uuid="a226fd47-36ce-4838-9006-a25d061f08a5"/>
-				<graphicElement>
-					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-				</graphicElement>
-			</line>
 			<staticText>
-				<reportElement x="274" y="596" width="260" height="87" uuid="9764134f-91d6-423b-b98b-36e6bca88447"/>
+				<reportElement x="275" y="596" width="260" height="87" uuid="9764134f-91d6-423b-b98b-36e6bca88447"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>

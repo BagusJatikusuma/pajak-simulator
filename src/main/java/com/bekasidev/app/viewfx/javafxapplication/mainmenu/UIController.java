@@ -150,7 +150,17 @@ public class UIController implements Initializable {
     }
     
     public void openPelaksanaan() {
-        
+        Pane rootpane = (Pane) mainmenu.getParent();
+        //reset content
+        rootpane.getChildren().remove(1);
+        Pane contentPane = null;
+        try {
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PelaksanaanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpane.getChildren().add(contentPane);
     }
     
     public void openPelaporan() {

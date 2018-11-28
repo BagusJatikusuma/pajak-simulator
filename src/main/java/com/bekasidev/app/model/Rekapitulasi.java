@@ -13,6 +13,11 @@ public class Rekapitulasi {
     private int persentaseDenda;
     private Double jumlah;
 
+    public Rekapitulasi(String bulan, int persentaseDenda) {
+        this.bulan = bulan;
+        this.persentaseDenda = persentaseDenda;
+    }
+
     public Rekapitulasi() {
     }
 

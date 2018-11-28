@@ -15,6 +15,7 @@ import java.util.List;
  * @author Bayu Arafli
  */
 public class PersiapanWrapper {
+    private String idSP;
     private String dasarNomor;
     private Date dasarTanggal;
     private String dasarTahunAnggaran;
@@ -325,6 +326,13 @@ public class PersiapanWrapper {
     public void setPemberiSK(String pemberiSK) {
         this.pemberiSK = pemberiSK;
     }
-    
+
+    public String getIdSP() {
+        return idSP;
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP = idSP;
+    }
     
 }
