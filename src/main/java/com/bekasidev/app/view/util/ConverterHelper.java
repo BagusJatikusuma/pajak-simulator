@@ -5,12 +5,15 @@
  */
 package com.bekasidev.app.view.util;
 
+import com.bekasidev.app.model.BerkasPersiapan;
+import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.BerkasPersiapanService;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
@@ -36,6 +39,7 @@ import javax.swing.text.DateFormatter;
  */
 public class ConverterHelper {
     private static PegawaiService pegawaiService;
+    private static BerkasPersiapanService berkasPersiapanService;
     public static SuratPerintah convertPersiapanWrapperIntoSuratPerintah(PersiapanWrapper persiapanWrapper) {
         pegawaiService = ServiceFactory.getPegawaiService();
         
@@ -109,6 +113,8 @@ public class ConverterHelper {
     }
     
     public static PersiapanWrapper convertSuratPerintahToPersiapanWrapper(SuratPerintah suratPerintah) {
+        berkasPersiapanService = ServiceFactory.getBerkasPersiapanService();
+        
         PersiapanWrapper persiapanWrapper = new PersiapanWrapper();
         persiapanWrapper.setIdSP(suratPerintah.getIdSP());
         persiapanWrapper.setDasarNomor(suratPerintah.getNomorSK());
@@ -117,6 +123,12 @@ public class ConverterHelper {
         
         persiapanWrapper.setPemberiSK(suratPerintah.getPemberiSK());
         persiapanWrapper.setPenandatangan(suratPerintah.getPemberiSP());
+        
+        System.out.println("test "+new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
+                .toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+                .getMonthValue());
         
         persiapanWrapper.setMasaPajakAwalBulan(new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
                 .toInstant()
@@ -153,6 +165,7 @@ public class ConverterHelper {
         
         for (TimSP timSP : suratPerintah.getListTim()) {
             for (WajibPajak wp : timSP.getListWP()) {
+                
                 NomorTanggalWajibPajakWrapper nt = new NomorTanggalWajibPajakWrapper();
                 nt.setWajibPajak(wp);
                 nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
@@ -163,6 +176,37 @@ public class ConverterHelper {
                     nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
                 
                 nomorTanggalWPList.add(nt);
+                
+                if (wp.getListPinjaman().isEmpty()) {
+                    String masaPajakAwal 
+                            = convertBulanIntegerIntoString(new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
+                                                                    .toInstant()
+                                                                    .atZone(ZoneId.systemDefault())
+                                                                    .toLocalDate()
+                                                                    .getMonthValue()-1)
+                                +" "
+                                +new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
+                                                                    .toInstant()
+                                                                    .atZone(ZoneId.systemDefault())
+                                                                    .toLocalDate()
+                                                                    .getYear();
+                    String masaPajakAkhir
+                            = convertBulanIntegerIntoString(new Date(Long.valueOf(suratPerintah.getMasaPajakAkhir()))
+                                                                    .toInstant()
+                                                                    .atZone(ZoneId.systemDefault())
+                                                                    .toLocalDate()
+                                                                    .getMonthValue()-1)
+                                +" "
+                                +new Date(Long.valueOf(suratPerintah.getMasaPajakAkhir()))
+                                                                    .toInstant()
+                                                                    .atZone(ZoneId.systemDefault())
+                                                                    .toLocalDate()
+                                                                    .getYear();
+                    berkasPersiapanService
+                            .getDokumenPinjaman(wp, masaPajakAwal, masaPajakAkhir);
+                }
+                dokumenPinjamanWajibPajakWrappers
+                        .add(new DokumenPinjamanWajibPajakWrapper(wp, wp.getListPinjaman()));
             }
             
             TimWPWrapper timWPWrapper 
@@ -178,6 +222,7 @@ public class ConverterHelper {
         
         persiapanWrapper.setTimWPWrappers(timWPWrappers);
         persiapanWrapper.setNomorTanggalWPList(nomorTanggalWPList);
+        persiapanWrapper.setDokumenPinjamanWajibPajakWrappers(dokumenPinjamanWajibPajakWrappers);
         
         System.out.println("Test converter");
         for (NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()) {
@@ -187,7 +232,7 @@ public class ConverterHelper {
         return persiapanWrapper;
     }
     
-    private String convertBulanIntegerIntoString(Integer bulanInt) {
+    private static String convertBulanIntegerIntoString(Integer bulanInt) {
         switch(bulanInt) {
             case 0: return "Januari";
             case 1: return "Februari";
@@ -205,7 +250,7 @@ public class ConverterHelper {
         return "";
     }
     
-    private Integer convertBulanStringIntoInteger(String bulanString) {
+    private static Integer convertBulanStringIntoInteger(String bulanString) {
         switch(bulanString) {
             case "Januari" : return 0;
             case "Februari": return 1;

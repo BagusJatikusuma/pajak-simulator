@@ -57,6 +57,11 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("persiapan_wrapper");
+        System.out.println("pra set dokumen WP "+persiapanWrapper.getDokumenPinjamanWajibPajakWrappers().size());
         suratPerintahService = ServiceFactory.getSuratPerintahService();
     }
 

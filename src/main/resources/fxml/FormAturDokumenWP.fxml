@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox prefHeight="594.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturDokumenWPController">
+   <children>
+      <AnchorPane prefHeight="46.0" prefWidth="574.0">
+         <children>
+            <Button layoutX="7.0" layoutY="10.0" mnemonicParsing="false" onAction="#tambahDokumen" text="Tambah dokumen" />
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="517.0" prefWidth="574.0">
+         <children>
+            <TableView fx:id="DokumenWPTable" prefHeight="566.0" prefWidth="574.0">
+               <columns>
+                  <TableColumn prefWidth="149.0" text="Dokumen" />
+                  <TableColumn prefWidth="283.0" text="Keterangan" />
+                  <TableColumn prefWidth="131.0" text="Action" />
+               </columns>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="53.0" prefWidth="574.0">
+         <children>
+            <Button layoutX="456.0" layoutY="14.0" mnemonicParsing="false" onAction="#finishDokumenWP" prefHeight="25.0" prefWidth="111.0" text="selesai" />
+            <Button fx:id="cancelBtn" layoutX="340.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
