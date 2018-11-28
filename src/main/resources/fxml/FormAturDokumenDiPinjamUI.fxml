@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="610.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturDokumenDiPinjamUIController">
+   <children>
+      <HBox prefHeight="517.0" prefWidth="574.0">
+         <children>
+            <TableView fx:id="AturDokumenPinjamTable" prefHeight="566.0" prefWidth="574.0">
+               <columns>
+                  <TableColumn prefWidth="149.0" text="Id WP" />
+                  <TableColumn prefWidth="283.0" text="Nama WP" />
+                  <TableColumn prefWidth="131.0" text="Action" />
+               </columns>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="53.0" prefWidth="574.0">
+         <children>
+            <Button layoutX="338.0" layoutY="14.0" mnemonicParsing="false" onAction="#simpanDokumenPinjam" prefHeight="25.0" prefWidth="111.0" text="simpan" />
+            <Button fx:id="cancelBtn" layoutX="222.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+            <Button layoutX="455.0" layoutY="13.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" prefWidth="111.0" text="print" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

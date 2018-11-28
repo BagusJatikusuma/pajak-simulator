@@ -5,25 +5,29 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.model;
 
+import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.WajibPajak;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * update 28 november 2018 :
+ * variable listPinjaman tidak terpakai
+ * data berkas dokumen pinjaman ada di object wajibPajak
+ * 
  * @author sudoroot
  */
 public class DokumenPinjamanWajibPajakWrapper {
     private WajibPajak wajibPajak;
-    private List<String> dokumenDiPinjamList;
-
+    private List<DokumenPinjaman> listPinjaman;
+    
     public DokumenPinjamanWajibPajakWrapper() {
-        dokumenDiPinjamList = new ArrayList<>();
+        listPinjaman = new ArrayList<>();
     }
 
-    public DokumenPinjamanWajibPajakWrapper(WajibPajak wajibPajak, List<String> dokumenDiPinjamList) {
+    public DokumenPinjamanWajibPajakWrapper(WajibPajak wajibPajak, List<DokumenPinjaman> listPinjaman) {
         this.wajibPajak = wajibPajak;
-        this.dokumenDiPinjamList = dokumenDiPinjamList;
+        this.listPinjaman = listPinjaman;
     }
 
     public WajibPajak getWajibPajak() {
@@ -34,14 +38,12 @@ public class DokumenPinjamanWajibPajakWrapper {
         this.wajibPajak = wajibPajak;
     }
 
-    public List<String> getDokumenDiPinjamList() {
-        return dokumenDiPinjamList;
+    public List<DokumenPinjaman> getListPinjaman() {
+        return listPinjaman;
     }
 
-    public void setDokumenDiPinjamList(List<String> dokumenDiPinjamList) {
-        this.dokumenDiPinjamList = dokumenDiPinjamList;
+    public void setListPinjaman(List<DokumenPinjaman> listPinjaman) {
+        this.listPinjaman = listPinjaman;
     }
-    
-    
     
 }

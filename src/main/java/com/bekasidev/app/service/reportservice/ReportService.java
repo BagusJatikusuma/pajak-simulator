@@ -25,18 +25,18 @@ public interface ReportService {
     void createPersiapanPajakHotelReport1();
     void createPersiapanDokumenPinjamanHotel();
     void createPersiapanPajakParkirReport();
-    void createPersiapanDokumenPinjaman(WP wp, WajibPajak wajibPajak,
-            PersiapanWrapperJasper persiapanWrapper);
+    
+    //yang dipakai
     void createSuratPerintah();
     void createDaftarPetugasPemeriksa();
-    void createTandaTerima(WP wp, WajibPajak wajibPajak,
-            PersiapanWrapperJasper persiapanWrapper);
-    void createQuesionerRestoran(WP wp, WajibPajak wajibPajak,
-            PersiapanWrapperJasper persiapanWrapper);
-    
-    void createPersiapanPeminjamanBuku(
-            PersiapanWrapper persiapanWrapper, WajibPajak wp);
     void createPemberitahuanPemeriksaan(
-            PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP);
-    
+            PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP, int index);
+    void createTandaTerima(WP wp, WajibPajak wajibPajak,
+             PersiapanWrapperJasper persiapanWrapper);
+    void createPersiapanPeminjamanBuku(
+             PersiapanWrapper persiapanWrapper, WajibPajak wp, int index);
+    void createPersiapanDokumenPinjaman(WP wp, WajibPajak wajibPajak,
+             PersiapanWrapperJasper persiapanWrapper);
+    void createQuesionerRestoran();
+
 }
