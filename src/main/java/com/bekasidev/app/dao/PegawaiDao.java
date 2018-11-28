@@ -18,4 +18,12 @@ public interface PegawaiDao {
     void createTim(Tim tim);
 
     List<Tim> getAllTim();
+
+    void updatePegawai(Pegawai pegawai);
+
+    void updateTim(Tim tim);
+
+    void deletePegawai(String nip);
+
+    void deleteTim(String id);
 }

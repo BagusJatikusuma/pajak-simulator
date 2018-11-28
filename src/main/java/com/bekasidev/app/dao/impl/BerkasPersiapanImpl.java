@@ -52,6 +52,21 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
         }
     }
 
+    @Override
+    public void updateBerkasPersiapan(WajibPajak wajibPajak, String idSP) {
+        String sql = "UPDATE berkas_persiapan SET dokumen_pinjaman=? WHERE id_sp=? AND id_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, setPinjamanToString(wajibPajak.getListPinjaman()));
+            pstm.setString(2, idSP);
+            pstm.setString(3, wajibPajak.getNpwpd());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 //    private BerkasPersiapan setDokumenPersiapan(ResultSet rs) throws SQLException {
 //        DokumenPersiapanWrapper berkasPersiapan = new DokumenPersiapanWrapper();
 //        berkasPersiapan.setIdBerkas(rs.getString("id_berkas"));

@@ -45,4 +45,24 @@ public class PegawaiServiceImpl implements PegawaiService {
     public List<Tim> getAllTim() {
         return pegawaiDao.getAllTim();
     }
+
+    @Override
+    public void updatePegawai(Pegawai pegawai) {
+        pegawaiDao.updatePegawai(pegawai);
+    }
+
+    @Override
+    public void updateTim(Tim tim) {
+        pegawaiDao.updateTim(tim);
+    }
+
+    @Override
+    public void deletePegawai(String nipPegawai) {
+        pegawaiDao.deletePegawai(nipPegawai);
+    }
+
+    @Override
+    public void deleteTim(String idTim) {
+        pegawaiDao.deleteTim(idTim);
+    }
 }

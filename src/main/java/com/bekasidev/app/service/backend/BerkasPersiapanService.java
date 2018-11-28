@@ -15,4 +15,6 @@ public interface BerkasPersiapanService {
     void createBerkasPersiapan(String idSP, WajibPajak wajibPajak);
 
     void getDokumenPinjaman(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir);
+
+    void updateDokumenPinjaman(WajibPajak wajibPajak, String idSP);
 }

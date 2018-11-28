@@ -117,6 +117,69 @@ public class PegawaiDaoImpl implements PegawaiDao {
         return tims;
     }
 
+    @Override
+    public void updatePegawai(Pegawai pegawai) {
+        String sql = "UPDATE pegawai SET " +
+                "nama_pegawai=?, golongan=?, pangkat=?, " +
+                "jabatan_dinas=? WHERE nip_pegawai=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, pegawai.getNamaPegawai());
+            pstm.setString(2, pegawai.getGolongan());
+            pstm.setString(3, pegawai.getPangkat());
+            pstm.setString(4, pegawai.getJabatanDinas());
+            pstm.setString(5, pegawai.getNipPegawai());
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateTim(Tim tim) {
+        String sql = "UPDATE tim SET nama_tim=? WHERE id_tim=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, tim.getNamaTim());
+            pstm.setString(2, tim.getIdTim());
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deletePegawai(String nip) {
+        String sql = "DELETE FROM pegawai WHERE nip_pegawai=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, nip);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteTim(String id) {
+        String sql = "DELETE FROM tim WHERE id_tim=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, id);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Pegawai setPegawai(ResultSet rs) throws SQLException {
         return new Pegawai(rs.getString("id_tim"),
                                         rs.getString("nip_pegawai"),

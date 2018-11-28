@@ -13,4 +13,6 @@ public interface WajibPajakDao {
     void deleteWPById(String idRestoran);
 
     WajibPajak getWPById(String idWp);
+
+    void updateWp(WajibPajak wajibPajak);
 }

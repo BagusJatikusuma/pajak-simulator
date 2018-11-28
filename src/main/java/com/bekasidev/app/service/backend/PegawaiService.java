@@ -17,4 +17,12 @@ public interface PegawaiService {
     void createTim(Tim tim);
 
     List<Tim> getAllTim();
+
+    void updatePegawai(Pegawai pegawai);
+
+    void updateTim(Tim tim);
+
+    void deletePegawai(String nipPegawai);
+
+    void deleteTim(String idTim);
 }

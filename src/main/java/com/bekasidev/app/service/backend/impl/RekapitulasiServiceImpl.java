@@ -9,6 +9,8 @@ import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.util.Calendar;
 import java.util.Date;
 
+import static java.lang.Math.round;
+
 public class RekapitulasiServiceImpl implements RekapitulasiService {
 
     RekapitulasiDao rekapitulasiDao = new RekapitulasiDaoImpl();
@@ -24,12 +26,40 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
     }
 
     @Override
-    public void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper) {
+    public void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, float persentase) {
+        double totalOmzetPeriksa = 0, totalPajakPeriksa = 0, totalOmzetLaporan = 0,
+                totalPajakDisetor = 0, totalOmzet = 0, totalPokokPajak = 0, totalDenda = 0, totalJumlah = 0;
+        for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
+            rekapitulasi.setPajakHasilPeriksa((double) round(rekapitulasi.getOmzetHasilPeriksa() * persentase));
+            rekapitulasi.setPajakDisetor((double) round(rekapitulasi.getOmzetLaporan() * persentase));
+            rekapitulasi.setOmzet(rekapitulasi.getOmzetHasilPeriksa() - rekapitulasi.getOmzetLaporan());
+            rekapitulasi.setPokokPajak(rekapitulasi.getPajakHasilPeriksa() - rekapitulasi.getPajakDisetor());
+            rekapitulasi.setDenda((double) round(
+                    rekapitulasi.getPokokPajak() * rekapitulasi.getPersentaseDenda() * persentase
+                    ));
+            rekapitulasi.setJumlah(rekapitulasi.getPokokPajak() + rekapitulasi.getDenda());
 
+            totalOmzetPeriksa += rekapitulasi.getOmzetHasilPeriksa();
+            totalPajakPeriksa += rekapitulasi.getPajakHasilPeriksa();
+            totalOmzetLaporan += rekapitulasi.getOmzetLaporan();
+            totalPajakDisetor += rekapitulasi.getPajakDisetor();
+            totalOmzet += rekapitulasi.getOmzet();
+            totalPokokPajak += rekapitulasi.getPokokPajak();
+            totalDenda += rekapitulasi.getDenda();
+            totalJumlah += rekapitulasi.getJumlah();
+        }
+        rekapitulasiWrapper.setTotalOmzetPeriksa(totalOmzetPeriksa);
+        rekapitulasiWrapper.setTotalPajakPeriksa(totalPajakPeriksa);
+        rekapitulasiWrapper.setTotalOmzetLaporan(totalOmzetLaporan);
+        rekapitulasiWrapper.setTotalPajakDisetor(totalPajakDisetor);
+        rekapitulasiWrapper.setTotalOmzet(totalOmzet);
+        rekapitulasiWrapper.setTotalPokokPajak(totalPokokPajak);
+        rekapitulasiWrapper.setTotalDenda(totalDenda);
+        rekapitulasiWrapper.setTotalJumlah(totalJumlah);
     }
 
     @Override
-    public void createBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir) {
+    public void setBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir) {
         Calendar calAwal = Calendar.getInstance(), calAkhir = Calendar.getInstance();
         calAwal.setTime(masaPajakAwal);
         calAkhir.setTime(masaPajakAkhir);

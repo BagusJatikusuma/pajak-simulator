@@ -99,4 +99,30 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
         }
         return wp;
     }
+
+    @Override
+    public void updateWp(WajibPajak wajibPajak) {
+        String sql = "UPDATE wajib_pajak SET " +
+                "nama_wp=?, alamat_jalan=?, alamat_kecamatan=?, alamat_desa=?, " +
+                "jenis_wp=?, nama_pemilik=?, telepon=?, " +
+                "fax=?, tahun_operasional=? WHERE id_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, wajibPajak.getNamaWajibPajak());
+            pstm.setString(2, wajibPajak.getJalan());
+            pstm.setString(3, wajibPajak.getKecamatan());
+            pstm.setString(4, wajibPajak.getDesa());
+            pstm.setShort(5, wajibPajak.getJenisWp());
+            pstm.setString(6, wajibPajak.getNamaPemilik());
+            pstm.setString(7, wajibPajak.getTelepon());
+            pstm.setString(8, wajibPajak.getFax());
+            pstm.setString(9, wajibPajak.getTahunMulaiOperasional());
+            pstm.setString(10, wajibPajak.getNpwpd());
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
