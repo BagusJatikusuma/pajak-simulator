@@ -5,25 +5,33 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
+import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.Surat;
+import com.bekasidev.app.model.WP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.NomorBerkasService;
+import com.bekasidev.app.service.backend.PegawaiService;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanNomorTanggalSuratPemberitahuanTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -45,6 +53,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
  * FXML Controller class
@@ -60,6 +69,7 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     private TableColumn action;
     
     private NomorBerkasService nomorBerkasService;
+    private ReportService reportService;
     
     private ObservableList<PersiapanNomorTanggalSuratPemberitahuanTableWrapper> dataCollection;
     /**
@@ -108,7 +118,128 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     }
     
     public void printSuratPemberitahuan() {
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("persiapan_wrapper");
         
+        //data dummi
+            PersiapanWrapperJasper dummi = new PersiapanWrapperJasper();
+
+            dummi.setNomorSurat(persiapanWrapper.getNomorSurat());
+            dummi.setTanggalPengesahan(persiapanWrapper.getTanggalPengesahan());
+            dummi.setDasarNomor(persiapanWrapper.getDasarNomor());
+            dummi.setDasarTanggal(persiapanWrapper.getDasarTanggal());
+            dummi.setDasarTahunAnggaran(persiapanWrapper.getDasarTahunAnggaran());
+            dummi.setNama(persiapanWrapper.getNama());
+            dummi.setJabatan(persiapanWrapper.getJabatan());
+
+            dummi.setMasaPajakAwalBulan(persiapanWrapper.getMasaPajakAwalBulan());
+            dummi.setMasaPajakAwalTahun(persiapanWrapper.getMasaPajakAwalTahun());
+            dummi.setMasaPajakAkhirbulan(persiapanWrapper.getMasaPajakAkhirbulan());
+            dummi.setMasaPajakAkhirTahun(persiapanWrapper.getMasaPajakAkhirTahun());
+            dummi.setTahapKe(persiapanWrapper.getTahapKe());
+
+            dummi.setLamaPelaksanaan(persiapanWrapper.getLamaPelaksanaan());
+            dummi.setBiayaNomorAPBD(persiapanWrapper.getBiayaNomorAPBD());
+            dummi.setBiayaTahunAPBD(persiapanWrapper.getBiayaTahunAPBD());
+            dummi.setBiayaTanggalAPBD(persiapanWrapper.getBiayaTanggalAPBD());
+
+            dummi.setDitetapkanDi(persiapanWrapper.getDitetapkanDi());
+
+            dummi.setPenandatangan(persiapanWrapper.getPenandatangan());
+
+            PegawaiService pegawaiService = ServiceFactory.getPegawaiService();
+
+            for (TimWPWrapper tim : persiapanWrapper.getTimWPWrappers()) {
+
+                List<Pegawai> anggotaTimList = pegawaiService.getPegawaiByTim(tim.getTim().getIdTim());
+                List<AnggotaDanWajibPajakWrapper> wajibPajakList = new ArrayList<AnggotaDanWajibPajakWrapper>();
+
+                int jumlah = anggotaTimList.size();
+                if(jumlah < tim.getWajibPajaks().size()){
+                    jumlah = tim.getWajibPajaks().size();
+                }
+
+                for (int i = 0; i < jumlah; i++) {
+                    AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
+
+                    if(i < tim.getWajibPajaks().size()){
+                        wp.setIdWajibPajak(tim.getWajibPajaks().get(i).getNpwpd());
+                        wp.setNamaWajibPajak(tim.getWajibPajaks().get(i).getNamaWajibPajak());
+                        wp.setJenisWp(tim.getWajibPajaks().get(i).getJenisWp());
+                    } else {
+                        wp.setIdWajibPajak("");
+                        wp.setNamaWajibPajak("");
+                        wp.setJenisWp((short) -1);
+                    }
+
+                    if (i < anggotaTimList.size()) {
+                        wp.setIdTim(anggotaTimList.get(i).getIdTim());
+                        wp.setNipPegawai(anggotaTimList.get(i).getNipPegawai());
+                        wp.setNamaPegawai(anggotaTimList.get(i).getNamaPegawai());
+                        wp.setPangkat(anggotaTimList.get(i).getPangkat());
+                        wp.setGolongan(anggotaTimList.get(i).getGolongan());
+                        wp.setJabatanTim(anggotaTimList.get(i).getJabatanTim());
+                    } else {
+                        wp.setIdTim("");
+                        wp.setNipPegawai("");
+                        wp.setNamaPegawai("");
+                        wp.setPangkat("");
+                        wp.setGolongan("");
+                    }
+
+                    wajibPajakList.add(wp);
+                }
+
+                TimWPWrapperJasper objTimWPWrapper
+                        = new TimWPWrapperJasper(
+                                tim.getPenanggungJawab().getNipPegawai(),
+                                tim.getPenanggungJawab().getNamaPegawai(),
+                                tim.getPenanggungJawab().getPangkat(),
+                                tim.getPenanggungJawab().getGolongan(),
+                                tim.getPenanggungJawab().getJabatanTim(),
+
+                                tim.getSupervisor().getNipPegawai(),
+                                tim.getSupervisor().getNamaPegawai(),
+                                tim.getSupervisor().getPangkat(),
+                                tim.getSupervisor().getGolongan(),
+                                tim.getSupervisor().getJabatanTim(),
+
+                                tim.getTim().getNamaTim(),
+                                wajibPajakList
+                        );
+                JRBeanCollectionDataSource beanColDataSourceWp =
+                        new JRBeanCollectionDataSource(wajibPajakList);
+                objTimWPWrapper.setWajibPajakJasper(beanColDataSourceWp);
+                objTimWPWrapper.setListWP(tim.getWajibPajaks());
+
+                dummi.getTimWPWrapperJaspers().add(objTimWPWrapper);
+
+            }
+
+            //data dummi\
+            int index = 0;
+            for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
+                for(WajibPajak wp : timWP.getListWP()){
+                    System.out.println("Masuk wp : " + wp.getNamaWajibPajak());
+                    System.out.println("Index wp : " + index);
+
+                    reportService.createPemberitahuanPemeriksaan(persiapanWrapper, wp, timWP, index);
+                    index ++;
+//                    switch(wp.getJenisWp()){
+//                        case 0: 
+//                            reportService.createTandaTerima(WP.RESTORAN, wp, dummi);
+//                            break;
+//                        case 1: 
+//                            reportService.createTandaTerima(WP.HOTEL, wp, dummi);
+//                            break;
+//                    }
+                }
+            }
+            System.out.println("Beres Surat Pemberitahuan Pemeriksa");
     }
     
     public void aturSuratPeminjaman() {
