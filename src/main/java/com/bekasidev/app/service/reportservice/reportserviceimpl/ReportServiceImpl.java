@@ -904,25 +904,25 @@ public class ReportServiceImpl implements ReportService {
             frame.pack();
             frame.setVisible(true);
 
-            for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
-                for(WajibPajak wp : timWP.getListWP()){
-                    System.out.println("Masuk wp " + wp.getNamaWajibPajak());
-                    createPersiapanPajakRestoranReport(
-                        dummi, wp);
-                    createPersiapanPajakRestoranReport1(
-                            dummi, wp, timWP);
-                    switch(wp.getJenisWp()){
-                        case 0: createPersiapanDokumenPinjaman(WP.RESTORAN, wp, dummi);
-                            createTandaTerima(WP.RESTORAN, wp, dummi);
-                            createQuesionerRestoran(WP.RESTORAN, wp, dummi);
-                            break;
-                        case 1: createPersiapanDokumenPinjaman(WP.HOTEL, wp, dummi);
-                            createTandaTerima(WP.HOTEL, wp, dummi);
-                            createQuesionerRestoran(WP.HOTEL, wp, dummi);
-                            break;
-                    }
-                }
-            }
+//            for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
+//                for(WajibPajak wp : timWP.getListWP()){
+//                    System.out.println("Masuk wp " + wp.getNamaWajibPajak());
+//                    createPersiapanPajakRestoranReport(
+//                        dummi, wp);
+//                    createPersiapanPajakRestoranReport1(
+//                            dummi, wp, timWP);
+//                    switch(wp.getJenisWp()){
+//                        case 0: createPersiapanDokumenPinjaman(WP.RESTORAN, wp, dummi);
+//                            createTandaTerima(WP.RESTORAN, wp, dummi);
+//                            createQuesionerRestoran(WP.RESTORAN, wp, dummi);
+//                            break;
+//                        case 1: createPersiapanDokumenPinjaman(WP.HOTEL, wp, dummi);
+//                            createTandaTerima(WP.HOTEL, wp, dummi);
+//                            createQuesionerRestoran(WP.HOTEL, wp, dummi);
+//                            break;
+//                    }
+//                }
+//            }
 
 //            ConverterHelper sp = new ConverterHelper();
 //            ServiceFactory.getSuratPerintahService().createSuratPerintah(sp.convertPersiapanWrapperIntoSuratPerintah(
