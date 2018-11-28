@@ -95,7 +95,7 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                         wrapper.getIdWP(),
                         wrapper.getNomorSurat(),
                         String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
-                        Surat.PEMBERITAHUAN);
+                        Surat.PEMINJAMAN);
             } catch (ParseException ex) {
                 Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
             }

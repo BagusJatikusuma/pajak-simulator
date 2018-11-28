@@ -179,6 +179,11 @@ public class ConverterHelper {
         persiapanWrapper.setTimWPWrappers(timWPWrappers);
         persiapanWrapper.setNomorTanggalWPList(nomorTanggalWPList);
         
+        System.out.println("Test converter");
+        for (NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()) {
+            System.out.println("-- obj -- "+obj.getNomorPemberitahuanPemeriksaan());
+        }
+        
         return persiapanWrapper;
     }
     
