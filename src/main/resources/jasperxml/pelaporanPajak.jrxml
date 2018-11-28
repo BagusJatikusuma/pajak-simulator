@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pelaporanPajak" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="ba599d75-2d88-4cb1-b04b-f8a80ee5a781">
-	<property name="ireport.zoom" value="0.9090909090909347"/>
+	<property name="ireport.zoom" value="1.2100000000000348"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="3210"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -220,21 +220,21 @@
 				<reportElement x="18" y="15" width="483" height="842" uuid="94f18a9d-ef02-40ac-80c3-4abaa76506b2"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="41" y="44" width="443" height="67" uuid="311476a2-b51d-46c4-adc4-13acd097a64c"/>
+				<reportElement x="41" y="162" width="443" height="67" uuid="311476a2-b51d-46c4-adc4-13acd097a64c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="28"/>
 				</textElement>
 				<text><![CDATA[LAPORAN HASIL PEMERIKSAAN PAJAK DAERAH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="167" y="199" width="196" height="20" uuid="97f57223-52f5-4875-807a-f882e60592f4"/>
+				<reportElement x="167" y="324" width="196" height="20" uuid="97f57223-52f5-4875-807a-f882e60592f4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="14" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[SUSUNAN TIM PEMERIKSA :]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table" x="83" y="229" width="390" height="20" uuid="2d95ccd1-ebd0-498d-a41f-134b6e1a792e"/>
+				<reportElement key="table" x="83" y="354" width="390" height="20" uuid="2d95ccd1-ebd0-498d-a41f-134b6e1a792e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 2" uuid="cf2d803b-ce6e-4606-9bdf-48ce55bd2e22">
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
@@ -392,6 +392,39 @@
 			<break>
 				<reportElement x="0" y="874" width="100" height="1" uuid="8a89226f-149c-4c20-be40-516c301c5143"/>
 			</break>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="26" y="24" width="96" height="86" uuid="32edfd19-2cd6-44e0-89ad-fb53e311b131"/>
+				<imageExpression><![CDATA["ProjectPajak/pajak-simulator/src/main/resources/images/logo_kab_bekasi.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="122" y="24" width="372" height="18" uuid="3674891f-3ec8-42d7-8f05-82c41c5953e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="36" width="372" height="42" uuid="4ddb4a44-e161-4dff-8c3a-ada5d421cf4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="74" width="372" height="36" uuid="d4d35dac-eb00-40cb-bd2d-161f200d6f87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Komplek Perkantoran Pemerintah Kabupaten Bekasi
+di Desa Sukamahi Kecamatan Cikarang Pusat
+BEKASI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="26" y="117" width="468" height="1" uuid="49afc212-8c52-4df4-b842-fe407a3b40e3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double" lineColor="#000000"/>
+				</graphicElement>
+			</line>
 		</band>
 		<band height="875">
 			<staticText>
