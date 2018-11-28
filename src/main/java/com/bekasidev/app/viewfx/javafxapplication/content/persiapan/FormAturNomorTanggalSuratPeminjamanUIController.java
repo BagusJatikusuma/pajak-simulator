@@ -8,7 +8,9 @@ package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 import com.bekasidev.app.model.Surat;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.NomorBerkasService;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanNomorTanggalSuratPemberitahuanTableWrapper;
@@ -105,6 +107,20 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
     
     public void printSuratPeminjaman() {
         
+    }
+    
+    public void aturDokumenPinjaman() {
+        Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        rootpaneFormPersiapan.getChildren().remove(1);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormAturDokumenDiPinjamUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPersiapan.getChildren().add(contentPane);
     }
 
     private void addFromFXML() {

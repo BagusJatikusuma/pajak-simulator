@@ -28,9 +28,10 @@
       </HBox>
       <AnchorPane prefHeight="53.0" prefWidth="574.0">
          <children>
-            <Button layoutX="338.0" layoutY="14.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPeminjaman" prefHeight="25.0" prefWidth="111.0" text="simpan" />
-            <Button fx:id="cancelBtn" layoutX="222.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
-            <Button layoutX="455.0" layoutY="13.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" prefWidth="111.0" text="print" />
+            <Button layoutX="121.0" layoutY="14.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPeminjaman" prefHeight="25.0" prefWidth="111.0" text="simpan" />
+            <Button fx:id="cancelBtn" layoutX="5.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+            <Button layoutX="238.0" layoutY="13.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" prefWidth="111.0" text="print" />
+            <Button layoutX="355.0" layoutY="14.0" mnemonicParsing="false" onAction="#aturDokumenPinjaman" prefHeight="25.0" prefWidth="215.0" text="Atur Dokumen Pinjaman" />
          </children>
       </AnchorPane>
    </children>
