@@ -17,6 +17,7 @@ import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
+import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -189,6 +190,20 @@ public class FormPelaksanaanContentUIController implements Initializable {
         pelaksanaanWrapper.setPersiapanWrapper(persiapanWrapper);
         pelaksanaanWrapper.setTimSelected(timSelected);
         pelaksanaanWrapper.setWpSelected(wpSelected);
+        RekapitulasiWrapper rekapitulasiWrapper
+                = new RekapitulasiWrapper();
+        rekapitulasiWrapper.setIdSP(persiapanWrapper.getIdSP());
+        rekapitulasiWrapper.setIdWP(wpSelected.getNpwpd());
+        rekapitulasiWrapper.setTotalDenda(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalJumlah(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalOmzet(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalOmzetLaporan(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalPajakDisetor(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalPajakPeriksa(Double.valueOf(0));
+        rekapitulasiWrapper.setTotalPokokPajak(Double.valueOf(0));
+        pelaksanaanWrapper.setRekapitulasiWrapper(rekapitulasiWrapper);
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(1);

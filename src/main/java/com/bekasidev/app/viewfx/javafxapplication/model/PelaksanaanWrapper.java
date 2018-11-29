@@ -7,6 +7,7 @@ package com.bekasidev.app.viewfx.javafxapplication.model;
 
 import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 
 /**
  *
@@ -17,6 +18,7 @@ public class PelaksanaanWrapper {
     private PersiapanWrapper persiapanWrapper;
     private Tim timSelected;
     private WajibPajak wpSelected;
+    private RekapitulasiWrapper rekapitulasiWrapper;
 
     public PelaksanaanWrapper() {
     }
@@ -59,6 +61,14 @@ public class PelaksanaanWrapper {
     public void setWpSelected(WajibPajak wpSelected) {
         this.wpSelected = wpSelected;
     }
-    
+
+    public RekapitulasiWrapper getRekapitulasiWrapper() {
+        return rekapitulasiWrapper;
+    }
+
+    public void setRekapitulasiWrapper(RekapitulasiWrapper rekapitulasiWrapper) {
+        this.rekapitulasiWrapper = rekapitulasiWrapper;
+    }
+        
     
 }

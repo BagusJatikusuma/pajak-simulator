@@ -67,7 +67,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
         
-        if (persiapanWrapper.getIdSP() != null) {
+        if (persiapanWrapper.getTanggalPengesahan() != null) {
             nomorSuratField.setText(persiapanWrapper.getNomorSurat());
             tanggalPengesahanField.setValue(persiapanWrapper
                                             .getTanggalPengesahan()
