@@ -188,6 +188,11 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         
         reportService.createSuratPernyataan1(pelaksanaanWrapper);
+        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
+        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
+        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+        reportService.createSuratPernyataan7(pelaksanaanWrapper);
     }
     
     private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {

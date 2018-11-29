@@ -1509,6 +1509,8 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
+            parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
+            
             if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "   ");
                 parameter.put("tanggal_sp", "    ");
@@ -1555,6 +1557,345 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratTandaTerima(2).pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createSuratPersetujuan4(PelaksanaanWrapper pelaksanaanWrapper) {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPersetujuan(4).jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPersetujuan(4).jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                              
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            
+            parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
+            
+            parameter.put("nomor_sphp", "   ");
+            parameter.put("tanggal_sphp", "    ");
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPersetujuan(4).pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createPernyataanPersetujuanHasilPemeriksaan5(PelaksanaanWrapper pelaksanaanWrapper) {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\PernyataanPersetujuanHasilPemeriksaan(5).jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\PernyataanPersetujuanHasilPemeriksaan(5).jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                              
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
+
+            parameter.put("nomor_sphp", "   ");
+            parameter.put("tanggal_sphp", "    ");
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/PernyataanPersetujuanHasilPemeriksaan(5).pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(PelaksanaanWrapper pelaksanaanWrapper) {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                              
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
+            
+            parameter.put("jumlah_rekapitulasi", String.valueOf(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()));
+            
+            parameter.put("masa_pajak_awal", convertBulanIntegerIntoString(
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
+            parameter.put("masa_pajak_akhir", convertBulanIntegerIntoString(
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
+            
+            System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
+            System.out.println("Alamat Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getJalan());
+            System.out.println("Nomor SP : " + pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat());
+            System.out.println("Tanggal SP : " + String.valueOf(df_tanggal_sp.format(pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan())));
+            System.out.println("Jenis Pajak : " + pelaksanaanWrapper.getWpSelected().getJenisWp());
+            System.out.println("Bulan Awal : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()));
+            System.out.println("Tahun Awal : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
+            System.out.println("Bulan Akhir : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()));
+            System.out.println("Tahun Akhir : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createSuratPernyataan7(PelaksanaanWrapper pelaksanaanWrapper) {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPernyataan(7).jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPernyataan(7).jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                              
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
+            
+            System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
+            System.out.println("Alamat Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getJalan());
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPernyataan(7).pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
