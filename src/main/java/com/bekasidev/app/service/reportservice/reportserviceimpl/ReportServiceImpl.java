@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -251,9 +252,19 @@ public class ReportServiceImpl implements ReportService {
     public void createPersiapanDokumenPinjaman(WP wp, WajibPajak wajibPajak,
             PersiapanWrapperJasper persiapanWrapper) {
         try {
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://DaftarBukuPinjaman.jasper";
-            String jrxmlPathFile = "D://DaftarBukuPinjaman.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\DaftarBukuPinjaman.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\DaftarBukuPinjaman.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
@@ -265,20 +276,15 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-//            PersiapanPajakPOJO persiapanPajakPOJO
-//                = (PersiapanPajakPOJO)SessionProvider
-//                        .getPajakMapSession()
-//                        .get("persiapan_pajak_restoran");
-//
-//            BerkasPersiapan bp = new BerkasPersiapan();
+
             String masaAwal = convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAwalBulan()) + " " +
                                persiapanWrapper.getMasaPajakAwalTahun();
             String masaAkhir = convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
                                persiapanWrapper.getMasaPajakAkhirTahun();
-            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(
+            if(wajibPajak.getListPinjaman().size() == 0)
+                ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(
                     wajibPajak, masaAwal, masaAkhir);
 
             JRBeanCollectionDataSource beanColDataSource =
@@ -291,9 +297,6 @@ public class ReportServiceImpl implements ReportService {
             
             System.out.println("asdasdasdasdsaadsasd" + wajibPajak.getListPinjaman().size());
             
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
             parameter.put("wajib_pajak", wajibPajak);
             
             
@@ -617,9 +620,19 @@ public class ReportServiceImpl implements ReportService {
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
             
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://SuratPerintah.jasper";
-            String jrxmlPathFile = "D://SuratPerintah.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPerintah.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPerintah.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
@@ -823,10 +836,20 @@ public class ReportServiceImpl implements ReportService {
 
             //data dummi
 
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://DaftarPetugasPemeriksa.jasper";
-            String jrxmlPathFile = "D://DaftarPetugasPemeriksa.jrxml";
-
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\DaftarPetugasPemeriksa.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\DaftarPetugasPemeriksa.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
 
             JasperReport report = null;
@@ -940,12 +963,22 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public void createTandaTerima(WP wp, WajibPajak wajibPajak, PersiapanWrapperJasper persiapanWrapper) {
         try {
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://TandaTerimaBukuPinjaman.jasper";
-            String jrxmlPathFile = "D://TandaTerimaBukuPinjaman.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\TandaTerima.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\TandaTerima.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
-                    
+      
             JasperReport report = null;
             
             try {
@@ -955,41 +988,16 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            PersiapanPajakPOJO persiapanPajakPOJO
-//                = (PersiapanPajakPOJO)SessionProvider
-//                        .getPajakMapSession()
-//                        .get("persiapan_pajak_restoran");
-//
-            BerkasPersiapan bp = new BerkasPersiapan();
-            bp.setMasaPajakAwal(convertBulanIntegerIntoString(
-                               persiapanWrapper.getMasaPajakAwalBulan()) + " " +
-                               persiapanWrapper.getMasaPajakAwalTahun());
-            bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
-                               persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
-                               persiapanWrapper.getMasaPajakAkhirTahun());
-//            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
-
-            JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(bp.getListPinjaman());
-
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
-            
-            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
-            
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
-            parameter.put("wajib_pajak", wajibPajak);
-            
-            
-            parameter.put("buku_peminjaman", beanColDataSource);
+            parameter.put("wajib_pajak_nama", wajibPajak.getNamaWajibPajak());
+            parameter.put("wajib_pajak_npwpd", wajibPajak.getNpwpd());
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter);
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -998,11 +1006,10 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, 
-                    beanColDataSource);
+                    parameter);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/TandaTerimaBukuPinjaman.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/TandaTerima.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -1026,11 +1033,21 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void createQuesionerRestoran(WP wp, WajibPajak wajibPajak, PersiapanWrapperJasper persiapanWrapper) {
+    public void createQuesionerRestoran() {
         try {
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://QuesionerRestoran.jasper";
-            String jrxmlPathFile = "D://QuesionerRestoran.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerRestorann.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerRestorann.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
@@ -1042,44 +1059,15 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-//            PersiapanPajakPOJO persiapanPajakPOJO
-//                = (PersiapanPajakPOJO)SessionProvider
-//                        .getPajakMapSession()
-//                        .get("persiapan_pajak_restoran");
-//
-            BerkasPersiapan bp = new BerkasPersiapan();
-            bp.setMasaPajakAwal(convertBulanIntegerIntoString(
-                               persiapanWrapper.getMasaPajakAwalBulan()) + " " +
-                               persiapanWrapper.getMasaPajakAwalTahun());
-            bp.setMasaPajakAkhir(convertBulanIntegerIntoString(
-                               persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
-                               persiapanWrapper.getMasaPajakAkhirTahun());
-//            ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(bp, wp);
-
-            JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(bp.getListPinjaman());
 
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
             
-            System.out.println("asdasdasdasdsaadsasd" + bp.getListPinjaman().size());
-            
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
-            parameter.put("wajib_pajak", wajibPajak);
-            parameter.put("jenis_wp", convertJenisWPShortIntoString(wajibPajak.getJenisWp()));
-            parameter.put("telp_fax", wajibPajak.getTelepon() + "/" + wajibPajak.getFax());
-            
-            
-            parameter.put("buku_peminjaman", beanColDataSource);
-            
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter);
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -1088,11 +1076,10 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, 
-                    beanColDataSource);
+                    parameter);
             
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerRestorann.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -1163,11 +1150,21 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void createPersiapanPeminjamanBuku(PersiapanWrapper persiapanWrapper, WajibPajak wp) {
+    public void createPersiapanPeminjamanBuku(PersiapanWrapper persiapanWrapper, WajibPajak wp, int index) {
         try {
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://ReportPeminjamanBuku.jasper";
-            String jrxmlPathFile = "D://ReportPeminjamanBuku.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPeminjamanBuku.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPeminjamanBuku.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
@@ -1187,15 +1184,26 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
-            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
-
-            parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
-            parameter.put("tanggal_sp", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            DateFormat df_tanggal_surat = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
             
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            parameter.put("tanggal_surat", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
+            if(persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null && 
+                    persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
+                parameter.put("nomor_surat", "   ");
+                parameter.put("tanggal_surat", "    ");
+            } else {
+                parameter.put("nomor_surat", persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen());
+                parameter.put("tanggal_surat", String.valueOf(df_tanggal_surat.format(persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen())));
+            }
+            
+
+            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+                parameter.put("nomor_sp", "   ");
+                parameter.put("tanggal_sp", "    ");
+            } else {
+                parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
+                parameter.put("tanggal_sp", String.valueOf(df_tanggal_sp.format(persiapanWrapper.getTanggalPengesahan())));
+            }
             
             parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
             parameter.put("wajib_pajak", wp);
@@ -1234,16 +1242,26 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void createPemberitahuanPemeriksaan(PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP) {
+    public void createPemberitahuanPemeriksaan(PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP, int index) {
         try {
-            HashMap<String, Object> parameters = new HashMap<String, Object>();
-            String jasperPathFile = "file:///D://ReportPemberitahuanPemeriksaan.jasper";
-            String jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan.jrxml";
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPemberitahuanPemeriksaan.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPemberitahuanPemeriksaan.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
-            jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+//            jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
+//            JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -1254,14 +1272,6 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            DataBeanList DataBeanList = new DataBeanList();
-            PersiapanPajakPOJO persiapanPajakPOJO
-                = (PersiapanPajakPOJO)SessionProvider
-                        .getPajakMapSession()
-                        .get("persiapan_pajak_restoran");
-//            List<AnggotaDanWajibPajakWrapper> peg = new ArrayList<>();
-//            peg.add(new AnggotaDanWajibPajakWrapper(
-//                    "qwe", "qwe", (short) 0,"123", "123123", "BAKA", "IV", "PRANATA", "Anggota"));
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(timWP.getWajibPajaks());
             
@@ -1271,12 +1281,29 @@ public class ReportServiceImpl implements ReportService {
              */
             
 //            System.out.println("asdasdasdasdsaadsasd" + persiapanPajakPOJO.getWajibPajak().getNamaWP());
-            parameter.put("nomor_surat", persiapanWrapper.getNomorSurat());
-            DateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            parameter.put("tanggal_surat", df.format(persiapanWrapper.getTanggalPengesahan()));
+            DateFormat df_tanggal_surat = new SimpleDateFormat("dd MMMM yyyy");
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            if(persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPemberitahuanPemeriksaan() == null && 
+                    persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPemberitahuanPemeriksaan() == null){
+                parameter.put("nomor_surat", "   ");
+                parameter.put("tanggal_surat", "    ");
+            } else {
+                parameter.put("nomor_surat", persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPemberitahuanPemeriksaan());
+                parameter.put("tanggal_surat", String.valueOf(df_tanggal_surat.format(persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPemberitahuanPemeriksaan())));
+            }
+            
+            
             parameter.put("wajib_pajak", wp);
-            parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
-            parameter.put("tanggal_sp", df.format(persiapanWrapper.getTanggalPengesahan()));
+            
+            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+                parameter.put("nomor_sp", "   ");
+                parameter.put("tanggal_sp", "    ");
+            } else {
+                parameter.put("nomor_sp", persiapanWrapper.getNomorSurat());
+                parameter.put("tanggal_sp", String.valueOf(df_tanggal_sp.format(persiapanWrapper.getTanggalPengesahan())));
+            }
+            
             parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
             parameter.put("hari", String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
             switch(wp.getJenisWp()){

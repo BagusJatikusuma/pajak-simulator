@@ -9,4 +9,6 @@ public interface BerkasPersiapanDao {
     void getBerkasPersiapan(String idSP, WajibPajak wajibPajak);
 
     void createBerkasPersiapan(WajibPajak wajibPajak, String idSP);
+
+    void updateBerkasPersiapan(WajibPajak wajibPajak, String idSP);
 }

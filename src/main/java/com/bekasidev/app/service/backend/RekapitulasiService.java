@@ -10,7 +10,7 @@ public interface RekapitulasiService {
 
     RekapitulasiWrapper getRekapitulasi(String idSP, String idWP);
 
-    void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper);
+    void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, float persentase);
 
-    void createBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir);
+    void setBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir);
 }

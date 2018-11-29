@@ -33,4 +33,19 @@ public class SuratPerintahServiceImpl implements SuratPerintahService {
     public void setNomorUrut(String idSP, String nomorUrut, String tanggal) {
         suratPerintahDao.setNomorUrut(idSP, nomorUrut, tanggal);
     }
+
+    @Override
+    public void updateSuratPerintah(SuratPerintah suratPerintah) {
+        suratPerintahDao.updateSuratPerintah(suratPerintah);
+    }
+
+    @Override
+    public void updateTim(List<TimSP> listTim) {
+        suratPerintahDao.updateTim(listTim);
+    }
+
+    @Override
+    public void deleteSuratPerintah(String idSP) {
+        suratPerintahDao.deleteSuratPerintah(idSP);
+    }
 }

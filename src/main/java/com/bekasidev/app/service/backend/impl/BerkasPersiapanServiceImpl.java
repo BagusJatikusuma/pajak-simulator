@@ -41,6 +41,11 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
         }
     }
 
+    @Override
+    public void updateDokumenPinjaman(WajibPajak wajibPajak, String idSP) {
+        berkasPersiapanDao.updateBerkasPersiapan(wajibPajak, idSP);
+    }
+
     private void createListPinjamanRestoran(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
