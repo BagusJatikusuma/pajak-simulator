@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
+import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.RekapitulasiService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
@@ -92,32 +93,19 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                                     .get("pelaksanaan_wrapper");
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         
-        RekapitulasiWrapper wrapper 
-                = rekapitulasiService
-                        .getRekapitulasi(
-                                pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                                pelaksanaanWrapper.getWpSelected().getNpwpd());
-        long rangeDiff = getDifferenceDatePersiapanWrapperinMonth(pelaksanaanWrapper.getPersiapanWrapper());
-        int nextMonth = pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan();
-        int nextYear = pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun();
-        for (int i = 0; i <= rangeDiff; i++) {
+        int index = 1;
+        for (Rekapitulasi rek : pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()) {
             Button btn = new Button("button");
             ArsipPelaksanaanTableWrapper objTable 
                     = new ArsipPelaksanaanTableWrapper(
-                            String.valueOf(i+1),
-                            ConverterHelper.convertBulanIntegerIntoString(nextMonth)+" "+nextYear,
+                            String.valueOf(index),
+                            rek.getBulan(),
                             "-",
                             "-",
                             btn
                     );
             dataCollection.add(objTable);
-            
-            nextMonth++;
-            if (nextMonth > 11) {
-                nextMonth = 0;
-                nextYear++;
-            }
-            
+            index++;
         }
         
         for (ArsipPelaksanaanTableWrapper obj:dataCollection) {
