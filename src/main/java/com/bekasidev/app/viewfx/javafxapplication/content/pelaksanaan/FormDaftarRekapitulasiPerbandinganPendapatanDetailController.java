@@ -11,6 +11,9 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,11 +42,52 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        initListener();
     }
 
     public void cancelOperation() {
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();
+    }
+    
+    private void initListener() {
+        omzetHasilField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) {
+                NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+                DecimalFormat formatter = (DecimalFormat) anotherFormat;
+                String newValueStr = formatter.format(Double.parseDouble(newValue));
+
+                omzetHasilField.setText(newValueStr);
+            }
+            else if (newValue.matches("^-?\\d{1,}(?:\\.\\d{1,4})*(?:,\\d+)?$")) {
+                NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+                DecimalFormat formatter = (DecimalFormat) anotherFormat;
+                newValue = newValue.replace(".", "");
+                String newValueStr = formatter.format(Double.parseDouble(newValue));
+
+                omzetHasilField.setText(newValueStr);
+            }
+         });
+        omzetDiLaporkanField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) {
+                NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+                DecimalFormat formatter = (DecimalFormat) anotherFormat;
+                String newValueStr = formatter.format(Double.parseDouble(newValue));
+
+                omzetDiLaporkanField.setText(newValueStr);
+            }
+            else if (newValue.matches("^-?\\d{1,}(?:\\.\\d{1,4})*(?:,\\d+)?$")) {
+                System.out.println("val "+newValue);
+                NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+                DecimalFormat formatter = (DecimalFormat) anotherFormat;
+                System.out.println("val "+newValue);
+                newValue = newValue.replace(".", "");
+                String newValueStr = formatter.format(Double.parseDouble(newValue));
+
+                omzetDiLaporkanField.setText(newValueStr);
+            }
+         });
+
     }
     
     public void finishOperation() {
@@ -54,8 +98,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
         if (!(omzetDiLaporkanField.getText().equals("") 
                 ||omzetHasilField.getText().equals(""))) {
             System.out.println("setter now");
-            rek.setOmzetHasilPeriksa(Double.valueOf(omzetHasilField.getText()));
-            rek.setOmzetLaporan(Double.valueOf(omzetDiLaporkanField.getText()));
+            
+            rek.setOmzetHasilPeriksa(Double.valueOf(omzetHasilField.getText().replace(".", "")));
+            rek.setOmzetLaporan(Double.valueOf(omzetDiLaporkanField.getText().replace(".", "")));
         }
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
