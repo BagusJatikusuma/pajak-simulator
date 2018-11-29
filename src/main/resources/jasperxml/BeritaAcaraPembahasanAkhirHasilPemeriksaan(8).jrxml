@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeritaAcaraPembahasanAkhirHasilPemeriksaan(8)" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00bddd47-a695-4bfb-8c09-a936f2ebd40d">
 	<property name="ireport.zoom" value="1.000000000000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1682"/>
+	<property name="ireport.y" value="192"/>
 	<subDataset name="anggota_tim" uuid="9060bb7b-95c1-47a5-bf9c-c31826ae95b7"/>
 	<parameter name="anggota_tim" class="java.lang.String"/>
 	<background>

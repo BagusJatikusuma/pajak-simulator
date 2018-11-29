@@ -7,6 +7,7 @@ package com.bekasidev.app.service.reportservice;
 
 import com.bekasidev.app.model.WP;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
@@ -26,7 +27,7 @@ public interface ReportService {
     void createPersiapanDokumenPinjamanHotel();
     void createPersiapanPajakParkirReport();
     
-    //yang dipakai
+    //yang dipakai persiapan
     void createSuratPerintah();
     void createDaftarPetugasPemeriksa();
     void createPemberitahuanPemeriksaan(
@@ -38,5 +39,8 @@ public interface ReportService {
     void createPersiapanDokumenPinjaman(WP wp, WajibPajak wajibPajak,
              PersiapanWrapperJasper persiapanWrapper);
     void createQuesionerRestoran();
+    
+    //yang dipakai pelaksanaan
+    void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper);
 
 }
