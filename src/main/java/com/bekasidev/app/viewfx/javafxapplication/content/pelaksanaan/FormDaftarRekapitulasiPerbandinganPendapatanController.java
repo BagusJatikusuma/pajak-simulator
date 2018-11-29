@@ -8,6 +8,7 @@ package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.RekapitulasiService;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
@@ -60,6 +61,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     
     private RekapitulasiService rekapitulasiService;
+    private ReportService reportService;
     /**
      * Initializes the controller class.
      */
@@ -135,6 +137,19 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         namaTimLabel.setText(pelaksanaanWrapper.getTimSelected().getNamaTim());
         namaWPLabel.setText(pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
         npwpdLabel.setText(pelaksanaanWrapper.getWpSelected().getNpwpd());
+    }
+    
+    public void printKKPdanSuratSurat(){
+        System.out.println("KLIK GENERATE SAVE");
+        
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("pelaksanaan_wrapper");
+        
+        reportService.createSuratPernyataan1(pelaksanaanWrapper);
     }
     
     private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {

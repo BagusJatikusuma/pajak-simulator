@@ -1397,7 +1397,9 @@ public class ReportServiceImpl implements ReportService {
             
             DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
             
-            parameter.put("wajib_pajak", pelaksanaanWrapper.getWpSelected());
+            parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "   ");
@@ -1418,6 +1420,17 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("masa_pajak_akhir", convertBulanIntegerIntoString(
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
+            
+            System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
+            System.out.println("Alamat Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getJalan());
+            System.out.println("Nomor SP : " + pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat());
+            System.out.println("Tanggal SP : " + String.valueOf(df_tanggal_sp.format(pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan())));
+            System.out.println("Jenis Pajak : " + pelaksanaanWrapper.getWpSelected().getJenisWp());
+            System.out.println("Bulan Awal : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()));
+            System.out.println("Tahun Awal : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
+            System.out.println("Bulan Akhir : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()));
+            System.out.println("Tahun Akhir : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
             
             try {
                JasperFillManager.fillReportToFile(
@@ -1454,6 +1467,10 @@ public class ReportServiceImpl implements ReportService {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void createTandaTerimaSPHP2(PelaksanaanWrapper pelaksanaanWrapper) {
     }
     
 }

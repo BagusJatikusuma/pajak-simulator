@@ -42,5 +42,6 @@ public interface ReportService {
     
     //yang dipakai pelaksanaan
     void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper);
+    void createTandaTerimaSPHP2(PelaksanaanWrapper pelaksanaanWrapper);
 
 }
