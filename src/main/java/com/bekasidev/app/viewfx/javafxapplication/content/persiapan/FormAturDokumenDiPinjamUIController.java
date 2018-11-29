@@ -6,6 +6,8 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
 import com.bekasidev.app.model.DokumenPinjaman;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.BerkasPersiapanService;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
@@ -46,6 +48,8 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
     private TableColumn namaWP;
     private TableColumn action;
     @FXML private Button cancelBtn;
+    
+    private BerkasPersiapanService berkasPersiapanService;
 
     private ObservableList<PersiapanAturDokumenPinjamTableWrapper> dataCollection;
     /**
@@ -61,11 +65,28 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
     }    
     
     public void simpanDokumenPinjam() {
+        System.out.println("simpan dokumen yang dipinjam");
+        berkasPersiapanService = ServiceFactory.getBerkasPersiapanService();
+        PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("persiapan_wrapper");
         
+        for (DokumenPinjamanWajibPajakWrapper obj
+                :persiapanWrapper.getDokumenPinjamanWajibPajakWrappers()) {
+            berkasPersiapanService
+                    .createBerkasPersiapan(
+                            persiapanWrapper.getIdSP(), 
+                            obj.getWajibPajak());
+        }
+        
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();
     }
     
     public void cancelOperation() {
-        
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();  
     }
     
     public void printSuratPeminjaman() {

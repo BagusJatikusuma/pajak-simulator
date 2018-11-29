@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
     <stylesheets>
         <URL value="@/styles/formdaftarrekapitulasiperbandinganpendapatan.css" />
     </stylesheets>
@@ -32,14 +37,14 @@
       <Label layoutX="121.0" layoutY="98.0" text="Nomor NPWPD" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="98.0" />
       <TableView fx:id="arsipPelaksanaanTable" layoutX="24.0" layoutY="135.0" prefHeight="300.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="135.0">
         <columns>
-          <TableColumn prefWidth="35.0" text="NO" />
-          <TableColumn prefWidth="130.0" text="BULAN" />
-            <TableColumn prefWidth="193.0" text="OMZET HASIL PEMERIKSAAN" />
-            <TableColumn minWidth="0.0" prefWidth="193.0" text="OMZET YANG DILAPORKAN" />
-            <TableColumn minWidth="0.0" prefWidth="100.0" text="ACTION" />
+          <TableColumn fx:id="no" prefWidth="35.0" text="NO" />
+          <TableColumn fx:id="bulan" prefWidth="130.0" text="BULAN" />
+            <TableColumn fx:id="omzetHasilPemeriksaan" prefWidth="193.0" text="OMZET HASIL PEMERIKSAAN" />
+            <TableColumn fx:id="omzetDiLaporkan" minWidth="0.0" prefWidth="193.0" text="OMZET YANG DILAPORKAN" />
+            <TableColumn fx:id="action" minWidth="0.0" prefWidth="100.0" text="ACTION" />
         </columns>
       </TableView>
       <Button layoutX="559.0" layoutY="455.0" mnemonicParsing="false" text="Selesai &amp; Generate" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="455.0" />
-      <Button layoutX="490.0" layoutY="455.0" mnemonicParsing="false" text="Kembali" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="455.0" />
+      <Button layoutX="445.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" text="Kembali" AnchorPane.rightAnchor="184.0" AnchorPane.topAnchor="455.0" />
    </children>
 </AnchorPane>

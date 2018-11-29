@@ -68,7 +68,7 @@ public class FormPersiapanContentUIController implements Initializable {
         populateChoiceBox();
     }
 
-public void cancelOperation() {
+    public void cancelOperation() {
         //remove session
         SessionProvider.getGlobalSessionsMap().remove("persiapan_wrapper");
         Stage stage = (Stage) cancelBtn.getScene().getWindow();

@@ -156,6 +156,8 @@ public class ConverterHelper {
         persiapanWrapper.setBiayaTanggalAPBD(new Date(Long.parseLong(suratPerintah.getTanggalBiaya())));
         persiapanWrapper.setBiayaNomorAPBD(suratPerintah.getNomorSuratBiaya());
         persiapanWrapper.setDitetapkanDi(suratPerintah.getTempat());
+        persiapanWrapper.setTanggalPengesahan(new Date(Long.valueOf(suratPerintah.getTanggalSurat())));
+        persiapanWrapper.setNomorSurat(suratPerintah.getNomorUrut());
         
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(suratPerintah.getLamaPelaksanaan()));
         

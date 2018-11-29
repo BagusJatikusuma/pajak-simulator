@@ -73,6 +73,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(1, nomorUrut);
             pstm.setString(2, tanggal);
             pstm.setString(3, idSP);
+            pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
