@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="263.0" prefWidth="471.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.PopupPaneUIController">
+    <stylesheets>
+        <URL value="@/styles/popuppaneui.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="okBtn" layoutX="148.0" layoutY="179.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="180.0" text="OK" />
+      <Label fx:id="notifLabel" layoutX="166.0" layoutY="91.0" text="Berhasil Menyimpan" />
+   </children>
+</AnchorPane>

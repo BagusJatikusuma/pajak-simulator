@@ -31,6 +31,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,6 +59,10 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
+                                            .get("header_form_persiapan");
+        headerLabel.setText("FORM ATUR BERKAS-BERKAS YANG DIPINJAM");
+        headerLabel.setLayoutX(135);
         addFromFXML();
         populateData();
         associateDataWithColumn();
@@ -80,8 +85,20 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
                             obj.getWajibPajak());
         }
         
-        Stage stage = (Stage) cancelBtn.getScene().getWindow();
-        stage.close();
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+        
+//        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+//        stage.close();
     }
     
     public void cancelOperation() {

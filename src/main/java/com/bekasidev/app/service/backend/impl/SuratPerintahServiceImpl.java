@@ -48,4 +48,9 @@ public class SuratPerintahServiceImpl implements SuratPerintahService {
     public void deleteSuratPerintah(String idSP) {
         suratPerintahDao.deleteSuratPerintah(idSP);
     }
+
+    @Override
+    public TimSP getTimSP(String idSP, String idTim) {
+        return suratPerintahDao.getTimSP(idSP, idTim);
+    }
 }

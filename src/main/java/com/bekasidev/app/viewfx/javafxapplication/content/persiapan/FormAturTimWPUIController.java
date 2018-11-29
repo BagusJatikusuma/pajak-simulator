@@ -20,6 +20,8 @@ import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,8 +32,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -54,9 +58,15 @@ public class FormAturTimWPUIController implements Initializable {
     private ReportService reportService;
     
     private ObservableList<PersiapanTimWPTableWrapper> dataCollection;
+    private Map<String, TimWPWrapper> timWPMapper = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
+                                            .get("header_form_persiapan");
+        headerLabel.setText("FORM ATUR TIM PENANGGUNG JAWAB");
+        headerLabel.setLayoutX(170);
+        
         addFromFXML();
         populateData();
         associateDataWithColumn();
@@ -91,6 +101,8 @@ public class FormAturTimWPUIController implements Initializable {
                     aturButton
             ));
             
+            timWPMapper.put(obj.getTim().getIdTim(), obj);
+            
         }
         for (final PersiapanTimWPTableWrapper obj : dataCollection) {
             Button hapusButton = obj.getHapusButton();
@@ -100,6 +112,19 @@ public class FormAturTimWPUIController implements Initializable {
                 @Override
                 public void handle(ActionEvent event) {                    
                     System.out.println("hapus "+obj.getIdTim()+"clicked");
+                    persiapanWrapper.getTimWPWrappers().remove(timWPMapper.get(obj.getIdTim()));
+                    
+                    Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+                    rootpaneFormPersiapan.getChildren().remove(1);
+
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormAturTimWPUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rootpaneFormPersiapan.getChildren().add(contentPane);
                     
                 }
             });
@@ -107,6 +132,22 @@ public class FormAturTimWPUIController implements Initializable {
                 @Override
                 public void handle(ActionEvent event) {                    
                     System.out.println("atur "+obj.getIdTim()+"clicked");
+                    
+                    SessionProvider
+                            .getGlobalSessionsMap()
+                            .put("atur_tim_wp_selected", timWPMapper.get(obj.getIdTim()));
+                    
+                    Pane formTambahTimWPUI = null;
+                    try {
+                        formTambahTimWPUI = FXMLLoader
+                                .load(getClass().getClassLoader().getResource("fxml/FormTambahTimWPUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    Stage stage = new Stage();
+                    stage.setTitle("Form tambah Tim WP");
+                    stage.setScene(new Scene(formTambahTimWPUI));
+                    stage.show();
                     
                 }
             });
@@ -138,6 +179,9 @@ public class FormAturTimWPUIController implements Initializable {
     
     public void openNewAturTimWP() {
         System.out.println("openNewAturTimWP");
+        SessionProvider
+            .getGlobalSessionsMap()
+            .put("atur_tim_wp_selected", null);
         Pane formTambahTimWPUI = null;
         try {
             formTambahTimWPUI = FXMLLoader

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
@@ -9,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="1236.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
+<AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="1236.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
     <stylesheets>
         <URL value="@/styles/pelaksanaanui.css" />
     </stylesheets>
@@ -26,10 +30,12 @@
          <children>
             <TableView fx:id="arsipPelaksanaanTable" prefHeight="547.0" prefWidth="1208.0">
               <columns>
-                <TableColumn prefWidth="124.0" text="Id" />
-                <TableColumn prefWidth="422.0" text="Tanggal Dibuat" />
-                  <TableColumn prefWidth="410.0" text="Status" />
-                  <TableColumn prefWidth="251.0" text="Action" />
+                <TableColumn prefWidth="97.0" text="Id" />
+                  <TableColumn prefWidth="221.0" text="Id SP" />
+                  <TableColumn prefWidth="238.0" text="Nama Tim" />
+                  <TableColumn prefWidth="310.0" text="Nama WP" />
+                <TableColumn prefWidth="188.0" text="Tanggal Dibuat" />
+                  <TableColumn prefWidth="151.0" text="Action" />
               </columns>
             </TableView>
          </children>

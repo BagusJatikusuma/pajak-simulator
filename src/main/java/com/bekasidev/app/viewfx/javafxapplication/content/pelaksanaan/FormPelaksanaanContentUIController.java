@@ -90,6 +90,7 @@ public class FormPelaksanaanContentUIController implements Initializable {
             ovSuratPerintah.add(pw);
         }
         suratPerintahField.setItems(ovSuratPerintah);
+        
         suratPerintahField
                 .getSelectionModel()
                 .selectedItemProperty()
@@ -125,6 +126,7 @@ public class FormPelaksanaanContentUIController implements Initializable {
                 .addListener(new ChangeListener() {
                     @Override
                     public void changed(ObservableValue ov, Object t, Object t1) {
+                        
                         Tim tim = (Tim) t1;
                         List<WajibPajak> wajibPajaks = timWPMap.get(tim.getIdTim());
                         
@@ -142,6 +144,15 @@ public class FormPelaksanaanContentUIController implements Initializable {
                             wajibPajakField.getItems().setAll(ovWP);
                             wajibPajakField.setDisable(false);
                         }
+                    }
+                });
+        
+        wajibPajakField
+                .getSelectionModel()
+                .selectedItemProperty()
+                .addListener(new ChangeListener() {
+                    @Override
+                    public void changed(ObservableValue ov, Object t, Object t1) {
                     }
                 });
         
@@ -201,33 +212,54 @@ public class FormPelaksanaanContentUIController implements Initializable {
                 = (WajibPajak) wajibPajakField
                     .getSelectionModel()
                     .getSelectedItem();
+        if (pelaksanaanWrapper.getPersiapanWrapper() != null) {
+            if (!pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                    .equals(persiapanWrapper.getIdSP())) {
+                pelaksanaanWrapper.setRekapitulasiWrapper(null);
+            }
+        }
+        if (pelaksanaanWrapper.getTimSelected() != null) {
+            if (!pelaksanaanWrapper.getTimSelected().getIdTim()
+                    .equals(timSelected.getIdTim())) {
+                pelaksanaanWrapper.setRekapitulasiWrapper(null);
+            }
+        }
+        if (pelaksanaanWrapper.getWpSelected() != null) {
+            if (!pelaksanaanWrapper.getWpSelected().getNpwpd()
+                    .equals(wpSelected.getNpwpd())) {
+                pelaksanaanWrapper.setRekapitulasiWrapper(null);
+            }
+        }
         
         pelaksanaanWrapper.setPersiapanWrapper(persiapanWrapper);
         pelaksanaanWrapper.setTimSelected(timSelected);
         pelaksanaanWrapper.setWpSelected(wpSelected);
-        RekapitulasiWrapper rekapitulasiWrapper
-                = new RekapitulasiWrapper();
-        rekapitulasiWrapper.setIdSP(persiapanWrapper.getIdSP());
-        rekapitulasiWrapper.setIdWP(wpSelected.getNpwpd());
-        rekapitulasiWrapper.setTotalDenda(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalJumlah(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalOmzet(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalOmzetLaporan(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalPajakDisetor(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalPajakPeriksa(Double.valueOf(0));
-        rekapitulasiWrapper.setTotalPokokPajak(Double.valueOf(0));
- 
-        pelaksanaanWrapper.setRekapitulasiWrapper(rekapitulasiWrapper);
-        
-        rekapitulasiService.setBulanRekapitulasi(
+        if (pelaksanaanWrapper.getRekapitulasiWrapper() == null) {
+            RekapitulasiWrapper rekapitulasiWrapper
+                    = new RekapitulasiWrapper();
+            rekapitulasiWrapper.setIdSP(persiapanWrapper.getIdSP());
+            rekapitulasiWrapper.setIdWP(wpSelected.getNpwpd());
+            rekapitulasiWrapper.setTotalDenda(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalJumlah(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalOmzet(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalOmzetLaporan(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalOmzetPeriksa(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalPajakDisetor(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalPajakPeriksa(Double.valueOf(0));
+            rekapitulasiWrapper.setTotalPokokPajak(Double.valueOf(0));
+
+            pelaksanaanWrapper.setRekapitulasiWrapper(rekapitulasiWrapper);
+            
+            rekapitulasiService.setBulanRekapitulasi(
                 rekapitulasiWrapper, 
                 convertDateNumberToDate(persiapanWrapper.getMasaPajakAwalBulan(),persiapanWrapper.getMasaPajakAwalTahun()), 
                 convertDateNumberToDate(persiapanWrapper.getMasaPajakAkhirbulan(),persiapanWrapper.getMasaPajakAkhirTahun()));
+        }
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(1);
+        rootpaneFormPelaksanaan.getChildren().remove(0);
 
         Pane contentPane = null;
         try { 

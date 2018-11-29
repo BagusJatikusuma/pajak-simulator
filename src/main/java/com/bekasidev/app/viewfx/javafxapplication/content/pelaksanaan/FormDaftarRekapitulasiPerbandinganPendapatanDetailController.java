@@ -104,7 +104,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
         }
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
-        rootpaneFormPelaksanaan.getChildren().remove(1);
+        rootpaneFormPelaksanaan.getChildren().remove(0);
 
         Pane contentPane = null;
         try { 
