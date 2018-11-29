@@ -664,6 +664,7 @@ public class ReportServiceImpl implements ReportService {
                 parameter.put("tanggal_pengesahan", String.valueOf(df_tanggal_pengesahan.format(persiapanWrapper.getTanggalPengesahan())));
             }
             
+            parameter.put("pemberi_sk", persiapanWrapper.getPemberiSK());
             parameter.put("dasar_nomor", persiapanWrapper.getDasarNomor());
             parameter.put("dasar_tanggal", String.valueOf(df_dasar_tanggal.format(persiapanWrapper.getDasarTanggal())));
             parameter.put("dasar_tahun_anggaran", persiapanWrapper.getDasarTahunAnggaran());
