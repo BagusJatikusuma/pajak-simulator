@@ -14,6 +14,7 @@ import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import java.io.IOException;
@@ -45,6 +46,10 @@ public class FormPelaksanaanContentUIController implements Initializable {
     @FXML private ChoiceBox wajibPajakField;
     
     private Map<String, List<WajibPajak>> timWPMap = new HashMap<>();
+    
+    ObservableList<PersiapanWrapper> ovSuratPerintah;
+    ObservableList<Tim> ovTim;
+    ObservableList<WajibPajak> ovWP;
     /**
      * Initializes the controller class.
      */
@@ -55,16 +60,18 @@ public class FormPelaksanaanContentUIController implements Initializable {
     }    
 
     private void populateChoiceBox() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
         List<PersiapanWrapper> persiapanWrappers
                 = (List<PersiapanWrapper>) SessionProvider
                         .getGlobalSessionsMap()
                         .get("daftar_persiapan_wrapper");
-        
-        ObservableList<PersiapanWrapper> ovSuratPerintah 
+        ovSuratPerintah 
                 = FXCollections.observableArrayList();
-        ObservableList<Tim> ovTim 
+        ovTim 
                 = FXCollections.observableArrayList();
-        ObservableList<WajibPajak> ovWP 
+        ovWP 
                 = FXCollections.observableArrayList();
         for (PersiapanWrapper pw : persiapanWrappers) {
             ovSuratPerintah.add(pw);
@@ -109,7 +116,7 @@ public class FormPelaksanaanContentUIController implements Initializable {
                         List<WajibPajak> wajibPajaks = timWPMap.get(tim.getIdTim());
                         
                         System.out.println("tim choosed "+tim.getNamaTim());
-                        
+                        ovWP.clear();
                         if (t1 == null) {
                             wajibPajakField.getItems().clear();
                             wajibPajakField.setDisable(true);
@@ -125,10 +132,64 @@ public class FormPelaksanaanContentUIController implements Initializable {
                     }
                 });
         
-        
+        if (pelaksanaanWrapper.getPersiapanWrapper() != null) {
+            suratPerintahField
+                    .getSelectionModel()
+                    .select(pelaksanaanWrapper.getPersiapanWrapper());
+            ovTim.clear();
+            timWPMap.clear();
+            for (TimWPWrapper timWP
+                    :pelaksanaanWrapper.getPersiapanWrapper().getTimWPWrappers()) {
+                ovTim.add(timWP.getTim());
+                timWPMap.put(timWP.getTim().getIdTim(), timWP.getWajibPajaks());
+            }
+            timField.getItems().setAll(ovTim);
+            timField.setDisable(false);
+            if (pelaksanaanWrapper.getTimSelected() != null) {
+                timField
+                        .getSelectionModel()
+                        .select(pelaksanaanWrapper.getTimSelected());
+                
+                ovWP.clear();
+                List<WajibPajak> wajibPajaks = timWPMap.get(pelaksanaanWrapper.getTimSelected().getIdTim());
+                for (WajibPajak wp
+                        :wajibPajaks) {
+                    ovWP.add(wp);
+                }
+                wajibPajakField.getItems().setAll(ovWP);
+                wajibPajakField.setDisable(false);
+                if (pelaksanaanWrapper.getWpSelected() != null) {
+                    wajibPajakField
+                            .getSelectionModel()
+                            .select(pelaksanaanWrapper.getWpSelected());
+                }
+                
+            }
+            
+        }
     }
     
     public void openFormDaftarRekapitulasi() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        PersiapanWrapper persiapanWrapper
+                =(PersiapanWrapper) suratPerintahField
+                    .getSelectionModel()
+                    .getSelectedItem();
+        Tim timSelected
+                = (Tim) timField
+                    .getSelectionModel()
+                    .getSelectedItem();
+        WajibPajak wpSelected
+                = (WajibPajak) wajibPajakField
+                    .getSelectionModel()
+                    .getSelectedItem();
+        
+        pelaksanaanWrapper.setPersiapanWrapper(persiapanWrapper);
+        pelaksanaanWrapper.setTimSelected(timSelected);
+        pelaksanaanWrapper.setWpSelected(wpSelected);
+        
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(1);
 

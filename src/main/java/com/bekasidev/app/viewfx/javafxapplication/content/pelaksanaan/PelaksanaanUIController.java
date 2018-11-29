@@ -13,6 +13,7 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
@@ -120,6 +121,10 @@ public class PelaksanaanUIController implements Initializable {
     }
     
     public void addDokumenPelaksanaan() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = new PelaksanaanWrapper();
+        SessionProvider.getGlobalSessionsMap()
+                        .put("pelaksanaan_wrapper", pelaksanaanWrapper);
         PersiapanWrapper persiapanWrapper
                 = new PersiapanWrapper();
         SessionProvider.getGlobalSessionsMap()

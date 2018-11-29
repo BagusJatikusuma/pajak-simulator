@@ -32,9 +32,9 @@
       <Label layoutX="108.0" layoutY="81.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="81.0" />
       <Label layoutX="108.0" layoutY="98.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="98.0" />
       <Label layoutX="121.0" layoutY="47.0" text="Nomor Surat Perintah, tanggal surat perintah" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="47.0" />
-      <Label layoutX="121.0" layoutY="64.0" text="Nama tim" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="64.0" />
-      <Label layoutX="121.0" layoutY="81.0" text="Nama Wajib Pajak" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="81.0" />
-      <Label layoutX="121.0" layoutY="98.0" text="Nomor NPWPD" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="98.0" />
+      <Label fx:id="namaTimLabel" layoutX="121.0" layoutY="64.0" text="Nama tim" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="64.0" />
+      <Label fx:id="namaWPLabel" layoutX="121.0" layoutY="81.0" text="Nama Wajib Pajak" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="81.0" />
+      <Label fx:id="npwpdLabel" layoutX="121.0" layoutY="98.0" text="Nomor NPWPD" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="98.0" />
       <TableView fx:id="arsipPelaksanaanTable" layoutX="24.0" layoutY="135.0" prefHeight="300.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="135.0">
         <columns>
           <TableColumn fx:id="no" prefWidth="35.0" text="NO" />

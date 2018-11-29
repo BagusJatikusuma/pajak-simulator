@@ -6,8 +6,10 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapper;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
@@ -36,6 +39,10 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private TableColumn omzetDilaporkan;
     @FXML private TableColumn action;
     
+    @FXML private Label namaTimLabel;
+    @FXML private Label namaWPLabel;
+    @FXML private Label npwpdLabel;
+    
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     /**
      * Initializes the controller class.
@@ -43,8 +50,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        populateData();
-        associateDataWithColumn();
+        initLabel();
+//        populateData();
+//        associateDataWithColumn();
     }    
     
     public void backToFormPelaksanaanContent() {
@@ -67,5 +75,14 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 
     private void associateDataWithColumn() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private void initLabel() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        namaTimLabel.setText(pelaksanaanWrapper.getTimSelected().getNamaTim());
+        namaWPLabel.setText(pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+        npwpdLabel.setText(pelaksanaanWrapper.getWpSelected().getNpwpd());
     }
 }
