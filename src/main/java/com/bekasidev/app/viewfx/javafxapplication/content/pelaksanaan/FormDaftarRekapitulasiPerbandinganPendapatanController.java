@@ -183,6 +183,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("pelaksanaan_wrapper");
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        //default 10%
+        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         
         reportService.createSuratPernyataan1(pelaksanaanWrapper);
     }
