@@ -13,6 +13,7 @@ import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
@@ -20,8 +21,11 @@ import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapp
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -33,12 +37,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -62,6 +68,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     
     private RekapitulasiService rekapitulasiService;
     private ReportService reportService;
+    private Map<String, Rekapitulasi> rekapitulasiMapper = new HashMap<>();
     /**
      * Initializes the controller class.
      */
@@ -72,7 +79,17 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         populateData();
         associateDataWithColumn();
         arsipPelaksanaanTable.setItems(dataCollection);
-    }    
+    }
+
+    public void generate() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        //default 10%
+        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+        
+    }
     
     public void backToFormPelaksanaanContent() {
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
@@ -97,16 +114,19 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         
         int index = 1;
         for (Rekapitulasi rek : pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()) {
-            Button btn = new Button("button");
+            Button btn = new Button("atur");
             ArsipPelaksanaanTableWrapper objTable 
                     = new ArsipPelaksanaanTableWrapper(
                             String.valueOf(index),
                             rek.getBulan(),
-                            "-",
-                            "-",
+                            (rek.getOmzetHasilPeriksa()!=null)
+                                    ?new BigDecimal(rek.getOmzetHasilPeriksa().doubleValue()).toPlainString():"-",
+                            (rek.getOmzetLaporan()!=null)
+                                    ?new BigDecimal(rek.getOmzetLaporan().doubleValue()).toPlainString():"-",
                             btn
                     );
             dataCollection.add(objTable);
+            rekapitulasiMapper.put(String.valueOf(index), rek);
             index++;
         }
         
@@ -115,7 +135,22 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent t) {
-                    System.out.println("atur "+obj.getNo());
+                    SessionProvider.getGlobalSessionsMap()
+                                    .put("selected_bulan_rekapitulasi",
+                                            rekapitulasiMapper.get(obj.getNo()));
+                    
+                    Pane formAturBulanRekapitulasi = null;
+                    try {
+                        formAturBulanRekapitulasi = FXMLLoader
+                                .load(getClass().getClassLoader().getResource("fxml/FormDaftarRekapitulasiPerbandinganPendapatanDetail.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    Stage stage = new Stage();
+                    stage.setTitle("Form Atur Omzet");
+                    stage.setScene(new Scene(formAturBulanRekapitulasi));
+                    stage.show();
+                    
                 }
             });
         }
@@ -148,6 +183,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("pelaksanaan_wrapper");
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        //default 10%
+        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         
         reportService.createSuratPernyataan1(pelaksanaanWrapper);
     }
