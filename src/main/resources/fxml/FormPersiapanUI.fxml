@@ -11,7 +11,7 @@
    <children>
       <AnchorPane fx:id="formPersiapanHead" prefHeight="49.0" prefWidth="574.0">
          <children>
-            <Label layoutX="208.0" layoutY="16.0" text="FORM DOKUMEN PERSIAPAN" />
+            <Label fx:id="headerFormPersiapanLabel" layoutX="208.0" layoutY="16.0" text="FORM DOKUMEN PERSIAPAN" />
          </children>
       </AnchorPane>
 <!--      <AnchorPane fx:id="formPersiapanContent" prefHeight="652.0" prefWidth="574.0">
