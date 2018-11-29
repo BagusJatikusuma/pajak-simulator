@@ -6,20 +6,24 @@
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
 import com.bekasidev.app.model.Pegawai;
+import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +37,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.Pane;
 
@@ -170,6 +175,8 @@ public class FormPelaksanaanContentUIController implements Initializable {
         }
     }
     
+    //jika pertama ambil dari database list rekapitulasi dari database
+    //jika ambil dari dari database tapi ada yang diganti maka list rekapitulasi default
     public void openFormDaftarRekapitulasi() {
         PelaksanaanWrapper pelaksanaanWrapper
                 = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
@@ -203,6 +210,37 @@ public class FormPelaksanaanContentUIController implements Initializable {
         rekapitulasiWrapper.setTotalPajakDisetor(Double.valueOf(0));
         rekapitulasiWrapper.setTotalPajakPeriksa(Double.valueOf(0));
         rekapitulasiWrapper.setTotalPokokPajak(Double.valueOf(0));
+        
+        List<Rekapitulasi> rekapitulasiDefaultList = new ArrayList<>();
+        
+        long rangeDiff = getDifferenceDatePersiapanWrapperinMonth(pelaksanaanWrapper.getPersiapanWrapper());
+        int nextMonth = pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan();
+        int nextYear = pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun();
+        
+        for (int i = 0; i <= rangeDiff; i++) {
+            Rekapitulasi rekapitulasi = new Rekapitulasi(
+                    ConverterHelper.convertBulanIntegerIntoString(nextMonth)+" "+nextYear, 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    Double.valueOf(0), 
+                    0, 
+                    Double.valueOf(0));
+            
+            rekapitulasiDefaultList.add(rekapitulasi);
+            
+            nextMonth++;
+            if (nextMonth > 11) {
+                nextMonth = 0;
+                nextYear++;
+            }
+            
+        }
+        
+        rekapitulasiWrapper.setListRekapitulasi(rekapitulasiDefaultList);
         pelaksanaanWrapper.setRekapitulasiWrapper(rekapitulasiWrapper);
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
@@ -216,6 +254,20 @@ public class FormPelaksanaanContentUIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rootpaneFormPelaksanaan.getChildren().add(contentPane);
+    }
+    
+    private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {
+        int diffMonth = 0;
+        
+        if (persiapanWrapper.getMasaPajakAwalTahun()
+                .equals(persiapanWrapper.getMasaPajakAkhirTahun())) {
+            diffMonth = persiapanWrapper.getMasaPajakAkhirbulan() - persiapanWrapper.getMasaPajakAwalBulan();
+        }
+        else {
+            diffMonth = (11-persiapanWrapper.getMasaPajakAwalBulan()) + (persiapanWrapper.getMasaPajakAkhirbulan()+1);
+        }
+        
+        return diffMonth;
     }
     
 }
