@@ -334,5 +334,10 @@ public class PersiapanWrapper {
     public void setIdSP(String idSP) {
         this.idSP = idSP;
     }
+
+    @Override
+    public String toString() {
+        return this.idSP;
+    }
     
 }

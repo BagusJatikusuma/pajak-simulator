@@ -156,6 +156,10 @@ public class ConverterHelper {
         persiapanWrapper.setBiayaTanggalAPBD(new Date(Long.parseLong(suratPerintah.getTanggalBiaya())));
         persiapanWrapper.setBiayaNomorAPBD(suratPerintah.getNomorSuratBiaya());
         persiapanWrapper.setDitetapkanDi(suratPerintah.getTempat());
+        if (suratPerintah.getTanggalSurat() != null 
+                && !suratPerintah.getTanggalSurat().equals(""))
+            persiapanWrapper.setTanggalPengesahan(new Date(Long.valueOf(suratPerintah.getTanggalSurat())));
+        persiapanWrapper.setNomorSurat(suratPerintah.getNomorUrut());
         
         persiapanWrapper.setLamaPelaksanaan(Integer.valueOf(suratPerintah.getLamaPelaksanaan()));
         
@@ -232,7 +236,7 @@ public class ConverterHelper {
         return persiapanWrapper;
     }
     
-    private static String convertBulanIntegerIntoString(Integer bulanInt) {
+    public static String convertBulanIntegerIntoString(Integer bulanInt) {
         switch(bulanInt) {
             case 0: return "Januari";
             case 1: return "Februari";
@@ -250,7 +254,7 @@ public class ConverterHelper {
         return "";
     }
     
-    private static Integer convertBulanStringIntoInteger(String bulanString) {
+    public static Integer convertBulanStringIntoInteger(String bulanString) {
         switch(bulanString) {
             case "Januari" : return 0;
             case "Februari": return 1;

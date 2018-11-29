@@ -73,6 +73,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(1, nomorUrut);
             pstm.setString(2, tanggal);
             pstm.setString(3, idSP);
+            pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,6 +132,71 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
 
         return listTim;
+    }
+
+    @Override
+    public void updateTim(List<TimSP> timSP) {
+        String sql = "DELETE FROM tim_perintah WHERE id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, timSP.get(0).getIdSP());
+
+            pstm.executeUpdate();
+            setTim(timSP);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateSuratPerintah(SuratPerintah suratPerintah) {
+        String sql = "UPDATE surat_perintah SET " +
+                "nomor_surat=?, nomor_urut=?, nomor_sk=?, tanggal_sk=?, " +
+                "pemberi_sk=?, tahun_anggaran_sk=?, tahun_anggaran_biaya=?, " +
+                "nomor_surat_biaya=?, tanggal_biaya=?, pemberi_sp=?, " +
+                "masa_pajak_awal=?, masa_pajak_akhir=?, tahap=?, " +
+                "lama_pelaksanaan=?, tempat=?, tanggal_surat=? WHERE id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, suratPerintah.getNomorSurat());
+            pstm.setString(2, suratPerintah.getNomorUrut());
+            pstm.setString(3, suratPerintah.getNomorSK());
+            pstm.setString(4, suratPerintah.getTanggalSK());
+            pstm.setString(5, suratPerintah.getPemberiSK());
+            pstm.setInt(6, suratPerintah.getTahunAnggaranSK());
+            pstm.setInt(7, suratPerintah.getTahunAnggaranBiaya());
+            pstm.setString(8, suratPerintah.getNomorSuratBiaya());
+            pstm.setString(9, suratPerintah.getTanggalBiaya());
+            pstm.setString(10, setPegawaiToString(suratPerintah.getPemberiSP()));
+            pstm.setString(11, suratPerintah.getMasaPajakAwal());
+            pstm.setString(12, suratPerintah.getMasaPajakAkhir());
+            pstm.setShort(13, suratPerintah.getTahap());
+            pstm.setShort(14, suratPerintah.getLamaPelaksanaan());
+            pstm.setString(15, suratPerintah.getTempat());
+            pstm.setString(16, suratPerintah.getTanggalSurat());
+
+            pstm.setString(17, suratPerintah.getIdSP());
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteSuratPerintah(String idSP) {
+        String sql = "DELETE FROM surat_perintah WHERE id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, idSP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void createNomorBerkas(SuratPerintah suratPerintah){

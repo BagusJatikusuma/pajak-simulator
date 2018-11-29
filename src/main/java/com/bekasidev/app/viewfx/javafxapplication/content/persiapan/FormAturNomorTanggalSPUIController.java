@@ -57,12 +57,23 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        initData();
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
+    }
+    
+    private void initData() {
         PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
-        System.out.println("pra set dokumen WP "+persiapanWrapper.getDokumenPinjamanWajibPajakWrappers().size());
-        suratPerintahService = ServiceFactory.getSuratPerintahService();
+        
+        if (persiapanWrapper.getTanggalPengesahan() != null) {
+            nomorSuratField.setText(persiapanWrapper.getNomorSurat());
+            tanggalPengesahanField.setValue(persiapanWrapper
+                                            .getTanggalPengesahan()
+                                            .toInstant()
+                                            .atZone(ZoneId.systemDefault()).toLocalDate());
+        }
     }
 
     public void cancelOperation() {
@@ -80,14 +91,33 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             persiapanWrapper.setNomorSurat(nomorSuratField.getText());
         }
         //simpan menggunakan suratPerintahService update
-        SuratPerintah suratPerintah
-                = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
-        System.out.println("list tim "+suratPerintah.getListTim().size());
-        for (TimSP timSP : suratPerintah.getListTim()) {
-            System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
+        boolean isUpdate = false;
+        if (persiapanWrapper.getIdSP() != null) {
+            isUpdate = true;
         }
-        suratPerintahService.createSuratPerintah(suratPerintah);
-        System.out.println("create success");
+        if (!isUpdate) {
+            SuratPerintah suratPerintah
+                    = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
+            System.out.println("list tim "+suratPerintah.getListTim().size());
+            for (TimSP timSP : suratPerintah.getListTim()) {
+                System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
+            }
+            suratPerintahService.createSuratPerintah(suratPerintah);
+            System.out.println("create success");
+        }
+        else {
+            System.out.println(
+                "update nomor surat sp "+
+                persiapanWrapper.getIdSP()+
+                " is "+
+                nomorSuratField.getText());
+            suratPerintahService
+                    .setNomorUrut(
+                            persiapanWrapper.getIdSP(), 
+                            nomorSuratField.getText(),
+                            String.valueOf(persiapanWrapper.getTanggalPengesahan().getTime()));
+            System.out.println("update success");
+        }
         
         Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
         rootpane.getChildren().remove(1);

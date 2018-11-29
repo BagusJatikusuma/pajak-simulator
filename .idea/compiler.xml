@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="pajak-simulator" target="1.5" />
+      <module name="pajak-simulator" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>

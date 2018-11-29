@@ -34,4 +34,9 @@ public class WajibPajakServiceImpl implements WajibPajakService {
     public WajibPajak getWajibPajakById(String idWp) {
         return wajibPajakDao.getWPById(idWp);
     }
+
+    @Override
+    public void updateWajibPajak(WajibPajak wajibPajak) {
+        wajibPajakDao.updateWp(wajibPajak);
+    }
 }

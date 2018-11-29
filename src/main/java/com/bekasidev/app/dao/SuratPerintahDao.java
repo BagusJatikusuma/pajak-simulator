@@ -16,4 +16,10 @@ public interface SuratPerintahDao {
     void setTim(List<TimSP> timSP);
 
     List<TimSP> getListTim(String idSP);
+
+    void updateTim(List<TimSP> timSP);
+
+    void updateSuratPerintah(SuratPerintah suratPerintah);
+
+    void deleteSuratPerintah(String idSP);
 }

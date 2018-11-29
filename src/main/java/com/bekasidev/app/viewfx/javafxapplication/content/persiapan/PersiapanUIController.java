@@ -172,9 +172,15 @@ public class PersiapanUIController implements Initializable {
     public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
         System.out.println("clicked "+obj.getId());
         
+        initDataFromService();
+        
         PersiapanWrapper persiapanWrapper
                 = ConverterHelper
                         .convertSuratPerintahToPersiapanWrapper(suratPerintahMapper.get(obj.getId()));
+        if (persiapanWrapper.getTanggalPengesahan() != null)
+            System.out.println("tanggal "+persiapanWrapper.getTanggalPengesahan().getTime());
+        else
+            System.out.println("tanggal is null");
         SessionProvider.getGlobalSessionsMap()
                         .put("persiapan_wrapper", persiapanWrapper);
         

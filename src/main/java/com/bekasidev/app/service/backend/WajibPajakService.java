@@ -13,4 +13,6 @@ public interface WajibPajakService {
     void deleteWP(String idRestoran);
 
     WajibPajak getWajibPajakById(String idWp);
+
+    void updateWajibPajak(WajibPajak wajibPajak);
 }

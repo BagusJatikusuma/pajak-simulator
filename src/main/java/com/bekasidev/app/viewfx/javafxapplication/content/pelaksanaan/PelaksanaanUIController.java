@@ -5,9 +5,15 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
+import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
@@ -52,6 +58,7 @@ public class PelaksanaanUIController implements Initializable {
     private List<ArsipTablePelaksanaanWrapper> dataListFromService;
     private List<Button> btnList;
 
+    private SuratPerintahService suratPerintahService;
     /**
      * Initializes the controller class.
      */
@@ -61,6 +68,8 @@ public class PelaksanaanUIController implements Initializable {
         initDataFromService();
         addFromFXML();
         populateData();
+        associateDataWithColumn();
+        initPersiapanWrapperList();
         
         arsipPelaksanaanTable.setItems(dataCollection);
     }
@@ -112,6 +121,10 @@ public class PelaksanaanUIController implements Initializable {
     }
     
     public void addDokumenPelaksanaan() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = new PelaksanaanWrapper();
+        SessionProvider.getGlobalSessionsMap()
+                        .put("pelaksanaan_wrapper", pelaksanaanWrapper);
         PersiapanWrapper persiapanWrapper
                 = new PersiapanWrapper();
         SessionProvider.getGlobalSessionsMap()
@@ -128,6 +141,30 @@ public class PelaksanaanUIController implements Initializable {
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
         stage.show();
+    }
+
+    private void associateDataWithColumn() {
+        id.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("id"));
+        tanggalDiBuat.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("tanggalDiBuat"));
+        status.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("status"));
+        action.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("action"));
+    }
+    
+    private void initPersiapanWrapperList() {
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
+        List<SuratPerintah> suratPerintahList
+                = suratPerintahService.getAllSuratPerintah();
+        List<PersiapanWrapper> persiapanWrappers
+                = new ArrayList<>();
+        for (SuratPerintah sp : suratPerintahList) {
+            PersiapanWrapper persiapanWrapper
+                = ConverterHelper
+                        .convertSuratPerintahToPersiapanWrapper(sp);
+            persiapanWrappers.add(persiapanWrapper);
+        }
+        
+        SessionProvider.getGlobalSessionsMap()
+                        .put("daftar_persiapan_wrapper", persiapanWrappers);
     }
     
 }

@@ -8,12 +8,15 @@ import java.io.File;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.lang.Math.round;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -76,6 +79,11 @@ public class App extends Application
         try {
             primaryStage.setTitle("Aplikasi Perpajakan");
 
+            ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(
+                    new RekapitulasiWrapper(),
+                    new Date((long) 1534788900526.0),
+                            new Date((long) 1574273700526.0)
+            );
             System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
             Scene scene = new Scene(root);
