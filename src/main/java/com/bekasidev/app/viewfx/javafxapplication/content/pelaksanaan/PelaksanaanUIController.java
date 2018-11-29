@@ -51,8 +51,10 @@ import javafx.stage.Stage;
 public class PelaksanaanUIController implements Initializable {
     @FXML private TableView arsipPelaksanaanTable;
     private TableColumn id,
+                        idSP,
+                        namaTim,
+                        namaWP,
                         tanggalDiBuat,
-                        status,
                         action;
     private ObservableList<ArsipTablePelaksanaanWrapper> dataCollection;
     private List<ArsipTablePelaksanaanWrapper> dataListFromService;
@@ -77,10 +79,14 @@ public class PelaksanaanUIController implements Initializable {
     private void addFromFXML() {
         id 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Id");
+        idSP 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Id SP");
+        namaTim 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Nama Tim");
+        namaWP 
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Nama WP");
         tanggalDiBuat 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Tanggal Dibuat");
-        status 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Status");
         action 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Action");
     }
@@ -100,8 +106,10 @@ public class PelaksanaanUIController implements Initializable {
 
             dataCollection.add(new ArsipTablePelaksanaanWrapper(
                     obj.getId(),
+                    obj.getIdSP(),
+                    obj.getNamaTim(),
+                    obj.getNamaWP(),
                     obj.getTanggalDiBuat(),
-                    obj.getStatus(),
                     btn
             ));
             i++; 
@@ -113,8 +121,10 @@ public class PelaksanaanUIController implements Initializable {
         for (int i=1; i<=100; i++) {
             dataListFromService.add(new ArsipTablePelaksanaanWrapper(
                     "id "+i,
+                    "id sp "+i,
+                    "nama tim "+i,
+                    "nama wp "+i,
                     "30 Februari 2012",
-                    "Selesai",
                     null
             ));
         }
@@ -145,8 +155,10 @@ public class PelaksanaanUIController implements Initializable {
 
     private void associateDataWithColumn() {
         id.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("id"));
+        idSP.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("idSP"));
+        namaTim.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("namaTim"));
+        namaWP.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("namaWP"));
         tanggalDiBuat.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("tanggalDiBuat"));
-        status.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("status"));
         action.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("action"));
     }
     

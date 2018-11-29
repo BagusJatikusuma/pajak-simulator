@@ -14,20 +14,24 @@ import javafx.scene.control.Button;
  */
 public class ArsipTablePelaksanaanWrapper {
     private SimpleStringProperty id;
+    private SimpleStringProperty idSP;
+    private SimpleStringProperty namaTim;
+    private SimpleStringProperty namaWP;
     private SimpleStringProperty tanggalDiBuat;
-    private SimpleStringProperty status;
     private Button action;
 
     public ArsipTablePelaksanaanWrapper() {
     }
 
-    public ArsipTablePelaksanaanWrapper(String id, String tanggalDiBuat, String status, Button action) {
+    public ArsipTablePelaksanaanWrapper(String id, String idSP, String namaTim, String namaWP, String tanggalDiBuat, Button action) {
         this.id = new SimpleStringProperty(id);
+        this.idSP = new SimpleStringProperty(idSP);
+        this.namaTim = new SimpleStringProperty(namaTim);
+        this.namaWP = new SimpleStringProperty(namaWP);
         this.tanggalDiBuat = new SimpleStringProperty(tanggalDiBuat);
-        this.status = new SimpleStringProperty(status);
         this.action = action;
     }
-
+    
     public String getId() {
         return id.get();
     }
@@ -44,14 +48,6 @@ public class ArsipTablePelaksanaanWrapper {
         this.tanggalDiBuat.set(tanggalDiBuat);
     }
 
-    public String getStatus() {
-        return status.get();
-    }
-
-    public void setStatus(String status) {
-        this.status.set(status);
-    }
-
     public Button getAction() {
         return action;
     }
@@ -59,7 +55,30 @@ public class ArsipTablePelaksanaanWrapper {
     public void setAction(Button action) {
         this.action = action;
     }    
-    
+
+    public String getIdSP() {
+        return idSP.get();
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP.set(idSP);
+    }
+
+    public String getNamaTim() {
+        return namaTim.get();
+    }
+
+    public void setNamaTim(String namaTim) {
+        this.namaTim.set(namaTim);
+    }
+
+    public String getNamaWP() {
+        return namaWP.get();
+    }
+
+    public void setNamaWP(String namaWP) {
+        this.namaWP.set(namaWP);
+    }
     
     
 }
