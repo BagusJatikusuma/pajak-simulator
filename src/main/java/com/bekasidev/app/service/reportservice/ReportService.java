@@ -47,5 +47,6 @@ public interface ReportService {
     void createPernyataanPersetujuanHasilPemeriksaan5(PelaksanaanWrapper pelaksanaanWrapper);
     void createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(PelaksanaanWrapper pelaksanaanWrapper);
     void createSuratPernyataan7(PelaksanaanWrapper pelaksanaanWrapper);
+    void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper);
 
 }

@@ -625,6 +625,7 @@ public class ReportServiceImpl implements ReportService {
             String jrxmlPathFile = null;
             
             try {
+                System.out.print("test"); 
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
                 jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\SuratPerintah.jasper");
                 jasperPathFile = "file:///" + jasperPathFile;
@@ -1913,6 +1914,106 @@ public class ReportServiceImpl implements ReportService {
             frame.setVisible(true);
             
         } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Override
+    public void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper) {
+        try{
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try{
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target/pajak-simulator-1.0-SNAPSHOT.jar", "jasper/KertasPemeriksaanPajak.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target/pajak-simulator-1.0-SNAPSHOT.jar", "jasper/KertasPemeriksaanPajak.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            }catch(URISyntaxException ex) {
+                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                              
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi());
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            
+            parameter.put("nama_wp", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("pajak_awal", convertBulanIntegerIntoString(
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
+            parameter.put("pajak_akhir", convertBulanIntegerIntoString(
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
+            parameter.put("total_omzetp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetPeriksa());
+            parameter.put("total_pajakp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakPeriksa());
+            parameter.put("total_omzetl", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetLaporan());
+            parameter.put("total_pajak_disetor", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakDisetor());
+            parameter.put("total_omzet", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzet());
+            parameter.put("total_pokokp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPokokPajak());
+            parameter.put("total_denda", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah());
+            
+            parameter.put("pemeriksaan_pajak", beanColDataSource);
+            
+            System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+            System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
+            System.out.println("Bulan Awal : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()));
+            System.out.println("Tahun Awal : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
+            System.out.println("Bulan Akhir : " + convertBulanIntegerIntoString(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()));
+            System.out.println("Tahun Akhir : " + pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/KertasPemeriksaanPajak.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+        } catch(JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
