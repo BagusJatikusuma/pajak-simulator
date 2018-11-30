@@ -1927,9 +1927,9 @@ public class ReportServiceImpl implements ReportService {
             
             try{
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                jasperPathFile = root.replace("target/pajak-simulator-1.0-SNAPSHOT.jar", "jasper/KertasPemeriksaanPajak.jasper");
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\KertasPemeriksaanPajak.jasper");
                 jasperPathFile = "file:///" + jasperPathFile;
-                jrxmlPathFile = root.replace("target/pajak-simulator-1.0-SNAPSHOT.jar", "jasper/KertasPemeriksaanPajak.jrxml");
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\KertasPemeriksaanPajak.jrxml");
                 System.out.println("jasper path : " + jasperPathFile);
                 System.out.println("jrxml path : " + jrxmlPathFile);
             }catch(URISyntaxException ex) {
@@ -2019,7 +2019,6 @@ public class ReportServiceImpl implements ReportService {
         }
     }
     
-    @Override
     public void createTemplateSuratPelaksanaan(PelaksanaanWrapper pelaksanaanWrapper) {
         try {
             String jasperPathFile = null;
