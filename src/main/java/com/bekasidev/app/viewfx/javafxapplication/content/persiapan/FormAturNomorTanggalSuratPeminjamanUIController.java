@@ -47,6 +47,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -79,6 +80,10 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
+                                            .get("header_form_persiapan");
+        headerLabel.setText("FORM ATUR NOMOR & TANGGAL SURAT PEMINJAMAN");
+        headerLabel.setLayoutX(120);
         nomorBerkasService = ServiceFactory.getNomorBerkasService();
         addFromFXML();
         populateData();
@@ -115,6 +120,18 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                 Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
         
     }
     

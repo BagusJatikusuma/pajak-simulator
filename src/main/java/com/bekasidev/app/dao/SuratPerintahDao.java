@@ -22,4 +22,6 @@ public interface SuratPerintahDao {
     void updateSuratPerintah(SuratPerintah suratPerintah);
 
     void deleteSuratPerintah(String idSP);
+    
+    TimSP getTimSP(String idSP, String idTim);
 }

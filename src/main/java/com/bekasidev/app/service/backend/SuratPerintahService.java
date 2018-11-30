@@ -18,4 +18,6 @@ public interface SuratPerintahService {
     void updateTim(List<TimSP> listTim);
 
     void deleteSuratPerintah(String idSP);
+    
+    TimSP getTimSP(String idSP, String idTim);
 }

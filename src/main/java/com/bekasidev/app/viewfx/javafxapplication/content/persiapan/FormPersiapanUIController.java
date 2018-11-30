@@ -31,6 +31,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -66,6 +67,7 @@ public class FormPersiapanUIController implements Initializable {
     
     @FXML private Button cancelBtn;
     private PegawaiService service;
+    @FXML private Label headerFormPersiapanLabel;
     
     /**
      * Initializes the controller class.
@@ -75,6 +77,8 @@ public class FormPersiapanUIController implements Initializable {
         // TODO
         ComponentCollectorProvider
                 .addFxComponent("root_form_persiapan_ui", formDokumenPersiapanPane);
+        SessionProvider.getGlobalSessionsMap()
+                .put("header_form_persiapan", headerFormPersiapanLabel);
         Pane contentPane = null;
         try { 
             contentPane

@@ -15,6 +15,7 @@ import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
@@ -32,8 +33,10 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -57,6 +60,10 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
+                                            .get("header_form_persiapan");
+        headerLabel.setText("FORM ATUR NOMOR & TANGGAL SURAT PERINTAH");
+        headerLabel.setLayoutX(135);
         initData();
         suratPerintahService = ServiceFactory.getSuratPerintahService();
     }
@@ -131,8 +138,20 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         rootpane.getChildren().add(contentPane);
         
-        Stage stage = (Stage) cancelBtn.getScene().getWindow();
-        stage.close();
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+        
+//        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+//        stage.close();
     }
     
     public void printSuratPerintah() {

@@ -76,7 +76,16 @@ public class FormTambahTimWPUIController implements Initializable {
                 = (PersiapanWrapper) SessionProvider.getGlobalSessionsMap()
                 .get("persiapan_wrapper");
         
-        TimWPWrapper timWPWrapper = new TimWPWrapper();
+        TimWPWrapper timWPWrapper
+                = (TimWPWrapper) SessionProvider
+                            .getGlobalSessionsMap()
+                            .get("atur_tim_wp_selected");
+        
+        if (timWPWrapper == null) {
+            System.out.println("tim wp wrapper is null");
+            timWPWrapper = new TimWPWrapper();
+        }
+        
         timWPWrapper.setPenanggungJawab((Pegawai) pilihPenanggungJawabField.getSelectionModel().getSelectedItem());
         timWPWrapper.setSupervisor((Pegawai) pilihSupervisorField.getSelectionModel().getSelectedItem());
         timWPWrapper.setTim((Tim) pilihTimField.getSelectionModel().getSelectedItem());
@@ -96,9 +105,14 @@ public class FormTambahTimWPUIController implements Initializable {
             }
             
         }
+        if (timWPWrapper != null) 
+            timWPWrapper.setWajibPajaks(null);
         timWPWrapper.setWajibPajaks(wajibPajaksSelected);
         
-        persiapanWrapper.getTimWPWrappers().add(timWPWrapper);
+        if ((TimWPWrapper) SessionProvider
+                            .getGlobalSessionsMap()
+                            .get("atur_tim_wp_selected") == null)
+            persiapanWrapper.getTimWPWrappers().add(timWPWrapper);
         
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
         rootpaneFormPersiapan.getChildren().remove(1);
@@ -135,6 +149,10 @@ public class FormTambahTimWPUIController implements Initializable {
     }
     
     private void populateData() {
+        TimWPWrapper timWPWrapper
+                = (TimWPWrapper) SessionProvider
+                            .getGlobalSessionsMap()
+                            .get("atur_tim_wp_selected");
         wpService = ServiceFactory.getWajibPajakService();
         List<WajibPajak> wajibPajaks = wpService.getAllWP();
         
@@ -169,6 +187,16 @@ public class FormTambahTimWPUIController implements Initializable {
                 default:
                     jenisWP = "Unidentified";
             }
+            
+            if (timWPWrapper != null) {
+                for (WajibPajak wp:timWPWrapper.getWajibPajaks()) {
+                    if (obj.getNpwpd().equals(wp.getNpwpd())) {
+                        checkBox.setSelected(true);
+                        break;
+                    }
+                }
+            }
+            
             dataCollection.add(new PersiapanPilihWPTableWrapper(
                     checkBox,
                     obj.getNpwpd(),
@@ -181,13 +209,33 @@ public class FormTambahTimWPUIController implements Initializable {
             calonPenanggungJawab.add(obj);
             calonSupervisor.add(obj);
         }
-        for (Tim obj : pegawaiService.getAllTim()) {
+        List<Tim> tims = pegawaiService.getAllTim();
+        for (Tim obj : tims) {
             calonTims.add(obj);
         }
         
         pilihPenanggungJawabField.setItems(calonPenanggungJawab);
         pilihSupervisorField.setItems(calonSupervisor);
         pilihTimField.setItems(calonTims);
+        
+        if (timWPWrapper != null) {
+            for (Pegawai obj : pegawais) {
+                if (obj.getNipPegawai().equals(timWPWrapper.getPenanggungJawab().getNipPegawai())) {
+                    pilihPenanggungJawabField.getSelectionModel().select(obj);
+                }
+                if (obj.getNipPegawai().equals(timWPWrapper.getSupervisor().getNipPegawai())) {
+                    pilihSupervisorField.getSelectionModel().select(obj);
+                }
+                
+            }
+            
+            for (Tim obj : tims) {
+                if (obj.getIdTim().equals(timWPWrapper.getTim().getIdTim())) {
+                    pilihTimField.getSelectionModel().select(obj);
+                }
+            }
+                        
+        }
         
     }
     
