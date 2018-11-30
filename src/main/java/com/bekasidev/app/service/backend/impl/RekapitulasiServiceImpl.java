@@ -73,7 +73,7 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
             else bulanAkhir = calAkhir.get(Calendar.MONTH)+1;
             for(int j = bulanAwal; j < bulanAkhir;j++){
                 rekapitulasiWrapper.getListRekapitulasi().add(new Rekapitulasi(
-                    convertBulanIntegerIntoString(j),
+                    convertBulanIntegerIntoString(j) + " " + (calAwal.get(Calendar.YEAR) + i),
                         (jmlBulan - count) * 2
                 ));
                 System.out.println(convertBulanIntegerIntoString(j) + " " + (jmlBulan - count) * 2);
