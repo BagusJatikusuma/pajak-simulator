@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kertasPemeriksaanPajak" language="groovy" pageWidth="935" pageHeight="595" orientation="Landscape" columnWidth="895" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba2f8195-dc22-475a-a005-466b7ad4d6c9">
-	<property name="ireport.zoom" value="2.3579476910000263"/>
-	<property name="ireport.x" value="886"/>
-	<property name="ireport.y" value="260"/>
+	<property name="ireport.zoom" value="1.2100000000000137"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
 	<style name="table">
 		<box>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -175,21 +175,21 @@
 				<textElement>
 					<font fontName="Times New Roman" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nama_wp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nama_wp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="131" y="58" width="250" height="12" uuid="d853e6dc-3deb-4264-89db-a0d424f9f387"/>
 				<textElement>
 					<font fontName="Times New Roman" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{npwpd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{npwpd}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="131" y="71" width="250" height="12" uuid="2980374d-74ca-48f4-9846-57429f33d798"/>
 				<textElement>
 					<font fontName="Times New Roman" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pajak_awal} "s/d" $F{pajak_akhir}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{pajak_awal} + " s/d " + $P{pajak_akhir}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="521" y="58" width="11" height="12" uuid="206ab607-152f-498b-98e4-b57f68277675"/>
@@ -272,7 +272,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["MASA PAJAK YANG DIPERIKSA BULAN f{awalBlnPajak} s/d f{akhirBlnPajak} f{tahunPajak}"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["MASA PAJAK YANG DIPERIKSA BULAN " + $P{pajak_awal} + " s/d " +  $P{pajak_akhir}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="21" y="147" width="25" height="36" uuid="20b3eaa4-d5eb-4650-b902-b054aaa82551"/>
@@ -870,7 +870,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_omzetp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_omzetp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="246" y="205" width="71" height="12" uuid="bcbb818b-864d-400a-b326-e9a4dad88765"/>
@@ -882,7 +882,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_pajakp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_pajakp}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="227" y="205" width="19" height="12" uuid="3921a4c2-be67-4799-b19b-656eb1b87bbe"/>
@@ -918,7 +918,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_omzetl}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_omzetl}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="418" y="205" width="19" height="12" uuid="2a41c2fd-e4c3-4ef2-a99d-fc9b1f289566"/>
@@ -942,7 +942,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_pajak_disetor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_pajak_disetor}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="504" y="205" width="19" height="12" uuid="538518c3-b37b-46a4-9c77-98c7896e4e36"/>
@@ -966,7 +966,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_omzet}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_omzet}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="612" y="205" width="72" height="12" uuid="288c479c-cf88-46d3-8bd0-ffa21404e95a"/>
@@ -978,7 +978,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_pokokp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_pokokp}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="593" y="205" width="19" height="12" uuid="ca71d6df-f8eb-4965-ad91-f62e0f42eedf"/>
@@ -1002,7 +1002,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_denda}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_denda}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="684" y="205" width="19" height="12" uuid="4340765d-c7cd-4b25-ab32-617db97fdaa4"/>
@@ -1026,7 +1026,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total_jumlah}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total_jumlah}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="774" y="205" width="19" height="12" uuid="4c441963-9144-45e0-9763-6a5582af7ef2"/>
