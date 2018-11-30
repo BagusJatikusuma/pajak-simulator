@@ -11,6 +11,24 @@ public class NomorBerkas {
     //Berkas Pelaksanaan
     private String nomorSuratHasil;
     private String tanggalSuratHasil;
+    private String nomorBeritaAcara;
+    private String tanggalBeritaAcara;
+
+    public String getNomorBeritaAcara() {
+        return nomorBeritaAcara;
+    }
+
+    public void setNomorBeritaAcara(String nomorBeritaAcara) {
+        this.nomorBeritaAcara = nomorBeritaAcara;
+    }
+
+    public String getTanggalBeritaAcara() {
+        return tanggalBeritaAcara;
+    }
+
+    public void setTanggalBeritaAcara(String tanggalBeritaAcara) {
+        this.tanggalBeritaAcara = tanggalBeritaAcara;
+    }
 
     public String getNomorSuratPemberitahuan() {
         return nomorSuratPemberitahuan;
