@@ -2,8 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
 	<property name="ireport.zoom" value="1.0000000000000104"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1017"/>
-	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<property name="ireport.y" value="490"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -134,7 +133,9 @@
 	<parameter name="supervisor_nama" class="java.lang.String"/>
 	<parameter name="supervisor_pangkat" class="java.lang.String"/>
 	<parameter name="supervisor_nip" class="java.lang.String"/>
-	<field name="anggota" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="anggota" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="namaPegawai" class="java.lang.String"/>
+	<field name="jabatanTim" class="java.lang.String"/>
 	<filterExpression><![CDATA[new Boolean(true)]]></filterExpression>
 	<background>
 		<band splitType="Stretch"/>
@@ -346,7 +347,7 @@ BEKASI]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch"/>
+		<band height="66" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="196">
@@ -664,30 +665,6 @@ BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[Lampiran :]]></text>
 			</staticText>
-			<componentElement>
-				<reportElement key="table 5" positionType="Float" x="220" y="396" width="180" height="20" uuid="820eb336-7950-4e39-bf8f-efb601b2c2ef"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="anggota" uuid="5810af81-4c5d-4255-b1b6-4f65c7d2063b">
-						<dataSourceExpression><![CDATA[$F{anggota}]]></dataSourceExpression>
-					</datasetRun>
-					<jr:column width="139" uuid="ef86a0a8-3a82-476e-be96-0678ecd9b642">
-						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="139" height="20" uuid="d65fa578-e945-4676-a138-7bc653bb2633"/>
-								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="145" uuid="5cdb2e0b-61d7-441e-958e-47f771af3c70">
-						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement positionType="Float" x="0" y="0" width="145" height="20" uuid="ed6578e0-1e3f-4c01-95b3-f83b41472ced"/>
-								<textFieldExpression><![CDATA[$F{jabatanTim} + "............."]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-				</jr:table>
-			</componentElement>
 		</band>
 	</summary>
 </jasperReport>

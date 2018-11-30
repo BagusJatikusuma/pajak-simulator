@@ -2068,7 +2068,7 @@ public class ReportServiceImpl implements ReportService {
             
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(timSP.getListAnggota());
-            System.out.println("BAKEKOK dfjklkgjhdsfhghghjhjhdfdh f; hfih ffh hf ;hh f ;fg h " + timSP.getNamaTim());
+            System.out.println("BAKEKOK dfjklkgjhdsfhghghjhjhdfdh f; hfih ffh hf ;hh f ;fg h " + timSP.getListAnggota().size());
             
             DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
             
@@ -2143,7 +2143,7 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter);
+                    parameter, beanColDataSource);
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPemberitahuanHasilPemeriksaan(3).pdf");
