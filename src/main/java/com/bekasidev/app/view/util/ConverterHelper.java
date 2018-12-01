@@ -53,7 +53,8 @@ public class ConverterHelper {
         DateFormat formatter = new SimpleDateFormat("dd MMMM YYYY");
         
         if (persiapanWrapper.getTanggalPengesahan() != null)
-            suratPerintah.setTanggalSurat(formatter.format(persiapanWrapper.getTanggalPengesahan()));
+//            suratPerintah.setTanggalSurat(formatter.format(persiapanWrapper.getTanggalPengesahan()));
+            suratPerintah.setTanggalSurat(String.valueOf(persiapanWrapper.getTanggalPengesahan().getTime()));
         
         suratPerintah.setTahunAnggaranBiaya(persiapanWrapper.getBiayaTahunAPBD());
         suratPerintah.setPemberiSK(persiapanWrapper.getPemberiSK());
