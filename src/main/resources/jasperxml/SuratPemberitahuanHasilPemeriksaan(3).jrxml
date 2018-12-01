@@ -2,7 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
 	<property name="ireport.zoom" value="1.0000000000000104"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="490"/>
+	<property name="ireport.y" value="1111"/>
+        <import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -322,7 +323,7 @@ BEKASI]]></text>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="247" splitType="Stretch">
+		<band height="626" splitType="Stretch">
 			<textField>
 				<reportElement x="3" y="0" width="531" height="60" uuid="e795601c-f509-4288-a8ed-4928af56682a"/>
 				<textElement textAlignment="Justified">
@@ -344,49 +345,48 @@ BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[Terhadap hasil temuan pemeriksaan tersebut diatas, dan apabila menurut Saudara terdapat hal-hal yang kurang jelas, dan/atau Saudara mempunyai pendapat lain, maka Saudara dapat mengajukan argumentasi kepada kami untuk bersama-sama membahasnya. Mengingat hasil temuan pemeriksaan tersebut berkaitan dengan pemenuhan kewajiban Pajak Daerah yang harus disetor, untuk itu kepada saudara diberikan kesempatan untuk memberikan tanggapan secara tertulis kepada kami disertai data, bukti, dokumen yang mendukung selambat-lambatnya 3(tiga) hari sejak diterimanya surat ini.]]></text>
 			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="66" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="196">
 			<textField>
-				<reportElement x="274" y="34" width="256" height="80" uuid="4f297028-2a99-40f9-bbf3-1c52bcb34ab9"/>
+				<reportElement x="279" y="323" width="256" height="80" uuid="4f297028-2a99-40f9-bbf3-1c52bcb34ab9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_jabatan} + " Daerah Kabupaten Bekasi"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="274" y="114" width="256" height="20" uuid="e8bfe12c-8a7c-4668-8c93-d7a556756300"/>
+				<reportElement x="279" y="403" width="256" height="20" uuid="e8bfe12c-8a7c-4668-8c93-d7a556756300"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="274" y="135" width="256" height="20" uuid="c700c8db-230f-4e5f-86c5-5f1387a96d0b"/>
+				<reportElement x="279" y="424" width="256" height="20" uuid="c700c8db-230f-4e5f-86c5-5f1387a96d0b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_pangkat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="274" y="155" width="256" height="20" uuid="cac1dd44-6628-4e39-a594-9da100944f50"/>
+				<reportElement x="279" y="444" width="256" height="20" uuid="cac1dd44-6628-4e39-a594-9da100944f50"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan_nip}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="274" y="14" width="256" height="20" uuid="166663fa-ca0f-406f-8e91-b6a1c88ae584"/>
+				<reportElement x="279" y="303" width="256" height="20" uuid="166663fa-ca0f-406f-8e91-b6a1c88ae584"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>
 		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band/>
 	</columnFooter>
 	<summary>
 		<band height="875" splitType="Stretch">
@@ -665,6 +665,41 @@ BEKASI]]></text>
 				</textElement>
 				<text><![CDATA[Lampiran :]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement key="table 5" x="220" y="380" width="309" height="200" uuid="981d0da0-33cc-40ab-99c7-9f7e5b0cc3fa"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="anggota" uuid="63ab8ba4-adff-4ea4-8997-a3ef1e92a744">
+						<dataSourceExpression><![CDATA[$P{anggota}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="160" uuid="48effc1c-2257-41c5-9428-30e3c0d0bd6a">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="160" height="20" uuid="a6e077d0-9d43-4cae-a677-0e4e474cf0d5"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="62fb102c-c757-4797-8e5e-c973917f6e4c">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" uuid="a2845ec2-f9ad-4c52-9a19-6dfa73bd7add"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f2480484-8de0-49cf-9dc0-0adb486dd2e2">
+						<jr:detailCell height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="20" uuid="45555ebc-1e4c-495d-a7a9-a80908019b38"/>
+								<textElement verticalAlignment="Bottom"/>
+								<text><![CDATA[..............................]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
 		</band>
 	</summary>
 </jasperReport>

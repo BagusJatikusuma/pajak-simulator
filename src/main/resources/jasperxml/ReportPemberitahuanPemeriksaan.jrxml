@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPemberitahuanPemeriksaan" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
 	<property name="ireport.zoom" value="1.1000000000000167"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="480"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -356,7 +356,7 @@
 			</band>
 			<band height="37">
 				<staticText>
-					<reportElement x="66" y="0" width="469" height="36" uuid="566d9d12-bf9c-4acb-9921-b9823a7f4dad"/>
+					<reportElement x="65" y="1" width="469" height="36" uuid="566d9d12-bf9c-4acb-9921-b9823a7f4dad"/>
 					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false"/>
 					</textElement>
