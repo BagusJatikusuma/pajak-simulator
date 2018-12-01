@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.service.reportservice;
 
+import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
@@ -43,9 +44,12 @@ public interface ReportService {
     //yang dipakai pelaksanaan
     void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper);
     void createTandaTerimaSPHP2(PelaksanaanWrapper pelaksanaanWrapper);
+    void createSuratPemberitahuanHasilPemeriksaan3(PelaksanaanWrapper pelaksanaanWrapper,
+            TimSP timSP);
     void createSuratPersetujuan4(PelaksanaanWrapper pelaksanaanWrapper);
     void createPernyataanPersetujuanHasilPemeriksaan5(PelaksanaanWrapper pelaksanaanWrapper);
     void createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(PelaksanaanWrapper pelaksanaanWrapper);
     void createSuratPernyataan7(PelaksanaanWrapper pelaksanaanWrapper);
+    void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper);
 
 }

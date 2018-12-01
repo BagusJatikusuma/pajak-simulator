@@ -10,6 +10,8 @@ import com.bekasidev.app.model.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SuratPerintahDaoImpl implements SuratPerintahDao {
     @Override
@@ -307,4 +309,33 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
 
         return listWP;
     }
+
+    @Override
+    public TimSP getTimSP(String idSP, String idTim) {
+        String sql = "SELECT * FROM tim_perintah WHERE id_sp=? AND id_tim=?";
+        TimSP tim = new TimSP();
+        
+        try(Connection conn = Connect.connect();
+                PreparedStatement pstm = conn.prepareStatement(sql)){
+            pstm.setString(1, idSP);
+            pstm.setString(2, idTim);
+            
+            ResultSet rs = pstm.executeQuery();
+            
+            while(rs.next()){
+                tim.setIdSP(rs.getString("id_sp"));
+                tim.setNamaTim(rs.getString("nama_tim"));
+                tim.setPenanggungJawab(setPegawai(rs.getString("penanggung_jawab")));
+                tim.setSupervisor(setPegawai(rs.getString("supervisor")));
+                tim.setListAnggota(setStringToPegawai(rs.getString("list_anggota")));
+                tim.setListWP(setStringToWP(rs.getString("list_wp"), tim.getIdSP()));
+                tim.setIdTim(rs.getString("id_tim"));
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(SuratPerintahDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tim;
+    }
+        
 }

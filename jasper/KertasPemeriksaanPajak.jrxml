@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kertasPemeriksaanPajak" language="groovy" pageWidth="935" pageHeight="595" orientation="Landscape" columnWidth="895" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba2f8195-dc22-475a-a005-466b7ad4d6c9">
+	<property name="ireport.zoom" value="1.2100000000000137"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="9bd7a5bf-036d-4f52-9706-8f1fd08012dc"/>
+	<subDataset name="Table Dataset 2" uuid="0a9419e6-f0d4-46d2-b4e2-a08dcd24d275"/>
+	<subDataset name="Table Dataset 3" uuid="790ced68-5cde-483b-b4d2-c05eb950538f"/>
+	<subDataset name="Table Dataset 4" uuid="3a724449-518d-4447-962a-a061f3e3deae">
+		<field name="bulan" class="java.lang.String"/>
+		<field name="omzetHasilPeriksa" class="java.lang.Double"/>
+		<field name="pajakHasilPeriksa" class="java.lang.Double"/>
+		<field name="omzetLaporan" class="java.lang.Double"/>
+		<field name="pajakDisetor" class="java.lang.Double"/>
+		<field name="omzet" class="java.lang.Double"/>
+		<field name="pokokPajak" class="java.lang.Double"/>
+		<field name="denda" class="java.lang.Double"/>
+		<field name="jumlah" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="bulan" class="java.lang.String"/>
+	<parameter name="omzet_hasil" class="java.lang.String"/>
+	<parameter name="pajak_hasil" class="java.lang.String"/>
+	<parameter name="omzet_laporan" class="java.lang.String"/>
+	<parameter name="pajak_disetor" class="java.lang.String"/>
+	<parameter name="omzet" class="java.lang.String"/>
+	<parameter name="pokok_pajak" class="java.lang.String"/>
+	<parameter name="denda" class="java.lang.String"/>
+	<parameter name="jumlah" class="java.lang.String"/>
+	<parameter name="total_omzetp" class="java.lang.String"/>
+	<parameter name="total_pajakp" class="java.lang.String"/>
+	<parameter name="total_omzetl" class="java.lang.String"/>
+	<parameter name="total_pajak_disetor" class="java.lang.String"/>
+	<parameter name="total_omzet" class="java.lang.String"/>
+	<parameter name="total_pokokp" class="java.lang.String"/>
+	<parameter name="total_jumlah" class="java.lang.String"/>
+	<parameter name="nama_wp" class="java.lang.String"/>
+	<parameter name="npwpd" class="java.lang.String"/>
+	<parameter name="pajak_awal" class="java.lang.String"/>
+	<parameter name="pajak_akhir" class="java.lang.String"/>
+	<parameter name="total_denda" class="java.lang.String"/>
+	<parameter name="pemeriksaan_pajak" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="555" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="45" width="99" height="12" uuid="b7ecc102-a513-42d5-afca-fc5245e40484"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[NAMA WP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="58" width="99" height="12" uuid="6ab21d2f-8c5f-4cb1-b555-f233249e072b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[NPWPD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="71" width="99" height="12" uuid="853e60bd-7e2f-4256-a211-128db7353f23"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[MASA PAJAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="45" width="11" height="12" uuid="a2f75259-2a2e-4bff-8eb3-96e7d8ca02ee"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="58" width="11" height="12" uuid="983fe751-9467-4e71-b2ca-596ec34ddad9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="71" width="11" height="12" uuid="063b3a93-e035-4d99-8e51-db33dfdc6fd3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="131" y="45" width="250" height="12" uuid="f7416810-f52b-450e-a231-4162e0c15259"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_wp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="58" width="250" height="12" uuid="d853e6dc-3deb-4264-89db-a0d424f9f387"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{npwpd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="71" width="250" height="12" uuid="2980374d-74ca-48f4-9846-57429f33d798"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pajak_awal} + " s/d " + $P{pajak_akhir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="521" y="58" width="11" height="12" uuid="206ab607-152f-498b-98e4-b57f68277675"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="71" width="11" height="12" uuid="3703996e-eab7-4525-936e-66b6b9c570a2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="58" width="99" height="12" uuid="0ffad76c-2884-4bdd-b409-2966c821ba07"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Paraf & Tgl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="45" width="11" height="12" uuid="47ae388b-2d6f-4241-9bd1-cf748d6e8b66"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="71" width="99" height="12" uuid="23c8bb70-1204-493e-939b-cd1436de43e7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Direviu Oleh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="45" width="99" height="12" uuid="af04b0d9-7605-4a9f-bd74-564e1f1dbe64"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Dibuat Oleh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="84" width="99" height="12" uuid="458ed4f4-473e-48f7-ac78-aebb05b4d6e2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Paraf & Tgl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="84" width="11" height="12" uuid="80a03109-fb8f-4c07-a8f0-13cb1613ed06"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="111" width="146" height="10" uuid="dc9b049c-5581-4445-9ba8-a31b214e0661"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KERTAS KERJA PEMERIKSAAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="121" width="846" height="1" uuid="660b54d2-1f9e-45cf-8344-6528c565e332"/>
+			</line>
+			<line>
+				<reportElement x="21" y="123" width="846" height="1" uuid="22ecfd78-91ae-46b1-b422-f79ac19f5f25"/>
+			</line>
+			<staticText>
+				<reportElement x="251" y="124" width="391" height="10" uuid="3c352564-0184-4681-a75e-ce297c4883f6"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAFTAR REKAPITULASI PERBANDINGAN PENDAPATAN MENURUT TIM PEMERIKSA DENGAN WAJIB PAJAK]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="134" width="349" height="12" uuid="b1f07acb-f8ee-47aa-9f7d-95680144f4b4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MASA PAJAK YANG DIPERIKSA BULAN " + $P{pajak_awal} + " s/d " +  $P{pajak_akhir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="147" width="25" height="36" uuid="20b3eaa4-d5eb-4650-b902-b054aaa82551"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="147" width="71" height="36" uuid="d8cba471-bfe6-47fc-9700-2be377be5050"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BULAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="147" width="200" height="12" uuid="468f3d72-3757-435e-8324-f0bf80d2732c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIM PEMERIKSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="159" width="110" height="24" uuid="80034a80-18da-49cd-b1c0-d555fb09fa27"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OMZET HASIL PEMERIKSAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="159" width="90" height="24" uuid="55450c3a-060b-4a5f-aa17-d277c2877c63"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAJAK RESTORAN (10%)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="147" width="187" height="12" uuid="399d5ef0-11e6-4edb-8eff-992dafa0dd34"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WAJIB PAJAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="159" width="101" height="24" uuid="905b1ca1-af50-4dac-8e8e-275fc040645b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OMZET YANG DILAPORKAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="159" width="86" height="24" uuid="845f914a-5001-48fe-9894-e42ece9c0cbf"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAJAK YANG TELAH DISETOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="147" width="360" height="12" uuid="c8f0601f-432b-4b0c-b8cd-26b578146646"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WAJIB PAJAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="159" width="90" height="24" uuid="b765f7c8-d6ac-4ebe-8331-4fe30d58cf62"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OMZET ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="594" y="159" width="90" height="24" uuid="0ccd8399-ed1d-41d0-b90a-9d86787989f8"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[POKOK PAJAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="159" width="90" height="24" uuid="1a64df21-03e2-4812-9675-f9c948acb775"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="774" y="159" width="90" height="24" uuid="91a73a41-7c28-47ed-b34f-7f38ed27f2e0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="183" width="25" height="10" uuid="87181b60-cd87-492e-a034-442b135ed3d2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="183" width="71" height="10" uuid="bc39c676-19d1-4059-8386-ea14d9b62746"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="183" width="110" height="10" uuid="fafdacfa-41ac-460d-ad95-fa37d949a51e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="183" width="90" height="10" uuid="fb828494-dd86-48b0-baec-b5b4e57edf1a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="183" width="101" height="10" uuid="980ae6aa-84bd-4dc5-b4da-53bfff90180e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="183" width="86" height="10" uuid="7fce8cab-b0f3-41e1-808b-a60fb72ca81d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="183" width="90" height="10" uuid="1d47ef37-9728-40d5-a04e-1c50126c5030"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="594" y="183" width="90" height="10" uuid="224da111-8904-40d9-a09d-eb46d097defa"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="183" width="90" height="10" uuid="e74b04ad-38c6-4585-a2db-5f265850407b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="774" y="183" width="90" height="10" uuid="88d7605a-508e-4c0d-9c49-1dcba3990d31"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="21" y="193" width="843" height="12" uuid="9976a319-5aa6-4038-b404-1412787cac86"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 4" uuid="645bfb58-08af-4109-8ff8-e20f1ddbf655">
+						<dataSourceExpression><![CDATA[$P{pemeriksaan_pajak}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="25" uuid="73390f49-55f2-438d-9686-805cd3fc84ca">
+						<jr:detailCell style="table 3" height="15" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="24" height="15" uuid="efd3be83-550d-46b1-a6c1-8b35a3d000b5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["F{field}"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="265836d1-3ef6-42c5-bf48-0f25279e0110">
+						<jr:detailCell style="table 3" height="15" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="70" height="15" uuid="1b0211b9-5d46-4610-8074-1f7274158c81"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bulan}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="3d562bfe-4049-4169-8faa-c4cb36bc8208">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="cddf3df1-42e9-4365-b17a-4cd21a6e41b9"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="91" uuid="4b45c577-61fc-4d1a-ad38-a9f944a37099">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="91" height="15" uuid="f75fef9d-fd2e-48e0-95de-ca4ee9c2c6d8"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{omzetHasilPeriksa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="435d559b-5c1f-43e9-b965-1baa0e950336">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="16952c37-c4dc-4609-956c-7e3858093dd7"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="19a5af68-c812-460e-b224-e40f382e263b">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="71" height="15" uuid="99bd58c7-d5cb-4d3a-b1be-058d3d68fc28"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pajakHasilPeriksa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="2aaf098d-74ff-4276-b857-19b309c350b4">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="7cb28667-652c-478a-b10a-a3a347a361d1"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="82" uuid="7c869744-512f-4149-9ffa-7574732425a5">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="82" height="15" uuid="9dc6339b-2579-4995-af45-336a62f3cfe1"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{omzetLaporan}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="1a0fa76d-0c98-4e2d-bbab-e62bd435b949">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="ab2bcd6c-73aa-4352-8633-022782b983a8"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="67" uuid="c1dd5714-8a57-4329-bb6c-0b6ccc870b14">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="67" height="15" uuid="9c6be2b3-0607-4d99-bba7-220da62d68aa"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pajakDisetor}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="9cac0c99-da51-477f-b7ff-4f25e037487c">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="b1bd63e3-ba91-45fe-a079-75fc3e54e6c4"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="aed564d1-0036-47bd-8b7a-5c43f0d969a2">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="71" height="15" uuid="a3e2eeb5-9f8b-4802-a29e-17e73cc03e44"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{omzet}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="66305b48-6150-4f5f-bcf5-c0a78d1b9c2c">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="cad424ab-b4d8-45c7-9395-ca6cb5a2af72"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="9523b62c-395b-4690-bb04-6506a4c13b50">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="71" height="15" uuid="b270763b-1296-4d42-bf6d-923dd025a0cf"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pokokPajak}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fb00abac-dbb1-4ad8-bd19-73541559d872">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="15" uuid="799ec9ea-372e-4523-96f5-ded76e14ae95"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{denda}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="f73fd708-2f60-4b33-83ef-dfafac4cf668">
+						<jr:detailCell height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="15" uuid="3431024b-1dfa-48c5-b473-47edf1210594"/>
+								<box>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rp]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="1560bbd6-ab48-490e-8bdc-a353040226f5">
+						<jr:detailCell height="15" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="71" height="15" uuid="7e7d946e-8fa2-42b6-aac8-ddfd05ba416b"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="21" y="30" width="259" height="12" uuid="4db36002-251f-4b46-8706-29959136d286"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BADAN PENDAPATAN DAERAH KABUPATEN BEKASI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="205" width="96" height="12" uuid="f72263ec-dcaf-4881-8f15-c85c242cbfe6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="205" width="19" height="12" uuid="51fde25d-c721-43f0-acc5-b59bb5c4f0db"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="205" width="91" height="12" uuid="81a4d34e-ca5a-458a-8fae-c06fbd165255"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_omzetp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="205" width="71" height="12" uuid="bcbb818b-864d-400a-b326-e9a4dad88765"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_pajakp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="205" width="19" height="12" uuid="3921a4c2-be67-4799-b19b-656eb1b87bbe"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="205" width="19" height="12" uuid="9eafbde6-a07b-498b-85bf-e1bfd743c971"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="205" width="82" height="12" uuid="230d1bee-c960-41f6-92b1-ce50741ed668"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_omzetl}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="418" y="205" width="19" height="12" uuid="2a41c2fd-e4c3-4ef2-a99d-fc9b1f289566"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="205" width="67" height="12" uuid="58ee1f50-07c0-4645-95e2-a2a2b3c7498a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_pajak_disetor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="504" y="205" width="19" height="12" uuid="538518c3-b37b-46a4-9c77-98c7896e4e36"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="523" y="205" width="70" height="12" uuid="23df1efe-3c70-4f1b-9c63-8d9ce0196ce4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_omzet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="205" width="72" height="12" uuid="288c479c-cf88-46d3-8bd0-ffa21404e95a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_pokokp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="593" y="205" width="19" height="12" uuid="ca71d6df-f8eb-4965-ad91-f62e0f42eedf"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="703" y="205" width="71" height="12" uuid="5b98abed-bacf-4066-ba7e-3c59910dc114"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_denda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="684" y="205" width="19" height="12" uuid="4340765d-c7cd-4b25-ab32-617db97fdaa4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="793" y="205" width="71" height="12" uuid="960926b8-ccd9-4823-bd1e-b94628893912"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="774" y="205" width="19" height="12" uuid="4c441963-9144-45e0-9763-6a5582af7ef2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
