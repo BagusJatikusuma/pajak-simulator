@@ -33,10 +33,11 @@ public class FormPelaksanaanUIController implements Initializable {
         // TODO
         ComponentCollectorProvider
                 .addFxComponent("root_form_pelaksanaan_ui", formDokumenPelaksanaanPane);
+        formDokumenPelaksanaanPane.getChildren().remove(0);
         Pane contentPane = null;
         try { 
             contentPane
-                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanContentUI.fxml"));
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanSPUI.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }

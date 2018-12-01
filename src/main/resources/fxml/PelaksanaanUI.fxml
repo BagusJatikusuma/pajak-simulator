@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="1236.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
+<AnchorPane id="AnchorPane" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
     <stylesheets>
         <URL value="@/styles/pelaksanaanui.css" />
     </stylesheets>
@@ -26,9 +26,9 @@
             <Button layoutX="250.0" layoutY="12.0" mnemonicParsing="false" onAction="#addDokumenPelaksanaan" text="Tambah Dokumen Pelaksanaan" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
          </children>
       </AnchorPane>
-      <HBox layoutX="14.0" layoutY="47.0" prefHeight="547.0" prefWidth="1208.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
+      <HBox layoutX="14.0" layoutY="47.0" prefHeight="600.0" prefWidth="1366.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
          <children>
-            <TableView fx:id="arsipPelaksanaanTable" prefHeight="547.0" prefWidth="1208.0">
+            <TableView fx:id="arsipPelaksanaanTable" prefHeight="589.0" prefWidth="1366.0">
               <columns>
                 <TableColumn prefWidth="97.0" text="Id" />
                   <TableColumn prefWidth="221.0" text="Id SP" />

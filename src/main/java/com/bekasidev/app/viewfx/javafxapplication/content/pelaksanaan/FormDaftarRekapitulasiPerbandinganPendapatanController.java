@@ -23,8 +23,13 @@ import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -63,6 +68,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label namaTimLabel;
     @FXML private Label namaWPLabel;
     @FXML private Label npwpdLabel;
+    @FXML private Label nomorTanggalSPField;
     
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     
@@ -98,7 +104,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         Pane contentPane = null;
         try { 
             contentPane
-                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanUI.fxml"));
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanWPUI.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -113,6 +119,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         
         int index = 1;
+        NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+        DecimalFormat formatter = (DecimalFormat) anotherFormat;
         for (Rekapitulasi rek : pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()) {
             Button btn = new Button("atur");
             ArsipPelaksanaanTableWrapper objTable 
@@ -120,9 +128,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                             String.valueOf(index),
                             rek.getBulan(),
                             (rek.getOmzetHasilPeriksa()!=null)
-                                    ?new BigDecimal(rek.getOmzetHasilPeriksa().doubleValue()).toPlainString():"-",
+                                    ?"Rp"+formatter.format(new BigDecimal(rek.getOmzetHasilPeriksa().doubleValue())):"-",
                             (rek.getOmzetLaporan()!=null)
-                                    ?new BigDecimal(rek.getOmzetLaporan().doubleValue()).toPlainString():"-",
+                                    ?"Rp"+formatter.format(new BigDecimal(rek.getOmzetLaporan().doubleValue())):"-",
                             btn
                     );
             dataCollection.add(objTable);
@@ -172,6 +180,10 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         namaTimLabel.setText(pelaksanaanWrapper.getTimSelected().getNamaTim());
         namaWPLabel.setText(pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
         npwpdLabel.setText(pelaksanaanWrapper.getWpSelected().getNpwpd());
+        DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
+        nomorTanggalSPField.setText(
+                "800/"+pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat()+"/Bapenda"
+                +", "+formatter.format(pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan()));
     }
     
     public void printKKPdanSuratSurat(){

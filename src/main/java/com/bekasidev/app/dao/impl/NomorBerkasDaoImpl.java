@@ -43,6 +43,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             case HASIL: sql += "nomor_hasil=?, tanggal_hasil=?"; break;
             case PEMINJAMAN: sql += "nomor_peminjaman=?, tanggal_peminjaman=?"; break;
             case PEMBERITAHUAN: sql += "nomor_pemberitahuan=?, tanggal_pemberitahuan=?"; break;
+            case BERITA_ACARA: sql += "nomor_berita_acara=?, tanggal_berita_acara=?"; break;
         }
         sql += " WHERE id_sp=? AND id_wp=?";
         try(Connection conn = Connect.connect();

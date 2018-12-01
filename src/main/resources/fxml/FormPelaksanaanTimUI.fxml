@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanTimUIController">
+   <children>
+      <TableView fx:id="pilihTimTable" layoutX="34.0" layoutY="46.0" prefHeight="399.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0">
+         <columns>
+            <TableColumn fx:id="idTim" prefWidth="190.0" text="ID TIM" />
+            <TableColumn fx:id="namaTim" prefWidth="461.0" text="NAMA TIM" />
+         </columns>
+      </TableView>
+      <Button fx:id="backBtn" layoutX="455.0" layoutY="465.0" mnemonicParsing="false" onAction="#backToPilihSuratPerintah" prefHeight="25.0" prefWidth="73.0" text="Kembali" AnchorPane.rightAnchor="184.0" AnchorPane.topAnchor="455.0" />
+      <Button layoutX="569.0" layoutY="465.0" mnemonicParsing="false" onAction="#openPilihWP" prefHeight="25.0" prefWidth="149.0" text="Lanjut pilih wp" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="455.0" />
+      <Label layoutX="318.0" layoutY="14.0" text="PILIH TIM">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formpelaksanaanspui.css" />
+   </stylesheets>
+</AnchorPane>

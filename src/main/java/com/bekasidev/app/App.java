@@ -78,7 +78,7 @@ public class App extends Application
     public void start(Stage primaryStage) throws Exception {
         try {
             primaryStage.setTitle("Aplikasi Perpajakan");
-
+            primaryStage.setMaximized(true);
             ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(
                     new RekapitulasiWrapper(),
                     new Date((long) 1534788900526.0),

@@ -15,11 +15,12 @@
         <URL value="@/styles/formdaftarrekapitulasiperbandinganpendapatandetail.css" />
     </stylesheets>
    <children>
+       <TextField fx:id="omzetHasilField" layoutX="20.0" layoutY="49.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="49.0" />
+      <TextField fx:id="omzetDiLaporkanField" layoutX="20.0" layoutY="106.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="106.0" />
+      
       <Button layoutX="524.0" layoutY="149.0" mnemonicParsing="false" onAction="#finishOperation" text="Simpan" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="149.0" />
       <Label layoutX="20.0" layoutY="27.0" text="Omzet Hasil Pemeriksaan" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="27.0" />
       <Label layoutX="20.0" layoutY="84.0" text="Omzet Yang Dilaporkan" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="84.0" />
-      <TextField fx:id="omzetDiLaporkanField" layoutX="20.0" layoutY="106.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="106.0" />
-      <TextField fx:id="omzetHasilField" layoutX="20.0" layoutY="49.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="49.0" />
       <Button fx:id="cancelBtn" layoutX="452.0" layoutY="149.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="56.0" text="Batal" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="149.0" />
    </children>
 </AnchorPane>

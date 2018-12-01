@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanSPUIController">
+    <stylesheets>
+        <URL value="@/styles/formpelaksanaanspui.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="pilihSPTable" layoutX="34.0" layoutY="46.0" prefHeight="399.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0">
+         <columns>
+            <TableColumn fx:id="idSP" prefWidth="162.0" text="ID SP" />
+            <TableColumn fx:id="nomorSP" prefWidth="286.0" text="NOMOR SP" />
+            <TableColumn fx:id="tanggalSP" prefWidth="203.0" text="TANGGAL SP" />
+         </columns>
+      </TableView>
+      <Button fx:id="cancelBtn" layoutX="455.0" layoutY="465.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="73.0" text="Batal" AnchorPane.rightAnchor="184.0" AnchorPane.topAnchor="455.0" />
+      <Button layoutX="569.0" layoutY="465.0" mnemonicParsing="false" onAction="#openPilihTim" prefHeight="25.0" prefWidth="149.0" text="Lanjut pilih tim" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="455.0" />
+      <Label layoutX="271.0" layoutY="16.0" text="PILIH SURAT PERINTAH">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
