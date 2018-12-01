@@ -12,8 +12,11 @@ import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWr
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +28,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  * FXML Controller class
@@ -42,6 +46,7 @@ public class FormInputSuratPemberitahuanNomorTanggalController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        setDatePickerFormat();
     }
 
     public void cancelOperation() {
@@ -81,6 +86,33 @@ public class FormInputSuratPemberitahuanNomorTanggalController implements Initia
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();
         
+    }
+    
+    private void setDatePickerFormat() {
+        tanggalPengesahanField.setConverter(new StringConverter<LocalDate>()
+        {
+            private DateTimeFormatter dateTimeFormatter
+                    =DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.forLanguageTag("id-ID"));
+
+            @Override
+            public String toString(LocalDate localDate)
+            {
+                if(localDate==null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String dateString)
+            {
+                if(dateString==null || dateString.trim().isEmpty())
+                {
+                    return null;
+                }
+                return LocalDate.parse(dateString,dateTimeFormatter);
+            }
+        });
+       
     }
     
 }

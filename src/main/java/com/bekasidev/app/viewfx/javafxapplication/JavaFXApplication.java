@@ -16,7 +16,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,11 +34,13 @@ public class JavaFXApplication extends Application {
     public void start(Stage primaryStage) {
         try {
             primaryStage.setTitle("Aplikasi Perpajakan");
+            primaryStage.setMaximized(true);
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
+            
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getClassLoader().getResource("javafxresources/rootpane.css").toString());
             primaryStage.setScene(scene);
-            primaryStage.resizableProperty().setValue(Boolean.FALSE);
+//            primaryStage.resizableProperty().setValue(Boolean.FALSE);
             primaryStage.show();
             
         } catch (IOException ex) {

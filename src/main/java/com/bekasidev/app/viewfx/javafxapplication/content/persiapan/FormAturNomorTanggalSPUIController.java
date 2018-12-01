@@ -21,10 +21,13 @@ import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -40,6 +43,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  * FXML Controller class
@@ -64,6 +68,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                                             .get("header_form_persiapan");
         headerLabel.setText("FORM ATUR NOMOR & TANGGAL SURAT PERINTAH");
         headerLabel.setLayoutX(135);
+        setDatePickerFormat();
         initData();
         suratPerintahService = ServiceFactory.getSuratPerintahService();
     }
@@ -227,6 +232,33 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rootpaneFormPersiapan.getChildren().add(contentPane);
+    }
+    
+    private void setDatePickerFormat() {
+        tanggalPengesahanField.setConverter(new StringConverter<LocalDate>()
+        {
+            private DateTimeFormatter dateTimeFormatter
+                    =DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.forLanguageTag("id-ID"));
+
+            @Override
+            public String toString(LocalDate localDate)
+            {
+                if(localDate==null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String dateString)
+            {
+                if(dateString==null || dateString.trim().isEmpty())
+                {
+                    return null;
+                }
+                return LocalDate.parse(dateString,dateTimeFormatter);
+            }
+        });
+       
     }
     
     private class NomorBerkasContainer {
