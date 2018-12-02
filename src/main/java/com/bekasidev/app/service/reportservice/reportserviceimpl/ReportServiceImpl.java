@@ -31,6 +31,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -1919,7 +1920,7 @@ public class ReportServiceImpl implements ReportService {
     }
     
     @Override
-    public void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper) {
+    public void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper, TimSP timSP) {
         try{
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -1946,8 +1947,8 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi());
+//            JRBeanCollectionDataSource beanColDataSource =
+//            new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi());
             
             Map parameter = new HashMap();
             /**
@@ -1970,9 +1971,17 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("total_pajak_disetor", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakDisetor());
             parameter.put("total_omzet", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzet());
             parameter.put("total_pokokp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPokokPajak());
-            parameter.put("total_denda", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah());
+            parameter.put("total_denda", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalDenda());
+            parameter.put("total_jumlah", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah());
             
-            parameter.put("pemeriksaan_pajak", beanColDataSource);
+            parameter.put("pemeriksaan_pajak", new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()));
+            parameter.put("anggota_tim", new JRBeanCollectionDataSource(timSP.getListAnggota()));
+            
+            parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
+            
+            parameter.put("tanggung_jawab_nama", timSP.getSupervisor().getNamaPegawai());
+            parameter.put("tanggung_jawab_nip", timSP.getSupervisor().getNipPegawai());
+            parameter.put("tanggung_jawab_jabatan", timSP.getSupervisor().getJabatanTim());
             
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1983,7 +1992,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -1993,7 +2002,7 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter,
-                    beanColDataSource);
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/KertasPemeriksaanPajak.pdf");
@@ -2183,9 +2192,9 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("penandatangan_pangkat", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getPangkat());
             parameter.put("penandatangan_nip", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getNipPegawai());
             
-            parameter.put("supervisor_nama", "dummi");
-            parameter.put("supervisor_pangkat", "dummi");
-            parameter.put("supervisor_nip", "dummi");
+            parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
+            parameter.put("supervisor_pangkat", timSP.getSupervisor().getJabatanDinas());
+            parameter.put("supervisor_nip", timSP.getSupervisor().getNipPegawai());
             
             parameter.put("total_omzet_hasil_pemeriksa", String.valueOf(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetPeriksa()));
             parameter.put("total_pajak_daerah", String.valueOf(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakPeriksa()));
@@ -2370,7 +2379,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, new JRBeanCollectionDataSource(timSP.getListAnggota()));
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -2379,7 +2388,7 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, new JRBeanCollectionDataSource(timSP.getListAnggota()));
+                    parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).pdf");

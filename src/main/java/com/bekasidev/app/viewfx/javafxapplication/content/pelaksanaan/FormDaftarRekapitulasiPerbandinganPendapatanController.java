@@ -199,29 +199,31 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         //default 10%
         rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         
-//        reportService.createSuratPernyataan1(pelaksanaanWrapper);
-//        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
-//        System.out.println(pelaksanaanWrapper.getPersiapanWrapper().getIdSP() + "kds;lfkl;"
-//                + "dskfl;ksld;kf;lksdl;kfl;k " +  pelaksanaanWrapper.getTimSelected().getIdTim());
-//        reportService.createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper, 
-//                ServiceFactory.getSuratPerintahService().getTimSP(
-//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
+                        ServiceFactory.getSuratPerintahService().getTimSP(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                        pelaksanaanWrapper.getTimSelected().getIdTim()));
         
+        reportService.createSuratPernyataan1(pelaksanaanWrapper);
+        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
+        reportService.createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper, 
+                ServiceFactory.getSuratPerintahService().getTimSP(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        
+        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
+        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+        reportService.createSuratPernyataan7(pelaksanaanWrapper);
         reportService.createBeritaAcara8(pelaksanaanWrapper, 
                 ServiceFactory.getSuratPerintahService().getTimSP(
                         pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
                         pelaksanaanWrapper.getTimSelected().getIdTim()));
-//        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
-//        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
-//        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
-//        reportService.createSuratPernyataan7(pelaksanaanWrapper);
 
           //rapel
 //        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);
         
-        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
-//        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper);
     }
     
     private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {

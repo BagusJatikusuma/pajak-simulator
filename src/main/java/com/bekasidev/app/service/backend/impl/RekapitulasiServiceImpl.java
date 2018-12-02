@@ -35,7 +35,7 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
             rekapitulasi.setOmzet(rekapitulasi.getOmzetHasilPeriksa() - rekapitulasi.getOmzetLaporan());
             rekapitulasi.setPokokPajak(rekapitulasi.getPajakHasilPeriksa() - rekapitulasi.getPajakDisetor());
             rekapitulasi.setDenda((double) round(
-                    rekapitulasi.getPokokPajak() * rekapitulasi.getPersentaseDenda() * persentase * 0.01
+                    rekapitulasi.getPokokPajak() * rekapitulasi.getPersentaseDenda() * persentase * 0.1
                     ));
             rekapitulasi.setJumlah(rekapitulasi.getPokokPajak() + rekapitulasi.getDenda());
 
