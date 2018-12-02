@@ -3,6 +3,7 @@ package com.bekasidev.app;
 import com.bekasidev.app.model.*;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.MainFrame;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +20,10 @@ import java.util.logging.Logger;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -77,13 +80,21 @@ public class App extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            
+            SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
+            
             primaryStage.setTitle("Aplikasi Perpajakan");
-            primaryStage.setMaximized(true);
+//            primaryStage.setMaximized(true);
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
+            
             ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(
                     new RekapitulasiWrapper(),
                     new Date((long) 1534788900526.0),
                             new Date((long) 1574273700526.0)
             );
+            
             System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
             Scene scene = new Scene(root);

@@ -11,6 +11,7 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
@@ -45,7 +46,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -71,7 +74,10 @@ public class PersiapanUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        System.out.println("window height "+SessionProvider.getGlobalSessionsMap().get("screen_height"));
+        
         suratPerintahService = ServiceFactory.getSuratPerintahService();
+        
         initDataFromService();
         addFromFXML();
         populateData();
@@ -82,11 +88,11 @@ public class PersiapanUIController implements Initializable {
 
     private void addFromFXML() {
         id 
-                = TableHelper.getTableColumnByName(arsipPersiapanTable, "Id");
+                = TableHelper.getTableColumnByName(arsipPersiapanTable, "ID");
         tanggalDiBuat 
-                = TableHelper.getTableColumnByName(arsipPersiapanTable, "Tanggal dibuat");
+                = TableHelper.getTableColumnByName(arsipPersiapanTable, "TANGGAL SURAT PERINTAH");
         statusSelesai 
-                = TableHelper.getTableColumnByName(arsipPersiapanTable, "Status selesai");
+                = TableHelper.getTableColumnByName(arsipPersiapanTable, "NOMOR SURAT PERINTAH");
         action 
                 = TableHelper.getTableColumnByName(arsipPersiapanTable, "Action");
     }
@@ -129,8 +135,8 @@ public class PersiapanUIController implements Initializable {
         for (SuratPerintah sp : suratPerintahList) {
             dataListFromService.add(new ArsipTablePersiapanWrapper(
                     sp.getIdSP(),
-                    dateFormat.format(new Date(Long.valueOf(sp.getIdSP()))),
-                    "Selesai",
+                    (sp.getTanggalSurat()!=null)?dateFormat.format(new Date(Long.valueOf(sp.getTanggalSurat()))):"-",
+                    (sp.getNomorUrut()!=null)?"800/"+sp.getNomorUrut()+"/Bapenda":"-",
                     null
             ));
             suratPerintahMapper.put(sp.getIdSP(), sp);
@@ -162,7 +168,8 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
     
     public void cariArsip() {
@@ -194,7 +201,8 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
     
 }

@@ -35,6 +35,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -114,7 +115,8 @@ public class FormAturDokumenWPController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Tambah Dokumen");
         stage.setScene(new Scene(formTambahDokumenWP));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     private void addFromFXML() {

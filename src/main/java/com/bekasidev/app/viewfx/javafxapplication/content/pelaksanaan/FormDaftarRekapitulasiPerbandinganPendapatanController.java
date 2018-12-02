@@ -49,6 +49,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -157,7 +158,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                     Stage stage = new Stage();
                     stage.setTitle("Form Atur Omzet");
                     stage.setScene(new Scene(formAturBulanRekapitulasi));
-                    stage.show();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
                     
                 }
             });
@@ -198,6 +200,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         //default 10%
         rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         
         rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 

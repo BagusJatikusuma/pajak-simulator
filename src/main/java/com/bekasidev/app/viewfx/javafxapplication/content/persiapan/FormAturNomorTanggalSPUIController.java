@@ -102,6 +102,10 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             persiapanWrapper.setTanggalPengesahan(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
             persiapanWrapper.setNomorSurat(nomorSuratField.getText());
         }
+        else {
+            persiapanWrapper.setTanggalPengesahan(null);
+            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+        }
         //simpan menggunakan suratPerintahService update
         boolean isUpdate = false;
         if (persiapanWrapper.getIdSP() != null) {
@@ -118,17 +122,9 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             System.out.println("create success");
         }
         else {
-            System.out.println(
-                "update nomor surat sp "+
-                persiapanWrapper.getIdSP()+
-                " is "+
-                nomorSuratField.getText());
-            suratPerintahService
-                    .setNomorUrut(
-                            persiapanWrapper.getIdSP(), 
-                            nomorSuratField.getText(),
-                            String.valueOf(persiapanWrapper.getTanggalPengesahan().getTime()));
-            System.out.println("update success");
+            SuratPerintah sp = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
+            suratPerintahService.updateSuratPerintah(sp);
+            System.out.println("update success "+sp.getNomorUrut()+" - "+sp.getTempat()+" : "+sp.getIdSP());
         }
         
         Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");

@@ -40,6 +40,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -147,7 +148,8 @@ public class FormAturTimWPUIController implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Form tambah Tim WP");
                     stage.setScene(new Scene(formTambahTimWPUI));
-                    stage.show();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
                     
                 }
             });
@@ -192,7 +194,8 @@ public class FormAturTimWPUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form tambah Tim WP");
         stage.setScene(new Scene(formTambahTimWPUI));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
     
     public void cancelOperation() {

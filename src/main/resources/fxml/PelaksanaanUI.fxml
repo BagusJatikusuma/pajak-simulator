@@ -28,13 +28,13 @@
       </AnchorPane>
       <HBox layoutX="14.0" layoutY="47.0" prefHeight="600.0" prefWidth="1366.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
          <children>
-            <TableView fx:id="arsipPelaksanaanTable" prefHeight="589.0" prefWidth="1366.0">
+            <TableView fx:id="arsipPelaksanaanTable" prefHeight="589.0" prefWidth="1366.0" HBox.hgrow="ALWAYS">
               <columns>
-                <TableColumn prefWidth="97.0" text="Id" />
-                  <TableColumn prefWidth="221.0" text="Id SP" />
-                  <TableColumn prefWidth="238.0" text="Nama Tim" />
-                  <TableColumn prefWidth="310.0" text="Nama WP" />
-                <TableColumn prefWidth="188.0" text="Tanggal Dibuat" />
+                <TableColumn prefWidth="121.0" text="ID" />
+                  <TableColumn prefWidth="197.0" text="NO SP" />
+                  <TableColumn prefWidth="238.0" text="NAMA TIM" />
+                  <TableColumn prefWidth="310.0" text="NAMA WP" />
+                <TableColumn prefWidth="188.0" text="TANGGAL DIBUAT" />
                   <TableColumn prefWidth="151.0" text="Action" />
               </columns>
             </TableView>
