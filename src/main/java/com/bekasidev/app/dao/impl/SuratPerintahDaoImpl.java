@@ -159,7 +159,6 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
                 "nomor_surat_biaya=?, tanggal_biaya=?, pemberi_sp=?, " +
                 "masa_pajak_awal=?, masa_pajak_akhir=?, tahap=?, " +
                 "lama_pelaksanaan=?, tempat=?, tanggal_surat=? WHERE id_sp=?";
-
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, suratPerintah.getNomorSurat());

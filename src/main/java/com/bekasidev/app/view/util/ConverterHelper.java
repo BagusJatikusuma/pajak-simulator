@@ -43,7 +43,11 @@ public class ConverterHelper {
     public static SuratPerintah convertPersiapanWrapperIntoSuratPerintah(PersiapanWrapper persiapanWrapper) {
         pegawaiService = ServiceFactory.getPegawaiService();
         
-        String idSP = String.valueOf(new Date().getTime());
+        String idSP;
+        if (persiapanWrapper.getIdSP() == null)
+            idSP = String.valueOf(new Date().getTime());
+        else
+            idSP = persiapanWrapper.getIdSP();
         
         SuratPerintah suratPerintah = new SuratPerintah();
         suratPerintah.setIdSP(idSP);

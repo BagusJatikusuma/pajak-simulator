@@ -49,6 +49,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -157,7 +158,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                     Stage stage = new Stage();
                     stage.setTitle("Form Atur Omzet");
                     stage.setScene(new Scene(formAturBulanRekapitulasi));
-                    stage.show();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
                     
                 }
             });
@@ -198,7 +200,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         //default 10%
         rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         
+        System.out.println("create rekapitulasi success");
 //        reportService.createSuratPernyataan1(pelaksanaanWrapper);
 //        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
 //        System.out.println(pelaksanaanWrapper.getPersiapanWrapper().getIdSP() + "kds;lfkl;"
@@ -208,10 +212,10 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 //                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
 //                        pelaksanaanWrapper.getTimSelected().getIdTim()));
         
-        reportService.createBeritaAcara8(pelaksanaanWrapper, 
-                ServiceFactory.getSuratPerintahService().getTimSP(
-                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+//        reportService.createBeritaAcara8(pelaksanaanWrapper, 
+//                ServiceFactory.getSuratPerintahService().getTimSP(
+//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
 //        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
 //        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
 //        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
@@ -220,7 +224,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
           //rapel
 //        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);
         
-        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+        
 //        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper);
     }
     

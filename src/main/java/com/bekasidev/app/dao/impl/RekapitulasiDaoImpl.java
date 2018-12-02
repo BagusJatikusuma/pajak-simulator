@@ -36,7 +36,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
                 pstm.setDouble(12+i, rekapitulasi.getPersentaseDenda());
                 i += 12;
             }
-
+            pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

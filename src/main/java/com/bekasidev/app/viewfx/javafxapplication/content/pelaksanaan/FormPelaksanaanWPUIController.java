@@ -120,7 +120,6 @@ public class FormPelaksanaanWPUIController implements Initializable {
             rekapitulasiWrapper.setTotalPokokPajak(Double.valueOf(0));
 
             pelaksanaanWrapper.setRekapitulasiWrapper(rekapitulasiWrapper);
-            
             rekapitulasiService.setBulanRekapitulasi(
                 rekapitulasiWrapper, 
                 convertDateNumberToDate(pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan(),
