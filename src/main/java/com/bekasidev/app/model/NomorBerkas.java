@@ -14,6 +14,26 @@ public class NomorBerkas {
     private String nomorBeritaAcara;
     private String tanggalBeritaAcara;
 
+    //Berkas Evaluasi
+    private String nomorSKPD;
+    private String tanggalSKPD;
+
+    public String getNomorSKPD() {
+        return nomorSKPD;
+    }
+
+    public void setNomorSKPD(String nomorSKPD) {
+        this.nomorSKPD = nomorSKPD;
+    }
+
+    public String getTanggalSKPD() {
+        return tanggalSKPD;
+    }
+
+    public void setTanggalSKPD(String tanggalSKPD) {
+        this.tanggalSKPD = tanggalSKPD;
+    }
+
     public String getNomorBeritaAcara() {
         return nomorBeritaAcara;
     }
