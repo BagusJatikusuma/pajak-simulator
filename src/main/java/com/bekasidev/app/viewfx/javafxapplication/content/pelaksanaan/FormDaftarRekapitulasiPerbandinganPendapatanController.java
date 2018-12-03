@@ -98,6 +98,20 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         
     }
     
+    public void openPersuratan() {
+        Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
+        rootpaneFormPelaksanaan.getChildren().remove(0);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormSuratPelaksanaanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPelaksanaan.getChildren().add(contentPane);
+    }
+    
     public void backToFormPelaksanaanContent() {
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(0);

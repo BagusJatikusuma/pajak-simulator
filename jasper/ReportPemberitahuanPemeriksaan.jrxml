@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPemberitahuanPemeriksaan" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
 	<property name="ireport.zoom" value="1.1000000000000167"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1240"/>
+	<property name="ireport.y" value="664"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -354,7 +354,7 @@
 					<text><![CDATA[Apabila kewajiban sebagaimana dimaksud tidak dapat dipenuhi maka dapat ditindaklanjuti sesuai ketentuan peraturan perpajakan yang berlaku.]]></text>
 				</staticText>
 			</band>
-			<band height="37">
+			<band height="198">
 				<staticText>
 					<reportElement x="66" y="0" width="469" height="36" uuid="566d9d12-bf9c-4acb-9921-b9823a7f4dad"/>
 					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
@@ -362,38 +362,37 @@
 					</textElement>
 					<text><![CDATA[Demikian atas perhatian dan kerjasamanya diucapkan terimakasih.]]></text>
 				</staticText>
-			</band>
-			<band height="156">
 				<staticText>
-					<reportElement x="275" y="87" width="261" height="18" uuid="da199ddc-cbd6-4661-829c-262f89fe6068"/>
-					<textElement textAlignment="Left" verticalAlignment="Bottom">
-						<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="275" y="105" width="261" height="18" uuid="27e49da0-4dbd-4416-9b8a-2ef5a64ca9d8"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="12" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Pembina Utama Muda]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="275" y="123" width="261" height="18" uuid="d1d22200-cb55-4f0f-9b22-fef32c434645"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="12" isBold="false"/>
-					</textElement>
-					<text><![CDATA[NIP. 19631206 199203 1 007]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="275" y="0" width="260" height="87" uuid="2210c09a-fd35-44fc-9fb0-702b6543f3b5"/>
+					<reportElement x="274" y="36" width="260" height="87" uuid="2210c09a-fd35-44fc-9fb0-702b6543f3b5"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
 						<font fontName="Times New Roman" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[KEPALA BADAN PENDAPATAN DAERAH
 KABUPATEN BEKASI]]></text>
 				</staticText>
+				<staticText>
+					<reportElement x="274" y="141" width="261" height="18" uuid="27e49da0-4dbd-4416-9b8a-2ef5a64ca9d8"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pembina Utama Muda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="274" y="123" width="261" height="18" uuid="da199ddc-cbd6-4661-829c-262f89fe6068"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Drs. H. JUHANDI, M.Si]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="274" y="159" width="261" height="18" uuid="d1d22200-cb55-4f0f-9b22-fef32c434645"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[NIP. 19631206 199203 1 007]]></text>
+				</staticText>
 			</band>
+			<band/>
 		</groupFooter>
 	</group>
 	<title>

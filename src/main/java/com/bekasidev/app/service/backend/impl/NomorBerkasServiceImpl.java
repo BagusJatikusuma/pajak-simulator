@@ -13,4 +13,9 @@ public class NomorBerkasServiceImpl implements NomorBerkasService {
     public void setNomorBerkas(String idSP, String idWP, String nomorSurat, String tanggal, Surat jenis) {
         nomorBerkasDao.setNomorSurat(idSP, idWP, nomorSurat, tanggal, jenis);
     }
+
+    @Override
+    public void setBerkasTeguran2(String idSP, String idWP, String nomorTeguran, String tanggalTeguran, String jam, String tempat, String hari) {
+        nomorBerkasDao.setBerkasTeguran2(idSP, idWP, nomorTeguran, tanggalTeguran, jam, tempat, hari);
+    }
 }
