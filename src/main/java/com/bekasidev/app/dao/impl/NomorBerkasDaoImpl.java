@@ -49,6 +49,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             case PEMBERITAHUAN: sql += "nomor_pemberitahuan=?, tanggal_pemberitahuan=?"; break;
             case BERITA_ACARA: sql += "nomor_berita_acara=?, tanggal_berita_acara=?"; break;
             case EVALUASI: sql += "nomor_SKPD=?, tanggal_SKPD=?"; break;
+            case TEGURAN_PERTAMA: sql += "nomor_teguran1=?, tanggal_teguran1=?"; break;
         }
         sql += " WHERE id_sp=? AND id_wp=?";
         try(Connection conn = Connect.connect();
@@ -72,6 +73,28 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, idWP);
             pstm.setString(2, idSP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setBerkasTeguran2(String idSP, String idWP, String nomorTeguran, String tanggalTeguran,
+                                  String jam, String tempat, String hari) {
+        String sql = "UPDATE nomor_berkas SET nomor_teguran2=?, tanggal_teguran2=?, jam_teguran2=?, " +
+                "tempat_teguran2=?, hari_teguran2=? WHERE id_sp=?, id_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, nomorTeguran);
+            pstm.setString(2, tanggalTeguran);
+            pstm.setString(3, jam);
+            pstm.setString(4, tempat);
+            pstm.setString(5, hari);
+            pstm.setString(6, idSP);
+            pstm.setString(7, idWP);
 
             pstm.executeUpdate();
         } catch (SQLException e) {
