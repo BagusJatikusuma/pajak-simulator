@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PernyataanPersetujuanHasilPemeriksaan(5)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="3f892621-68a8-4e08-845e-fb8a314350a0">
 	<property name="ireport.zoom" value="1.1000000000000056"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="336"/>
 	<parameter name="nomor_sphp" class="java.lang.String"/>
 	<parameter name="tanggal_sphp" class="java.lang.String"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
@@ -159,7 +159,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Yang menbuat pernyataan,]]></text>
+				<text><![CDATA[Yang membuat pernyataan,]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="276" y="448" width="259" height="60" uuid="f9c1130b-c88f-4909-a822-e5ce479230d8"/>

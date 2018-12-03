@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController">
+   <children>
+      <Label layoutX="216.0" layoutY="14.0" text="DAFTAR SURAT TAHAP PELAKSANAAN" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView fx:id="daftarSuratTable" layoutX="24.0" layoutY="43.0" prefHeight="392.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="43.0">
+         <columns>
+            <TableColumn fx:id="no" prefWidth="48.0" text="NO" />
+            <TableColumn fx:id="namaSurat" prefWidth="415.0" text="NAMA SURAT" />
+            <TableColumn fx:id="keterangan" prefWidth="188.0" text="KETERANGAN" />
+         </columns>
+      </TableView>
+      <Button layoutX="345.0" layoutY="455.0" mnemonicParsing="false" onAction="#aturNomorTanggalSurat" prefHeight="25.0" prefWidth="152.0" text="Atur surat" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="455.0" />
+      <Button layoutX="258.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToRekapitulasi" prefHeight="25.0" prefWidth="115.0" text="Kembali" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="455.0" />
+      <Button layoutX="498.0" layoutY="455.0" mnemonicParsing="false" onAction="#printSurat" prefHeight="25.0" prefWidth="179.0" text="Cetak surat" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formdaftarrekapitulasiperbandinganpendapatan.css" />
+   </stylesheets>
+</AnchorPane>

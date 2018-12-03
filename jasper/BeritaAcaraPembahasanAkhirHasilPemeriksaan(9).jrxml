@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeritaAcaraPembahasanAkhirHasilPemeriksaan(9)" language="groovy" pageWidth="595" pageHeight="935" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="00bddd47-a695-4bfb-8c09-a936f2ebd40d">
+	<property name="ireport.zoom" value="1.1000000000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<subDataset name="anggota_tim" uuid="9060bb7b-95c1-47a5-bf9c-c31826ae95b7">
+		<field name="namaPegawai" class="java.lang.String"/>
+		<field name="nipPegawai" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="anggota_tandatangan_tim_1" uuid="ada4493e-a4fc-4b02-8d2d-77b0bb549fa2">
+		<field name="namaPegawai" class="java.lang.String"/>
+		<field name="nipPegawai" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
+		<field name="pangkat" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="anggota_tandatangan_tim_2" uuid="cf8b6379-4f36-40b4-b56d-e636544a27c9">
+		<field name="namaPegawai" class="java.lang.String"/>
+		<field name="nipPegawai" class="java.lang.String"/>
+		<field name="jabatanTim" class="java.lang.String"/>
+		<field name="pangkat" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="anggota_tim" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="hari_surat" class="java.lang.String"/>
+	<parameter name="tanggal_surat" class="java.lang.String"/>
+	<parameter name="bulan_surat" class="java.lang.String"/>
+	<parameter name="tahun_surat" class="java.lang.String"/>
+	<parameter name="supervisor_nama" class="java.lang.String"/>
+	<parameter name="supervisor_nip" class="java.lang.String"/>
+	<parameter name="supervisor_jabatan_tim" class="java.lang.String"/>
+	<parameter name="tanggal_sp" class="java.lang.String"/>
+	<parameter name="nomor_sp" class="java.lang.String"/>
+	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
+	<parameter name="npwpd_wajib_pajak" class="java.lang.String"/>
+	<parameter name="jenis_wajib_pajak" class="java.lang.String"/>
+	<parameter name="tanggal_sphp" class="java.lang.String"/>
+	<parameter name="nomor_sphp" class="java.lang.String"/>
+	<parameter name="penandatangan_nama" class="java.lang.String"/>
+	<parameter name="penandatangan_pangkat" class="java.lang.String"/>
+	<parameter name="penandatangan_nip" class="java.lang.String"/>
+	<parameter name="total_omzet_hasil_pemeriksa" class="java.lang.String"/>
+	<parameter name="total_pajak_daerah" class="java.lang.String"/>
+	<parameter name="total_pajak_yang_telah_disetor" class="java.lang.String"/>
+	<parameter name="total_pajak_kurang_bayar" class="java.lang.String"/>
+	<parameter name="total_denda" class="java.lang.String"/>
+	<parameter name="total_Pajak_yang_harus_bayar" class="java.lang.String"/>
+	<parameter name="penandatangan_jabatan" class="java.lang.String"/>
+	<parameter name="anggota_tim_2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="anggota_tandatangan_tim_1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="anggota_tandatangan_tim_2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="875" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="595" height="875" uuid="8fc5360c-b75e-4a90-bf05-57e9824b6c38"/>
+				<subreportParameter name="anggota_tim">
+					<subreportParameterExpression><![CDATA[$P{anggota_tim}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hari_surat">
+					<subreportParameterExpression><![CDATA[$P{hari_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_surat">
+					<subreportParameterExpression><![CDATA[$P{tanggal_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bulan_surat">
+					<subreportParameterExpression><![CDATA[$P{bulan_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tahun_surat">
+					<subreportParameterExpression><![CDATA[$P{tahun_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_nama">
+					<subreportParameterExpression><![CDATA[$P{supervisor_nama}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_nip">
+					<subreportParameterExpression><![CDATA[$P{supervisor_nip}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_jabatan_tim">
+					<subreportParameterExpression><![CDATA[$P{supervisor_jabatan_tim}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_sp">
+					<subreportParameterExpression><![CDATA[$P{tanggal_sp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nomor_sp">
+					<subreportParameterExpression><![CDATA[$P{nomor_sp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nama_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{nama_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="npwpd_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{npwpd_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="jenis_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{jenis_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_sphp">
+					<subreportParameterExpression><![CDATA[$P{tanggal_sphp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nomor_sphp">
+					<subreportParameterExpression><![CDATA[$P{nomor_sphp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_nama">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_nama}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_pangkat">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_pangkat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_nip">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_nip}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_omzet_hasil_pemeriksa">
+					<subreportParameterExpression><![CDATA[$P{total_omzet_hasil_pemeriksa}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_daerah">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_daerah}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_yang_telah_disetor">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_yang_telah_disetor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_kurang_bayar">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_kurang_bayar}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_denda">
+					<subreportParameterExpression><![CDATA[$P{total_denda}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_Pajak_yang_harus_bayar">
+					<subreportParameterExpression><![CDATA[$P{total_Pajak_yang_harus_bayar}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_jabatan">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_jabatan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tim_2">
+					<subreportParameterExpression><![CDATA[$P{anggota_tim_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tandatangan_tim_1">
+					<subreportParameterExpression><![CDATA[$P{anggota_tandatangan_tim_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tandatangan_tim_2">
+					<subreportParameterExpression><![CDATA[$P{anggota_tandatangan_tim_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\jasper\\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="935">
+			<subreport>
+				<reportElement x="0" y="0" width="595" height="935" uuid="823a6761-0e3f-410b-980c-553c4adafb89"/>
+				<subreportParameter name="anggota_tim">
+					<subreportParameterExpression><![CDATA[$P{anggota_tim}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hari_surat">
+					<subreportParameterExpression><![CDATA[$P{hari_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_surat">
+					<subreportParameterExpression><![CDATA[$P{tanggal_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bulan_surat">
+					<subreportParameterExpression><![CDATA[$P{bulan_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tahun_surat">
+					<subreportParameterExpression><![CDATA[$P{tahun_surat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_nama">
+					<subreportParameterExpression><![CDATA[$P{supervisor_nama}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_nip">
+					<subreportParameterExpression><![CDATA[$P{supervisor_nip}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supervisor_jabatan_tim">
+					<subreportParameterExpression><![CDATA[$P{supervisor_jabatan_tim}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_sp">
+					<subreportParameterExpression><![CDATA[$P{tanggal_sp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nomor_sp">
+					<subreportParameterExpression><![CDATA[$P{nomor_sp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nama_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{nama_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="npwpd_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{npwpd_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="jenis_wajib_pajak">
+					<subreportParameterExpression><![CDATA[$P{jenis_wajib_pajak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal_sphp">
+					<subreportParameterExpression><![CDATA[$P{tanggal_sphp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nomor_sphp">
+					<subreportParameterExpression><![CDATA[$P{nomor_sphp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_nama">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_nama}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_pangkat">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_pangkat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_nip">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_nip}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_omzet_hasil_pemeriksa">
+					<subreportParameterExpression><![CDATA[$P{total_omzet_hasil_pemeriksa}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_daerah">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_daerah}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_yang_telah_disetor">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_yang_telah_disetor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_pajak_kurang_bayar">
+					<subreportParameterExpression><![CDATA[$P{total_pajak_kurang_bayar}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_denda">
+					<subreportParameterExpression><![CDATA[$P{total_denda}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="total_Pajak_yang_harus_bayar">
+					<subreportParameterExpression><![CDATA[$P{total_Pajak_yang_harus_bayar}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="penandatangan_jabatan">
+					<subreportParameterExpression><![CDATA[$P{penandatangan_jabatan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tim_2">
+					<subreportParameterExpression><![CDATA[$P{anggota_tim_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tandatangan_tim_1">
+					<subreportParameterExpression><![CDATA[$P{anggota_tandatangan_tim_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="anggota_tandatangan_tim_2">
+					<subreportParameterExpression><![CDATA[$P{anggota_tandatangan_tim_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\jasper\\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

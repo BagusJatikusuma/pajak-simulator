@@ -22,41 +22,6 @@
                   <MenuItem mnemonicParsing="false" onAction="#openPersiapan" text="Persiapan" />
                   <MenuItem mnemonicParsing="false" onAction="#openPelaksanaan" text="Pelaksanaan" />
                   <MenuItem mnemonicParsing="false" onAction="#openPelaporan" text="Pelaporan" />
-            <Menu mnemonicParsing="false" text="Restoran">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakRestoran" text="Persiapan" />
-                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="Pelaporan" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Hotel">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#openPersiapanPajakHotel" text="Persiapan" />
-                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="Pelaporan" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Parkir">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Persiapan" />
-                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="Pelaporan" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Hiburan">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Persiapan" />
-                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="Pelaporan" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Penerangan Jalan">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Persiapan" />
-                <MenuItem mnemonicParsing="false" text="Pelaksanaan" />
-                <MenuItem mnemonicParsing="false" text="Pelaporan" />
-              </items>
-            </Menu>
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Master">

@@ -5,18 +5,24 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
+import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.RekapitulasiService;
 import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
+import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -41,6 +47,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -61,6 +68,8 @@ public class PelaksanaanUIController implements Initializable {
     private List<Button> btnList;
 
     private SuratPerintahService suratPerintahService;
+    private RekapitulasiService rekapitulasiService;
+    private Map<String, PersiapanWrapper> persiapanWrapperMapper = new HashMap<>();
     /**
      * Initializes the controller class.
      */
@@ -78,42 +87,85 @@ public class PelaksanaanUIController implements Initializable {
     
     private void addFromFXML() {
         id 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Id");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "ID");
         idSP 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Id SP");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NO SP");
         namaTim 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Nama Tim");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NAMA TIM");
         namaWP 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Nama WP");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NAMA WP");
         tanggalDiBuat 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Tanggal Dibuat");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "TANGGAL DIBUAT");
         action 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Action");
     }
     
     private void populateData() {
         dataCollection = new ObservableArrayList<>();
-        int i = 1;
-        for (final ArsipTablePelaksanaanWrapper obj
-                : dataListFromService) {
-            Button btn = new Button("lihat detail");
-            btn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
+        
+        List<PersiapanWrapper> persiapanWrappers = new ArrayList<>();
+        for (SuratPerintah sp : suratPerintahService.getAllSuratPerintah()) {
+            PersiapanWrapper persiapanWrapper = ConverterHelper.convertSuratPerintahToPersiapanWrapper(sp);
+            persiapanWrappers.add(persiapanWrapper);
+            
+            for (TimWPWrapper timWP : persiapanWrapper.getTimWPWrappers()) {
+                for (WajibPajak wp : timWP.getWajibPajaks()) {
+                    
+                    RekapitulasiWrapper rekapWrapper 
+                        = rekapitulasiService.getRekapitulasi(
+                                persiapanWrapper.getIdSP(), 
+                                wp.getNpwpd());
+                    if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
+                        System.out.println("test rekap "+rekapWrapper.getIdSP());
+                        Button btn = new Button("lihat detail");
+                        btn.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
 
+                            }
+                        });
+
+                        dataCollection.add(new ArsipTablePelaksanaanWrapper(
+                                persiapanWrapper.getIdSP(),
+                                "800/"+persiapanWrapper.getNomorSurat()+"/Bapenda",
+                                timWP.getTim().getNamaTim(),
+                                wp.getNamaWajibPajak(),
+                                "",
+                                btn
+                        ));
+                        
+                        persiapanWrapperMapper.put(rekapWrapper.getIdSP(), persiapanWrapper);
+                    }
+                    
                 }
-            });
-
-            dataCollection.add(new ArsipTablePelaksanaanWrapper(
-                    obj.getId(),
-                    obj.getIdSP(),
-                    obj.getNamaTim(),
-                    obj.getNamaWP(),
-                    obj.getTanggalDiBuat(),
-                    btn
-            ));
-            i++; 
+                
+            }
+            
         }
+        
+//        int i = 1;
+//        for (final ArsipTablePelaksanaanWrapper obj
+//                : dataListFromService) {
+//            Button btn = new Button("lihat detail");
+//            btn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//
+//                }
+//            });
+//
+//            dataCollection.add(new ArsipTablePelaksanaanWrapper(
+//                    obj.getId(),
+//                    obj.getIdSP(),
+//                    obj.getNamaTim(),
+//                    obj.getNamaWP(),
+//                    obj.getTanggalDiBuat(),
+//                    btn
+//            ));
+//            i++; 
+//        }
     }
     
     private void initDataFromService() {
@@ -150,7 +202,8 @@ public class PelaksanaanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     private void associateDataWithColumn() {

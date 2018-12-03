@@ -36,6 +36,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -95,7 +96,8 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("");
         stage.setScene(new Scene(popup));
-        stage.show();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
         
 //        Stage stage = (Stage) cancelBtn.getScene().getWindow();
 //        stage.close();
@@ -168,7 +170,8 @@ public class FormAturDokumenDiPinjamUIController implements Initializable {
                             .put("stage_atur_dokumen_wp", stage);
                     stage.setTitle("Form Atur Dokumen Wajib Pajak");
                     stage.setScene(new Scene(formAturDokumenWP));
-                    stage.show();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
                 }
             });
             
