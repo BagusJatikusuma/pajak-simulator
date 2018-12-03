@@ -15,8 +15,11 @@ import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +31,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  * FXML Controller class
@@ -48,6 +52,8 @@ public class FormInputNomorTanggalPHPController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         nomorBerkasService = ServiceFactory.getNomorBerkasService();
+        setDatePickerFormat();
+        initData();
     }
 
     public void cancelOperation() {
@@ -89,6 +95,48 @@ public class FormInputNomorTanggalPHPController implements Initializable {
             
             Stage stage = (Stage) cancelBtn.getScene().getWindow();
             stage.close();
+        }
+    }
+    
+    private void setDatePickerFormat() {
+        tanggalPengesahanField.setConverter(new StringConverter<LocalDate>()
+        {
+            private DateTimeFormatter dateTimeFormatter
+                    =DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.forLanguageTag("id-ID"));
+
+            @Override
+            public String toString(LocalDate localDate)
+            {
+                if(localDate==null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String dateString)
+            {
+                if(dateString==null || dateString.trim().isEmpty())
+                {
+                    return null;
+                }
+                return LocalDate.parse(dateString,dateTimeFormatter);
+            }
+        });
+       
+    }
+    
+    private void initData() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                    .getGlobalSessionsMap()
+                    .get("pelaksanaan_wrapper");
+        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() != null) 
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil() != null) {
+            nomorSuratField.setText(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil());
+            tanggalPengesahanField.setValue(
+                    new Date(Long.valueOf(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil()))
+                            .toInstant()
+                            .atZone(ZoneId.systemDefault()).toLocalDate());
         }
     }
     

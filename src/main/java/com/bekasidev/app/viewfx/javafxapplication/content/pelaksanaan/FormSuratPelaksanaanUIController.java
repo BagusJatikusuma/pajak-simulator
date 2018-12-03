@@ -8,7 +8,9 @@ package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.DaftarSuratPelaksanaanTableWrapper;
@@ -175,7 +177,17 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     }
     
     public void backToRekapitulasi() {
-        
+        Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
+        rootpaneFormPelaksanaan.getChildren().remove(0);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormDaftarRekapitulasiPerbandinganPendapatan.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPelaksanaan.getChildren().add(contentPane);
     }
     
 }
