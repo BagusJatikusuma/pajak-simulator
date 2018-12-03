@@ -26,9 +26,13 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
                 nomorBerkas.setNomorSuratHasil(rs.getString("nomor_hasil"));
                 nomorBerkas.setNomorSuratPemberitahuan(rs.getString("nomor_pemberitahuan"));
                 nomorBerkas.setNomorSuratPeminjaman(rs.getString("nomor_peminjaman"));
+                nomorBerkas.setNomorBeritaAcara(rs.getString("nomor_berita_acara"));
+                nomorBerkas.setNomorSKPD(rs.getString("nomor_SKPD"));
                 nomorBerkas.setTanggalSuratPemberitahuan(rs.getString("tanggal_pemberitahuan"));
                 nomorBerkas.setTanggalSuratHasil(rs.getString("tanggal_hasil"));
                 nomorBerkas.setTanggalSuratPeminjaman(rs.getString("tanggal_peminjaman"));
+                nomorBerkas.setTanggalBeritaAcara(rs.getString("tanggal_berita_acara"));
+                nomorBerkas.setTanggalSKPD(rs.getString("tanggal_SKPD"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,6 +48,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             case PEMINJAMAN: sql += "nomor_peminjaman=?, tanggal_peminjaman=?"; break;
             case PEMBERITAHUAN: sql += "nomor_pemberitahuan=?, tanggal_pemberitahuan=?"; break;
             case BERITA_ACARA: sql += "nomor_berita_acara=?, tanggal_berita_acara=?"; break;
+            case EVALUASI: sql += "nomor_SKPD=?, tanggal_SKPD=?"; break;
         }
         sql += " WHERE id_sp=? AND id_wp=?";
         try(Connection conn = Connect.connect();
