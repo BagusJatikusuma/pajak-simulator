@@ -71,6 +71,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label npwpdLabel;
     @FXML private Label nomorTanggalSPField;
     
+    @FXML private Button backBtn;
+    
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     
     private RekapitulasiService rekapitulasiService;
@@ -82,6 +84,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
+        backBtn.setVisible(!isHistory.booleanValue());
+        
         initLabel();
         populateData();
         associateDataWithColumn();
@@ -216,7 +221,6 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         
-        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
                         ServiceFactory.getSuratPerintahService().getTimSP(
                         pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
