@@ -18,6 +18,9 @@ public class NomorTanggalWajibPajakWrapper {
     private Date tanggalPemberitahuanPemeriksaan;
     private String nomorPeminjamanDokumen;
     private Date tanggalPeminjamanDokumen;
+    private String nomorSuratHasilPemeriksaan;
+    private Date tanggalSuratHasilPemeriksaan;
+    private Date tanggalBeritaAcaraPemeriksaan;
 
     public NomorTanggalWajibPajakWrapper() {
     }
@@ -29,6 +32,19 @@ public class NomorTanggalWajibPajakWrapper {
         this.nomorPeminjamanDokumen = nomorPeminjamanDokumen;
         this.tanggalPeminjamanDokumen = tanggalPeminjamanDokumen;
     }
+
+    public NomorTanggalWajibPajakWrapper(WajibPajak wajibPajak, String nomorPemberitahuanPemeriksaan, Date tanggalPemberitahuanPemeriksaan, String nomorPeminjamanDokumen, Date tanggalPeminjamanDokumen, String nomorSuratHasilPemeriksaan, Date tanggalSuratHasilPemeriksaan, Date tanggalBeritaAcaraPemeriksaan) {
+        this.wajibPajak = wajibPajak;
+        this.nomorPemberitahuanPemeriksaan = nomorPemberitahuanPemeriksaan;
+        this.tanggalPemberitahuanPemeriksaan = tanggalPemberitahuanPemeriksaan;
+        this.nomorPeminjamanDokumen = nomorPeminjamanDokumen;
+        this.tanggalPeminjamanDokumen = tanggalPeminjamanDokumen;
+        this.nomorSuratHasilPemeriksaan = nomorSuratHasilPemeriksaan;
+        this.tanggalSuratHasilPemeriksaan = tanggalSuratHasilPemeriksaan;
+        this.tanggalBeritaAcaraPemeriksaan = tanggalBeritaAcaraPemeriksaan;
+    }
+    
+    
 
     public WajibPajak getWajibPajak() {
         return wajibPajak;
@@ -68,6 +84,30 @@ public class NomorTanggalWajibPajakWrapper {
 
     public void setTanggalPeminjamanDokumen(Date tanggalPeminjamanDokumen) {
         this.tanggalPeminjamanDokumen = tanggalPeminjamanDokumen;
+    }
+
+    public String getNomorSuratHasilPemeriksaan() {
+        return nomorSuratHasilPemeriksaan;
+    }
+
+    public void setNomorSuratHasilPemeriksaan(String nomorSuratHasilPemeriksaan) {
+        this.nomorSuratHasilPemeriksaan = nomorSuratHasilPemeriksaan;
+    }
+
+    public Date getTanggalSuratHasilPemeriksaan() {
+        return tanggalSuratHasilPemeriksaan;
+    }
+
+    public void setTanggalSuratHasilPemeriksaan(Date tanggalSuratHasilPemeriksaan) {
+        this.tanggalSuratHasilPemeriksaan = tanggalSuratHasilPemeriksaan;
+    }
+
+    public Date getTanggalBeritaAcaraPemeriksaan() {
+        return tanggalBeritaAcaraPemeriksaan;
+    }
+
+    public void setTanggalBeritaAcaraPemeriksaan(Date tanggalBeritaAcaraPemeriksaan) {
+        this.tanggalBeritaAcaraPemeriksaan = tanggalBeritaAcaraPemeriksaan;
     }
     
     

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="146.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormInputTanggalBeritaAcaraUIController">
+   <children>
+      <Label layoutX="36.0" layoutY="22.0" text="Tanggal pengesahan" />
+      <DatePicker fx:id="tanggalPengesahanField" layoutX="34.0" layoutY="43.0" prefHeight="25.0" prefWidth="537.0" />
+      <Button layoutX="460.0" layoutY="92.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="25.0" prefWidth="111.0" text="Simpan" />
+      <Button fx:id="cancelBtn" layoutX="339.0" layoutY="92.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/forminputsuratpemberitahuannomortanggal.css" />
+   </stylesheets>
+</AnchorPane>
