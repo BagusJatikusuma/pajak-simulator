@@ -31,9 +31,11 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -654,11 +656,15 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
-            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
-
-            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+            
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_pengesahan = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_dasar_tanggal = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_biaya_tanggal_apbd = new SimpleDateFormat(pattern, id);
+            
+            if((persiapanWrapper.getNomorSurat() == null || persiapanWrapper.getNomorSurat().equals("")) && persiapanWrapper.getTanggalPengesahan() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_pengesahan", "    ");
             } else {
@@ -877,11 +883,15 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
-            DateFormat df_tanggal_pengesahan = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_dasar_tanggal = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_biaya_tanggal_apbd = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_pengesahan = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_dasar_tanggal = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_biaya_tanggal_apbd = new SimpleDateFormat(pattern, id);
+            
 
-            if(dummi.getNomorSurat() == null && dummi.getTanggalPengesahan() == null){
+            if((dummi.getNomorSurat() == null || dummi.getNomorSurat().equals("")) && dummi.getTanggalPengesahan() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_pengesahan", "    ");
             } else {
@@ -1187,10 +1197,13 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
-            DateFormat df_tanggal_surat = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
             
-            if(persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null && 
+            SimpleDateFormat df_tanggal_surat = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
+            
+            if((persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null || persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen().equals("")) && 
                     persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_surat", "    ");
@@ -1200,7 +1213,7 @@ public class ReportServiceImpl implements ReportService {
             }
             
 
-            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+            if((persiapanWrapper.getNomorSurat() == null || persiapanWrapper.getNomorSurat().equals("")) && persiapanWrapper.getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "   ");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -1284,10 +1297,13 @@ public class ReportServiceImpl implements ReportService {
              */
             
 //            System.out.println("asdasdasdasdsaadsasd" + persiapanPajakPOJO.getWajibPajak().getNamaWP());
-            DateFormat df_tanggal_surat = new SimpleDateFormat("dd MMMM yyyy");
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
             
-            if(persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPemberitahuanPemeriksaan() == null && 
+            SimpleDateFormat df_tanggal_surat = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
+            
+            if((persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPemberitahuanPemeriksaan() == null || persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPemberitahuanPemeriksaan().equals("")) && 
                     persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPemberitahuanPemeriksaan() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_surat", "    ");
@@ -1299,7 +1315,7 @@ public class ReportServiceImpl implements ReportService {
             
             parameter.put("wajib_pajak", wp);
             
-            if(persiapanWrapper.getNomorSurat() == null && persiapanWrapper.getTanggalPengesahan() == null){
+            if((persiapanWrapper.getNomorSurat() == null || persiapanWrapper.getNomorSurat().equals("")) && persiapanWrapper.getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "   ");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -1395,13 +1411,16 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
-            if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -1503,7 +1522,10 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1511,7 +1533,7 @@ public class ReportServiceImpl implements ReportService {
             
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             
-            if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -1613,7 +1635,10 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1621,7 +1646,7 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             
             parameter.put("nomor_sphp", "973/(nomor_sphp)/BAPENDA");
-            parameter.put("tanggal_sphp", "    ");
+            parameter.put("tanggal_sphp", "(tanggal_sphp)");
             
             try {
                JasperFillManager.fillReportToFile(
@@ -1694,14 +1719,17 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
 
             parameter.put("nomor_sphp", "973/(nomor_sphp)/BAPENDA");
-            parameter.put("tanggal_sphp", "    ");
+            parameter.put("tanggal_sphp", "(tanggal_sphp)");
             
             try {
                JasperFillManager.fillReportToFile(
@@ -1774,7 +1802,10 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1871,7 +1902,10 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1919,7 +1953,7 @@ public class ReportServiceImpl implements ReportService {
     }
     
     @Override
-    public void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper) {
+    public void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper, TimSP timSP) {
         try{
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -1946,15 +1980,18 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi());
+//            JRBeanCollectionDataSource beanColDataSource =
+//            new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi());
             
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wp", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1970,9 +2007,17 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("total_pajak_disetor", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakDisetor());
             parameter.put("total_omzet", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzet());
             parameter.put("total_pokokp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPokokPajak());
-            parameter.put("total_denda", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah());
+            parameter.put("total_denda", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalDenda());
+            parameter.put("total_jumlah", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah());
             
-            parameter.put("pemeriksaan_pajak", beanColDataSource);
+            parameter.put("pemeriksaan_pajak", new JRBeanCollectionDataSource(pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()));
+            parameter.put("anggota_tim", new JRBeanCollectionDataSource(timSP.getListAnggota()));
+            
+            parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
+            
+            parameter.put("tanggung_jawab_nama", timSP.getSupervisor().getNamaPegawai());
+            parameter.put("tanggung_jawab_nip", timSP.getSupervisor().getNipPegawai());
+            parameter.put("tanggung_jawab_jabatan", timSP.getSupervisor().getJabatanTim());
             
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -1983,7 +2028,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -1993,7 +2038,7 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter,
-                    beanColDataSource);
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/KertasPemeriksaanPajak.pdf");
@@ -2051,7 +2096,10 @@ public class ReportServiceImpl implements ReportService {
              * Passing ReportTitle and Author as parameters
              */
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -2065,10 +2113,10 @@ public class ReportServiceImpl implements ReportService {
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
             parameter.put("nomor_sphp", "973/(nomor_sphp)/BAPENDA");
-            parameter.put("tanggal_sphp", "    ");
+            parameter.put("tanggal_sphp", "(tanggal_sphp)");
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             
-            if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -2168,7 +2216,10 @@ public class ReportServiceImpl implements ReportService {
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(timSP.getListAnggota());
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nomor_surat", "   ");
             parameter.put("tanggal_surat", "    ");
@@ -2183,9 +2234,9 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("penandatangan_pangkat", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getPangkat());
             parameter.put("penandatangan_nip", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getNipPegawai());
             
-            parameter.put("supervisor_nama", "dummi");
-            parameter.put("supervisor_pangkat", "dummi");
-            parameter.put("supervisor_nip", "dummi");
+            parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
+            parameter.put("supervisor_pangkat", timSP.getSupervisor().getJabatanDinas());
+            parameter.put("supervisor_nip", timSP.getSupervisor().getNipPegawai());
             
             parameter.put("total_omzet_hasil_pemeriksa", String.valueOf(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetPeriksa()));
             parameter.put("total_pajak_daerah", String.valueOf(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakPeriksa()));
@@ -2201,12 +2252,12 @@ public class ReportServiceImpl implements ReportService {
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
             parameter.put("nomor_sphp", "973/(nomor_sphp)/BAPENDA");
-            parameter.put("tanggal_sphp", "    ");
+            parameter.put("tanggal_sphp", "(tanggal_sphp)");
             parameter.put("anggota", beanColDataSource);
             
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             
-            if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -2308,7 +2359,10 @@ public class ReportServiceImpl implements ReportService {
 //            JRBeanCollectionDataSource beanColl =
 //            new JRBeanCollectionDataSource(timSP.getListAnggota());
             
-            DateFormat df_tanggal_sp = new SimpleDateFormat("dd MMMM yyyy");
+            Locale id = new Locale("in", "ID");
+            String pattern = "dd MMMM yyyy";
+            
+            SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nomor_surat", "(nomor surat)");
             parameter.put("tanggal_surat", "(tanggal surat)");
@@ -2320,7 +2374,7 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("supervisor_nip", timSP.getSupervisor().getNipPegawai());
             parameter.put("supervisor_jabatan_tim", timSP.getSupervisor().getJabatanTim());
             
-            if(pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
                 parameter.put("tanggal_sp", "    ");
             } else {
@@ -2338,7 +2392,7 @@ public class ReportServiceImpl implements ReportService {
             }
             
             parameter.put("nomor_sphp", "973/(nomor_sphp)/BAPENDA");
-            parameter.put("tanggal_sphp", "    ");
+            parameter.put("tanggal_sphp", "(tanggal_sphp)");
             
             parameter.put("penandatangan_jabatan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             parameter.put("penandatangan_nama", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getNamaPegawai());
@@ -2370,7 +2424,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, new JRBeanCollectionDataSource(timSP.getListAnggota()));
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -2379,7 +2433,7 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, new JRBeanCollectionDataSource(timSP.getListAnggota()));
+                    parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).pdf");
