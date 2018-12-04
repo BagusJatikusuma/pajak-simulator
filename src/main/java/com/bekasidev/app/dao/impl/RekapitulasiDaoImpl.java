@@ -78,9 +78,9 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
     }
 
     @Override
-    public List<RekapitulasiExport> getAllRekapitulasi() {
+    public List<Rekapitulasi> getAllRekapitulasi() {
         String sql = "SELECT * FROM rekapitulasi";
-        List<RekapitulasiExport> listRekap = new ArrayList<>();
+        List<Rekapitulasi> listRekap = new ArrayList<>();
 
         try(Connection conn = Connect.connect();
             Statement stm = conn.createStatement();
@@ -99,10 +99,9 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
                         rs.getInt("persentase_denda"),
                         rs.getDouble("jumlah")
                 );
-                RekapitulasiExport rkpEks = (RekapitulasiExport) rkp;
-                rkpEks.setIdSP(rs.getString("id_sp"));
-                rkpEks.setIdWP(rs.getString("id_wp"));
-                listRekap.add(rkpEks);
+                rkp.setIdSP(rs.getString("id_sp"));
+                rkp.setIdWP(rs.getString("id_wp"));
+                listRekap.add(rkp);
             }
         } catch (SQLException e) {
             e.printStackTrace();

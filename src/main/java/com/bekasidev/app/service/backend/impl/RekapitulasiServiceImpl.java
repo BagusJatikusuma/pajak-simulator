@@ -86,6 +86,28 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
         }
     }
 
+    @Override
+    public void setNihil(RekapitulasiWrapper rekapitulasiWrapper) {
+        for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
+            rekapitulasi.setPajakHasilPeriksa((double) 0);
+            rekapitulasi.setPajakDisetor((double) 0);
+            rekapitulasi.setOmzet((double) 0);
+            rekapitulasi.setPokokPajak((double) 0);
+            rekapitulasi.setDenda((double) 0);
+            rekapitulasi.setJumlah((double) 0);
+            rekapitulasi.setOmzetHasilPeriksa((double) 0);
+            rekapitulasi.setOmzetLaporan((double) 0);
+        }
+        rekapitulasiWrapper.setTotalOmzetPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalPajakPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalOmzetLaporan((double) 0);
+        rekapitulasiWrapper.setTotalPajakDisetor((double) 0);
+        rekapitulasiWrapper.setTotalOmzet((double) 0);
+        rekapitulasiWrapper.setTotalPokokPajak((double) 0);
+        rekapitulasiWrapper.setTotalDenda((double) 0);
+        rekapitulasiWrapper.setTotalJumlah((double) 0);
+    }
+
     private String convertBulanIntegerIntoString(Integer bulanInt) {
         switch(bulanInt) {
             case 0: return "Januari";

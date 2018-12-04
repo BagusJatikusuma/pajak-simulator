@@ -26,6 +26,7 @@ public class ExportImportServiceImpl implements ExportImportService {
     public void exportData(List<SuratPerintah> listSuratPerintah) throws IOException {
         ExportDokumenWrapper exportDokumenWrapper;
         List<String> lines = new ArrayList<>();
+        lines.add(getIdSP(listSuratPerintah));
         lines.add(getSqlSuratPerintah(listSuratPerintah));
         lines.add(getSqlTimSp(listSuratPerintah));
         lines.add(getSqlBerkasPersiapan(listSuratPerintah));
@@ -40,11 +41,33 @@ public class ExportImportServiceImpl implements ExportImportService {
     public void importData() throws IOException {
         List<String> lines =  Files.readAllLines(Paths.get("file-exported.sql"));
         String sql = "";
-        for(String line : lines){
-            sql += line;
+        String sqlDeleteRekap = "", sqlDeleteBerkas = "", sqlDeleteNomor = "", sqlDeleteTim = "", sqlDeleteSP = "";
+        String[] idSP = lines.get(0).split(",");
+        for(String id : idSP){
+            sqlDeleteRekap += "DELETE FROM rekapitulasi WHERE id_sp=" + id + ";";
+            sqlDeleteBerkas += "DELETE FROM berkas_persiapan WHERE id_sp=" + id + ";";
+            sqlDeleteNomor += "DELETE FROM nomor_berkas WHERE id_sp=" + id + ";";
+            sqlDeleteTim += "DELETE FROM tim_perintah WHERE id_sp=" + id + ";";
+            sqlDeleteSP += "DELETE FROM surat_perintah WHERE id_sp=" + id + ";";
+        }
+//        exportImportDao.importData(sqlDeleteRekap);
+//        exportImportDao.importData(sqlDeleteBerkas);
+//        exportImportDao.importData(sqlDeleteNomor);
+//        exportImportDao.importData(sqlDeleteTim);
+//        exportImportDao.importData(sqlDeleteSP);
+        for(int i =1; i < lines.size();i++){
+            sql += lines.get(i);
         }
 //        System.out.println(sql);
 //        exportImportDao.importData(sql);
+    }
+
+    private String getIdSP(List<SuratPerintah> listSP){
+        String idSP = listSP.get(0).getIdSP();
+        for(int i = 1; i < listSP.size(); i++){
+            idSP += "," + listSP.get(i).getIdSP();
+        }
+        return idSP;
     }
 
     private String getSqlSuratPerintah(List<SuratPerintah> suratPerintahs){
@@ -175,10 +198,10 @@ public class ExportImportServiceImpl implements ExportImportService {
         return sql;
     }
 
-    private String getSqlRekapitulasi(List<RekapitulasiExport> rekapitulasiExports){
+    private String getSqlRekapitulasi(List<Rekapitulasi> rekapitulasiExports){
         String sql = "";
         int count = 0;
-        for(RekapitulasiExport re : rekapitulasiExports){
+        for(Rekapitulasi re : rekapitulasiExports){
             if(count > 0) sql += ",";
             else if(sql.isEmpty()) sql += "INSERT INTO rekapitulasi VALUES";
             sql += "('" + re.getIdSP() +

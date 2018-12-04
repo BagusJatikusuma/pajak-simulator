@@ -12,5 +12,5 @@ public interface RekapitulasiDao {
 
     RekapitulasiWrapper getRekapitulasi(String idSP, String idWP);
 
-    List<RekapitulasiExport> getAllRekapitulasi();
+    List<Rekapitulasi> getAllRekapitulasi();
 }
