@@ -2929,7 +2929,7 @@ public class ReportServiceImpl implements ReportService {
         }
     }
     
-    public void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper, PersiapanWrapper persiapanWrapper, int index) {
+    public void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper, int index) {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -2966,13 +2966,13 @@ public class ReportServiceImpl implements ReportService {
             
             SimpleDateFormat df_tanggal_surat = new SimpleDateFormat(pattern, id);
             
-            if((persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null || persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen().equals("")) && 
-                    persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen().equals("")) && 
+                    pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_pb", "    ");
             } else {
-                parameter.put("nomor_surat", persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen());
-                parameter.put("tanggal_pb", String.valueOf(df_tanggal_surat.format(persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen())));
+                parameter.put("nomor_surat", pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen());
+                parameter.put("tanggal_pb", String.valueOf(df_tanggal_surat.format(pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen())));
             }
             
             parameter.put("nomor_tp", pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1());
@@ -3034,7 +3034,7 @@ public class ReportServiceImpl implements ReportService {
     }
     
     @Override
-    public void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper, PersiapanWrapper persiapanWrapper, int index)  {
+    public void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper, int index)  {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -3072,13 +3072,13 @@ public class ReportServiceImpl implements ReportService {
             
             SimpleDateFormat df_tanggal_surat = new SimpleDateFormat(pattern, id);
             
-            if((persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null || persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen().equals("")) && 
-                    persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
+            if((pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen().equals("")) && 
+                    pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen() == null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_pb", "    ");
             } else {
-                parameter.put("nomor_surat", persiapanWrapper.getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen());
-                parameter.put("tanggal_pb", String.valueOf(df_tanggal_surat.format(persiapanWrapper.getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen())));
+                parameter.put("nomor_surat", pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getNomorPeminjamanDokumen());
+                parameter.put("tanggal_pb", String.valueOf(df_tanggal_surat.format(pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList().get(index).getTanggalPeminjamanDokumen())));
             }
             
             

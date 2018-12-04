@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="935" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3da42b7-807d-480c-8138-4766054d39b4">
 	<property name="ireport.zoom" value="1.0000000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="346"/>
+	<property name="ireport.y" value="0"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
@@ -190,7 +190,7 @@ BEKASI]]></text>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[“Menindaklanjuti surat kami Nomor : 973 /" + $P{nomor_surat} + " / Bapenda tanggal ” + $P{tanggal_pb} + “ Perihal Peminjaman buku-buku, catatan, dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain dalam rangka Pemeriksaan Pajak Daerah, ternyata Saudara belum menyerahkan secara lengkap buku, catatan, dan dokumen yang menjadi dasar pembukuan atau pencatatan, dan dokumen lain yang berhubungan dengan pendapatan yang diperoleh, yang berkaitan dengan kewajiban pemungutan dan penyetoran” + $P{jenis_pajak} + “ sampai batas waktu yang telah ditentukan. Untuk itu perlu kami sampaikan hal-hal sebagai berikut :”]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Menindaklanjuti surat kami Nomor : 973 /" + $P{nomor_surat} + "/ Bapenda tanggal " + $P{tanggal_pb} + " Perihal Peminjaman buku-buku, catatan, dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain dalam rangka Pemeriksaan Pajak Daerah, ternyata Saudara belum menyerahkan secara lengkap buku, catatan, dan dokumen yang menjadi dasar pembukuan atau pencatatan, dan dokumen lain yang berhubungan dengan pendapatan yang diperoleh, yang berkaitan dengan kewajiban pemungutan dan penyetoran " + $P{jenis_pajak} + " sampai batas waktu yang telah ditentukan. Untuk itu perlu kami sampaikan hal-hal sebagai berikut : "]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="101" y="330" width="444" height="32" uuid="c3625ac4-3cd8-486e-b55a-f8011bce8bd8"/>
@@ -274,7 +274,7 @@ BEKASI]]></text>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[“Dalam hal pemeriksaan dilakukan terhadap Wajib Pajak yang melakukan kegiatan usaha Wajib Pajak tidak memenuhi sebagian atau seluruh permintaan peminjaman sebagaimana dimaksud dalam Pasal 18 ayat (3) sehingga besarnya pajak terutang tidak dapat dihitung, Tim Pemeriksa Pajak Daerah dapat menghitung Pajak Daerah yang terutang secara jabatan sesuai dengfan ketentuan peraturan perundang-undangan.”]]></text>
+				<text><![CDATA["Dalam hal pemeriksaan dilakukan terhadap Wajib Pajak yang melakukan kegiatan usaha Wajib Pajak tidak memenuhi sebagian atau seluruh permintaan peminjaman sebagaimana dimaksud dalam Pasal 18 ayat (3) sehingga besarnya pajak terutang tidak dapat dihitung, Tim Pemeriksa Pajak Daerah dapat menghitung Pajak Daerah yang terutang secara jabatan sesuai dengfan ketentuan peraturan perundang-undangan."]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="80" y="567" width="465" height="58" uuid="26a051df-7597-473a-8208-47e134a47af8"/>
