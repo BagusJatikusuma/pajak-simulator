@@ -2,11 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="935" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3da42b7-807d-480c-8138-4766054d39b4">
 	<property name="ireport.zoom" value="1.0000000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="58"/>
-        <import value="com.bekasidev.app.model.WajibPajak"/>
+	<property name="ireport.y" value="346"/>
+	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
-	<parameter name="nomor_st1" class="java.lang.String"/>
+	<parameter name="nomor_tp" class="java.lang.String"/>
 	<parameter name="tanggal_pb" class="java.lang.String"/>
 	<parameter name="jenis_pajak" class="java.lang.String"/>
 	<parameter name="penandatangan_jabatan" class="java.lang.String"/>
