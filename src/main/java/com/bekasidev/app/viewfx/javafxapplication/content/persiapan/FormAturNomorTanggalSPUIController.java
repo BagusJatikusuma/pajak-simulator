@@ -124,6 +124,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         else {
             SuratPerintah sp = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
             suratPerintahService.updateSuratPerintah(sp);
+            suratPerintahService.updateTim(sp.getListTim());
             System.out.println("update success "+sp.getNomorUrut()+" - "+sp.getTempat()+" : "+sp.getIdSP());
         }
         

@@ -42,6 +42,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        initData();
         initListener();
     }
 
@@ -88,6 +89,18 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
             }
          });
 
+    }
+    
+    private void initData() {
+        Rekapitulasi rek
+                = (Rekapitulasi) SessionProvider
+                    .getGlobalSessionsMap()
+                    .get("selected_bulan_rekapitulasi");
+        NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+        DecimalFormat formatter = (DecimalFormat) anotherFormat;
+        
+        omzetDiLaporkanField.setText(formatter.format(rek.getOmzetLaporan()));
+        omzetHasilField.setText(formatter.format(rek.getOmzetHasilPeriksa()));
     }
     
     public void finishOperation() {

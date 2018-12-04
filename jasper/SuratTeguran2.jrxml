@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="96"/>
-        <import value="com.bekasidev.app.model.WajibPajak"/>
+	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="nomor" class="java.lang.String"/>
 	<parameter name="wajib_pajak" class="com.bekasidev.app.model.WajibPajak"/>
@@ -13,7 +13,6 @@
 	<parameter name="tanggal_tp" class="java.lang.String"/>
 	<parameter name="jenis_pajak" class="java.lang.String"/>
 	<parameter name="hari" class="java.lang.String"/>
-	<parameter name="tanggal" class="java.lang.String"/>
 	<parameter name="waktu" class="java.lang.String"/>
 	<parameter name="lokasi" class="java.lang.String"/>
 	<parameter name="penandatangan_nama" class="java.lang.String"/>
