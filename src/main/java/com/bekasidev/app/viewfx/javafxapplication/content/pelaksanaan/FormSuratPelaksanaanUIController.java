@@ -69,11 +69,23 @@ public class FormSuratPelaksanaanUIController implements Initializable {
         dataCollection = FXCollections.observableArrayList();
         boolean phpSudahDiatur = false;
         boolean beritaAcaraSudahDiatur = false;
+        boolean suratTeguran1SudahDiAtur = false;
+        boolean suratTeguran2SudahDiatur = false;
         if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() != null) 
                 && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil() != null)
             phpSudahDiatur = true;
         if (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalBeritaAcara() != null)
             beritaAcaraSudahDiatur = true;
+        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() != null)
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() != null)
+            suratTeguran1SudahDiAtur = true;
+        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran2() != null)
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getJamTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTempatTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getHariTeguran2() != null) {
+            suratTeguran2SudahDiatur = true;   
+        }
         
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("1","Surat Pernyataan Data Benar",""));
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("2","Tanda Terima Surat Pemberitahuan Hasil Pemeriksaan",""));
@@ -86,6 +98,10 @@ public class FormSuratPelaksanaanUIController implements Initializable {
                 (beritaAcaraSudahDiatur)?"Tanggal sudah diatur":"Tanggal Belum diatur"));
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("8","Surat Pernyataan Kesanggupan Membayar Pajak Kurang Bayar",""));
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("9","Surat Pernyataan Akan Membayar",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("10","Surat Teguran 1",
+                (suratTeguran1SudahDiAtur)?"Sudah diatur":"Belum diatur"));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("11","Surat Teguran 2",
+                (suratTeguran2SudahDiatur)?"Sudah diatur":"Belum diatur"));
         
     }
 
@@ -98,7 +114,13 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     public void aturNomorTanggalSurat() {
         DaftarSuratPelaksanaanTableWrapper wrapper 
                 = (DaftarSuratPelaksanaanTableWrapper)daftarSuratTable.getSelectionModel().getSelectedItem();
-        if (wrapper.getNo().equals("3")) {
+        if (wrapper.getNo().equals("3") 
+                || wrapper.getNo().equals("10")) {
+            if (wrapper.getNo().equals("3")) {
+                SessionProvider.getGlobalSessionsMap().put("surat_selected","3");
+            } else {
+                SessionProvider.getGlobalSessionsMap().put("surat_selected","10");
+            }
             Pane formAturBulanRekapitulasi = null;
             try {
                 formAturBulanRekapitulasi = FXMLLoader
@@ -118,6 +140,20 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             try {
                 formAturBulanRekapitulasi = FXMLLoader
                         .load(getClass().getClassLoader().getResource("fxml/FormInputTanggalBeritaAcaraUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("Form Atur Tanggal");
+            stage.setScene(new Scene(formAturBulanRekapitulasi));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        }
+        else if (wrapper.getNo().equals("11")) {
+            Pane formAturBulanRekapitulasi = null;
+            try {
+                formAturBulanRekapitulasi = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/FormInputSuratTeguranDua.fxml"));
             } catch (IOException ex) {
                 Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
             }

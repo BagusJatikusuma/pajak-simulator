@@ -178,7 +178,6 @@ public class ConverterHelper {
         
         for (TimSP timSP : suratPerintah.getListTim()) {
             for (WajibPajak wp : timSP.getListWP()) {
-                
                 NomorTanggalWajibPajakWrapper nt = new NomorTanggalWajibPajakWrapper();
                 nt.setWajibPajak(wp);
                 nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());

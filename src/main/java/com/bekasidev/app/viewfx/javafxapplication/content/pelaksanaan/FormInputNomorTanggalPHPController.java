@@ -68,18 +68,25 @@ public class FormInputNomorTanggalPHPController implements Initializable {
                     .get("pelaksanaan_wrapper");
         if (!nomorSuratField.getText().equals("")
                 && tanggalPengesahanField.getValue() != null) {
+            String suratIndexSelected = (String) SessionProvider.getGlobalSessionsMap().get("surat_selected");
             nomorBerkasService.setNomorBerkas(
                     pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
                     pelaksanaanWrapper.getWpSelected().getNpwpd(), 
                     nomorSuratField.getText(), 
                     String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()), 
-                    Surat.HASIL);
+                    (suratIndexSelected.equals("3"))?Surat.HASIL:Surat.TEGURAN_PERTAMA);
             System.out.println("nomor berkas surat hasil berhasil disimpan");
-            
-            WajibPajak wpSelected = pelaksanaanWrapper.getWpSelected();
-            wpSelected.getNomorBerkas().setNomorSuratHasil(nomorSuratField.getText());
-            wpSelected.getNomorBerkas().setTanggalSuratHasil(
-                String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+            if (suratIndexSelected.equals("3")) {
+                WajibPajak wpSelected = pelaksanaanWrapper.getWpSelected();
+                wpSelected.getNomorBerkas().setNomorSuratHasil(nomorSuratField.getText());
+                wpSelected.getNomorBerkas().setTanggalSuratHasil(
+                    String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+            } else {
+                WajibPajak wpSelected = pelaksanaanWrapper.getWpSelected();
+                wpSelected.getNomorBerkas().setNomorTeguran1(nomorSuratField.getText());
+                wpSelected.getNomorBerkas().setTanggalTeguran1(
+                    String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+            }
             
             Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
             rootpaneFormPelaksanaan.getChildren().remove(0);
@@ -130,13 +137,26 @@ public class FormInputNomorTanggalPHPController implements Initializable {
                 = (PelaksanaanWrapper) SessionProvider
                     .getGlobalSessionsMap()
                     .get("pelaksanaan_wrapper");
-        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() != null) 
-                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil() != null) {
-            nomorSuratField.setText(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil());
-            tanggalPengesahanField.setValue(
-                    new Date(Long.valueOf(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil()))
-                            .toInstant()
-                            .atZone(ZoneId.systemDefault()).toLocalDate());
+        String suratIndexSelected = (String) SessionProvider.getGlobalSessionsMap().get("surat_selected");
+        
+        if (suratIndexSelected.equals("3")) {
+            if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() != null) 
+                    && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil() != null) {
+                nomorSuratField.setText(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil());
+                tanggalPengesahanField.setValue(
+                        new Date(Long.valueOf(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil()))
+                                .toInstant()
+                                .atZone(ZoneId.systemDefault()).toLocalDate());
+            }
+        } else {
+            if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() != null) 
+                    && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() != null) {
+                nomorSuratField.setText(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1());
+                tanggalPengesahanField.setValue(
+                        new Date(Long.valueOf(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1()))
+                                .toInstant()
+                                .atZone(ZoneId.systemDefault()).toLocalDate());
+            }
         }
     }
     
