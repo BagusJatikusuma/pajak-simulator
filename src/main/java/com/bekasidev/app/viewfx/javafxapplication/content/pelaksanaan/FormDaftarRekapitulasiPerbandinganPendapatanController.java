@@ -262,6 +262,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 
           //rapel
 //        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);
+          reportService.createSuratTeguran1(pelaksanaanWrapper, 0);
+          reportService.createSuratTeguran2(pelaksanaanWrapper, 0);
         
     }
     

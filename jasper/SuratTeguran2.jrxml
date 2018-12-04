@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTeguran2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cf03e3d-e587-4d09-887e-63f7b05db796">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="96"/>
+	<property name="ireport.y" value="311"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="nomor" class="java.lang.String"/>
@@ -195,7 +195,7 @@ BEKASI]]></text>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[“Menindaklanjuti surat kami Nomor : 973/“ + $P{nomot_surat} + “/Bapenda tanggal” + $P{tanggal_pb} + “ Perihal Peminjaman buku-buku, catatan, Dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain dalam rangka Pemeriksaan Pajak Daerah,  dan surat kami Nomor : ” + $P{nomor_tp} + “ tanggal ” + $P{tanggal_tp} + “ Perihal Teguran pertama penyampaian data terkait Pemeriksaan  Pajak, bahwa sampai dengan saat ini saudara tidak menanggapi untuk menyampaikan kekurangan data-data dan/atau meminjamkan buku atau catatan, dokumen yang menjadi dasar dan dokumen lain yang berhubungan  dengan pendapatan yang diperoleh, yang berkaitan dengan kewajiban pemungutan dan penyetoran ” + $P{jenis_pajak} +  “sampai batas waktu yang telah ditentukan.”]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Menindaklanjuti surat kami Nomor : 973/" + $P{nomor_surat} + "/Bapenda tanggal" + $P{tanggal_pb} + " Perihal Peminjaman buku-buku, catatan, Dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain dalam rangka Pemeriksaan Pajak Daerah,  dan surat kami Nomor : " + $P{nomor_tp} + " tanggal " + $P{tanggal_tp} + " Perihal Teguran pertama penyampaian data terkait Pemeriksaan  Pajak, bahwa sampai dengan saat ini saudara tidak menanggapi untuk menyampaikan kekurangan data-data dan/atau meminjamkan buku atau catatan, dokumen yang menjadi dasar dan dokumen lain yang berhubungan  dengan pendapatan yang diperoleh, yang berkaitan dengan kewajiban pemungutan dan penyetoran " + $P{jenis_pajak} + " sampai batas waktu yang telah ditentukan."]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="78" y="360" width="465" height="32" uuid="67f11761-0a5f-497e-b621-47f4737a1859"/>
@@ -251,14 +251,14 @@ BEKASI]]></text>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{hari} + "/" + $P{tanggal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{hari}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="227" y="413" width="316" height="15" uuid="cae87b25-877d-4c38-acb3-1905cd02670d"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pukul " + $P{waktu}+ " WIB"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pukul " + $P{waktu} + " WIB"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="227" y="428" width="316" height="33" uuid="9d90f392-5092-4d03-8e4a-9a32b8e54945"/>

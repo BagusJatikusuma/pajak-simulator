@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox fx:id="masterPegawaiPane" maxHeight="613.0" maxWidth="1400.0" minWidth="1236.0" prefHeight="613.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
+
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="200.0">
-         <children>
-            <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" />
-            <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
-            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" />
-            <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addPegawai" prefHeight="25.0" prefWidth="181.0" text="tambah pegawai" />
-         </children>
-      </AnchorPane>
-      <HBox maxHeight="575.0" maxWidth="1384.0" minHeight="575.0" minWidth="900.0" prefHeight="575.0" prefWidth="1190.0">
-         <children>
-            <TableView fx:id="masterPegawaiTable" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0">
-               <columns>
-                  <TableColumn prefWidth="124.0" text="NIP" />
-                  <TableColumn prefWidth="264.0" text="Nama" />
-                  <TableColumn prefWidth="258.0" text="Pangkat" />
-                  <TableColumn prefWidth="146.0" text="Golongan" />
-                  <TableColumn prefWidth="320.0" text="Jabatan" />
-                  <TableColumn prefWidth="108.0" text="Action" />
-               </columns>
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </TableView>
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
+      <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
+      <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addPegawai" prefHeight="25.0" prefWidth="181.0" text="Tambah Pegawai" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="masterPegawaiTable" layoutX="10.0" layoutY="49.0" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="NIP" />
+            <TableColumn maxWidth="270.0" minWidth="270.0" prefWidth="270.0" text="Nama" />
+            <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="Pangkat" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Golongan" />
+            <TableColumn maxWidth="320.0" minWidth="320.0" prefWidth="320.0" text="Jabatan" />
+            <TableColumn maxWidth="197.0" minWidth="197.0" prefWidth="197.0" text="Action" />
+         </columns>
+      </TableView>
    </children>
-</VBox>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
+</AnchorPane>

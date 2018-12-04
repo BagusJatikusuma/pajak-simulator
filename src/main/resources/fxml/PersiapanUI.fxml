@@ -11,10 +11,10 @@
 <AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
    <children>
       <Separator layoutX="244.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
-      <TextField alignment="CENTER" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="218.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <TextField alignment="CENTER" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Button layoutX="173.0" layoutY="11.0" mnemonicParsing="false" onAction="#cariArsip" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
       <Button layoutX="260.0" layoutY="11.0" mnemonicParsing="false" onAction="#addDokumenPersiapan" prefHeight="25.0" prefWidth="210.0" text="Tambah Dokumen Persiapan" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
-      <TableView fx:id="arsipPersiapanTable" layoutX="14.0" layoutY="47.0" prefHeight="650.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <TableView fx:id="arsipPersiapanTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <columns>
             <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="ID" />
             <TableColumn maxWidth="500.0" minWidth="500.0" prefWidth="500.0" text="NOMOR SURAT PERINTAH" />
@@ -24,6 +24,6 @@
       </TableView>
    </children>
    <padding>
-      <Insets bottom="30.0" />
+      <Insets bottom="14.0" />
    </padding>
 </AnchorPane>
