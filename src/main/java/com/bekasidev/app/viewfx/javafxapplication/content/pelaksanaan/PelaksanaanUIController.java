@@ -128,7 +128,6 @@ public class PelaksanaanUIController implements Initializable {
                                 persiapanWrapper.getIdSP(), 
                                 wp.getNpwpd());
                     if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
-                        System.out.println("test rekap "+rekapWrapper.getIdSP());
                         Button btn = new Button("lihat detail");
 
                         dataCollection.add(new ArsipTablePelaksanaanWrapper(

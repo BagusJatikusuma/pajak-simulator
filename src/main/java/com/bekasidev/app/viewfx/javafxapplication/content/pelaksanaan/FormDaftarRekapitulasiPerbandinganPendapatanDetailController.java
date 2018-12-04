@@ -99,8 +99,10 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
         NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
         DecimalFormat formatter = (DecimalFormat) anotherFormat;
         
-//        omzetDiLaporkanField.setText(formatter.format(rek.getOmzetLaporan()));
-//        omzetHasilField.setText(formatter.format(rek.getOmzetHasilPeriksa()));
+        if (rek.getOmzetLaporan() != null)
+            omzetDiLaporkanField.setText(formatter.format(rek.getOmzetLaporan()));
+        if (rek.getOmzetHasilPeriksa() != null)
+            omzetHasilField.setText(formatter.format(rek.getOmzetHasilPeriksa()));
     }
     
     public void finishOperation() {

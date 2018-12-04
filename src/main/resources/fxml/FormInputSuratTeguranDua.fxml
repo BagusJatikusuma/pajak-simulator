@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="386.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormInputSuratTeguranDuaController">
+   <children>
+      <Label layoutX="35.0" layoutY="23.0" text="Nomor surat" />
+      <TextField fx:id="nomorSuratField" layoutX="34.0" layoutY="42.0" prefHeight="25.0" prefWidth="537.0" />
+      <Label layoutX="36.0" layoutY="76.0" text="Tanggal pengesahan" />
+      <DatePicker fx:id="tanggalPengesahanField" layoutX="34.0" layoutY="97.0" prefHeight="25.0" prefWidth="537.0" />
+      <Button layoutX="460.0" layoutY="332.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="25.0" prefWidth="111.0" text="Simpan" />
+      <Button fx:id="cancelBtn" layoutX="339.0" layoutY="332.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
+      <Separator layoutX="34.0" layoutY="137.0" prefHeight="5.0" prefWidth="537.0" />
+      <DatePicker fx:id="hariTanggalField" layoutX="33.0" layoutY="171.0" prefHeight="25.0" prefWidth="537.0" />
+      <Label layoutX="35.0" layoutY="150.0" text="Hari, Tanggal" />
+      <TextField fx:id="waktuField" layoutX="33.0" layoutY="228.0" prefHeight="25.0" prefWidth="537.0" />
+      <Label layoutX="34.0" layoutY="209.0" text="Waktu" />
+      <Label layoutX="34.0" layoutY="266.0" text="Tempat" />
+      <TextField fx:id="tempatField" layoutX="33.0" layoutY="285.0" prefHeight="25.0" prefWidth="537.0" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/forminputsuratpemberitahuannomortanggal.css" />
+   </stylesheets>
+</AnchorPane>
