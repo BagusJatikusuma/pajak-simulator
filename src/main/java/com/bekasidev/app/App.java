@@ -8,7 +8,12 @@ import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import java.io.File;
 import java.io.IOException;
 
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -81,6 +86,12 @@ public class App extends Application
     public void start(Stage primaryStage) throws Exception {
         try {
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
+//            ServiceFactory.getExportImportService().exportData(
+//                    ServiceFactory.getSuratPerintahService().getAllSuratPerintah()
+//            );
+
+//            ServiceFactory.getExportImportService().importData();
             
             SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
             
