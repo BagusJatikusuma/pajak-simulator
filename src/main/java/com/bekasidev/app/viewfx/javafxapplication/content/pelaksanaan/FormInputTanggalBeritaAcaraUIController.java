@@ -15,8 +15,11 @@ import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +30,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  * FXML Controller class
@@ -46,6 +50,8 @@ public class FormInputTanggalBeritaAcaraUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         nomorBerkasService = ServiceFactory.getNomorBerkasService();
+        setDatePickerFormat();
+        initData();
     }    
     
     public void cancelOperation() {
@@ -87,6 +93,47 @@ public class FormInputTanggalBeritaAcaraUIController implements Initializable {
             Stage stage = (Stage) cancelBtn.getScene().getWindow();
             stage.close();
             
+        }
+        
+    }
+    
+    private void setDatePickerFormat() {
+        tanggalPengesahanField.setConverter(new StringConverter<LocalDate>()
+        {
+            private DateTimeFormatter dateTimeFormatter
+                    =DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy").withLocale(Locale.forLanguageTag("id-ID"));
+
+            @Override
+            public String toString(LocalDate localDate)
+            {
+                if(localDate==null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String dateString)
+            {
+                if(dateString==null || dateString.trim().isEmpty())
+                {
+                    return null;
+                }
+                return LocalDate.parse(dateString,dateTimeFormatter);
+            }
+        });
+       
+    }
+    
+    private void initData() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                    .getGlobalSessionsMap()
+                    .get("pelaksanaan_wrapper");
+        if (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalBeritaAcara() != null) {
+            tanggalPengesahanField.setValue(
+                    new Date(Long.valueOf(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalBeritaAcara()))
+                            .toInstant()
+                            .atZone(ZoneId.systemDefault()).toLocalDate());
         }
         
     }

@@ -55,5 +55,6 @@ public interface ReportService {
     
     void createTemplateSuratPelaksanaan(PelaksanaanWrapper pelaksanaanWrapper);
     void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper, TimSP timSP);
-
+    void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper);
+    void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper);
 }

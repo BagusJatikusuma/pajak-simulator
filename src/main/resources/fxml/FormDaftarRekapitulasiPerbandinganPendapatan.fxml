@@ -45,7 +45,7 @@
         </columns>
       </TableView>
       <Button layoutX="345.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Generate" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="455.0" />
-      <Button layoutX="258.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="455.0" />
+      <Button fx:id="backBtn" layoutX="258.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="455.0" />
       <Button layoutX="498.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut cetak persuratan " />
    </children>
 </AnchorPane>
