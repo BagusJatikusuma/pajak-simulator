@@ -13,4 +13,6 @@ public interface RekapitulasiService {
     void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, float persentase);
 
     void setBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir);
+
+    void setNihil(RekapitulasiWrapper rekapitulasiWrapper);
 }

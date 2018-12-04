@@ -67,20 +67,45 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
         int selisihTahun = calAkhir.get(Calendar.YEAR) - calAwal.get(Calendar.YEAR);
         int bulanAwal = calAwal.get(Calendar.MONTH), bulanAkhir, count = 0;
         int jmlBulan = 12*selisihTahun + (calAkhir.get(Calendar.MONTH) - bulanAwal) + 1;
+        int denda = 0;
         for(int i = 0; i <= selisihTahun; i++){
             System.out.println("Masuk");
             if(i != selisihTahun) bulanAkhir = 12;
             else bulanAkhir = calAkhir.get(Calendar.MONTH)+1;
             for(int j = bulanAwal; j < bulanAkhir;j++){
+                if(((jmlBulan - count) * 2) > 48) denda = 48;
+                else denda = (jmlBulan - count) * 2;
                 rekapitulasiWrapper.getListRekapitulasi().add(new Rekapitulasi(
                     convertBulanIntegerIntoString(j) + " " + (calAwal.get(Calendar.YEAR) + i),
-                        (jmlBulan - count) * 2
+                        denda
                 ));
                 System.out.println(convertBulanIntegerIntoString(j) + " " + (jmlBulan - count) * 2);
                 count += 1;
             }
             if(i != selisihTahun) bulanAwal = 0;
         }
+    }
+
+    @Override
+    public void setNihil(RekapitulasiWrapper rekapitulasiWrapper) {
+        for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
+            rekapitulasi.setPajakHasilPeriksa((double) 0);
+            rekapitulasi.setPajakDisetor((double) 0);
+            rekapitulasi.setOmzet((double) 0);
+            rekapitulasi.setPokokPajak((double) 0);
+            rekapitulasi.setDenda((double) 0);
+            rekapitulasi.setJumlah((double) 0);
+            rekapitulasi.setOmzetHasilPeriksa((double) 0);
+            rekapitulasi.setOmzetLaporan((double) 0);
+        }
+        rekapitulasiWrapper.setTotalOmzetPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalPajakPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalOmzetLaporan((double) 0);
+        rekapitulasiWrapper.setTotalPajakDisetor((double) 0);
+        rekapitulasiWrapper.setTotalOmzet((double) 0);
+        rekapitulasiWrapper.setTotalPokokPajak((double) 0);
+        rekapitulasiWrapper.setTotalDenda((double) 0);
+        rekapitulasiWrapper.setTotalJumlah((double) 0);
     }
 
     private String convertBulanIntegerIntoString(Integer bulanInt) {

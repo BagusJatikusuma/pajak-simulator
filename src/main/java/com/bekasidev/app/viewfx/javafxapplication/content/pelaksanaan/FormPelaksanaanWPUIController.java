@@ -21,6 +21,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -103,6 +104,16 @@ public class FormPelaksanaanWPUIController implements Initializable {
         }
         
         pelaksanaanWrapper.setWpSelected(wp);
+        Map<String, RekapitulasiWrapper> rekapMapperHistory
+                = (Map<String, RekapitulasiWrapper>) SessionProvider.getGlobalSessionsMap()
+                        .get("rekap_wrapper_history");
+        if (rekapMapperHistory != null) {
+            pelaksanaanWrapper.setRekapitulasiWrapper(
+                    rekapMapperHistory.get(
+                            pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                            +pelaksanaanWrapper.getTimSelected().getIdTim()
+                            +pelaksanaanWrapper.getWpSelected().getNpwpd()));
+        }
         
         if (pelaksanaanWrapper.getRekapitulasiWrapper() == null) {
             RekapitulasiWrapper rekapitulasiWrapper

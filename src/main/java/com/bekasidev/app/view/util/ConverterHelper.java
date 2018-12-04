@@ -183,10 +183,15 @@ public class ConverterHelper {
                 nt.setWajibPajak(wp);
                 nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
                 nt.setNomorPeminjamanDokumen(wp.getNomorBerkas().getNomorSuratPeminjaman());
+                nt.setNomorSuratHasilPemeriksaan(wp.getNomorBerkas().getNomorSuratHasil());
                 if (wp.getNomorBerkas().getTanggalSuratPemberitahuan() != null)
                     nt.setTanggalPemberitahuanPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPemberitahuan())));
                 if (wp.getNomorBerkas().getTanggalSuratPeminjaman() != null)
                     nt.setTanggalPeminjamanDokumen(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratPeminjaman())));
+                if (wp.getNomorBerkas().getTanggalSuratHasil() != null)
+                    nt.setTanggalSuratHasilPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalSuratHasil())));
+                if (wp.getNomorBerkas().getTanggalBeritaAcara() != null)
+                    nt.setTanggalBeritaAcaraPemeriksaan(new Date(Long.valueOf(wp.getNomorBerkas().getTanggalBeritaAcara())));
                 
                 nomorTanggalWPList.add(nt);
                 

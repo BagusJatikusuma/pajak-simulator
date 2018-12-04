@@ -115,7 +115,7 @@ public class FormTambahTimWPUIController implements Initializable {
             persiapanWrapper.getTimWPWrappers().add(timWPWrapper);
         
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
-        rootpaneFormPersiapan.getChildren().remove(1);
+        rootpaneFormPersiapan.getChildren().remove(1*(rootpaneFormPersiapan.getChildren().size()-1));
 
         Pane contentPane = null;
         try { 
