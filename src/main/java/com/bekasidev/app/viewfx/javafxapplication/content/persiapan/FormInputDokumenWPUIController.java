@@ -34,7 +34,6 @@ import javafx.stage.Stage;
  */
 public class FormInputDokumenWPUIController implements Initializable {
     @FXML private TextField namaDokumenField;
-    @FXML private TextField keteranganField;
     @FXML private Button cancelBtn;
 
     /**
@@ -65,7 +64,7 @@ public class FormInputDokumenWPUIController implements Initializable {
 //                    .get("selected_dokumen_wp");
         dokumenTempList.add(new DokumenPinjaman(
                                 namaDokumenField.getText(), 
-                                keteranganField.getText()));
+                                ""));
 //        for (DokumenPinjamanWajibPajakWrapper obj
 //                :dokumenTempList) {
 //            if (obj.getWajibPajak().getNpwpd()
