@@ -18,6 +18,12 @@ public class ServiceFactory {
     private static SuratPerintahService suratPerintahService = null;
     private static RekapitulasiService rekapitulasiService = null;
     private static NomorBerkasService nomorBerkasService = null;
+    private static ExportImportService exportImportService = null;
+
+    public static ExportImportService getExportImportService(){
+        if(exportImportService == null) exportImportService = new ExportImportServiceImpl();
+        return exportImportService;
+    }
 
     public static RekapitulasiService getRekapitulasiService(){
         if(rekapitulasiService == null) rekapitulasiService = new RekapitulasiServiceImpl();

@@ -67,14 +67,17 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
         int selisihTahun = calAkhir.get(Calendar.YEAR) - calAwal.get(Calendar.YEAR);
         int bulanAwal = calAwal.get(Calendar.MONTH), bulanAkhir, count = 0;
         int jmlBulan = 12*selisihTahun + (calAkhir.get(Calendar.MONTH) - bulanAwal) + 1;
+        int denda = 0;
         for(int i = 0; i <= selisihTahun; i++){
             System.out.println("Masuk");
             if(i != selisihTahun) bulanAkhir = 12;
             else bulanAkhir = calAkhir.get(Calendar.MONTH)+1;
             for(int j = bulanAwal; j < bulanAkhir;j++){
+                if(((jmlBulan - count) * 2) > 48) denda = 48;
+                else denda = (jmlBulan - count) * 2;
                 rekapitulasiWrapper.getListRekapitulasi().add(new Rekapitulasi(
                     convertBulanIntegerIntoString(j) + " " + (calAwal.get(Calendar.YEAR) + i),
-                        (jmlBulan - count) * 2
+                        denda
                 ));
                 System.out.println(convertBulanIntegerIntoString(j) + " " + (jmlBulan - count) * 2);
                 count += 1;
