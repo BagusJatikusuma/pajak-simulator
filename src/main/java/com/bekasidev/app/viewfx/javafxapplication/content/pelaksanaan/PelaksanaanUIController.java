@@ -78,6 +78,7 @@ public class PelaksanaanUIController implements Initializable {
     private Map<String, Tim> timMapper = new HashMap<>();
     private Map<String, WajibPajak> wpMapper = new HashMap<>();
     private Map<String, RekapitulasiWrapper> rekapMapper = new HashMap<>();
+    private Map<String, RekapitulasiWrapper> rekapMapperHistory = new HashMap<>();
     /**
      * Initializes the controller class.
      */
@@ -145,6 +146,8 @@ public class PelaksanaanUIController implements Initializable {
                         wpMapper.put(String.valueOf(index), wp);
                         rekapMapper.put(String.valueOf(index), rekapWrapper);
                         
+                        rekapMapperHistory.put(sp.getIdSP()+timWP.getTim().getIdTim()+wp.getNpwpd(), rekapWrapper);
+                        
                         index++;
                     }
                     
@@ -153,7 +156,9 @@ public class PelaksanaanUIController implements Initializable {
             }
             
         }
-        
+        //insert rekapWrapper history to session
+        SessionProvider.getGlobalSessionsMap()
+                        .put("rekap_wrapper_history", rekapMapperHistory);
         for (final ArsipTablePelaksanaanWrapper obj:dataCollection) {
             Button btn = obj.getAction();
             btn.setOnAction(new EventHandler<ActionEvent>() {
