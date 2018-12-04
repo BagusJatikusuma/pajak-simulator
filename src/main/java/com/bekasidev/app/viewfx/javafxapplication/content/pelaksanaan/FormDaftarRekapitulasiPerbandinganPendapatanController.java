@@ -71,6 +71,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label npwpdLabel;
     @FXML private Label nomorTanggalSPField;
     
+    @FXML private Button backBtn;
+    
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     
     private RekapitulasiService rekapitulasiService;
@@ -82,6 +84,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
+        backBtn.setVisible(!isHistory.booleanValue());
+        
         initLabel();
         populateData();
         associateDataWithColumn();
@@ -211,32 +216,49 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("pelaksanaan_wrapper");
-        rekapitulasiService = ServiceFactory.getRekapitulasiService();
-        //default 10%
-        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
-        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         
-        rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
-        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
-                        ServiceFactory.getSuratPerintahService().getTimSP(
-                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        Map<String, RekapitulasiWrapper> rekapMapperHistory
+                = (Map<String, RekapitulasiWrapper>) SessionProvider.getGlobalSessionsMap()
+                        .get("rekap_wrapper_history");
+        boolean savable = true;
+        if (rekapMapperHistory != null) {
+                if (rekapMapperHistory.get(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                        +pelaksanaanWrapper.getTimSelected().getIdTim()
+                        +pelaksanaanWrapper.getWpSelected().getNpwpd()) != null)
+                    savable = false;
+        }
         
-        reportService.createSuratPernyataan1(pelaksanaanWrapper);
-        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
-        reportService.createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper, 
-                ServiceFactory.getSuratPerintahService().getTimSP(
-                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        if (savable) {
+            rekapitulasiService = ServiceFactory.getRekapitulasiService();
+            //default 10%
+            rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+            rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+        }
+        else System.out.println("not saved, data already exist");
         
-        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
-        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
-        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
-        reportService.createSuratPernyataan7(pelaksanaanWrapper);
-        reportService.createBeritaAcara8(pelaksanaanWrapper, 
-                ServiceFactory.getSuratPerintahService().getTimSP(
-                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        stage.close();
+//        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
+//                        ServiceFactory.getSuratPerintahService().getTimSP(
+//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        
+//        reportService.createSuratPernyataan1(pelaksanaanWrapper);
+//        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
+//        reportService.createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper, 
+//                ServiceFactory.getSuratPerintahService().getTimSP(
+//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+//        
+//        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
+//        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+//        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+//        reportService.createSuratPernyataan7(pelaksanaanWrapper);
+//        reportService.createBeritaAcara8(pelaksanaanWrapper, 
+//                ServiceFactory.getSuratPerintahService().getTimSP(
+//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
 
           //rapel
 //        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);

@@ -7,13 +7,17 @@ package com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan;
 
 import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.model.SuratPerintah;
+import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.RekapitulasiService;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PajakRestoranTableWrapper;
@@ -70,6 +74,11 @@ public class PelaksanaanUIController implements Initializable {
     private SuratPerintahService suratPerintahService;
     private RekapitulasiService rekapitulasiService;
     private Map<String, PersiapanWrapper> persiapanWrapperMapper = new HashMap<>();
+    private Map<String, PersiapanWrapper> persiapanWrapperMapper2 = new HashMap<>();
+    private Map<String, Tim> timMapper = new HashMap<>();
+    private Map<String, WajibPajak> wpMapper = new HashMap<>();
+    private Map<String, RekapitulasiWrapper> rekapMapper = new HashMap<>();
+    private Map<String, RekapitulasiWrapper> rekapMapperHistory = new HashMap<>();
     /**
      * Initializes the controller class.
      */
@@ -106,6 +115,7 @@ public class PelaksanaanUIController implements Initializable {
         suratPerintahService = ServiceFactory.getSuratPerintahService();
         
         List<PersiapanWrapper> persiapanWrappers = new ArrayList<>();
+        int index = 1;
         for (SuratPerintah sp : suratPerintahService.getAllSuratPerintah()) {
             PersiapanWrapper persiapanWrapper = ConverterHelper.convertSuratPerintahToPersiapanWrapper(sp);
             persiapanWrappers.add(persiapanWrapper);
@@ -120,15 +130,9 @@ public class PelaksanaanUIController implements Initializable {
                     if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
                         System.out.println("test rekap "+rekapWrapper.getIdSP());
                         Button btn = new Button("lihat detail");
-                        btn.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-
-                            }
-                        });
 
                         dataCollection.add(new ArsipTablePelaksanaanWrapper(
-                                persiapanWrapper.getIdSP(),
+                                String.valueOf(index),
                                 "800/"+persiapanWrapper.getNomorSurat()+"/Bapenda",
                                 timWP.getTim().getNamaTim(),
                                 wp.getNamaWajibPajak(),
@@ -137,11 +141,32 @@ public class PelaksanaanUIController implements Initializable {
                         ));
                         
                         persiapanWrapperMapper.put(rekapWrapper.getIdSP(), persiapanWrapper);
+                        persiapanWrapperMapper2.put(String.valueOf(index), persiapanWrapper);
+                        timMapper.put(String.valueOf(index), timWP.getTim());
+                        wpMapper.put(String.valueOf(index), wp);
+                        rekapMapper.put(String.valueOf(index), rekapWrapper);
+                        
+                        rekapMapperHistory.put(sp.getIdSP()+timWP.getTim().getIdTim()+wp.getNpwpd(), rekapWrapper);
+                        
+                        index++;
                     }
                     
                 }
                 
             }
+            
+        }
+        //insert rekapWrapper history to session
+        SessionProvider.getGlobalSessionsMap()
+                        .put("rekap_wrapper_history", rekapMapperHistory);
+        for (final ArsipTablePelaksanaanWrapper obj:dataCollection) {
+            Button btn = obj.getAction();
+            btn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent t) {
+                    openAturRekapitulasi(obj);
+                }
+            });
             
         }
         
@@ -191,6 +216,8 @@ public class PelaksanaanUIController implements Initializable {
                 = new PersiapanWrapper();
         SessionProvider.getGlobalSessionsMap()
                         .put("persiapan_wrapper", persiapanWrapper);
+        SessionProvider.getGlobalSessionsMap()
+                        .put("is_history", new Boolean(false));
         
         Pane formPelaksanaanUI = null;
         try {
@@ -230,6 +257,58 @@ public class PelaksanaanUIController implements Initializable {
         
         SessionProvider.getGlobalSessionsMap()
                         .put("daftar_persiapan_wrapper", persiapanWrappers);
+    }
+    
+    public void openAturRekapitulasi(ArsipTablePelaksanaanWrapper wrapperParam) {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = new PelaksanaanWrapper();
+        SessionProvider.getGlobalSessionsMap()
+                        .put("pelaksanaan_wrapper", pelaksanaanWrapper);
+        SessionProvider.getGlobalSessionsMap()
+                        .put("is_history", new Boolean(true));
+        
+        ArsipTablePelaksanaanWrapper wrapper
+                = wrapperParam;
+        PersiapanWrapper persiapanWrapper
+                = persiapanWrapperMapper2.get(wrapper.getId());
+        Tim timSelected
+                = timMapper.get(wrapper.getId());
+        WajibPajak wpSelected
+                = wpMapper.get(wrapper.getId());
+        RekapitulasiWrapper rekapWrapper
+                = rekapMapper.get(wrapper.getId());
+        pelaksanaanWrapper.setPersiapanWrapper(persiapanWrapper);
+        pelaksanaanWrapper.setTimSelected(timSelected);
+        pelaksanaanWrapper.setWpSelected(wpSelected);
+        pelaksanaanWrapper.setRekapitulasiWrapper(rekapWrapper);
+
+        Pane formPelaksanaanUI = null;
+        try {
+            formPelaksanaanUI = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormPelaksanaanUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormDaftarRekapitulasiPerbandinganPendapatan.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ComponentCollectorProvider
+                .addFxComponent("root_form_persiapan_ui", formPelaksanaanUI);
+        formPelaksanaanUI.getChildren().remove(0);
+        formPelaksanaanUI.getChildren().add(contentPane);
+        
+        
+        Stage stage = new Stage();
+        stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
+        stage.setScene(new Scene(formPelaksanaanUI));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+        
     }
     
 }

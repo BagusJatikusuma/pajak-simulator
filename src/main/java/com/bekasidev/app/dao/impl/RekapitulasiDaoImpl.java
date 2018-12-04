@@ -3,12 +3,12 @@ package com.bekasidev.app.dao.impl;
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.RekapitulasiDao;
 import com.bekasidev.app.model.Rekapitulasi;
+import com.bekasidev.app.wrapper.RekapitulasiExport;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RekapitulasiDaoImpl implements RekapitulasiDao {
     @Override
@@ -75,6 +75,40 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
         }
 
         return rekapitulasiWrapper;
+    }
+
+    @Override
+    public List<RekapitulasiExport> getAllRekapitulasi() {
+        String sql = "SELECT * FROM rekapitulasi";
+        List<RekapitulasiExport> listRekap = new ArrayList<>();
+
+        try(Connection conn = Connect.connect();
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(sql)) {
+
+            while(rs.next()){
+                Rekapitulasi rkp = new Rekapitulasi(
+                        rs.getString("bulan"),
+                        rs.getDouble("omzet_periksa"),
+                        rs.getDouble("pajak_periksa"),
+                        rs.getDouble("omzet_laporan"),
+                        rs.getDouble("pajak_disetor"),
+                        rs.getDouble("omzet"),
+                        rs.getDouble("pokok_pajak"),
+                        rs.getDouble("denda"),
+                        rs.getInt("persentase_denda"),
+                        rs.getDouble("jumlah")
+                );
+                RekapitulasiExport rkpEks = (RekapitulasiExport) rkp;
+                rkpEks.setIdSP(rs.getString("id_sp"));
+                rkpEks.setIdWP(rs.getString("id_wp"));
+                listRekap.add(rkpEks);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listRekap;
     }
 
 }
