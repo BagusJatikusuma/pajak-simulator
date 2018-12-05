@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
 	<property name="ireport.zoom" value="1.100000000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="801"/>
+	<property name="ireport.y" value="48"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<style name="table">
 		<box>
@@ -139,8 +139,6 @@
 	<parameter name="jabatan_penandatangan_ttd" class="java.lang.String"/>
 	<parameter name="persen" class="java.lang.String"/>
 	<parameter name="total_pajak" class="java.lang.String"/>
-	<field name="namaPegawai" class="java.lang.String"/>
-	<field name="jabatanTim" class="java.lang.String"/>
 	<filterExpression><![CDATA[new Boolean(true)]]></filterExpression>
 	<background>
 		<band splitType="Stretch"/>
@@ -664,7 +662,7 @@ BEKASI]]></text>
 			<componentElement>
 				<reportElement key="table 5" positionType="Float" x="198" y="394" width="336" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="anggota" uuid="4e1b66ce-64d3-47e1-8eca-451e2478488b">
+					<datasetRun subDataset="anggota" uuid="b307cae8-0b4d-4bc8-b5de-76ee2cf99d98">
 						<dataSourceExpression><![CDATA[$P{anggota}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="120" uuid="50d7d9eb-4d92-439d-87ab-9568e5a86d51">
