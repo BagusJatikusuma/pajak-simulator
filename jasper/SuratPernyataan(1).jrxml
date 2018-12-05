@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPernyataan(1)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="180a6031-2dae-499c-b73e-890ac95d72f8">
 	<property name="ireport.zoom" value="1.2100000000000146"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="305"/>
+	<property name="ireport.y" value="307"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="npwpd_wajib_pajak" class="java.lang.String"/>
 	<parameter name="alamat_wajib_pajak" class="java.lang.String"/>
@@ -145,14 +145,14 @@
 					<text><![CDATA[:]]></text>
 				</staticText>
 				<textField isStretchWithOverflow="true">
-					<reportElement positionType="Float" x="0" y="327" width="535" height="110" uuid="052f801e-3ab4-4674-96cb-472ae03cb880"/>
+					<reportElement positionType="Float" x="0" y="327" width="535" height="100" uuid="052f801e-3ab4-4674-96cb-472ae03cb880"/>
 					<textElement textAlignment="Justified" verticalAlignment="Top">
 						<font fontName="Times New Roman" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Dengan ini menyatakan bahwa fotocopy catatan, buku dan dokumen yang saya sampaikan dan atau saya serahkan kepada Tim Pemeriksa Pajak Daerah untuk kepentingan pemeriksaan pajak daerah sebagaimana Surat Perintah Pemeriksaan Nomor " + $P{nomor_sp} + "  Tanggal " + $P{tanggal_sp} + " adalah data benar yang dibuat sesuai dengan aslinya, dan tidak ada lagi berkas yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang berkaitan dengan kewajiban pemungutan dan penyetoran Pajak " + $P{jenis_pajak} + " untuk Masa Pajak " + $P{masa_pajak_awal} + " s.d " + $P{masa_pajak_akhir} + " selain yang telah kami sampaikan kepada Tim Pemeriksa."]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement positionType="Float" x="0" y="437" width="535" height="50" uuid="a14808b5-bce3-415d-a6da-830f6c9a7dd4"/>
+					<reportElement positionType="Float" x="0" y="427" width="535" height="50" uuid="a14808b5-bce3-415d-a6da-830f6c9a7dd4"/>
 					<textElement textAlignment="Justified">
 						<font fontName="Times New Roman" size="12" isStrikeThrough="false"/>
 					</textElement>
@@ -171,7 +171,7 @@
 				<textField>
 					<reportElement x="120" y="247" width="415" height="20" uuid="7b7e9a07-5642-435e-88f9-6b8b7bf96c78"/>
 					<textElement>
-						<font fontName="Times New Roman" size="12"/>
+						<font fontName="Times New Roman" size="12" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 				</textField>

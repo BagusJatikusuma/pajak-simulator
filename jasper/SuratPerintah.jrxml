@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
 	<property name="ireport.zoom" value="0.9090909090909199"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="940"/>
+	<property name="ireport.y" value="796"/>
 	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="58c8d34b-1347-48c9-a489-d309d0b3dbd6">
@@ -916,28 +916,28 @@ BEKASI]]></text>
 				</jr:table>
 			</componentElement>
 			<textField>
-				<reportElement positionType="Float" x="276" y="549" width="260" height="15" uuid="20a77a57-2906-481b-8d11-d6ad3f8443e7"/>
+				<reportElement positionType="Float" x="276" y="570" width="260" height="15" uuid="20a77a57-2906-481b-8d11-d6ad3f8443e7"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan}.getNamaPegawai()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="276" y="462" width="258" height="87" uuid="8b39282a-1a0b-4018-96ee-df2be966701f"/>
+				<reportElement positionType="Float" x="276" y="483" width="258" height="87" uuid="8b39282a-1a0b-4018-96ee-df2be966701f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{jabatan_penandatangan_ttd} + " DAERAH KABUPATEN BEKASI"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="276" y="564" width="260" height="15" uuid="8824f3cd-83e3-4e5d-9697-a18afa104304"/>
+				<reportElement positionType="Float" x="276" y="585" width="260" height="15" uuid="8824f3cd-83e3-4e5d-9697-a18afa104304"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{pangkat_penandatangan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="276" y="579" width="260" height="15" uuid="bf228636-25c2-43e2-9ff5-344a484edd6d"/>
+				<reportElement positionType="Float" x="276" y="600" width="260" height="15" uuid="bf228636-25c2-43e2-9ff5-344a484edd6d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false"/>
 				</textElement>
