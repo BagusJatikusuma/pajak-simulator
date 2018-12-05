@@ -72,22 +72,22 @@ public class FormInputSuratTeguranDuaController implements Initializable {
                 = (PelaksanaanWrapper) SessionProvider
                     .getGlobalSessionsMap()
                     .get("pelaksanaan_wrapper");
-        if (!nomorSuratField.getText().equals("")
-                && tanggalPengesahanField.getValue() != null
-                && hariTanggalField.getValue() != null
+        if (hariTanggalField.getValue() != null
                 && !waktuField.getText().equals("")
                 && !tempatField.getText().equals("")) {
             nomorBerkasService.setBerkasTeguran2(
                     pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
                     pelaksanaanWrapper.getWpSelected().getNpwpd(), 
-                    nomorSuratField.getText(), 
-                    String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()), 
+                    nomorSuratField.getText(),
+                    (tanggalPengesahanField.getValue() == null)?
+                            null:String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()), 
                     waktuField.getText(), 
                     tempatField.getText(), 
                     formatter.format(Date.from(hariTanggalField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant())));
             WajibPajak wpSelected = pelaksanaanWrapper.getWpSelected();
             wpSelected.getNomorBerkas().setNomorTeguran2(nomorSuratField.getText());
-            wpSelected.getNomorBerkas().setTanggalTeguran2(String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+            if (tanggalPengesahanField.getValue() != null)
+                wpSelected.getNomorBerkas().setTanggalTeguran2(String.valueOf(Date.from(tanggalPengesahanField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
             wpSelected.getNomorBerkas().setHariTeguran2(
                     formatter.format(Date.from(hariTanggalField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant())));
             wpSelected.getNomorBerkas().setJamTeguran2(waktuField.getText());

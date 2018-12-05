@@ -576,6 +576,9 @@ BEKASI]]></text>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<break>
+				<reportElement positionType="Float" x="0" y="874" width="535" height="1" uuid="7c9b39ef-156a-4a66-8cae-674e7785b598"/>
+			</break>
 		</band>
 		<band height="875">
 			<staticText>
