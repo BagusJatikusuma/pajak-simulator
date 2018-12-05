@@ -224,7 +224,7 @@ public class FormSuratPelaksanaanUIController implements Initializable {
                 reportService.createSuratTeguran1(pelaksanaanWrapper);
                 break;
             case 10:
-                System.out.println("not supported yet");
+                reportService.createSuratTeguran2(pelaksanaanWrapper);
                 break;
         }
         
