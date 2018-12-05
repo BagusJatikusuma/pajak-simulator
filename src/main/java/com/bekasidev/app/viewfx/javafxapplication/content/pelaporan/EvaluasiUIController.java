@@ -10,9 +10,13 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.EvaluasiTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,16 +25,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -93,9 +104,24 @@ public class EvaluasiUIController implements Initializable {
                 @Override
                 public void handle(ActionEvent t) {
                     PelaporanWrapper wrapper = pelaporanMapper.get(etw.getNo());
-                    System.out.println("sp "+wrapper.getSuratPerintahSelected().getNomorUrut()
-                            +"tim "+wrapper.getTimSPSelected().getIdTim()
-                            +"wp "+wrapper.getWpSelected().getNamaWajibPajak());
+                    SessionProvider
+                            .getGlobalSessionsMap()
+                            .put("pelaporan_wrapper", wrapper);
+                    
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/DetailEvaluasiUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    Stage stage = new Stage();
+                    stage.setTitle("Form Detail Evaluasi");
+                    stage.setScene(new Scene(contentPane));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+                    
                 }
             });
         }

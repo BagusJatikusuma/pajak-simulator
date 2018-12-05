@@ -62,6 +62,32 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
         rekapitulasiWrapper.setTotalDenda(totalDenda);
         rekapitulasiWrapper.setTotalJumlah(totalJumlah);
     }
+    
+    @Override
+    public void getTotalRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper) {
+        double totalOmzetPeriksa = 0, totalPajakPeriksa = 0, totalOmzetLaporan = 0,
+                totalPajakDisetor = 0, totalOmzet = 0, totalPokokPajak = 0, totalDenda = 0, totalJumlah = 0;
+        for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
+            rekapitulasi.setJumlah(rekapitulasi.getPokokPajak() + rekapitulasi.getDenda());
+
+            totalOmzetPeriksa += rekapitulasi.getOmzetHasilPeriksa();
+            totalPajakPeriksa += rekapitulasi.getPajakHasilPeriksa();
+            totalOmzetLaporan += rekapitulasi.getOmzetLaporan();
+            totalPajakDisetor += rekapitulasi.getPajakDisetor();
+            totalOmzet += rekapitulasi.getOmzet();
+            totalPokokPajak += rekapitulasi.getPokokPajak();
+            totalDenda += rekapitulasi.getDenda();
+            totalJumlah += rekapitulasi.getJumlah();
+        }
+        rekapitulasiWrapper.setTotalOmzetPeriksa(totalOmzetPeriksa);
+        rekapitulasiWrapper.setTotalPajakPeriksa(totalPajakPeriksa);
+        rekapitulasiWrapper.setTotalOmzetLaporan(totalOmzetLaporan);
+        rekapitulasiWrapper.setTotalPajakDisetor(totalPajakDisetor);
+        rekapitulasiWrapper.setTotalOmzet(totalOmzet);
+        rekapitulasiWrapper.setTotalPokokPajak(totalPokokPajak);
+        rekapitulasiWrapper.setTotalDenda(totalDenda);
+        rekapitulasiWrapper.setTotalJumlah(totalJumlah);
+    }
 
     @Override
     public void setBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir) {
