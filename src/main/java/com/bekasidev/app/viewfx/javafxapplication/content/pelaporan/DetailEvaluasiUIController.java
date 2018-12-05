@@ -81,10 +81,16 @@ public class DetailEvaluasiUIController implements Initializable {
                 .setNomorTanggalSKPD(
                         wrapper.getSuratPerintahSelected().getIdSP(), 
                         wrapper.getWpSelected().getNpwpd(), 
-                        (!nomorSKPDField.getText().equals("")&&(nomorSKPDField.getText() == null))?nomorSKPDField.getText():null, 
+                        ((nomorSKPDField.getText() != null))?nomorSKPDField.getText():null, 
                         (tanggalSKPDField.getValue()!=null)
                                 ?String.valueOf(Date.from(tanggalSKPDField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())
                                 :null);
+        wrapper.getWpSelected().getNomorBerkas().setNomorSKPD(nomorSKPDField.getText());
+        if (tanggalSKPDField.getValue()!=null)
+            wrapper.getWpSelected().getNomorBerkas().setTanggalSKPD(String.valueOf(Date.from(tanggalSKPDField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();
+        
     }
     
     public void initLabel() {
