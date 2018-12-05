@@ -73,7 +73,18 @@ public class DetailEvaluasiUIController implements Initializable {
     }
     
     public void finishOperation() {
-        
+        PelaporanWrapper wrapper 
+                = (PelaporanWrapper) SessionProvider
+                            .getGlobalSessionsMap()
+                            .get("pelaporan_wrapper");
+        nomorBerkasService
+                .setNomorTanggalSKPD(
+                        wrapper.getSuratPerintahSelected().getIdSP(), 
+                        wrapper.getWpSelected().getNpwpd(), 
+                        (!nomorSKPDField.getText().equals("")&&(nomorSKPDField.getText() == null))?nomorSKPDField.getText():null, 
+                        (tanggalSKPDField.getValue()!=null)
+                                ?String.valueOf(Date.from(tanggalSKPDField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())
+                                :null);
     }
     
     public void initLabel() {

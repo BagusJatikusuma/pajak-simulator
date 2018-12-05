@@ -150,7 +150,14 @@ public class EvaluasiUIController implements Initializable {
     }
     
     public void printKopLHP() {
-        
+        EvaluasiTableWrapper wrapper
+                = (EvaluasiTableWrapper) evaluasiTable.getSelectionModel().getSelectedItem();
+        PelaporanWrapper pelaporanWrapper
+                = pelaporanMapper.get(wrapper.getNo());
+        SessionProvider
+                .getGlobalSessionsMap()
+                .put("pelaporan_wrapper", wrapper);
+        System.out.println("print "+pelaporanWrapper.getWpSelected().getNamaWajibPajak());
     }
     
 }

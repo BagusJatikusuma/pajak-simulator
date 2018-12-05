@@ -109,4 +109,22 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void setNomorTanggalSKPD(String idSP, String idWP, String nomorSKPD, String tanggalSKPD) {
+        String sql = "UPDATE nomor_berkas SET nomor_SKPD=?, tanggal_SKPD=? " +
+                "WHERE id_sp=? AND id_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, nomorSKPD);
+            pstm.setString(2, tanggalSKPD);
+            pstm.setString(3, idSP);
+            pstm.setString(4, idWP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
