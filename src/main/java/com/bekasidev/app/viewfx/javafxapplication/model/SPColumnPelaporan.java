@@ -6,6 +6,8 @@
 package com.bekasidev.app.viewfx.javafxapplication.model;
 
 import com.bekasidev.app.model.SuratPerintah;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,16 +15,17 @@ import com.bekasidev.app.model.SuratPerintah;
  */
 public class SPColumnPelaporan {
     private String tahap;
-    private int columnHeight;
+    private List<TimColumnPelaporan> timColumnPelaporans;
 
     public SPColumnPelaporan() {
+        timColumnPelaporans = new ArrayList<>();
     }
-
-    public SPColumnPelaporan(String tahap, int columnHeight) {
+    
+    public SPColumnPelaporan(String tahap, List<TimColumnPelaporan> timColumnPelaporans) {
         this.tahap = tahap;
-        this.columnHeight = columnHeight;
+        this.timColumnPelaporans = timColumnPelaporans;
     }
-
+    
     public String getTahap() {
         return tahap;
     }
@@ -31,12 +34,12 @@ public class SPColumnPelaporan {
         this.tahap = tahap;
     }
 
-    public int getColumnHeight() {
-        return columnHeight;
+    public List<TimColumnPelaporan> getTimColumnPelaporans() {
+        return timColumnPelaporans;
     }
 
-    public void setColumnHeight(int columnHeight) {
-        this.columnHeight = columnHeight;
+    public void setTimColumnPelaporans(List<TimColumnPelaporan> timColumnPelaporans) {
+        this.timColumnPelaporans = timColumnPelaporans;
     }
     
 }
