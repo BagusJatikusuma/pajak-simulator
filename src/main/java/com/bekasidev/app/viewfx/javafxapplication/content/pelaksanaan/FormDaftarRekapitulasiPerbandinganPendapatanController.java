@@ -104,6 +104,12 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     }
     
     public void openPersuratan() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+        
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(0);
 
@@ -232,17 +238,18 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         if (savable) {
             rekapitulasiService = ServiceFactory.getRekapitulasiService();
             //default 10%
-            rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         }
         else System.out.println("not saved, data already exist");
         
-        Stage stage = (Stage) backBtn.getScene().getWindow();
-        stage.close();
-//        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
-//                        ServiceFactory.getSuratPerintahService().getTimSP(
-//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+        
+//        Stage stage = (Stage) backBtn.getScene().getWindow();
+//        stage.close();
+        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
+                        ServiceFactory.getSuratPerintahService().getTimSP(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                        pelaksanaanWrapper.getTimSelected().getIdTim()));
         
 //        reportService.createSuratPernyataan1(pelaksanaanWrapper);
 //        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
@@ -262,8 +269,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 
           //rapel
 //        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);
-          reportService.createSuratTeguran1(pelaksanaanWrapper, 0);
-          reportService.createSuratTeguran2(pelaksanaanWrapper, 0);
+//          reportService.createSuratTeguran1(pelaksanaanWrapper, 0);
+//          reportService.createSuratTeguran2(pelaksanaanWrapper, 0);
         
     }
     

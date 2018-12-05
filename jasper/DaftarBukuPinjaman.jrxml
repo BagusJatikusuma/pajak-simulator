@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DaftarBukuPinjaman" language="groovy" pageWidth="612" pageHeight="792" columnWidth="552" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00137682-852a-4a65-ba7e-f5970b200446">
 	<property name="ireport.zoom" value="0.9090909090909141"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="142"/>
+	<property name="ireport.y" value="0"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<style name="table">
 		<box>

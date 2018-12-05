@@ -19,7 +19,10 @@ import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPaja
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
+import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -350,5 +353,12 @@ public class ConverterHelper {
 
         return converted.toString();
     }
+    
+   public static String converterDoubleToMoneyId(double doubleVar){
+       NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+       DecimalFormat formatter = (DecimalFormat) anotherFormat;
+       
+       return formatter.format(new BigDecimal(doubleVar));
+   }
     
 }
