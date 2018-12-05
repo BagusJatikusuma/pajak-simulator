@@ -18,7 +18,7 @@
       <Button layoutX="161.0" layoutY="124.0" mnemonicParsing="false" onAction="#saveTanggalNomorSP" prefHeight="25.0" prefWidth="100.0" text="Simpan" />
       <Button fx:id="backToFormTimBtn" layoutX="51.0" layoutY="124.0" mnemonicParsing="false" onAction="#backToFormTim" prefHeight="25.0" prefWidth="100.0" text="Kembali" />
       <Button layoutX="439.0" layoutY="124.0" mnemonicParsing="false" onAction="#aturSuratPemberitahuan" prefHeight="25.0" prefWidth="210.0" text="Selanjutnya | Surat Pemberitahuan" />
-      <Button layoutX="271.0" layoutY="124.0" mnemonicParsing="false" onAction="#printSuratPerintah" prefHeight="25.0" prefWidth="130.0" text="Print Surat Perintah" />
+      <Button layoutX="271.0" layoutY="124.0" mnemonicParsing="false" onAction="#printSuratPerintah" prefHeight="25.0" prefWidth="130.0" text="Cetak Surat Perintah" />
       <Separator layoutX="415.0" layoutY="124.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="9.0" />
    </children>
    <stylesheets>

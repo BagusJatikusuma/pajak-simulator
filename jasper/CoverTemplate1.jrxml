@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CoverTemplate1" language="groovy" pageWidth="595" pageHeight="2376" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3b5bdf8-5d2c-49bd-a96f-1c574f552a1b">
-	<property name="ireport.zoom" value="1.0000000000000087"/>
+	<property name="ireport.zoom" value="0.6830134553650807"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="402"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="nama_wp" class="java.lang.String"/>
 	<parameter name="npwpd" class="java.lang.String"/>
-	<parameter name="jenis_pemeriksaan" class="java.lang.String"/>
 	<parameter name="pajak_awal" class="java.lang.String"/>
 	<parameter name="pajak_akhir" class="java.lang.String"/>
 	<background>
@@ -40,32 +39,11 @@
 				<textFieldExpression><![CDATA[$P{npwpd}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="201" y="697" width="14" height="20" uuid="a91753c5-e41f-43aa-a887-3c044c785ffa"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="28" y="653" width="173" height="20" uuid="b604f137-fa10-4b3f-92c8-aae734a158ae"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NAMA WAJIB PAJAK]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="201" y="675" width="14" height="20" uuid="da12bbb0-cf0a-4bc4-951e-0d975667d29e"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="201" y="719" width="14" height="20" uuid="310e0fee-fb28-4e4b-809d-76c2de0a7e9f"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="28" y="719" width="173" height="20" uuid="d4c22b8d-9771-44f2-a9e1-aa85c02a9e81"/>
@@ -95,13 +73,6 @@
 				</textElement>
 				<text><![CDATA[JENIS PEMERIKSAAN]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="201" y="653" width="14" height="20" uuid="0dc0927b-2ee1-4837-8334-96b7e2b912b4"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="215" y="719" width="308" height="20" uuid="fea38a6d-e61e-4a99-aa3f-7c1d4527f4cb"/>
 				<textElement>
@@ -128,10 +99,6 @@
 				</textElement>
 				<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
 			</staticText>
-			<image hAlign="Center" vAlign="Middle">
-				<reportElement x="28" y="25" width="105" height="86" uuid="754722d5-f5d2-410c-98ef-cbb1de03ef86"/>
-				<imageExpression><![CDATA["ProjectPajak/pajak-simulator/src/main/resources/images/logo_kab_bekasi.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="133" y="37" width="390" height="42" uuid="22a32d9d-8c2e-454a-93b7-6d8b1e184a1b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -163,18 +130,50 @@ BEKASI]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="48" y="141" width="455" height="67" uuid="2450aad1-9961-4354-8a61-16ed163533b3"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="28" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="29" isBold="true"/>
 				</textElement>
-				<text><![CDATA[KERTAS KERJA PEMERIKSAAN  ( LHP )]]></text>
+				<text><![CDATA[KERTAS KERJA PEMERIKSAAN  ( KKP )]]></text>
 			</staticText>
-			<textField>
+			<textField isStretchWithOverflow="true">
 				<reportElement x="28" y="289" width="495" height="55" uuid="bc95e37f-8f93-4729-8223-6b587e3151e0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="36" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wp}]]></textFieldExpression>
 			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="28" y="25" width="126" height="86" uuid="3a6436d7-37c3-47c9-af86-7f98cbb7b5fa"/>
+				<imageExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="201" y="653" width="14" height="20" uuid="250bbec5-bc2f-4c26-a710-eee6c0c48fa6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="675" width="14" height="20" uuid="23879152-2122-457a-9b71-35182b595c0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="697" width="14" height="20" uuid="68a96845-c993-46f7-aefd-63a3cb5adacd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="719" width="14" height="20" uuid="468b2a52-139e-4b3a-b69c-424c2a1d4fcc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

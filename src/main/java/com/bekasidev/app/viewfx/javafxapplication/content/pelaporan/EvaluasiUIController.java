@@ -13,8 +13,11 @@ import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.EvaluasiTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import java.io.IOException;
 import java.net.URL;
@@ -57,6 +60,8 @@ public class EvaluasiUIController implements Initializable {
     @FXML private TableColumn tim;
     @FXML private TableColumn wp;
     @FXML private TableColumn action;
+    
+    private ReportService reportService;
     
     private ObservableList<EvaluasiTableWrapper> dataCollection;
     private SuratPerintahService suratPerintahService;
@@ -150,14 +155,16 @@ public class EvaluasiUIController implements Initializable {
     }
     
     public void printKopLHP() {
-        EvaluasiTableWrapper wrapper
-                = (EvaluasiTableWrapper) evaluasiTable.getSelectionModel().getSelectedItem();
-        PelaporanWrapper pelaporanWrapper
-                = pelaporanMapper.get(wrapper.getNo());
-        SessionProvider
+        System.out.println("KLIK CETAK COVER");
+        
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
-                .put("pelaporan_wrapper", wrapper);
-        System.out.println("print "+pelaporanWrapper.getWpSelected().getNamaWajibPajak());
+                .get("pelaksanaan_wrapper");
+        
+        reportService.createCoverTemplate2(pelaksanaanWrapper);
     }
     
 }

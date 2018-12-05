@@ -20,9 +20,9 @@
       </TableView>
       <Button layoutX="84.0" layoutY="321.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPeminjaman" prefHeight="25.0" text="Simpan" />
       <Button fx:id="backToFormPemberitahuanBtn" layoutX="15.0" layoutY="321.0" mnemonicParsing="false" onAction="#backToFormPemberitahuan" prefHeight="25.0" text="Kembali" />
-      <Button layoutX="150.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" text="Print Surat Peminjaman" />
+      <Button layoutX="150.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" text="Cetak Surat Peminjaman" />
       <Button layoutX="447.0" layoutY="320.0" mnemonicParsing="false" onAction="#aturDokumenPinjaman" prefHeight="25.0" text="Atur Dokumen Pinjaman" />
-      <Button layoutX="301.0" layoutY="320.0" mnemonicParsing="false" onAction="#printQuesioner" text="Print Quesioner" />
+      <Button layoutX="301.0" layoutY="320.0" mnemonicParsing="false" onAction="#printQuesioner" text="Cetak Quesioner" />
       <Button fx:id="cancelBtn" layoutX="633.0" layoutY="320.0" mnemonicParsing="false" onAction="#cancelOperation" text="Selesai" />
       <Separator layoutX="421.0" layoutY="320.0" orientation="VERTICAL" prefHeight="25.0" />
       <Separator layoutX="612.0" layoutY="320.0" orientation="VERTICAL" prefHeight="25.0" />
