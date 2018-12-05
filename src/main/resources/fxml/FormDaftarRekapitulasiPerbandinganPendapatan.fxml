@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ChoiceBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
     <stylesheets>
@@ -39,10 +40,20 @@
             <TableColumn fx:id="action" minWidth="0.0" prefWidth="100.0" text="ACTION" />
         </columns>
       </TableView>
-      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
+<!--      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
       <Button fx:id="backBtn" layoutX="26.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
       <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
       <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
+      <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />-->
+      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
+      
+      <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
+      <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
       <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />
+      <Button layoutX="291.0" layoutY="510.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; cetak rekapitulasi" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="510.0" />
+      <Button fx:id="backBtn" layoutX="212.0" layoutY="510.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.rightAnchor="417.0" AnchorPane.topAnchor="510.0" />
+      <Button layoutX="498.0" layoutY="510.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut cetak persuratan " />
+      <ChoiceBox fx:id="metodeHitungDendaField" layoutX="498.0" layoutY="452.0" prefHeight="25.0" prefWidth="178.0" />
+      <Label layoutX="344.0" layoutY="458.0" text="Metode hitung denda :" />
    </children>
 </AnchorPane>
