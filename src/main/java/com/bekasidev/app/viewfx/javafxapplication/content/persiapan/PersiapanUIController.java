@@ -102,7 +102,7 @@ public class PersiapanUIController implements Initializable {
         int i = 1;
         for (final ArsipTablePersiapanWrapper obj
                 : dataListFromService) {
-            Button btn = new Button("lihat detail");
+            Button btn = new Button("Lihat Detail");
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {

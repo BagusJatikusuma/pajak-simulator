@@ -2,6 +2,8 @@ package com.bekasidev.app.model;
 
 public class Rekapitulasi {
 
+    private String idWP;
+    private String idSP;
     private String bulan;
     private Double omzetHasilPeriksa;
     private Double pajakHasilPeriksa;
@@ -12,6 +14,22 @@ public class Rekapitulasi {
     private Double denda;
     private int persentaseDenda;
     private Double jumlah;
+
+    public String getIdWP() {
+        return idWP;
+    }
+
+    public void setIdWP(String idWP) {
+        this.idWP = idWP;
+    }
+
+    public String getIdSP() {
+        return idSP;
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP = idSP;
+    }
 
     public Rekapitulasi(String bulan, int persentaseDenda) {
         this.bulan = bulan;

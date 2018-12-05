@@ -19,7 +19,10 @@ import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPaja
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
+import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -40,6 +43,10 @@ import javax.swing.text.DateFormatter;
 public class ConverterHelper {
     private static PegawaiService pegawaiService;
     private static BerkasPersiapanService berkasPersiapanService;
+    
+    static String[] angkaTerbilang={"","Satu","Dua","Tiga","Empat","Lima","Enam","Tujuh","Delapan","Sembilan","Sepuluh","Sebelas"};
+
+    
     public static SuratPerintah convertPersiapanWrapperIntoSuratPerintah(PersiapanWrapper persiapanWrapper) {
         pegawaiService = ServiceFactory.getPegawaiService();
         
@@ -174,7 +181,6 @@ public class ConverterHelper {
         
         for (TimSP timSP : suratPerintah.getListTim()) {
             for (WajibPajak wp : timSP.getListWP()) {
-                
                 NomorTanggalWajibPajakWrapper nt = new NomorTanggalWajibPajakWrapper();
                 nt.setWajibPajak(wp);
                 nt.setNomorPemberitahuanPemeriksaan(wp.getNomorBerkas().getNomorSuratPemberitahuan());
@@ -218,7 +224,9 @@ public class ConverterHelper {
                                                                     .getYear();
                     berkasPersiapanService
                             .getDokumenPinjaman(wp, masaPajakAwal, masaPajakAkhir);
+                    
                 }
+                System.out.println("get first el list pinjaman "+wp.getListPinjaman().get(0).getNamaDokumen());
                 dokumenPinjamanWajibPajakWrappers
                         .add(new DokumenPinjamanWajibPajakWrapper(wp, wp.getListPinjaman()));
             }
@@ -244,6 +252,49 @@ public class ConverterHelper {
         }
         
         return persiapanWrapper;
+    }
+    
+    
+    public static String angkaToTerbilang(Long angka){
+        if(angka < 12)
+        return angkaTerbilang[angka.intValue()];
+        if(angka >=12 && angka <= 19)
+        return angkaTerbilang[angka.intValue() % 10] + " Belas";
+        if(angka >= 20 && angka <= 99)
+        return angkaToTerbilang(angka / 10) + " Puluh " + angkaTerbilang[angka.intValue() % 10];
+        if(angka >= 100 && angka <= 199)
+        return "Seratus " + angkaToTerbilang(angka % 100);
+        if(angka >= 200 && angka <= 999)
+        return angkaToTerbilang(angka / 100) + " Ratus " + angkaToTerbilang(angka % 100);
+        if(angka >= 1000 && angka <= 1999)
+        return "Seribu " + angkaToTerbilang(angka % 1000);
+        if(angka >= 2000 && angka <= 999999)
+        return angkaToTerbilang(angka / 1000) + " Ribu " + angkaToTerbilang(angka % 1000);
+        if(angka >= 1000000 && angka <= 999999999)
+        return angkaToTerbilang(angka / 1000000) + " Juta " + angkaToTerbilang(angka % 1000000);
+        if(angka >= 1000000000 && angka <= 999999999999L)
+        return angkaToTerbilang(angka / 1000000000) + " Milyar " + angkaToTerbilang(angka % 1000000000);
+        if(angka >= 1000000000000L && angka <= 999999999999999L)
+        return angkaToTerbilang(angka / 1000000000000L) + " Triliun " + angkaToTerbilang(angka % 1000000000000L);
+        if(angka >= 1000000000000000L && angka <= 999999999999999999L)
+        return angkaToTerbilang(angka / 1000000000000000L) + " Quadrilyun " + angkaToTerbilang(angka % 1000000000000000L);
+        return "";
+    }
+    
+    public static String toRoman(int num){
+        String[] romanCharacters = { "M", "CM", "D", "C", "XC", "L", "X", "IX", "V", "I" };
+        int[] romanValues = { 1000, 900, 500, 100, 90, 50, 10, 9, 5, 1 };
+        String result = "";
+
+        for (int i = 0; i < romanValues.length; i++)
+        {
+         int numberInPlace = num / romanValues[i];
+         if (numberInPlace == 0) continue;
+         result += numberInPlace == 4 && i > 0? romanCharacters[i] + romanCharacters[i - 1]:
+         new String(new char[numberInPlace]).replace("\0",romanCharacters[i]);
+         num = num % romanValues[i];
+        }
+        return result;
     }
     
     public static String convertBulanIntegerIntoString(Integer bulanInt) {
@@ -281,5 +332,35 @@ public class ConverterHelper {
         }
         return null;
     }
+    
+    public static String convertToTitleCaseIteratingChars(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+
+        StringBuilder converted = new StringBuilder();
+
+        boolean convertNext = true;
+        for (char ch : text.toCharArray()) {
+            if (Character.isSpaceChar(ch)) {
+                convertNext = true;
+            } else if (convertNext) {
+                ch = Character.toTitleCase(ch);
+                convertNext = false;
+            } else {
+                ch = Character.toLowerCase(ch);
+            }
+            converted.append(ch);
+        }
+
+        return converted.toString();
+    }
+    
+   public static String converterDoubleToMoneyId(double doubleVar){
+       NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+       DecimalFormat formatter = (DecimalFormat) anotherFormat;
+       
+       return formatter.format(new BigDecimal(doubleVar));
+   }
     
 }

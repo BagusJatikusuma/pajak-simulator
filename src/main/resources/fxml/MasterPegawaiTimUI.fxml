@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
-<VBox fx:id="masterTimPane" maxHeight="613.0" maxWidth="1400.0" minWidth="1236.0" prefHeight="613.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiTimUIController">
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiTimUIController">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="200.0">
-         <children>
-            <Separator layoutX="152.0" layoutY="5.0" orientation="VERTICAL" prefHeight="30.0" />
-            <Button layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToMasterTim" prefHeight="25.0" prefWidth="129.0" text="back" />
-            <Button layoutX="165.0" layoutY="8.0" mnemonicParsing="false" onAction="#addTimAnggota" prefHeight="25.0" prefWidth="181.0" text="tambah anggota" />
-         </children>
-      </AnchorPane>
-      <HBox maxHeight="575.0" maxWidth="1384.0" minHeight="575.0" minWidth="900.0" prefHeight="575.0" prefWidth="1190.0">
-         <children>
-            <TableView fx:id="masterTimAnggotaTable" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0">
-               <columns>
-                  <TableColumn prefWidth="285.0" text="NIP" />
-                  <TableColumn prefWidth="380.0" text="Nama" />
-                  <TableColumn fx:id="aturAction" prefWidth="446.0" text="Jabatan" />
-                  <TableColumn fx:id="hapusAction" prefWidth="109.0" text="Action" />
-               </columns>
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </TableView>
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
+      <Separator layoutX="152.0" layoutY="5.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="9.0" />
+      <Button layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToMasterTim" prefHeight="25.0" prefWidth="129.0" text="Kembali" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="168.0" layoutY="11.0" mnemonicParsing="false" onAction="#addTimAnggota" prefHeight="25.0" prefWidth="181.0" text="Tambah Anggota" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="masterTimAnggotaTable" layoutX="10.0" layoutY="49.0" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn maxWidth="285.0" minWidth="285.0" prefWidth="285.0" text="NIP" />
+            <TableColumn maxWidth="380.0" minWidth="380.0" prefWidth="380.0" text="Nama" />
+            <TableColumn fx:id="aturAction" maxWidth="446.0" minWidth="446.0" prefWidth="446.0" text="Jabatan" />
+            <TableColumn fx:id="hapusAction" maxWidth="226.0" minWidth="226.0" prefWidth="226.0" text="Action" />
+         </columns>
+      </TableView>
    </children>
-</VBox>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
+</AnchorPane>

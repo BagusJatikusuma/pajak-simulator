@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
+<AnchorPane id="AnchorPane" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.PelaksanaanUIController">
     <stylesheets>
         <URL value="@/styles/pelaksanaanui.css" />
     </stylesheets>
    <children>
-      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <TextField layoutX="14.0" layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-            <Button layoutX="163.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
-            <Separator layoutX="244.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
-            <Button layoutX="250.0" layoutY="12.0" mnemonicParsing="false" onAction="#addDokumenPelaksanaan" text="Tambah Dokumen Pelaksanaan" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
-         </children>
-      </AnchorPane>
-      <HBox layoutX="14.0" layoutY="47.0" prefHeight="600.0" prefWidth="1366.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
-         <children>
-            <TableView fx:id="arsipPelaksanaanTable" prefHeight="589.0" prefWidth="1366.0" HBox.hgrow="ALWAYS">
-              <columns>
-                <TableColumn prefWidth="121.0" text="ID" />
-                  <TableColumn prefWidth="197.0" text="NO SP" />
-                  <TableColumn prefWidth="238.0" text="NAMA TIM" />
-                  <TableColumn prefWidth="310.0" text="NAMA WP" />
-                <TableColumn prefWidth="188.0" text="TANGGAL DIBUAT" />
-                  <TableColumn prefWidth="151.0" text="Action" />
-              </columns>
-            </TableView>
-         </children>
-      </HBox>
+      <TextField layoutX="14.0" layoutY="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="173.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
+      <Separator layoutX="244.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
+      <Button layoutX="260.0" layoutY="11.0" mnemonicParsing="false" onAction="#addDokumenPelaksanaan" text="Tambah Dokumen Pelaksanaan" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="arsipPelaksanaanTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+        <columns>
+          <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="ID" />
+            <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="NO SP" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="NAMA TIM" />
+            <TableColumn maxWidth="400.0" minWidth="400.0" prefWidth="400.0" text="NAMA WP" />
+          <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="TANGGAL DIBUAT" />
+            <TableColumn maxWidth="166.0" minWidth="166.0" prefWidth="166.0" text="Action" />
+        </columns>
+      </TableView>
    </children>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
 </AnchorPane>

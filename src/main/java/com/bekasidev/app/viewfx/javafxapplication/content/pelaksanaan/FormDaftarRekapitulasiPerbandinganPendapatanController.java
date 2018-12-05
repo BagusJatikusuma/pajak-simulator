@@ -44,6 +44,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -70,6 +71,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label namaWPLabel;
     @FXML private Label npwpdLabel;
     @FXML private Label nomorTanggalSPField;
+    
+    @FXML private ChoiceBox metodeHitungDendaField;
     
     @FXML private Button backBtn;
     
@@ -99,11 +102,41 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                                     .get("pelaksanaan_wrapper");
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         //default 10%
-        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+//        rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
         
     }
     
     public void openPersuratan() {
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        float pajakPersentase;
+        switch (pelaksanaanWrapper.getWpSelected().getJenisWp()) {
+            case 0 : //restoran
+                pajakPersentase = (float)0.1;
+                break;
+            case 1 : //hotel
+                pajakPersentase = (float)0.1;
+                break;
+            case 2 : //parkiran
+                pajakPersentase = (float)0.25;
+                break;
+            case 3 : //hiburan default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+            case 4 : //penerangan jalan default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+            default://unidentified, default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+        }
+        rekapitulasiService.calculateRekapitulasi(
+                pelaksanaanWrapper.getRekapitulasiWrapper(), 
+                pajakPersentase,
+                (metodeHitungDendaField.getValue().equals("manual"))?true:false);
+        
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(0);
 
@@ -137,6 +170,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
                                     .get("pelaksanaan_wrapper");
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        
+        metodeHitungDendaField.setItems(FXCollections.observableArrayList("otomatis","manual"));
+        metodeHitungDendaField.setValue("otomatis");
         
         int index = 1;
         NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
@@ -229,39 +265,44 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                     savable = false;
         }
         
+        //aturan : tidak bisa update rekapitulasi jika sudah diset sebelumnya
+        float pajakPersentase;
+        switch (pelaksanaanWrapper.getWpSelected().getJenisWp()) {
+            case 0 : //restoran
+                pajakPersentase = (float)0.1;
+                break;
+            case 1 : //hotel
+                pajakPersentase = (float)0.1;
+                break;
+            case 2 : //parkiran
+                pajakPersentase = (float)0.25;
+                break;
+            case 3 : //hiburan default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+            case 4 : //penerangan jalan default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+            default://unidentified, default jadikan 10%
+                pajakPersentase = (float)0.1;
+                break;
+        }
+        rekapitulasiService.calculateRekapitulasi(
+                pelaksanaanWrapper.getRekapitulasiWrapper(), 
+                pajakPersentase,
+                (metodeHitungDendaField.getValue().equals("manual"))?true:false);
         if (savable) {
             rekapitulasiService = ServiceFactory.getRekapitulasiService();
-            //default 10%
-            rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+            
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         }
-        else System.out.println("not saved, data already exist");
-        
-        Stage stage = (Stage) backBtn.getScene().getWindow();
-        stage.close();
-//        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
-//                        ServiceFactory.getSuratPerintahService().getTimSP(
-//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
-        
-//        reportService.createSuratPernyataan1(pelaksanaanWrapper);
-//        reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
-//        reportService.createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper, 
-//                ServiceFactory.getSuratPerintahService().getTimSP(
-//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
-//        
-//        reportService.createSuratPersetujuan4(pelaksanaanWrapper);
-//        reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
-//        reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
-//        reportService.createSuratPernyataan7(pelaksanaanWrapper);
-//        reportService.createBeritaAcara8(pelaksanaanWrapper, 
-//                ServiceFactory.getSuratPerintahService().getTimSP(
-//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
-
-          //rapel
-//        reportService.createTemplateSuratPelaksanaan(pelaksanaanWrapper);
+        else {
+            System.out.println("not saved, data already exist");
+        }
+        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
+                        ServiceFactory.getSuratPerintahService().getTimSP(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                        pelaksanaanWrapper.getTimSelected().getIdTim()));
         
     }
     

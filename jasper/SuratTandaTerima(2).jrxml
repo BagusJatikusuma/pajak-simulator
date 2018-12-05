@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTandaTerima(2)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="f803410b-a667-489c-946e-b1e8f820fb78">
 	<property name="ireport.zoom" value="1.2100000000000095"/>
-	<property name="ireport.x" value="10"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="144"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="penandatangan" class="java.lang.String"/>
@@ -88,7 +88,7 @@
 			<textField>
 				<reportElement x="140" y="198" width="395" height="20" uuid="07ca8677-2826-4aab-8fde-94b96796496f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>
@@ -185,7 +185,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[Yang membuat pernyataan]]></text>
+				<text><![CDATA[Yang menerima,]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="0" y="258" width="535" height="70" uuid="de86e2b8-e293-43f4-84f0-6cfd61eeb734"/>

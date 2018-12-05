@@ -26,7 +26,8 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
     }
 
     @Override
-    public void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, float persentase) {
+    public void calculateRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, float persentase, boolean isManual) {
+        if (isManual) System.out.println("manual denda calculate");
         double totalOmzetPeriksa = 0, totalPajakPeriksa = 0, totalOmzetLaporan = 0,
                 totalPajakDisetor = 0, totalOmzet = 0, totalPokokPajak = 0, totalDenda = 0, totalJumlah = 0;
         for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
@@ -34,9 +35,13 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
             rekapitulasi.setPajakDisetor((double) round(rekapitulasi.getOmzetLaporan() * persentase));
             rekapitulasi.setOmzet(rekapitulasi.getOmzetHasilPeriksa() - rekapitulasi.getOmzetLaporan());
             rekapitulasi.setPokokPajak(rekapitulasi.getPajakHasilPeriksa() - rekapitulasi.getPajakDisetor());
-            rekapitulasi.setDenda((double) round(
+            if (isManual)
+                rekapitulasi.setDenda((double)0);
+            else
+                rekapitulasi.setDenda((double) round(
                     rekapitulasi.getPokokPajak() * rekapitulasi.getPersentaseDenda() * persentase * 0.1
                     ));
+            
             rekapitulasi.setJumlah(rekapitulasi.getPokokPajak() + rekapitulasi.getDenda());
 
             totalOmzetPeriksa += rekapitulasi.getOmzetHasilPeriksa();
@@ -84,6 +89,28 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
             }
             if(i != selisihTahun) bulanAwal = 0;
         }
+    }
+
+    @Override
+    public void setNihil(RekapitulasiWrapper rekapitulasiWrapper) {
+        for(Rekapitulasi rekapitulasi : rekapitulasiWrapper.getListRekapitulasi()){
+            rekapitulasi.setPajakHasilPeriksa((double) 0);
+            rekapitulasi.setPajakDisetor((double) 0);
+            rekapitulasi.setOmzet((double) 0);
+            rekapitulasi.setPokokPajak((double) 0);
+            rekapitulasi.setDenda((double) 0);
+            rekapitulasi.setJumlah((double) 0);
+            rekapitulasi.setOmzetHasilPeriksa((double) 0);
+            rekapitulasi.setOmzetLaporan((double) 0);
+        }
+        rekapitulasiWrapper.setTotalOmzetPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalPajakPeriksa((double) 0);
+        rekapitulasiWrapper.setTotalOmzetLaporan((double) 0);
+        rekapitulasiWrapper.setTotalPajakDisetor((double) 0);
+        rekapitulasiWrapper.setTotalOmzet((double) 0);
+        rekapitulasiWrapper.setTotalPokokPajak((double) 0);
+        rekapitulasiWrapper.setTotalDenda((double) 0);
+        rekapitulasiWrapper.setTotalJumlah((double) 0);
     }
 
     private String convertBulanIntegerIntoString(Integer bulanInt) {

@@ -53,7 +53,7 @@ import javafx.util.StringConverter;
 public class FormAturNomorTanggalSPUIController implements Initializable {
     @FXML private DatePicker tanggalPengesahanField;
     @FXML private TextField nomorSuratField;
-    @FXML private Button cancelBtn;
+    @FXML private Button backToFormTimBtn;
     
     private ReportService reportService;
     private SuratPerintahService suratPerintahService;
@@ -88,8 +88,18 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
     }
 
-    public void cancelOperation() {
-        
+    public void backToFormTim() {
+        Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        rootpaneFormPersiapan.getChildren().remove(1);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormAturTimWPUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPersiapan.getChildren().add(contentPane);
     }
     
     public void saveTanggalNomorSP() {
@@ -173,9 +183,12 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
 //            }
 //        }
         
-        reportService.createSuratPerintah();
+//        reportService.createSuratPerintah();
+        reportService.createSuratPerintahBaru();
         reportService.createDaftarPetugasPemeriksa();
     }
+    
+    
     
     public void aturSuratPemberitahuan() {
         //====================================================================================//
