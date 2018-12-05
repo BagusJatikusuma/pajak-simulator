@@ -72,6 +72,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label nomorTanggalSPField;
     
     @FXML private Button backBtn;
+    @FXML private Button cetakCoverKKPBtn;
     
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
     
@@ -272,6 +273,32 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 //          reportService.createSuratTeguran1(pelaksanaanWrapper, 0);
 //          reportService.createSuratTeguran2(pelaksanaanWrapper, 0);
         
+    }
+    
+    public void cetakCoverKKP(){
+        System.out.println("KLIK CETAK COVER KKP");
+        
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("pelaksanaan_wrapper");
+        
+        reportService.createCoverTemplate1(pelaksanaanWrapper);
+    }
+    
+    public void cetakCoverLHP(){
+        System.out.println("KLIK CETAK COVER LHP");
+        
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("pelaksanaan_wrapper");
+        
+        reportService.createCoverTemplate2(pelaksanaanWrapper);
     }
     
     private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {

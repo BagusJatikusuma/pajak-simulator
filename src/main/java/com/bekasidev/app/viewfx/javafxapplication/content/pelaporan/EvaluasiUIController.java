@@ -10,8 +10,11 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.EvaluasiTableWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import java.net.URL;
 import java.util.Collection;
@@ -46,6 +49,8 @@ public class EvaluasiUIController implements Initializable {
     @FXML private TableColumn tim;
     @FXML private TableColumn wp;
     @FXML private TableColumn action;
+    
+    private ReportService reportService;
     
     private ObservableList<EvaluasiTableWrapper> dataCollection;
     private SuratPerintahService suratPerintahService;
@@ -124,7 +129,16 @@ public class EvaluasiUIController implements Initializable {
     }
     
     public void printKopLHP() {
+        System.out.println("KLIK CETAK COVER");
         
+        reportService = ServiceFactory.getReportService();
+        System.out.println("finishPersiapan");
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("pelaksanaan_wrapper");
+        
+        reportService.createCoverTemplate2(pelaksanaanWrapper);
     }
     
 }
