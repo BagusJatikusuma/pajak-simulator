@@ -18,7 +18,9 @@ import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,12 +48,13 @@ import javafx.stage.Stage;
 public class FormAturDokumenWPController implements Initializable {
     @FXML private TableView DokumenWPTable;
     private TableColumn dokumen;
+    private TableColumn no;
     private TableColumn keterangan;
     private TableColumn action;
     @FXML private Button cancelBtn;
     
     private ObservableList<DokumenWPTableWrapper> dataCollection;
-    
+    private Map<String, DokumenPinjaman> dokumenPinjamanMapper = new HashMap<>();
     private BerkasPersiapanService berkasPersiapanService;
     /**
      * Initializes the controller class.
@@ -91,6 +94,11 @@ public class FormAturDokumenWPController implements Initializable {
                 for (DokumenPinjaman objDoc : dokumenTempList) {
                     obj.getListPinjaman().add(objDoc);
                 }
+                berkasPersiapanService
+                    .createBerkasPersiapan(
+                            persiapanWrapper.getIdSP(), 
+                            obj.getWajibPajak());
+                break;
             }
         }
         
@@ -122,8 +130,8 @@ public class FormAturDokumenWPController implements Initializable {
     private void addFromFXML() {
         dokumen
                 = TableHelper.getTableColumnByName(DokumenWPTable, "Dokumen");
-        keterangan
-                = TableHelper.getTableColumnByName(DokumenWPTable, "Keterangan");
+        no
+                = TableHelper.getTableColumnByName(DokumenWPTable, "No");
         action 
                 = TableHelper.getTableColumnByName(DokumenWPTable, "Action");
     }
@@ -151,15 +159,22 @@ public class FormAturDokumenWPController implements Initializable {
                     for (DokumenPinjaman objTemp : obj.getWajibPajak().getListPinjaman()) {
                         dokumenTempList.add(objTemp);
                     }
-                
+                //ada bug index ke 0 tidak ada isi
+                if (dokumenTempList.get(0).getNamaDokumen().equals(""))
+                    dokumenTempList.remove(0);
+                    
+                int index = 1;
                 for (DokumenPinjaman dokumen 
                         : dokumenTempList) {
                     Button btn = new Button("Hapus");
                     dataCollection.add(new DokumenWPTableWrapper(
+                            String.valueOf(index),
                             dokumen.getNamaDokumen(),
-                            dokumen.getKeterangan(),
+                            "",
                             btn
                     ));
+                    dokumenPinjamanMapper.put(String.valueOf(index), dokumen);
+                    index++;
                 }
    
                 break;
@@ -172,7 +187,22 @@ public class FormAturDokumenWPController implements Initializable {
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent t) {
-                    System.out.println("hapus "+obj.getDokumen());
+                    System.out.println("hapus "+dokumenPinjamanMapper.get(obj.getNo()).getNamaDokumen());
+                    dokumenTempList.remove(dokumenPinjamanMapper.get(obj.getNo()));
+                    
+                    Stage stageAturDokumenWP 
+                            = (Stage) SessionProvider
+                                .getGlobalSessionsMap()
+                                .get("stage_atur_dokumen_wp");
+                    Pane formAturDokumenWP = null;
+                    try {
+                        formAturDokumenWP = FXMLLoader
+                                .load(getClass().getClassLoader().getResource("fxml/FormAturDokumenWP.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    stageAturDokumenWP.setScene(new Scene(formAturDokumenWP));
+                    
                 }
             });
         }
@@ -181,7 +211,7 @@ public class FormAturDokumenWPController implements Initializable {
 
     private void associateDataWithColumn() {
         dokumen.setCellValueFactory(new PropertyValueFactory<PersiapanAturDokumenPinjamTableWrapper, String>("dokumen"));
-        keterangan.setCellValueFactory(new PropertyValueFactory<PersiapanAturDokumenPinjamTableWrapper, String>("keterangan"));
+        no.setCellValueFactory(new PropertyValueFactory<PersiapanAturDokumenPinjamTableWrapper, String>("no"));
         action.setCellValueFactory(new PropertyValueFactory<PersiapanAturDokumenPinjamTableWrapper, String>("action"));
     }
     

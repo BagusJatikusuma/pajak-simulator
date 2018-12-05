@@ -224,7 +224,9 @@ public class ConverterHelper {
                                                                     .getYear();
                     berkasPersiapanService
                             .getDokumenPinjaman(wp, masaPajakAwal, masaPajakAkhir);
+                    
                 }
+                System.out.println("get first el list pinjaman "+wp.getListPinjaman().get(0).getNamaDokumen());
                 dokumenPinjamanWajibPajakWrappers
                         .add(new DokumenPinjamanWajibPajakWrapper(wp, wp.getListPinjaman()));
             }
