@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="396.0" prefWidth="493.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.DetailEvaluasiUIController">
+   <children>
+      <Label layoutX="190.0" layoutY="14.0" text="DETAIL EVALUASI" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="82.0" text="Tim" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="82.0" />
+      <Label layoutX="25.0" layoutY="65.0" text="Surat Perintah" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="65.0" />
+      <Label layoutX="25.0" layoutY="99.0" text="Wajib Pajak" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="99.0" />
+      <Label layoutX="24.0" layoutY="116.0" text="NPWPD" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="116.0" />
+      <Label layoutX="109.0" layoutY="65.0" text=":" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="65.0" />
+      <Label layoutX="119.0" layoutY="82.0" text=":" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="82.0" />
+      <Label layoutX="119.0" layoutY="99.0" text=":" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="99.0" />
+      <Label layoutX="119.0" layoutY="116.0" text=":" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="116.0" />
+      <Label fx:id="nomorTanggalSPField" layoutX="132.0" layoutY="65.0" text="Nomor Surat Perintah, tanggal surat perintah" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="65.0" />
+      <Label fx:id="namaTimLabel" layoutX="132.0" layoutY="82.0" text="Nama tim" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="82.0" />
+      <Label fx:id="namaWPLabel" layoutX="132.0" layoutY="99.0" text="Nama Wajib Pajak" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="99.0" />
+      <Label fx:id="npwpdLabel" layoutX="132.0" layoutY="116.0" text="Nomor NPWPD" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="116.0" />
+      <Label layoutX="119.0" layoutY="64.0" text=":" />
+      <Label layoutX="26.0" layoutY="47.0" text="Tahap ke" />
+      <Label layoutX="119.0" layoutY="47.0" text=":" />
+      <Label fx:id="tahapKeField" layoutX="132.0" layoutY="47.0" text="Null" />
+      <Label layoutX="26.0" layoutY="216.0" text="Nomor SKPDKB/SKPLD/SKPDN" />
+      <Label layoutX="26.0" layoutY="273.0" text="Tanggal SKPDKB/SKPLD/SKPDN" />
+      <DatePicker fx:id="tanggalSKPDField" layoutX="26.0" layoutY="293.0" prefHeight="25.0" prefWidth="450.0" />
+      <TextField fx:id="temuanField" layoutX="24.0" layoutY="180.0" prefHeight="25.0" prefWidth="450.0" />
+      <Label layoutX="25.0" layoutY="160.0" text="Temuan hasil pemeriksaan" />
+      <Separator layoutX="24.0" layoutY="147.0" prefHeight="0.0" prefWidth="450.0" />
+      <Button layoutX="366.0" layoutY="347.0" mnemonicParsing="false" onAction="#finishOperation" prefHeight="25.0" prefWidth="109.0" text="Selesai" />
+      <Button fx:id="cancelBtn" layoutX="249.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="109.0" text="Batal" />
+      <TextField fx:id="nomorSKPDField" layoutX="26.0" layoutY="238.0" prefHeight="25.0" prefWidth="450.0" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formdaftarrekapitulasiperbandinganpendapatan.css" />
+   </stylesheets>
+</AnchorPane>

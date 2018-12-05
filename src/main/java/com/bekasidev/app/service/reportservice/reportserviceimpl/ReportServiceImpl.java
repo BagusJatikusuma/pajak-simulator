@@ -2151,10 +2151,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-//            JRBeanCollectionDataSource beanColDataSource =
-//            new JRBeanCollectionDataSource(timSP.getListAnggota());
-            
+                        
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
@@ -2266,7 +2263,8 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
+                    parameter,
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPemberitahuanHasilPemeriksaan(3).pdf");
@@ -3129,7 +3127,7 @@ public class ReportServiceImpl implements ReportService {
     }
     
     @Override
-    public void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper)  {
+    public void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper)   {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -3306,8 +3304,6 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            JRBeanCollectionDataSource beanColDataSource =
-            new JRBeanCollectionDataSource(pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList());
             
             Map parameter = new HashMap();
             /**
@@ -3338,7 +3334,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter);
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -3347,7 +3343,7 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, beanColDataSource);
+                    parameter);
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
@@ -3441,7 +3437,8 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter, beanColDataSource);
+                    parameter,
+                    beanColDataSource);
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");

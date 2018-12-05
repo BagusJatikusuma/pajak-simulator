@@ -662,7 +662,7 @@ BEKASI]]></text>
 			<componentElement>
 				<reportElement key="table 5" positionType="Float" x="199" y="378" width="336" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="anggota" uuid="4e1b66ce-64d3-47e1-8eca-451e2478488b">
+					<datasetRun subDataset="anggota" uuid="b307cae8-0b4d-4bc8-b5de-76ee2cf99d98">
 						<dataSourceExpression><![CDATA[$P{anggota}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="120" uuid="50d7d9eb-4d92-439d-87ab-9568e5a86d51">
