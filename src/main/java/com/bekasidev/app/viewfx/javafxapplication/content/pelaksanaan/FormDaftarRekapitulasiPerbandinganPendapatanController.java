@@ -44,6 +44,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -70,6 +71,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private Label namaWPLabel;
     @FXML private Label npwpdLabel;
     @FXML private Label nomorTanggalSPField;
+    
+    @FXML private ChoiceBox metodeHitungDendaField;
     
     @FXML private Button backBtn;
     
@@ -137,6 +140,9 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
                                     .get("pelaksanaan_wrapper");
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
+        
+        metodeHitungDendaField.setItems(FXCollections.observableArrayList("otomatis","manual"));
+        metodeHitungDendaField.setValue("otomatis");
         
         int index = 1;
         NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
@@ -229,13 +235,36 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                     savable = false;
         }
         
+        //aturan : tidak bisa update rekapitulasi jika sudah diset sebelumnya
         if (savable) {
             rekapitulasiService = ServiceFactory.getRekapitulasiService();
-            //default 10%
-            rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), (float) 0.1);
+            float pajakPersentase;
+            switch (pelaksanaanWrapper.getWpSelected().getJenisWp()) {
+                case 0 : //restoran
+                    pajakPersentase = (float)0.1;
+                    break;
+                case 1 : //hotel
+                    pajakPersentase = (float)0.1;
+                    break;
+                case 2 : //parkiran
+                    pajakPersentase = (float)0.25;
+                    break;
+                case 3 : //hiburan default jadikan 10%
+                    pajakPersentase = (float)0.1;
+                    break;
+                case 4 : //penerangan jalan default jadikan 10%
+                    pajakPersentase = (float)0.1;
+                    break;
+                default://unidentified, default jadikan 10%
+                    pajakPersentase = (float)0.1;
+                    break;
+            }
+            rekapitulasiService.calculateRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper(), pajakPersentase);
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
         }
         else System.out.println("not saved, data already exist");
+        
+        
         
         Stage stage = (Stage) backBtn.getScene().getWindow();
         stage.close();
