@@ -27,9 +27,28 @@ public class PegawaiDaoImpl implements PegawaiDao {
 
         return listPegawai;
     }
-
-    @Override
-    public List<Pegawai> getPegawaiByTim(String idTim) {
+    
+    private Pegawai getPegawai(String nip) {
+        String sql = "SELECT * FROM pegawai WHERE nip_pegawai=?";
+        Pegawai pegawai = null;
+        
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, nip);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                pegawai = setPegawai(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return pegawai;
+    }
+    
+//    @Override
+    public List<Pegawai> getPegawaiByTimBack(String idTim) {
         String sql = "SELECT * FROM pegawai WHERE id_tim=?";
         List<Pegawai> listPegawai = new ArrayList<>();
 
@@ -45,7 +64,46 @@ public class PegawaiDaoImpl implements PegawaiDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("pegawai tim "+idTim+" is "+listPegawai.size());
         return listPegawai;
+    }
+    
+    /**
+     * ada perubahan algoritma terkait rule 1 orang punya beberapa tim
+     * 
+     * @param idTim
+     * @return 
+     */
+    @Override
+    public List<Pegawai> getPegawaiByTim(String idTim) {
+        List<Pegawai> listPegawai = getAllPegawai();
+        List<Pegawai> listPegawaiFiltered = new ArrayList<>();
+
+        for (Pegawai p : listPegawai) {
+            String[] idTims;
+            String[] jabatans;
+            if (p.getIdTim().contains("<p>")) {
+                idTims = p.getIdTim().split("<p>");
+                jabatans = p.getJabatanTim().split("<p>");
+            }
+            else {
+                idTims = new String[]{p.getIdTim()};
+                jabatans = new String[]{p.getJabatanTim()};
+            }
+            
+            for (int i=0; i<idTims.length;i++) {
+                if (idTims[i].equals(idTim)) {
+                    p.setJabatanTim(jabatans[i]);
+                    listPegawaiFiltered.add(p);
+                    break;
+                    
+                }
+                
+            }
+            
+        }
+        
+        return listPegawaiFiltered;
     }
 
     @Override
@@ -68,14 +126,91 @@ public class PegawaiDaoImpl implements PegawaiDao {
         }
     }
 
-    @Override
-    public void setPegawaiTim(String nipPegawai, String idTim, String jabatan) {
+//    @Override
+    public void setPegawaiTimBack(String nipPegawai, String idTim, String jabatan) {
         String sql = "UPDATE pegawai SET id_tim=?, jabatan_tim=? WHERE nip_pegawai=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, idTim);
             pstm.setString(2, jabatan);
+            pstm.setString(3, nipPegawai);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * ada perubahan algoritma terkait rule 1 orang punya beberapa tim
+     * 
+     * @param nipPegawai
+     * @param idTim
+     * @param jabatan 
+     */
+    @Override
+    public void setPegawaiTim(String nipPegawai, String idTim, String jabatan) {
+        Pegawai pegawai = getPegawai(nipPegawai);
+        String timCol = "";
+        String jabatanTimCol = "";
+        
+        if (pegawai.getIdTim().equals("")) {
+            timCol = idTim;
+            jabatanTimCol = jabatan;
+        }else {
+            //jika tim lebih dari satu
+            if (pegawai.getIdTim().contains("<p>")) {
+                String[] idTims = pegawai.getIdTim().split("<p>");
+                String[] jabatans = pegawai.getJabatanTim().split("<p>");
+                boolean exist = false;
+                for (int i=0; i<idTims.length;i++) {
+                    if (idTims[i].equals(idTim)) {
+                        exist = true;
+                        jabatans[i] = jabatan;
+                        
+                        break;
+                    }
+                }
+                
+                //berarti tambah tim dan jabatan untuk pegawai selected
+                if (!exist) {
+                    timCol = pegawai.getIdTim()+"<p>"+idTim;
+                    jabatanTimCol = pegawai.getJabatanTim()+"<p>"+jabatan;
+                }
+                //update jabatan
+                else {
+                    timCol = pegawai.getIdTim();
+                    jabatanTimCol = jabatans[0];
+                    for (int i = 1; i<jabatans.length; i++) {
+                        jabatanTimCol += "<p>"+jabatans[i];
+                    }
+                }
+                
+            }
+            //jika tim hanya satu
+            else {
+                //jika hanya mengupdate jabatan
+                System.out.println("case 2");
+                if (pegawai.getIdTim().equals(idTim)) {
+                    System.out.println("masuk sini : "+pegawai.getIdTim()+":"+idTim);
+                    timCol = idTim;
+                    jabatanTimCol = jabatan;
+                }
+                //berarti tambah tim dan jabatan untuk pegawai selected
+                else {
+                    timCol = pegawai.getIdTim()+"<p>"+idTim;
+                    jabatanTimCol = pegawai.getJabatanTim()+"<p>"+jabatan;
+                }
+            }
+        }
+                
+        String sql = "UPDATE pegawai SET id_tim=?, jabatan_tim=? WHERE nip_pegawai=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, timCol);
+            pstm.setString(2, jabatanTimCol);
             pstm.setString(3, nipPegawai);
 
             pstm.executeUpdate();
@@ -188,5 +323,60 @@ public class PegawaiDaoImpl implements PegawaiDao {
                                         rs.getString("pangkat"),
                                         rs.getString("jabatan_tim"),
                                         rs.getString("jabatan_dinas"));
+    }
+
+    @Override
+    public void deletePegawaiFromTim(String nipPegawai, String idTim) {
+        Pegawai pegawai = getPegawai(nipPegawai);
+        String timCol = "";
+        String jabatanTimCol = "";
+        //jika tim lebih dari satu
+        if (pegawai.getIdTim().contains("<p>")) {
+            String[] idTims = pegawai.getIdTim().split("<p>");
+            String[] jabatans = pegawai.getJabatanTim().split("<p>");
+            for (int i=0; i<idTims.length;i++) {
+                System.out.println("in dao test "+idTims[i]);
+                if (idTims[i].equals(idTim)) {
+                    idTims[i] = "";
+                    jabatans[i] = "";
+
+                    break;
+                }
+            }
+            
+            List<String> tempList = new ArrayList<>();
+            List<String> tempJabList = new ArrayList<>();
+            System.out.println("idTims size dao "+idTims.length);
+            for (int i = 0; i<idTims.length; i++) {
+                System.out.println("in dao "+idTims[i]);
+                if (!idTims[i].equals("")) {
+                    tempList.add(idTims[i]);
+                    tempJabList.add(jabatans[i]);
+                }
+            }
+            System.out.println("temp size dao "+tempList.size());
+            timCol = tempList.get(0);
+            jabatanTimCol = tempJabList.get(0);
+            if (tempList.size() > 1) {
+                for (int i=1; i < tempList.size(); i++) {
+                    timCol += "<p>"+tempList.get(i);
+                    jabatanTimCol += "<p>"+tempJabList.get(i);
+                }
+            }
+
+        }
+        
+        String sql = "UPDATE pegawai SET id_tim=?, jabatan_tim=? WHERE nip_pegawai=?";
+        
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, timCol);
+            pstm.setString(2, jabatanTimCol);
+            pstm.setString(3, nipPegawai);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

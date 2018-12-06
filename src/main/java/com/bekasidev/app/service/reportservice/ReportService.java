@@ -10,6 +10,7 @@ import com.bekasidev.app.model.WP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
@@ -56,6 +57,8 @@ public interface ReportService {
              PersiapanWrapper persiapanWrapper);
     
     void createQuesionerRestoran();
+    void createQuesionerHotel();
+    void createQuesionerParkir();
     
     //yang dipakai pelaksanaan
     void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper);
@@ -75,4 +78,8 @@ public interface ReportService {
     void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper);
     void createCoverTemplate1(PelaksanaanWrapper pelaksanaanWrapper);
     void createCoverTemplate2(PelaksanaanWrapper pelaksanaanWrapper);
+    
+    
+    //yang dipakai pelaporan
+    void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper);
 }

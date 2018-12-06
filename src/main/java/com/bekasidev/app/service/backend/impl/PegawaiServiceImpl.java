@@ -65,4 +65,9 @@ public class PegawaiServiceImpl implements PegawaiService {
     public void deleteTim(String idTim) {
         pegawaiDao.deleteTim(idTim);
     }
+
+    @Override
+    public void deletePegawaiFromTim(String idPegawai, String idTim) {
+        pegawaiDao.deletePegawaiFromTim(idPegawai, idTim);
+    }
 }

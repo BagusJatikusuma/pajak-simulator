@@ -5,22 +5,26 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author sudoroot
  */
 public class TimColumnPelaporan {
     private String namaTim;
-    private int columnHeight;
+    private List<ColumnsPelaporan> columnsPelaporanList;
 
     public TimColumnPelaporan() {
+        columnsPelaporanList = new ArrayList<>();
     }
 
-    public TimColumnPelaporan(String namaTim, int columnHeight) {
+    public TimColumnPelaporan(String namaTim, List<ColumnsPelaporan> columnsPelaporanList) {
         this.namaTim = namaTim;
-        this.columnHeight = columnHeight;
+        this.columnsPelaporanList = columnsPelaporanList;
     }
-
+    
     public String getNamaTim() {
         return namaTim;
     }
@@ -29,12 +33,12 @@ public class TimColumnPelaporan {
         this.namaTim = namaTim;
     }
 
-    public int getColumnHeight() {
-        return columnHeight;
+    public List<ColumnsPelaporan> getColumnsPelaporanList() {
+        return columnsPelaporanList;
     }
 
-    public void setColumnHeight(int columnHeight) {
-        this.columnHeight = columnHeight;
+    public void setColumnsPelaporanList(List<ColumnsPelaporan> columnsPelaporanList) {
+        this.columnsPelaporanList = columnsPelaporanList;
     }
     
     
