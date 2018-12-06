@@ -20,6 +20,7 @@ import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
+import com.bekasidev.app.viewfx.javafxapplication.model.SPColumnPelaporan;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
 
@@ -2548,11 +2549,11 @@ public class ReportServiceImpl implements ReportService {
                                persiapanWrapper.getMasaPajakAkhirTahun());
             parameter.put("tim", timWPWrapper.getTim().getNamaTim());
             
-            parameter.put("anggota_tim", beanColDataSource);
+            parameter.put("anggota_tim", new JRBeanCollectionDataSource(anggotaTimList));
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -2562,7 +2563,7 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter, 
-                    beanColDataSource);
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPemberitahuanPemeriksaanRestoran.pdf");
@@ -2590,11 +2591,10 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public void createPersiapanPeminjamanBukuPerWP(PersiapanWrapper persiapanWrapper, TimWPWrapper timWPWrapper, NomorTanggalWajibPajakWrapper nomorTanggalWajibPajakWrapper, WajibPajak wajibPajak) {
-        System.out.println("masuk service");
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
-            System.out.println("tahap 1");
+            
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
                 jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPeminjamanBuku.jasper");
@@ -2607,9 +2607,10 @@ public class ReportServiceImpl implements ReportService {
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            
                     
             JasperReport report = null;
-            System.out.println("tahap 2");
+            
             try {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
@@ -2617,17 +2618,17 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            System.out.println(persiapanWrapper.getMasaPajakAwalBulan());
-            
-            String masaAwal = converterHelper.convertBulanIntegerIntoString(
+            String masaAwal =  converterHelper.convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAwalBulan()) + " " +
                                persiapanWrapper.getMasaPajakAwalTahun();
             String masaAkhir = converterHelper.convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAkhirbulan()) + " " +
                                persiapanWrapper.getMasaPajakAkhirTahun();
-            if(wajibPajak.getListPinjaman().size() == 0)
-                ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(
-                    wajibPajak, masaAwal, masaAkhir);
+            
+            
+            if(wajibPajak.getListPinjaman().isEmpty()){
+                ServiceFactory.getBerkasPersiapanService().getDokumenPinjaman(wajibPajak, masaAwal, masaAkhir);
+            }
             
             JRBeanCollectionDataSource beanColDataSource =
             new JRBeanCollectionDataSource(wajibPajak.getListPinjaman());
@@ -2636,14 +2637,15 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            
             Locale id = new Locale("in", "ID");
             String pattern = "dd MMMM yyyy";
             
             SimpleDateFormat df_tanggal_surat = new SimpleDateFormat(pattern, id);
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
-            if((nomorTanggalWajibPajakWrapper.getNomorPeminjamanDokumen() == null || nomorTanggalWajibPajakWrapper.getNomorPeminjamanDokumen().equals("")) && 
-                    nomorTanggalWajibPajakWrapper.getTanggalPeminjamanDokumen() == null){
+            if((nomorTanggalWajibPajakWrapper.getNomorPeminjamanDokumen()== null || nomorTanggalWajibPajakWrapper.getNomorPeminjamanDokumen().equals("")) && 
+                    nomorTanggalWajibPajakWrapper.getTanggalPeminjamanDokumen()== null){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_surat", "    ");
             } else {
@@ -2651,7 +2653,9 @@ public class ReportServiceImpl implements ReportService {
                 parameter.put("tanggal_surat", String.valueOf(df_tanggal_surat.format(nomorTanggalWajibPajakWrapper.getTanggalPeminjamanDokumen())));
             }
             
-
+            
+            parameter.put("wajib_pajak", wajibPajak);
+            
             if((persiapanWrapper.getNomorSurat() == null || persiapanWrapper.getNomorSurat().equals("")) && persiapanWrapper.getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "   ");
                 parameter.put("tanggal_sp", "    ");
@@ -2661,26 +2665,30 @@ public class ReportServiceImpl implements ReportService {
             }
             
             parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
+            
+            parameter.put("buku_pinjaman", beanColDataSource);
+            
             parameter.put("jabatan_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getJabatanDinas()));
             parameter.put("pangkat_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getPangkat()));
             parameter.put("jabatan_penandatangan_ttd", persiapanWrapper.getPenandatangan().getJabatanDinas().toUpperCase());
             parameter.put("nama_penandatangan", persiapanWrapper.getPenandatangan().getNamaPegawai().toUpperCase());
-            
-            parameter.put("buku_peminjaman", beanColDataSource);
-            parameter.put("wajib_pajak", wajibPajak);
-            switch(wajibPajak.getJenisWp()){
-                case 0: parameter.put("jenis_wp", "Restoran");break;
-                case 1: parameter.put("jenis_wp", "Hotel");break;
+                        
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
             }
-
+            
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter,
+                    parameter, 
                     beanColDataSource);
-            System.out.println("tahap 3");
+            
             try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBukuRestoran.pdf");
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBuku.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);
@@ -2698,6 +2706,7 @@ public class ReportServiceImpl implements ReportService {
             frame.setVisible(true);
             
         } catch (JRException ex) {
+            System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -2838,7 +2847,7 @@ public class ReportServiceImpl implements ReportService {
                 if(jumlah < tim.getWajibPajaks().size()){
                     jumlah = tim.getWajibPajaks().size();
                 }
-
+                
                 for (int i = 0; i < jumlah; i++) {
                     AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
 
@@ -2868,6 +2877,10 @@ public class ReportServiceImpl implements ReportService {
                     }
 
                     wajibPajakList.add(wp);
+                }
+                
+                for (AnggotaDanWajibPajakWrapper wajibPajakWrapper : wajibPajakList){
+                    System.out.println("test wp : "+wajibPajakWrapper.getNamaPegawai());
                 }
 
                 TimWPWrapperJasper objTimWPWrapper
@@ -3631,6 +3644,8 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper) {
+        List<SPColumnPelaporan> sPColumnPelaporans = (List<SPColumnPelaporan>) SessionProvider.getGlobalSessionsMap().get("evaluasi_wrapper");
+        Integer tahunAnggaranSK = (Integer) SessionProvider.getGlobalSessionsMap().get("tahun_anggaran");
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
@@ -3657,15 +3672,13 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            List<SuratPerintah> suratPerintahList = (List<SuratPerintah>) SessionProvider.getGlobalSessionsMap().get("surat_perintah_laporan");
-            
             Map parameter = new HashMap();
             /**
              * Passing ReportTitle and Author as parameters
              */
             
-            parameter.put("tahun_anggaran", String.valueOf(pelaporanWrapper.getSuratPerintahSelected().getTahunAnggaranSK()));
-            parameter.put("list_sp", new JRBeanCollectionDataSource(suratPerintahList));
+            parameter.put("tahun_anggaran", String.valueOf(tahunAnggaranSK));
+            parameter.put("list_sp", new JRBeanCollectionDataSource(sPColumnPelaporans));
             
             try {
                JasperFillManager.fillReportToFile(

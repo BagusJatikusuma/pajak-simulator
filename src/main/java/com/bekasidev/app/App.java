@@ -92,9 +92,9 @@ public class App extends Application
         try {
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-            ServiceFactory.getExportImportService().exportData(
-                    ServiceFactory.getSuratPerintahService().getAllSuratPerintah()
-            );
+//            ServiceFactory.getExportImportService().exportData(
+//                    ServiceFactory.getSuratPerintahService().getAllSuratPerintah()
+//            );
 
 //            ServiceFactory.getExportImportService().importData();
             

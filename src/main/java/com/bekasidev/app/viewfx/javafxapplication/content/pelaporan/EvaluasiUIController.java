@@ -183,6 +183,10 @@ public class EvaluasiUIController implements Initializable {
         DecimalFormat formatter = (DecimalFormat) anotherFormat;
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
         
+        SessionProvider
+                .getGlobalSessionsMap()
+                .put("tahun_anggaran", Integer.valueOf(suratPerintahList.get(0).getTahunAnggaranSK()));
+        
         List<SPColumnPelaporan> spColumns = new ArrayList<>();
         for (SuratPerintah sp : suratPerintahList) {
             SPColumnPelaporan objSPColumn = new SPColumnPelaporan();
@@ -214,7 +218,7 @@ public class EvaluasiUIController implements Initializable {
                                         wajibPajaks.get(i).getNpwpd());
                         if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
                             rekapitulasiService.getTotalRekapitulasi(rekapWrapper);
-                            obj.setTemuanHasil("Rp"+formatter.format(new BigDecimal(rekapWrapper.getTotalJumlah().doubleValue())));
+                            obj.setTemuanHasil(formatter.format(new BigDecimal(rekapWrapper.getTotalJumlah().doubleValue())) + ",00");
                         } else obj.setTemuanHasil("Belum ada temuan");
                         
                         if (wajibPajaks.get(i).getNomorBerkas().getNomorSKPD()!= null)
@@ -258,38 +262,54 @@ public class EvaluasiUIController implements Initializable {
                 timColumnPelaporans.add(objTim);
             }
             
-            objSPColumn.setTahap(String.valueOf(sp.getTahap()));
+            String tahapTerbilang = "";
+            switch(sp.getTahap()) {
+                case 1 : tahapTerbilang = "Pertama"; break;
+                case 2 : tahapTerbilang = "Kedua"; break;
+                case 3 : tahapTerbilang = "Ketiga"; break;
+                case 4 : tahapTerbilang = "Keempat"; break;
+                case 5 : tahapTerbilang = "Kelima"; break;
+                case 6 : tahapTerbilang = "Keenam"; break;
+                case 7 : tahapTerbilang = "Ketujuh"; break;
+                case 8 : tahapTerbilang = "Kedelapan"; break;
+                case 9 : tahapTerbilang = "Kesembilan"; break;
+                case 10 : tahapTerbilang = "Kesepuluh"; break;
+                case 11: tahapTerbilang = "Kesebelas"; break;
+                case 12 : tahapTerbilang = "Keduabelas"; break;
+                default : String.valueOf(sp.getTahap()); break;
+            }
+            objSPColumn.setTahap(tahapTerbilang);
             objSPColumn.setTimColumnPelaporans(timColumnPelaporans);
             
             spColumns.add(objSPColumn);
             
         }
         
-//        for (SPColumnPelaporan spCol : spColumns) {
-//            for (TimColumnPelaporan timCol : spCol.getTimColumnPelaporans()) {
-//                for (ColumnsPelaporan col :timCol.getColumnsPelaporanList()) {
-//                        
-//                    System.out.println(
-//                            spCol.getTahap()
-//                            +"-"
-//                            +timCol.getNamaTim()
-//                            +"-"
-//                            +col.getNamaPegawai()
-//                            +"-"
-//                            +col.getNamaWajibPajak()
-//                            +"-"
-//                            +col.getTemuanHasil()
-//                            +"-"
-//                            +col.getNomorSKPD());
-//                    
-//                }
-//            }
-//            
-//        }
+        for (SPColumnPelaporan spCol : spColumns) {
+            for (TimColumnPelaporan timCol : spCol.getTimColumnPelaporans()) {
+                for (ColumnsPelaporan col :timCol.getColumnsPelaporanList()) {
+                        
+                    System.out.println(
+                            spCol.getTahap()
+                            +"-"
+                            +timCol.getNamaTim()
+                            +"-"
+                            +col.getNamaPegawai()
+                            +"-"
+                            +col.getNamaWajibPajak()
+                            +"-"
+                            +col.getTemuanHasil()
+                            +"-"
+                            +col.getNomorSKPD());
+                    
+                }
+            }
+            
+        }
         SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
         
         
-//        reportService.createLaporanEvaluasi(pelaporanWrapper);
+        reportService.createLaporanEvaluasi(new PelaporanWrapper());
         
 //        Pane contentPane = null;
 //        try { 
