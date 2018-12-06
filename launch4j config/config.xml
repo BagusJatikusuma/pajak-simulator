@@ -2,9 +2,9 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>/home/waddi/projekBappeda/pajak-simulator/target/pajak-simulator-1.0-SNAPSHOT.jar</jar>
-  <outfile>/home/waddi/projekBappeda/pajak-simulator/Perpajakan.exe</outfile>
-  <errTitle>Program needs java. Please instaal java first</errTitle>
+  <jar>/home/waddi/P/pajak-simulator/target/pajak-simulator-1.0-SNAPSHOT.jar</jar>
+  <outfile>/home/waddi/P/pajak-simulator/Perpajakan.exe</outfile>
+  <errTitle>Please install java</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>/home/waddi/projekBappeda/pajak-simulator/src/main/resources/images/logo.ico</icon>
+  <icon>/home/waddi/P/pajak-simulator/src/main/resources/images/logo.ico</icon>
   <singleInstance>
     <mutexName>Perpajakan</mutexName>
     <windowTitle>Perpajakan</windowTitle>
@@ -35,7 +35,7 @@
     <productVersion>1.0.0.0</productVersion>
     <txtProductVersion>1.0.0.0</txtProductVersion>
     <productName>Perpajakan</productName>
-    <companyName>Para Pencari Bonus</companyName>
+    <companyName>Pencari Bonus</companyName>
     <internalName>Perpajakan</internalName>
     <originalFilename>Perpajakan.exe</originalFilename>
   </versionInfo>
