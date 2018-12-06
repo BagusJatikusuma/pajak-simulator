@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 
 /**
  * FXML Controller class
@@ -30,12 +33,26 @@ import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
 public class UIController implements Initializable {
     @FXML
     private Pane mainmenu;
+    @FXML private MenuItem closeMenuItem;
+    @FXML private MenuItem persiapanMenuItem;
+    @FXML private MenuItem pelaksanaanMenuItem;
+    @FXML private MenuItem pelaporanMenuItem;
+    @FXML private MenuItem wajibPajakMenuItem;
+    @FXML private MenuItem timPemeriksaMenuItem;
+    @FXML private MenuItem pegawaiMenuItem;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        closeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCodeCombination.CONTROL_DOWN));
+        persiapanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT1, KeyCodeCombination.CONTROL_DOWN));
+        pelaksanaanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCodeCombination.CONTROL_DOWN));
+        pelaporanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT3, KeyCodeCombination.CONTROL_DOWN));
+        wajibPajakMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCodeCombination.CONTROL_DOWN));
+        timPemeriksaMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCodeCombination.CONTROL_DOWN));
+        pegawaiMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.I, KeyCodeCombination.CONTROL_DOWN));
     }    
     
     public void closeApp(ActionEvent actionEvent) {

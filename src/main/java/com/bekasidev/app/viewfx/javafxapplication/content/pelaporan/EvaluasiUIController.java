@@ -110,7 +110,7 @@ public class EvaluasiUIController implements Initializable {
         for (SuratPerintah sp : suratPerintahs) {
             for (TimSP timSP : sp.getListTim()) {
                 for (WajibPajak wp : timSP.getListWP()) {
-                    Button btn = new Button("lihat detail");
+                    Button btn = new Button("Lihat Detail");
                     dataCollection.add(new EvaluasiTableWrapper(
                         String.valueOf(index),
                         String.valueOf(sp.getTahap()),
