@@ -185,7 +185,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         
 //        reportService.createSuratPerintah();
         reportService.createSuratPerintahBaru();
-        reportService.createDaftarPetugasPemeriksa();
+//        reportService.createDaftarPetugasPemeriksa();
     }
     
     
