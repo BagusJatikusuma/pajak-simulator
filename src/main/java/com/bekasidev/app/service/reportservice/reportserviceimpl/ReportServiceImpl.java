@@ -17,6 +17,7 @@ import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
@@ -2589,10 +2590,11 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public void createPersiapanPeminjamanBukuPerWP(PersiapanWrapper persiapanWrapper, TimWPWrapper timWPWrapper, NomorTanggalWajibPajakWrapper nomorTanggalWajibPajakWrapper, WajibPajak wajibPajak) {
+        System.out.println("masuk service");
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
-            
+            System.out.println("tahap 1");
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
                 jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\ReportPeminjamanBuku.jasper");
@@ -2607,13 +2609,15 @@ public class ReportServiceImpl implements ReportService {
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
-            
+            System.out.println("tahap 2");
             try {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            System.out.println(persiapanWrapper.getMasaPajakAwalBulan());
             
             String masaAwal = converterHelper.convertBulanIntegerIntoString(
                                persiapanWrapper.getMasaPajakAwalBulan()) + " " +
@@ -2674,7 +2678,7 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     beanColDataSource);
-            
+            System.out.println("tahap 3");
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBukuRestoran.pdf");
                 File parent = file.getParentFile();
@@ -3304,6 +3308,8 @@ public class ReportServiceImpl implements ReportService {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(pelaksanaanWrapper.getPersiapanWrapper().getNomorTanggalWPList());
             
             Map parameter = new HashMap();
             /**
@@ -3334,7 +3340,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter);
+               jasperPathFile, parameter, beanColDataSource);
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -3343,7 +3349,8 @@ public class ReportServiceImpl implements ReportService {
             JasperPrint jasperPrint;
             jasperPrint = JasperFillManager.fillReport(
                     report, 
-                    parameter);
+                    parameter,
+                    beanColDataSource);
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
@@ -3442,6 +3449,240 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                 File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createQuesionerHotel() {
+        try {
+            PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("persiapan_wrapper");
+            
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerHotel.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerHotel.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(persiapanWrapper.getNomorTanggalWPList());
+
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerHotel.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createQuesionerParkir() {
+        try {
+            PersiapanWrapper persiapanWrapper
+                = (PersiapanWrapper) SessionProvider
+                .getGlobalSessionsMap()
+                .get("persiapan_wrapper");
+            
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerParkir.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\QuesionerParkir.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(persiapanWrapper.getNomorTanggalWPList());
+
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerParkir.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper) {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\LaporanEvaluasi.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\LaporanEvaluasi.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            List<SuratPerintah> suratPerintahList = (List<SuratPerintah>) SessionProvider.getGlobalSessionsMap().get("surat_perintah_laporan");
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            parameter.put("tahun_anggaran", String.valueOf(pelaporanWrapper.getSuratPerintahSelected().getTahunAnggaranSK()));
+            parameter.put("list_sp", new JRBeanCollectionDataSource(suratPerintahList));
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerParkir.pdf");
                 File parent = file.getParentFile();
                 if (!parent.exists() && !parent.mkdirs()) {
                     throw new IllegalStateException("Couldn't create dir: " + parent);

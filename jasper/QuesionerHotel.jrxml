@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerHotel" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="d49e2b13-82b2-4a87-a392-e086dfe0edd7">
+	<property name="ireport.zoom" value="0.5644739300537776"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="955"/>
+	<group name="grup">
+		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="875">
+				<staticText>
+					<reportElement x="0" y="236" width="535" height="30" uuid="30c4c016-5477-4648-b24b-d96bcc5e4fcc"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[DATA  UMUM   :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="486" width="67" height="20" uuid="95193457-5786-4cf1-9b22-fd3de16b0186"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Wanita]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="115" y="0" width="420" height="18" uuid="519a727a-0028-4c0a-8420-f5efba1a10fe"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="466" width="67" height="20" uuid="d0944737-2a2e-4521-9c9b-c2558b27c8f3"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Pria]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="93" width="535" height="1" uuid="3f3c9955-026c-4087-a70b-c26e61ea9cd7"/>
+					<graphicElement>
+						<pen lineWidth="4.0" lineStyle="Double" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="228" y="306" width="307" height="20" uuid="f4f38983-b096-46c1-9b5e-c395049efe42"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="719" width="515" height="40" uuid="29651910-d046-42e0-905b-93c27476ddab"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa tarif Pajak Hotel yang dikenakan pada konsumen /pelanggan? Bagaimana cara menghitung Dasar Pengenaan Pajaknya (DPP)!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="346" width="307" height="20" uuid="1ed379ae-c3e6-44fb-a90f-2d3de84c8a81"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="466" width="155" height="20" uuid="a3f5731a-9ffe-427c-851d-9ed5db9dbf81"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Orang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="446" width="18" height="60" uuid="9e782bcc-7191-4355-acb8-25dbceb05ada"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="159" width="535" height="25" uuid="9c9d98de-768c-4ef9-94af-fd39f6e31ba4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DALAM RANGKA PEMERIKSAAN PAJAK DAERAH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="679" width="515" height="40" uuid="644148de-e31d-4bad-b4d5-59b378bcc2a9"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="559" width="515" height="40" uuid="55aee4b9-b19a-4dad-b308-2cfd6b5fb8ff"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Fasilitas apa saja yang ada pada Hotel Saudara? Sebutkan jenis, tarif, dan jumlahnya?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="295" y="486" width="18" height="20" uuid="571df594-f295-4889-8192-3488760ea3ca"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="119" width="535" height="40" uuid="3a307983-9334-41b7-b7d2-84285bc5789d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="28" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Q U E S I O N E R]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="426" width="307" height="20" uuid="2b0b226a-d29c-488d-8a4f-bc85ae8c7014"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="326" width="307" height="20" uuid="1ab6997b-1169-450f-846c-6a72be93a2ca"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="446" width="210" height="60" uuid="4648452e-f9a0-4c2b-a494-fae98537e348"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Jumlah Pegawai]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="313" y="486" width="67" height="20" uuid="c585702d-c050-4586-b1ff-b374fce834cb"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[......................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="115" y="50" width="420" height="36" uuid="dbddb168-9460-423a-921e-433a9c6d2557"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Komplek Perkantoran Pemerintah Kabupaten Bekasi
+di Desa Sukamahi Kecamatan Cikarang Pusat
+BEKASI]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="529" width="535" height="30" uuid="da57844d-bb96-4eba-abdb-73b50030df16"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[DATA  KHUSUS   :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="266" width="210" height="20" uuid="c34265d6-6b96-456a-bdd6-3959f96377d1"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Nama Perusahaan / Wajib Pajak]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="386" width="210" height="20" uuid="6993c8c8-2a0b-4bfd-8944-d5858713f8b5"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Telepon / Fax]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="266" width="307" height="20" uuid="1573bd8d-3e91-473b-87a3-c09c1f661747"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="486" width="155" height="20" uuid="62071d42-89cc-4088-be98-845c0c5b37ff"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Orang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="295" y="466" width="18" height="20" uuid="1e17c1b7-a3b6-443a-830a-9519051bf50f"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="599" width="515" height="40" uuid="f070e9d5-79c3-4439-a5d3-c4bca3ee1f6a"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="366" width="307" height="20" uuid="360c0d07-a645-4cd8-b7f3-b633386ecaad"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="759" width="515" height="40" uuid="ec4633f7-4542-4760-ac04-9dbb15f9a185"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="559" width="20" height="80" uuid="b6dd24ff-e00d-4c75-968a-63de470e5727"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[1.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="406" width="18" height="20" uuid="bd21cf51-6edf-416c-990d-a444f38e3e64"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="286" width="18" height="20" uuid="7a1c7ff2-bc29-4c5b-bf84-994948f293ff"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="326" width="210" height="60" uuid="f5107ce3-3379-4683-ab65-d103f64c87f8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Alamat Tempat Usaha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="426" width="18" height="20" uuid="5df6f23a-5dcf-4293-8d14-57681d0e3ae9"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="386" width="18" height="20" uuid="6b01bfce-f23d-4e02-8d19-98547557e1a5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="326" width="18" height="60" uuid="140bfcb0-803a-4c3f-b4f9-aea032505efc"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="446" width="307" height="20" uuid="a7bc227a-abb3-4b6a-a2ca-44465e375b49"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="639" width="515" height="40" uuid="10f36d70-d195-40fa-ac13-f7285c220642"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah ada restoran/cafe pada Hotel Saudara? Apakah kewajiban perpajakannya terpisah atau digabung!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="639" width="20" height="80" uuid="2697fa6d-2125-49e1-aea3-41c0e4e01145"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[2.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="286" width="210" height="20" uuid="3853e97b-b696-4b7b-b50b-ec8c1cf57fa6"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[N P W P D]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="306" width="210" height="20" uuid="e053e901-80c0-458e-918f-6bcda15cddb0"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Nama Pemilik / Penanggung Jawab]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="115" y="12" width="420" height="42" uuid="324bb5b3-ba25-44e2-b939-02d2908a7d48"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="386" width="307" height="20" uuid="4f2aedde-ea19-4487-9559-095673b28049"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="313" y="466" width="67" height="20" uuid="bb5c8581-7a41-4902-bf85-ba3d7feff9ca"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[......................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="719" width="20" height="80" uuid="449f23bc-4d9e-4e3a-93e3-a27cfabccc03"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[3.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="184" width="535" height="30" uuid="e72c6072-bd2d-4bee-aa7d-5b5a3495c847"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="20" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[JENIS PAJAK HOTEL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="286" width="307" height="20" uuid="461edb4e-7d6e-4935-bdfd-9315168ffadd"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="406" width="210" height="20" uuid="16e79afe-372c-422c-9f5f-a2c3035f440d"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Jenis Usaha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="406" width="307" height="20" uuid="e59ae7ea-ff55-49e2-a02b-5ea68dfdde7a"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[..............................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="306" width="18" height="20" uuid="a842b0de-867c-4266-8ac7-ddac93e521cd"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="426" width="210" height="20" uuid="90bd9407-f378-490c-81cb-06c83fed8455"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Tahun Mulai Operasional]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="266" width="18" height="20" uuid="bf06e9c1-7c40-424a-b834-93596d563362"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="0" y="0" width="126" height="86" uuid="af0f0564-3639-403c-9a2d-71f1bfe960ef"/>
+					<imageExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+				</image>
+			</band>
+			<band height="875">
+				<staticText>
+					<reportElement x="20" y="170" width="515" height="40" uuid="ddf6c1b5-fa48-4828-ae63-0d3d5333c811"/>
+					<textElement textAlignment="Justified" markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Alat bukti pembayaran apa yang digunakan dalam operasional Hotel Saudara? (<i>Cash register</i>/Bill penjualan).]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="0" width="515" height="40" uuid="093a2cc6-f5a9-4d5c-8940-b7be9ab5b08a"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah Saudara mengenakan <i>service charge</i> pada setiap transaksi Hotel? Berapa persen tarifnya serta bagaimana perlakuannya dan peruntukannya!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="510" width="515" height="40" uuid="a75ceff4-0d96-496a-b017-8866915b52ce"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah ada pembayaran selain tunai (dengan kartu debit atau kartu kredit)?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="800" width="515" height="40" uuid="9b80bd0a-3f58-4c7d-bc91-937119b41e54"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="170" width="20" height="80" uuid="27d99431-1cc3-414d-92c9-1a6dcd668fa6"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[6.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="760" width="515" height="40" uuid="45b35c19-ea2f-4acb-bc4a-6209d0c6ac35"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Bagaimana proses pembagian gaji untuk pegawai? Apakah menggunakan <i>payroll</i>/bank atau tidak!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="80" width="20" height="90" uuid="5931620f-8db3-4284-9e5b-069448f060da"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[5.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="390" width="515" height="40" uuid="f11eb614-7f96-4b35-96a4-47ae3bc069fa"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="670" width="515" height="50" uuid="7c55e06c-9815-4ab6-8c00-66343471e7a3"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Dengan jumlah karyawan yang ada pada tempat usaha Saudara, berapa besar gaji/upah dari masing-masing karyawan? Apakah ada tambahan penghasilan lain diberikan kepada karyawan selain gaji/upah?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="40" width="515" height="40" uuid="2228ed81-c1df-41ce-8a58-3eed92f47988"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="350" width="515" height="40" uuid="c721d33a-a724-4d00-948f-916b6189f40c"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah ada bill penjualan lain yang dipergunakan selain bukti pembayaran selain yang dilaporkan ke Badan Pendapatan Daerah Kabupaten Bekasi?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="470" width="515" height="40" uuid="3b0dd7cb-b84e-46ca-9f13-c6966c087d16"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="590" width="20" height="80" uuid="13469865-1085-4a62-a7ac-840b3f19522e"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[11.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="80" width="515" height="50" uuid="8d74ac5f-d9ba-4e42-97bc-b476ddfb14ce"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Pembukuan/laporan keuangan apa saja yang dibuat terkait dengan pendapatan/omset tempat usaha Saudara? manual atau menggunakan sistem aplikasi!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="590" width="515" height="40" uuid="7113c5c8-7ae6-4e22-9f83-98b7afba5b43"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa rata-rata pengeluaran/biaya operasional (belanja, gaji pegawai, pembayaran listrik, telepon, PDAM, dll) setiap bulannya?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="760" width="20" height="80" uuid="928d71cc-dc32-4b77-8e63-ef19446ba5e6"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[13.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="720" width="515" height="40" uuid="10680f07-f0ef-483b-ba88-82fc8831acf2"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="630" width="515" height="40" uuid="89910e35-7fde-43c6-ae7f-c7b180eb13b7"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="430" width="515" height="40" uuid="c9cf4446-bc02-4f74-b396-92b6ff041c99"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah ada program promo? Jelaskan bentuk (<i>voucher, discount</i>, undangan, dan lain-lain) dan bagaimana perlakuannya!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="350" width="20" height="80" uuid="3df1f8ca-b073-4d14-81f7-c8583ff37684"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[8.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="430" width="20" height="80" uuid="df2fc1aa-84b5-4ac8-a6be-e118d857c83c"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[9.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="510" width="20" height="80" uuid="2537d6c2-eb0d-40d3-bb33-ca1ace171f73"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[10.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="210" width="515" height="40" uuid="f7ad83f7-6b77-410a-a198-27da35a3fede"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="250" width="20" height="100" uuid="c1d83ee3-95f7-4e0b-b7e1-20bab7bd0775"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[7.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="310" width="515" height="40" uuid="7642813e-52d2-47d4-bf62-81d04bf80567"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="550" width="515" height="40" uuid="f7026526-c814-4d46-9401-e607256fd066"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="670" width="20" height="90" uuid="2f81db8b-3501-404c-a701-2f560952d3b8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[12.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="20" height="80" uuid="b4678916-878d-4449-bb0c-8cf84889a1bd"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[4.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="250" width="515" height="60" uuid="7b60479d-56af-4562-80e8-754df4331474"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Bila menggunakan bill penjualan, apakah diperforasi atau tidak? berapa rangkap bill penjualan yang dioperasi setiap nomornya dan jelaskan pendistribusian dari masing-masing lembar.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="130" width="515" height="40" uuid="ee5ac4d9-6f3b-4881-9f99-685ce5b0fb93"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+			</band>
+			<band height="875">
+				<staticText>
+					<reportElement positionType="Float" x="20" y="160" width="515" height="40" uuid="c418e2cc-d180-4f4d-8a30-bedfb6f477dd"/>
+					<textElement textAlignment="Left" markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa rata-rata pengeluaran konsumen/pengunjung perorang dalam satu kali kungjungan ?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="793" width="124" height="30" uuid="16e70c29-6865-4271-96f0-0dfd7a7c5e33"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[......................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="240" width="20" height="80" uuid="fb5cf7e9-93a2-40d9-88c5-d029160de923"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[17.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="275" y="714" width="260" height="49" uuid="cdf16fe6-fa18-4518-99e7-afdbe00fca57"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Materai 6.000]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="400" width="515" height="40" uuid="f88923b4-45ac-4817-bebc-24051a7168dc"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Apakah Saudara telah memenuhi kewajiban membayar Pajak Penghasilan (PPh) Orang Pribadi atau Badan?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="480" width="20" height="80" uuid="f795fa0f-bbf6-4950-9b19-874f016e3164"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[20.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="275" y="762" width="260" height="1" uuid="dac61150-aa13-432a-a034-e178ea6e2e08"/>
+					<graphicElement>
+						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="20" y="280" width="515" height="40" uuid="22e2c243-4317-42af-815a-a50775a3d0c8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="320" width="515" height="40" uuid="e655674b-5ac6-4ec0-b3d5-c5a7b19ec968"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Bagaimana sistem pelaporan keuangan/pendapatan harian yang dibuat kasir/<i>front office</i> setiap harinya?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="19" y="200" width="515" height="40" uuid="21e1e248-4af1-4f6d-937b-509f167ac739"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="80" width="515" height="40" uuid="34521e04-cc9c-4bd8-8a50-91c49bd0335f"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa hari rata-rata konsumen/pengunjung yang meninap di Hotel Saudara?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="20" height="80" uuid="f28c8883-7cb8-4ce3-8670-3de369949ef5"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[14.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="240" width="515" height="40" uuid="652c7373-0f53-4cc7-9321-e5ff1b05a4e0"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Kapan terakhir kali ada kenaikan harga/tarif kamar pada Hotel Saudara?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="80" width="20" height="80" uuid="2125d2a4-ef6b-471b-ad31-6624b8b5043a"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[15.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="0" width="515" height="40" uuid="db9bf9ab-4fcd-4007-a662-e9ede9cfc44d"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa persentase rata-rata tingkat hunian Hotel Saudara setiap harinya?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="560" width="515" height="40" uuid="2f1f6357-c6cb-4b21-b3c9-882a6d8c615f"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa jam tempat usaha Saudara buka/operasional setiap harinya (mulai jam berapa s.d jam berapa waktu operasionalnya)?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="274" y="656" width="260" height="20" uuid="d4599538-94aa-4910-b0f8-0a15b7bc6e7d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cikarang Pusat,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="823" width="20" height="30" uuid="b639779e-c964-468c-baa2-9b0ef1707d45"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[2.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="440" width="515" height="40" uuid="c98802f4-26ba-469f-984e-cbc42eb46f7f"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="120" width="515" height="40" uuid="9508792b-5ac4-4ff2-90e8-7325f1e295f0"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="823" width="124" height="30" uuid="4089dae8-05c6-4fb5-94a1-5bf2372b9f6c"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[......................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="793" width="20" height="30" uuid="2d7689a9-62e3-48d2-9ddc-84b81ac02435"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[1. ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="275" y="676" width="260" height="38" uuid="372bd9eb-a699-4c48-8f58-68ed67a626a3"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Wajib Pajak/Kuasa Wajib Pajak]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="160" width="20" height="80" uuid="13a3e3fd-d8c4-4841-b84e-dc12d2b737ac"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[16.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="480" width="515" height="40" uuid="e392d914-b0c4-42ff-af75-4734c68b4fee"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Berapa hari dalam satu bulan tempat usaha Saudara buka/operasional untuk melayani konsumen?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="823" width="130" height="30" uuid="124e482a-5216-49e3-8441-83c3e2970c4c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[...........................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="793" width="130" height="30" uuid="6e4c38a0-50d8-4429-b9b1-5949526197e9"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[...........................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="520" width="515" height="40" uuid="0d9a396c-1112-4b2d-afc0-cbdff1a7e8ee"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="600" width="515" height="40" uuid="e2f80722-e391-49e9-9f79-687348e8bd01"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="40" width="515" height="40" uuid="1839857c-cf1c-4aaf-8b1c-f0b1bbcd1275"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="320" width="20" height="80" uuid="ac72505f-55a9-40cf-85f4-0d1b175a4c89"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[18.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="773" width="274" height="20" uuid="f93ceb96-12d5-4982-9c36-76a3a3f28a62"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Saksi - Saksi :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="400" width="20" height="80" uuid="c0ceef57-59ed-459b-92c9-e37d7893a6a1"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[19.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="360" width="515" height="40" uuid="20fac71d-f257-42ac-a64f-fc6b53b267d3"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="560" width="20" height="80" uuid="76cba519-7fb5-4942-9f26-34bef5f1d5e0"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[21.]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+		<band/>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -64,6 +64,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("pegawai tim "+idTim+" is "+listPegawai.size());
         return listPegawai;
     }
     

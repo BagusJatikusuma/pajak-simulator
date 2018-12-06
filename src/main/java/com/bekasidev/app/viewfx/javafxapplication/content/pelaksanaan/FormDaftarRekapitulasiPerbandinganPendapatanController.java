@@ -75,6 +75,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
     @FXML private ChoiceBox metodeHitungDendaField;
     
     @FXML private Button backBtn;
+    @FXML private Button batalBtn;
     @FXML private Button cetakCoverKKPBtn;
     
     private ObservableList<ArsipPelaksanaanTableWrapper> dataCollection;
@@ -90,6 +91,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         // TODO
         Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
         backBtn.setVisible(!isHistory.booleanValue());
+        batalBtn.setVisible(isHistory.booleanValue());
         
         initLabel();
         populateData();
@@ -338,6 +340,13 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 .get("pelaksanaan_wrapper");
         
         reportService.createCoverTemplate2(pelaksanaanWrapper);
+    }
+    
+    public void batalEvent(){
+        //remove session
+        SessionProvider.getGlobalSessionsMap().remove("pelaksanaan_wrapper");
+        Stage stage = (Stage) batalBtn.getScene().getWindow();
+        stage.close();
     }
     
     private int getDifferenceDatePersiapanWrapperinMonth(PersiapanWrapper persiapanWrapper) {

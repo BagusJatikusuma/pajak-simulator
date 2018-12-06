@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanEvaluasi" language="groovy" pageWidth="935" pageHeight="595" orientation="Landscape" columnWidth="895" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e021ad3-116e-44d9-a602-270592e4d926">
-	<property name="ireport.zoom" value="0.7513148009015794"/>
+	<property name="ireport.zoom" value="0.6830134553650743"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<subDataset name="tahap_pemeriksaan" uuid="e2650df2-bbd5-4122-9ede-ef31f2c659f0"/>
-	<parameter name="tahap_pemeriksaan" class="java.lang.String"/>
-	<parameter name="anggaran" class="java.lang.String"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<subDataset name="list_sp" uuid="e1b708e8-cc6f-4f95-bf4d-60957d4e2dae">
+		<field name="tahap" class="java.lang.Short"/>
+		<field name="listTim" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="tim_sp" uuid="8e0e28bb-f9b4-4556-9985-585ed6937779">
+		<field name="namaTim" class="java.lang.String"/>
+		<field name="listAnggota" class="java.util.List"/>
+		<field name="listWP" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="anggota_tim" uuid="c395f2f7-d542-4247-a840-d4f450f5c3a8">
+		<field name="namaPegawai" class="java.lang.String"/>
+		<field name="nipPegawai" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="list_wp" uuid="f87415de-a14f-4656-8e8e-b5e570484b8e">
+		<field name="namaWajibPajak" class="java.lang.String"/>
+		<field name="npwpd" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="list_sp" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="tahun_anggaran" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="55" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<textField>
-				<reportElement x="163" y="0" width="586" height="55" uuid="61ae2883-1e34-4dfb-a56d-1a4bf44789f1"/>
+				<reportElement x="159" y="-2" width="586" height="62" uuid="61ae2883-1e34-4dfb-a56d-1a4bf44789f1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="18" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["LAPORAN HASIL KEGIATAN PEMERIKSAAN PAJAK DAERAH TAHUN ANGGARAN " + $P{anggaran}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["LAPORAN HASIL KEGIATAN PEMERIKSAAN PAJAK DAERAH TAHUN ANGGARAN " + $P{tahun_anggaran}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -24,9 +43,9 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="50" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="10" width="85" height="40" uuid="21bac6b2-f53b-43b6-84ed-cad22f6f7514"/>
+				<reportElement x="0" y="0" width="85" height="40" uuid="21bac6b2-f53b-43b6-84ed-cad22f6f7514"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -34,12 +53,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TAHAP PEMERIKSAAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="85" y="10" width="70" height="40" uuid="02439a18-3b69-4f50-833d-224ad32ed32a"/>
+				<reportElement x="85" y="0" width="70" height="40" uuid="02439a18-3b69-4f50-833d-224ad32ed32a"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -47,12 +66,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TIM PEMERIKSA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="155" y="10" width="180" height="40" uuid="db632c39-3829-47ee-ad3c-5aca2e440f74"/>
+				<reportElement x="155" y="0" width="180" height="40" uuid="db632c39-3829-47ee-ad3c-5aca2e440f74"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -60,12 +79,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NAMA PETUGAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="335" y="30" width="180" height="20" uuid="88636566-eaa8-4fc2-b499-99c366758b2a"/>
+				<reportElement x="335" y="20" width="180" height="20" uuid="88636566-eaa8-4fc2-b499-99c366758b2a"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -73,12 +92,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NPWPD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="335" y="10" width="180" height="20" uuid="664e4ef2-a3f4-4f47-b13f-4b88aa746be8"/>
+				<reportElement x="335" y="0" width="180" height="20" uuid="664e4ef2-a3f4-4f47-b13f-4b88aa746be8"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -86,12 +105,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[WAJIB PAJAK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="515" y="10" width="130" height="40" uuid="d5c99636-7912-489b-8d0e-452b98a401b3"/>
+				<reportElement x="515" y="0" width="130" height="40" uuid="d5c99636-7912-489b-8d0e-452b98a401b3"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -99,12 +118,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TEMUAN HASIL PEMERIKSAAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="645" y="30" width="100" height="20" uuid="41f5c2cd-9202-419a-9275-f0e4bd7e562d"/>
+				<reportElement x="645" y="20" width="100" height="20" uuid="41f5c2cd-9202-419a-9275-f0e4bd7e562d"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -112,12 +131,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOMOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="745" y="30" width="100" height="20" uuid="c3a2ec0f-47e9-4ac0-b3f7-9ffba1950608"/>
+				<reportElement x="745" y="20" width="100" height="20" uuid="c3a2ec0f-47e9-4ac0-b3f7-9ffba1950608"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -125,12 +144,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TANGGAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="645" y="10" width="200" height="20" uuid="de8c23a7-5c8d-4cf1-9791-00510cf973d3"/>
+				<reportElement x="645" y="0" width="200" height="20" uuid="de8c23a7-5c8d-4cf1-9791-00510cf973d3"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -138,12 +157,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SKPDKB / SKPLD / SKPDN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="845" y="10" width="50" height="40" uuid="79b54df0-2f06-4811-bab6-1c26820ed687"/>
+				<reportElement x="845" y="0" width="50" height="40" uuid="79b54df0-2f06-4811-bab6-1c26820ed687"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -151,47 +170,145 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[KET]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="555" splitType="Stretch">
+		<band height="515" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" x="0" y="0" width="895" height="112" uuid="1b8a58fa-786a-44c5-b4d0-797931557329"/>
+				<reportElement key="table" positionType="Float" x="0" y="0" width="895" height="40" uuid="171a3596-3bb0-474b-a69d-d6caabb445ab"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="tahap_pemeriksaan" uuid="aa24ebfe-ff82-4a91-8084-cdfaae6256f4">
-						<dataSourceExpression><![CDATA[$P{tahap_pemeriksaan}]]></dataSourceExpression>
+					<datasetRun subDataset="list_sp" uuid="99d82004-0fd1-4939-80de-84980345cbee">
+						<dataSourceExpression><![CDATA[$P{list_sp}]]></dataSourceExpression>
 					</datasetRun>
-					<jr:column width="90" uuid="198104c0-174b-4582-80a2-080fc972925e">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
+					<jr:column width="85" uuid="b93c652f-c098-42b3-9f37-dae4a9f9e775">
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="85" height="40" uuid="3e4920b2-5971-4ad5-9bec-25c138146ce6"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="10" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tahap}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="c868d5e8-6665-4b1b-b4bf-571eba4c2b6b">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="7993f2cf-804b-406e-b397-ffdc85b0e18d">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="e3089477-757b-40c3-bf51-79af4d16b281">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
+					<jr:column width="810" uuid="9d79d345-00b2-4a48-bddb-b2d6c350e553">
+						<jr:detailCell height="40" rowSpan="1">
+							<componentElement>
+								<reportElement key="table" positionType="Float" x="0" y="0" width="810" height="40" uuid="4fd47674-88a3-4a19-9e8a-b8509dc5c1df"/>
+								<jr:table>
+									<datasetRun subDataset="tim_sp" uuid="b6fd186d-2301-4676-9512-cc6a5391e2d8">
+										<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listTim})]]></dataSourceExpression>
+									</datasetRun>
+									<jr:column width="70" uuid="ccfd51cd-0f53-4084-9d03-0693a1fd7aab">
+										<jr:detailCell height="40" rowSpan="1">
+											<textField isStretchWithOverflow="true">
+												<reportElement positionType="Float" x="0" y="0" width="70" height="40" uuid="f97da530-b2dd-4764-83c7-b46c1b9a9a9c"/>
+												<box>
+													<topPen lineWidth="1.0"/>
+													<leftPen lineWidth="1.0"/>
+													<bottomPen lineWidth="1.0"/>
+													<rightPen lineWidth="1.0"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle">
+													<font fontName="Times New Roman" size="10" isBold="true"/>
+												</textElement>
+												<textFieldExpression><![CDATA[$F{namaTim}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="180" uuid="a702ec25-f242-476a-bc96-ed173bb2f3a5">
+										<jr:detailCell height="40" rowSpan="1">
+											<componentElement>
+												<reportElement key="table" positionType="Float" x="0" y="0" width="180" height="40" uuid="25863d28-ba85-45c2-a4f3-5c5bd98e2bf3"/>
+												<jr:table>
+													<datasetRun subDataset="anggota_tim" uuid="9008310a-7000-4e81-bf6c-1d6440fd1411">
+														<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listAnggota})]]></dataSourceExpression>
+													</datasetRun>
+													<jr:column width="180" uuid="7cfe8486-83f5-4e15-9bd4-81304c1274d1">
+														<jr:detailCell height="40" rowSpan="1">
+															<textField isStretchWithOverflow="true">
+																<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="31d52d2f-f09c-4e8b-a639-f7d2163f1d07"/>
+																<box leftPadding="5" rightPadding="5">
+																	<topPen lineWidth="1.0"/>
+																	<leftPen lineWidth="1.0"/>
+																	<rightPen lineWidth="1.0"/>
+																</box>
+																<textElement verticalAlignment="Middle">
+																	<font fontName="Times New Roman" size="10" isBold="true" isUnderline="true"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
+															</textField>
+															<textField isStretchWithOverflow="true">
+																<reportElement positionType="Float" x="0" y="20" width="180" height="20" uuid="629036da-5fdf-49c0-a5f3-9028edea9f1f"/>
+																<box leftPadding="5" rightPadding="5">
+																	<leftPen lineWidth="1.0"/>
+																	<bottomPen lineWidth="1.0"/>
+																	<rightPen lineWidth="1.0"/>
+																</box>
+																<textElement verticalAlignment="Top">
+																	<font fontName="Times New Roman" size="10"/>
+																</textElement>
+																<textFieldExpression><![CDATA["NIP. " +$F{nipPegawai}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="180" uuid="d09f6468-b061-43ea-a1a2-586d7077c8ad">
+										<jr:detailCell height="40" rowSpan="1">
+											<componentElement>
+												<reportElement key="table" positionType="Float" x="0" y="0" width="180" height="40" uuid="fc59df46-4aee-40ef-ba47-91880a4fe138"/>
+												<jr:table>
+													<datasetRun subDataset="list_wp" uuid="c3612fa2-e2fc-429d-a9ab-930ede939503">
+														<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listWP})]]></dataSourceExpression>
+													</datasetRun>
+													<jr:column width="180" uuid="173a0017-f97f-4bc0-8ada-b65cc739c641">
+														<jr:detailCell height="40" rowSpan="1">
+															<textField isStretchWithOverflow="true">
+																<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="fd885875-9d21-45a6-bc21-4228ffbbce0a"/>
+																<box leftPadding="5" rightPadding="5">
+																	<topPen lineWidth="1.0"/>
+																	<leftPen lineWidth="1.0"/>
+																	<rightPen lineWidth="1.0"/>
+																</box>
+																<textElement verticalAlignment="Middle">
+																	<font fontName="Times New Roman" size="10" isBold="true" isUnderline="true"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{namaWajibPajak}]]></textFieldExpression>
+															</textField>
+															<textField isStretchWithOverflow="true">
+																<reportElement positionType="Float" x="0" y="20" width="180" height="20" uuid="32e33259-aade-427a-b1a5-54a4903e2ac2"/>
+																<box leftPadding="5" rightPadding="5">
+																	<leftPen lineWidth="1.0"/>
+																	<bottomPen lineWidth="1.0"/>
+																	<rightPen lineWidth="1.0"/>
+																</box>
+																<textElement verticalAlignment="Top">
+																	<font fontName="Times New Roman" size="10" isBold="false"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{npwpd}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</jr:detailCell>
+									</jr:column>
+								</jr:table>
+							</componentElement>
+						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>

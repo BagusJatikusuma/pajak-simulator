@@ -22,7 +22,7 @@
       <Button fx:id="backToFormSPBtn" layoutX="15.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToFormSP" prefHeight="25.0" prefWidth="100.0" text="Kembali" />
       <Button layoutX="501.0" layoutY="320.0" mnemonicParsing="false" onAction="#aturSuratPeminjaman" prefHeight="25.0" prefWidth="185.0" text="Selanjutnya | Surat Peminjaman" />
       <Separator layoutX="447.0" layoutY="322.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
-      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" prefWidth="160.0" text="Cetak Surat Pemberitahuan" />
+      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" text="Cetak Surat Pemberitahuan" />
    </children>
    <padding>
       <Insets bottom="10.0" />

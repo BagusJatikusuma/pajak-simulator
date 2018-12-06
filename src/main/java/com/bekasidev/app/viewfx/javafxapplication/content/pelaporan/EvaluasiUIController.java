@@ -286,6 +286,9 @@ public class EvaluasiUIController implements Initializable {
 //        }
         SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
         
+        
+        reportService.createLaporanEvaluasi(pelaporanWrapper);
+        
 //        Pane contentPane = null;
 //        try { 
 //            contentPane
