@@ -261,27 +261,28 @@ public class EvaluasiUIController implements Initializable {
             
         }
         
-        for (SPColumnPelaporan spCol : spColumns) {
-            for (TimColumnPelaporan timCol : spCol.getTimColumnPelaporans()) {
-                for (ColumnsPelaporan col :timCol.getColumnsPelaporanList()) {
-                        
-                    System.out.println(
-                            spCol.getTahap()
-                            +"-"
-                            +timCol.getNamaTim()
-                            +"-"
-                            +col.getNamaPegawai()
-                            +"-"
-                            +col.getNamaWajibPajak()
-                            +"-"
-                            +col.getTemuanHasil()
-                            +"-"
-                            +col.getNomorSKPD());
-                    
-                }
-            }
-            
-        }
+//        for (SPColumnPelaporan spCol : spColumns) {
+//            for (TimColumnPelaporan timCol : spCol.getTimColumnPelaporans()) {
+//                for (ColumnsPelaporan col :timCol.getColumnsPelaporanList()) {
+//                        
+//                    System.out.println(
+//                            spCol.getTahap()
+//                            +"-"
+//                            +timCol.getNamaTim()
+//                            +"-"
+//                            +col.getNamaPegawai()
+//                            +"-"
+//                            +col.getNamaWajibPajak()
+//                            +"-"
+//                            +col.getTemuanHasil()
+//                            +"-"
+//                            +col.getNomorSKPD());
+//                    
+//                }
+//            }
+//            
+//        }
+        SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
         
     }
     
