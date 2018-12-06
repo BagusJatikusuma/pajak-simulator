@@ -31,7 +31,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -72,7 +74,10 @@ public class MasterPegawaiUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form tambah Pegawai");
         stage.setScene(new Scene(formTambahPegawai));
-        stage.show();
+        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
     
     private void addFromFXML() {

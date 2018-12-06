@@ -55,6 +55,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
@@ -151,6 +152,8 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         Stage stage = new Stage();
         stage.setTitle("");
         stage.setScene(new Scene(popup));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         
@@ -275,6 +278,8 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                 .put("stage_atur_dokumen_wp", stage);
         stage.setTitle("Form Atur Dokumen Wajib Pajak");
         stage.setScene(new Scene(formAturDokumenWP));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
@@ -335,6 +340,8 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                     Stage stage = new Stage();
                     stage.setTitle("Form input nomor dan tanggal surat peminjaman");
                     stage.setScene(new Scene(formInputNomorTglSuratPeminjaman));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                 }

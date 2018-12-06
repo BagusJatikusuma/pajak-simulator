@@ -56,6 +56,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
@@ -130,6 +131,8 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
         Stage stage = new Stage();
         stage.setTitle("");
         stage.setScene(new Scene(popup));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         
@@ -259,6 +262,8 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                     Stage stage = new Stage();
                     stage.setTitle("Form input nomor dan tanggal surat pemberitahuan");
                     stage.setScene(new Scene(formInputNomorTglSuratPemberitahuan));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                 }
