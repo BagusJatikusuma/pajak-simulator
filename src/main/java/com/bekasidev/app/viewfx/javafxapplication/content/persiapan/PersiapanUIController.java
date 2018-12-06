@@ -50,6 +50,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -168,6 +169,7 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
@@ -201,6 +203,7 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
+        
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }

@@ -52,6 +52,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -135,10 +136,21 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 pajakPersentase = (float)0.1;
                 break;
         }
-        rekapitulasiService.calculateRekapitulasi(
-                pelaksanaanWrapper.getRekapitulasiWrapper(), 
-                pajakPersentase,
-                (metodeHitungDendaField.getValue().equals("manual"))?true:false);
+        
+        boolean thereIsNull = false;
+        for (Rekapitulasi rekap : pelaksanaanWrapper.getRekapitulasiWrapper().getListRekapitulasi()) {
+            if (rekap.getOmzetHasilPeriksa() == null || rekap.getOmzetLaporan() == null) {
+                thereIsNull = true;
+                break;
+            }
+        }
+        
+        if (!thereIsNull) {
+            rekapitulasiService.calculateRekapitulasi(
+                    pelaksanaanWrapper.getRekapitulasiWrapper(), 
+                    pajakPersentase,
+                    (metodeHitungDendaField.getValue().equals("manual"))?true:false);
+        }
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
         rootpaneFormPelaksanaan.getChildren().remove(0);
@@ -178,9 +190,11 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
         if (isHistory) {
             //indikasi manual adalah jumlah total denda == 0
+            rekapitulasiService.getTotalRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
             if (pelaksanaanWrapper.getRekapitulasiWrapper().getTotalDenda() == 0) {
                 metodeHitungDendaField.setValue("manual");
             }
+            else metodeHitungDendaField.setValue("otomatis");
         }
         else metodeHitungDendaField.setValue("otomatis");
         
@@ -223,6 +237,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                     Stage stage = new Stage();
                     stage.setTitle("Form Atur Omzet");
                     stage.setScene(new Scene(formAturBulanRekapitulasi));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                     

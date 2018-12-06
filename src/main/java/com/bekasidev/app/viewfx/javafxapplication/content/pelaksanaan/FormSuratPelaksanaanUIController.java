@@ -34,6 +34,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -146,6 +147,8 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Form Atur Nomor Tanggal");
             stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             
@@ -161,6 +164,8 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Form Atur Tanggal");
             stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         }
@@ -175,6 +180,8 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Form Atur Tanggal");
             stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         }

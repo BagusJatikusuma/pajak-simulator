@@ -42,6 +42,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -148,6 +149,8 @@ public class FormAturTimWPUIController implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Form tambah Tim WP");
                     stage.setScene(new Scene(formTambahTimWPUI));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                     
@@ -194,6 +197,8 @@ public class FormAturTimWPUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Tambah Tim");
         stage.setScene(new Scene(formTambahTimWPUI));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
