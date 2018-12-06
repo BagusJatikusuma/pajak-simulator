@@ -50,7 +50,6 @@
       
       <Button layoutX="531.0" layoutY="459.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
       <Button fx:id="cetakCoverKKPBtn" layoutX="213.0" layoutY="459.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="383.0" />
-      <Button fx:id="cetakCoverLHPBtn" layoutX="103.0" layoutY="459.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />
       <Button fx:id="backBtn" layoutX="24.0" layoutY="459.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
       <ChoiceBox fx:id="metodeHitungDendaField" layoutX="498.0" layoutY="113.0" prefHeight="25.0" prefWidth="178.0" AnchorPane.rightAnchor="24.0" />
       <Label layoutX="366.0" layoutY="117.0" text="Metode hitung denda :" />

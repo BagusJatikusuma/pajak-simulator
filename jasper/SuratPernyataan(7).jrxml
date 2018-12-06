@@ -26,7 +26,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Materai 6.000]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="275" y="442" width="260" height="20" uuid="8977d198-7874-44a7-a840-a4d9b0d1fb6a"/>

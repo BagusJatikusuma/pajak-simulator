@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeritaAcaraPembahasanAkhirHasilPemeriksaan(8)" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00bddd47-a695-4bfb-8c09-a936f2ebd40d">
 	<property name="ireport.zoom" value="0.8264462809917404"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1085"/>
+	<property name="ireport.y" value="1709"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<subDataset name="anggota_tim" uuid="9060bb7b-95c1-47a5-bf9c-c31826ae95b7">
 		<field name="namaPegawai" class="java.lang.String"/>
@@ -543,34 +543,27 @@ BEKASI]]></text>
 						<dataSourceExpression><![CDATA[$P{anggota_tandatangan_tim_1}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="188" uuid="1c0703ca-ef9e-48b8-b1d7-1e345c806d0a">
-						<jr:detailCell height="115" rowSpan="1">
+						<jr:detailCell height="105" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="188" height="14" uuid="8a54b9f5-a553-417e-83dd-d8649fc9e6a9"/>
+								<reportElement x="0" y="0" width="188" height="75" uuid="8a54b9f5-a553-417e-83dd-d8649fc9e6a9"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12"/>
+									<font fontName="Times New Roman"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim} + ","]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement positionType="Float" x="0" y="63" width="188" height="14" uuid="8d84f682-2da0-468a-b889-0489f8937815"/>
+								<reportElement positionType="Float" x="0" y="75" width="188" height="15" uuid="8d84f682-2da0-468a-b889-0489f8937815"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+									<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="77" width="188" height="14" uuid="3a40c1aa-3dea-41bd-8a5a-98341612c0fa"/>
+								<reportElement x="0" y="90" width="188" height="15" uuid="3a40c1aa-3dea-41bd-8a5a-98341612c0fa"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12"/>
+									<font fontName="Times New Roman"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
-							</textField>
-							<textField>
-								<reportElement x="0" y="91" width="188" height="14" uuid="16b17ef5-8726-4459-a3ef-a91edfe48e09"/>
-								<textElement>
-									<font fontName="Times New Roman" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{pangkat}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -886,34 +879,27 @@ BEKASI]]></text>
 						<dataSourceExpression><![CDATA[$P{anggota_tandatangan_tim_2}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="188" uuid="843e5863-1b9d-4578-944b-50cd687d0862">
-						<jr:detailCell height="115" rowSpan="1">
+						<jr:detailCell height="105" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="188" height="14" uuid="daf92006-13d9-4133-a69e-7b97447bb2d3"/>
+								<reportElement x="0" y="0" width="188" height="75" uuid="daf92006-13d9-4133-a69e-7b97447bb2d3"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12"/>
+									<font fontName="Times New Roman"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim} + ","]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement positionType="Float" x="0" y="63" width="188" height="14" uuid="f1a093f0-14fe-47a5-9627-1b6480d3e48e"/>
+								<reportElement positionType="Float" x="0" y="75" width="188" height="15" uuid="f1a093f0-14fe-47a5-9627-1b6480d3e48e"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+									<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="77" width="188" height="14" uuid="f02d960a-6307-4546-b5d8-c57e64ec4cd8"/>
+								<reportElement x="0" y="90" width="188" height="15" uuid="f02d960a-6307-4546-b5d8-c57e64ec4cd8"/>
 								<textElement>
-									<font fontName="Times New Roman" size="12"/>
+									<font fontName="Times New Roman"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
-							</textField>
-							<textField>
-								<reportElement x="0" y="91" width="188" height="14" uuid="775a3a11-8a87-43f5-9ec2-579878a40525"/>
-								<textElement>
-									<font fontName="Times New Roman" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{pangkat}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

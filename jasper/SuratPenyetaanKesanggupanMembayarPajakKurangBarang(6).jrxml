@@ -42,7 +42,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Materai 6.000]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="260" width="110" height="40" uuid="242797bf-0472-48d0-a035-a9d439616b56"/>

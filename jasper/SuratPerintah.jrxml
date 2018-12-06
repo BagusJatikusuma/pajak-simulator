@@ -543,7 +543,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namaTim}]]></textFieldExpression>
 			</textField>
@@ -575,7 +575,7 @@ BEKASI]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="257" width="25" height="40" uuid="6eae8738-6e19-45fa-afe4-bca6d93cb394"/>
-				<box topPadding="5">
+				<box topPadding="7">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -606,8 +606,8 @@ BEKASI]]></text>
 					<leftPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namaPegawaiPenanggungJawab}]]></textFieldExpression>
 			</textField>
@@ -652,12 +652,12 @@ BEKASI]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="26" y="277" width="180" height="20" uuid="dd637cb6-7a6a-46d0-95a1-fceb02d25a69"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
+				<box topPadding="0" leftPadding="3" rightPadding="3">
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement>
+				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiSupervisor}]]></textFieldExpression>
@@ -729,7 +729,7 @@ BEKASI]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="217" width="25" height="40" uuid="0da0ea54-bf46-41e7-972e-8d273bb067fa"/>
-				<box topPadding="5">
+				<box topPadding="7">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -747,8 +747,8 @@ BEKASI]]></text>
 					<leftPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font fontName="Times New Roman"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namaPegawaiSupervisor}]]></textFieldExpression>
 			</textField>
@@ -780,12 +780,12 @@ BEKASI]]></text>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="26" y="237" width="180" height="20" uuid="d095ab4c-9192-46a8-9b2a-299f7f9fb283"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
+				<box topPadding="0" leftPadding="3" rightPadding="3">
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement>
+				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiPenanggungJawab}]]></textFieldExpression>
@@ -800,11 +800,10 @@ BEKASI]]></text>
 						<jr:detailCell height="40" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="25" height="40" uuid="43da247c-edaf-4cd4-ac3d-025332e8aaa0"/>
-								<box topPadding="5">
+								<box topPadding="7">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
 								</box>
 								<textElement textAlignment="Center">
 									<font fontName="Times New Roman"/>
@@ -822,19 +821,19 @@ BEKASI]]></text>
 									<leftPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement x="0" y="20" width="180" height="20" uuid="44f65c63-a3c9-40ad-ac5a-4af384529f85"/>
-								<box topPadding="4" leftPadding="5" rightPadding="5">
+								<box topPadding="0" leftPadding="5" rightPadding="5">
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
+								<textElement verticalAlignment="Top">
 									<font fontName="Times New Roman"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
@@ -879,7 +878,7 @@ BEKASI]]></text>
 						<jr:detailCell height="40" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="25" height="40" uuid="9781c627-ff4a-4149-963a-6308209ab19f"/>
-								<box topPadding="5">
+								<box topPadding="7">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
@@ -895,14 +894,14 @@ BEKASI]]></text>
 									<topPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
-									<font fontName="Times New Roman"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaWajibPajak}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement x="25" y="20" width="145" height="20" uuid="c11a20db-60c2-4052-96b1-ae929cd5f1a3"/>
-								<box topPadding="5" leftPadding="5" rightPadding="5">
+								<box topPadding="0" leftPadding="5" rightPadding="5">
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>

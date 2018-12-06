@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
 	<property name="ireport.zoom" value="1.100000000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1146"/>
+	<property name="ireport.y" value="1098"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<style name="table">
 		<box>
@@ -256,9 +256,9 @@ BEKASI]]></text>
 				<textFieldExpression><![CDATA["973 / " + $P{nomor_surat} + " / BAPENDA"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="333" y="210" width="200" height="20" uuid="ef9c6b99-fee3-40c6-91e5-c1b1a1b26d5f"/>
+				<reportElement x="333" y="205" width="200" height="20" uuid="ef9c6b99-fee3-40c6-91e5-c1b1a1b26d5f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+					<font fontName="Times New Roman" size="13"/>
 				</textElement>
 				<text><![CDATA[BEKASI]]></text>
 			</staticText>
@@ -270,7 +270,7 @@ BEKASI]]></text>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="307" y="190" width="226" height="20" uuid="171c1489-3e91-4572-bd68-0cd538ab2b53"/>
+				<reportElement x="307" y="190" width="226" height="15" uuid="171c1489-3e91-4572-bd68-0cd538ab2b53"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -605,7 +605,7 @@ BEKASI]]></text>
 				<textFieldExpression><![CDATA[$P{total_pajak_yang_harus_bayar} + ",-"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="199" y="348" width="309" height="30" uuid="11dda8d8-7ff0-473b-a8ae-0f429d1a432f"/>
+				<reportElement x="219" y="348" width="289" height="30" uuid="11dda8d8-7ff0-473b-a8ae-0f429d1a432f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
@@ -660,7 +660,7 @@ BEKASI]]></text>
 				<textFieldExpression><![CDATA["Pajak Daerah (" +$P{persen} +")"]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 5" positionType="Float" x="199" y="378" width="336" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
+				<reportElement key="table 5" positionType="Float" x="219" y="378" width="316" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="anggota" uuid="b307cae8-0b4d-4bc8-b5de-76ee2cf99d98">
 						<dataSourceExpression><![CDATA[$P{anggota}]]></dataSourceExpression>

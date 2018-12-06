@@ -77,7 +77,7 @@ public interface ReportService {
     void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper);
     void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper);
     void createCoverTemplate1(PelaksanaanWrapper pelaksanaanWrapper);
-    void createCoverTemplate2(PelaksanaanWrapper pelaksanaanWrapper);
+    void createCoverTemplate2(PelaporanWrapper pelaporanWrapper);
     
     
     //yang dipakai pelaporan

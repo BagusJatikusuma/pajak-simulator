@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTeguran2" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="9cf03e3d-e587-4d09-887e-63f7b05db796">
-	<property name="ireport.zoom" value="3.797498335832415"/>
-	<property name="ireport.x" value="939"/>
-	<property name="ireport.y" value="2431"/>
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="214"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="nomor" class="java.lang.String"/>
@@ -50,7 +50,7 @@
 			<staticText>
 				<reportElement positionType="Float" x="349" y="188" width="186" height="15" uuid="2db59806-785b-4196-b91a-e239cc76e7f2"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[TEMPAT]]></text>
 			</staticText>
@@ -210,21 +210,21 @@ BEKASI]]></text>
 			<staticText>
 				<reportElement positionType="Float" x="99" y="397" width="110" height="15" uuid="9f0cfc72-7bee-4ae8-a21b-2852fbe616f0"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Hari/Tanggal]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="99" y="412" width="110" height="15" uuid="a19b59ab-e70b-48b2-af91-32ed36b4b04f"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Waktu]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="99" y="427" width="110" height="33" uuid="2f415c03-7338-4975-9382-a8dece3384b8"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Tempat]]></text>
 			</staticText>

@@ -356,12 +356,11 @@ public class EvaluasiUIController implements Initializable {
         
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
-        PelaksanaanWrapper pelaksanaanWrapper
-                = (PelaksanaanWrapper) SessionProvider
-                .getGlobalSessionsMap()
-                .get("pelaksanaan_wrapper");
+        EvaluasiTableWrapper wrapper = (EvaluasiTableWrapper) evaluasiTable.getSelectionModel().getSelectedItem();
+        PelaporanWrapper pelaporanWrapper 
+                = pelaporanMapper.get(wrapper.getNo());
         
-        reportService.createCoverTemplate2(pelaksanaanWrapper);
+        reportService.createCoverTemplate2(pelaporanWrapper);
     }
     
 }
