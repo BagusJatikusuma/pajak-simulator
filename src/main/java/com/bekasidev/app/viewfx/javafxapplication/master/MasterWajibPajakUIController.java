@@ -134,7 +134,7 @@ public class MasterWajibPajakUIController implements Initializable {
                     jenisWP = "Hotel";
                     break;
                 case 2: 
-                    jenisWP = "parkir";
+                    jenisWP = "Parkir";
                     break;
                 case 3:
                     jenisWP = "Hiburan";

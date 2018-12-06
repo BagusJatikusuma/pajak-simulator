@@ -73,6 +73,7 @@ public class EvaluasiUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         suratPerintahService = ServiceFactory.getSuratPerintahService();
+        reportService = ServiceFactory.getReportService();
         populateData();
         associateDataWithColumn();
         
@@ -151,6 +152,20 @@ public class EvaluasiUIController implements Initializable {
     }
     
     public void printEvaluasi() {
+        EvaluasiTableWrapper etWrapper
+                = (EvaluasiTableWrapper) evaluasiTable.getSelectionModel().getSelectedItem();
+        PelaporanWrapper pelaporanWrapper
+                = pelaporanMapper.get(etWrapper.getNo());
+        SessionProvider.getGlobalSessionsMap().put("surat_perintah_laporan", suratPerintahService.getAllSuratPerintah());
+        List<SuratPerintah> spList = suratPerintahService.getAllSuratPerintah();
+        for (SuratPerintah sp : spList) {
+            for (TimSP timSP : sp.getListTim()) {
+                System.out.println("tim "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
+            }
+        }
+        
+        
+        reportService.createLaporanEvaluasi(pelaporanWrapper);
         
     }
     

@@ -185,10 +185,10 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                 reportService.createQuesionerRestoran();
                 break;
             case 1:
-                reportService.createQuesionerRestoran();
+                reportService.createQuesionerHotel();
                 break;
             case 2:
-                reportService.createQuesionerRestoran();
+                reportService.createQuesionerParkir();
                 break;
         }
     }
