@@ -48,6 +48,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -61,6 +62,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -283,6 +285,44 @@ public class EvaluasiUIController implements Initializable {
 //            
 //        }
         SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
+        
+//        Pane contentPane = null;
+//        try { 
+//            contentPane
+//                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+//        } catch (IOException ex) {
+//            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.UNDECORATED);
+//        stage.setScene(new Scene(contentPane));
+//        stage.initModality(Modality.APPLICATION_MODAL);
+//        stage.show();
+//        
+//        Task<Void> task = new Task<Void>() {
+//            @Override
+//            public Void call() throws Exception {
+//                System.out.println("run thread....");
+//                for (int i = 1; i < 10; i++) {
+//                    Thread.sleep(1000);
+//                    System.out.println("thread process "+i);
+//                }
+//                return null ;
+//            }
+//        };
+//        
+//        task.setOnSucceeded(event -> {
+//            System.out.println("close thread");
+//        });
+//        
+//        new Thread(task).run();
+        Thread tr = new Thread() {
+            @Override
+            public void run() {
+                
+            }
+        };
         
     }
     

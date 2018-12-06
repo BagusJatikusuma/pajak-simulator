@@ -25,4 +25,6 @@ public interface PegawaiService {
     void deletePegawai(String nipPegawai);
 
     void deleteTim(String idTim);
+    
+    void deletePegawaiFromTim(String idPegawai, String idTim);
 }

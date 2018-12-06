@@ -26,4 +26,6 @@ public interface PegawaiDao {
     void deletePegawai(String nip);
 
     void deleteTim(String id);
+    
+    void deletePegawaiFromTim(String nipPegawai, String idTim);
 }

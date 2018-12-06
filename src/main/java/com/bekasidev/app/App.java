@@ -5,6 +5,7 @@ import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.MainFrame;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import java.io.File;
 import java.io.IOException;
 
@@ -24,12 +25,16 @@ import java.util.logging.Logger;
 
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Hello world!
@@ -118,6 +123,7 @@ public class App extends Application
             Logger.getLogger(JavaFXApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }
 //        Menu menu = new Menu("123345", "123123", "Ayam Bakar", (short) 0, 17000);
 //        Benchmark benchmark = new Benchmark("123123", "321321", "123123", "1 Kg Daging",
