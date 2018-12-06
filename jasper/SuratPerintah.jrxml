@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
 	<property name="ireport.zoom" value="0.9090909090909199"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="796"/>
+	<property name="ireport.y" value="716"/>
 	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="58c8d34b-1347-48c9-a489-d309d0b3dbd6">
@@ -793,7 +793,7 @@ BEKASI]]></text>
 			<componentElement>
 				<reportElement key="table" x="1" y="317" width="535" height="140" uuid="5c8a151c-6e0d-41fd-a265-22805eadb284"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="anggota_tim_wp_diperiksa" uuid="54494efb-3243-4870-ad41-7b2698678d6f">
+					<datasetRun subDataset="anggota_tim_wp_diperiksa" uuid="a536d32f-5aa0-4e60-9ac1-6316362de76a">
 						<dataSourceExpression><![CDATA[$F{wajibPajakJasper}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="25" uuid="7e444d9a-f10a-4c41-997d-d6a03d117a05">
@@ -887,7 +887,7 @@ BEKASI]]></text>
 								<textElement textAlignment="Center">
 									<font fontName="Times New Roman"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{namaWajibPajak} == "" ? "" : $V{COLUMN_COUNT}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement x="25" y="0" width="145" height="20" uuid="75578d43-e41f-4819-9b9e-773b88725367"/>
