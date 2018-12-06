@@ -46,6 +46,7 @@ public class MasterPegawaiTimUIController implements Initializable {
                         jabatan,
                         action;
     private PegawaiService service;
+    @FXML private Button backBtn;
      private ObservableList<MasterAnggotaTimTableWrapper> dataCollection;
     /**
      * Initializes the controller class.
@@ -124,8 +125,21 @@ public class MasterPegawaiTimUIController implements Initializable {
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {                    
-                    System.out.println("hapus "+obj.getNip()+"clicked");
+                    System.out.println("hapus "+obj.getNip()+"clicked : tim"+idTim);
                     
+                    service.deletePegawaiFromTim(obj.getNip(), idTim);
+                    
+                    Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+                    rootpane.getChildren().remove(1);
+
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterPegawaiTimUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rootpane.getChildren().add(contentPane);
                     
                 }
             });

@@ -175,7 +175,14 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         
         metodeHitungDendaField.setItems(FXCollections.observableArrayList("otomatis","manual"));
-        metodeHitungDendaField.setValue("otomatis");
+        Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
+        if (isHistory) {
+            //indikasi manual adalah jumlah total denda == 0
+            if (pelaksanaanWrapper.getRekapitulasiWrapper().getTotalDenda() == 0) {
+                metodeHitungDendaField.setValue("manual");
+            }
+        }
+        else metodeHitungDendaField.setValue("otomatis");
         
         int index = 1;
         NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
