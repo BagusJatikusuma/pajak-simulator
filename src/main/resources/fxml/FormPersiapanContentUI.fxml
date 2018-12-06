@@ -14,11 +14,12 @@
         <URL value="@/styles/formpersiapancontentui.css" />
     </stylesheets>
    <children>
+        <TextField fx:id="pemberiSKField" layoutX="102.0" layoutY="29.0" prefHeight="25.0" prefWidth="497.0" />
         <TextField fx:id="dasarNomorField" layoutX="102.0" layoutY="84.0" prefHeight="25.0" prefWidth="497.0" />
         <DatePicker fx:id="dasarTanggalField" layoutX="103.0" layoutY="139.0" prefHeight="25.0" prefWidth="228.0" />
         <TextField fx:id="dasarTahunAnggaranField" layoutX="368.0" layoutY="139.0" prefHeight="25.0" prefWidth="228.0" />
-        <TextField fx:id="pemberiSKField" layoutX="102.0" layoutY="29.0" prefHeight="25.0" prefWidth="497.0" />
-        <ChoiceBox fx:id="penandatanganField" layoutX="102.0" layoutY="566.0" prefHeight="25.0" prefWidth="497.0" />
+        
+        
         <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="102.0" layoutY="204.0" prefHeight="25.0" prefWidth="115.0" />
         <TextField fx:id="masaPajakAwalTahun" layoutX="220.0" layoutY="204.0" prefHeight="25.0" prefWidth="99.0" />
         <ChoiceBox fx:id="masaPajakAkhirBulan" layoutX="381.0" layoutY="204.0" prefHeight="25.0" prefWidth="115.0" />
@@ -33,12 +34,14 @@
         <TextField fx:id="tahapKeField" layoutX="101.0" layoutY="259.0" prefHeight="25.0" prefWidth="497.0" />
         <TextField fx:id="lamaPelaksanaanField" layoutX="102.0" layoutY="323.0" prefHeight="25.0" prefWidth="497.0" />
         <Label layoutX="103.0" layoutY="428.0" text="Tahun anggaran APBD" />
+        <TextField fx:id="nomorAPBDField" layoutX="101.0" layoutY="393.0" prefHeight="25.0" prefWidth="497.0" />
         <TextField fx:id="tahunAnggaranAPBDField" layoutX="103.0" layoutY="448.0" prefHeight="25.0" prefWidth="228.0" />
         <DatePicker fx:id="tanggalAPBDField" layoutX="368.0" layoutY="448.0" prefHeight="25.0" prefWidth="228.0" />
-        <TextField fx:id="nomorAPBDField" layoutX="101.0" layoutY="393.0" prefHeight="25.0" prefWidth="497.0" />
+        
         <Label layoutX="101.0" layoutY="368.0" text="Nomor APBD" />
         <Label layoutX="368.0" layoutY="428.0" text="Tanggal APBD" />
         <TextField fx:id="ditetapkanDiField" layoutX="102.0" layoutY="513.0" prefHeight="25.0" prefWidth="497.0" />
+        <ChoiceBox fx:id="penandatanganField" layoutX="102.0" layoutY="566.0" prefHeight="25.0" prefWidth="497.0" />
         <Label layoutX="102.0" layoutY="493.0" text="Ditetapkan di" />
         <Button layoutX="481.0" layoutY="604.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="Selanjutnya" />
         <Button fx:id="cancelBtn" layoutX="350.0" layoutY="604.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="Batal" />

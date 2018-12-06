@@ -9,6 +9,7 @@ import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.MasterPegawaiTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
@@ -119,7 +120,19 @@ public class MasterPegawaiUIController implements Initializable {
                 public void handle(ActionEvent event) {                    
                     System.out.println("hapus "+obj.getNip()+"clicked");
                     
+                    service.deletePegawai(obj.getNip());
                     
+                    Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+                    rootpane.getChildren().remove(1);
+
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterPegawaiUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rootpane.getChildren().add(contentPane);
                 }
             });
         }

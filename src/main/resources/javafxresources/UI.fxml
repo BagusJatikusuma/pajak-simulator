@@ -14,21 +14,21 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#closeApp" text="Close" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Atur Pajak">
           <items>
-                  <MenuItem mnemonicParsing="false" onAction="#openPersiapan" text="Persiapan" />
-                  <MenuItem mnemonicParsing="false" onAction="#openPelaksanaan" text="Pelaksanaan" />
-                  <MenuItem mnemonicParsing="false" onAction="#openPelaporan" text="Pelaporan" />
+                  <MenuItem fx:id="persiapanMenuItem" mnemonicParsing="false" onAction="#openPersiapan" text="Persiapan" />
+                  <MenuItem fx:id="pelaksanaanMenuItem" mnemonicParsing="false" onAction="#openPelaksanaan" text="Pelaksanaan" />
+                  <MenuItem fx:id="pelaporanMenuItem" mnemonicParsing="false" onAction="#openPelaporan" text="Pelaporan" />
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Master">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#openWajibPajak" text="Wajib Pajak" />
-                  <MenuItem mnemonicParsing="false" onAction="#openMasterTim" text="Tim Pemeriksa" />
-                  <MenuItem mnemonicParsing="false" onAction="#openMasterPegawai" text="Pegawai" />
+                <MenuItem fx:id="wajibPajakMenuItem" mnemonicParsing="false" onAction="#openWajibPajak" text="Wajib Pajak" />
+                  <MenuItem fx:id="timPemeriksaMenuItem" mnemonicParsing="false" onAction="#openMasterTim" text="Tim Pemeriksa" />
+                  <MenuItem fx:id="pegawaiMenuItem" mnemonicParsing="false" onAction="#openMasterPegawai" text="Pegawai" />
               </items>
             </Menu>
         <Menu mnemonicParsing="false" text="Help">
