@@ -3750,4 +3750,88 @@ public class ReportServiceImpl implements ReportService {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public void testGamber() {
+        try {
+            String jasperPathFile = null;
+            String jrxmlPathFile = null;
+            
+            try {
+                String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                jasperPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\gambar.jasper");
+                jasperPathFile = "file:///" + jasperPathFile;
+                jrxmlPathFile = root.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "jasper\\gambar.jrxml");
+                System.out.println("jasper path : " + jasperPathFile);
+                System.out.println("jrxml path : " + jrxmlPathFile);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+                    
+            JasperReport report = null;
+            
+            System.out.println("masuk service");
+            
+            try {
+                report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
+            } catch (MalformedURLException ex) {
+                System.out.println("MalformedURLException ex");
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            List<String> text = new ArrayList<>();
+            text.add("dummi");
+            
+            JRBeanCollectionDataSource beanColDataSource =
+            new JRBeanCollectionDataSource(text);
+            
+            String jasperLogoPath = "./logo_kab_bekasi.png";
+            
+            Map parameter = new HashMap();
+            /**
+             * Passing ReportTitle and Author as parameters
+             */
+            
+            parameter.put("logo", this.getClass().getResourceAsStream(jasperLogoPath));
+            parameter.put("list", beanColDataSource);
+            
+            try {
+               JasperFillManager.fillReportToFile(
+               jasperPathFile, parameter, beanColDataSource);
+            } catch (JRException e) {
+                System.out.println("JRException ex");
+               e.printStackTrace();
+            }
+            
+            JasperPrint jasperPrint;
+            jasperPrint = JasperFillManager.fillReport(
+                    report, 
+                    parameter,
+                    beanColDataSource);
+            
+            try {
+                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerParkir.pdf");
+                File parent = file.getParentFile();
+                if (!parent.exists() && !parent.mkdirs()) {
+                    throw new IllegalStateException("Couldn't create dir: " + parent);
+                }
+                
+                OutputStream output = new FileOutputStream(file);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JFrame frame = new JFrame("Report");
+            frame.getContentPane().add(new JRViewer(jasperPrint));
+            frame.pack();
+            frame.setVisible(true);
+            
+        } catch (JRException ex) {
+            System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

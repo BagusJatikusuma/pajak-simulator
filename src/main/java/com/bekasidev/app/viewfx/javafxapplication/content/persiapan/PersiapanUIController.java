@@ -11,6 +11,7 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
@@ -69,6 +70,7 @@ public class PersiapanUIController implements Initializable {
     private Map<String, SuratPerintah> suratPerintahMapper = new HashMap<>();
     
     private SuratPerintahService suratPerintahService;
+    private ReportService reportService;
     /**
      * Initializes the controller class.
      */
@@ -175,7 +177,8 @@ public class PersiapanUIController implements Initializable {
     }
     
     public void cariArsip() {
-        
+        System.out.println("masuk tombol");
+        reportService.testGamber();
     }
     
     public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
