@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTandaTerima(2)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="f803410b-a667-489c-946e-b1e8f820fb78">
 	<property name="ireport.zoom" value="1.2100000000000095"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="119"/>
+	<property name="ireport.y" value="118"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="penandatangan" class="java.lang.String"/>
 	<parameter name="nomor_sp" class="java.lang.String"/>

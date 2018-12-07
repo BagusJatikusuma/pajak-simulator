@@ -82,4 +82,7 @@ public interface ReportService {
     
     //yang dipakai pelaporan
     void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper);
+    
+    //test gambar
+    void testGamber();
 }
