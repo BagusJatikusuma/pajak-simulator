@@ -279,7 +279,7 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         stage.setTitle("Form Atur Dokumen Wajib Pajak");
         stage.setScene(new Scene(formAturDokumenWP));
         
-        stage.initStyle(StageStyle.UTILITY);
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
