@@ -226,7 +226,8 @@ public class ConverterHelper {
                             .getDokumenPinjaman(wp, masaPajakAwal, masaPajakAkhir);
                     
                 }
-                System.out.println("get first el list pinjaman "+wp.getListPinjaman().get(0).getNamaDokumen());
+                System.out.println("get first el list pinjaman "+wp.getNamaWajibPajak()+" : "+wp.getListPinjaman().get(0).getNamaDokumen());
+                System.out.println("size pinjaman "+wp.getNamaWajibPajak()+" is "+wp.getListPinjaman().size());
                 dokumenPinjamanWajibPajakWrappers
                         .add(new DokumenPinjamanWajibPajakWrapper(wp, wp.getListPinjaman()));
             }
