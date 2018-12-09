@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -308,8 +309,23 @@ public class EvaluasiUIController implements Initializable {
         }
         SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
         
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createLaporanEvaluasi(new PelaporanWrapper());
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
         
-        reportService.createLaporanEvaluasi(new PelaporanWrapper());
         
 //        Pane contentPane = null;
 //        try { 
@@ -342,12 +358,6 @@ public class EvaluasiUIController implements Initializable {
 //        });
 //        
 //        new Thread(task).run();
-        Thread tr = new Thread() {
-            @Override
-            public void run() {
-                
-            }
-        };
         
     }
     
@@ -360,7 +370,41 @@ public class EvaluasiUIController implements Initializable {
         PelaporanWrapper pelaporanWrapper 
                 = pelaporanMapper.get(wrapper.getNo());
         
-        reportService.createCoverTemplate2(pelaporanWrapper);
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createCoverTemplate2(pelaporanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+        
+    }
+    
+    private Stage initLoadingScreen() {
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        
+        return stage;
     }
     
 }
