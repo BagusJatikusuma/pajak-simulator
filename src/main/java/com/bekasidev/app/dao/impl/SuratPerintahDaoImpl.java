@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class SuratPerintahDaoImpl implements SuratPerintahDao {
     @Override
-    public void createSuratPerintah(SuratPerintah suratPerintah) {
+    public SuratPerintah createSuratPerintah(SuratPerintah suratPerintah) {
         String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
@@ -45,6 +45,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return suratPerintah;
     }
 
     @Override

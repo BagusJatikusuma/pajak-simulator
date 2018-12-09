@@ -14,14 +14,14 @@ public class SuratPerintahServiceImpl implements SuratPerintahService {
     SuratPerintahDao suratPerintahDao = new SuratPerintahDaoImpl();
 
     @Override
-    public void createSuratPerintah(SuratPerintah suratPerintah) {
+    public SuratPerintah createSuratPerintah(SuratPerintah suratPerintah) {
         Calendar cal = Calendar.getInstance();
         suratPerintah.setIdSP(Long.toString(cal.getTimeInMillis()));
         for(TimSP tim : suratPerintah.getListTim()){
             tim.setIdSP(suratPerintah.getIdSP());
         }
 
-        suratPerintahDao.createSuratPerintah(suratPerintah);
+        return suratPerintahDao.createSuratPerintah(suratPerintah);
     }
 
     @Override

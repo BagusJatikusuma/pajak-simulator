@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SuratPerintahService {
 
-    void createSuratPerintah(SuratPerintah suratPerintah);
+    SuratPerintah createSuratPerintah(SuratPerintah suratPerintah);
 
     List<SuratPerintah> getAllSuratPerintah();
 
