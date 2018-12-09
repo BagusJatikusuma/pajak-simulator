@@ -3075,7 +3075,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_pb = new SimpleDateFormat(pattern, id);
             
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1().equals("")) && 
-                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1().equals(""))){
+                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() == null)){
                 parameter.put("nomor_tp", "   ");
                 parameter.put("tanggal_surat", "    ");
             } else {
@@ -3087,14 +3087,14 @@ public class ReportServiceImpl implements ReportService {
             }
             
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman().equals("")) && 
-                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman()== null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman().equals(""))){
+                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman()== null)){
                 parameter.put("nomor_surat", "   ");
                 parameter.put("tanggal_pb", "    ");
             } else {
                 Long longTanggalT1 = new Long(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman());
                 Date tanggalT1 = new Date(longTanggalT1);
                 
-                parameter.put("nomor_surat", pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman());
+                parameter.put("nomor_surat", pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman());
                 parameter.put("tanggal_pb", String.valueOf(df_tanggal_pb.format(tanggalT1)));
             }
             
@@ -3201,7 +3201,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_tp = new SimpleDateFormat(pattern, id);
             
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran2()== null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran2().equals("")) && 
-                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran2()== null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran2().equals(""))){
+                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran2()== null)){
                 parameter.put("nomor", "   ");
                 parameter.put("tanggal_surat", "    ");
             } else {
@@ -3213,26 +3213,26 @@ public class ReportServiceImpl implements ReportService {
             }
             
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1().equals("")) && 
-                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1().equals(""))){
+                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() == null)){
                 parameter.put("nomor_tp", "973/   /BAPENDA");
                 parameter.put("tanggal_tp", "    ");
             } else {
                 Long longTanggalT1 = new Long(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1());
                 Date tanggalT1 = new Date(longTanggalT1);
                 
-                parameter.put("nomor_tp","973/" + pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() + "/Dalbuk");
+                parameter.put("nomor_tp","973/" + pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() + "/Bapenda");
                 parameter.put("tanggal_tp", String.valueOf(df_tanggal_tp.format(tanggalT1)));
             }
             
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman().equals("")) && 
-                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman()== null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman().equals(""))){
+                    (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman()== null)){
                 parameter.put("nomor_surat", "       ");
                 parameter.put("tanggal_pb", "       ");
             } else {
                 Long longTanggalT1 = new Long(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman());
                 Date tanggalT1 = new Date(longTanggalT1);
                 
-                parameter.put("nomor_surat", "973/" + pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratPeminjaman()+"/BAPENDA");
+                parameter.put("nomor_surat",pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratPeminjaman());
                 parameter.put("tanggal_pb", String.valueOf(df_tanggal_pb.format(tanggalT1)));
             }
             

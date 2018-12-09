@@ -39,6 +39,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -160,7 +161,7 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
         
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
-        PersiapanWrapper persiapanWrapper
+        final PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
@@ -172,8 +173,9 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                 break;
             }
         }
+        final NomorTanggalWajibPajakWrapper objNomorTanggalWPPenampungFinal = objNomorTanggalWPPenampung;
         
-        TimWPWrapper objTimPenampung = null;
+        TimWPWrapper objTimPenampung = null;        
         WajibPajak objWPPenampung = null;
         for(TimWPWrapper objTim : persiapanWrapper.getTimWPWrappers()){
             
@@ -185,8 +187,42 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                 }
             }
         }
+        final WajibPajak objWPPenampungFinal = objWPPenampung;
+        final TimWPWrapper objTimPenampungFinal = objTimPenampung;
         
-        reportService.createPemberitahuanPemeriksaanPerWP(persiapanWrapper, objTimPenampung, objNomorTanggalWPPenampung, objWPPenampung);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createPemberitahuanPemeriksaanPerWP(
+                        persiapanWrapper, 
+                        objTimPenampungFinal, 
+                        objNomorTanggalWPPenampungFinal, 
+                        objWPPenampungFinal);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+        
+//        reportService.createPemberitahuanPemeriksaanPerWP(persiapanWrapper, objTimPenampung, objNomorTanggalWPPenampung, objWPPenampung);
                 
         System.out.println("Beres Surat Pemberitahuan Pemeriksa");
     }

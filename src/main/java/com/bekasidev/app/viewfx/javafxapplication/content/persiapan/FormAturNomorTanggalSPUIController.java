@@ -14,6 +14,7 @@ import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
@@ -32,6 +33,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +44,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.StringConverter;
 
 /**
@@ -128,7 +132,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             for (TimSP timSP : suratPerintah.getListTim()) {
                 System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
             }
-            suratPerintahService.createSuratPerintah(suratPerintah);
+            persiapanWrapper.setIdSP(suratPerintahService.createSuratPerintah(suratPerintah).getIdSP());
             System.out.println("create success");
         }
         else {
@@ -184,7 +188,34 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
 //        }
         
 //        reportService.createSuratPerintah();
-        reportService.createSuratPerintahBaru();
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPerintahBaru();
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
 //        reportService.createDaftarPetugasPemeriksa();
     }
     

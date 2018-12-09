@@ -39,6 +39,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -185,13 +186,16 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         
         switch(penampungJenisWP){
             case 0:
-                reportService.createQuesionerRestoran();
+                printRestoranQuessioner();
+//                reportService.createQuesionerRestoran();
                 break;
             case 1:
-                reportService.createQuesionerHotel();
+                printHotelQuessioner();
+//                reportService.createQuesionerHotel();
                 break;
             case 2:
-                reportService.createQuesionerParkir();
+                printParkiranQuessioner();
+//                reportService.createQuesionerParkir();
                 break;
         }
     }
@@ -204,7 +208,7 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
-        PersiapanWrapper persiapanWrapper
+        final PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
@@ -216,6 +220,7 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                 break;
             }
         }
+        final NomorTanggalWajibPajakWrapper objNomorTanggalWPPenampungFinal = objNomorTanggalWPPenampung;
         
         TimWPWrapper objTimPenampung = null;
         WajibPajak objWPPenampung = null;
@@ -231,8 +236,42 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
                 }
             }
         }
+        final TimWPWrapper objTimPenampungFinal = objTimPenampung;
+        final WajibPajak objWPPenampungFinal = objWPPenampung;
         
-        reportService.createPersiapanPeminjamanBukuPerWP(persiapanWrapper, objTimPenampung, objNomorTanggalWPPenampung, objWPPenampung);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createPersiapanPeminjamanBukuPerWP(
+                        persiapanWrapper, 
+                        objTimPenampungFinal, 
+                        objNomorTanggalWPPenampungFinal, 
+                        objWPPenampungFinal);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+        
+//        reportService.createPersiapanPeminjamanBukuPerWP(persiapanWrapper, objTimPenampung, objNomorTanggalWPPenampung, objWPPenampung);
         
 //        switch(penampungJenisWP){
 //            case 0:
@@ -358,4 +397,93 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         action.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("Action"));
     }
     
+    private void printRestoranQuessioner() {
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createQuesionerRestoran();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    
+    private void printHotelQuessioner() {
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createQuesionerHotel();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    
+    private void printParkiranQuessioner() {
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                printParkiranQuessioner();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
 }
