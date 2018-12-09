@@ -4,6 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="230"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<group name="group">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
 		<groupHeader>
@@ -293,7 +294,7 @@
 				</staticText>
 				<image hAlign="Center" vAlign="Middle">
 					<reportElement x="0" y="0" width="126" height="86" uuid="244ff1c2-1150-4e97-ac14-f4dfa03b8d92"/>
-					<imageExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="0" y="93" width="535" height="1" uuid="1a3ff95d-dbce-4887-8239-ba3819f05d9c"/>

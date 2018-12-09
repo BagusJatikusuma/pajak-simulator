@@ -40,6 +40,7 @@
 	<parameter name="pangkat_penandatangan" class="java.lang.String"/>
 	<parameter name="nama_penandatangan" class="java.lang.String"/>
 	<parameter name="lama_pelaksanaan_terbilang" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<field name="nipPegawaiPenanggungJawab" class="java.lang.String"/>
 	<field name="namaPegawaiPenanggungJawab" class="java.lang.String"/>
 	<field name="golonganPenanggungJawab" class="java.lang.String"/>
@@ -381,7 +382,7 @@ BEKASI]]></text>
 			</staticText>
 			<image hAlign="Center" vAlign="Middle">
 				<reportElement x="1" y="0" width="126" height="86" uuid="32531eb4-0dad-4347-8663-e574b0819be2"/>
-                                <imageExpression class="java.lang.String"><![CDATA["..\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="1" y="93" width="535" height="1" uuid="597527b8-0971-45e3-99bc-257615812847"/>

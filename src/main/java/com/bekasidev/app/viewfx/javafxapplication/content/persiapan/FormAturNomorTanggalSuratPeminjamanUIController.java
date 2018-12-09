@@ -474,7 +474,7 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         Thread t = new Thread(){
             @Override
             public void run() {
-                printParkiranQuessioner();
+                reportService.createQuesionerParkir();
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
