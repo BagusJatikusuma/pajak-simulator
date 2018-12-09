@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -197,41 +198,51 @@ public class FormSuratPelaksanaanUIController implements Initializable {
                 = (DaftarSuratPelaksanaanTableWrapper) daftarSuratTable.getSelectionModel().getSelectedItem();
         switch (Integer.valueOf(wrapper.getNo()).intValue()) {
             case 1:
-                reportService.createSuratPernyataan1(pelaksanaanWrapper);
+                createSuratPernyataan1(pelaksanaanWrapper);
+//                reportService.createSuratPernyataan1(pelaksanaanWrapper);
                 break;
             case 2: 
-                reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
+                createTandaTerimaSPHP2(pelaksanaanWrapper);
+//                reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
                 break;
             case 3:
-                reportService.createSuratPemberitahuanHasilPemeriksaan3(
-                        pelaksanaanWrapper, 
-                        ServiceFactory.getSuratPerintahService().getTimSP(
-                            pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                            pelaksanaanWrapper.getTimSelected().getIdTim()));
+                createSuratPemberitahuanHasilPemeriksaan3(pelaksanaanWrapper);
+//                reportService.createSuratPemberitahuanHasilPemeriksaan3(
+//                        pelaksanaanWrapper, 
+//                        ServiceFactory.getSuratPerintahService().getTimSP(
+//                            pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                            pelaksanaanWrapper.getTimSelected().getIdTim()));
                 break;
             case 4:
-                reportService.createSuratPersetujuan4(pelaksanaanWrapper);
+                createSuratPersetujuan4(pelaksanaanWrapper);
+//                reportService.createSuratPersetujuan4(pelaksanaanWrapper);
                 break;
             case 5:
-                reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+                createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+//                reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
                 break;
             case 6:
-                reportService.createBeritaAcara8(pelaksanaanWrapper, 
-                ServiceFactory.getSuratPerintahService().getTimSP(
-                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
-                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+                createBeritaAcara8(pelaksanaanWrapper);
+//                reportService.createBeritaAcara8(pelaksanaanWrapper, 
+//                ServiceFactory.getSuratPerintahService().getTimSP(
+//                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+//                        pelaksanaanWrapper.getTimSelected().getIdTim()));
                 break;
             case 7:
-                reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+                createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+//                reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
                 break;
             case 8: 
-                reportService.createSuratPernyataan7(pelaksanaanWrapper);
+                createSuratPernyataan7(pelaksanaanWrapper);
+//                reportService.createSuratPernyataan7(pelaksanaanWrapper);
                 break;
             case 9:
-                reportService.createSuratTeguran1(pelaksanaanWrapper);
+                createSuratTeguran1(pelaksanaanWrapper);
+//                reportService.createSuratTeguran1(pelaksanaanWrapper);
                 break;
             case 10:
-                reportService.createSuratTeguran2(pelaksanaanWrapper);
+                createSuratTeguran2(pelaksanaanWrapper);
+//                reportService.createSuratTeguran2(pelaksanaanWrapper);
                 break;
         }
         
@@ -250,5 +261,214 @@ public class FormSuratPelaksanaanUIController implements Initializable {
         }
         rootpaneFormPelaksanaan.getChildren().add(contentPane);
     }
+    
+    private void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPernyataan1(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    
+    private void createTandaTerimaSPHP2(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createTandaTerimaSPHP2(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratPemberitahuanHasilPemeriksaan3(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPemberitahuanHasilPemeriksaan3(
+                        pelaksanaanWrapper, 
+                        ServiceFactory.getSuratPerintahService().getTimSP(
+                            pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                            pelaksanaanWrapper.getTimSelected().getIdTim()));
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratPersetujuan4(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPersetujuan4(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createPernyataanPersetujuanHasilPemeriksaan5(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createBeritaAcara8(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createBeritaAcara8(pelaksanaanWrapper, 
+                ServiceFactory.getSuratPerintahService().getTimSP(
+                        pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                        pelaksanaanWrapper.getTimSelected().getIdTim()));
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratPernyataan7(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratPernyataan7(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratTeguran1(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    private void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper) {
+        Stage stage = initLoadingScreen();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createSuratTeguran2(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+    }
+    
+    private Stage initLoadingScreen() {
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        
+        return stage;
+    }
+    
+    
     
 }
