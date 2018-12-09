@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeritaAcaraPembahasanAkhirHasilPemeriksaan(8)" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="00bddd47-a695-4bfb-8c09-a936f2ebd40d">
-	<property name="ireport.zoom" value="0.8264462809917404"/>
+	<property name="ireport.zoom" value="0.7513148009015822"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1709"/>
+	<property name="ireport.y" value="1364"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<subDataset name="anggota_tim" uuid="9060bb7b-95c1-47a5-bf9c-c31826ae95b7">
 		<field name="namaPegawai" class="java.lang.String"/>
@@ -71,7 +71,7 @@
 			<staticText>
 				<reportElement x="115" y="50" width="420" height="36" uuid="048c9619-861d-4b5c-a293-ae378aacd681"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Komplek Perkantoran Pemerintah Kabupaten Bekasi
 di Desa Sukamahi Kecamatan Cikarang Pusat
@@ -80,14 +80,14 @@ BEKASI]]></text>
 			<staticText>
 				<reportElement x="115" y="12" width="420" height="42" uuid="72bceb83-44b3-4bb2-ade1-5c2574698f1b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="115" y="0" width="420" height="18" uuid="2320dc36-5e2c-48e4-b84b-09b3d80e9031"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
 			</staticText>
@@ -100,7 +100,7 @@ BEKASI]]></text>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="122" width="535" height="40" uuid="bf0e8de0-6474-4120-8ba8-a6f2d10b2855"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="16" isBold="true"/>
+					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[BERITA ACARA PEMBAHASAN AKHIR HASIL PEMERIKSAAN]]></text>
 			</staticText>
@@ -121,7 +121,9 @@ BEKASI]]></text>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$V{COLUMN_COUNT} + 1]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -136,7 +138,9 @@ BEKASI]]></text>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -151,7 +155,9 @@ BEKASI]]></text>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -166,7 +172,9 @@ BEKASI]]></text>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -177,7 +185,7 @@ BEKASI]]></text>
 				<reportElement positionType="Float" x="50" y="395" width="130" height="20" uuid="e6475a51-4973-4595-b842-ab48e01fdaff"/>
 				<box leftPadding="5"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Diri Sendiri]]></text>
 			</staticText>
@@ -190,14 +198,14 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="357" width="10" height="20" uuid="aebc24d7-69ad-4343-b7fb-dabc58b96c1b"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
@@ -210,14 +218,14 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="357" width="110" height="20" uuid="5165bcc0-5342-4fd8-87d7-f211ceea9e7c"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NPWPD]]></text>
 			</staticText>
@@ -230,21 +238,21 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="337" width="10" height="20" uuid="35432c11-3805-4591-aa15-e7c4dd37e666"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="337" width="110" height="20" uuid="047d9208-7ddc-4a46-9506-065866f93dd6"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Nama]]></text>
 			</staticText>
@@ -252,7 +260,7 @@ BEKASI]]></text>
 				<reportElement positionType="Float" x="400" y="395" width="135" height="20" uuid="b0b33f42-2e79-4eaf-9808-c985314a84be"/>
 				<box leftPadding="5"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Kuasa dari Perusahaan]]></text>
 			</staticText>
@@ -260,94 +268,98 @@ BEKASI]]></text>
 				<reportElement positionType="Float" x="230" y="395" width="120" height="20" uuid="e916c46f-57c7-4e92-91a4-d390e26eeafa"/>
 				<box leftPadding="5"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Wakil]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="449" width="10" height="20" uuid="2bb6205a-6597-4f74-a4b1-ba4ef2a9c819"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="449" width="110" height="20" uuid="45825b95-cc48-4d9e-a153-48c7dcd6225a"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="429" width="10" height="20" uuid="35d22319-17f3-41c5-9e76-88a1b855ff14"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="429" width="110" height="20" uuid="ee2e7b5f-b643-4b9a-b4fb-502ecfbc7e91"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[dari Wajib Pajak]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="469" width="110" height="20" uuid="304fc9b1-587d-4f11-b3dc-214416740c7b"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Jabatan]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="469" width="10" height="20" uuid="4a4a0814-1861-4d0b-bfa3-e759af6dd741"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="162" width="535" height="40" uuid="89b36422-24d5-419d-9de0-f81e25d5e520"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pada hari ini " + $P{hari_surat} + " tanggal " + $P{tanggal_surat} + " bulan " + $P{bulan_surat} + " tahun " + $P{tahun_surat} + " bertempatan di Badan Pendapatan Daerah Kabupaten Bekasi, kami :"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="0" y="277" width="535" height="60" uuid="a0d07b49-fd30-41ad-a7c2-cea3bcff8ff9"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Berdasarkan Surat Perintah Pemeriksaan Pajak Daerah Nomor " + $P{nomor_sp} + " tanggal " + $P{tanggal_sp} + " telah melakukan pembahasan akhir pemeriksaan di bidang perpajakan terhadap Wajib Pajak :"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="120" y="337" width="415" height="20" uuid="235501a6-04ce-4fb5-a575-3e4fb18e5d24"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="120" y="357" width="415" height="20" uuid="003b1205-127b-4873-8bf4-87170feba9cd"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{npwpd_wajib_pajak}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="120" y="449" width="415" height="20" uuid="2ab0fd70-8c67-4f8f-b017-c7ed90f64994"/>
-				<textElement textAlignment="Justified" verticalAlignment="Bottom"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[....................................................................................................................................................................................................................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="120" y="469" width="415" height="20" uuid="740063b7-2e33-4e97-9911-040112e3ffb4"/>
-				<textElement textAlignment="Justified" verticalAlignment="Bottom"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[....................................................................................................................................................................................................................................]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="510" width="535" height="100" uuid="fc479d0c-d3c4-4c16-836f-ae6d16b621ae"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Berdasarkan Surat Pemberitahuan Hasil Pemeriksaan Nomor " + $P{nomor_sphp} + " tanggal " + $P{tanggal_sphp} + " yang disampaikan kepada Wajib Pajak/Wakil/Kuasa Wajib Pajak terhadap besarnya pajak terutang sebagaimana tersebut dalam lampiran dan Wajib Pajak menyetujui hasil pemeriksaan, selanjutnya Wajib Pajak akan membayar pajak sesuai dengan omzet yang sebenarnya dan akan mencatat, membayar, dan melaporkan pajak " + $P{jenis_wajib_pajak} + " sesuai dengan ketentuan perpajakan yang berlaku."]]></textFieldExpression>
 			</textField>
@@ -360,7 +372,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[No.]]></text>
 			</staticText>
@@ -373,7 +385,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NAMA]]></text>
 			</staticText>
@@ -386,7 +398,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NIP]]></text>
 			</staticText>
@@ -399,7 +411,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[JABATAN]]></text>
 			</staticText>
@@ -411,7 +423,9 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA["1."]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -422,7 +436,9 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -433,7 +449,9 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nip}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -444,7 +462,9 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Supervisor"]]></textFieldExpression>
 			</textField>
 		</band>
@@ -452,56 +472,56 @@ BEKASI]]></text>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="0" width="535" height="46" uuid="59381ac3-ea85-4c6a-89fb-f7e899a648e0"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Demikian Berita Acara Pembahasan Akhir Hasil Pemeriksaan ini dibuat dengan sebenar-benarnya, kemudian ditutup dengan ditandatangani oleh Tim Pemeriksa Pajak Daerah dan Wajib Pajak yang bersangkutan.]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="251" width="200" height="80" uuid="85396852-b07b-4b77-8b30-aa45f2caf4e2"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_jabatan} + " DAERAH KABUPATEN BEKASI"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="335" y="87" width="200" height="60" uuid="5123a6fa-e3ba-401c-a2e6-74e4d4649e35"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Supervisor,]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="346" width="200" height="15" uuid="c871dfa1-c74d-4ab7-9b85-1e1bac644d85"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_pangkat}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="87" width="200" height="20" uuid="e3949161-b229-446a-9109-aaf8ef5ebdbd"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Wajib Pajak/Wakil/Kuasa*)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="205" width="200" height="46" uuid="3d4016c4-3b17-4226-b7b7-a34029d51f69"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="331" width="200" height="15" uuid="8619d9ce-5e28-499a-a5cc-676165b52a2f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="335" y="162" width="200" height="15" uuid="64f61250-dd30-406c-b70c-5400ec328a57"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{supervisor_nip}]]></textFieldExpression>
 			</textField>
@@ -511,28 +531,28 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="0" y="361" width="200" height="15" uuid="85b87cd0-1820-4d08-b53b-da4351b612ff"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan_nip}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="335" y="147" width="200" height="15" uuid="d3798dde-8b6b-45b1-9a6c-ba5e0df7bcce"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nama}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="335" y="67" width="200" height="20" uuid="78678441-d64f-48d2-984e-66e01c17508b"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Tim Pemeriksa Pajak,]]></text>
 			</staticText>
@@ -547,21 +567,21 @@ BEKASI]]></text>
 							<textField>
 								<reportElement x="0" y="0" width="188" height="75" uuid="8a54b9f5-a553-417e-83dd-d8649fc9e6a9"/>
 								<textElement>
-									<font fontName="Times New Roman"/>
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim} + ","]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement positionType="Float" x="0" y="75" width="188" height="15" uuid="8d84f682-2da0-468a-b889-0489f8937815"/>
 								<textElement>
-									<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+									<font fontName="Times New Roman" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement x="0" y="90" width="188" height="15" uuid="3a40c1aa-3dea-41bd-8a5a-98341612c0fa"/>
 								<textElement>
-									<font fontName="Times New Roman"/>
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
 							</textField>
@@ -577,35 +597,35 @@ BEKASI]]></text>
 			<staticText>
 				<reportElement positionType="Float" x="120" y="1" width="415" height="20" uuid="f0f5357b-4bdf-428f-909d-be9b501407b9"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Berita Acara Pembahasan Akhir Hasil Pemeriksaan]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="21" width="10" height="20" uuid="e1df5e15-dc51-4b85-ad2c-2c7b875d5545"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="21" width="110" height="20" uuid="db149e32-0c44-4dfe-99d9-a23954d9fd92"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="110" y="1" width="10" height="20" uuid="2d76da31-30c6-40a8-9cec-ddf21d9b15ed"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="1" width="110" height="20" uuid="11f23bf2-930c-41cc-8e0f-d04faad80f37"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Lampiran]]></text>
 			</staticText>
@@ -618,7 +638,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[URAIAN]]></text>
 			</staticText>
@@ -631,7 +651,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Pajak yang masih harus dibayar]]></text>
 			</staticText>
@@ -644,7 +664,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Pajak yang seharusnya dibayar]]></text>
 			</staticText>
@@ -657,7 +677,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Pajak yang sudah dibayar]]></text>
 			</staticText>
@@ -670,7 +690,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Sanksi administrasi/ Denda]]></text>
 			</staticText>
@@ -683,7 +703,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Pajak yang kurang dibayar]]></text>
 			</staticText>
@@ -695,7 +715,7 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
@@ -708,7 +728,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[JUMLAH]]></text>
 			</staticText>
@@ -720,7 +740,7 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
@@ -732,7 +752,7 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
@@ -744,7 +764,7 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
@@ -756,21 +776,21 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="409" width="200" height="20" uuid="79a81d37-cb4f-4889-9b5f-8fa51aa791cd"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Wajib Pajak/Wakil/Kuasa*)]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="120" y="21" width="415" height="20" uuid="03c35cc9-033c-403b-aea8-41b96307fd1d"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{tanggal_surat} + " "  + $P{bulan_surat} + " " + $P{tahun_surat}]]></textFieldExpression>
 			</textField>
@@ -780,35 +800,35 @@ BEKASI]]></text>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="335" y="389" width="200" height="20" uuid="7df3a665-6953-42bd-8c88-2ffd24c6f32e"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Tim Pemeriksa Pajak,]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="335" y="409" width="200" height="60" uuid="6ec514c0-18a5-47ea-9b1a-cf6bae9e912b"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Supervisor,]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="335" y="469" width="200" height="20" uuid="cc47782d-b9da-4082-80c0-185b96936ac2"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="335" y="489" width="200" height="20" uuid="a1333aaf-426b-449c-93e6-b57b3ebb0e3c"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{supervisor_nip}]]></textFieldExpression>
 			</textField>
@@ -820,7 +840,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_pajak_daerah} + ",-"]]></textFieldExpression>
 			</textField>
@@ -832,7 +852,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_pajak_yang_telah_disetor} + ",-"]]></textFieldExpression>
 			</textField>
@@ -844,7 +864,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_pajak_kurang_bayar} + ",-"]]></textFieldExpression>
 			</textField>
@@ -856,7 +876,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_denda} + ",-"]]></textFieldExpression>
 			</textField>
@@ -868,7 +888,7 @@ BEKASI]]></text>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_pajak_yang_harus_bayar} + ",-"]]></textFieldExpression>
 			</textField>
@@ -883,21 +903,21 @@ BEKASI]]></text>
 							<textField>
 								<reportElement x="0" y="0" width="188" height="75" uuid="daf92006-13d9-4133-a69e-7b97447bb2d3"/>
 								<textElement>
-									<font fontName="Times New Roman"/>
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim} + ","]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement positionType="Float" x="0" y="75" width="188" height="15" uuid="f1a093f0-14fe-47a5-9627-1b6480d3e48e"/>
 								<textElement>
-									<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+									<font fontName="Times New Roman" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement x="0" y="90" width="188" height="15" uuid="f02d960a-6307-4546-b5d8-c57e64ec4cd8"/>
 								<textElement>
-									<font fontName="Times New Roman"/>
+									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
 							</textField>
@@ -908,42 +928,42 @@ BEKASI]]></text>
 			<textField>
 				<reportElement positionType="Float" x="0" y="664" width="200" height="15" uuid="efd74752-7ba4-43e7-b1b6-28208afb8441"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_pangkat}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="0" y="523" width="200" height="46" uuid="9de2558e-56fb-4b3b-bbc5-c725afcd33ad"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="0" y="569" width="200" height="80" uuid="e1e5b07c-3021-4139-9452-20c0b545e146"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_jabatan} + " DAERAH KABUPATEN BEKASI"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="0" y="649" width="200" height="15" uuid="08948b2e-9dc1-4306-ae94-473d5b3cc21f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="0" y="679" width="200" height="15" uuid="89cf985c-e528-4f09-a96b-fcc2cdd7690f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan_nip}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="0" y="64" width="535" height="40" uuid="6df6bfa9-2301-4f99-aee2-1c74ec891b0f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="16" isBold="true"/>
+					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["PERHITUNGAN PAJAK " + $P{jenis_pajak} + " SEBELUM DAN SETELAH PEMERIKSAAN"]]></textFieldExpression>
 			</textField>

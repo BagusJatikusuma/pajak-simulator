@@ -3,14 +3,16 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-        <import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
-	<parameter name="logo" class="java.io.InputStream"/>
-	<parameter name="list" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="631" splitType="Stretch">
+			<image>
+				<reportElement x="18" y="15" width="300" height="300" uuid="7591ebb3-c14b-4666-b95d-07551254eaaa"/>
+				<imageExpression><![CDATA["..\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
@@ -19,12 +21,7 @@
 		<band height="37" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
-			<image onErrorType="Blank">
-				<reportElement isPrintRepeatedValues="false" x="60" y="0" width="162" height="43" uuid="9de2450b-68b7-4c44-a545-2d21c6f93f30"/>
-				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
-			</image>
-		</band>
+		<band height="125" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
