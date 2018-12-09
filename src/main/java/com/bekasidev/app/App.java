@@ -30,6 +30,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
@@ -97,7 +98,9 @@ public class App extends Application
 //            );
 
 //            ServiceFactory.getExportImportService().importData();
-            
+
+            Image img = new Image(getClass().getResourceAsStream("/images/logo_kab_bekasi.png"));
+            primaryStage.getIcons().add(img);
             SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
             
             primaryStage.setTitle("Aplikasi Perpajakan");
