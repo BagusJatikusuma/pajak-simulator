@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTandaTerima(2)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="f803410b-a667-489c-946e-b1e8f820fb78">
 	<property name="ireport.zoom" value="1.2100000000000095"/>
-	<property name="ireport.x" value="10"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="118"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="penandatangan" class="java.lang.String"/>
 	<parameter name="nomor_sp" class="java.lang.String"/>
@@ -13,7 +13,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="875" splitType="Stretch">
+		<band height="474" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="535" height="30" uuid="c96ec1b2-722d-4d7f-b6ff-6b2ce6ce832a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -88,7 +88,7 @@
 			<textField>
 				<reportElement x="140" y="198" width="395" height="20" uuid="07ca8677-2826-4aab-8fde-94b96796496f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>
@@ -178,24 +178,24 @@
 				<text><![CDATA[Telah menerima Surat Pemberitahuan Hasil Pemeriksaan (SPHP) mengenai :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="348" width="260" height="80" uuid="66212a14-87e0-42fd-86a4-4e7a6acc12b0"/>
+				<reportElement x="275" y="361" width="260" height="80" uuid="66212a14-87e0-42fd-86a4-4e7a6acc12b0"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[Yang membuat pernyataan]]></text>
+				<text><![CDATA[Yang menerima,]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="0" y="258" width="535" height="70" uuid="de86e2b8-e293-43f4-84f0-6cfd61eeb734"/>
+				<reportElement positionType="Float" x="0" y="271" width="535" height="70" uuid="de86e2b8-e293-43f4-84f0-6cfd61eeb734"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Yang diperiksa sesuai dengan Surat Perintah Pemeriksaan dari " + $P{penandatangan} + " Daerah Kabupaten Bekasi Nomor : " + $P{nomor_sp} + " tanggal " + $P{tanggal_sp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="275" y="328" width="260" height="20" uuid="35668bbc-e46e-4945-a7ae-eecfd3bbf14a"/>
+				<reportElement x="275" y="341" width="260" height="20" uuid="35668bbc-e46e-4945-a7ae-eecfd3bbf14a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -203,16 +203,4 @@
 			</staticText>
 		</band>
 	</title>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
 </jasperReport>

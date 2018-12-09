@@ -28,11 +28,19 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
                 nomorBerkas.setNomorSuratPeminjaman(rs.getString("nomor_peminjaman"));
                 nomorBerkas.setNomorBeritaAcara(rs.getString("nomor_berita_acara"));
                 nomorBerkas.setNomorSKPD(rs.getString("nomor_SKPD"));
+                nomorBerkas.setNomorTeguran1(rs.getString("nomor_teguran1"));
+                nomorBerkas.setNomorTeguran2(rs.getString("nomor_teguran2"));
+                
                 nomorBerkas.setTanggalSuratPemberitahuan(rs.getString("tanggal_pemberitahuan"));
                 nomorBerkas.setTanggalSuratHasil(rs.getString("tanggal_hasil"));
                 nomorBerkas.setTanggalSuratPeminjaman(rs.getString("tanggal_peminjaman"));
                 nomorBerkas.setTanggalBeritaAcara(rs.getString("tanggal_berita_acara"));
                 nomorBerkas.setTanggalSKPD(rs.getString("tanggal_SKPD"));
+                nomorBerkas.setTanggalTeguran1(rs.getString("tanggal_teguran1"));
+                nomorBerkas.setTanggalTeguran2(rs.getString("tanggal_teguran2"));
+                nomorBerkas.setJamTeguran2(rs.getString("jam_teguran2"));
+                nomorBerkas.setTempatTeguran2(rs.getString("tempat_teguran2"));
+                nomorBerkas.setHariTeguran2(rs.getString("hari_teguran2"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -84,7 +92,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
     public void setBerkasTeguran2(String idSP, String idWP, String nomorTeguran, String tanggalTeguran,
                                   String jam, String tempat, String hari) {
         String sql = "UPDATE nomor_berkas SET nomor_teguran2=?, tanggal_teguran2=?, jam_teguran2=?, " +
-                "tempat_teguran2=?, hari_teguran2=? WHERE id_sp=?, id_wp=?";
+                "tempat_teguran2=?, hari_teguran2=? WHERE id_sp=? AND id_wp=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -95,6 +103,24 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.setString(5, hari);
             pstm.setString(6, idSP);
             pstm.setString(7, idWP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setNomorTanggalSKPD(String idSP, String idWP, String nomorSKPD, String tanggalSKPD) {
+        String sql = "UPDATE nomor_berkas SET nomor_SKPD=?, tanggal_SKPD=? " +
+                "WHERE id_sp=? AND id_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, nomorSKPD);
+            pstm.setString(2, tanggalSKPD);
+            pstm.setString(3, idSP);
+            pstm.setString(4, idWP);
 
             pstm.executeUpdate();
         } catch (SQLException e) {

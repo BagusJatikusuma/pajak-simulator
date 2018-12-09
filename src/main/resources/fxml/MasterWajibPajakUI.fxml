@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox fx:id="masterWPPane" maxHeight="613.0" maxWidth="1400.0" minWidth="1236.0" prefHeight="613.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController">
+
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="200.0">
-         <children>
-            <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" />
-            <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" />
-            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariWP" prefHeight="25.0" prefWidth="60.0" text="cari" />
-            <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="25.0" prefWidth="109.0" text="tambah wp" />
-         </children>
-      </AnchorPane>
-      <HBox maxHeight="575.0" maxWidth="1384.0" minHeight="575.0" minWidth="900.0" prefHeight="575.0" prefWidth="1190.0">
-         <children>
-            <TableView fx:id="wajibPajakTable" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1190.0">
-               <columns>
-                  <TableColumn prefWidth="47.0" text="No" />
-                  <TableColumn prefWidth="124.0" text="NPWPD" />
-                  <TableColumn prefWidth="210.0" text="Nama WP" />
-                  <TableColumn prefWidth="289.0" text="Alamat" />
-                  <TableColumn minWidth="8.0" prefWidth="182.0" text="Desa" />
-                  <TableColumn minWidth="0.0" prefWidth="206.0" text="Kecamatan" />
-                  <TableColumn prefWidth="179.0" text="Jenis WP" />
-                  <TableColumn prefWidth="99.0" text="action" />
-               </columns>
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </TableView>
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
+      <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
+      <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="166.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariWP" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="25.0" text="Tambah Wajib Pajak" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="wajibPajakTable" layoutX="10.0" layoutY="49.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn maxWidth="47.0" minWidth="47.0" prefWidth="47.0" text="No" />
+            <TableColumn maxWidth="124.0" minWidth="124.0" prefWidth="124.0" text="NPWPD" />
+            <TableColumn maxWidth="210.0" minWidth="210.0" prefWidth="210.0" text="Nama WP" />
+            <TableColumn maxWidth="289.0" minWidth="289.0" prefWidth="289.0" text="Alamat" />
+            <TableColumn maxWidth="182.0" minWidth="182.0" prefWidth="182.0" text="Desa" />
+            <TableColumn maxWidth="206.0" minWidth="206.0" prefWidth="206.0" text="Kecamatan" />
+            <TableColumn maxWidth="179.0" minWidth="179.0" prefWidth="179.0" text="Jenis WP" />
+            <TableColumn maxWidth="99.0" minWidth="99.0" prefWidth="99.0" text="action" />
+         </columns>
+      </TableView>
    </children>
-</VBox>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
+</AnchorPane>

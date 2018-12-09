@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox prefHeight="610.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturTimWPUIController">
+<AnchorPane prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturTimWPUIController">
    <children>
-      <AnchorPane prefHeight="45.0" prefWidth="574.0">
-         <children>
-            <Button fx:id="backToFormPersiapanBtn" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToFormPersiapan" prefHeight="25.0" prefWidth="111.0" text="kembali" />
-            <Button layoutX="129.0" layoutY="14.0" mnemonicParsing="false" onAction="#openNewAturTimWP" prefHeight="25.0" prefWidth="111.0" text="tambah tim" />
-         </children>
-      </AnchorPane>
-      <HBox prefHeight="517.0" prefWidth="574.0">
-         <children>
-            <TableView fx:id="PersiapanTimWPTable" prefHeight="566.0" prefWidth="574.0">
-              <columns>
-                  <TableColumn prefWidth="75.0" text="Id tim" />
-                <TableColumn prefWidth="357.0" text="Nama tim" />
-                <TableColumn prefWidth="111.0" text="Hapus action" />
-                  <TableColumn prefWidth="105.0" text="Atur action" />
-              </columns>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </TableView>
-         </children>
-      </HBox>
-      <AnchorPane prefHeight="53.0" prefWidth="574.0">
-         <children>
-            <Button fx:id="cancelBtn" layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
-            <Button layoutX="387.0" layoutY="14.0" mnemonicParsing="false" onAction="#aturSuratPerintah" prefHeight="25.0" prefWidth="181.0" text="Atur Surat Perintah" />
-         </children>
-      </AnchorPane>
+      <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#openNewAturTimWP" prefHeight="25.0" prefWidth="111.0" text="Tambah Tim" AnchorPane.leftAnchor="15.0" />
+      <TableView fx:id="PersiapanTimWPTable" layoutX="15.0" layoutY="48.0" prefHeight="507.0" prefWidth="607.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+        <columns>
+            <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="ID TIM" />
+          <TableColumn maxWidth="350.0" minWidth="350.0" prefWidth="350.0" text="NAMA TIM" />
+          <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="TOMBOL HAPUS" />
+            <TableColumn maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="TOMBOL ATUR" />
+        </columns>
+      </TableView>
+      <Button layoutX="504.0" layoutY="572.0" mnemonicParsing="false" onAction="#aturSuratPerintah" prefHeight="25.0" prefWidth="181.0" text="Selanjutnya | Surat Perintah" AnchorPane.rightAnchor="15.0" />
+      <Button fx:id="backToFormPersiapanBtn" layoutX="383.0" layoutY="572.0" mnemonicParsing="false" onAction="#backToFormPersiapan" prefHeight="25.0" prefWidth="111.0" text="Kembali" AnchorPane.rightAnchor="206.0" />
    </children>
-</VBox>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+</AnchorPane>

@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" 
-            fx:id="formTambahTim" 
-            prefHeight="292.0" 
-            prefWidth="574.0" 
-            styleClass="mainFxmlClass" 
-            xmlns="http://javafx.com/javafx/8" 
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahTimUIController">
+<AnchorPane id="AnchorPane" fx:id="formTambahTim" prefHeight="292.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahTimUIController">
    <children>
-      <TextField fx:id="timIdField" layoutX="51.0" layoutY="90.0" prefHeight="31.0" prefWidth="473.0" />
-      <Label layoutX="226.0" layoutY="27.0" text="FORM TAMBAH TIM" />
-      <Label layoutX="51.0" layoutY="64.0" text="Id" />
-      <Label layoutX="51.0" layoutY="134.0" text="Nama" />
-      <TextField fx:id="namaTimField" layoutX="51.0" layoutY="160.0" prefHeight="31.0" prefWidth="473.0" />
-      <Button layoutX="411.0" layoutY="233.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
-      <Button fx:id="cancelBtn" layoutX="280.0" layoutY="233.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
+      <TextField fx:id="timIdField" layoutX="51.0" layoutY="90.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
+      <Label layoutX="219.0" layoutY="29.0" text="FORM TAMBAH TIM" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="219.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="51.0" layoutY="64.0" text="ID Tim" AnchorPane.leftAnchor="51.0" />
+      <Label layoutX="51.0" layoutY="134.0" text="Nama Tim" AnchorPane.leftAnchor="51.0" />
+      <TextField fx:id="namaTimField" layoutX="51.0" layoutY="160.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
+      <Button layoutX="407.0" layoutY="218.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" AnchorPane.rightAnchor="51.0" />
+      <Button fx:id="cancelBtn" layoutX="281.0" layoutY="218.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" AnchorPane.rightAnchor="177.0" />
    </children>
    <stylesheets>
       <URL value="@/styles/formtambahwpui.css" />

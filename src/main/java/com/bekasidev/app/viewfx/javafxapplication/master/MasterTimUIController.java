@@ -33,7 +33,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -74,8 +76,8 @@ public class MasterTimUIController implements Initializable {
         dataCollection = new ObservableArrayList<>();
         for (final Tim obj
                 : tims) {
-            Button btn = new Button("atur anggota");
-            Button hapusBtn = new Button("hapus");
+            Button btn = new Button("Atur anggota");
+            Button hapusBtn = new Button("Hapus");
             dataCollection.add(new MasterTimTableWrapper(
                     obj.getIdTim(),
                     obj.getNamaTim(),
@@ -111,6 +113,20 @@ public class MasterTimUIController implements Initializable {
                 public void handle(ActionEvent event) {                    
                     System.out.println("hapus"+obj.getId()+"clicked");
                     
+                    service.deleteTim(obj.getId());
+                    
+                    Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+                    rootpane.getChildren().remove(1);
+
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/MasterTimUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rootpane.getChildren().add(contentPane);
+                    
                 }
             });
             
@@ -136,6 +152,9 @@ public class MasterTimUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form tambah Tim");
         stage.setScene(new Scene(formTambahTim));
-        stage.show();
+        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 }

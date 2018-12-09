@@ -10,4 +10,5 @@ public interface NomorBerkasDao {
     void createNomorSurat(String idSP, String idWP);
     void setBerkasTeguran2(String idSP, String idWP, String nomorTeguran, String tanggalTeguran,
                            String jam, String tempat, String hari);
+    void setNomorTanggalSKPD(String idSP, String idWP, String nomorSKPD, String tanggalSKPD);
 }

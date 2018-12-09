@@ -11,6 +11,7 @@ import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
@@ -50,6 +51,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -68,6 +70,7 @@ public class PersiapanUIController implements Initializable {
     private Map<String, SuratPerintah> suratPerintahMapper = new HashMap<>();
     
     private SuratPerintahService suratPerintahService;
+    private ReportService reportService;
     /**
      * Initializes the controller class.
      */
@@ -102,7 +105,7 @@ public class PersiapanUIController implements Initializable {
         int i = 1;
         for (final ArsipTablePersiapanWrapper obj
                 : dataListFromService) {
-            Button btn = new Button("lihat detail");
+            Button btn = new Button("Lihat Detail");
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -168,12 +171,14 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
     
     public void cariArsip() {
-        
+        System.out.println("masuk tombol");
+        reportService.testGamber();
     }
     
     public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
@@ -201,6 +206,7 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
+        
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }

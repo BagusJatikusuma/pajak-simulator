@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox prefHeight="610.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController">
+<AnchorPane prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController">
    <children>
-      <HBox prefHeight="517.0" prefWidth="574.0">
-         <children>
-            <TableView fx:id="AturNomorTanggalSuratPemberitahuanTable" prefHeight="566.0" prefWidth="574.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="Id WP" />
-                  <TableColumn prefWidth="357.0" text="Nama WP" />
-                  <TableColumn prefWidth="111.0" text="Nomor surat" />
-                  <TableColumn prefWidth="105.0" text="Tanggal surat" />
-                  <TableColumn prefWidth="75.0" text="Action" />
-               </columns>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </TableView>
-         </children>
-      </HBox>
-      <AnchorPane prefHeight="53.0" prefWidth="574.0">
-         <children>
-            <Button layoutX="121.0" layoutY="14.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPemberitahuan" prefHeight="25.0" prefWidth="111.0" text="Simpan" />
-            <Button layoutX="5.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="111.0" text="Batal" />
-            <Button layoutX="388.0" layoutY="14.0" mnemonicParsing="false" onAction="#aturSuratPeminjaman" prefHeight="25.0" prefWidth="178.0" text="Atur Surat Peminjaman" />
-            <Separator layoutX="372.0" layoutY="6.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="6.0" />
-            <Button layoutX="243.0" layoutY="14.0" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" prefWidth="111.0" text="print" />
-         </children>
-      </AnchorPane>
+      <TableView fx:id="AturNomorTanggalSuratPemberitahuanTable" prefHeight="300.0" prefWidth="574.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+         <columns>
+            <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="ID WP" />
+            <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="NAMA WAJIB PAJAK" />
+            <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="NOMOR SURAT" />
+            <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="TANGGAL SURAT" />
+            <TableColumn maxWidth="99.0" minWidth="99.0" prefWidth="99.0" text="ACTION" />
+         </columns>
+      </TableView>
+      <Button layoutX="125.0" layoutY="320.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPemberitahuan" prefHeight="25.0" prefWidth="100.0" text="Simpan" />
+      <Button fx:id="backToFormSPBtn" layoutX="15.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToFormSP" prefHeight="25.0" prefWidth="100.0" text="Kembali" />
+      <Button layoutX="501.0" layoutY="320.0" mnemonicParsing="false" onAction="#aturSuratPeminjaman" prefHeight="25.0" prefWidth="185.0" text="Selanjutnya | Surat Peminjaman" />
+      <Separator layoutX="447.0" layoutY="322.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" text="Cetak Surat Pemberitahuan" />
    </children>
-</VBox>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+</AnchorPane>

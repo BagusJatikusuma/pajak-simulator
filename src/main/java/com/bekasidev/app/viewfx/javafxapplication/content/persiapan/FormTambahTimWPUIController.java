@@ -139,13 +139,13 @@ public class FormTambahTimWPUIController implements Initializable {
     
     private void addFromFXML() {
         pilih
-                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "pilih");
+                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "");
         idWP
-                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "Id WP");
+                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "ID WP");
         namaWP 
-                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "Nama WP");
+                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "NAMA WAJIB PAJAK");
         jenisWP 
-                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "Jenis WP");
+                = TableHelper.getTableColumnByName(PersiapanPilihWPTable, "JENIS WP");
     }
     
     private void populateData() {

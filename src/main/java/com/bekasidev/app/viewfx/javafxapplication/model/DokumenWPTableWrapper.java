@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
  * @author sudoroot
  */
 public class DokumenWPTableWrapper {
+    private SimpleStringProperty no;
     private SimpleStringProperty dokumen;
     private SimpleStringProperty keterangan;
     private Button action;
@@ -21,8 +22,9 @@ public class DokumenWPTableWrapper {
     }
 
     public DokumenWPTableWrapper(
-            String dokumen, String keterangan, Button action) {
+            String no, String dokumen, String keterangan, Button action) {
         this.dokumen = new SimpleStringProperty(dokumen);
+        this.no = new SimpleStringProperty(no);
         this.keterangan = new SimpleStringProperty(keterangan);
         this.action = action;
     }
@@ -50,6 +52,16 @@ public class DokumenWPTableWrapper {
     public void setAction(Button action) {
         this.action = action;
     }
+
+    public String getNo() {
+        return no.get();
+    }
+
+    public void setNo(String no) {
+        this.no.set(no);
+    }
+    
+    
     
     
 }

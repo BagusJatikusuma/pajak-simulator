@@ -34,6 +34,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -69,23 +70,54 @@ public class FormSuratPelaksanaanUIController implements Initializable {
         dataCollection = FXCollections.observableArrayList();
         boolean phpSudahDiatur = false;
         boolean beritaAcaraSudahDiatur = false;
+        boolean suratTeguran1SudahDiAtur = false;
+        boolean suratTeguran2SudahDiatur = false;
         if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() != null) 
                 && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalSuratHasil() != null)
             phpSudahDiatur = true;
         if (pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalBeritaAcara() != null)
             beritaAcaraSudahDiatur = true;
+        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran1() != null)
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran1() != null)
+            suratTeguran1SudahDiAtur = true;
+        if ((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorTeguran2() != null)
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getJamTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTempatTeguran2() != null
+                && pelaksanaanWrapper.getWpSelected().getNomorBerkas().getHariTeguran2() != null) {
+            suratTeguran2SudahDiatur = true;   
+        }
+        
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("1","Surat Pernyataan Data Benar",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("2","Tanda Terima Surat Pemberitahuan Hasil Pemeriksaan",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("3","Pemberitahuan Hasil Pemeriksaan",
+//                (phpSudahDiatur)?"Sudah diatur":"Belum diatur"));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("4","Lampiran Pemberitahuan Hasil Pemeriksaan",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("5","Surat Persetujuan",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("6","Pernyataan Persetujuan Hasil Pemeriksaan",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("7","Berita Acara Pembahasan Akhir Hasil Pemeriksaan",
+//                (beritaAcaraSudahDiatur)?"Tanggal sudah diatur":"Tanggal Belum diatur"));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("8","Surat Pernyataan Kesanggupan Membayar Pajak Kurang Bayar",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("9","Surat Pernyataan Akan Membayar",""));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("10","Surat Teguran 1",
+//                (suratTeguran1SudahDiAtur)?"Sudah diatur":"Belum diatur"));
+//        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("11","Surat Teguran 2",
+//                (suratTeguran2SudahDiatur)?"Sudah diatur":"Belum diatur"));
         
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("1","Surat Pernyataan Data Benar",""));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("2","Tanda Terima Surat Pemberitahuan Hasil Pemeriksaan",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("2","Tanda Terima Surat Pemberitahuan Hasil Pemeriksaan (SPHP)",""));
         dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("3","Pemberitahuan Hasil Pemeriksaan",
                 (phpSudahDiatur)?"Sudah diatur":"Belum diatur"));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("4","Lampiran Pemberitahuan Hasil Pemeriksaan",""));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("5","Surat Persetujuan",""));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("6","Pernyataan Persetujuan Hasil Pemeriksaan",""));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("7","Berita Acara Pembahasan Akhir Hasil Pemeriksaan",
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("4","Surat Persetujuan",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("5","Pernyataan Persetujuan Hasil Pemeriksaan",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("6","Berita Acara Pembahasan Akhir Hasil Pemeriksaan",
                 (beritaAcaraSudahDiatur)?"Tanggal sudah diatur":"Tanggal Belum diatur"));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("8","Surat Pernyataan Kesanggupan Membayar Pajak Kurang Bayar",""));
-        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("9","Surat Pernyataan Akan Membayar",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("7","Surat Pernyataan Kesanggupan Membayar Pajak Kurang Bayar",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("8","Surat Pernyataan Akan Membayar",""));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("9","Surat Teguran 1",
+                (suratTeguran1SudahDiAtur)?"Sudah diatur":"Belum diatur"));
+        dataCollection.add(new DaftarSuratPelaksanaanTableWrapper("10","Surat Teguran 2",
+                (suratTeguran2SudahDiatur)?"Sudah diatur":"Belum diatur"));
         
     }
 
@@ -98,7 +130,13 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     public void aturNomorTanggalSurat() {
         DaftarSuratPelaksanaanTableWrapper wrapper 
                 = (DaftarSuratPelaksanaanTableWrapper)daftarSuratTable.getSelectionModel().getSelectedItem();
-        if (wrapper.getNo().equals("3")) {
+        if (wrapper.getNo().equals("3") 
+                || wrapper.getNo().equals("9")) {
+            if (wrapper.getNo().equals("3")) {
+                SessionProvider.getGlobalSessionsMap().put("surat_selected","3");
+            } else {
+                SessionProvider.getGlobalSessionsMap().put("surat_selected","9");
+            }
             Pane formAturBulanRekapitulasi = null;
             try {
                 formAturBulanRekapitulasi = FXMLLoader
@@ -109,11 +147,13 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Form Atur Nomor Tanggal");
             stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             
         }
-        else if (wrapper.getNo().equals("7")) {
+        else if (wrapper.getNo().equals("6")) {
             Pane formAturBulanRekapitulasi = null;
             try {
                 formAturBulanRekapitulasi = FXMLLoader
@@ -124,6 +164,24 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Form Atur Tanggal");
             stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        }
+        else if (wrapper.getNo().equals("10")) {
+            Pane formAturBulanRekapitulasi = null;
+            try {
+                formAturBulanRekapitulasi = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/FormInputSuratTeguranDua.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("Form Atur Tanggal");
+            stage.setScene(new Scene(formAturBulanRekapitulasi));
+            
+            stage.initStyle(StageStyle.UTILITY);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         }
@@ -158,19 +216,22 @@ public class FormSuratPelaksanaanUIController implements Initializable {
                 reportService.createPernyataanPersetujuanHasilPemeriksaan5(pelaksanaanWrapper);
                 break;
             case 6:
-                reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
-                break;
-            case 7:
-                reportService.createSuratPernyataan7(pelaksanaanWrapper);
-                break;
-            case 8: 
                 reportService.createBeritaAcara8(pelaksanaanWrapper, 
                 ServiceFactory.getSuratPerintahService().getTimSP(
                         pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
                         pelaksanaanWrapper.getTimSelected().getIdTim()));
                 break;
+            case 7:
+                reportService.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(pelaksanaanWrapper);
+                break;
+            case 8: 
+                reportService.createSuratPernyataan7(pelaksanaanWrapper);
+                break;
             case 9:
-                System.out.println("not supported yet");
+                reportService.createSuratTeguran1(pelaksanaanWrapper);
+                break;
+            case 10:
+                reportService.createSuratTeguran2(pelaksanaanWrapper);
                 break;
         }
         

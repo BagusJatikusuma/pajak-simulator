@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController">
+   <children>
+      <Button layoutX="214.0" layoutY="11.0" mnemonicParsing="false" onAction="#printKopLHP" prefHeight="25.0" prefWidth="129.0" text="Cetak Cover LHP" />
+      <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#printEvaluasi" prefHeight="25.0" prefWidth="187.0" text="Cetak Laporan Evaluasi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="evaluasiTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn fx:id="no" maxWidth="120.0" minWidth="45.0" prefWidth="45.0" text="NO" visible="false" />
+            <TableColumn fx:id="tahapPemeriksaan" maxWidth="325.0" minWidth="90.0" prefWidth="91.0" text="TAHAP" />
+            <TableColumn fx:id="noSP" maxWidth="309.0" minWidth="135.0" prefWidth="246.0" text="NO SP" />
+            <TableColumn fx:id="tim" maxWidth="562.0" minWidth="156.0" prefWidth="160.0" text="TIM PEMERIKSA" />
+            <TableColumn fx:id="wp" maxWidth="632.0" minWidth="250.0" prefWidth="606.0" text="WAJIB PAJAK" />
+            <TableColumn fx:id="action" maxWidth="188.0" minWidth="166.0" prefWidth="188.0" text="Action" />
+         </columns>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@/styles/pelaksanaanui.css" />
+   </stylesheets>
+</AnchorPane>

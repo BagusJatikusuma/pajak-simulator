@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="200.0">
-         <children>
-            <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
-            <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="218.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-            <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariArsip" prefHeight="25.0" prefWidth="60.0" text="cari" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
-            <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addDokumenPersiapan" prefHeight="25.0" prefWidth="210.0" text="tambah dokumen persiapan" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
-         </children>
-      </AnchorPane>
-      <HBox prefHeight="589.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0">
-         <children>
-            <TableView fx:id="arsipPersiapanTable" prefHeight="650.0" prefWidth="1366.0" HBox.hgrow="ALWAYS">
-               <columns>
-                  <TableColumn prefWidth="124.0" text="ID" />
-                  <TableColumn prefWidth="410.0" text="NOMOR SURAT PERINTAH" />
-                  <TableColumn prefWidth="422.0" text="TANGGAL SURAT PERINTAH" />
-                  <TableColumn prefWidth="264.0" text="Action" />
-               </columns>
-            </TableView>
-         </children>
-      </HBox>
+      <Separator layoutX="244.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
+      <TextField alignment="CENTER" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="173.0" layoutY="11.0" mnemonicParsing="false" onAction="#cariArsip" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="260.0" layoutY="11.0" mnemonicParsing="false" onAction="#addDokumenPersiapan" prefHeight="25.0" prefWidth="210.0" text="Tambah Dokumen Persiapan" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="arsipPersiapanTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="ID" />
+            <TableColumn maxWidth="500.0" minWidth="500.0" prefWidth="500.0" text="NOMOR SURAT PERINTAH" />
+            <TableColumn maxWidth="500.0" minWidth="500.0" prefWidth="500.0" text="TANGGAL SURAT PERINTAH" />
+            <TableColumn maxWidth="187.0" minWidth="187.0" prefWidth="187.0" text="Action" />
+         </columns>
+      </TableView>
    </children>
+   <padding>
+      <Insets bottom="14.0" />
+   </padding>
 </AnchorPane>

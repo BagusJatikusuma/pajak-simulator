@@ -42,6 +42,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -76,13 +77,13 @@ public class FormAturTimWPUIController implements Initializable {
     
     private void addFromFXML() {
         idTim
-                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "Id tim");
+                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "ID TIM");
         namaTim
-                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "Nama tim");
+                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "NAMA TIM");
         hapusAction 
-                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "Hapus action");
+                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "TOMBOL HAPUS");
         aturAction 
-                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "Atur action");
+                = TableHelper.getTableColumnByName(PersiapanTimWPTable, "TOMBOL ATUR");
     }
     
     private void populateData() {
@@ -92,8 +93,8 @@ public class FormAturTimWPUIController implements Initializable {
                 .get("persiapan_wrapper");
         dataCollection = FXCollections.observableArrayList();
         for (TimWPWrapper obj : persiapanWrapper.getTimWPWrappers()) {
-            Button hapusButton = new Button("hapus");
-            Button aturButton = new Button("atur");
+            Button hapusButton = new Button("Hapus");
+            Button aturButton = new Button("Atur");
             
             dataCollection.add(new PersiapanTimWPTableWrapper(
                     obj.getTim().getIdTim(),
@@ -148,6 +149,8 @@ public class FormAturTimWPUIController implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Form tambah Tim WP");
                     stage.setScene(new Scene(formTambahTimWPUI));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                     
@@ -192,14 +195,12 @@ public class FormAturTimWPUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form tambah Tim WP");
+        stage.setTitle("Form Tambah Tim");
         stage.setScene(new Scene(formTambahTimWPUI));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
-    }
-    
-    public void cancelOperation() {
-        
     }
     
     public void aturSuratPerintah() {

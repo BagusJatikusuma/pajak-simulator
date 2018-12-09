@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="285.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahAnggotaTimUIController">
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="285.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahAnggotaTimUIController">
    <children>
-      <ChoiceBox fx:id="calonAnggotaField" layoutX="51.0" layoutY="86.0" prefHeight="25.0" prefWidth="482.0" />
-      <Label layoutX="208.0" layoutY="22.0" text="FORM TAMBAH ANGGOTA TIM" />
-      <Label layoutX="51.0" layoutY="61.0" text="Pegawai" />
-      <Button layoutX="417.0" layoutY="230.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" />
-      <Button fx:id="cancelBtn" layoutX="286.0" layoutY="230.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" />
-      <Label layoutX="51.0" layoutY="128.0" text="Jabatan dalam tim" />
-      <TextField fx:id="jabatanDalamTimField" layoutX="51.0" layoutY="152.0" prefHeight="31.0" prefWidth="482.0" />
+      <ChoiceBox fx:id="calonAnggotaField" layoutX="51.0" layoutY="101.0" prefHeight="25.0" prefWidth="482.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
+      <Label layoutX="177.0" layoutY="40.0" prefHeight="20.0" text="FORM TAMBAH ANGGOTA TIM" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="178.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="51.0" layoutY="76.0" text="Pegawai" AnchorPane.leftAnchor="51.0" />
+      <Button layoutX="407.0" layoutY="214.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" AnchorPane.rightAnchor="51.0" />
+      <Button fx:id="cancelBtn" layoutX="281.0" layoutY="214.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" AnchorPane.rightAnchor="177.0" />
+      <Label layoutX="51.0" layoutY="143.0" text="Jabatan Dalam Tim" AnchorPane.leftAnchor="51.0" />
+      <TextField fx:id="jabatanDalamTimField" layoutX="51.0" layoutY="167.0" prefHeight="31.0" prefWidth="482.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
    </children>
    <stylesheets>
       <URL value="@/styles/formtambahpegawaiui.css" />

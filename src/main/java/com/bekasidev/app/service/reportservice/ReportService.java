@@ -8,11 +8,14 @@ package com.bekasidev.app.service.reportservice;
 import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WP;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
+import java.util.Date;
 
 /**
  *
@@ -29,17 +32,33 @@ public interface ReportService {
     void createPersiapanPajakParkirReport();
     
     //yang dipakai persiapan
+    void createSuratPerintahBaru();
     void createSuratPerintah();
     void createDaftarPetugasPemeriksa();
     void createPemberitahuanPemeriksaan(
             PersiapanWrapper persiapanWrapper, WajibPajak wp, TimWPWrapperJasper timWP, int index);
+    void createPemberitahuanPemeriksaanPerWP(PersiapanWrapper persiapanWrapper, 
+            TimWPWrapper timWPWrapper, 
+            NomorTanggalWajibPajakWrapper nomorTanggalWajibPajakWrapper, 
+            WajibPajak wajibPajak);
     void createTandaTerima(WP wp, WajibPajak wajibPajak,
              PersiapanWrapperJasper persiapanWrapper);
+    
     void createPersiapanPeminjamanBuku(
              PersiapanWrapper persiapanWrapper, WajibPajak wp, int index);
     void createPersiapanDokumenPinjaman(WP wp, WajibPajak wajibPajak,
              PersiapanWrapperJasper persiapanWrapper);
+    
+    void createPersiapanPeminjamanBukuPerWP(PersiapanWrapper persiapanWrapper, 
+            TimWPWrapper timWPWrapper, 
+            NomorTanggalWajibPajakWrapper nomorTanggalWajibPajakWrapper, 
+            WajibPajak wajibPajak);
+    void createPersiapanDokumenPinjamanPerWP(WP wp, WajibPajak wajibPajak,
+             PersiapanWrapper persiapanWrapper);
+    
     void createQuesionerRestoran();
+    void createQuesionerHotel();
+    void createQuesionerParkir();
     
     //yang dipakai pelaksanaan
     void createSuratPernyataan1(PelaksanaanWrapper pelaksanaanWrapper);
@@ -55,6 +74,15 @@ public interface ReportService {
     
     void createTemplateSuratPelaksanaan(PelaksanaanWrapper pelaksanaanWrapper);
     void createKertasPemeriksaanPajak(PelaksanaanWrapper pelaksanaanWrapper, TimSP timSP);
-    void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper, PersiapanWrapper persiapanWrapper, int index);
-    void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper, PersiapanWrapper persiapanWrapper, int index);
+    void createSuratTeguran1(PelaksanaanWrapper pelaksanaanWrapper);
+    void createSuratTeguran2(PelaksanaanWrapper pelaksanaanWrapper);
+    void createCoverTemplate1(PelaksanaanWrapper pelaksanaanWrapper);
+    void createCoverTemplate2(PelaporanWrapper pelaporanWrapper);
+    
+    
+    //yang dipakai pelaporan
+    void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper);
+    
+    //test gambar
+    void testGamber();
 }

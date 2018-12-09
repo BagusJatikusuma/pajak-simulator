@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPernyataan(7)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="709c5cf4-8bd3-4c6a-98ad-6c6af77a7614">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.y" value="240"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="npwpd_wajib_pajak" class="java.lang.String"/>
 	<parameter name="alamat_wajib_pajak" class="java.lang.String"/>
@@ -12,31 +12,31 @@
 	<title>
 		<band height="875" splitType="Stretch">
 			<staticText>
-				<reportElement positionType="Float" x="0" y="303" width="535" height="90" uuid="721adc18-1270-4a20-ad9e-8b46fc18630d"/>
+				<reportElement positionType="Float" x="0" y="303" width="535" height="80" uuid="721adc18-1270-4a20-ad9e-8b46fc18630d"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Dengan ini menyatakan bahwa kami selanjutnya akan mencatat, membayar, dan melaporkan Pajak Daerah sesuai dengan omzet yang sebenarnya dan apabila dikemudian hari kami tidak melaporkan dan membayar Pajak Daerah sesuai dengan omzet yang sebenarnya, kami siap untuk menerima sanksi sesuai dengan ketentuan perpajakan yang berlaku, dan selanjutnya apabila ternyata ditemukan ada bukti/data pendukung baru wajib pajak bersedia untuk dilakukan uji kepatuhan kembali.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="276" y="511" width="259" height="60" uuid="96e6d3b4-fcd3-4986-820e-c875d983e831"/>
+				<reportElement x="276" y="500" width="259" height="60" uuid="96e6d3b4-fcd3-4986-820e-c875d983e831"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="14" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Materai 6.000]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="453" width="260" height="20" uuid="8977d198-7874-44a7-a840-a4d9b0d1fb6a"/>
+				<reportElement x="275" y="442" width="260" height="20" uuid="8977d198-7874-44a7-a840-a4d9b0d1fb6a"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="14" isBold="false"/>
+					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Cikarang Pusat,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="393" width="535" height="60" uuid="c5091f96-2c82-4588-a061-702cdb68fc0f"/>
+				<reportElement x="0" y="383" width="535" height="40" uuid="c5091f96-2c82-4588-a061-702cdb68fc0f"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
@@ -50,9 +50,9 @@
 				<text><![CDATA[SURAT PERNYATAAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="276" y="473" width="259" height="38" uuid="bb45c958-01a9-4f2c-afee-b40b0f53e4c6"/>
+				<reportElement x="276" y="462" width="259" height="38" uuid="bb45c958-01a9-4f2c-afee-b40b0f53e4c6"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="14" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Yang membuat pernyataan,]]></text>
 			</staticText>
@@ -64,14 +64,14 @@
 				<text><![CDATA[Saya yang bertandatangan dibawah ni :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="629" width="535" height="60" uuid="7784cb28-be3c-452b-be53-37d28069dcb4"/>
+				<reportElement x="0" y="618" width="535" height="60" uuid="7784cb28-be3c-452b-be53-37d28069dcb4"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Dalam hal ditandatangani oleh kuasa perusahaan, harus dilampiri surat kuasa.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="609" width="110" height="20" uuid="7018aff3-351d-4ef3-8648-6e56f097bdf7"/>
+				<reportElement x="0" y="598" width="110" height="20" uuid="7018aff3-351d-4ef3-8648-6e56f097bdf7"/>
 				<textElement textAlignment="Left">
 					<font fontName="Times New Roman" size="12" isBold="false"/>
 				</textElement>
@@ -157,7 +157,7 @@
 			<textField>
 				<reportElement x="120" y="223" width="415" height="20" uuid="c3424c87-3b45-47bf-aa2a-f6564a0d7012"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 			</textField>

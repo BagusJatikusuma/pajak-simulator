@@ -32,6 +32,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -55,6 +56,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
@@ -69,6 +71,8 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     private TableColumn nomorSurat;
     private TableColumn tanggalSurat;
     private TableColumn action;
+    
+    @FXML private Button backToFormSPBtn;
     
     private NomorBerkasService nomorBerkasService;
     private ReportService reportService;
@@ -127,16 +131,33 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
         Stage stage = new Stage();
         stage.setTitle("");
         stage.setScene(new Scene(popup));
+        
+        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         
     }
     
-    public void cancelOperation() {
-        
+    public void backToFormSP() {
+        Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        rootpaneFormPersiapan.getChildren().remove(1);
+
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormAturNomorTanggalSPUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rootpaneFormPersiapan.getChildren().add(contentPane);
     }
     
     public void printSuratPemberitahuan() {
+        PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
+                = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) AturNomorTanggalSuratPemberitahuanTable.getSelectionModel().getSelectedItem();
+        
+        String npwpd = wrapper.getIdWP();
+        
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
         PersiapanWrapper persiapanWrapper
@@ -144,121 +165,30 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
         
-        //data dummi
-            PersiapanWrapperJasper dummi = new PersiapanWrapperJasper();
-
-            dummi.setNomorSurat(persiapanWrapper.getNomorSurat());
-            dummi.setTanggalPengesahan(persiapanWrapper.getTanggalPengesahan());
-            dummi.setDasarNomor(persiapanWrapper.getDasarNomor());
-            dummi.setDasarTanggal(persiapanWrapper.getDasarTanggal());
-            dummi.setDasarTahunAnggaran(persiapanWrapper.getDasarTahunAnggaran());
-            dummi.setNama(persiapanWrapper.getNama());
-            dummi.setJabatan(persiapanWrapper.getJabatan());
-
-            dummi.setMasaPajakAwalBulan(persiapanWrapper.getMasaPajakAwalBulan());
-            dummi.setMasaPajakAwalTahun(persiapanWrapper.getMasaPajakAwalTahun());
-            dummi.setMasaPajakAkhirbulan(persiapanWrapper.getMasaPajakAkhirbulan());
-            dummi.setMasaPajakAkhirTahun(persiapanWrapper.getMasaPajakAkhirTahun());
-            dummi.setTahapKe(persiapanWrapper.getTahapKe());
-
-            dummi.setLamaPelaksanaan(persiapanWrapper.getLamaPelaksanaan());
-            dummi.setBiayaNomorAPBD(persiapanWrapper.getBiayaNomorAPBD());
-            dummi.setBiayaTahunAPBD(persiapanWrapper.getBiayaTahunAPBD());
-            dummi.setBiayaTanggalAPBD(persiapanWrapper.getBiayaTanggalAPBD());
-
-            dummi.setDitetapkanDi(persiapanWrapper.getDitetapkanDi());
-
-            dummi.setPenandatangan(persiapanWrapper.getPenandatangan());
-
-            PegawaiService pegawaiService = ServiceFactory.getPegawaiService();
-
-            for (TimWPWrapper tim : persiapanWrapper.getTimWPWrappers()) {
-
-                List<Pegawai> anggotaTimList = pegawaiService.getPegawaiByTim(tim.getTim().getIdTim());
-                List<AnggotaDanWajibPajakWrapper> wajibPajakList = new ArrayList<AnggotaDanWajibPajakWrapper>();
-
-                int jumlah = anggotaTimList.size();
-                if(jumlah < tim.getWajibPajaks().size()){
-                    jumlah = tim.getWajibPajaks().size();
-                }
-
-                for (int i = 0; i < jumlah; i++) {
-                    AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
-
-                    if(i < tim.getWajibPajaks().size()){
-                        wp.setIdWajibPajak(tim.getWajibPajaks().get(i).getNpwpd());
-                        wp.setNamaWajibPajak(tim.getWajibPajaks().get(i).getNamaWajibPajak());
-                        wp.setJenisWp(tim.getWajibPajaks().get(i).getJenisWp());
-                    } else {
-                        wp.setIdWajibPajak("");
-                        wp.setNamaWajibPajak("");
-                        wp.setJenisWp((short) -1);
-                    }
-
-                    if (i < anggotaTimList.size()) {
-                        wp.setIdTim(anggotaTimList.get(i).getIdTim());
-                        wp.setNipPegawai(anggotaTimList.get(i).getNipPegawai());
-                        wp.setNamaPegawai(anggotaTimList.get(i).getNamaPegawai());
-                        wp.setPangkat(anggotaTimList.get(i).getPangkat());
-                        wp.setGolongan(anggotaTimList.get(i).getGolongan());
-                        wp.setJabatanTim(anggotaTimList.get(i).getJabatanTim());
-                    } else {
-                        wp.setIdTim("");
-                        wp.setNipPegawai("");
-                        wp.setNamaPegawai("");
-                        wp.setPangkat("");
-                        wp.setGolongan("");
-                    }
-
-                    wajibPajakList.add(wp);
-                }
-
-                TimWPWrapperJasper objTimWPWrapper
-                        = new TimWPWrapperJasper(
-                                tim.getPenanggungJawab().getNipPegawai(),
-                                tim.getPenanggungJawab().getNamaPegawai(),
-                                tim.getPenanggungJawab().getPangkat(),
-                                tim.getPenanggungJawab().getGolongan(),
-                                tim.getPenanggungJawab().getJabatanTim(),
-
-                                tim.getSupervisor().getNipPegawai(),
-                                tim.getSupervisor().getNamaPegawai(),
-                                tim.getSupervisor().getPangkat(),
-                                tim.getSupervisor().getGolongan(),
-                                tim.getSupervisor().getJabatanTim(),
-
-                                tim.getTim().getNamaTim(),
-                                wajibPajakList
-                        );
-                JRBeanCollectionDataSource beanColDataSourceWp =
-                        new JRBeanCollectionDataSource(wajibPajakList);
-                objTimWPWrapper.setWajibPajakJasper(beanColDataSourceWp);
-                objTimWPWrapper.setListWP(tim.getWajibPajaks());
-
-                dummi.getTimWPWrapperJaspers().add(objTimWPWrapper);
-
+        NomorTanggalWajibPajakWrapper objNomorTanggalWPPenampung = null;
+        for(NomorTanggalWajibPajakWrapper obj : persiapanWrapper.getNomorTanggalWPList()){
+            if (obj.getWajibPajak().getNpwpd().equals(npwpd)) {
+                objNomorTanggalWPPenampung = obj;
+                break;
             }
-
-            //data dummi\
-            int index = 0;
-            for(TimWPWrapperJasper timWP : dummi.getTimWPWrapperJaspers()){
-                for(WajibPajak wp : timWP.getListWP()){
-                    System.out.println("Masuk wp : " + wp.getNamaWajibPajak());
-                    System.out.println("Index wp : " + index);
-
-                    reportService.createPemberitahuanPemeriksaan(persiapanWrapper, wp, timWP, index);
-                    index ++;
-//                    switch(wp.getJenisWp()){
-//                        case 0: 
-//                            reportService.createTandaTerima(WP.RESTORAN, wp, dummi);
-//                            break;
-//                        case 1: 
-//                            reportService.createTandaTerima(WP.HOTEL, wp, dummi);
-//                            break;
-//                    }
+        }
+        
+        TimWPWrapper objTimPenampung = null;
+        WajibPajak objWPPenampung = null;
+        for(TimWPWrapper objTim : persiapanWrapper.getTimWPWrappers()){
+            
+            for(WajibPajak objWP : objTim.getWajibPajaks()){
+                if (objWP.getNpwpd().equals(npwpd)) {
+                    objTimPenampung = objTim;
+                    objWPPenampung = objWP;
+                    break;
                 }
             }
-            System.out.println("Beres Surat Pemberitahuan Pemeriksa");
+        }
+        
+        reportService.createPemberitahuanPemeriksaanPerWP(persiapanWrapper, objTimPenampung, objNomorTanggalWPPenampung, objWPPenampung);
+                
+        System.out.println("Beres Surat Pemberitahuan Pemeriksa");
     }
     
     public void aturSuratPeminjaman() {
@@ -277,15 +207,15 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
 
     private void addFromFXML() {
         idWP
-                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "Id WP");
+                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "ID WP");
         namaWP
-                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "Nama WP");
+                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "NAMA WAJIB PAJAK");
         nomorSurat 
-                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "Nomor surat");
+                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "NOMOR SURAT");
         tanggalSurat 
-                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "Tanggal surat");
+                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "TANGGAL SURAT");
         action 
-                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "Action");
+                = TableHelper.getTableColumnByName(AturNomorTanggalSuratPemberitahuanTable, "ACTION");
     }
 
     private void populateData() {
@@ -332,6 +262,8 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
                     Stage stage = new Stage();
                     stage.setTitle("Form input nomor dan tanggal surat pemberitahuan");
                     stage.setScene(new Scene(formInputNomorTglSuratPemberitahuan));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                 }
