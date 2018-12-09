@@ -132,7 +132,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
             for (TimSP timSP : suratPerintah.getListTim()) {
                 System.out.println("anggota "+timSP.getNamaTim()+" : "+timSP.getListAnggota().size());
             }
-            suratPerintahService.createSuratPerintah(suratPerintah);
+            persiapanWrapper.setIdSP(suratPerintahService.createSuratPerintah(suratPerintah).getIdSP());
             System.out.println("create success");
         }
         else {
