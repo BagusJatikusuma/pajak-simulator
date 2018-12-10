@@ -48,6 +48,7 @@
 	<parameter name="jabatan_penandatangan_ttd" class="java.lang.String"/>
 	<parameter name="nama_penandatangan" class="java.lang.String"/>
 	<parameter name="pangkat_penandatangan" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<group name="grup">
 		<groupHeader>
 			<band/>
@@ -195,7 +196,7 @@ BEKASI]]></text>
 				</staticText>
 				<image hAlign="Center" vAlign="Middle">
 					<reportElement x="0" y="0" width="126" height="86" uuid="6bb865df-2f32-4a6d-b3c5-676b8819c099"/>
-					<imageExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement x="115" y="0" width="420" height="18" uuid="8acd1b26-9905-4600-b8f1-6aac529a5877"/>

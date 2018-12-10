@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -8,11 +9,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.LoadingTestController">
+<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="408.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.LoadingTestController">
     <stylesheets>
         <URL value="@/styles/loadingtest.css" />
     </stylesheets>
    <children>
-      <Text layoutX="266.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOADING" wrappingWidth="67.7294921875" />
+      <Text layoutX="134.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEDANG MENCETAK..." wrappingWidth="167.7294921875">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Text>
    </children>
 </AnchorPane>

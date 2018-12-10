@@ -22,6 +22,7 @@ import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -38,6 +39,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -55,6 +57,7 @@ public class FormTambahTimWPUIController implements Initializable {
     @FXML private ChoiceBox pilihPenanggungJawabField;
     @FXML private ChoiceBox pilihSupervisorField;
     @FXML private ChoiceBox pilihTimField;
+    @FXML private TextField cariWPField;
     private ObservableList<PersiapanPilihWPTableWrapper> dataCollection;
     private WajibPajakService wpService;
     private PegawaiService pegawaiService;
@@ -66,6 +69,20 @@ public class FormTambahTimWPUIController implements Initializable {
         addFromFXML();
         populateData();
         associateDataWithColumn();
+        PersiapanPilihWPTable.setItems(dataCollection);
+    }
+    
+    public void cariWajibPajak() {
+        if (!cariWPField.getText().equals("")) {
+            if (!populateDataBasedSearch().isEmpty())
+                PersiapanPilihWPTable.setItems(populateDataBasedSearch());
+            PersiapanPilihWPTable.refresh();
+        }
+        
+    }
+    
+    public void resetTable() {
+        populateData();
         PersiapanPilihWPTable.setItems(dataCollection);
     }
     
@@ -237,6 +254,20 @@ public class FormTambahTimWPUIController implements Initializable {
                         
         }
         
+    }
+    
+    private ObservableList<PersiapanPilihWPTableWrapper> populateDataBasedSearch() {
+        ObservableList<PersiapanPilihWPTableWrapper> filteredCollection = FXCollections.observableArrayList();
+        String searchText = cariWPField.getText().toLowerCase();
+        
+        for (Iterator it = dataCollection.iterator(); it.hasNext();) {
+            PersiapanPilihWPTableWrapper wrapper = (PersiapanPilihWPTableWrapper) it.next();
+            if (wrapper.getNamaWP().toLowerCase().contains(searchText)) {
+                filteredCollection.add(wrapper);
+            }
+        }
+        
+        return filteredCollection;
     }
     
     private void associateDataWithColumn() {

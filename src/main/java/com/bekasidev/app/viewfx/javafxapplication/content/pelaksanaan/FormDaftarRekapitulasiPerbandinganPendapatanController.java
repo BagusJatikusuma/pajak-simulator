@@ -35,6 +35,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -321,14 +322,49 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
             rekapitulasiService = ServiceFactory.getRekapitulasiService();
             
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+            //edit disini
+            rekapMapperHistory.put(
+                    pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                        +pelaksanaanWrapper.getTimSelected().getIdTim()
+                        +pelaksanaanWrapper.getWpSelected().getNpwpd(), 
+                    pelaksanaanWrapper.getRekapitulasiWrapper());
         }
+        //update??
         else {
             System.out.println("not saved, data already exist");
         }
-        reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
+        
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createKertasPemeriksaanPajak(pelaksanaanWrapper, 
                         ServiceFactory.getSuratPerintahService().getTimSP(
                         pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
                         pelaksanaanWrapper.getTimSelected().getIdTim()));
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
         
     }
     
@@ -337,12 +373,40 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
-        PelaksanaanWrapper pelaksanaanWrapper
+        final PelaksanaanWrapper pelaksanaanWrapper
                 = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("pelaksanaan_wrapper");
         
-        reportService.createCoverTemplate1(pelaksanaanWrapper);
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingTest.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                reportService.createCoverTemplate1(pelaksanaanWrapper);
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                    }
+                });
+            }
+            
+        };
+        t.start();
+        
     }
        
     public void batalEvent(){
