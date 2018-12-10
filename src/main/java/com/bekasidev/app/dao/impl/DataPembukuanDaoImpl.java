@@ -3,6 +3,7 @@ package com.bekasidev.app.dao.impl;
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.DataPembukuanDao;
 import com.bekasidev.app.model.DataPembukuan;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +33,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
             }
         } catch (SQLException e){
             e.printStackTrace();
+            new LogException(e);
         } return dataPembukuans;
     }
 
@@ -53,6 +55,7 @@ public class DataPembukuanDaoImpl implements DataPembukuanDao{
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 

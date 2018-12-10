@@ -6,6 +6,7 @@ import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.dao.SuratPerintahDao;
 import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.*;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             createNomorBerkas(suratPerintah);
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         return suratPerintah;
     }
@@ -62,6 +64,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
         return listSP;
@@ -79,6 +82,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -103,6 +107,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -132,6 +137,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
         return listTim;
@@ -149,6 +155,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             setTim(timSP);
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -184,6 +191,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -198,6 +206,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -334,6 +343,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
         catch (SQLException ex) {
             Logger.getLogger(SuratPerintahDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         return tim;
     }

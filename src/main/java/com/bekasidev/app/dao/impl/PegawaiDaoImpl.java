@@ -4,6 +4,7 @@ import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.PegawaiDao;
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.Tim;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
         return listPegawai;
@@ -42,6 +44,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         
         return pegawai;
@@ -63,6 +66,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         System.out.println("pegawai tim "+idTim+" is "+listPegawai.size());
         return listPegawai;
@@ -123,6 +127,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -139,6 +144,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
     
@@ -216,6 +222,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -231,6 +238,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -247,6 +255,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
         return tims;
@@ -269,6 +278,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -284,6 +294,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -298,6 +309,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -312,6 +324,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -377,6 +390,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 }

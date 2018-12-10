@@ -10,6 +10,7 @@ import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.service.backend.impl.PegawaiServiceImpl;
 import com.bekasidev.app.service.reportservice.ReportService;
+import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
@@ -79,6 +80,7 @@ public class ReportServiceImpl implements ReportService {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
@@ -122,6 +124,7 @@ public class ReportServiceImpl implements ReportService {
                jasperPathFile, parameter, beanColDataSource);
             } catch (JRException e) {
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -141,6 +144,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -150,6 +154,7 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         
     }
@@ -175,6 +180,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
@@ -223,6 +229,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -242,6 +249,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -252,6 +260,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         
     }
@@ -272,6 +281,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -283,6 +293,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
 
             String masaAwal = converterHelper.convertBulanIntegerIntoString(
@@ -316,6 +327,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -335,6 +347,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -345,6 +358,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         
     }
@@ -364,6 +378,7 @@ public class ReportServiceImpl implements ReportService {
                 report = (JasperReport)JRLoader.loadObject(new URL(jasperPathFile));
             } catch (MalformedURLException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
@@ -400,6 +415,7 @@ public class ReportServiceImpl implements ReportService {
                jasperPathFile, parameter, beanColDataSource);
             } catch (JRException e) {
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -419,6 +435,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -428,6 +445,7 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         
     }
@@ -452,6 +470,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
 //            DataBeanList DataBeanList = new DataBeanList();
@@ -492,6 +511,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -511,6 +531,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -521,6 +542,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
         
     }
@@ -541,6 +563,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             PersiapanPajakPOJO persiapanPajakPOJO
@@ -588,6 +611,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -607,6 +631,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -617,6 +642,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -641,6 +667,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -652,6 +679,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -717,6 +745,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -727,6 +756,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -848,6 +878,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -859,6 +890,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
 
             for (TimWPWrapperJasper obj : dummi.getTimWPWrapperJaspers()) {
@@ -924,6 +956,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
 
             JFrame frame = new JFrame("Report");
@@ -934,6 +967,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -952,6 +986,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -963,6 +998,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             Map parameter = new HashMap();
@@ -978,6 +1014,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -996,6 +1033,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1006,6 +1044,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1025,6 +1064,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1036,6 +1076,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
 
             Map parameter = new HashMap();
@@ -1053,6 +1094,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1071,6 +1113,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1081,8 +1124,10 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
     
@@ -1102,6 +1147,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1113,6 +1159,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -1170,6 +1217,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1179,6 +1227,7 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1197,6 +1246,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1211,6 +1261,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1282,6 +1333,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1301,6 +1353,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1311,6 +1364,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1329,6 +1383,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1340,6 +1395,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             Map parameter = new HashMap();
@@ -1393,6 +1449,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1411,6 +1468,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1421,6 +1479,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1439,6 +1498,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1450,6 +1510,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1506,6 +1567,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1524,6 +1586,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1534,6 +1597,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1552,6 +1616,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1563,6 +1628,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1600,6 +1666,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1618,6 +1685,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1628,6 +1696,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1646,6 +1715,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1657,6 +1727,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1691,6 +1762,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1709,6 +1781,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1719,6 +1792,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1737,6 +1811,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1748,6 +1823,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1792,6 +1868,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1810,6 +1887,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1820,6 +1898,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -1838,6 +1917,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1849,6 +1929,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -1876,6 +1957,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -1894,6 +1976,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -1904,6 +1987,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
     
@@ -1922,6 +2006,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -1933,6 +2018,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
 //            JRBeanCollectionDataSource beanColDataSource =
@@ -1998,6 +2084,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2017,6 +2104,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2026,6 +2114,7 @@ public class ReportServiceImpl implements ReportService {
         } catch(JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
     
@@ -2043,6 +2132,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2054,6 +2144,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -2113,6 +2204,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2131,6 +2223,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2141,6 +2234,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2160,6 +2254,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2171,6 +2266,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
                         
             Map parameter = new HashMap();
@@ -2279,6 +2375,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2298,6 +2395,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2308,6 +2406,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2326,6 +2425,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2337,6 +2437,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             
@@ -2451,6 +2552,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2469,6 +2571,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2479,6 +2582,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2498,6 +2602,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2510,6 +2615,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             PegawaiService pegawaiService = ServiceFactory.getPegawaiService();
@@ -2583,6 +2689,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2602,6 +2709,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2612,8 +2720,10 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2633,6 +2743,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2645,6 +2756,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             String masaAwal =  converterHelper.convertBulanIntegerIntoString(
@@ -2712,6 +2824,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2731,6 +2844,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2741,8 +2855,10 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2761,6 +2877,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2772,6 +2889,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
 
             String masaAwal = converterHelper.convertBulanIntegerIntoString(
@@ -2805,6 +2923,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -2824,6 +2943,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -2834,6 +2954,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -2960,6 +3081,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -2971,6 +3093,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             for (TimWPWrapperJasper obj : dummi.getTimWPWrapperJaspers()) {
@@ -3047,6 +3170,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3057,6 +3181,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (Exception ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
     
@@ -3074,6 +3199,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3085,6 +3211,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -3151,6 +3278,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3170,6 +3298,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3180,6 +3309,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
     
@@ -3198,6 +3328,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3209,6 +3340,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -3301,6 +3433,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3320,6 +3453,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3330,6 +3464,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3348,6 +3483,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3359,6 +3495,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -3397,6 +3534,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3416,6 +3554,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3426,6 +3565,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3444,6 +3584,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3455,6 +3596,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             List<String> text = new ArrayList<>();
@@ -3511,6 +3653,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3530,6 +3673,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3540,6 +3684,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3564,6 +3709,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3575,6 +3721,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -3594,6 +3741,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3613,6 +3761,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3623,8 +3772,10 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3649,6 +3800,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3660,6 +3812,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JRBeanCollectionDataSource beanColDataSource =
@@ -3679,6 +3832,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3698,6 +3852,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3708,8 +3863,10 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3730,6 +3887,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3741,6 +3899,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             Map parameter = new HashMap();
@@ -3757,6 +3916,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3776,6 +3936,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3786,6 +3947,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 
@@ -3804,6 +3966,7 @@ public class ReportServiceImpl implements ReportService {
                 System.out.println("jrxml path : " + jrxmlPathFile);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
@@ -3817,6 +3980,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (MalformedURLException ex) {
                 System.out.println("MalformedURLException ex");
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             List<String> text = new ArrayList<>();
@@ -3841,6 +4005,7 @@ public class ReportServiceImpl implements ReportService {
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
+                new LogException(e);
             }
             
             JasperPrint jasperPrint;
@@ -3860,6 +4025,7 @@ public class ReportServiceImpl implements ReportService {
                 JasperExportManager.exportReportToPdfStream(jasperPrint, output);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                new LogException(ex);
             }
             
             JFrame frame = new JFrame("Report");
@@ -3870,6 +4036,7 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            new LogException(ex);
         }
     }
 }

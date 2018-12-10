@@ -2,6 +2,7 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.ExportImportDao;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ public class ExportImportDaoImpl implements ExportImportDao {
             stm.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 }

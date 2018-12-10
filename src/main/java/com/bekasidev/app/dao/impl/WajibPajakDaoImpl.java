@@ -3,6 +3,7 @@ package com.bekasidev.app.dao.impl;
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         return listWajibPajak;
     }
@@ -55,6 +57,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -69,6 +72,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -96,6 +100,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         return wp;
     }
@@ -123,6 +128,7 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 }
