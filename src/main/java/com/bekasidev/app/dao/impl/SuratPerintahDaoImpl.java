@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class SuratPerintahDaoImpl implements SuratPerintahDao {
     @Override
     public SuratPerintah createSuratPerintah(SuratPerintah suratPerintah) {
-        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO surat_perintah VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -38,6 +38,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setShort(15, suratPerintah.getLamaPelaksanaan());
             pstm.setString(16, suratPerintah.getTempat());
             pstm.setString(17, suratPerintah.getTanggalSurat());
+            pstm.setShort(18, (short) 0);
 
             pstm.executeUpdate();
 
@@ -364,9 +365,33 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
-        return null;
+        return listSP;
+    }
+
+    @Override
+    public List<SuratPerintah> getSPForExport() {
+        String sql = "SELECT * FROM surat_perintah WHERE exported=?";
+        List<SuratPerintah> listSP = new ArrayList<>();
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setShort(1, (short) 0);
+
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                listSP.add(setSuratPerintah(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new LogException(e);
+        }
+
+        return listSP;
     }
 
 }

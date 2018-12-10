@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ExportImportService {
 
-    void exportData(List<SuratPerintah> listSuratPerintah) throws IOException;
+    void exportData() throws IOException;
     void importData() throws IOException;
 }
