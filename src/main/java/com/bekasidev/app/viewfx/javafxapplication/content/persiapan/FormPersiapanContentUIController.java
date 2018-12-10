@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +30,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -86,9 +88,13 @@ public class FormPersiapanContentUIController implements Initializable {
     }
     
     public void openFormAturTimWP() {
+        
+        if (!validateField()) return;
+        
         PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider.getGlobalSessionsMap()
                 .get("persiapan_wrapper");
+          
         persiapanWrapper.setDasarNomor(dasarNomorField.getText());
         persiapanWrapper.setDasarTanggal(Date.from(dasarTanggalField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         persiapanWrapper.setDasarTahunAnggaran(dasarTahunAnggaranField.getText());
@@ -293,6 +299,41 @@ public class FormPersiapanContentUIController implements Initializable {
                 return LocalDate.parse(dateString,dateTimeFormatter);
             }
         });
+    }
+    
+    private boolean validateField() {
+        if (dasarNomorField.getText().equals("")
+                ||dasarTanggalField.getValue() == null
+                ||dasarTahunAnggaranField.getText().equals("")
+                ||pemberiSKField.getText().equals("")
+                ||penandatanganField.getSelectionModel().getSelectedItem() == null
+                ||masaPajakAwalBulan.getSelectionModel().getSelectedItem() == null
+                ||masaPajakAkhirBulan.getSelectionModel().getSelectedItem() == null
+                ||masaPajakAwalTahun.getText().equals("")
+                ||masaPajakAkhirTahun.getText().equals("")
+                ||tahapKeField.getText().equals("")
+                ||tahunAnggaranAPBDField.getText().equals("")
+                ||tanggalAPBDField.getValue() == null
+                ||nomorAPBDField.getText().equals("")
+                ||ditetapkanDiField.getText().equals("")
+                ||lamaPelaksanaanField.getText().equals("")) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "ada field yang belum diisi");
+            Pane popup = null;
+            try {
+                popup = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("");
+            stage.setScene(new Scene(popup));
+            stage.show();
+            
+            return false;
+        }
+        
+        return true;
     }
     
 }

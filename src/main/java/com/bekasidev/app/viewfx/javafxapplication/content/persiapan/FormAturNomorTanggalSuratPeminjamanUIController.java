@@ -161,6 +161,10 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
     }
     
     public void printQuesioner() {
+        if (AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem() == null){
+            showErrorNotif();
+            return;
+        }
         PersiapanNomorTanggalSuratPeminjamanTableWrapper wrapper 
                 = (PersiapanNomorTanggalSuratPeminjamanTableWrapper) AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem();
         
@@ -201,6 +205,10 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
     }
     
     public void printSuratPeminjaman() {
+        if (AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem() == null){
+            showErrorNotif();
+            return;
+        }
         PersiapanNomorTanggalSuratPeminjamanTableWrapper wrapper 
                 = (PersiapanNomorTanggalSuratPeminjamanTableWrapper) AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem();
         
@@ -290,6 +298,11 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
     }
     
     public void aturDokumenPinjaman() {
+        if (AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem() == null){
+            showErrorNotif();
+            return;
+        }
+            
         PersiapanNomorTanggalSuratPeminjamanTableWrapper wrapper 
                 = (PersiapanNomorTanggalSuratPeminjamanTableWrapper) AturNomorTanggalSuratPeminjamanTable.getSelectionModel().getSelectedItem();
         
@@ -485,5 +498,20 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
             
         };
         t.start();
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih wajib pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
 }

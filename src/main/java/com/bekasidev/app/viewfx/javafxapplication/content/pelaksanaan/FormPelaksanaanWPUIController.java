@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.RekapitulasiService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PilihSPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PilihWajibPajakTableWrapper;
@@ -33,11 +34,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -89,6 +92,10 @@ public class FormPelaksanaanWPUIController implements Initializable {
     }
     
     public void openAturRekapitulasi() {
+        if (pilihWajibPajakTable.getSelectionModel().getSelectedItem() == null) {
+            showErrorNotif();
+            return;
+        }
         PelaksanaanWrapper pelaksanaanWrapper
                 = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
                                     .get("pelaksanaan_wrapper");
@@ -212,6 +219,21 @@ public class FormPelaksanaanWPUIController implements Initializable {
         }
         
         return null;
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih Wajib Pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
     
 }

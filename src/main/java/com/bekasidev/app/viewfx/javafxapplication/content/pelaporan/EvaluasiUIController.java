@@ -20,6 +20,7 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.SessionProvider;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.ArsipTablePelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.ColumnsPelaporan;
 import com.bekasidev.app.viewfx.javafxapplication.model.EvaluasiTableWrapper;
@@ -364,6 +365,11 @@ public class EvaluasiUIController implements Initializable {
     public void printKopLHP() {
         System.out.println("KLIK CETAK COVER");
         
+        if (evaluasiTable.getSelectionModel().getSelectedItem() == null) {
+            showErrorNotif();
+            return;
+        }
+        
         reportService = ServiceFactory.getReportService();
         System.out.println("finishPersiapan");
         EvaluasiTableWrapper wrapper = (EvaluasiTableWrapper) evaluasiTable.getSelectionModel().getSelectedItem();
@@ -405,6 +411,21 @@ public class EvaluasiUIController implements Initializable {
         stage.show();
         
         return stage;
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih wajib pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
     
 }
