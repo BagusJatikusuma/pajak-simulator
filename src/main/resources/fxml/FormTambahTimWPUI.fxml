@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -10,28 +16,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormTambahTimWPUIController">
+<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="747.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormTambahTimWPUIController">
    <children>
       <Label layoutX="161.0" layoutY="14.0" text="FORM TAMBAH TIM PEMERIKSA">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
       <Label layoutX="51.0" layoutY="51.0" text="Penanggung jawab" AnchorPane.leftAnchor="51.0" />
-      <Button layoutX="407.0" layoutY="571.0" mnemonicParsing="false" onAction="#tambahTimPemeriksaOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" AnchorPane.rightAnchor="51.0" />
-      <Button fx:id="cancelTambahTimPemeriksaBtn" layoutX="281.0" layoutY="571.0" mnemonicParsing="false" onAction="#cancelTambahTimPemeriksalOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" AnchorPane.rightAnchor="177.0" />
+      <Button layoutX="407.0" layoutY="679.0" mnemonicParsing="false" onAction="#tambahTimPemeriksaOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" AnchorPane.rightAnchor="51.0" />
+      <Button fx:id="cancelTambahTimPemeriksaBtn" layoutX="281.0" layoutY="679.0" mnemonicParsing="false" onAction="#cancelTambahTimPemeriksalOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" AnchorPane.rightAnchor="177.0" />
       <ChoiceBox fx:id="pilihPenanggungJawabField" layoutX="51.0" layoutY="71.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
       <ChoiceBox fx:id="pilihSupervisorField" layoutX="51.0" layoutY="131.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
       <Label layoutX="51.0" layoutY="111.0" text="Supervisor" AnchorPane.leftAnchor="51.0" />
       <ChoiceBox fx:id="pilihTimField" layoutX="51.0" layoutY="191.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
       <Label layoutX="51.0" layoutY="171.0" text="Tim" AnchorPane.leftAnchor="51.0" />
-      <TableView fx:id="PersiapanPilihWPTable" layoutX="51.0" layoutY="237.0" prefHeight="320.0" prefWidth="504.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0">
+      <TableView fx:id="PersiapanPilihWPTable" layoutX="51.0" layoutY="297.0" prefHeight="368.0" prefWidth="472.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0">
         <columns>
-          <TableColumn maxWidth="36.0" minWidth="36.0" prefWidth="36.0" />
-          <TableColumn maxWidth="116.0" minWidth="116.0" prefWidth="116.0" text="ID WP" />
-            <TableColumn maxWidth="209.0" minWidth="209.0" prefWidth="209.0" text="NAMA WAJIB PAJAK" />
-            <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="JENIS WP" />
+          <TableColumn maxWidth="93.0" minWidth="0.0" prefWidth="35.0" />
+          <TableColumn maxWidth="152.0" minWidth="15.0" prefWidth="149.0" text="ID WP" />
+            <TableColumn maxWidth="404.0" minWidth="209.0" prefWidth="326.0" text="NAMA WAJIB PAJAK" />
+            <TableColumn maxWidth="223.0" minWidth="39.0" prefWidth="134.0" text="JENIS WP" />
         </columns>
       </TableView>
+      <TextField fx:id="cariWPField" layoutX="51.0" layoutY="256.0" prefHeight="25.0" prefWidth="429.0" />
+      <Label layoutX="51.0" layoutY="234.0" text="Cari Wajib Pajak" />
+      <Button layoutX="484.0" layoutY="256.0" mnemonicParsing="false" onAction="#cariWajibPajak" prefHeight="25.0" prefWidth="82.0" text="Cari" />
+      <Button layoutX="587.0" layoutY="256.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="25.0" prefWidth="106.0" text="Reset tabel" />
+      <Separator layoutX="574.0" layoutY="253.0" orientation="VERTICAL" prefHeight="31.0" prefWidth="7.0" />
    </children>
    <stylesheets>
       <URL value="@/styles/formtambahpegawaiui.css" />

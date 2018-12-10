@@ -118,7 +118,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         else {
             persiapanWrapper.setTanggalPengesahan(null);
-            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+            persiapanWrapper.setNomorSurat(null);
         }
         //simpan menggunakan suratPerintahService update
         boolean isUpdate = false;

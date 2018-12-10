@@ -323,8 +323,13 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
             
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
             //edit disini
-            
+            rekapMapperHistory.put(
+                    pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                        +pelaksanaanWrapper.getTimSelected().getIdTim()
+                        +pelaksanaanWrapper.getWpSelected().getNpwpd(), 
+                    pelaksanaanWrapper.getRekapitulasiWrapper());
         }
+        //update??
         else {
             System.out.println("not saved, data already exist");
         }
