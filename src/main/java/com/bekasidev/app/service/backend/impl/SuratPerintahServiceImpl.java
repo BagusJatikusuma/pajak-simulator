@@ -53,4 +53,9 @@ public class SuratPerintahServiceImpl implements SuratPerintahService {
     public TimSP getTimSP(String idSP, String idTim) {
         return suratPerintahDao.getTimSP(idSP, idTim);
     }
+
+    @Override
+    public List<SuratPerintah> getSuratPerintahByTahun(int tahun) {
+        return suratPerintahDao.getSuratPerintahByTahun(tahun);
+    }
 }

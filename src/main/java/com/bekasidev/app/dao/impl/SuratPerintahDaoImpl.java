@@ -347,5 +347,26 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
         }
         return tim;
     }
-        
+
+    @Override
+    public List<SuratPerintah> getSuratPerintahByTahun(int tahun) {
+        String sql = "SELECT * FROM surat_perintah WHERE tahun_anggaran_sk=?";
+        List<SuratPerintah> listSP = new ArrayList<>();
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setInt(1, tahun);
+
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                listSP.add(setSuratPerintah(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }
