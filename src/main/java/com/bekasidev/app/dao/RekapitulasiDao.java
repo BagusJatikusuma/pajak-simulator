@@ -13,4 +13,6 @@ public interface RekapitulasiDao {
     RekapitulasiWrapper getRekapitulasi(String idSP, String idWP);
 
     List<Rekapitulasi> getAllRekapitulasi();
+
+    void deleteRekapitulasi(String idSP, String idWP);
 }
