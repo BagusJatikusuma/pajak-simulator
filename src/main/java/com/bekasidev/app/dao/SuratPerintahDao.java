@@ -24,4 +24,8 @@ public interface SuratPerintahDao {
     void deleteSuratPerintah(String idSP);
     
     TimSP getTimSP(String idSP, String idTim);
+
+    List<SuratPerintah> getSuratPerintahByTahun(int tahun);
+
+    List<SuratPerintah> getSPForExport();
 }

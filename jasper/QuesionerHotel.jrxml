@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerHotel" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="d49e2b13-82b2-4a87-a392-e086dfe0edd7">
 	<property name="ireport.zoom" value="0.9090909090909097"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1910"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="logo" class="java.lang.String"/>
 	<group name="grup">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
@@ -28,7 +28,7 @@
 				<staticText>
 					<reportElement x="115" y="0" width="420" height="18" uuid="519a727a-0028-4c0a-8420-f5efba1a10fe"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
 				</staticText>
@@ -83,7 +83,7 @@
 				<staticText>
 					<reportElement x="0" y="159" width="535" height="25" uuid="9c9d98de-768c-4ef9-94af-fd39f6e31ba4"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="20" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="20" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[DALAM RANGKA PEMERIKSAAN PAJAK DAERAH]]></text>
 				</staticText>
@@ -111,7 +111,7 @@
 				<staticText>
 					<reportElement x="0" y="119" width="535" height="40" uuid="3a307983-9334-41b7-b7d2-84285bc5789d"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Times New Roman" size="28" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="28" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Q U E S I O N E R]]></text>
 				</staticText>
@@ -146,7 +146,7 @@
 				<staticText>
 					<reportElement x="115" y="50" width="420" height="36" uuid="dbddb168-9460-423a-921e-433a9c6d2557"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="10" isBold="true" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Komplek Perkantoran Pemerintah Kabupaten Bekasi
 di Desa Sukamahi Kecamatan Cikarang Pusat
@@ -302,7 +302,7 @@ BEKASI]]></text>
 				<staticText>
 					<reportElement x="115" y="12" width="420" height="42" uuid="324bb5b3-ba25-44e2-b939-02d2908a7d48"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
 				</staticText>
@@ -330,7 +330,7 @@ BEKASI]]></text>
 				<staticText>
 					<reportElement x="0" y="184" width="535" height="30" uuid="e72c6072-bd2d-4bee-aa7d-5b5a3495c847"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="20" isBold="true" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="20" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[JENIS PAJAK HOTEL]]></text>
 				</staticText>
@@ -618,7 +618,7 @@ BEKASI]]></text>
 				<staticText>
 					<reportElement x="275" y="714" width="260" height="49" uuid="cdf16fe6-fa18-4518-99e7-afdbe00fca57"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="14" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Materai 6.000]]></text>
 				</staticText>
@@ -750,7 +750,7 @@ BEKASI]]></text>
 				<staticText>
 					<reportElement x="275" y="676" width="260" height="38" uuid="372bd9eb-a699-4c48-8f58-68ed67a626a3"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Wajib Pajak/Kuasa Wajib Pajak]]></text>
 				</staticText>

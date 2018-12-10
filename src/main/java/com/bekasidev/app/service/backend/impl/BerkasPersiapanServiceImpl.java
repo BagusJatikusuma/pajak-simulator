@@ -47,6 +47,8 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
     }
 
     private void createListPinjamanRestoran(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        String[] spt = masaPajakAwal.split(" ");
+        int thn = Integer.parseInt(spt[1]);
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
                                         " s.d " + masaPajakAkhir, ""));
@@ -72,7 +74,7 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
                 new DokumenPinjaman("Daftar komponen penghasilan yang diterima pegawai " +
                         "(termasuk pembagian service charge)", ""));
         wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun " + (thn-1), ""));
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar jumlah Ruangan/Meja/Kursi",""));
         wajibPajak.getListPinjaman().add(
@@ -94,6 +96,8 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
     }
 
     private void createListPinjamanHotel(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        String[] spt = masaPajakAwal.split(" ");
+        int thn = Integer.parseInt(spt[1]);
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
                         " s.d " + masaPajakAkhir, ""));
@@ -120,7 +124,7 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
                 new DokumenPinjaman("Daftar komponen penghasilan yang diterima pegawai " +
                         "(termasuk pembagian service charge)", ""));
         wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun " + (thn-1), ""));
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pemilik/Pemegang Saham", ""));
         wajibPajak.getListPinjaman().add(
@@ -142,6 +146,8 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
     }
 
     private void createListPinjamanParkir(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir){
+        String[] spt = masaPajakAwal.split(" ");
+        int thn = Integer.parseInt(spt[1]);
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("STPD DAN SSPD bulan " + masaPajakAwal +
                         " s.d " + masaPajakAkhir, ""));
@@ -162,7 +168,7 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Daftar harga/tarif parkir per jenis kendaraan", ""));
         wajibPajak.getListPinjaman().add(new DokumenPinjaman("Rekening Koran", ""));
-        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun 2017", ""));
+        wajibPajak.getListPinjaman().add(new DokumenPinjaman("SPT PPh Badan Tahun " + (thn-1), ""));
         wajibPajak.getListPinjaman().add(
                 new DokumenPinjaman("Data Pemilik/Pemegang Paham", ""));
         wajibPajak.getListPinjaman().add(

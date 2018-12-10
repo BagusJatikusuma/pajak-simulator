@@ -2,8 +2,10 @@ package com.bekasidev.app.service.backend.impl;
 
 import com.bekasidev.app.dao.ExportImportDao;
 import com.bekasidev.app.dao.RekapitulasiDao;
+import com.bekasidev.app.dao.SuratPerintahDao;
 import com.bekasidev.app.dao.impl.ExportImportDaoImpl;
 import com.bekasidev.app.dao.impl.RekapitulasiDaoImpl;
+import com.bekasidev.app.dao.impl.SuratPerintahDaoImpl;
 import com.bekasidev.app.model.*;
 import com.bekasidev.app.service.backend.ExportImportService;
 import com.bekasidev.app.wrapper.ExportDokumenWrapper;
@@ -21,20 +23,21 @@ public class ExportImportServiceImpl implements ExportImportService {
 
     RekapitulasiDao rekapitulasiDao = new RekapitulasiDaoImpl();
     ExportImportDao exportImportDao = new ExportImportDaoImpl();
-
+    SuratPerintahDao suratPerintahDao = new SuratPerintahDaoImpl();
     @Override
-    public void exportData(List<SuratPerintah> listSuratPerintah) throws IOException {
+    public void exportData() throws IOException {
+        List<SuratPerintah> listSP = suratPerintahDao.getSPForExport();
         ExportDokumenWrapper exportDokumenWrapper;
         List<String> lines = new ArrayList<>();
-        lines.add(getIdSP(listSuratPerintah));
-        lines.add(getSqlSuratPerintah(listSuratPerintah));
-        lines.add(getSqlTimSp(listSuratPerintah));
-        lines.add(getSqlBerkasPersiapan(listSuratPerintah));
-        lines.add(getSqlNomorBerkas(listSuratPerintah));
+        lines.add(getIdSP(listSP));
+        lines.add(getSqlSuratPerintah(listSP));
+        lines.add(getSqlTimSp(listSP));
+        lines.add(getSqlBerkasPersiapan(listSP));
+        lines.add(getSqlNomorBerkas(listSP));
         lines.add(getSqlRekapitulasi(rekapitulasiDao.getAllRekapitulasi()));
         Path file = Paths.get("file-exported.sql");
         Files.write(file, lines, Charset.forName("UTF-8"));
-
+        exportImportDao.setExported();
     }
 
     @Override
@@ -44,11 +47,11 @@ public class ExportImportServiceImpl implements ExportImportService {
         String sqlDeleteRekap = "", sqlDeleteBerkas = "", sqlDeleteNomor = "", sqlDeleteTim = "", sqlDeleteSP = "";
         String[] idSP = lines.get(0).split(",");
         for(String id : idSP){
-            sqlDeleteRekap += "DELETE FROM rekapitulasi WHERE id_sp=" + id + ";";
-            sqlDeleteBerkas += "DELETE FROM berkas_persiapan WHERE id_sp=" + id + ";";
-            sqlDeleteNomor += "DELETE FROM nomor_berkas WHERE id_sp=" + id + ";";
-            sqlDeleteTim += "DELETE FROM tim_perintah WHERE id_sp=" + id + ";";
-            sqlDeleteSP += "DELETE FROM surat_perintah WHERE id_sp=" + id + ";";
+            sqlDeleteRekap += "DELETE FROM rekapitulasi WHERE id_sp='" + id + "';";
+            sqlDeleteBerkas += "DELETE FROM berkas_persiapan WHERE id_sp='" + id + "';";
+            sqlDeleteNomor += "DELETE FROM nomor_berkas WHERE id_sp='" + id + "';";
+            sqlDeleteTim += "DELETE FROM tim_perintah WHERE id_sp='" + id + "';";
+            sqlDeleteSP += "DELETE FROM surat_perintah WHERE id_sp='" + id + "';";
         }
 //        exportImportDao.importData(sqlDeleteRekap);
 //        exportImportDao.importData(sqlDeleteBerkas);
@@ -97,7 +100,8 @@ public class ExportImportServiceImpl implements ExportImportService {
                     sp.getTahap() + "," +
                     sp.getLamaPelaksanaan() + ",'" +
                     sp.getTempat() + "','" +
-                    sp.getTanggalSurat() + "')";
+                    sp.getTanggalSurat() +
+                    1 + "')";
             count += 1;
         }
         if(!sql.isEmpty()) sql += ";";
