@@ -14,6 +14,7 @@ import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanPilihWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
@@ -34,6 +35,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -88,6 +90,10 @@ public class FormTambahTimWPUIController implements Initializable {
     
     public void tambahTimPemeriksaOperation() {
         wpService = ServiceFactory.getWajibPajakService();
+        
+        if (!validateField()) {
+            return;
+        }
         
         PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider.getGlobalSessionsMap()
@@ -275,6 +281,28 @@ public class FormTambahTimWPUIController implements Initializable {
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("idWP"));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("namaWP"));
         jenisWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("jenisWP"));
+    }
+    
+    private boolean validateField() {
+        if (pilihPenanggungJawabField.getSelectionModel().getSelectedItem() == null
+                || pilihSupervisorField.getSelectionModel().getSelectedItem() == null
+                || pilihTimField.getSelectionModel().getSelectedItem() == null) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "ada field yang belum diisi");
+            Pane popup = null;
+            try {
+                popup = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("");
+            stage.setScene(new Scene(popup));
+            stage.show();
+            
+            return false;
+        }
+        return true;
     }
     
 }

@@ -129,6 +129,10 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     }
     
     public void aturNomorTanggalSurat() {
+        if (daftarSuratTable.getSelectionModel().getSelectedItem() == null) {
+            showErrorAturSuratNotif();
+            return;
+        } 
         DaftarSuratPelaksanaanTableWrapper wrapper 
                 = (DaftarSuratPelaksanaanTableWrapper)daftarSuratTable.getSelectionModel().getSelectedItem();
         if (wrapper.getNo().equals("3") 
@@ -186,10 +190,18 @@ public class FormSuratPelaksanaanUIController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         }
+        else {
+            showErrorAturSuratNotif();
+            return;
+        }
         
     }
     
     public void printSurat() {
+        if (daftarSuratTable.getSelectionModel().getSelectedItem() == null) {
+            showErrorNotif();
+            return;
+        }
         PelaksanaanWrapper pelaksanaanWrapper
                 = (PelaksanaanWrapper) SessionProvider
                 .getGlobalSessionsMap()
@@ -469,6 +481,35 @@ public class FormSuratPelaksanaanUIController implements Initializable {
         return stage;
     }
     
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih jenis surat");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+    }
+    
+    private void showErrorAturSuratNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "jenis surat tidak dapat diatur");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+    }
     
     
 }

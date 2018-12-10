@@ -154,6 +154,12 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
     }
     
     public void printSuratPemberitahuan() {
+        
+        if (AturNomorTanggalSuratPemberitahuanTable.getSelectionModel().getSelectedItem() == null) {
+            showErrorNotif();
+            return;
+        }
+        
         PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
                 = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) AturNomorTanggalSuratPemberitahuanTable.getSelectionModel().getSelectedItem();
         
@@ -316,6 +322,21 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
         nomorSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("nomorSurat"));
         tanggalSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("tanggalSurat"));
         action.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("Action"));
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih wajib pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
     
 }

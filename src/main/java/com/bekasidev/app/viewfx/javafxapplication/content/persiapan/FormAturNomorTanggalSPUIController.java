@@ -154,6 +154,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         rootpane.getChildren().add(contentPane);
         
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Berhasil disimpan");
         Pane popup = null;
         try {
             popup = FXMLLoader
