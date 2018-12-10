@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="0.9090909090909098"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="2405"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<group name="group">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
 		<groupHeader>
@@ -223,7 +224,7 @@ BEKASI]]></text>
 				</staticText>
 				<image hAlign="Center" vAlign="Middle">
 					<reportElement x="0" y="0" width="126" height="86" uuid="542032b1-91d2-404c-840d-0b7b9e395e92"/>
-					<imageExpression><![CDATA["C:\\Users\\Bayu Arafli\\Documents\\NetBeansProjects\\pajak-simulator\\src\\main\\resources\\images\\logo_kab_bekasi.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement x="0" y="406" width="210" height="20" uuid="e0709c03-5305-4f79-9ab6-66e57fdc38d8"/>

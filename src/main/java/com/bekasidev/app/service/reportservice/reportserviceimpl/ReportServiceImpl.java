@@ -1014,6 +1014,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -1041,6 +1042,10 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             try {
                JasperFillManager.fillReportToFile(
@@ -1075,6 +1080,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -2480,6 +2487,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -2563,6 +2571,10 @@ public class ReportServiceImpl implements ReportService {
                                persiapanWrapper.getMasaPajakAkhirTahun());
             parameter.put("tim", timWPWrapper.getTim().getNamaTim());
             
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
+            
             parameter.put("anggota_tim", new JRBeanCollectionDataSource(anggotaTimList));
             
             try {
@@ -2600,6 +2612,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -2608,6 +2622,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -2686,7 +2701,11 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("pangkat_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getPangkat()));
             parameter.put("jabatan_penandatangan_ttd", persiapanWrapper.getPenandatangan().getJabatanDinas().toUpperCase());
             parameter.put("nama_penandatangan", persiapanWrapper.getPenandatangan().getNamaPegawai().toUpperCase());
-                        
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
+            
             try {
                JasperFillManager.fillReportToFile(
                jasperPathFile, parameter, beanColDataSource);
@@ -2721,6 +2740,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -2927,6 +2948,7 @@ public class ReportServiceImpl implements ReportService {
             
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 System.out.print("test"); 
@@ -3002,6 +3024,10 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("pangkat_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getPangkat()));
             parameter.put("jabatan_penandatangan_ttd", persiapanWrapper.getPenandatangan().getJabatanDinas().toUpperCase());
             parameter.put("nama_penandatangan", persiapanWrapper.getPenandatangan().getNamaPegawai().toUpperCase());
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
 
             
             JasperPrint jasperPrint;
@@ -3527,6 +3553,7 @@ public class ReportServiceImpl implements ReportService {
             
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3557,6 +3584,9 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             try {
                JasperFillManager.fillReportToFile(
@@ -3593,6 +3623,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -3606,6 +3638,7 @@ public class ReportServiceImpl implements ReportService {
             
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3636,6 +3669,9 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             try {
                JasperFillManager.fillReportToFile(
@@ -3671,6 +3707,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
