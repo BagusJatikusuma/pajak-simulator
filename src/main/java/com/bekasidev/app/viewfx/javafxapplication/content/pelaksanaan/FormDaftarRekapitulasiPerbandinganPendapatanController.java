@@ -322,6 +322,8 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
             rekapitulasiService = ServiceFactory.getRekapitulasiService();
             
             rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+            //edit disini
+            
         }
         else {
             System.out.println("not saved, data already exist");
