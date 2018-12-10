@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerParkir" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="77ed2fca-f1da-4c30-89df-77a46b538943">
-	<property name="ireport.zoom" value="0.9090909090909098"/>
+	<property name="ireport.zoom" value="0.8264462809917371"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2290"/>
+	<property name="ireport.y" value="2033"/>
 	<parameter name="logo" class="java.lang.String"/>
 	<group name="group">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
@@ -24,13 +24,6 @@
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[:]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="694" width="515" height="40" uuid="bf945d14-adce-4b78-8c08-50a607b5a7ad"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="313" y="481" width="67" height="20" uuid="9ada9266-3888-4ac6-8c8e-a8c9fe3b593a"/>
@@ -250,13 +243,6 @@
 					<text><![CDATA[Tahun Mulai Operasional]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="794" width="515" height="40" uuid="e3ea4214-ac2f-4af2-865c-444f12ca86e3"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="210" y="441" width="18" height="20" uuid="6fd69f8d-2a6e-4d1e-bf96-bb359fc4a026"/>
 					<textElement textAlignment="Center" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -304,13 +290,6 @@
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Jumlah Pegawai]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="614" width="515" height="40" uuid="dc5460bf-07b8-457d-99f9-ebf3423b50c2"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="654" width="20" height="80" uuid="f4713300-8069-48b7-bfc5-41052a1cce44"/>
@@ -388,6 +367,27 @@ www.kab-bekasi.go.id]]></text>
 						<pen lineWidth="4.0" lineStyle="Double" lineColor="#000000"/>
 					</graphicElement>
 				</line>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="614" width="515" height="40" uuid="2260156b-4da5-4e39-b4d7-3112850bb021"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="694" width="515" height="40" uuid="dccc5f0e-6c0e-4ef6-8cd2-b527bea2b344"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="794" width="515" height="40" uuid="311e9f73-89cf-4ed7-b897-0cde1d277186"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
 			</band>
 			<band height="875">
 				<staticText>
@@ -426,13 +426,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Bila menggunakan bill penjualan, apakah diperforasi atau tidak? berapa rangkap bill penjualan yang diperforasi setiap nomornya dan jelaskan pendistribusian dari masing-masing lembar.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="370" width="515" height="40" uuid="117183cb-c4af-4ac7-ae5b-c444dc0ae13f"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="0" y="0" width="20" height="80" uuid="441ea154-170c-452d-a9a5-7a6d7f9b47b8"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -445,13 +438,6 @@ www.kab-bekasi.go.id]]></text>
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Alat bukti pembayaran apa yang digunakan dalam operasional usaha Saudara? (<i>Cash register</i>/Bill penjualan).]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="770" width="515" height="40" uuid="bb239339-ca63-4780-87dd-c410aa9b4468"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="650" width="20" height="80" uuid="70d7c829-b6ee-44fa-a9f6-02c917f38ca4"/>
@@ -489,13 +475,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Berapa rata-rata jumlah kendaraan eoda 2 (dua), kendaraan roda 4 (empat), dan mobil box/truk yang parkir setiap harinya?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="610" width="515" height="40" uuid="787e1efd-8aba-4ce3-bdfa-1a54c4c7a82f"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="0" y="170" width="20" height="80" uuid="4771eb98-1630-4d26-a42a-9b01aff3c795"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -510,25 +489,11 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Dalam pengelolaan Parkir, adakah pengaturan parkir gratis? Bila ada diperuntukkan untuk siapa dan bagaimana mekanismenya?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="450" width="515" height="40" uuid="13a61673-65d1-4537-99df-3c8619198446"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="490" width="515" height="40" uuid="f2f111ec-4877-403a-9f54-500f8d9e91f3"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Dalam pengelolaan Parkir, adakah peraturan Parkir berlangganan? bila ada berapa banyak pengguna perkir berlangganan dan bagaimana sistem pembayarannya?]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="737ba6dd-4411-423d-9d30-c1a7ad8e13aa"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="730" width="20" height="80" uuid="653d1e9d-ada5-445c-b830-5d76072c12ed"/>
@@ -545,13 +510,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[9.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="130" width="515" height="40" uuid="bd266caa-2655-4be1-a12f-dd736bb8c705"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="330" width="515" height="40" uuid="dccf9860-1f46-43ad-a901-ce58f81c6d5f"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -566,27 +524,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Apakah ada bill penjualan lain yang dipergunakan sebagai bukti pembayaran selain yang dilaporakan ke Badan Pendapatan Daerah Kabupaten Bekasi?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="690" width="515" height="40" uuid="4f03e468-c799-4fda-8238-49bac4ddff95"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="210" width="515" height="40" uuid="e053662c-01b7-4a5b-a9e0-250a276aab46"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="530" width="515" height="40" uuid="7c4bd514-021f-4790-8078-4ef2572fec48"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="0" y="80" width="20" height="90" uuid="7815b727-3d6b-477d-8377-ddeb0c69df88"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -594,7 +531,70 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[5.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="19" y="290" width="515" height="40" uuid="4f1cd4f0-aadb-4c5f-9ffb-073143b1c9c2"/>
+					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="2ae2b883-da7c-4ddc-a905-a63c215c4608"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="130" width="515" height="40" uuid="fd006347-7a4a-44e9-8fd5-200d2715744c"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="210" width="515" height="40" uuid="7b7451fb-5479-45ae-8aca-96396292371a"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="290" width="515" height="40" uuid="cdff2764-89f7-46e7-99a4-f7856f1a28fb"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="370" width="515" height="40" uuid="50237f1a-fd72-445f-8bee-97c5efc15d3d"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="450" width="515" height="40" uuid="e71b3406-2cb0-499f-83ac-b67ed9098dd2"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="530" width="515" height="40" uuid="13100fbe-0e07-4988-bc32-bd770f438035"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="610" width="515" height="40" uuid="da635fd9-96ac-4179-9540-1c0f0226c249"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="690" width="515" height="40" uuid="e29b893b-1331-4c97-a907-d7c92dd6a137"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="770" width="515" height="40" uuid="c49901cc-b844-4375-830c-9c570e3b27de"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
@@ -617,13 +617,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[18.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="19" y="200" width="515" height="40" uuid="eebc76fa-a8b8-4efd-b354-336f8b585153"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="320" width="515" height="40" uuid="bb599022-1f76-46f1-ab2d-aadc617dded4"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -638,13 +631,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Dengan jumlah karyawan yang ada pada tempat usaha Saudara, berapa besar gaji/upah dari masing-masing karyawan? Apakah ada tambahan penghasilan lain yang diberikan kepada karyawan selain gaji/upah?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="620" width="515" height="40" uuid="ed8f521c-043e-43f3-b6d3-b6c291790d07"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="0" width="515" height="40" uuid="af918380-249a-4866-9134-512d723e484f"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -657,13 +643,6 @@ www.kab-bekasi.go.id]]></text>
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[17.]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="460" width="515" height="40" uuid="80701276-0db8-42ac-b814-8443a8ef8d65"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="580" width="20" height="80" uuid="928383c1-48f7-44d4-ab86-2ae2a99ef44d"/>
@@ -687,25 +666,11 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Bagaimana proses pembagian gaji untuk pegawai? Apakah menggunakan <i>payroll</i>/bank atau tidak!]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="120" width="515" height="40" uuid="b6348016-5525-4b99-ac5a-a413fde9fba2"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="0" y="500" width="20" height="80" uuid="91cb161d-b184-4007-a7f9-80ab884fa152"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[20.]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="360" width="515" height="40" uuid="19669ba1-2002-44c5-b29a-24734709b85c"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="160" width="20" height="80" uuid="a22ff45c-457b-4894-8bb2-49a8e1cf2beb"/>
@@ -743,32 +708,67 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[14.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="280" width="515" height="40" uuid="68b06167-26bd-4b56-ab59-d28ba9097489"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="53b87ead-52ea-402d-bf3c-e92531c30cd2"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="540" width="515" height="40" uuid="f9d20c5b-f0a2-4dc3-ac48-38bf354a68c7"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="240" width="515" height="40" uuid="b2b1a7e8-c3c3-4a98-88f9-e83887718861"/>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Bagaimana cara menghitung Pajak Parkir yang dilakukan oleh Perusahaan Saudara?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="620" width="515" height="40" uuid="a7484260-3726-40c9-9433-6ffb389220b6"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="90fa0fa8-4f13-4e2b-8bab-9c53a245032f"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="120" width="515" height="40" uuid="3a3a3604-f5e9-4173-aa69-ab12d11d26d3"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="200" width="515" height="40" uuid="49a2b267-c419-4300-9dee-7b19b45049d2"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="280" width="515" height="40" uuid="7a7eabba-c6ce-46e6-8616-df8a21f485be"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="360" width="515" height="40" uuid="6790db27-97a3-4440-8200-46c0cfe2cedd"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="460" width="515" height="40" uuid="35b75f2f-926d-4535-b233-b7b03387dfee"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="540" width="515" height="40" uuid="6b9cb188-2ebc-498d-954e-597723b28fd4"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 			</band>
 			<band height="875">
@@ -853,13 +853,6 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Berapa hari dalam satu bulan tempat usaha Saudara buka/operasional untuk melayani konsumen?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="87289f47-ced1-41c2-aae3-9a9b10fe141f"/>
-					<textElement markup="html">
-						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-					</textElement>
-					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="0" y="0" width="20" height="80" uuid="1aaad976-5b8a-486b-843c-eba6ac9d106f"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
@@ -874,18 +867,25 @@ www.kab-bekasi.go.id]]></text>
 					<text><![CDATA[Berapa jam tempat usaha Saudara buka/operasional setiap harinya (mulai jam berapa s.d jam berapa waktu operasionalnya)?]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="120" width="515" height="40" uuid="b31cdd4a-693f-48ec-9266-e37b7f79dbdc"/>
+					<reportElement positionType="Float" x="0" y="80" width="20" height="80" uuid="983aa5ed-5061-4222-bf0d-2f39e39fa627"/>
+					<textElement markup="html">
+						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[23.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="20" y="40" width="515" height="40" uuid="26ee85ad-7895-4d57-8f8e-b7c6c77a3d88"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="0" y="80" width="20" height="80" uuid="983aa5ed-5061-4222-bf0d-2f39e39fa627"/>
+					<reportElement positionType="Float" x="20" y="120" width="515" height="40" uuid="a0e66a2c-1981-43ed-b4d3-68d050299279"/>
 					<textElement markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[23.]]></text>
+					<text><![CDATA[...................................................................................................................................................................................................................................................................................................................................................................]]></text>
 				</staticText>
 			</band>
 		</groupFooter>

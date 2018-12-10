@@ -102,7 +102,8 @@ public class App extends Application
             Image img = new Image(getClass().getResourceAsStream("/images/logo_kab_bekasi.png"));
             primaryStage.getIcons().add(img);
             SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
-            
+//            ServiceFactory.getExportImportService().exportData();
+//            ServiceFactory.getExportImportService().importData();
             primaryStage.setTitle("Aplikasi Perpajakan");
 //            primaryStage.setMaximized(true);
             primaryStage.setWidth(primaryScreenBounds.getWidth());
