@@ -120,7 +120,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
 
     @Override
     public void deleteRekapitulasi(String idSP, String idWP) {
-        String sql = "DELETE FROM rekapitulasii WHERE id_wp=? AND id_sp=?";
+        String sql = "DELETE FROM rekapitulasi WHERE id_wp=? AND id_sp=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
