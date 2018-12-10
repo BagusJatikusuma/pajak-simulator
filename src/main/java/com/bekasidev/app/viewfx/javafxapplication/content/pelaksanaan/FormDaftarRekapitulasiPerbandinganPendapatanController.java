@@ -329,9 +329,19 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                         +pelaksanaanWrapper.getWpSelected().getNpwpd(), 
                     pelaksanaanWrapper.getRekapitulasiWrapper());
         }
-        //update??
+        //update
         else {
-            System.out.println("not saved, data already exist");
+            rekapitulasiService.deleteRekapitulasi(
+                    pelaksanaanWrapper.getPersiapanWrapper().getIdSP(), 
+                    pelaksanaanWrapper.getWpSelected().getNpwpd());
+            
+            rekapitulasiService.createRekapitulasi(pelaksanaanWrapper.getRekapitulasiWrapper());
+            
+            rekapMapperHistory.put(
+                    pelaksanaanWrapper.getPersiapanWrapper().getIdSP()
+                        +pelaksanaanWrapper.getTimSelected().getIdTim()
+                        +pelaksanaanWrapper.getWpSelected().getNpwpd(), 
+                    pelaksanaanWrapper.getRekapitulasiWrapper());
         }
         
         Pane contentPane = null;

@@ -179,6 +179,27 @@ public class EvaluasiUIController implements Initializable {
     }
     
     public void printEvaluasi() {
+        SessionProvider
+                .getGlobalSessionsMap()
+                .put("pelaporan_mapper", pelaporanMapper);
+        
+        Pane formPrintLaporan = null;
+        try {
+            formPrintLaporan = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormPrintRoot.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form Print Laporan");
+        stage.setScene(new Scene(formPrintLaporan));
+        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
+    
+    public void printEvaluasiBackUp() {
         List<SuratPerintah> suratPerintahList = suratPerintahService.getAllSuratPerintah();
         
         NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
