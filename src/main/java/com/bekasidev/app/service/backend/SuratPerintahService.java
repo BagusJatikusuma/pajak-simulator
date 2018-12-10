@@ -20,4 +20,6 @@ public interface SuratPerintahService {
     void deleteSuratPerintah(String idSP);
     
     TimSP getTimSP(String idSP, String idTim);
+
+    List<SuratPerintah> getSuratPerintahByTahun(int tahun);
 }

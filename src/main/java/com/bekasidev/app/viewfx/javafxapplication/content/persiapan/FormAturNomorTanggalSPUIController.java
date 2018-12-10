@@ -118,7 +118,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         else {
             persiapanWrapper.setTanggalPengesahan(null);
-            persiapanWrapper.setNomorSurat(nomorSuratField.getText());
+            persiapanWrapper.setNomorSurat(null);
         }
         //simpan menggunakan suratPerintahService update
         boolean isUpdate = false;
@@ -154,6 +154,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         rootpane.getChildren().add(contentPane);
         
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Berhasil disimpan");
         Pane popup = null;
         try {
             popup = FXMLLoader

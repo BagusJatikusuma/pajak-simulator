@@ -139,6 +139,11 @@ public class RekapitulasiServiceImpl implements RekapitulasiService {
         rekapitulasiWrapper.setTotalJumlah((double) 0);
     }
 
+    @Override
+    public void deleteRekapitulasi(String idSP, String idWP) {
+        rekapitulasiDao.deleteRekapitulasi(idSP,idWP);
+    }
+
     private String convertBulanIntegerIntoString(Integer bulanInt) {
         switch(bulanInt) {
             case 0: return "Januari";

@@ -3,11 +3,17 @@ package com.bekasidev.app.dao.impl;
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.RekapitulasiDao;
 import com.bekasidev.app.model.Rekapitulasi;
+import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.wrapper.RekapitulasiExport;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RekapitulasiDaoImpl implements RekapitulasiDao {
@@ -39,6 +45,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -72,6 +79,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
             rekapitulasiWrapper.setIdWP(idWP);
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
 
         return rekapitulasiWrapper;
@@ -108,6 +116,24 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
         }
 
         return listRekap;
+    }
+
+    @Override
+    public void deleteRekapitulasi(String idSP, String idWP) {
+        String sql = "DELETE FROM rekapitulasi WHERE id_wp=? AND id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, idWP);
+            pstm.setString(2, idSP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new LogException(e);
+
+        }
     }
 
 }

@@ -14,6 +14,7 @@ import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanPilihWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
@@ -22,6 +23,7 @@ import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -33,11 +35,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -55,6 +59,7 @@ public class FormTambahTimWPUIController implements Initializable {
     @FXML private ChoiceBox pilihPenanggungJawabField;
     @FXML private ChoiceBox pilihSupervisorField;
     @FXML private ChoiceBox pilihTimField;
+    @FXML private TextField cariWPField;
     private ObservableList<PersiapanPilihWPTableWrapper> dataCollection;
     private WajibPajakService wpService;
     private PegawaiService pegawaiService;
@@ -69,8 +74,26 @@ public class FormTambahTimWPUIController implements Initializable {
         PersiapanPilihWPTable.setItems(dataCollection);
     }
     
+    public void cariWajibPajak() {
+        if (!cariWPField.getText().equals("")) {
+            if (!populateDataBasedSearch().isEmpty())
+                PersiapanPilihWPTable.setItems(populateDataBasedSearch());
+            PersiapanPilihWPTable.refresh();
+        }
+        
+    }
+    
+    public void resetTable() {
+        populateData();
+        PersiapanPilihWPTable.setItems(dataCollection);
+    }
+    
     public void tambahTimPemeriksaOperation() {
         wpService = ServiceFactory.getWajibPajakService();
+        
+        if (!validateField()) {
+            return;
+        }
         
         PersiapanWrapper persiapanWrapper
                 = (PersiapanWrapper) SessionProvider.getGlobalSessionsMap()
@@ -239,11 +262,47 @@ public class FormTambahTimWPUIController implements Initializable {
         
     }
     
+    private ObservableList<PersiapanPilihWPTableWrapper> populateDataBasedSearch() {
+        ObservableList<PersiapanPilihWPTableWrapper> filteredCollection = FXCollections.observableArrayList();
+        String searchText = cariWPField.getText().toLowerCase();
+        
+        for (Iterator it = dataCollection.iterator(); it.hasNext();) {
+            PersiapanPilihWPTableWrapper wrapper = (PersiapanPilihWPTableWrapper) it.next();
+            if (wrapper.getNamaWP().toLowerCase().contains(searchText)) {
+                filteredCollection.add(wrapper);
+            }
+        }
+        
+        return filteredCollection;
+    }
+    
     private void associateDataWithColumn() {
         pilih.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("pilih"));
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("idWP"));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("namaWP"));
         jenisWP.setCellValueFactory(new PropertyValueFactory<PersiapanPilihWPTableWrapper, String>("jenisWP"));
+    }
+    
+    private boolean validateField() {
+        if (pilihPenanggungJawabField.getSelectionModel().getSelectedItem() == null
+                || pilihSupervisorField.getSelectionModel().getSelectedItem() == null
+                || pilihTimField.getSelectionModel().getSelectedItem() == null) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "ada field yang belum diisi");
+            Pane popup = null;
+            try {
+                popup = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("");
+            stage.setScene(new Scene(popup));
+            stage.show();
+            
+            return false;
+        }
+        return true;
     }
     
 }

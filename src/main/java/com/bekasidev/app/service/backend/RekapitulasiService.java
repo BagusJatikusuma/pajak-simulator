@@ -17,4 +17,6 @@ public interface RekapitulasiService {
     void setBulanRekapitulasi(RekapitulasiWrapper rekapitulasiWrapper, Date masaPajakAwal, Date masaPajakAkhir);
 
     void setNihil(RekapitulasiWrapper rekapitulasiWrapper);
+
+    void deleteRekapitulasi(String idSP, String idWP);
 }

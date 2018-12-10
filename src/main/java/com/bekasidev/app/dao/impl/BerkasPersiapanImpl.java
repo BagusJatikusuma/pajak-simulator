@@ -6,6 +6,7 @@ import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
 import java.sql.Connection;
@@ -33,6 +34,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -49,6 +51,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -63,6 +66,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.setString(3, wajibPajak.getNpwpd());
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 

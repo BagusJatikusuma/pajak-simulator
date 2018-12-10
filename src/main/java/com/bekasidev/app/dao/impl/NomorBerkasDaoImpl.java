@@ -4,6 +4,7 @@ import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.model.NomorBerkas;
 import com.bekasidev.app.model.Surat;
+import com.bekasidev.app.util.LogException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,6 +45,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
         return nomorBerkas;
     }
@@ -70,6 +72,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -85,6 +88,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -107,6 +111,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 
@@ -125,6 +130,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            new LogException(e);
         }
     }
 }
