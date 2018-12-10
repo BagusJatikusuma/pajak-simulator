@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="284.0" prefWidth="510.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController">
+   <children>
+      <Label layoutX="160.0" layoutY="47.0" prefHeight="15.0" prefWidth="211.0" text="PILIH RENTANG TAHAPAN" />
+      <Button layoutX="278.0" layoutY="233.0" mnemonicParsing="false" onAction="#printLaporan" prefHeight="25.0" prefWidth="130.0" text="Cetak Laporan" />
+      <Label layoutX="116.0" layoutY="72.0" text="Tahap awal" />
+      <Label layoutX="116.0" layoutY="147.0" text="Tahap akhir" />
+      <ChoiceBox fx:id="tahapAwalCB" layoutX="116.0" layoutY="98.0" prefHeight="25.0" prefWidth="291.0" />
+      <ChoiceBox fx:id="tahapAkhirCB" layoutX="116.0" layoutY="169.0" prefHeight="25.0" prefWidth="291.0" />
+      <Button fx:id="backBtn" layoutX="196.0" layoutY="233.0" mnemonicParsing="false" onAction="#backToPilihan" text="Kembali" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formprintlaporan.css" />
+   </stylesheets>
+</AnchorPane>
