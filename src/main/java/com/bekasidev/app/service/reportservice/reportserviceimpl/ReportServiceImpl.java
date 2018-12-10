@@ -1429,6 +1429,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -1468,6 +1469,10 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
                 parameter.put("nomor_sp", "800/(nomor)/BAPENDA");
@@ -1533,6 +1538,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -1951,10 +1958,10 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("nama_wp", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getNpwpd());
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
-                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()).toUpperCase() + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
             parameter.put("pajak_akhir", converterHelper.convertBulanIntegerIntoString(
-                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()) + " " +
+                               pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirbulan()).toUpperCase() + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAkhirTahun());
             parameter.put("total_omzetp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetPeriksa());
             parameter.put("total_pajakp", pelaksanaanWrapper.getRekapitulasiWrapper().getTotalPajakPeriksa());
@@ -2150,6 +2157,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -2209,7 +2217,7 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("jabatan_penandatangan_ttd", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas().toUpperCase());
             
             parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
-            parameter.put("supervisor_pangkat", timSP.getSupervisor().getJabatanDinas());
+            parameter.put("supervisor_pangkat", timSP.getSupervisor().getPangkat());
             parameter.put("supervisor_nip", timSP.getSupervisor().getNipPegawai());
             
             parameter.put("total_omzet_hasil_pemeriksa", new ConverterHelper().converterDoubleToMoneyId(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalOmzetPeriksa()));
@@ -2262,6 +2270,10 @@ public class ReportServiceImpl implements ReportService {
                     break;
             }
             
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
+            
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
             System.out.println("Alamat Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getJalan());
@@ -2308,6 +2320,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -2316,6 +2330,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -2354,6 +2369,7 @@ public class ReportServiceImpl implements ReportService {
             
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             SimpleDateFormat df_tanggal_sphp = new SimpleDateFormat(pattern, id);
+            SimpleDateFormat df_tanggal_surat_ba = new SimpleDateFormat(pattern, id);
             SimpleDateFormat df_tanggal_ba = new SimpleDateFormat(tanggal, id);
             SimpleDateFormat df_hari_ba = new SimpleDateFormat(hari, id);
             SimpleDateFormat df_bulan_ba = new SimpleDateFormat(bulan, id);
@@ -2366,14 +2382,19 @@ public class ReportServiceImpl implements ReportService {
                 parameter.put("bulan_surat", "      ");
                 parameter.put("hari_surat", "      ");
                 parameter.put("tahun_surat", "      ");
+                parameter.put("tanggal_surat_ba", "      ");
             } else {
                 Long longTanggalBA = new Long(pelaksanaanWrapper.getWpSelected().getNomorBerkas().getTanggalBeritaAcara());
                 Date tanggalBA = new Date(longTanggalBA);
                 
-                parameter.put("tanggal_surat", String.valueOf(df_tanggal_ba.format(tanggalBA)));
+                Long long_tanggal_ba = new Long(String.valueOf(df_tanggal_ba.format(tanggalBA)));
+                Long long_tahun_ba = new Long(String.valueOf(df_tahun_ba.format(tanggalBA)));
+                
+                parameter.put("tanggal_surat", new ConverterHelper().angkaToTerbilang(long_tanggal_ba));
                 parameter.put("bulan_surat", String.valueOf(df_bulan_ba.format(tanggalBA)));
                 parameter.put("hari_surat", String.valueOf(df_hari_ba.format(tanggalBA)));
-                parameter.put("tahun_surat", String.valueOf(df_tahun_ba.format(tanggalBA)));
+                parameter.put("tahun_surat", new ConverterHelper().angkaToTerbilang(long_tahun_ba));
+                parameter.put("tanggal_surat_ba", String.valueOf(df_tanggal_surat_ba.format(tanggalBA)));
             }
             
             parameter.put("supervisor_nama", timSP.getSupervisor().getNamaPegawai());
@@ -2433,6 +2454,9 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("anggota_tandatangan_tim_1", new JRBeanCollectionDataSource(timSP.getListAnggota()));
             parameter.put("anggota_tandatangan_tim_2", new JRBeanCollectionDataSource(timSP.getListAnggota()));
             
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
             System.out.println("NPWPD Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNpwpd());
@@ -2478,6 +2502,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -3064,6 +3090,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3094,6 +3121,10 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
+            
             Locale id = new Locale("in", "ID");
             String pattern = "dd MMMM yyyy";
             
@@ -3180,6 +3211,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -3188,6 +3221,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3218,6 +3252,10 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             Locale id = new Locale("in", "ID");
             String pattern = "dd MMMM yyyy";
@@ -3330,6 +3368,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -3338,6 +3378,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3368,6 +3409,9 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             Locale id = new Locale("in", "ID");
             String pattern = "dd MMMM yyyy";
@@ -3426,6 +3470,8 @@ public class ReportServiceImpl implements ReportService {
         } catch (JRException ex) {
             System.out.println("JRException ex");
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -3434,6 +3480,7 @@ public class ReportServiceImpl implements ReportService {
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;
+            String logoFile = null;
             
             try {
                 String root = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
@@ -3467,6 +3514,10 @@ public class ReportServiceImpl implements ReportService {
             /**
              * Passing ReportTitle and Author as parameters
              */
+            
+            String rootLogo = new File(ReportServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            logoFile = rootLogo.replace("target\\pajak-simulator-1.0-SNAPSHOT.jar", "images\\logo_kab_bekasi.png");
+            parameter.put("logo", logoFile);
             
             Locale id = new Locale("in", "ID");
             String pattern = "dd MMMM yyyy";
@@ -3539,6 +3590,8 @@ public class ReportServiceImpl implements ReportService {
             
         } catch (JRException ex) {
             System.out.println("JRException ex");
+            Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
             Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

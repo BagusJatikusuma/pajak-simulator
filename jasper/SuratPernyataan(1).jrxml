@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPernyataan(1)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="180a6031-2dae-499c-b73e-890ac95d72f8">
-	<property name="ireport.zoom" value="0.6830134553650787"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPernyataan(1)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="75" bottomMargin="30" uuid="180a6031-2dae-499c-b73e-890ac95d72f8">
+	<property name="ireport.zoom" value="1.1000000000000132"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="367"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="npwpd_wajib_pajak" class="java.lang.String"/>
 	<parameter name="alamat_wajib_pajak" class="java.lang.String"/>
@@ -14,20 +14,20 @@
 	<group name="grup">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
 		<groupHeader>
-			<band height="628">
+			<band height="735">
 				<staticText>
 					<reportElement x="0" y="14" width="535" height="32" uuid="5a36bc45-8888-4768-b7b6-de801e246be5"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[SURAT PERNYATAAN]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="74" width="535" height="20" uuid="00b0de7a-2ca3-4604-beba-be1e9397e012"/>
-					<textElement>
+					<textElement markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Yang bertandatangan di bawah ini :]]></text>
+					<text><![CDATA[&#09Yang bertandatangan di bawah ini :]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="94" width="63" height="20" uuid="0b557616-fc88-4afe-b991-2c2a7f5c47d2"/>
@@ -100,7 +100,7 @@
 					<textElement verticalAlignment="Middle">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Kuasa dari Perusahaan]]></text>
+					<text><![CDATA[Kuasa Wajib Pajak]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="287" width="110" height="40" uuid="2b40f3f2-def2-4f4f-af4b-13c66c4602a4"/>
@@ -145,33 +145,34 @@
 					<text><![CDATA[:]]></text>
 				</staticText>
 				<textField isStretchWithOverflow="true">
-					<reportElement positionType="Float" x="0" y="327" width="535" height="100" uuid="052f801e-3ab4-4674-96cb-472ae03cb880"/>
-					<textElement textAlignment="Justified" verticalAlignment="Top">
+					<reportElement positionType="Float" x="0" y="327" width="535" height="90" uuid="052f801e-3ab4-4674-96cb-472ae03cb880"/>
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<paragraph lineSpacing="Single"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Dengan ini menyatakan bahwa fotocopy catatan, buku dan dokumen yang saya sampaikan dan atau saya serahkan kepada Tim Pemeriksa Pajak Daerah untuk kepentingan pemeriksaan pajak daerah sebagaimana Surat Perintah Pemeriksaan Nomor " + $P{nomor_sp} + "  Tanggal " + $P{tanggal_sp} + " adalah data benar yang dibuat sesuai dengan aslinya, dan tidak ada lagi berkas yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang berkaitan dengan kewajiban pemungutan dan penyetoran Pajak " + $P{jenis_pajak} + " untuk Masa Pajak " + $P{masa_pajak_awal} + " s.d " + $P{masa_pajak_akhir} + " selain yang telah kami sampaikan kepada Tim Pemeriksa."]]></textFieldExpression>
+					<textFieldExpression><![CDATA["&#09Dengan ini menyatakan bahwa fotocopy catatan, buku dan dokumen yang saya sampaikan dan atau saya serahkan kepada Tim Pemeriksa Pajak Daerah untuk kepentingan pemeriksaan pajak daerah sebagaimana Surat Perintah Pemeriksaan Nomor " + $P{nomor_sp} + "  Tanggal " + $P{tanggal_sp} + " adalah data benar yang dibuat sesuai dengan aslinya, dan tidak ada lagi berkas yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang berkaitan dengan kewajiban pemungutan dan penyetoran Pajak " + $P{jenis_pajak} + " untuk Masa Pajak " + $P{masa_pajak_awal} + " s.d " + $P{masa_pajak_akhir} + " selain yang telah kami sampaikan kepada Tim Pemeriksa."]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement positionType="Float" x="0" y="427" width="535" height="50" uuid="a14808b5-bce3-415d-a6da-830f6c9a7dd4"/>
-					<textElement textAlignment="Justified">
+					<reportElement positionType="Float" x="0" y="417" width="535" height="50" uuid="a14808b5-bce3-415d-a6da-830f6c9a7dd4"/>
+					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="12" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Demikian surat pertanyaan ini saya buat dengan sebenarnya dan apabila dikemudian hari ternyata data yang saya sampaikan tidak benar adanya, saya bersedia untuk bertanggung jawab sesuai dengan ketentuan yang berlaku.]]></text>
+					<text><![CDATA[&#09Demikian surat pertanyaan ini saya buat dengan sebenarnya dan apabila dikemudian hari ternyata data yang saya sampaikan tidak benar adanya, saya bersedia untuk bertanggung jawab sesuai dengan ketentuan yang berlaku.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="275" y="536" width="260" height="80" uuid="a590ff54-b9e9-42ac-9744-a339636e66fb"/>
+					<reportElement x="275" y="563" width="160" height="70" uuid="a590ff54-b9e9-42ac-9744-a339636e66fb"/>
 					<box>
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement>
-						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Yang membuat pernyataan,]]></text>
+					<text><![CDATA[Materai 6.000]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="120" y="247" width="415" height="20" uuid="7b7e9a07-5642-435e-88f9-6b8b7bf96c78"/>
 					<textElement>
-						<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+						<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{nama_wajib_pajak}]]></textFieldExpression>
 				</textField>
@@ -250,11 +251,18 @@
 					<text><![CDATA[]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="275" y="516" width="260" height="20" uuid="efddf6d3-9f46-4a9a-9f8e-c66ab6708b4a"/>
+					<reportElement x="275" y="503" width="260" height="20" uuid="efddf6d3-9f46-4a9a-9f8e-c66ab6708b4a"/>
 					<textElement>
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Cikarang Pusat,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="275" y="523" width="260" height="40" uuid="85fa4b0d-afe8-49ca-bd37-146e3c145f72"/>
+					<textElement>
+						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Yang membuat pernyataan,]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
