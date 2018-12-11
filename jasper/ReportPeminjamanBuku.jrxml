@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPeminjamanBuku" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
-	<property name="ireport.zoom" value="0.9090909090909179"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="655"/>
+	<property name="ireport.zoom" value="1.210000000000012"/>
+	<property name="ireport.x" value="16"/>
+	<property name="ireport.y" value="71"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -76,7 +76,7 @@
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="320" y="227" width="216" height="15" uuid="3bba8630-4e1e-4ba1-a060-20f14f9a87f6"/>
-					<textElement verticalAlignment="Top">
+					<textElement verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[di -]]></text>
@@ -90,7 +90,7 @@
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="320" y="152" width="215" height="15" uuid="972e75ef-03ed-46d3-a38a-f84f77ac1e73"/>
-					<textElement verticalAlignment="Top">
+					<textElement verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Kepada]]></text>
@@ -104,7 +104,7 @@
 				</staticText>
 				<textField>
 					<reportElement positionType="Float" x="320" y="132" width="215" height="20" uuid="b651a2c9-986e-45c3-8940-7540bae81f66"/>
-					<textElement verticalAlignment="Top">
+					<textElement verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Cikarang Pusat, " + $P{tanggal_surat}]]></textFieldExpression>
@@ -139,7 +139,7 @@
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="320" y="182" width="215" height="15" uuid="dbd34f34-3f0f-4153-8d41-7fe634753156"/>
-					<textElement verticalAlignment="Top">
+					<textElement verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["NPWPD : " + $P{wajib_pajak}.getNpwpd()]]></textFieldExpression>
@@ -160,14 +160,14 @@
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="296" y="167" width="24" height="15" uuid="1998c838-9af5-4623-8543-8f2308531293"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
+					<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[Yth.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="347" y="242" width="189" height="15" uuid="87903246-b987-4732-b0cb-9076dc1d4288"/>
-					<textElement verticalAlignment="Top">
+					<textElement verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[BEKASI]]></text>
@@ -251,14 +251,14 @@
 				</staticText>
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="320" y="197" width="216" height="15" uuid="95900048-79cf-4526-8c8c-8cf3c0a74a5d"/>
-					<textElement>
+					<textElement markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{wajib_pajak}.getJalan()]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="320" y="167" width="216" height="15" uuid="b98b8e23-8b69-461c-a109-878eda936dad"/>
-					<textElement>
+					<textElement markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Pengelola " + $P{wajib_pajak}.getNamaWajibPajak()]]></textFieldExpression>
@@ -293,7 +293,7 @@
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="320" y="212" width="213" height="15" uuid="a8c265b1-5624-40f2-8e53-b3d086dbd61a"/>
-					<textElement>
+					<textElement markup="html">
 						<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Kec. " + $P{wajib_pajak}.getKecamatan()]]></textFieldExpression>

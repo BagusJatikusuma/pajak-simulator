@@ -50,7 +50,7 @@
 				<text><![CDATA[&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Saya yang bertandatangan dibawah ni :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="0" y="549" width="535" height="60" uuid="7784cb28-be3c-452b-be53-37d28069dcb4"/>
+				<reportElement positionType="Float" x="0" y="549" width="247" height="60" uuid="7784cb28-be3c-452b-be53-37d28069dcb4"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPersetujuan(4)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="50" bottomMargin="30" uuid="20c9e266-691b-4d03-a2e7-ac66e17f9426">
-	<property name="ireport.zoom" value="1.0000000000000095"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="404"/>
+	<property name="ireport.zoom" value="2.8531167061100295"/>
+	<property name="ireport.x" value="441"/>
+	<property name="ireport.y" value="1901"/>
 	<parameter name="penandatangan" class="java.lang.String"/>
 	<parameter name="nomor_sphp" class="java.lang.String"/>
 	<parameter name="tanggal_sphp" class="java.lang.String"/>
@@ -162,28 +162,28 @@
 				<text><![CDATA[Hormat Kami,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="0" y="608" width="534" height="15" uuid="4b8b73ca-f605-47b8-a16f-564c4927a140"/>
+				<reportElement positionType="Float" x="0" y="608" width="318" height="15" uuid="4b8b73ca-f605-47b8-a16f-564c4927a140"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Catatan :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="21" y="663" width="513" height="55" uuid="e3cb5a5f-408c-4c0a-990e-1905e3edaab5"/>
+				<reportElement positionType="Float" x="21" y="663" width="297" height="77" uuid="e3cb5a5f-408c-4c0a-990e-1905e3edaab5"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Dalam hal Wajib Pajak tidak menyetujui sebagian/seluruh hasil pemeriksaan Pajak, penjelasan Wajib Pajak minimal memuat pokok masalah koreksi menurut Pemeriksa Pajak,  dan tanggapan Wajib Pajak serta data, bukti, dan dokumen yang berkaitan untuk dapat dipertimbangkan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="21" y="623" width="514" height="15" uuid="748bf6f9-3044-4b24-8d7a-564b0be18a5b"/>
+				<reportElement positionType="Float" x="21" y="623" width="297" height="15" uuid="748bf6f9-3044-4b24-8d7a-564b0be18a5b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[*) coret yang tidak perlu.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="21" y="638" width="513" height="25" uuid="eb80824c-97c1-459e-b699-c9d61ea8a135"/>
+				<reportElement positionType="Float" x="21" y="638" width="297" height="25" uuid="eb80824c-97c1-459e-b699-c9d61ea8a135"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
@@ -204,7 +204,7 @@
 				<text><![CDATA[2.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="1" y="663" width="20" height="55" uuid="5364ed1c-3e64-4a50-8dcd-e5a478e78e64"/>
+				<reportElement positionType="Float" x="1" y="663" width="20" height="77" uuid="5364ed1c-3e64-4a50-8dcd-e5a478e78e64"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>

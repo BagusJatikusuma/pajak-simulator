@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
-	<property name="ireport.zoom" value="1.3310000000000375"/>
+	<property name="ireport.zoom" value="1.1000000000000385"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="586"/>
+	<property name="ireport.y" value="1020"/>
 	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="58c8d34b-1347-48c9-a489-d309d0b3dbd6">
@@ -544,303 +544,282 @@ www.kab-bekasi.go.id]]></text>
 				<text><![CDATA[DAFTAR PETUGAS PEMERIKSA PAJAK DAERAH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="301" y="187" width="65" height="30" uuid="cbb08419-8fde-4d00-bc1e-d6d21a6fc044"/>
+				<reportElement positionType="Float" x="316" y="187" width="65" height="30" uuid="cbb08419-8fde-4d00-bc1e-d6d21a6fc044"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[JABATAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="206" y="187" width="95" height="30" uuid="ece82b52-b544-4cdd-80ca-5a86949a3e5c"/>
+				<reportElement positionType="Float" x="206" y="187" width="110" height="30" uuid="ece82b52-b544-4cdd-80ca-5a86949a3e5c"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[PANGKAT / GOLONGAN]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="26" y="297" width="180" height="20" uuid="8f2f3bf4-39bf-42f0-bc42-4062b6ca0483"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="26" y="297" width="180" height="20" uuid="8f2f3bf4-39bf-42f0-bc42-4062b6ca0483"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namaTim}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="26" y="187" width="180" height="30" uuid="b10c31c1-9ebc-4396-af96-fea6f29e05cd"/>
+				<reportElement positionType="Float" x="26" y="187" width="180" height="30" uuid="b10c31c1-9ebc-4396-af96-fea6f29e05cd"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NAMA / NIP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="366" y="187" width="170" height="30" uuid="7670a579-edf0-4c79-95a8-3f0a2be875c1"/>
+				<reportElement positionType="Float" x="381" y="187" width="155" height="30" uuid="7670a579-edf0-4c79-95a8-3f0a2be875c1"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
-				<text><![CDATA[WAJIB PAJAK YANG DIPERIKSA]]></text>
+				<text><![CDATA[WAJIB PAJAK<br>YANG DIPERIKSA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="257" width="25" height="40" uuid="6eae8738-6e19-45fa-afe4-bca6d93cb394"/>
-				<box topPadding="7">
+				<reportElement positionType="Float" x="1" y="257" width="25" height="40" uuid="6eae8738-6e19-45fa-afe4-bca6d93cb394"/>
+				<box topPadding="5">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="366" y="297" width="170" height="20" uuid="6ccabf0a-4e7e-4c8b-8ea2-79914fa928a2"/>
+				<reportElement positionType="Float" x="381" y="297" width="155" height="20" uuid="6ccabf0a-4e7e-4c8b-8ea2-79914fa928a2"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="26" y="217" width="180" height="20" uuid="da6519ca-7016-4952-b61a-46fd09854d84"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{namaPegawaiPenanggungJawab}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="301" y="217" width="65" height="40" uuid="bce983fc-305d-41c4-a773-1ef7ecfa8b33"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="26" y="217" width="180" height="40" uuid="da6519ca-7016-4952-b61a-46fd09854d84"/>
 				<box topPadding="5" leftPadding="3" rightPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{namaPegawaiPenanggungJawab} + "</b><br>NIP. " + $F{nipPegawaiPenanggungJawab}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="316" y="217" width="65" height="40" uuid="bce983fc-305d-41c4-a773-1ef7ecfa8b33"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Penanggung Jawab]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="301" y="297" width="65" height="20" uuid="5b6e7f51-d487-41d0-905b-abec3d748646"/>
+				<reportElement positionType="Float" x="316" y="297" width="65" height="20" uuid="5b6e7f51-d487-41d0-905b-abec3d748646"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="187" width="25" height="30" uuid="efcfff21-379f-4f06-af1b-f774c8e70904"/>
+				<reportElement positionType="Float" x="1" y="187" width="25" height="30" uuid="efcfff21-379f-4f06-af1b-f774c8e70904"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NO]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="26" y="277" width="180" height="20" uuid="dd637cb6-7a6a-46d0-95a1-fceb02d25a69"/>
-				<box topPadding="0" leftPadding="3" rightPadding="3">
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiSupervisor}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="1" y="297" width="25" height="20" uuid="2679fd2f-67e1-4fcb-8e0f-23d81d7e80cf"/>
+				<reportElement positionType="Float" x="1" y="297" width="25" height="20" uuid="2679fd2f-67e1-4fcb-8e0f-23d81d7e80cf"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="206" y="257" width="95" height="40" uuid="03f46a16-8548-4a7b-928a-5e672afa6e41"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="206" y="257" width="110" height="40" uuid="03f46a16-8548-4a7b-928a-5e672afa6e41"/>
 				<box topPadding="5" leftPadding="3" rightPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" markup="html">
 					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pangkatSupervisor} + " / " + $F{golonganSupervisor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pangkatSupervisor} + " /<br>" + $F{golonganSupervisor}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="366" y="257" width="170" height="40" uuid="3e42e74b-6e17-4988-a19d-85f9843f1ff2"/>
+				<reportElement positionType="Float" x="381" y="257" width="155" height="40" uuid="3e42e74b-6e17-4988-a19d-85f9843f1ff2"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="206" y="297" width="95" height="20" uuid="1d0153c9-d946-4130-a39d-ab1b42ac3d78"/>
+				<reportElement positionType="Float" x="206" y="297" width="110" height="20" uuid="1d0153c9-d946-4130-a39d-ab1b42ac3d78"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="366" y="217" width="170" height="40" uuid="0fb53759-f46f-4245-9a27-f7175fe21d7e"/>
+				<reportElement positionType="Float" x="381" y="217" width="155" height="40" uuid="0fb53759-f46f-4245-9a27-f7175fe21d7e"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="217" width="25" height="40" uuid="0da0ea54-bf46-41e7-972e-8d273bb067fa"/>
-				<box topPadding="7">
+				<reportElement positionType="Float" x="1" y="217" width="25" height="40" uuid="0da0ea54-bf46-41e7-972e-8d273bb067fa"/>
+				<box topPadding="5">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[1]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="26" y="257" width="180" height="20" uuid="0c660616-a9b7-4bbf-aa97-8f80a44c35a6"/>
-				<box topPadding="4" leftPadding="3" rightPadding="3">
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{namaPegawaiSupervisor}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="301" y="257" width="65" height="40" uuid="91085c84-bb13-4cc2-9d87-18980320ada5"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="26" y="257" width="180" height="40" uuid="0c660616-a9b7-4bbf-aa97-8f80a44c35a6"/>
 				<box topPadding="5" leftPadding="3" rightPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{namaPegawaiSupervisor} + "</b><br>NIP. " + $F{nipPegawaiSupervisor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="316" y="257" width="65" height="40" uuid="91085c84-bb13-4cc2-9d87-18980320ada5"/>
+				<box topPadding="5" leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 					<font fontName="Times New Roman" size="10" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Supervisor]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="206" y="217" width="95" height="40" uuid="42e8593b-05c5-451b-991e-b4d0b8c70813"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="206" y="217" width="110" height="40" uuid="42e8593b-05c5-451b-991e-b4d0b8c70813"/>
 				<box topPadding="5" leftPadding="3" rightPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" markup="html">
 					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pangkatPenanggungJawab} + " / " + $F{golonganPenanggungJawab}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="26" y="237" width="180" height="20" uuid="d095ab4c-9192-46a8-9b2a-299f7f9fb283"/>
-				<box topPadding="0" leftPadding="3" rightPadding="3">
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Top">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["NIP. " + $F{nipPegawaiPenanggungJawab}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pangkatPenanggungJawab} + " /<br>" + $F{golonganPenanggungJawab}]]></textFieldExpression>
 			</textField>
 			<componentElement>
 				<reportElement key="table" x="1" y="317" width="535" height="140" uuid="5c8a151c-6e0d-41fd-a265-22805eadb284"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
 					<datasetRun subDataset="anggota_tim_wp_diperiksa" uuid="a536d32f-5aa0-4e60-9ac1-6316362de76a">
 						<dataSourceExpression><![CDATA[$F{wajibPajakJasper}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="25" uuid="7e444d9a-f10a-4c41-997d-d6a03d117a05">
 						<jr:detailCell height="40" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="25" height="40" uuid="43da247c-edaf-4cd4-ac3d-025332e8aaa0"/>
-								<box topPadding="7">
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="25" height="40" uuid="43da247c-edaf-4cd4-ac3d-025332e8aaa0"/>
+								<box topPadding="5">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
+								<textElement textAlignment="Center" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
@@ -849,101 +828,85 @@ www.kab-bekasi.go.id]]></text>
 					</jr:column>
 					<jr:column width="180" uuid="a26b4820-319f-4213-a82b-1e719cf0365b">
 						<jr:detailCell height="40" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="180" height="20" uuid="00481918-7a40-48bd-a861-5c5598ca0218"/>
-								<box topPadding="4" leftPadding="5" rightPadding="5">
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="180" height="40" uuid="00481918-7a40-48bd-a861-5c5598ca0218"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
 									<topPen lineWidth="1.0"/>
-									<leftPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
-								</box>
-								<textElement verticalAlignment="Middle">
-									<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
-							</textField>
-							<textField>
-								<reportElement x="0" y="20" width="180" height="20" uuid="44f65c63-a3c9-40ad-ac5a-4af384529f85"/>
-								<box topPadding="0" leftPadding="5" rightPadding="5">
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement verticalAlignment="Top">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								<textElement verticalAlignment="Top" markup="html">
+									<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA["NIP. " + $F{nipPegawai}]]></textFieldExpression>
+								<textFieldExpression><![CDATA["<b>" + $F{namaPegawai} + "</b><br>NIP. " + $F{nipPegawai}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="95" uuid="fe5f61d0-b0b5-4760-b9da-1a53a24e78c7">
+					<jr:column width="110" uuid="fe5f61d0-b0b5-4760-b9da-1a53a24e78c7">
 						<jr:detailCell height="40" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="95" height="40" uuid="529f0530-5571-4d50-a6e2-66ba6b80bbea"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="110" height="40" uuid="529f0530-5571-4d50-a6e2-66ba6b80bbea"/>
 								<box topPadding="5" leftPadding="3" rightPadding="3">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
+								<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{pangkat} + " / " + $F{golongan}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{pangkat} + " /<br>" + $F{golongan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="65" uuid="acc70131-eb17-44e8-a43b-d1c8b1676e28">
 						<jr:detailCell height="40" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="65" height="40" uuid="978e3eea-3d64-46da-bdeb-9973c9fee114"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="65" height="40" uuid="978e3eea-3d64-46da-bdeb-9973c9fee114"/>
 								<box topPadding="5" leftPadding="3" rightPadding="3">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement textAlignment="Center">
+								<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="170" uuid="68837f8a-ca3e-4feb-9832-224dddb640b1">
+					<jr:column width="15" uuid="68837f8a-ca3e-4feb-9832-224dddb640b1">
 						<jr:detailCell height="40" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="25" height="40" uuid="9781c627-ff4a-4149-963a-6308209ab19f"/>
-								<box topPadding="7">
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="15" height="40" uuid="75578d43-e41f-4819-9b9e-773b88725367"/>
+								<box topPadding="5" leftPadding="5" rightPadding="5">
 									<topPen lineWidth="1.0"/>
 									<leftPen lineWidth="1.0"/>
 									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="0.0"/>
 								</box>
-								<textElement textAlignment="Center">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								<textElement verticalAlignment="Top" markup="html">
+									<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaWajibPajak} == "" ? "" : $V{COLUMN_COUNT}]]></textFieldExpression>
 							</textField>
-							<textField>
-								<reportElement x="25" y="0" width="145" height="20" uuid="75578d43-e41f-4819-9b9e-773b88725367"/>
-								<box topPadding="5" leftPadding="5" rightPadding="5">
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="0d5bec7c-d92b-481c-9e82-335843c31bda">
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement positionType="Float" x="0" y="0" width="140" height="40" uuid="d9104c7e-603b-4715-abf0-d6be3e3166d6"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
 									<topPen lineWidth="1.0"/>
-									<rightPen lineWidth="1.0"/>
-								</box>
-								<textElement verticalAlignment="Middle">
-									<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{namaWajibPajak}]]></textFieldExpression>
-							</textField>
-							<textField>
-								<reportElement x="25" y="20" width="145" height="20" uuid="c11a20db-60c2-4052-96b1-ae929cd5f1a3"/>
-								<box topPadding="0" leftPadding="5" rightPadding="5">
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textElement>
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+								<textElement verticalAlignment="Top" markup="html">
+									<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{idWajibPajak}]]></textFieldExpression>
+								<textFieldExpression><![CDATA["<b>" + $F{namaWajibPajak} + "</b><br>" + $F{idWajibPajak}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
