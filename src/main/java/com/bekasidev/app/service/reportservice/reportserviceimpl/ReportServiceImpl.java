@@ -1104,20 +1104,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerRestorann.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -1462,20 +1448,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPernyataan(1).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -1586,20 +1558,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratTandaTerima(2).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -1687,20 +1645,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPersetujuan(4).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -1782,20 +1726,6 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/PernyataanPersetujuanHasilPemeriksaan(5).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -1889,20 +1819,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -1977,20 +1893,6 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPernyataan(7).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -2106,20 +2008,6 @@ public class ReportServiceImpl implements ReportService {
                     parameter,
                     new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/KertasPemeriksaanPajak.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -2225,20 +2113,6 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/TemplateSuratPelaksanaan.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -2402,20 +2276,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPemberitahuanHasilPemeriksaan(3).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -2591,20 +2451,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -2732,20 +2578,6 @@ public class ReportServiceImpl implements ReportService {
                     parameter, 
                     new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPemberitahuanPemeriksaanRestoran.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -2866,20 +2698,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter, 
                     beanColDataSource);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/ReportPeminjamanBuku.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -3192,21 +3010,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     beanColDataSource);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPerintah.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -3325,20 +3128,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     beanColDataSource);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratTeguran1.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -3488,20 +3277,6 @@ public class ReportServiceImpl implements ReportService {
                     parameter,
                     beanColDataSource);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratTeguran2.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -3594,20 +3369,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     beanColDataSource);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -3721,20 +3482,6 @@ public class ReportServiceImpl implements ReportService {
                     parameter,
                     beanColDataSource);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -3810,20 +3557,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     beanColDataSource);
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerHotel.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
@@ -3902,20 +3635,6 @@ public class ReportServiceImpl implements ReportService {
                     parameter,
                     beanColDataSource);
             
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerParkir.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
-            
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
             frame.pack();
@@ -3985,20 +3704,6 @@ public class ReportServiceImpl implements ReportService {
                     report, 
                     parameter,
                     new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
-            
-            try {
-                File file = new File("C:/Users/Bayu Arafli/Documents/NetBeansProjects/pajak-simulator/pdf/QuesionerParkir.pdf");
-                File parent = file.getParentFile();
-                if (!parent.exists() && !parent.mkdirs()) {
-                    throw new IllegalStateException("Couldn't create dir: " + parent);
-                }
-                
-                OutputStream output = new FileOutputStream(file);
-                JasperExportManager.exportReportToPdfStream(jasperPrint, output);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ReportServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                new LogException(ex);
-            }
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
