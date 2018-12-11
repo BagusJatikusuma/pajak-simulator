@@ -204,8 +204,8 @@ public class EvaluasiUIController implements Initializable {
         List<SuratPerintah> suratPerintahs = new ArrayList<>();
         if (!tahunAnggaranField.getText().equals(""))
             suratPerintahs = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
-        else
-            suratPerintahs = suratPerintahService.getAllSuratPerintah();
+//        else
+//            suratPerintahs = suratPerintahService.getAllSuratPerintah();
         
         if (suratPerintahs.isEmpty()) {
             //beri popup notif bahwa data tidak ada
