@@ -69,7 +69,14 @@ public class UIController implements Initializable {
         
         FileChooser fileChooser = new FileChooser();
         configureFileChooser(fileChooser);
-        fileChooser.showOpenDialog(primaryStage);
+        File sqlFile = fileChooser.showOpenDialog(primaryStage);
+        
+        if (sqlFile == null) {
+            System.out.println("Ada kesalahan dalam memilih file");
+            return;
+        }
+        
+        
         
     }
     
@@ -83,7 +90,7 @@ public class UIController implements Initializable {
                 new File(System.getProperty("user.home"))
             );                 
             fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("DB", "*.db")
+                new FileChooser.ExtensionFilter("SQL FILE", "*.sql")
             );
     }
     
