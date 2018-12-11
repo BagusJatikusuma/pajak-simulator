@@ -7,6 +7,7 @@ package com.bekasidev.app.viewfx.javafxapplication.mainmenu;
 
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.ExportImportService;
+import com.bekasidev.app.view.util.SessionProvider;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,12 +23,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
+import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
 import java.io.File;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -78,27 +82,74 @@ public class UIController implements Initializable {
         File sqlFile = fileChooser.showOpenDialog(primaryStage);
         
         if (sqlFile == null) {
-            System.out.println("Ada kesalahan dalam memilih file");
+            showErrorNotif("Ada kesalahan dalam memilih file");
             return;
         }
         
-        try {
-            exportImportService.importData(sqlFile);
-        } catch (IOException ex) {
-            System.out.println("ada masalah ketika mengimport data");
-            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Stage stage = initLoadingScreen("SEDANG MENGIMPORT DATA...");
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    exportImportService.importData(sqlFile);
+                } catch (IOException ex) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            stage.close();
+                            showErrorNotif("ada masalah ketika mengimport data");
+                        }
+                    });
+                    Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                        showErrorNotif("import data berhasil");
+                    }
+                });
+            }
+            
+        };
+        t.start();
         
     }
     
     public void exportDatabase() {
         System.out.println("export data");
-        try {
-            exportImportService.exportData();
-        } catch (IOException ex) {
-            System.out.println("ada masalah saat mengexport data");
-            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Stage stage = initLoadingScreen("SEDANG MENGEXPORT DATA...");
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    
+                    exportImportService.exportData();
+                } catch (IOException ex) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            stage.close();
+                            showErrorNotif("ada masalah saat mengexport data");
+                        }
+                    });
+                    
+                    Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        stage.close();
+                        showErrorNotif("export data berhasil");
+                    }
+                });
+            }
+            
+        };
+        t.start();
+        
     }
     
     private void configureFileChooser(final FileChooser fileChooser) {      
@@ -243,6 +294,42 @@ public class UIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rootpane.getChildren().add(contentPane);
+    }
+    
+    private void showErrorNotif(String errMessage) {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", errMessage);
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+    }
+    
+    private Stage initLoadingScreen(String message) {
+        if (message != null) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_loading", message);
+        }
+        Pane contentPane = null;
+        try { 
+            contentPane
+                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoadingScreenExportImport.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(contentPane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        
+        return stage;
     }
     
 }

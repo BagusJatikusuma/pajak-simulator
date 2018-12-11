@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="408.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.mainmenu.LoadingScreenExportImportController">
+   <children>
+      <Text fx:id="notifText" layoutX="100.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEDANG MENGIMPORT DATA..." wrappingWidth="207.7294921875">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Text>
+   </children>
+   <stylesheets>
+      <URL value="@/styles/loadingtest.css" />
+   </stylesheets>
+</AnchorPane>
