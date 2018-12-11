@@ -1,4 +1,3 @@
-
 INSERT INTO `wajib_pajak` (`id_wp`, `nama_wp`, `jenis_wp`, `alamat_jalan`, `alamat_kecamatan`, `alamat_desa`, `nama_pemilik`, `telepon`, `fax`, `tahun_operasional`) VALUES
 ('P.1.0000006.06.07', 'ABDUL AZIS / PARKIR', 2, 'Jl. Mekarsari RT/RW : 003/02, Mekarsari, Kecamatan Tambun Selatan Kab. BEKASI Telp.021-88361783', 'Kecamatan Tambun Selatan', '', 'ABDUL AZIS / PARKIR', '', '', '0'),
 ('P.1.0000007.13.03', 'ADE SUDIBYO', 5, 'Kp. Tegal Pacing RT/RW : 007/02, Sumberreja, Kecamatan Pebayuran Kab. BEKASI                                                                                                                                                                              ', 'Kecamatan Pebayuran', '', 'ADE SUDIBYO', '', '', '0'),

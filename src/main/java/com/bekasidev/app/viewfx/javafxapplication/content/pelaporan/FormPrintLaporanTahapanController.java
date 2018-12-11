@@ -27,7 +27,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -94,6 +96,8 @@ public class FormPrintLaporanTahapanController implements Initializable {
             }
         }
         
+        Collections.sort(tahapList);
+        
         tahapAwalCB.setItems(FXCollections.observableArrayList(tahapList));
         tahapAkhirCB.setItems(FXCollections.observableArrayList(tahapList));
         
@@ -127,6 +131,7 @@ public class FormPrintLaporanTahapanController implements Initializable {
                 .put("tahun_anggaran", Integer.valueOf(suratPerintahList.get(0).getTahunAnggaranSK()));
         
         List<SPColumnPelaporan> spColumns = new ArrayList<>();
+        List<SPColumnPelaporan> spColumnsOrdered = new ArrayList<>();
         for (SuratPerintah sp : suratPerintahList) {
             SPColumnPelaporan objSPColumn = new SPColumnPelaporan();
             
@@ -224,7 +229,47 @@ public class FormPrintLaporanTahapanController implements Initializable {
             
         }
         
-        SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
+        //proses sorting 
+        Map<Integer, SPColumnPelaporan> spColumnMapper = new HashMap<>();
+        List<Integer> tempList = new ArrayList<>();
+        for (SPColumnPelaporan sp : spColumns) {
+            Integer tahapTerbilang = 0;
+            switch(sp.getTahap()) {
+                case "Pertama" : tahapTerbilang = 1; break;
+                case "Kedua" : tahapTerbilang = 2; break;
+                case "Ketiga" : tahapTerbilang = 3; break;
+                case "Keempat" : tahapTerbilang = 4; break;
+                case "Kelima" : tahapTerbilang = 5; break;
+                case "Keenam" : tahapTerbilang = 6; break;
+                case "Ketujuh" : tahapTerbilang = 7; break;
+                case "Kedelapan" : tahapTerbilang = 8; break;
+                case "Kesembilan" : tahapTerbilang = 9; break;
+                case "Kesepuluh" : tahapTerbilang = 10; break;
+                case "Kesebelas": tahapTerbilang = 11; break;
+                case "Keduabelas" : tahapTerbilang = 12; break;
+                default : tahapTerbilang = 0; break;
+            }
+            
+            boolean isExist = false;
+            for (Integer intObj : tempList) {
+                if (tahapTerbilang.intValue() == intObj.intValue()) {
+                    isExist = true;
+                    break;
+                }
+            }
+            
+            if (!isExist) {
+                spColumnMapper.put(tahapTerbilang, sp);
+                tempList.add(tahapTerbilang);
+            }
+        }
+        Collections.sort(tempList);
+        for (Integer tahapInt : tempList) {
+            spColumnsOrdered.add(spColumnMapper.get(tahapInt));
+        }
+        //selesai sorting
+//        SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumns);
+        SessionProvider.getGlobalSessionsMap().put("evaluasi_wrapper", spColumnsOrdered);
         
         Stage stage = initLoadingScreen();
         Thread t = new Thread(){
