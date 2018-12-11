@@ -11,6 +11,7 @@ import com.bekasidev.app.service.backend.ExportImportService;
 import com.bekasidev.app.wrapper.ExportDokumenWrapper;
 import com.bekasidev.app.wrapper.RekapitulasiExport;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -27,21 +28,22 @@ public class ExportImportServiceImpl implements ExportImportService {
     @Override
     public void exportData() throws IOException {
         List<SuratPerintah> listSP = suratPerintahDao.getSPForExport();
-        ExportDokumenWrapper exportDokumenWrapper;
-        List<String> lines = new ArrayList<>();
-        lines.add(getIdSP(listSP));
-        lines.add(getSqlSuratPerintah(listSP));
-        lines.add(getSqlTimSp(listSP));
-        lines.add(getSqlBerkasPersiapan(listSP));
-        lines.add(getSqlNomorBerkas(listSP));
-        lines.add(getSqlRekapitulasi(rekapitulasiDao.getAllRekapitulasi()));
-        Path file = Paths.get("file-exported.sql");
-        Files.write(file, lines, Charset.forName("UTF-8"));
-        exportImportDao.setExported();
+        if(listSP.size()>0){
+            List<String> lines = new ArrayList<>();
+            lines.add(getIdSP(listSP));
+            lines.add(getSqlSuratPerintah(listSP));
+            lines.add(getSqlTimSp(listSP));
+            lines.add(getSqlBerkasPersiapan(listSP));
+            lines.add(getSqlNomorBerkas(listSP));
+            lines.add(getSqlRekapitulasi(rekapitulasiDao.getAllRekapitulasi()));
+            Path file = Paths.get("file-exported.sql");
+            Files.write(file, lines, Charset.forName("UTF-8"));
+            exportImportDao.setExported();
+        }
     }
 
     @Override
-    public void importData() throws IOException {
+    public void importData(File file) throws IOException {
         List<String> lines =  Files.readAllLines(Paths.get("file-exported.sql"));
         String sql = "";
         String sqlDeleteRekap = "", sqlDeleteBerkas = "", sqlDeleteNomor = "", sqlDeleteTim = "", sqlDeleteSP = "";
