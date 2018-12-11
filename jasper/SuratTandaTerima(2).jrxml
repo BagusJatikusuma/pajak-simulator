@@ -185,7 +185,7 @@
 				<text><![CDATA[Telah menerima Surat Pemberitahuan Hasil Pemeriksaan (SPHP) mengenai :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="315" y="494" width="160" height="80" uuid="66212a14-87e0-42fd-86a4-4e7a6acc12b0"/>
+				<reportElement x="315" y="494" width="160" height="90" uuid="66212a14-87e0-42fd-86a4-4e7a6acc12b0"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
@@ -198,6 +198,7 @@
 				<reportElement positionType="Float" x="0" y="404" width="535" height="70" uuid="de86e2b8-e293-43f4-84f0-6cfd61eeb734"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Yang diperiksa sesuai dengan Surat Perintah Pemeriksaan dari " + $P{penandatangan} + " Daerah Kabupaten Bekasi Nomor : " + $P{nomor_sp} + " tanggal " + $P{tanggal_sp}]]></textFieldExpression>
 			</textField>

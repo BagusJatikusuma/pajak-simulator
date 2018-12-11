@@ -110,6 +110,7 @@ public class ReportServiceImpl implements ReportService {
             switch(wp.getJenisWp()){
                 case 0: parameter.put("jenis_wp", "Restoran");break;
                 case 1: parameter.put("jenis_wp", "Hotel");break;
+                case 2: parameter.put("jenis_wp", "Parkir");break;
             }
             
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -211,6 +212,7 @@ public class ReportServiceImpl implements ReportService {
             switch(wp.getJenisWp()){
                 case 0: parameter.put("jenis_wp", "Restoran");break;
                 case 1: parameter.put("jenis_wp", "Hotel");break;
+                case 2: parameter.put("jenis_wp", "Parkir");break;
             }
             
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -1198,6 +1200,7 @@ public class ReportServiceImpl implements ReportService {
             switch(wp.getJenisWp()){
                 case 0: parameter.put("jenis_wp", "Restoran");break;
                 case 1: parameter.put("jenis_wp", "Hotel");break;
+                case 2: parameter.put("jenis_wp", "Parkir");break;
             }
 
             JasperPrint jasperPrint;
@@ -1315,6 +1318,7 @@ public class ReportServiceImpl implements ReportService {
             switch(wp.getJenisWp()){
                 case 0: parameter.put("jenis_wp", "Restoran");break;
                 case 1: parameter.put("jenis_wp", "Hotel");break;
+                case 2: parameter.put("jenis_wp", "Parkir");break;
             }
             
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -1423,6 +1427,7 @@ public class ReportServiceImpl implements ReportService {
             switch(pelaksanaanWrapper.getWpSelected().getJenisWp()){
                 case 0: parameter.put("jenis_pajak", "Restoran");break;
                 case 1: parameter.put("jenis_pajak", "Hotel");break;
+                case 2: parameter.put("jenis_pajak", "Parkir");break;
             }
             
             parameter.put("masa_pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -1546,6 +1551,7 @@ public class ReportServiceImpl implements ReportService {
             switch(pelaksanaanWrapper.getWpSelected().getJenisWp()){
                 case 0: parameter.put("jenis_pajak", "Restoran");break;
                 case 1: parameter.put("jenis_pajak", "Hotel");break;
+                case 2: parameter.put("jenis_pajak", "Parkir");break;
             }
             
             parameter.put("masa_pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -2191,6 +2197,7 @@ public class ReportServiceImpl implements ReportService {
             switch(pelaksanaanWrapper.getWpSelected().getJenisWp()){
                 case 0: parameter.put("jenis_pajak", "Restoran");break;
                 case 1: parameter.put("jenis_pajak", "Hotel");break;
+                case 2: parameter.put("jenis_pajak", "Parkir");break;
             }
             
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
@@ -2693,6 +2700,7 @@ public class ReportServiceImpl implements ReportService {
             switch(wajibPajak.getJenisWp()){
                 case 0: parameter.put("jenis_wp", "Restoran");break;
                 case 1: parameter.put("jenis_wp", "Hotel");break;
+                case 2: parameter.put("jenis_wp", "Parkir");break;
             }
             
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
@@ -3163,7 +3171,7 @@ public class ReportServiceImpl implements ReportService {
                     + " " + String.valueOf(persiapanWrapper.getMasaPajakAkhirTahun()));
             parameter.put("tahap_ke", new ConverterHelper().toRoman(persiapanWrapper.getTahapKe()));
             parameter.put("lama_pelaksanaan", String.valueOf(persiapanWrapper.getLamaPelaksanaan()));
-            parameter.put("lama_pelaksanaan_terbilang", "( " + new ConverterHelper().angkaToTerbilang(Long.valueOf(persiapanWrapper.getLamaPelaksanaan())) + " )");
+            parameter.put("lama_pelaksanaan_terbilang", "( " + new ConverterHelper().angkaToTerbilang(Long.valueOf(persiapanWrapper.getLamaPelaksanaan())) + ")");
             parameter.put("biaya_tahun_apbd", String.valueOf(persiapanWrapper.getBiayaTahunAPBD()));
             parameter.put("biaya_nomor_apbd", persiapanWrapper.getBiayaNomorAPBD());
             parameter.put("biaya_tanggal_apbd", String.valueOf(df_biaya_tanggal_apbd.format(persiapanWrapper.getBiayaTanggalAPBD())));
