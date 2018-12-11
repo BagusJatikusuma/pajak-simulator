@@ -53,16 +53,16 @@ public class ExportImportServiceImpl implements ExportImportService {
             sqlDeleteTim += "DELETE FROM tim_perintah WHERE id_sp='" + id + "';";
             sqlDeleteSP += "DELETE FROM surat_perintah WHERE id_sp='" + id + "';";
         }
-//        exportImportDao.importData(sqlDeleteRekap);
-//        exportImportDao.importData(sqlDeleteBerkas);
-//        exportImportDao.importData(sqlDeleteNomor);
-//        exportImportDao.importData(sqlDeleteTim);
-//        exportImportDao.importData(sqlDeleteSP);
+        exportImportDao.importData(sqlDeleteRekap);
+        exportImportDao.importData(sqlDeleteBerkas);
+        exportImportDao.importData(sqlDeleteNomor);
+        exportImportDao.importData(sqlDeleteTim);
+        exportImportDao.importData(sqlDeleteSP);
         for(int i =1; i < lines.size();i++){
             sql += lines.get(i);
         }
 //        System.out.println(sql);
-//        exportImportDao.importData(sql);
+        exportImportDao.importData(sql);
     }
 
     private String getIdSP(List<SuratPerintah> listSP){
