@@ -200,9 +200,13 @@ public class EvaluasiUIController implements Initializable {
         action.setCellValueFactory(new PropertyValueFactory<EvaluasiTableWrapper, String>("action"));
     }
     
-    private void cariSPBasedTahun() {
-        List<SuratPerintah> suratPerintahs 
-                = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
+    public void cariSPBasedTahun() {
+        List<SuratPerintah> suratPerintahs = new ArrayList<>();
+        if (!tahunAnggaranField.getText().equals(""))
+            suratPerintahs = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
+        else
+            suratPerintahs = suratPerintahService.getAllSuratPerintah();
+        
         if (suratPerintahs.isEmpty()) {
             //beri popup notif bahwa data tidak ada
             return;
