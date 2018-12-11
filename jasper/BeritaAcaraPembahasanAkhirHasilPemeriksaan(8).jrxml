@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeritaAcaraPembahasanAkhirHasilPemeriksaan(8)" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="50" bottomMargin="10" uuid="00bddd47-a695-4bfb-8c09-a936f2ebd40d">
 	<property name="ireport.zoom" value="1.0000000000000102"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2015"/>
+	<property name="ireport.y" value="96"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<subDataset name="anggota_tim" uuid="9060bb7b-95c1-47a5-bf9c-c31826ae95b7">
 		<field name="namaPegawai" class="java.lang.String"/>
@@ -91,7 +91,7 @@
 									<rightPen lineWidth="1.0"/>
 								</box>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{COLUMN_COUNT} + 1]]></textFieldExpression>
 							</textField>
@@ -108,7 +108,7 @@
 									<rightPen lineWidth="1.0"/>
 								</box>
 								<textElement verticalAlignment="Middle">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
@@ -125,7 +125,7 @@
 									<rightPen lineWidth="1.0"/>
 								</box>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{nipPegawai}]]></textFieldExpression>
 							</textField>
@@ -142,7 +142,7 @@
 									<rightPen lineWidth="1.0"/>
 								</box>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 							</textField>
@@ -344,7 +344,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[No.]]></text>
 			</staticText>
@@ -357,7 +357,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NAMA]]></text>
 			</staticText>
@@ -370,7 +370,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NIP]]></text>
 			</staticText>
@@ -383,7 +383,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[JABATAN]]></text>
 			</staticText>
@@ -396,7 +396,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["1."]]></textFieldExpression>
 			</textField>
@@ -409,7 +409,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nama}]]></textFieldExpression>
 			</textField>
@@ -422,7 +422,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nip}]]></textFieldExpression>
 			</textField>
@@ -435,7 +435,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Supervisor"]]></textFieldExpression>
 			</textField>

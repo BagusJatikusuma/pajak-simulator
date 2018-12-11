@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPernyataan(1)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="75" bottomMargin="30" uuid="180a6031-2dae-499c-b73e-890ac95d72f8">
 	<property name="ireport.zoom" value="1.100000000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="330"/>
+	<property name="ireport.y" value="217"/>
 	<parameter name="nama_wajib_pajak" class="java.lang.String"/>
 	<parameter name="npwpd_wajib_pajak" class="java.lang.String"/>
 	<parameter name="alamat_wajib_pajak" class="java.lang.String"/>
