@@ -108,7 +108,6 @@ public class App extends Application
 //            primaryStage.setMaximized(true);
             primaryStage.setWidth(primaryScreenBounds.getWidth());
             primaryStage.setHeight(primaryScreenBounds.getHeight());
-            
             ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(
                     new RekapitulasiWrapper(),
                     new Date((long) 1534788900526.0),
