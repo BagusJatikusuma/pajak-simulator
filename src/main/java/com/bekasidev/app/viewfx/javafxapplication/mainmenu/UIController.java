@@ -21,9 +21,11 @@ import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
+import java.io.File;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -58,6 +60,31 @@ public class UIController implements Initializable {
     public void closeApp(ActionEvent actionEvent) {
         Platform.exit();
         System.exit(0);
+    }
+    
+    public void importDatabase() {
+        System.out.println("Import database");
+        Pane rootpane = (Pane) mainmenu.getParent();
+        Stage primaryStage = (Stage) rootpane.getScene().getWindow();
+        
+        FileChooser fileChooser = new FileChooser();
+        configureFileChooser(fileChooser);
+        fileChooser.showOpenDialog(primaryStage);
+        
+    }
+    
+    public void exportDatabase() {
+        
+    }
+    
+    private void configureFileChooser(final FileChooser fileChooser) {      
+            fileChooser.setTitle("Import database");
+            fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+            );                 
+            fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("DB", "*.db")
+            );
     }
     
     public void openPersiapanPajakHotel(ActionEvent actionEvent) {
