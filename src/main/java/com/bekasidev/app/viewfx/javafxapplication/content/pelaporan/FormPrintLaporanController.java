@@ -68,6 +68,7 @@ public class FormPrintLaporanController implements Initializable {
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         setToGroup();
         setDefaultSelected();
+        setTahunAnggaranLabel();
     }
 
     private void setDefaultSelected() {
@@ -79,6 +80,18 @@ public class FormPrintLaporanController implements Initializable {
         
         tahapRB.setToggleGroup(group);
         tahunAnggaranRB.setToggleGroup(group);
+    }
+    
+    private void setTahunAnggaranLabel() {
+        Map<String, PelaporanWrapper> pelaporanMapper
+            = (Map<String, PelaporanWrapper>) SessionProvider
+                .getGlobalSessionsMap()
+                .get("pelaporan_mapper");
+        List<PelaporanWrapper> pelaporanWrappers
+                = new ArrayList<>(pelaporanMapper.values());
+        tahunAnggaranRB.setText(
+                tahunAnggaranRB.getText()
+                        +" "+pelaporanWrappers.get(0).getSuratPerintahSelected().getTahunAnggaranSK());
     }
     
     public void nextStagePrintPelaporan() {
@@ -149,7 +162,7 @@ public class FormPrintLaporanController implements Initializable {
                         if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
                             rekapitulasiService.getTotalRekapitulasi(rekapWrapper);
                             obj.setTemuanHasil(formatter.format(new BigDecimal(rekapWrapper.getTotalJumlah().doubleValue())) + ",00");
-                        } else obj.setTemuanHasil("Belum ada temuan");
+                        } else obj.setTemuanHasil("Masih dalam proses");
                         
                         if (wajibPajaks.get(i).getNomorBerkas().getNomorSKPD()!= null)
                             obj.setNomorSKPD(wajibPajaks.get(i).getNomorBerkas().getNomorSKPD());

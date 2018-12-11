@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="510.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanController">
+<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="510.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanController">
     <stylesheets>
         <URL value="@/styles/formprintlaporan.css" />
     </stylesheets>

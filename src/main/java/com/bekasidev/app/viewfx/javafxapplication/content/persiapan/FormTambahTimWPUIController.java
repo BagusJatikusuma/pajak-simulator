@@ -61,6 +61,8 @@ public class FormTambahTimWPUIController implements Initializable {
     @FXML private ChoiceBox pilihTimField;
     @FXML private TextField cariWPField;
     private ObservableList<PersiapanPilihWPTableWrapper> dataCollection;
+    //digunakan sebagai penampung data hasil pencarian
+    private ObservableList<PersiapanPilihWPTableWrapper> filteredCollection;
     private WajibPajakService wpService;
     private PegawaiService pegawaiService;
     
@@ -69,6 +71,7 @@ public class FormTambahTimWPUIController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addFromFXML();
+        populateDataChoiceBox();
         populateData();
         associateDataWithColumn();
         PersiapanPilihWPTable.setItems(dataCollection);
@@ -84,7 +87,16 @@ public class FormTambahTimWPUIController implements Initializable {
     }
     
     public void resetTable() {
-        populateData();
+//        populateData();
+        //synchronkan dengan perubahan pada tabel hasil pencarian
+        for (PersiapanPilihWPTableWrapper pwFilter : filteredCollection) {
+            for (PersiapanPilihWPTableWrapper pw : dataCollection) {
+                if (pw.getIdWP().equals(pwFilter.getIdWP())) {
+                    pw.getPilih().setSelected(pwFilter.getPilih().isSelected());
+                    break;
+                }
+            }
+        }
         PersiapanPilihWPTable.setItems(dataCollection);
     }
     
@@ -179,12 +191,12 @@ public class FormTambahTimWPUIController implements Initializable {
         wpService = ServiceFactory.getWajibPajakService();
         List<WajibPajak> wajibPajaks = wpService.getAllWP();
         
-        pegawaiService = ServiceFactory.getPegawaiService();
-        List<Pegawai> pegawais = pegawaiService.getAllPegawai();
-        
-        ObservableList<Pegawai> calonPenanggungJawab = FXCollections.observableArrayList();
-        ObservableList<Pegawai> calonSupervisor = FXCollections.observableArrayList();
-        ObservableList<Tim> calonTims = FXCollections.observableArrayList();
+//        pegawaiService = ServiceFactory.getPegawaiService();
+//        List<Pegawai> pegawais = pegawaiService.getAllPegawai();
+//        
+//        ObservableList<Pegawai> calonPenanggungJawab = FXCollections.observableArrayList();
+//        ObservableList<Pegawai> calonSupervisor = FXCollections.observableArrayList();
+//        ObservableList<Tim> calonTims = FXCollections.observableArrayList();
         
         dataCollection = FXCollections.observableArrayList();
         
@@ -228,6 +240,53 @@ public class FormTambahTimWPUIController implements Initializable {
             ));
         }
         
+//        for (Pegawai obj : pegawais) {
+//            calonPenanggungJawab.add(obj);
+//            calonSupervisor.add(obj);
+//        }
+//        List<Tim> tims = pegawaiService.getAllTim();
+//        for (Tim obj : tims) {
+//            calonTims.add(obj);
+//        }
+//        
+//        pilihPenanggungJawabField.setItems(calonPenanggungJawab);
+//        pilihSupervisorField.setItems(calonSupervisor);
+//        pilihTimField.setItems(calonTims);
+//        
+//        if (timWPWrapper != null) {
+//            for (Pegawai obj : pegawais) {
+//                if (obj.getNipPegawai().equals(timWPWrapper.getPenanggungJawab().getNipPegawai())) {
+//                    pilihPenanggungJawabField.getSelectionModel().select(obj);
+//                }
+//                if (obj.getNipPegawai().equals(timWPWrapper.getSupervisor().getNipPegawai())) {
+//                    pilihSupervisorField.getSelectionModel().select(obj);
+//                }
+//                
+//            }
+//            
+//            for (Tim obj : tims) {
+//                if (obj.getIdTim().equals(timWPWrapper.getTim().getIdTim())) {
+//                    pilihTimField.getSelectionModel().select(obj);
+//                }
+//            }
+//                        
+//        }
+        
+    }
+    
+    private void populateDataChoiceBox() {
+        TimWPWrapper timWPWrapper
+                = (TimWPWrapper) SessionProvider
+                            .getGlobalSessionsMap()
+                            .get("atur_tim_wp_selected");
+        
+        pegawaiService = ServiceFactory.getPegawaiService();
+        List<Pegawai> pegawais = pegawaiService.getAllPegawai();
+        
+        ObservableList<Pegawai> calonPenanggungJawab = FXCollections.observableArrayList();
+        ObservableList<Pegawai> calonSupervisor = FXCollections.observableArrayList();
+        ObservableList<Tim> calonTims = FXCollections.observableArrayList();
+        
         for (Pegawai obj : pegawais) {
             calonPenanggungJawab.add(obj);
             calonSupervisor.add(obj);
@@ -263,7 +322,7 @@ public class FormTambahTimWPUIController implements Initializable {
     }
     
     private ObservableList<PersiapanPilihWPTableWrapper> populateDataBasedSearch() {
-        ObservableList<PersiapanPilihWPTableWrapper> filteredCollection = FXCollections.observableArrayList();
+        filteredCollection = FXCollections.observableArrayList();
         String searchText = cariWPField.getText().toLowerCase();
         
         for (Iterator it = dataCollection.iterator(); it.hasNext();) {

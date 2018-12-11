@@ -158,7 +158,7 @@ public class FormPrintLaporanTahapanController implements Initializable {
                         if (!rekapWrapper.getListRekapitulasi().isEmpty()) {
                             rekapitulasiService.getTotalRekapitulasi(rekapWrapper);
                             obj.setTemuanHasil(formatter.format(new BigDecimal(rekapWrapper.getTotalJumlah().doubleValue())) + ",00");
-                        } else obj.setTemuanHasil("Belum ada temuan");
+                        } else obj.setTemuanHasil("Masih dalam proses");
                         
                         if (wajibPajaks.get(i).getNomorBerkas().getNomorSKPD()!= null)
                             obj.setNomorSKPD(wajibPajaks.get(i).getNomorBerkas().getNomorSKPD());
