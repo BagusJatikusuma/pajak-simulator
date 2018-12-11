@@ -172,7 +172,7 @@ public class EvaluasiUIController implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Form Detail Evaluasi");
                     stage.setScene(new Scene(contentPane));
-                    
+                    stage.resizableProperty().setValue(Boolean.FALSE);
                     stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();

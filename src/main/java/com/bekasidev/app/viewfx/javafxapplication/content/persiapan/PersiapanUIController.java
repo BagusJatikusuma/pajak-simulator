@@ -206,7 +206,7 @@ public class PersiapanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
-        
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
