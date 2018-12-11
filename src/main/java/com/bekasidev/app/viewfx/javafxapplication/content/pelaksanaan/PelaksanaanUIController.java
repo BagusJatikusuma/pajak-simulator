@@ -228,6 +228,7 @@ public class PelaksanaanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
@@ -305,6 +306,7 @@ public class PelaksanaanUIController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         
