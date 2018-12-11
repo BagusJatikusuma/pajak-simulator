@@ -5,6 +5,8 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.mainmenu;
 
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.ExportImportService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,12 +44,16 @@ public class UIController implements Initializable {
     @FXML private MenuItem wajibPajakMenuItem;
     @FXML private MenuItem timPemeriksaMenuItem;
     @FXML private MenuItem pegawaiMenuItem;
+    
+    private ExportImportService exportImportService;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        exportImportService = ServiceFactory.getExportImportService();
+        
         closeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCodeCombination.CONTROL_DOWN));
         persiapanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT1, KeyCodeCombination.CONTROL_DOWN));
         pelaksanaanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCodeCombination.CONTROL_DOWN));
@@ -76,12 +82,23 @@ public class UIController implements Initializable {
             return;
         }
         
-        
+        try {
+            exportImportService.importData(sqlFile);
+        } catch (IOException ex) {
+            System.out.println("ada masalah ketika mengimport data");
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
     public void exportDatabase() {
-        
+        System.out.println("export data");
+        try {
+            exportImportService.exportData();
+        } catch (IOException ex) {
+            System.out.println("ada masalah saat mengexport data");
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void configureFileChooser(final FileChooser fileChooser) {      
