@@ -128,7 +128,7 @@ public class DetailEvaluasiUIController implements Initializable {
             temuanField.setText("Rp"+formatter.format(new BigDecimal(rekapWrapper.getTotalJumlah().doubleValue())));
         }
         else {
-            temuanField.setText("Belum ada temuan");
+            temuanField.setText("Masih dalam proses");
         }
         
         nomorSKPDField.setText(wrapper.getWpSelected().getNomorBerkas().getNomorSKPD());
