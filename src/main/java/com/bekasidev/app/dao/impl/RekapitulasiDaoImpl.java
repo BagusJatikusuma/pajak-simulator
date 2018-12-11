@@ -3,6 +3,7 @@ package com.bekasidev.app.dao.impl;
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.RekapitulasiDao;
 import com.bekasidev.app.model.Rekapitulasi;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.wrapper.RekapitulasiExport;
 import com.bekasidev.app.wrapper.RekapitulasiWrapper;
@@ -43,6 +44,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
                 i += 12;
             }
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(rekapitulasiWrapper.getIdSP());
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -129,6 +131,7 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
             pstm.setString(2, idSP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);

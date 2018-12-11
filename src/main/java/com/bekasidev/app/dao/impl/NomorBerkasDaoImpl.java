@@ -4,6 +4,7 @@ import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.model.NomorBerkas;
 import com.bekasidev.app.model.Surat;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.util.LogException;
 
 import java.sql.Connection;
@@ -70,6 +71,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.setString(4, idWP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -86,6 +88,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.setString(2, idSP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -109,6 +112,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.setString(7, idWP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -128,6 +132,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             pstm.setString(4, idWP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);

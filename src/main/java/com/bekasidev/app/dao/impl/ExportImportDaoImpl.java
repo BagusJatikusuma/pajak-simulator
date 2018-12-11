@@ -36,4 +36,20 @@ public class ExportImportDaoImpl implements ExportImportDao {
             new LogException(e);
         }
     }
+
+    @Override
+    public void setExportable(String idSP) {
+        String sql = "UPDATE surat_perintah SET exported=? WHERE id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setShort(1, (short) 0);
+            pstm.setString(2, idSP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new LogException(e);
+        }
+    }
 }

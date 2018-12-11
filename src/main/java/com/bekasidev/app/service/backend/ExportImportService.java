@@ -11,4 +11,5 @@ public interface ExportImportService {
 
     void exportData() throws IOException;
     void importData(File file) throws IOException;
+    void setExportable(String idSP);
 }

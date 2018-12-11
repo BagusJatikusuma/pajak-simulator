@@ -44,7 +44,7 @@ public class ExportImportServiceImpl implements ExportImportService {
 
     @Override
     public void importData(File file) throws IOException {
-        List<String> lines =  Files.readAllLines(Paths.get("file-exported.sql"));
+        List<String> lines =  Files.readAllLines(file.toPath());
         String sql = "";
         String sqlDeleteRekap = "", sqlDeleteBerkas = "", sqlDeleteNomor = "", sqlDeleteTim = "", sqlDeleteSP = "";
         String[] idSP = lines.get(0).split(",");
@@ -65,6 +65,11 @@ public class ExportImportServiceImpl implements ExportImportService {
         }
 //        System.out.println(sql);
         exportImportDao.importData(sql);
+    }
+
+    @Override
+    public void setExportable(String idSP) {
+        exportImportDao.setExportable(idSP);
     }
 
     private String getIdSP(List<SuratPerintah> listSP){
@@ -102,8 +107,8 @@ public class ExportImportServiceImpl implements ExportImportService {
                     sp.getTahap() + "," +
                     sp.getLamaPelaksanaan() + ",'" +
                     sp.getTempat() + "','" +
-                    sp.getTanggalSurat() +
-                    1 + "')";
+                    sp.getTanggalSurat() + "'," +
+                    1 + ")";
             count += 1;
         }
         if(!sql.isEmpty()) sql += ";";

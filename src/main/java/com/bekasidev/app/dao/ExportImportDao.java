@@ -4,4 +4,6 @@ public interface ExportImportDao {
     void importData(String sql);
 
     void setExported();
+
+    void setExportable(String idSP);
 }

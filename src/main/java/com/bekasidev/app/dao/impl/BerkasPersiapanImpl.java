@@ -6,6 +6,7 @@ import com.bekasidev.app.model.BerkasPersiapan;
 import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.WajibPajak;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.wrapper.DokumenPersiapanWrapper;
 
@@ -49,6 +50,7 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.setString(3, setPinjamanToString(wajibPajak.getListPinjaman()));
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -64,6 +66,9 @@ public class BerkasPersiapanImpl implements BerkasPersiapanDao {
             pstm.setString(1, setPinjamanToString(wajibPajak.getListPinjaman()));
             pstm.setString(2, idSP);
             pstm.setString(3, wajibPajak.getNpwpd());
+
+            pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
