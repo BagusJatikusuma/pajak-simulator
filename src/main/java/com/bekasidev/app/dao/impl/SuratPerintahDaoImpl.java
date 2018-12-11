@@ -6,6 +6,7 @@ import com.bekasidev.app.dao.NomorBerkasDao;
 import com.bekasidev.app.dao.SuratPerintahDao;
 import com.bekasidev.app.dao.WajibPajakDao;
 import com.bekasidev.app.model.*;
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.util.LogException;
 
 import java.sql.*;
@@ -81,6 +82,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(2, tanggal);
             pstm.setString(3, idSP);
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -154,6 +156,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
 
             pstm.executeUpdate();
             setTim(timSP);
+            ServiceFactory.getExportImportService().setExportable(timSP.get(0).getIdSP());
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -190,6 +193,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(17, suratPerintah.getIdSP());
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(suratPerintah.getIdSP());
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -205,6 +209,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(1, idSP);
 
             pstm.executeUpdate();
+            ServiceFactory.getExportImportService().setExportable(idSP);
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -368,6 +373,8 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             new LogException(e);
         }
 
+        
+        
         return listSP;
     }
 

@@ -5,6 +5,8 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.mainmenu;
 
+import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.ExportImportService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,9 +23,11 @@ import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
+import java.io.File;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -40,12 +44,16 @@ public class UIController implements Initializable {
     @FXML private MenuItem wajibPajakMenuItem;
     @FXML private MenuItem timPemeriksaMenuItem;
     @FXML private MenuItem pegawaiMenuItem;
+    
+    private ExportImportService exportImportService;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        exportImportService = ServiceFactory.getExportImportService();
+        
         closeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCodeCombination.CONTROL_DOWN));
         persiapanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT1, KeyCodeCombination.CONTROL_DOWN));
         pelaksanaanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCodeCombination.CONTROL_DOWN));
@@ -58,6 +66,49 @@ public class UIController implements Initializable {
     public void closeApp(ActionEvent actionEvent) {
         Platform.exit();
         System.exit(0);
+    }
+    
+    public void importDatabase() {
+        System.out.println("Import database");
+        Pane rootpane = (Pane) mainmenu.getParent();
+        Stage primaryStage = (Stage) rootpane.getScene().getWindow();
+        
+        FileChooser fileChooser = new FileChooser();
+        configureFileChooser(fileChooser);
+        File sqlFile = fileChooser.showOpenDialog(primaryStage);
+        
+        if (sqlFile == null) {
+            System.out.println("Ada kesalahan dalam memilih file");
+            return;
+        }
+        
+        try {
+            exportImportService.importData(sqlFile);
+        } catch (IOException ex) {
+            System.out.println("ada masalah ketika mengimport data");
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void exportDatabase() {
+        System.out.println("export data");
+        try {
+            exportImportService.exportData();
+        } catch (IOException ex) {
+            System.out.println("ada masalah saat mengexport data");
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void configureFileChooser(final FileChooser fileChooser) {      
+            fileChooser.setTitle("Import database");
+            fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+            );                 
+            fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("SQL FILE", "*.sql")
+            );
     }
     
     public void openPersiapanPajakHotel(ActionEvent actionEvent) {
