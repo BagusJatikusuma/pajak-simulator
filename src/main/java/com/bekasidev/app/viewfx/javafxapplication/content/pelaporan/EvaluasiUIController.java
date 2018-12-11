@@ -35,6 +35,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -48,6 +49,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -60,6 +63,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -81,6 +85,8 @@ public class EvaluasiUIController implements Initializable {
     @FXML private TableColumn wp;
     @FXML private TableColumn action;
     
+    @FXML private TextField tahunAnggaranField;
+    
     private ReportService reportService;
     private RekapitulasiService rekapitulasiService;
     private NomorBerkasService nomorBerkasService;
@@ -99,15 +105,31 @@ public class EvaluasiUIController implements Initializable {
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         nomorBerkasService = ServiceFactory.getNomorBerkasService();
         
+        setFieldFormat();
+        initDefaultYear();
         populateData();
         associateDataWithColumn();
         
         evaluasiTable.setItems(dataCollection);
-    }    
+    }
+
+    private void setFieldFormat() {
+        tahunAnggaranField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                tahunAnggaranField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+    }
+    
+    private void initDefaultYear() {
+        tahunAnggaranField.setText(String.valueOf(LocalDate.now().getYear()));
+    }
 
     private void populateData() {
         dataCollection = FXCollections.observableArrayList();
-        List<SuratPerintah> suratPerintahs = suratPerintahService.getAllSuratPerintah();
+//        List<SuratPerintah> suratPerintahs = suratPerintahService.getAllSuratPerintah();
+        List<SuratPerintah> suratPerintahs 
+                = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
         int index = 1;
         for (SuratPerintah sp : suratPerintahs) {
             for (TimSP timSP : sp.getListTim()) {
@@ -176,6 +198,80 @@ public class EvaluasiUIController implements Initializable {
         tim.setCellValueFactory(new PropertyValueFactory<EvaluasiTableWrapper, String>("tim"));
         wp.setCellValueFactory(new PropertyValueFactory<EvaluasiTableWrapper, String>("wp"));
         action.setCellValueFactory(new PropertyValueFactory<EvaluasiTableWrapper, String>("action"));
+    }
+    
+    private void cariSPBasedTahun() {
+        List<SuratPerintah> suratPerintahs 
+                = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
+        if (suratPerintahs.isEmpty()) {
+            //beri popup notif bahwa data tidak ada
+            return;
+        }
+        //reset data collection dan pelaporan mapper
+        dataCollection.removeAll(dataCollection);
+        pelaporanMapper.clear();
+        
+        int index = 1;
+        for (SuratPerintah sp : suratPerintahs) {
+            for (TimSP timSP : sp.getListTim()) {
+                for (WajibPajak wp : timSP.getListWP()) {
+                    Button btn = new Button("Lihat Detail");
+                    dataCollection.add(new EvaluasiTableWrapper(
+                        String.valueOf(index),
+                        String.valueOf(sp.getTahap()),
+                        "800/"+sp.getNomorUrut()+"/Bapenda",
+                        timSP.getNamaTim(),
+                        wp.getNamaWajibPajak(),
+                        btn
+                    ));
+                    pelaporanMapper.put(
+                            String.valueOf(index), new PelaporanWrapper(sp,timSP,wp));
+                    index++;
+                }
+       
+            }
+            
+        }
+        
+        for (EvaluasiTableWrapper etw : dataCollection) {
+            Button btn = etw.getAction();
+            btn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent t) {
+                    PelaporanWrapper wrapper = pelaporanMapper.get(etw.getNo());
+                    SessionProvider
+                            .getGlobalSessionsMap()
+                            .put("pelaporan_wrapper", wrapper);
+                    
+                    Pane contentPane = null;
+                    try { 
+                        contentPane
+                                = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/DetailEvaluasiUI.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    Stage stage = new Stage();
+                    stage.setTitle("Form Detail Evaluasi");
+                    stage.setScene(new Scene(contentPane));
+                    
+                    stage.initStyle(StageStyle.UTILITY);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+                    
+                }
+            });
+        }
+        
+        Collections.sort(dataCollection, new Comparator<EvaluasiTableWrapper>() {
+            @Override
+            public int compare(EvaluasiTableWrapper t, EvaluasiTableWrapper t1) {
+                return Integer.valueOf(t.getTahapPemeriksaan())
+                        .compareTo(Integer.valueOf(t1.getTahapPemeriksaan()));
+            }
+        });
+        evaluasiTable.setItems(dataCollection);
+        evaluasiTable.refresh();
     }
     
     public void printEvaluasi() {
