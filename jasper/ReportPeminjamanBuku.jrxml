@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPeminjamanBuku" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
 	<property name="ireport.zoom" value="0.9090909090909179"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="44"/>
+	<property name="ireport.y" value="31"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -174,10 +174,10 @@
 				</staticText>
 				<textField>
 					<reportElement positionType="Float" x="66" y="293" width="469" height="30" uuid="c1822533-134c-44c4-9a77-49d346cfef80"/>
-					<textElement verticalAlignment="Top" markup="html">
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["&#09Sehubungan dengan Surat Perintah Pemeriksaan Pajak Daerah dari " + $P{penandatangan}.getJabatanDinas() + " Daerah Kabupaten Bekasi :"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Sehubungan dengan Surat Perintah Pemeriksaan Pajak Daerah dari " + $P{penandatangan}.getJabatanDinas() + " Daerah Kabupaten Bekasi :"]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement positionType="Float" x="66" y="332" width="56" height="15" uuid="735a001c-92bc-4122-a1f0-7acf870ed2b8"/>
@@ -223,31 +223,31 @@
 				</textField>
 				<staticText>
 					<reportElement positionType="Float" x="66" y="373" width="469" height="50" uuid="5c5d143e-4b4a-4eaa-abfe-9264b01de45b"/>
-					<textElement verticalAlignment="Top" markup="html">
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[&#09Maka untuk kelancaran jalannya pemeriksaan, dengan ini kami minta bantuan Saudara untuk meminjamkan buku-buku, catatan-catatan, dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang behubungan dengan Pajak Daerah yang telah Saudara pungut (daftar terlampir).]]></text>
+					<text><![CDATA[&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Maka untuk kelancaran jalannya pemeriksaan, dengan ini kami minta bantuan Saudara untuk meminjamkan buku-buku, catatan-catatan, dokumen yang menjadi dasar pembukuan atau pencatatan dan dokumen lain yang behubungan dengan Pajak Daerah yang telah Saudara pungut (daftar terlampir).]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="67" y="423" width="469" height="50" uuid="2fae2526-821d-458d-86b2-df56a4e84008"/>
-					<textElement verticalAlignment="Top" markup="html">
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[&#09Selanjutnya diharapkan agar buku-buku, catatan-catatan, dan dokumen yang diperlukan tersebut diatas sudah dapat kami terima selambat-lambatnya 2 (dua) hari setelah diterimanya surat ini. Kami harapkan agar Saudara dapat menyerahkan sesuai dengan batas waktu tersebut.]]></text>
+					<text><![CDATA[&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Selanjutnya diharapkan agar buku-buku, catatan-catatan, dan dokumen yang diperlukan tersebut diatas sudah dapat kami terima selambat-lambatnya 2 (dua) hari setelah diterimanya surat ini. Kami harapkan agar Saudara dapat menyerahkan sesuai dengan batas waktu tersebut.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="67" y="473" width="469" height="35" uuid="1c3e2558-03c7-485f-bd0a-815da2ccd446"/>
-					<textElement verticalAlignment="Top" markup="html">
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[&#09Buku-buku, catatan-catatan, dan dokumen tersebut diatas akan kami kembalikan secara utuh dan lengkap setelah Pemeriksaan selesai dilaksanakan.]]></text>
+					<text><![CDATA[&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Buku-buku, catatan-catatan, dan dokumen tersebut diatas akan kami kembalikan secara utuh dan lengkap setelah Pemeriksaan selesai dilaksanakan.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="68" y="508" width="469" height="20" uuid="baedc8ed-45a9-42ab-9cea-18109e2fa239"/>
-					<textElement verticalAlignment="Top" markup="html">
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 						<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[&#09Atas perhatian dan kerjasamanya yang baik, kami ucapkan terima kasih.]]></text>
+					<text><![CDATA[&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Atas perhatian dan kerjasamanya yang baik, kami ucapkan terima kasih.]]></text>
 				</staticText>
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="320" y="197" width="216" height="15" uuid="95900048-79cf-4526-8c8c-8cf3c0a74a5d"/>

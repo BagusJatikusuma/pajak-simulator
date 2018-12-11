@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
-	<property name="ireport.zoom" value="0.9090909090909268"/>
+	<property name="ireport.zoom" value="0.5131581182307182"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="36"/>
+	<property name="ireport.y" value="11"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<style name="table">
 		<box>
@@ -287,68 +287,56 @@
 				<text><![CDATA[Nomor]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="59" y="261" width="473" height="65" uuid="e795601c-f509-4288-a8ed-4928af56682a"/>
+				<reportElement positionType="Float" x="59" y="245" width="473" height="40" uuid="e795601c-f509-4288-a8ed-4928af56682a"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["&#09Menindaklanjuti Surat Perintah " + $P{penandatangan_jabatan} + " Daerah Kabupaten Bekasi Nomor " + $P{nomor_sp} + " tanggal " + $P{tanggal_sp} + " untuk melakukan pemeriksaan atas pemenuhan kewajiban Pajak Daerah, bersama ini kami sampaikan Daftar Temuan Hasil Pemeriksaan sebagaimana terlampir."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Menindaklanjuti Surat Perintah " + $P{penandatangan_jabatan} + " Daerah Kabupaten Bekasi Nomor " + $P{nomor_sp} + " tanggal " + $P{tanggal_sp} + " untuk melakukan pemeriksaan atas pemenuhan kewajiban Pajak Daerah, bersama ini kami sampaikan Daftar Temuan Hasil Pemeriksaan sebagaimana terlampir."]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement positionType="Float" x="59" y="326" width="474" height="105" uuid="169990e6-2e9a-4b79-938f-8bdeeb7f8194"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-				</textElement>
-				<text><![CDATA[&#09Terhadap hasil temuan pemeriksaan tersebut diatas, dan apabila menurut Saudara terdapat hal-hal yang kurang jelas, dan/atau Saudara mempunyai pendapat lain, maka Saudara dapat mengajukan argumentasi kepada kami untuk bersama-sama membahasnya. Mengingat hasil temuan pemeriksaan tersebut berkaitan dengan pemenuhan kewajiban Pajak Daerah yang harus disetor, untuk itu kepada saudara diberikan kesempatan untuk memberikan tanggapan secara tertulis kepada kami disertai data, bukti, dokumen yang mendukung selambat-lambatnya 3 (tiga) hari sejak diterimanya surat ini.]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="59" y="431" width="473" height="78" uuid="6e80079e-f8cf-4256-8e5a-482020d3c3a5"/>
+				<reportElement positionType="Float" x="60" y="345" width="472" height="40" uuid="6e80079e-f8cf-4256-8e5a-482020d3c3a5"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["&#09Bilamana dalam waktu yang kami sebutkan di atas, tanggapan sebagaimana yang kami harapkan tidak dapat saudara berikan, maka dianggap temuan hasil pemeriksaan tersebut telah Saudara setujui dan selanjutnya akan kami lakukan penetapan besarnya kewajiban penyetoran pajak Saudara sebesar <b>" + $P{total_pajak} + "</b>, sesuai hasil pemeriksaan kami."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Bilamana dalam waktu yang kami sebutkan di atas, tanggapan sebagaimana yang kami harapkan tidak dapat saudara berikan, maka dianggap temuan hasil pemeriksaan tersebut telah Saudara setujui dan selanjutnya akan kami lakukan penetapan besarnya kewajiban penyetoran pajak Saudara sebesar <b>" + $P{total_pajak} + "</b>, sesuai hasil pemeriksaan kami."]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="274" y="538" width="258" height="20" uuid="166663fa-ca0f-406f-8e91-b6a1c88ae584"/>
+				<reportElement positionType="Float" x="273" y="445" width="258" height="20" uuid="166663fa-ca0f-406f-8e91-b6a1c88ae584"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="274" y="660" width="260" height="15" uuid="51f50ebe-739d-49ab-9bdc-9e183a772c92"/>
+				<reportElement positionType="Float" x="273" y="567" width="260" height="15" uuid="51f50ebe-739d-49ab-9bdc-9e183a772c92"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_pangkat}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="274" y="558" width="258" height="87" uuid="43c84e2c-c40c-4a7b-9308-97ed4ce718b4"/>
+				<reportElement positionType="Float" x="273" y="465" width="258" height="87" uuid="43c84e2c-c40c-4a7b-9308-97ed4ce718b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{jabatan_penandatangan_ttd} + " DAERAH KABUPATEN BEKASI"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="274" y="675" width="260" height="15" uuid="ba01a533-6c46-4a87-a1d3-c4cb164b6258"/>
+				<reportElement positionType="Float" x="273" y="582" width="260" height="15" uuid="ba01a533-6c46-4a87-a1d3-c4cb164b6258"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{penandatangan_nip}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="274" y="645" width="260" height="15" uuid="a1d05f59-d42b-4eb7-9296-bb2ba715dc78"/>
+				<reportElement positionType="Float" x="273" y="552" width="260" height="15" uuid="a1d05f59-d42b-4eb7-9296-bb2ba715dc78"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penandatangan_nama}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement positionType="Float" x="59" y="509" width="473" height="20" uuid="09088837-3b71-4bcd-90c1-17ffc5310b8c"/>
-				<textElement markup="html">
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
-				</textElement>
-				<text><![CDATA[&#09Atas perhatian Saudara, kami ucapkan terima kasih.]]></text>
-			</staticText>
 			<image hAlign="Center" vAlign="Middle">
 				<reportElement x="0" y="0" width="126" height="86" uuid="e90c3d12-d619-4fca-ad2b-1cd9219dd61c"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
@@ -389,6 +377,50 @@ www.kab-bekasi.go.id]]></text>
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[B E K A S I]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="60" y="295" width="472" height="40" uuid="45eb2aea-42a0-49c8-8ef9-479f4bc19a2f"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Terhadap hasil temuan pemeriksaan tersebut diatas, dan apabila menurut Saudara terdapat hal-hal yang kurang jelas, dan/atau Saudara mempunyai pendapat lain, maka Saudara dapat mengajukan argumentasi kepada kami untuk bersama-sama membahasnya. Mengingat hasil temuan pemeriksaan tersebut berkaitan dengan pemenuhan kewajiban Pajak Daerah yang harus disetor, untuk itu kepada saudara diberikan kesempatan untuk memberikan tanggapan secara tertulis kepada kami disertai data, bukti, dokumen yang mendukung selambat-lambatnya 3 (tiga) hari sejak diterimanya surat ini."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="60" y="395" width="472" height="20" uuid="0e915890-f40d-4e31-8551-722704d6dac7"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Atas perhatian Saudara, kami ucapkan terima kasih."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="285" width="528" height="10" uuid="0e17dca1-34b4-4974-8ac6-5fcfb408b3a5"/>
+				<textElement>
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="335" width="528" height="10" uuid="1c90aedd-a12c-4ea7-a22c-75d1a8fb076f"/>
+				<textElement>
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="385" width="528" height="10" uuid="8a7ac468-7570-4338-92e0-d48bff783c35"/>
+				<textElement>
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="415" width="528" height="30" uuid="496475e6-a998-4388-9e20-889121a2f67a"/>
+				<textElement>
+					<font pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
 			</staticText>
 		</band>
 	</title>
