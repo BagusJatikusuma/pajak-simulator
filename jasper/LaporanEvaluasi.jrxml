@@ -142,7 +142,7 @@
 																<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 																	<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 																</textElement>
-																<textFieldExpression><![CDATA[($F{temuanHasil} == "" || $F{temuanHasil} == "NIHIL" || $F{temuanHasil} == "Belum ada temuan") ? "" : "Rp"]]></textFieldExpression>
+																<textFieldExpression><![CDATA[($F{temuanHasil} == "" || $F{temuanHasil} == "NIHIL" || $F{temuanHasil} == "Masih dalam proses") ? "" : "Rp"]]></textFieldExpression>
 															</textField>
 														</jr:detailCell>
 													</jr:column>
