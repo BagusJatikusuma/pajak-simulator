@@ -5,8 +5,11 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.mainmenu;
 
+import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.ExportImportService;
+import com.bekasidev.app.service.backend.SuratPerintahService;
+import com.bekasidev.app.view.util.ConverterHelper;
 import com.bekasidev.app.view.util.SessionProvider;
 import java.io.IOException;
 import java.net.URL;
@@ -24,8 +27,11 @@ import javafx.stage.Stage;
 import com.bekasidev.app.viewfx.javafxapplication.JavaFXApplication;
 import com.bekasidev.app.viewfx.javafxapplication.master.FormTambahWPUIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.rootpane.RootPaneController;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -50,6 +56,7 @@ public class UIController implements Initializable {
     @FXML private MenuItem pegawaiMenuItem;
     
     private ExportImportService exportImportService;
+    private SuratPerintahService suratPerintahService;
     /**
      * Initializes the controller class.
      */
@@ -57,6 +64,7 @@ public class UIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         exportImportService = ServiceFactory.getExportImportService();
+        suratPerintahService = ServiceFactory.getSuratPerintahService();
         
         closeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCodeCombination.CONTROL_DOWN));
         persiapanMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT1, KeyCodeCombination.CONTROL_DOWN));
@@ -119,36 +127,58 @@ public class UIController implements Initializable {
     
     public void exportDatabase() {
         System.out.println("export data");
-        Stage stage = initLoadingScreen("SEDANG MENGEXPORT DATA...");
-        Thread t = new Thread(){
-            @Override
-            public void run() {
-                try {
-                    
-                    exportImportService.exportData();
-                } catch (IOException ex) {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            stage.close();
-                            showErrorNotif("ada masalah saat mengexport data");
-                        }
-                    });
-                    
-                    Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        stage.close();
-                        showErrorNotif("export data berhasil");
-                    }
-                });
-            }
-            
-        };
-        t.start();
+        
+        List<PersiapanWrapper> persiapanWrappers = new ArrayList<>();
+        for (SuratPerintah sp : suratPerintahService.getAllSuratPerintah()) {
+            PersiapanWrapper persiapanWrapper = ConverterHelper.convertSuratPerintahToPersiapanWrapper(sp);
+            persiapanWrappers.add(persiapanWrapper);
+        }
+        SessionProvider
+            .getGlobalSessionsMap()
+            .put("daftar_persiapan_wrapper_popup", persiapanWrappers);
+        
+        try {
+            Pane aboutPane = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PopupExportData.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Export data");
+            stage.setMaximized(false);
+            stage.setScene(new Scene(aboutPane));
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+//        Stage stage = initLoadingScreen("SEDANG MENGEXPORT DATA...");
+//        
+//        Thread t = new Thread(){
+//            @Override
+//            public void run() {
+//                try {
+//                    
+//                    exportImportService.exportData();
+//                } catch (IOException ex) {
+//                    Platform.runLater(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            stage.close();
+//                            showErrorNotif("ada masalah saat mengexport data");
+//                        }
+//                    });
+//                    
+//                    Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                
+//                Platform.runLater(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        stage.close();
+//                        showErrorNotif("export data berhasil");
+//                    }
+//                });
+//            }
+//            
+//        };
+//        t.start();
         
     }
     

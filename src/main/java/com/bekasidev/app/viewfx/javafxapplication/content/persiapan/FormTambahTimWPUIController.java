@@ -103,6 +103,17 @@ public class FormTambahTimWPUIController implements Initializable {
     public void tambahTimPemeriksaOperation() {
         wpService = ServiceFactory.getWajibPajakService();
         
+        //synchronkan dengan perubahan pada tabel hasil pencarian
+        for (PersiapanPilihWPTableWrapper pwFilter : filteredCollection) {
+            for (PersiapanPilihWPTableWrapper pw : dataCollection) {
+                if (pw.getIdWP().equals(pwFilter.getIdWP())) {
+                    pw.getPilih().setSelected(pwFilter.getPilih().isSelected());
+                    break;
+                }
+            }
+        }
+        PersiapanPilihWPTable.setItems(dataCollection);
+        
         if (!validateField()) {
             return;
         }
