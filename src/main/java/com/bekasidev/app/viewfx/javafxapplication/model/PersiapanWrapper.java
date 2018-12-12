@@ -337,7 +337,8 @@ public class PersiapanWrapper {
 
     @Override
     public String toString() {
-        return this.idSP;
+        if (this.getNomorSurat() != null) return this.getIdSP()+" : "+"800/"+this.getNomorSurat()+"/BAPENDA";
+        return this.getIdSP()+" : "+"800/ /BAPENDA";
     }
     
 }
