@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPerintah" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="66d00edd-eb44-47df-bf6f-ca5d53fe59fb">
 	<property name="ireport.zoom" value="1.1000000000000385"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1020"/>
+	<property name="ireport.y" value="1105"/>
 	<import value="com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<subDataset name="anggota_tim_wp_diperiksa" uuid="58c8d34b-1347-48c9-a489-d309d0b3dbd6">
@@ -822,7 +822,7 @@ www.kab-bekasi.go.id]]></text>
 								<textElement textAlignment="Center" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[($F{namaPegawai} == "") ? "" : $V{COLUMN_COUNT}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -839,7 +839,7 @@ www.kab-bekasi.go.id]]></text>
 								<textElement verticalAlignment="Top" markup="html">
 									<font fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA["<b>" + $F{namaPegawai} + "</b><br>NIP. " + $F{nipPegawai}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[($F{namaPegawai} == "") ? "" : "<b>" + $F{namaPegawai} + "</b><br>NIP. " + $F{nipPegawai}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -856,7 +856,7 @@ www.kab-bekasi.go.id]]></text>
 								<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{pangkat} + " /<br>" + $F{golongan}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[($F{namaPegawai} == "") ? "" : $F{pangkat} + " /<br>" + $F{golongan}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -873,7 +873,7 @@ www.kab-bekasi.go.id]]></text>
 								<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[($F{namaPegawai} == "") ? "" : $F{jabatanTim}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

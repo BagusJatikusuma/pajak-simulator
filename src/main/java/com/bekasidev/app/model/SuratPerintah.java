@@ -171,4 +171,12 @@ public class SuratPerintah {
     public void setListTim(List<TimSP> listTim) {
         this.listTim = listTim;
     }
+
+    @Override
+    public String toString() {
+        if (this.getNomorUrut() != null) return "800/"+this.getNomorUrut()+"/BAPENDA";
+        return "800/ /BAPENDA";
+    }
+    
+    
 }
