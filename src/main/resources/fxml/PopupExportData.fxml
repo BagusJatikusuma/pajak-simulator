@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="216.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.mainmenu.PopupExportDataController">
+   <children>
+      <Label layoutX="40.0" layoutY="24.0" text="Surat Perintah" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="24.0" />
+      <Label layoutX="40.0" layoutY="89.0" text="Tim" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="89.0" />
+      <Button fx:id="exportData" layoutX="565.0" layoutY="157.0" mnemonicParsing="false" onAction="#exportData" text="Export data" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="157.0" />
+      <Button layoutX="480.0" layoutY="157.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Batal" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="157.0" />
+      <ChoiceBox fx:id="suratPerintahField" layoutX="39.0" layoutY="45.0" prefHeight="25.0" prefWidth="620.0" />
+      <ChoiceBox fx:id="timField" layoutX="39.0" layoutY="109.0" prefHeight="25.0" prefWidth="620.0" />
+   </children>
+   <stylesheets>
+      <URL value="@/styles/formpelaksanaancontentui.css" />
+   </stylesheets>
+</AnchorPane>
