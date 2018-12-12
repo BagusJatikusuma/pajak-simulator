@@ -676,32 +676,1011 @@ Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\N
 	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$5.run(FormAturNomorTanggalSuratPeminjamanUIController.java:490)
 Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
 	... 6 more
-11 December 2018 19:27:11 net.sf.jasperreports.engine.JRException: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.loadXML(JRXmlLoader.java:302)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.loadXML(JRXmlLoader.java:285)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.load(JRXmlLoader.java:274)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.load(JRXmlLoader.java:219)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.load(JRXmlLoader.java:194)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.load(JRXmlLoader.java:185)
-	at net.sf.jasperreports.engine.JasperCompileManager.compileToFile(JasperCompileManager.java:227)
-	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:542)
-	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPerintahBaru(ReportServiceImpl.java:2939)
-	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSPUIController$1.run(FormAturNomorTanggalSPUIController.java:208)
-Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
-	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:994)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
-	at org.apache.commons.digester.Digester.parse(Digester.java:1892)
-	at net.sf.jasperreports.engine.xml.JRXmlLoader.loadXML(JRXmlLoader.java:298)
-	... 9 more
+11 December 2018 19:59:40 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 20:55:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 20:57:17 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 20:58:25 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 20:58:48 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 20:59:06 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:00:27 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:03:03 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:04:16 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:04:46 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:05:22 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:06:28 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:06:50 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:07:04 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:08:07 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:10:53 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:10:59 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:14:11 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:15:49 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:16:12 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:17:49 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:19:05 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:19:52 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:21:50 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:22:40 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:23:59 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:25:20 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:25:58 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:27:08 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:28:47 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+11 December 2018 21:30:10 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:33:56 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:34:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:38:01 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:38:20 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:38:48 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+11 December 2018 21:39:33 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerParkir(ReportServiceImpl.java:3624)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$5.run(FormAturNomorTanggalSuratPeminjamanUIController.java:490)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	... 6 more
+11 December 2018 21:40:11 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerRestorann.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerRestoran(ReportServiceImpl.java:1094)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$3.run(FormAturNomorTanggalSuratPeminjamanUIController.java:430)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerRestorann.jasper
+	... 6 more
+11 December 2018 21:40:28 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerParkir(ReportServiceImpl.java:3624)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$5.run(FormAturNomorTanggalSuratPeminjamanUIController.java:490)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	... 6 more
+11 December 2018 21:41:19 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerHotel.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerHotel(ReportServiceImpl.java:3547)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$4.run(FormAturNomorTanggalSuratPeminjamanUIController.java:460)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerHotel.jasper
+	... 6 more
+11 December 2018 21:41:40 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate1(ReportServiceImpl.java:3359)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$3.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:407)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	... 6 more
+11 December 2018 21:41:50 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+11 December 2018 21:42:02 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan1(ReportServiceImpl.java:1438)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$1.run(FormSuratPelaksanaanUIController.java:282)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	... 6 more
+11 December 2018 21:42:09 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createTandaTerimaSPHP2(ReportServiceImpl.java:1548)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$2.run(FormSuratPelaksanaanUIController.java:301)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	... 6 more
+11 December 2018 21:42:55 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+11 December 2018 21:47:40 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPersetujuan4(ReportServiceImpl.java:1635)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$4.run(FormSuratPelaksanaanUIController.java:341)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	... 6 more
+11 December 2018 21:47:45 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPernyataanPersetujuanHasilPemeriksaan5(ReportServiceImpl.java:1717)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$5.run(FormSuratPelaksanaanUIController.java:359)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	... 6 more
+11 December 2018 21:47:52 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+11 December 2018 21:50:04 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+11 December 2018 21:50:09 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPemberitahuanHasilPemeriksaan3(ReportServiceImpl.java:2266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$3.run(FormSuratPelaksanaanUIController.java:319)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	... 6 more
+11 December 2018 21:50:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+11 December 2018 21:50:57 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran1(ReportServiceImpl.java:3117)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$9.run(FormSuratPelaksanaanUIController.java:434)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	... 6 more
+11 December 2018 21:51:07 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran2(ReportServiceImpl.java:3266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$10.run(FormSuratPelaksanaanUIController.java:452)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	... 6 more
+11 December 2018 21:51:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate2(ReportServiceImpl.java:3471)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController$6.run(EvaluasiUIController.java:504)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	... 6 more
+11 December 2018 21:52:02 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 21:52:38 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 21:55:58 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:03:07 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:05:30 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:08:13 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:10:05 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:13:47 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:233)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+11 December 2018 22:14:31 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate2(ReportServiceImpl.java:3471)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController$6.run(EvaluasiUIController.java:504)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	... 6 more
+11 December 2018 22:15:04 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate1(ReportServiceImpl.java:3359)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$3.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:407)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	... 6 more
+11 December 2018 22:15:29 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+11 December 2018 22:16:06 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan1(ReportServiceImpl.java:1438)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$1.run(FormSuratPelaksanaanUIController.java:282)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	... 6 more
+11 December 2018 22:16:37 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createTandaTerimaSPHP2(ReportServiceImpl.java:1548)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$2.run(FormSuratPelaksanaanUIController.java:301)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	... 6 more
+11 December 2018 22:17:40 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPemberitahuanHasilPemeriksaan3(ReportServiceImpl.java:2266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$3.run(FormSuratPelaksanaanUIController.java:319)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	... 6 more
+11 December 2018 22:18:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPersetujuan4(ReportServiceImpl.java:1635)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$4.run(FormSuratPelaksanaanUIController.java:341)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	... 6 more
+11 December 2018 22:21:02 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPernyataanPersetujuanHasilPemeriksaan5(ReportServiceImpl.java:1717)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$5.run(FormSuratPelaksanaanUIController.java:359)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	... 6 more
+11 December 2018 22:22:08 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+11 December 2018 22:22:26 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+11 December 2018 22:22:55 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(ReportServiceImpl.java:1809)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$7.run(FormSuratPelaksanaanUIController.java:398)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	... 6 more
+11 December 2018 22:23:33 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan7(ReportServiceImpl.java:1884)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$8.run(FormSuratPelaksanaanUIController.java:416)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	... 6 more
+11 December 2018 22:23:38 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(ReportServiceImpl.java:1809)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$7.run(FormSuratPelaksanaanUIController.java:398)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	... 6 more
+11 December 2018 22:24:19 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan7(ReportServiceImpl.java:1884)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$8.run(FormSuratPelaksanaanUIController.java:416)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	... 6 more
+11 December 2018 22:25:22 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran1(ReportServiceImpl.java:3117)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$9.run(FormSuratPelaksanaanUIController.java:434)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	... 6 more
+11 December 2018 22:25:59 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran2(ReportServiceImpl.java:3266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$10.run(FormSuratPelaksanaanUIController.java:452)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	... 6 more
+11 December 2018 22:29:00 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:278)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+12 December 2018 07:56:30 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+12 December 2018 07:57:05 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2567)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:215)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+12 December 2018 07:57:35 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+12 December 2018 08:08:47 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+12 December 2018 08:09:44 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+12 December 2018 08:10:15 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerRestorann.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerRestoran(ReportServiceImpl.java:1094)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$3.run(FormAturNomorTanggalSuratPeminjamanUIController.java:430)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerRestorann.jasper
+	... 6 more
+12 December 2018 08:10:58 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPersiapanPeminjamanBukuPerWP(ReportServiceImpl.java:2688)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$1.run(FormAturNomorTanggalSuratPeminjamanUIController.java:266)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPeminjamanBuku.jasper
+	... 6 more
+12 December 2018 08:11:44 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerParkir(ReportServiceImpl.java:3624)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$5.run(FormAturNomorTanggalSuratPeminjamanUIController.java:490)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerParkir.jasper
+	... 6 more
+12 December 2018 08:12:05 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerHotel.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createQuesionerHotel(ReportServiceImpl.java:3547)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController$4.run(FormAturNomorTanggalSuratPeminjamanUIController.java:460)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\QuesionerHotel.jasper
+	... 6 more
+12 December 2018 08:14:18 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+12 December 2018 08:14:48 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate1(ReportServiceImpl.java:3359)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$3.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:407)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate1.jasper
+	... 6 more
+12 December 2018 08:15:15 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+12 December 2018 08:15:36 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1997)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:363)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\KertasPemeriksaanPajak.jasper
+	... 6 more
+12 December 2018 08:15:54 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan1(ReportServiceImpl.java:1438)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$1.run(FormSuratPelaksanaanUIController.java:282)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(1).jasper
+	... 6 more
+12 December 2018 08:16:22 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createTandaTerimaSPHP2(ReportServiceImpl.java:1548)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$2.run(FormSuratPelaksanaanUIController.java:301)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTandaTerima(2).jasper
+	... 6 more
+12 December 2018 08:16:43 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPemberitahuanHasilPemeriksaan3(ReportServiceImpl.java:2266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$3.run(FormSuratPelaksanaanUIController.java:319)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	... 6 more
+12 December 2018 08:17:19 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPemberitahuanHasilPemeriksaan3(ReportServiceImpl.java:2266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$3.run(FormSuratPelaksanaanUIController.java:319)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPemberitahuanHasilPemeriksaan(3).jasper
+	... 6 more
+12 December 2018 08:17:39 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPersetujuan4(ReportServiceImpl.java:1635)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$4.run(FormSuratPelaksanaanUIController.java:341)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPersetujuan(4).jasper
+	... 6 more
+12 December 2018 08:18:11 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPernyataanPersetujuanHasilPemeriksaan5(ReportServiceImpl.java:1717)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$5.run(FormSuratPelaksanaanUIController.java:359)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\PernyataanPersetujuanHasilPemeriksaan(5).jasper
+	... 6 more
+12 December 2018 08:18:35 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+12 December 2018 08:19:07 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createBeritaAcara8(ReportServiceImpl.java:2441)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$6.run(FormSuratPelaksanaanUIController.java:377)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\BeritaAcaraPembahasanAkhirHasilPemeriksaan(8).jasper
+	... 6 more
+12 December 2018 08:19:52 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPenyetaanKesanggupanMembayarPajakKurangBarang6(ReportServiceImpl.java:1809)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$7.run(FormSuratPelaksanaanUIController.java:398)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPenyetaanKesanggupanMembayarPajakKurangBarang(6).jasper
+	... 6 more
+12 December 2018 08:20:18 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:783)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratPernyataan7(ReportServiceImpl.java:1884)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$8.run(FormSuratPelaksanaanUIController.java:416)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratPernyataan(7).jasper
+	... 6 more
+12 December 2018 08:20:51 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran1(ReportServiceImpl.java:3117)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$9.run(FormSuratPelaksanaanUIController.java:434)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	... 6 more
+12 December 2018 08:22:11 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran1(ReportServiceImpl.java:3117)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$9.run(FormSuratPelaksanaanUIController.java:434)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran1.jasper
+	... 6 more
+12 December 2018 08:23:18 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran2(ReportServiceImpl.java:3266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$10.run(FormSuratPelaksanaanUIController.java:452)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	... 6 more
+12 December 2018 08:23:58 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createSuratTeguran2(ReportServiceImpl.java:3266)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController$10.run(FormSuratPelaksanaanUIController.java:452)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\SuratTeguran2.jasper
+	... 6 more
+12 December 2018 08:24:30 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createCoverTemplate2(ReportServiceImpl.java:3471)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController$6.run(EvaluasiUIController.java:504)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\CoverTemplate2.jasper
+	... 6 more
+12 December 2018 08:25:00 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:278)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+12 December 2018 08:25:59 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanController$1.run(FormPrintLaporanController.java:237)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+12 December 2018 08:27:17 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanController$1.run(FormPrintLaporanController.java:237)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+12 December 2018 08:27:50 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:278)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more
+12 December 2018 08:28:17 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createLaporanEvaluasi(ReportServiceImpl.java:3694)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.FormPrintLaporanTahapanController$1.run(FormPrintLaporanTahapanController.java:278)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
+	... 6 more

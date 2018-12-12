@@ -33,7 +33,6 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
 
     @Override
     public void getDokumenPinjaman(WajibPajak wajibPajak, String masaPajakAwal, String masaPajakAkhir) {
-        wajibPajak.getListPinjaman().add(new DokumenPinjaman("", ""));
         switch(wajibPajak.getJenisWp()){
             case 0: createListPinjamanRestoran(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
             case 1: createListPinjamanHotel(wajibPajak, masaPajakAwal, masaPajakAkhir); break;

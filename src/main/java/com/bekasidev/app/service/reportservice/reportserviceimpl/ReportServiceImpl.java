@@ -1241,7 +1241,7 @@ public class ReportServiceImpl implements ReportService {
             JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
 //            jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+//            JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -2673,7 +2673,7 @@ public class ReportServiceImpl implements ReportService {
             
             parameter.put("penandatangan", persiapanWrapper.getPenandatangan());
             
-            parameter.put("buku_pinjaman", beanColDataSource);
+            parameter.put("buku_pinjaman", new JRBeanCollectionDataSource(wajibPajak.getListPinjaman()));
             
             parameter.put("jabatan_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getJabatanDinas()));
             parameter.put("pangkat_penandatangan", converterHelper.convertToTitleCaseIteratingChars(persiapanWrapper.getPenandatangan().getPangkat()));
@@ -2686,7 +2686,7 @@ public class ReportServiceImpl implements ReportService {
             
             try {
                JasperFillManager.fillReportToFile(
-               jasperPathFile, parameter, beanColDataSource);
+               jasperPathFile, parameter, new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             } catch (JRException e) {
                 System.out.println("JRException ex");
                e.printStackTrace();
@@ -2697,7 +2697,7 @@ public class ReportServiceImpl implements ReportService {
             jasperPrint = JasperFillManager.fillReport(
                     report, 
                     parameter, 
-                    beanColDataSource);
+                    new JRBeanCollectionDataSource(new ArrayList<>(Arrays.asList("abc"))));
             
             JFrame frame = new JFrame("Report");
             frame.getContentPane().add(new JRViewer(jasperPrint));
