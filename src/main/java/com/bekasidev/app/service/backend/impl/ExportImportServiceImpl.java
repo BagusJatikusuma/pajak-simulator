@@ -37,7 +37,7 @@ public class ExportImportServiceImpl implements ExportImportService {
             lines.add(getSqlBerkasPersiapan(suratPerintah));
             lines.add(getSqlNomorBerkas(suratPerintah));
 //            lines.add(getSqlRekapitulasi(rekapitulasiDao.getAllRekapitulasi()));
-            Path file = Paths.get("file-export-800/"+ suratPerintah.getNomorUrut() + "/Bapenda" +".sql");
+            Path file = Paths.get("export\\file-export-800_"+ suratPerintah.getNomorUrut() + "_Bapenda" +".sql");
         try {
             Files.write(file, lines, Charset.forName("UTF-8"));
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class ExportImportServiceImpl implements ExportImportService {
         for(WajibPajak wp : timSP.getListWP()){
             lines.add(getSqlRekapitulasi(rekapitulasiDao.getRekapitulasi(timSP.getIdSP(), wp.getNpwpd()).getListRekapitulasi()));
         }
-        Path file = Paths.get("file-export-"+ timSP.getNamaTim() +".sql");
+        Path file = Paths.get("export\\file-export-"+ timSP.getNamaTim() +".sql");
         try {
             Files.write(file, lines, Charset.forName("UTF-8"));
         } catch (IOException e) {
@@ -74,7 +74,7 @@ public class ExportImportServiceImpl implements ExportImportService {
         String sql = "";
         String sqlDeleteRekap = "", sqlDeleteBerkas = "", sqlDeleteNomor = "", sqlDeleteTim = "", sqlDeleteSP = "";
         String[] part = lines.get(0).split(";");
-        if(part[0] == "0"){
+        if(part[0].equals("0")){
             sqlDeleteRekap += "DELETE FROM rekapitulasi WHERE id_sp='" + part[1] + "';";
             sqlDeleteBerkas += "DELETE FROM berkas_persiapan WHERE id_sp='" + part[1] + "';";
             sqlDeleteNomor += "DELETE FROM nomor_berkas WHERE id_sp='" + part[1] + "';";

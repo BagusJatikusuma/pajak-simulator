@@ -105,7 +105,10 @@ public class PopupExportDataController implements Initializable {
                                     :obj.getTimWPWrappers()) {
                                 ovTim.add(timWP.getTim());
                             }
+                            Tim tim = new Tim("000000", "Admin");
+                            ovTim.add(tim);
                             timField.getItems().setAll(ovTim);
+                            
                             timField.setDisable(false);
                         }
                         
@@ -134,6 +137,7 @@ public class PopupExportDataController implements Initializable {
                     .getSelectionModel()
                     .getSelectedItem();
         SuratPerintah sp = ConverterHelper.convertPersiapanWrapperIntoSuratPerintah(persiapanWrapper);
+        System.out.println("id tim "+timSelected.getIdTim());
         TimSP timSP = suratPerintahService.getTimSP(sp.getIdSP(), timSelected.getIdTim());
         
         Stage stage = initLoadingScreen("SEDANG MENGEXPORT DATA...");
@@ -142,7 +146,9 @@ public class PopupExportDataController implements Initializable {
             @Override
             public void run() {
                 try {
-                    exportImportService.exportData();
+                    if(timSelected.getIdTim().equals("000000")){
+                        exportImportService.exportDataAdmin(sp);
+                    }else exportImportService.exportDataTim(timSP);
                 } catch (IOException ex) {
                     Platform.runLater(new Runnable() {
                         @Override

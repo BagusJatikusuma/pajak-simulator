@@ -74,7 +74,8 @@ public class RekapitulasiDaoImpl implements RekapitulasiDao {
                         rs.getDouble("pokok_pajak"),
                         rs.getDouble("denda"),
                         rs.getInt("persentase_denda"),
-                        rs.getDouble("jumlah")
+                        rs.getDouble("jumlah"),
+                        idSP, idWP
                 ));
             }
             rekapitulasiWrapper.setIdSP(idSP);
