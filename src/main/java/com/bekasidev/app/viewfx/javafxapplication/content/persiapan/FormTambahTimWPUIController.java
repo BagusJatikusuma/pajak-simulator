@@ -70,6 +70,7 @@ public class FormTambahTimWPUIController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        filteredCollection = FXCollections.observableArrayList();
         addFromFXML();
         populateDataChoiceBox();
         populateData();
