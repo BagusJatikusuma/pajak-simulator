@@ -127,19 +127,20 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
         for (Iterator it = AturNomorTanggalSuratPeminjamanTable.getItems().iterator(); it.hasNext();) {
             PersiapanNomorTanggalSuratPeminjamanTableWrapper wrapper 
                     = (PersiapanNomorTanggalSuratPeminjamanTableWrapper) it.next();
-            
-            System.out.println("nomor "+wrapper.getNomorSurat());
-            System.out.println("tanggal "+wrapper.getTanggalSurat());
-            
-            try {
-                nomorBerkasService.setNomorBerkas(
-                        persiapanWrapper.getIdSP(),
-                        wrapper.getIdWP(),
-                        wrapper.getNomorSurat(),
-                        String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
-                        Surat.PEMINJAMAN);
-            } catch (ParseException ex) {
-                Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+            if (wrapper.getNomorSurat() != null) {
+                System.out.println("nomor "+wrapper.getNomorSurat());
+                System.out.println("tanggal "+wrapper.getTanggalSurat());
+
+                try {
+                    nomorBerkasService.setNomorBerkas(
+                            persiapanWrapper.getIdSP(),
+                            wrapper.getIdWP(),
+                            wrapper.getNomorSurat(),
+                            String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
+                            Surat.PEMINJAMAN);
+                } catch (ParseException ex) {
+                    Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         

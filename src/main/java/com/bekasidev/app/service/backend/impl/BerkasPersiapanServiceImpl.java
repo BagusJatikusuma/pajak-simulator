@@ -37,6 +37,8 @@ public class BerkasPersiapanServiceImpl implements BerkasPersiapanService {
             case 0: createListPinjamanRestoran(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
             case 1: createListPinjamanHotel(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
             case 2: createListPinjamanParkir(wajibPajak, masaPajakAwal, masaPajakAkhir);break;
+            //default untuk hiburan pakai dulu yang restoran
+            default: createListPinjamanRestoran(wajibPajak, masaPajakAwal, masaPajakAkhir); break;
         }
     }
 

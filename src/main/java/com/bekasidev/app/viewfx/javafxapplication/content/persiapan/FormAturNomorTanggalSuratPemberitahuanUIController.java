@@ -107,18 +107,20 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
             PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
                     = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) it.next();
             
-            System.out.println("nomor "+wrapper.getNomorSurat());
-            System.out.println("tanggal "+wrapper.getTanggalSurat());
-            
-            try {
-                nomorBerkasService.setNomorBerkas(
-                        persiapanWrapper.getIdSP(),
-                        wrapper.getIdWP(),
-                        wrapper.getNomorSurat(),
-                        String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
-                        Surat.PEMBERITAHUAN);
-            } catch (ParseException ex) {
-                Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+            if (wrapper.getNomorSurat() != null) {
+                System.out.println("nomor "+wrapper.getNomorSurat());
+                System.out.println("tanggal "+wrapper.getTanggalSurat());
+
+                try {
+                    nomorBerkasService.setNomorBerkas(
+                            persiapanWrapper.getIdSP(),
+                            wrapper.getIdWP(),
+                            wrapper.getNomorSurat(),
+                            String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
+                            Surat.PEMBERITAHUAN);
+                } catch (ParseException ex) {
+                    Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         

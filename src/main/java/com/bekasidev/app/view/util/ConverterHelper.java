@@ -198,6 +198,7 @@ public class ConverterHelper {
                 nomorTanggalWPList.add(nt);
                 
                 if (wp.getListPinjaman().isEmpty()) {
+                    System.out.println("masuk get dokumen pinjaman");
                     String masaPajakAwal 
                             = convertBulanIntegerIntoString(new Date(Long.valueOf(suratPerintah.getMasaPajakAwal()))
                                                                     .toInstant()
