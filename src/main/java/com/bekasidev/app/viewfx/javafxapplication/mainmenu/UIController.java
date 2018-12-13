@@ -184,6 +184,17 @@ public class UIController implements Initializable {
     
     public void changePassword() {
         //tunggu service rony
+        Pane aboutPane = null;
+        try {
+            aboutPane = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormChangePassword.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Ubah password");
+        stage.resizableProperty().setValue(Boolean.FALSE);
+        stage.setScene(new Scene(aboutPane));
+        stage.showAndWait();
     }
     
     private void configureFileChooser(final FileChooser fileChooser) {      
