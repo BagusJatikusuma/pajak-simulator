@@ -19,7 +19,7 @@ public interface PegawaiDao {
 
     List<Tim> getAllTim();
 
-    void updatePegawai(Pegawai pegawai);
+    void updatePegawai(Pegawai pegawai, String nip);
 
     void updateTim(Tim tim);
 

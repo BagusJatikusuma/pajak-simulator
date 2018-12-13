@@ -19,6 +19,12 @@ public class ServiceFactory {
     private static RekapitulasiService rekapitulasiService = null;
     private static NomorBerkasService nomorBerkasService = null;
     private static ExportImportService exportImportService = null;
+    private static UserLoginService userLoginService = null;
+
+    public static UserLoginService getUserLoginService(){
+        if(userLoginService == null) userLoginService = new UserLoginServiceImpl();
+        return userLoginService;
+    }
 
     public static ExportImportService getExportImportService(){
         if(exportImportService == null) exportImportService = new ExportImportServiceImpl();

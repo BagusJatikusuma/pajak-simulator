@@ -47,8 +47,8 @@ public class PegawaiServiceImpl implements PegawaiService {
     }
 
     @Override
-    public void updatePegawai(Pegawai pegawai) {
-        pegawaiDao.updatePegawai(pegawai);
+    public void updatePegawai(Pegawai pegawai, String nip) {
+        pegawaiDao.updatePegawai(pegawai, nip);
     }
 
     @Override
