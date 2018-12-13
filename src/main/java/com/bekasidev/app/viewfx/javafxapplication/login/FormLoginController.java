@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.login;
 
+import com.bekasidev.app.service.ServiceFactory;
 import javafx.scene.image.Image;
 import java.io.File;
 import java.net.URISyntaxException;
@@ -33,7 +34,7 @@ public class FormLoginController implements Initializable {
     @FXML private Button loginBtn;
     @FXML private ImageView logoImage;
     
-    boolean statusLogin = true;
+    boolean statusLogin;
     /**
      * Initializes the controller class.
      */
@@ -49,18 +50,24 @@ public class FormLoginController implements Initializable {
         System.out.println(usernameField.getText());
         System.out.println(passwordField.getText());
         
+        
         if(usernameField.getText().equals("") || passwordField.getText().equals("")){
             noticeField.setVisible(true);
             noticeField.setText("Form belum terisi");
-        }else {
+        } else if(usernameField.getText().contains(" ")) {
+            noticeField.setVisible(true);
+            noticeField.setText("Username tidak menggunakan spasi");
+        } else if(usernameField.getText().length() < 18){
+            noticeField.setVisible(true);
+            noticeField.setText("Username tidak boleh kurang dari 18");
+        } else {
             //service
+            statusLogin = ServiceFactory.getUserLoginService().login(usernameField.getText(), passwordField.getText());
             if(statusLogin == true){
                 System.out.println("Berhasil masuk");
-                statusLogin = false;
             } else {
                 noticeField.setVisible(true);
                 noticeField.setText("Username dan Password yang Anda masukkan salah!");
-                statusLogin = true;
             }
         }
     }
