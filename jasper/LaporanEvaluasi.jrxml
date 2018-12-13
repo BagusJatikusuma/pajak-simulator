@@ -23,6 +23,7 @@
 		<field name="nomorSKPD" class="java.lang.String"/>
 		<field name="tanggalSKPD" class="java.lang.String"/>
 		<field name="keterangan" class="java.lang.String"/>
+		<field name="npwpdCorrect" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="list_sp" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="tahun_anggaran" class="java.lang.String"/>
@@ -126,7 +127,7 @@
 																<textElement verticalAlignment="Middle" markup="html">
 																	<font fontName="Times New Roman" isBold="false" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 																</textElement>
-																<textFieldExpression><![CDATA["<b>" + $F{namaWajibPajak} + "</b><br>" + $F{npwpdWajibPajak}]]></textFieldExpression>
+																<textFieldExpression><![CDATA["<b>" + $F{namaWajibPajak} + "</b><br>" + $F{npwpdCorrect}]]></textFieldExpression>
 															</textField>
 														</jr:detailCell>
 													</jr:column>

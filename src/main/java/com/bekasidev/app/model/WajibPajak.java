@@ -1,5 +1,6 @@
 package com.bekasidev.app.model;
 
+import com.bekasidev.app.view.util.ConverterHelper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,6 +122,10 @@ public class WajibPajak {
 
     public void setNamaWajibPajak(String namaWajibPajak) {
         this.namaWajibPajak = namaWajibPajak;
+    }
+    
+    public String getCorrectNPWPD() {
+        return ConverterHelper.correctNPWPD(this.npwpd);
     }
     
     @Override

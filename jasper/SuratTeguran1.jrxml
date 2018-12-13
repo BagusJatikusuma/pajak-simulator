@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTeguran1" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3da42b7-807d-480c-8138-4766054d39b4">
 	<property name="ireport.zoom" value="1.210000000000005"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="447"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
@@ -45,7 +45,7 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["NPWPD : " + $P{wajib_pajak}.getNpwpd()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NPWPD : " + $P{wajib_pajak}.getCorrectNPWPD()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="59" y="193" width="11" height="33" uuid="8bcbd82c-bfbb-4f70-8e2f-919d4d52d3b1"/>
