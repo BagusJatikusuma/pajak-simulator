@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -54,12 +55,15 @@ public class FormLoginController implements Initializable {
         if(usernameField.getText().equals("") || passwordField.getText().equals("")){
             noticeField.setVisible(true);
             noticeField.setText("Form belum terisi");
+            noticeField.setAlignment(Pos.CENTER);
         } else if(usernameField.getText().contains(" ")) {
             noticeField.setVisible(true);
             noticeField.setText("Username tidak menggunakan spasi");
+            noticeField.setAlignment(Pos.CENTER);
         } else if(usernameField.getText().length() < 18){
             noticeField.setVisible(true);
             noticeField.setText("Username tidak boleh kurang dari 18");
+            noticeField.setAlignment(Pos.CENTER);
         } else {
             //service
             statusLogin = ServiceFactory.getUserLoginService().login(usernameField.getText(), passwordField.getText());
@@ -68,6 +72,7 @@ public class FormLoginController implements Initializable {
             } else {
                 noticeField.setVisible(true);
                 noticeField.setText("Username dan Password yang Anda masukkan salah!");
+                noticeField.setAlignment(Pos.CENTER);
             }
         }
     }
