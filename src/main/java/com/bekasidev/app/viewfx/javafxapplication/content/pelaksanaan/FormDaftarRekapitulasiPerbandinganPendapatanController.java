@@ -381,7 +381,19 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        stage.close();
+                        Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+                        rootpane.getChildren().remove(1);
+                        Pane contentPane = null;
+                        try {
+                            contentPane
+                                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PelaksanaanUI.fxml"));
+                        } catch (IOException ex) {
+                            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        rootpane.getChildren().add(contentPane);
+                        
+                        stage.close();                    
+                        
                     }
                 });
             }

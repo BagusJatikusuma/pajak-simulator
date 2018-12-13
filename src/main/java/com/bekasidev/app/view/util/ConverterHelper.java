@@ -364,5 +364,13 @@ public class ConverterHelper {
        
        return formatter.format(new BigDecimal(doubleVar));
    }
+   
+   //return null 
+   public static String correctNPWPD(String npwpwd) {
+       if (npwpwd.indexOf(" ") == -1)
+           return npwpwd;
+       return npwpwd.substring(0,npwpwd.indexOf(" "));
+    
+   }
     
 }
