@@ -104,19 +104,22 @@ public class App extends Application
             SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
 //            ServiceFactory.getExportImportService().exportData();
 //            ServiceFactory.getExportImportService().importData();
-            primaryStage.setTitle("Aplikasi Perpajakan");
-            primaryStage.setWidth(primaryScreenBounds.getWidth());
-            primaryStage.setHeight(primaryScreenBounds.getHeight());
+            primaryStage.setTitle("Aplikasi Pemeriksaan Pajak");
+//            primaryStage.setMaximized(true);
+//            primaryStage.setWidth(primaryScreenBounds.getWidth());
+//            primaryStage.setHeight(primaryScreenBounds.getHeight());
             ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(
                     new RekapitulasiWrapper(),
                     new Date((long) 1534788900526.0),
                             new Date((long) 1574273700526.0)
             );
             
-            System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
+//            System.out.println(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml").getPath());
+
+//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("javafxresources/RootPane.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormLogin.fxml"));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getClassLoader().getResource("javafxresources/rootpane.css").toString());
+//            scene.getStylesheets().add(getClass().getClassLoader().getResource("javafxresources/rootpane.css").toString());
             primaryStage.setScene(scene);
             primaryStage.resizableProperty().setValue(Boolean.FALSE);
             primaryStage.show();

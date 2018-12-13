@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTeguran2" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="9cf03e3d-e587-4d09-887e-63f7b05db796">
-	<property name="ireport.zoom" value="1.000000000000004"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="63"/>
+	<property name="ireport.zoom" value="2.593742460100013"/>
+	<property name="ireport.x" value="198"/>
+	<property name="ireport.y" value="506"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
 	<parameter name="nomor" class="java.lang.String"/>
@@ -71,7 +71,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="3" y="201" width="56" height="40" uuid="bbaa1884-b151-455b-bcdf-7f8240c4d60c"/>
+				<reportElement positionType="Float" x="3" y="201" width="56" height="33" uuid="bbaa1884-b151-455b-bcdf-7f8240c4d60c"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
@@ -134,16 +134,19 @@
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="59" y="201" width="11" height="40" uuid="1d1a3b3e-d073-49be-83f2-5a9516a92779"/>
+				<reportElement positionType="Float" x="59" y="201" width="11" height="33" uuid="1d1a3b3e-d073-49be-83f2-5a9516a92779"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="70" y="201" width="188" height="40" uuid="de8d1996-069b-4021-840d-e28a0d22d29b"/>
+				<reportElement positionType="Float" x="70" y="201" width="177" height="33" uuid="de8d1996-069b-4021-840d-e28a0d22d29b"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed"/>
+				</box>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Teguran Kedua Penyampaian Data Terkait Pemeriksaan Pajak Daerah]]></text>
 			</staticText>
@@ -181,7 +184,7 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
-				<text><![CDATA[Pukul]]></text>
+				<text><![CDATA[Waktu]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" x="99" y="348" width="110" height="20" uuid="2f415c03-7338-4975-9382-a8dece3384b8"/>
