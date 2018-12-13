@@ -105,7 +105,6 @@ public class App extends Application
 //            ServiceFactory.getExportImportService().exportData();
 //            ServiceFactory.getExportImportService().importData();
             primaryStage.setTitle("Aplikasi Perpajakan");
-//            primaryStage.setMaximized(true);
             primaryStage.setWidth(primaryScreenBounds.getWidth());
             primaryStage.setHeight(primaryScreenBounds.getHeight());
             ServiceFactory.getRekapitulasiService().setBulanRekapitulasi(

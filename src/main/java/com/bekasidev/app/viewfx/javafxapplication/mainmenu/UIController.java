@@ -182,6 +182,10 @@ public class UIController implements Initializable {
         
     }
     
+    public void changePassword() {
+        //tunggu service rony
+    }
+    
     private void configureFileChooser(final FileChooser fileChooser) {      
             fileChooser.setTitle("Import database");
             fileChooser.setInitialDirectory(

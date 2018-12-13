@@ -96,6 +96,7 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         batalBtn.setVisible(isHistory.booleanValue());
         
         initLabel();
+        populateChoiceBox();
         populateData();
         associateDataWithColumn();
         arsipPelaksanaanTable.setItems(dataCollection);
@@ -179,6 +180,10 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         }
         rootpaneFormPelaksanaan.getChildren().add(contentPane);
     }
+    
+    private void populateChoiceBox() {
+        metodeHitungDendaField.setItems(FXCollections.observableArrayList("otomatis","manual"));
+    }
 
     private void populateData() {
         dataCollection = FXCollections.observableArrayList();
@@ -187,7 +192,6 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
                                     .get("pelaksanaan_wrapper");
         rekapitulasiService = ServiceFactory.getRekapitulasiService();
         
-        metodeHitungDendaField.setItems(FXCollections.observableArrayList("otomatis","manual"));
         Boolean isHistory = (Boolean) SessionProvider.getGlobalSessionsMap().get("is_history");
         if (isHistory) {
             //indikasi manual adalah jumlah total denda == 0
@@ -224,9 +228,18 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent t) {
-                    SessionProvider.getGlobalSessionsMap()
-                                    .put("selected_bulan_rekapitulasi",
+                    SessionProvider
+                            .getGlobalSessionsMap()
+                            .put("selected_bulan_rekapitulasi",
                                             rekapitulasiMapper.get(obj.getNo()));
+                    SessionProvider
+                            .getTableViewSessionMap()
+                            .put("tabel_rekapitulasi",
+                                            arsipPelaksanaanTable);
+                    SessionProvider
+                            .getGlobalSessionsMap()
+                            .put("index_data_tabel_rekapitulasi",
+                                            obj.getNo());
                     
                     Pane formAturBulanRekapitulasi = null;
                     try {

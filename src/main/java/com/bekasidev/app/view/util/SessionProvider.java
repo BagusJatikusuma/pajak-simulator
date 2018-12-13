@@ -8,6 +8,7 @@ package com.bekasidev.app.view.util;
 import com.bekasidev.app.model.RestoranTransaction;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.scene.control.TableView;
 
 /**
  *  
@@ -18,6 +19,12 @@ public class SessionProvider {
     private static Map<String, Object> sessionPajakMap;
     private static Map<String, Object> sessionAturAnggotaTimUIMap;
     private static Map<String, Object> globalSessionsMap;
+    private static Map<String, TableView> tableViewMap;
+    
+    public static Map<String, TableView> getTableViewSessionMap() {
+        if (tableViewMap == null) tableViewMap = new HashMap<>();
+        return tableViewMap;
+    }
     
     public static RestoranTransaction getRestoranTransaction() {
         if (restoranTransaction == null) resetRestoranTranstion();
