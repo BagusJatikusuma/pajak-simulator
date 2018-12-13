@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPemberitahuanPemeriksaan" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="15" bottomMargin="15" uuid="8c1609b4-a52a-445f-acc9-69218b035b22">
 	<property name="ireport.zoom" value="1.7715610000000628"/>
-	<property name="ireport.x" value="361"/>
-	<property name="ireport.y" value="134"/>
+	<property name="ireport.x" value="3"/>
+	<property name="ireport.y" value="710"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<import value="com.bekasidev.app.model.Pegawai"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -55,7 +55,7 @@
 			<band/>
 		</groupHeader>
 		<groupFooter>
-			<band height="47">
+			<band height="53">
 				<textField isStretchWithOverflow="true">
 					<reportElement positionType="Float" x="56" y="0" width="478" height="45" uuid="3ca1097d-04c7-4a18-afd4-cdc13e29a661"/>
 					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
@@ -105,7 +105,7 @@
 					<text><![CDATA[b.]]></text>
 				</staticText>
 			</band>
-			<band height="20">
+			<band height="26">
 				<staticText>
 					<reportElement positionType="Float" x="56" y="0" width="24" height="18" uuid="9bf79781-f27d-4fca-8933-8211fdb56305"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
@@ -381,7 +381,7 @@ www.kab-bekasi.go.id]]></text>
 		<band/>
 	</columnHeader>
 	<detail>
-		<band height="61" splitType="Stretch">
+		<band height="66" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table" positionType="Float" x="56" y="35" width="478" height="20" uuid="96ed1a49-3f5c-4575-9ce2-da084ca1b85b"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">

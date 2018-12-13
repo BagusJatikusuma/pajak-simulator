@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NomorBerkasDaoImpl implements NomorBerkasDao {
     @Override
@@ -25,24 +27,7 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
 
             ResultSet rs = pstm.executeQuery();
             while (rs.next()){
-                nomorBerkas.setNomorSuratHasil(rs.getString("nomor_hasil"));
-                nomorBerkas.setNomorSuratPemberitahuan(rs.getString("nomor_pemberitahuan"));
-                nomorBerkas.setNomorSuratPeminjaman(rs.getString("nomor_peminjaman"));
-                nomorBerkas.setNomorBeritaAcara(rs.getString("nomor_berita_acara"));
-                nomorBerkas.setNomorSKPD(rs.getString("nomor_SKPD"));
-                nomorBerkas.setNomorTeguran1(rs.getString("nomor_teguran1"));
-                nomorBerkas.setNomorTeguran2(rs.getString("nomor_teguran2"));
-                
-                nomorBerkas.setTanggalSuratPemberitahuan(rs.getString("tanggal_pemberitahuan"));
-                nomorBerkas.setTanggalSuratHasil(rs.getString("tanggal_hasil"));
-                nomorBerkas.setTanggalSuratPeminjaman(rs.getString("tanggal_peminjaman"));
-                nomorBerkas.setTanggalBeritaAcara(rs.getString("tanggal_berita_acara"));
-                nomorBerkas.setTanggalSKPD(rs.getString("tanggal_SKPD"));
-                nomorBerkas.setTanggalTeguran1(rs.getString("tanggal_teguran1"));
-                nomorBerkas.setTanggalTeguran2(rs.getString("tanggal_teguran2"));
-                nomorBerkas.setJamTeguran2(rs.getString("jam_teguran2"));
-                nomorBerkas.setTempatTeguran2(rs.getString("tempat_teguran2"));
-                nomorBerkas.setHariTeguran2(rs.getString("hari_teguran2"));
+                nomorBerkas = setNomorBerkas(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -137,5 +122,68 @@ public class NomorBerkasDaoImpl implements NomorBerkasDao {
             e.printStackTrace();
             new LogException(e);
         }
+    }
+
+    @Override
+    public void deleteNomorBySP(String idSP) {
+        String sql = "DELETE FROM nomor_berkas WHERE id_sp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, idSP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new LogException(e);
+        }
+    }
+
+    @Override
+    public List<NomorBerkas> getNomorBerkasBySP(String idSP) {
+        String sql = "SELECT * FROM nomor_berkas WHERE id_sp=?";
+        List<NomorBerkas> nomorBerkas = new ArrayList<>();
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, idSP);
+
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                nomorBerkas.add(setNomorBerkas(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomorBerkas;
+    }
+
+    private NomorBerkas setNomorBerkas(ResultSet rs) throws SQLException {
+        NomorBerkas nomorBerkas = new NomorBerkas();
+
+        nomorBerkas.setIdSP(rs.getString("id_sp"));
+        nomorBerkas.setIdWP(rs.getString("id_wp"));
+        nomorBerkas.setNomorSuratHasil(rs.getString("nomor_hasil"));
+        nomorBerkas.setNomorSuratPemberitahuan(rs.getString("nomor_pemberitahuan"));
+        nomorBerkas.setNomorSuratPeminjaman(rs.getString("nomor_peminjaman"));
+        nomorBerkas.setNomorBeritaAcara(rs.getString("nomor_berita_acara"));
+        nomorBerkas.setNomorSKPD(rs.getString("nomor_SKPD"));
+        nomorBerkas.setNomorTeguran1(rs.getString("nomor_teguran1"));
+        nomorBerkas.setNomorTeguran2(rs.getString("nomor_teguran2"));
+
+        nomorBerkas.setTanggalSuratPemberitahuan(rs.getString("tanggal_pemberitahuan"));
+        nomorBerkas.setTanggalSuratHasil(rs.getString("tanggal_hasil"));
+        nomorBerkas.setTanggalSuratPeminjaman(rs.getString("tanggal_peminjaman"));
+        nomorBerkas.setTanggalBeritaAcara(rs.getString("tanggal_berita_acara"));
+        nomorBerkas.setTanggalSKPD(rs.getString("tanggal_SKPD"));
+        nomorBerkas.setTanggalTeguran1(rs.getString("tanggal_teguran1"));
+        nomorBerkas.setTanggalTeguran2(rs.getString("tanggal_teguran2"));
+        nomorBerkas.setJamTeguran2(rs.getString("jam_teguran2"));
+        nomorBerkas.setTempatTeguran2(rs.getString("tempat_teguran2"));
+        nomorBerkas.setHariTeguran2(rs.getString("hari_teguran2"));
+
+        return nomorBerkas;
     }
 }

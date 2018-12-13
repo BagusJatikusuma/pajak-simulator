@@ -3,6 +3,8 @@ package com.bekasidev.app.dao;
 import com.bekasidev.app.model.NomorBerkas;
 import com.bekasidev.app.model.Surat;
 
+import java.util.List;
+
 public interface NomorBerkasDao {
 
     NomorBerkas getNomotBerkas(String idSP, String idWp);
@@ -11,4 +13,6 @@ public interface NomorBerkasDao {
     void setBerkasTeguran2(String idSP, String idWP, String nomorTeguran, String tanggalTeguran,
                            String jam, String tempat, String hari);
     void setNomorTanggalSKPD(String idSP, String idWP, String nomorSKPD, String tanggalSKPD);
+    void deleteNomorBySP(String idSP);
+    List<NomorBerkas> getNomorBerkasBySP(String idSP);
 }

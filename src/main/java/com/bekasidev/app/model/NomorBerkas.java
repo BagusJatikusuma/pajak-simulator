@@ -2,6 +2,9 @@ package com.bekasidev.app.model;
 
 public class NomorBerkas {
 
+    private String idSP;
+    private String idWP;
+
     //Berkas Persiapan
     private String nomorSuratPemberitahuan;
     private String tanggalSuratPemberitahuan;
@@ -25,6 +28,22 @@ public class NomorBerkas {
     private String jamTeguran2;
     private String tempatTeguran2;
     private String hariTeguran2;
+
+    public String getIdSP() {
+        return idSP;
+    }
+
+    public void setIdSP(String idSP) {
+        this.idSP = idSP;
+    }
+
+    public String getIdWP() {
+        return idWP;
+    }
+
+    public void setIdWP(String idWP) {
+        this.idWP = idWP;
+    }
 
     public String getNomorTeguran1() {
         return nomorTeguran1;

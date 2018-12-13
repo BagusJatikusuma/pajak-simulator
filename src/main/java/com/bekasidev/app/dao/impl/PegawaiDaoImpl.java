@@ -2,8 +2,11 @@ package com.bekasidev.app.dao.impl;
 
 import com.bekasidev.app.config.Connect;
 import com.bekasidev.app.dao.PegawaiDao;
+import com.bekasidev.app.dao.UserLoginDao;
 import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.Tim;
+import com.bekasidev.app.service.backend.UserLoginService;
+import com.bekasidev.app.service.backend.impl.UserLoginServiceImpl;
 import com.bekasidev.app.util.LogException;
 
 import java.sql.*;
@@ -125,6 +128,7 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.setString(7, pegawai.getJabatanDinas());
 
             pstm.executeUpdate();
+            createUser(pegawai.getNipPegawai());
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -262,10 +266,10 @@ public class PegawaiDaoImpl implements PegawaiDao {
     }
 
     @Override
-    public void updatePegawai(Pegawai pegawai) {
+    public void updatePegawai(Pegawai pegawai, String nip) {
         String sql = "UPDATE pegawai SET " +
                 "nama_pegawai=?, golongan=?, pangkat=?, " +
-                "jabatan_dinas=? WHERE nip_pegawai=?";
+                "jabatan_dinas=?, nip_pegawai=? WHERE nip_pegawai=?";
 
         try(Connection conn = Connect.connect();
             PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -274,8 +278,10 @@ public class PegawaiDaoImpl implements PegawaiDao {
             pstm.setString(3, pegawai.getPangkat());
             pstm.setString(4, pegawai.getJabatanDinas());
             pstm.setString(5, pegawai.getNipPegawai());
+            pstm.setString(6, nip);
 
             pstm.executeUpdate();
+            updateUser(nip, pegawai.getNipPegawai());
         } catch (SQLException e) {
             e.printStackTrace();
             new LogException(e);
@@ -336,6 +342,16 @@ public class PegawaiDaoImpl implements PegawaiDao {
                                         rs.getString("pangkat"),
                                         rs.getString("jabatan_tim"),
                                         rs.getString("jabatan_dinas"));
+    }
+
+    private void createUser(String nip){
+        UserLoginService userLoginService = new UserLoginServiceImpl();
+        userLoginService.createUser(nip, "bapenda");
+    }
+
+    private void updateUser(String oldUser, String newUser){
+        UserLoginDao userLoginDao = new UserLoginDaoImpl();
+        userLoginDao.updateUsername(newUser, oldUser);
     }
 
     @Override

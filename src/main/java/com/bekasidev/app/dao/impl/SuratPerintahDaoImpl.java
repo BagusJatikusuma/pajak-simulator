@@ -193,6 +193,7 @@ public class SuratPerintahDaoImpl implements SuratPerintahDao {
             pstm.setString(17, suratPerintah.getIdSP());
 
             pstm.executeUpdate();
+            createNomorBerkas(suratPerintah);
             ServiceFactory.getExportImportService().setExportable(suratPerintah.getIdSP());
         } catch (SQLException e) {
             e.printStackTrace();

@@ -2208,7 +2208,13 @@ public class ReportServiceImpl implements ReportService {
             System.out.println("money rupiah : " + new ConverterHelper().converterDoubleToMoneyId(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()));
             
             Long terbilang = pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah().longValue();
-            parameter.put("total_pajak", "Rp. " + new ConverterHelper().converterDoubleToMoneyId(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()) + " (" + new ConverterHelper().angkaToTerbilang(terbilang) + " Rupiah)");
+            
+            
+            if(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah() == 0){
+                parameter.put("total_pajak", "Rp. " + new ConverterHelper().converterDoubleToMoneyId(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()) + " ( NIHIL )");
+            }else{
+                parameter.put("total_pajak", "Rp. " + new ConverterHelper().converterDoubleToMoneyId(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()) + " (" + new ConverterHelper().angkaToTerbilang(terbilang) + " Rupiah)");
+            }
             
             
             
