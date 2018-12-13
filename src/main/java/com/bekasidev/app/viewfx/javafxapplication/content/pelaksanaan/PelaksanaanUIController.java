@@ -96,15 +96,13 @@ public class PelaksanaanUIController implements Initializable {
     
     private void addFromFXML() {
         id 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "ID");
+                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NO");
         idSP 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NO SP");
         namaTim 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NAMA TIM");
         namaWP 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "NAMA WP");
-        tanggalDiBuat 
-                = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "TANGGAL DIBUAT");
         action 
                 = TableHelper.getTableColumnByName(arsipPelaksanaanTable, "Action");
     }
@@ -238,7 +236,6 @@ public class PelaksanaanUIController implements Initializable {
         idSP.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("idSP"));
         namaTim.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("namaTim"));
         namaWP.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("namaWP"));
-        tanggalDiBuat.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("tanggalDiBuat"));
         action.setCellValueFactory(new PropertyValueFactory<ArsipTablePelaksanaanWrapper, String>("action"));
     }
     

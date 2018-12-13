@@ -204,11 +204,10 @@ public class EvaluasiUIController implements Initializable {
         List<SuratPerintah> suratPerintahs = new ArrayList<>();
         if (!tahunAnggaranField.getText().equals(""))
             suratPerintahs = suratPerintahService.getSuratPerintahByTahun(Integer.parseInt(tahunAnggaranField.getText()));
-//        else
-//            suratPerintahs = suratPerintahService.getAllSuratPerintah();
         
         if (suratPerintahs.isEmpty()) {
             //beri popup notif bahwa data tidak ada
+            showErrorSearchNotif();
             return;
         }
         //reset data collection dan pelaporan mapper
@@ -536,6 +535,21 @@ public class EvaluasiUIController implements Initializable {
     
     private void showErrorNotif() {
         SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih wajib pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+    }
+    
+    private void showErrorSearchNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Data tidak ditemukan");
         Pane popup = null;
         try {
             popup = FXMLLoader

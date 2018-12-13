@@ -13,6 +13,6 @@
     </stylesheets>
    <children>
       <Button fx:id="okBtn" layoutX="113.0" layoutY="107.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="180.0" text="OK" />
-      <Label fx:id="notifLabel" layoutX="198.0" layoutY="62.0" text="Berhasil Menyimpan" />
+      <Label fx:id="notifLabel" layoutX="139.0" layoutY="62.0" text="Berhasil Menyimpan" />
    </children>
 </AnchorPane>

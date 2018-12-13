@@ -16,6 +16,7 @@
           <items>
                   <MenuItem mnemonicParsing="false" onAction="#exportDatabase" text="Export Database" />
                   <MenuItem mnemonicParsing="false" onAction="#importDatabase" text="Import Database" />
+                  <MenuItem mnemonicParsing="false" onAction="#changePassword" text="Ubah Password" />
             <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#closeApp" text="Close" />
           </items>
         </Menu>

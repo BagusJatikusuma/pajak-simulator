@@ -9,6 +9,7 @@ import com.bekasidev.app.model.Rekapitulasi;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.ArsipPelaksanaanTableWrapper;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -17,10 +18,12 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -110,25 +113,28 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanDetailController implem
                 = (Rekapitulasi) SessionProvider
                     .getGlobalSessionsMap()
                     .get("selected_bulan_rekapitulasi");
+        TableView arsipPelaksanaanTable
+                =  SessionProvider
+                    .getTableViewSessionMap()
+                    .get("tabel_rekapitulasi");
+        String indexTableRow
+                = (String) SessionProvider
+                    .getGlobalSessionsMap()
+                    .get("index_data_tabel_rekapitulasi");
+        
         if (!(omzetDiLaporkanField.getText().equals("") 
                 ||omzetHasilField.getText().equals(""))) {
-            System.out.println("setter now");
-            
+            System.out.println("setter now table index "+indexTableRow);
+            //update back data
             rek.setOmzetHasilPeriksa(Double.valueOf(omzetHasilField.getText().replace(".", "")));
             rek.setOmzetLaporan(Double.valueOf(omzetDiLaporkanField.getText().replace(".", "")));
+            //update front table data
+            ArsipPelaksanaanTableWrapper wrapper
+                    = (ArsipPelaksanaanTableWrapper) arsipPelaksanaanTable.getItems().get(Integer.parseInt(indexTableRow)-1);
+            wrapper.setOmzethasilPemeriksaan("Rp"+omzetHasilField.getText());
+            wrapper.setOmzetDiLaporkan("Rp"+omzetDiLaporkanField.getText());
+            arsipPelaksanaanTable.getItems().set(Integer.parseInt(indexTableRow)-1, wrapper);
         }
-        
-        Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
-        rootpaneFormPelaksanaan.getChildren().remove(0);
-
-        Pane contentPane = null;
-        try { 
-            contentPane
-                    = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FormDaftarRekapitulasiPerbandinganPendapatan.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        rootpaneFormPelaksanaan.getChildren().add(contentPane);
         
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();

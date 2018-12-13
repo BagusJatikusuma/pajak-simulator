@@ -38,7 +38,11 @@ public class PopupPaneUIController implements Initializable {
             String message
                     = (String) SessionProvider.getGlobalSessionsMap().get("notif_message_popup");
             
-            notifLabel.setLayoutX(notifLabel.getLayoutX() - ((message.length()/2)*5) - 8);
+            double centerDefault = notifLabel.getLayoutX()+(notifLabel.getWidth()/2);
+            int addSize = 0;
+            if (message.length() > 25) addSize = 15;
+            
+            notifLabel.setLayoutX(centerDefault - ((message.length()/2)+addSize));
             
             notifLabel.setText(message);
         }
