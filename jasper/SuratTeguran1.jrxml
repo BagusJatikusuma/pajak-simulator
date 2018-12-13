@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratTeguran1" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3da42b7-807d-480c-8138-4766054d39b4">
 	<property name="ireport.zoom" value="1.210000000000005"/>
-	<property name="ireport.x" value="3"/>
-	<property name="ireport.y" value="464"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="nomor_surat" class="java.lang.String"/>
 	<parameter name="tanggal_surat" class="java.lang.String"/>
@@ -48,7 +48,7 @@
 				<textFieldExpression><![CDATA["NPWPD : " + $P{wajib_pajak}.getNpwpd()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="59" y="193" width="11" height="40" uuid="8bcbd82c-bfbb-4f70-8e2f-919d4d52d3b1"/>
+				<reportElement positionType="Float" x="59" y="193" width="11" height="33" uuid="8bcbd82c-bfbb-4f70-8e2f-919d4d52d3b1"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
@@ -76,7 +76,7 @@
 				<text><![CDATA[di -]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="3" y="193" width="56" height="40" uuid="99e4b47d-72e5-4e82-b25f-e9f9ed9dc482"/>
+				<reportElement positionType="Float" x="3" y="193" width="56" height="33" uuid="99e4b47d-72e5-4e82-b25f-e9f9ed9dc482"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
@@ -139,9 +139,12 @@
 				<text><![CDATA[Nomor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="70" y="193" width="215" height="40" uuid="d1857304-cd6d-42f2-829c-b3c910ddc413"/>
+				<reportElement positionType="Float" x="70" y="193" width="179" height="33" uuid="d1857304-cd6d-42f2-829c-b3c910ddc413"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed"/>
+				</box>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="true" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="12" isBold="false" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Teguran Penyampaian Data Terkait Pemeriksaan Pajak Daerah]]></text>
 			</staticText>

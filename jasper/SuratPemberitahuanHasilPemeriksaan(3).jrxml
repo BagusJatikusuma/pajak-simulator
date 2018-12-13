@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratPemberitahuanHasilPemeriksaan(3)" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="85b9e619-989f-4e51-bdcc-52a1b800bcdb">
-	<property name="ireport.zoom" value="0.5131581182307182"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="11"/>
+	<property name="ireport.zoom" value="1.4641000000000337"/>
+	<property name="ireport.x" value="7"/>
+	<property name="ireport.y" value="1676"/>
 	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<style name="table">
 		<box>
@@ -503,9 +503,9 @@ www.kab-bekasi.go.id]]></text>
 				<textFieldExpression><![CDATA["Masa Pajak yang Diperiksa " + $P{masa_pajak_awal} + " s.d " + $P{masa_pajak_akhir}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="309" y="328" width="222" height="20" uuid="b4b48535-e4d0-4dee-b5d9-91f45a63faae"/>
+				<reportElement x="298" y="328" width="229" height="20" uuid="b4b48535-e4d0-4dee-b5d9-91f45a63faae"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Cikarang Pusat, " + $P{tanggal_surat}]]></textFieldExpression>
 			</textField>
@@ -653,37 +653,37 @@ www.kab-bekasi.go.id]]></text>
 				<textFieldExpression><![CDATA[$P{total_pajak_yang_harus_bayar} + ",-"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="219" y="358" width="312" height="20" uuid="11dda8d8-7ff0-473b-a8ae-0f429d1a432f"/>
+				<reportElement x="196" y="358" width="336" height="20" uuid="11dda8d8-7ff0-473b-a8ae-0f429d1a432f"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Tim Pemeriksa,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="6" y="378" width="179" height="80" uuid="ec59222a-4315-46a9-bc9e-556ca423f9ef"/>
+				<reportElement x="0" y="378" width="160" height="80" uuid="ec59222a-4315-46a9-bc9e-556ca423f9ef"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[SUPERVISOR,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="6" y="473" width="179" height="15" uuid="8f7ec73f-3d50-48c9-9ce7-bc4643b5ca77"/>
+				<reportElement x="0" y="473" width="160" height="15" uuid="8f7ec73f-3d50-48c9-9ce7-bc4643b5ca77"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_pangkat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="6" y="458" width="179" height="15" uuid="41ac04b1-9b75-43ec-bbab-ce8f346dafc3"/>
+				<reportElement x="0" y="458" width="160" height="15" uuid="41ac04b1-9b75-43ec-bbab-ce8f346dafc3"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{supervisor_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="6" y="488" width="179" height="15" uuid="2d2f9185-b387-4d91-8430-e0ee7f696a2c"/>
+				<reportElement x="0" y="488" width="160" height="15" uuid="2d2f9185-b387-4d91-8430-e0ee7f696a2c"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NIP. " + $P{supervisor_nip}]]></textFieldExpression>
 			</textField>
@@ -708,58 +708,58 @@ www.kab-bekasi.go.id]]></text>
 				<textFieldExpression><![CDATA["Pajak Daerah (" +$P{persen} +")"]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 5" positionType="Float" x="219" y="378" width="316" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
+				<reportElement key="table 5" positionType="Float" x="196" y="378" width="335" height="140" uuid="44c1928e-a111-4e33-887f-cdf32c37d761"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="anggota" uuid="b307cae8-0b4d-4bc8-b5de-76ee2cf99d98">
 						<dataSourceExpression><![CDATA[$P{anggota}]]></dataSourceExpression>
 					</datasetRun>
-					<jr:column width="150" uuid="50d7d9eb-4d92-439d-87ab-9568e5a86d51">
+					<jr:column width="215" uuid="50d7d9eb-4d92-439d-87ab-9568e5a86d51">
 						<jr:detailCell height="40" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement positionType="Float" x="0" y="0" width="150" height="15" uuid="1266d05c-5f40-4634-a0a6-820f2a9cff18"/>
+								<reportElement positionType="Float" x="0" y="0" width="215" height="15" uuid="1266d05c-5f40-4634-a0a6-820f2a9cff18"/>
 								<box rightPadding="5"/>
 								<textElement>
-									<font fontName="Times New Roman" size="11" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="10" isBold="true" isUnderline="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{namaPegawai}]]></textFieldExpression>
 							</textField>
 							<textField isStretchWithOverflow="true">
-								<reportElement positionType="Float" x="0" y="15" width="150" height="15" uuid="1df71d0f-72cb-4d76-a760-74756abca9b9"/>
+								<reportElement positionType="Float" x="0" y="15" width="215" height="15" uuid="1df71d0f-72cb-4d76-a760-74756abca9b9"/>
 								<textElement>
-									<font fontName="Times New Roman" size="11" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA["NIP. " + $F{nipPegawai}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="75" uuid="8676281e-0da7-4015-bb84-39ab3a867a4d">
+					<jr:column width="60" uuid="8676281e-0da7-4015-bb84-39ab3a867a4d">
 						<jr:detailCell height="40" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement positionType="Float" x="0" y="0" width="75" height="30" uuid="fabe40bc-e1bc-44c0-b5b2-82959a7065fb"/>
+								<reportElement positionType="Float" x="0" y="0" width="60" height="30" uuid="fabe40bc-e1bc-44c0-b5b2-82959a7065fb"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Times New Roman" size="11" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+									<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{jabatanTim}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="baaef551-911e-483c-89ae-2e79e39a43e1">
+					<jr:column width="60" uuid="baaef551-911e-483c-89ae-2e79e39a43e1">
 						<jr:detailCell height="40" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="8e2e35de-7621-4460-869a-5c5765ad4d6f"/>
-								<textElement verticalAlignment="Bottom">
+								<reportElement x="0" y="0" width="60" height="30" uuid="8e2e35de-7621-4460-869a-5c5765ad4d6f"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
 									<font fontName="Times New Roman" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 								</textElement>
-								<text><![CDATA[.............................]]></text>
+								<text><![CDATA[.......................]]></text>
 							</staticText>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="6" y="358" width="179" height="20" uuid="ab5b5360-9378-42e4-a80b-5a670f164a88"/>
+				<reportElement x="0" y="358" width="160" height="20" uuid="ab5b5360-9378-42e4-a80b-5a670f164a88"/>
 				<textElement>
-					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
+					<font fontName="Times New Roman" size="10" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>

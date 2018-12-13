@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerParkir" language="groovy" pageWidth="595" pageHeight="935" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="77ed2fca-f1da-4c30-89df-77a46b538943">
 	<property name="ireport.zoom" value="0.8264462809917371"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2033"/>
+	<property name="ireport.y" value="1121"/>
 	<parameter name="logo" class="java.lang.String"/>
 	<group name="group">
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
@@ -472,7 +472,7 @@ www.kab-bekasi.go.id]]></text>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Berapa rata-rata jumlah kendaraan eoda 2 (dua), kendaraan roda 4 (empat), dan mobil box/truk yang parkir setiap harinya?]]></text>
+					<text><![CDATA[Berapa rata-rata jumlah kendaraan roda 2 (dua), kendaraan roda 4 (empat), dan mobil box/truk yang parkir setiap harinya?]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="170" width="20" height="80" uuid="4771eb98-1630-4d26-a42a-9b01aff3c795"/>

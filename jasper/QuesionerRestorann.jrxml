@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuesionerRestorann" language="groovy" pageWidth="595" pageHeight="935" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="40" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8615123e-a2b9-41c0-aa1c-6f807e29c0ee">
 	<property name="ireport.zoom" value="1.1000000000000074"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2424"/>
+	<property name="ireport.y" value="1752"/>
 	<import value="com.bekasidev.app.model.WajibPajak"/>
 	<parameter name="logo" class="java.lang.String"/>
 	<group name="group">
@@ -755,7 +755,7 @@ www.kab-bekasi.go.id]]></text>
 					<textElement textAlignment="Justified" markup="html">
 						<font fontName="Times New Roman" size="14" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 					</textElement>
-					<text><![CDATA[Berapa rata-rata pengeluaran konsumen/pengunjung perorangan dalam satu kali kunjungan ?]]></text>
+					<text><![CDATA[Berapa rata-rata pengeluaran konsumen/pengunjung perorangan dalam satu kali kunjungan?]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="Float" x="0" y="80" width="20" height="80" uuid="97378551-fbe5-4961-8486-588a76008713"/>
