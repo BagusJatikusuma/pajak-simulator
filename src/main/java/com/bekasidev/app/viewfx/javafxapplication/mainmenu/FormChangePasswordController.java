@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.mainmenu;
 
+import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
 import java.io.IOException;
@@ -47,7 +48,12 @@ public class FormChangePasswordController implements Initializable {
             showErrorNotif("password tidak sama");
             return;
         }
+        String username = (String) SessionProvider.getGlobalSessionsMap().get("user_name");
+        ServiceFactory.getUserLoginService().updateUser(username, passwordField.getText());
+        showErrorNotif("password berhasil diubah");
         
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();
     }
     
     public void cancelOperation() {

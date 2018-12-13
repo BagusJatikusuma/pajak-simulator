@@ -9,6 +9,7 @@ import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.model.MasterPegawaiTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.WPMasterTableWrapper;
@@ -16,7 +17,9 @@ import com.bekasidev.app.viewfx.javafxapplication.util.ObservableArrayList;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +53,7 @@ public class MasterPegawaiUIController implements Initializable {
                         jabatan,
                         action;
     private ObservableList<MasterPegawaiTableWrapper> dataCollection;
+    private Map<String, Pegawai> pegawaiMapper = new HashMap<>();
     private PegawaiService service;
     
     /**
@@ -58,6 +62,8 @@ public class MasterPegawaiUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //reset dahulu session pegawai update ketika memasuki halaman master pegawai
+        SessionProvider.getGlobalSessionsMap().put("update_pegawai_selected", null);
         addFromFXML();
         populateData();
         associateDataWithColumn();
@@ -65,6 +71,8 @@ public class MasterPegawaiUIController implements Initializable {
     }
 
     public void addPegawai() {
+        SessionProvider.getGlobalSessionsMap().put("update_pegawai_selected", null);
+        
         Pane formTambahPegawai = null;
         try {
             formTambahPegawai = FXMLLoader
@@ -74,6 +82,28 @@ public class MasterPegawaiUIController implements Initializable {
         }
         Stage stage = new Stage();
         stage.setTitle("Form tambah Pegawai");
+        stage.setScene(new Scene(formTambahPegawai));
+        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
+    
+    public void updatePegawai() {
+        MasterPegawaiTableWrapper pegawai
+                = (MasterPegawaiTableWrapper) masterPegawaiTable.getSelectionModel().getSelectedItem();
+        
+        SessionProvider.getGlobalSessionsMap().put("update_pegawai_selected", pegawaiMapper.get(pegawai.getNip()));
+        
+        Pane formTambahPegawai = null;
+        try {
+            formTambahPegawai = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormTambahPegawaiUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form update Pegawai");
         stage.setScene(new Scene(formTambahPegawai));
         
         stage.initStyle(StageStyle.UTILITY);
@@ -111,6 +141,7 @@ public class MasterPegawaiUIController implements Initializable {
                     obj.getJabatanDinas(),
                     btn
             ));
+            pegawaiMapper.put(obj.getNipPegawai(), obj);
         }
         
         for (final MasterPegawaiTableWrapper obj: dataCollection) {

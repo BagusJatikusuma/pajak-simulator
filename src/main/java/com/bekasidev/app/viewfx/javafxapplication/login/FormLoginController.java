@@ -6,6 +6,7 @@
 package com.bekasidev.app.viewfx.javafxapplication.login;
 
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.view.util.SessionProvider;
 import javafx.scene.image.Image;
 import java.io.File;
 import java.io.IOException;
@@ -76,6 +77,7 @@ public class FormLoginController implements Initializable {
             statusLogin = ServiceFactory.getUserLoginService().login(usernameField.getText(), passwordField.getText());
             if(statusLogin == true){
                 System.out.println("Berhasil masuk");
+                SessionProvider.getGlobalSessionsMap().put("user_name", usernameField.getText());
                 showMainApp();
             } else {
                 noticeField.setVisible(true);
@@ -95,7 +97,6 @@ public class FormLoginController implements Initializable {
         primaryStage.getIcons().add(img);
         
         primaryStage.setTitle("Aplikasi Pemeriksaan Pajak");
-        primaryStage.setMaximized(true);
         primaryStage.setWidth(primaryScreenBounds.getWidth());
         primaryStage.setHeight(primaryScreenBounds.getHeight());
         
