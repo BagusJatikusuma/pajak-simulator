@@ -11,8 +11,10 @@ import com.bekasidev.app.service.backend.ExportImportService;
 import com.bekasidev.app.util.LogException;
 import com.bekasidev.app.wrapper.ExportDokumenWrapper;
 import com.bekasidev.app.wrapper.RekapitulasiExport;
+import com.opencsv.CSVReader;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -111,6 +113,21 @@ public class ExportImportServiceImpl implements ExportImportService {
     @Override
     public void setExportable(String idSP) {
         exportImportDao.setExportable(idSP);
+    }
+
+    @Override
+    public void importWajibPajak(File file) {
+        CSVReader reader = null;
+        try {
+            reader = new CSVReader(new FileReader(file));
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+
+                System.out.println(line[0] + " " + line[1] + " " + line[3] + " " + line[4] + " " + line[6]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private String getIdSP(List<SuratPerintah> listSP){
