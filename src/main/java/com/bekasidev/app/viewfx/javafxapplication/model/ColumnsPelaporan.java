@@ -20,6 +20,7 @@ public class ColumnsPelaporan {
     private WajibPajak wajibPajak;
     private String namaWajibPajak;
     private String npwpdWajibPajak;
+    private String npwpdCorrect;
     private String temuanHasil;
     private String nomorSKPD;
     private String tanggalSKPD;
@@ -115,6 +116,14 @@ public class ColumnsPelaporan {
 
     public void setNpwpdWajibPajak(String npwpdWajibPajak) {
         this.npwpdWajibPajak = npwpdWajibPajak;
+    }
+
+    public String getNpwpdCorrect() {
+        return npwpdCorrect;
+    }
+
+    public void setNpwpdCorrect(String npwpdCorrect) {
+        this.npwpdCorrect = npwpdCorrect;
     }
     
     

@@ -17,7 +17,12 @@ import com.bekasidev.app.viewfx.javafxapplication.model.DaftarSuratPelaksanaanTa
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -29,6 +34,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -48,6 +54,12 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     @FXML private TableColumn namaSurat;
     @FXML private TableColumn keterangan;
     
+    @FXML private Label namaTimLabel;
+    @FXML private Label namaWPLabel;
+    @FXML private Label npwpdLabel;
+    @FXML private Label nomorTanggalSPField;
+    @FXML private Label jumlahTemuanLabel;
+    
     private ObservableList<DaftarSuratPelaksanaanTableWrapper> dataCollection;
     private ReportService reportService;
     
@@ -58,6 +70,7 @@ public class FormSuratPelaksanaanUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         reportService = ServiceFactory.getReportService();
+        initLabel();
         populateData();
         associateDataWithColumn();
         daftarSuratTable.setItems(dataCollection);
@@ -126,6 +139,30 @@ public class FormSuratPelaksanaanUIController implements Initializable {
         no.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("no"));
         namaSurat.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("namaSurat"));
         keterangan.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("keterangan"));
+    }
+    
+    private void initLabel() {
+        NumberFormat anotherFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+        DecimalFormat decFormatter = (DecimalFormat) anotherFormat;
+        
+        PelaksanaanWrapper pelaksanaanWrapper
+                = (PelaksanaanWrapper) SessionProvider.getGlobalSessionsMap()
+                                    .get("pelaksanaan_wrapper");
+        namaTimLabel.setText(pelaksanaanWrapper.getTimSelected().getNamaTim());
+        namaWPLabel.setText(pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
+        npwpdLabel.setText(pelaksanaanWrapper.getWpSelected().getNpwpd());
+        DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
+        nomorTanggalSPField.setText(
+                "800/"+pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat()+"/Bapenda"
+                +", "+formatter.format(pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan()));
+        if (pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah() != null) {
+            if (pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah() == 0) {
+                jumlahTemuanLabel.setText("NIHIL");
+            }
+            else jumlahTemuanLabel.setText("Rp"+decFormatter.format(pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah()));
+        }
+        else jumlahTemuanLabel.setText("Masih dalam proses");
+        
     }
     
     public void aturNomorTanggalSurat() {

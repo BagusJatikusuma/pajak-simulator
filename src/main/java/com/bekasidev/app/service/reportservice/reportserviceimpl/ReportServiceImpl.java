@@ -16,12 +16,14 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.view.util.modelview.PersiapanPajakPOJO;
 import com.bekasidev.app.view.util.modelview.WajibPajakModelView;
 import com.bekasidev.app.viewfx.javafxapplication.model.AnggotaDanWajibPajakWrapper;
+import com.bekasidev.app.viewfx.javafxapplication.model.ColumnsPelaporan;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaksanaanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PelaporanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapperJasper;
 import com.bekasidev.app.viewfx.javafxapplication.model.SPColumnPelaporan;
+import com.bekasidev.app.viewfx.javafxapplication.model.TimColumnPelaporan;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapperJasper;
 
@@ -1399,7 +1401,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             if((pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat() == null || pelaksanaanWrapper.getPersiapanWrapper().getNomorSurat().equals("")) && pelaksanaanWrapper.getPersiapanWrapper().getTanggalPengesahan() == null){
@@ -1503,7 +1505,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
@@ -1614,7 +1616,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             
             parameter.put("penandatangan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas());
             
@@ -1699,7 +1701,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sphp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
 
             if((pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil() == null || pelaksanaanWrapper.getWpSelected().getNomorBerkas().getNomorSuratHasil().equals("")) && 
@@ -1781,7 +1783,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             Long terbilang = pelaksanaanWrapper.getRekapitulasiWrapper().getTotalJumlah().longValue();
@@ -1873,7 +1875,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             System.out.println("Nama Wajib Pajak : " + pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
@@ -1950,7 +1952,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wp", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()).toUpperCase() + " " +
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalTahun());
@@ -2183,7 +2185,7 @@ public class ReportServiceImpl implements ReportService {
             
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             parameter.put("pemberi_sk", pelaksanaanWrapper.getPersiapanWrapper().getPemberiSK());
@@ -2385,7 +2387,7 @@ public class ReportServiceImpl implements ReportService {
             }
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             parameter.put("alamat_wajib_pajak", pelaksanaanWrapper.getWpSelected().getJalan());
             
             switch(pelaksanaanWrapper.getWpSelected().getJenisWp()){
@@ -2866,7 +2868,7 @@ public class ReportServiceImpl implements ReportService {
                     AnggotaDanWajibPajakWrapper wp = new AnggotaDanWajibPajakWrapper();
 
                     if(i < tim.getWajibPajaks().size()){
-                        wp.setIdWajibPajak(tim.getWajibPajaks().get(i).getNpwpd());
+                        wp.setIdWajibPajak(tim.getWajibPajaks().get(i).getCorrectNPWPD());
                         wp.setNamaWajibPajak(tim.getWajibPajaks().get(i).getNamaWajibPajak());
                         wp.setJenisWp(tim.getWajibPajaks().get(i).getJenisWp());
                     } else {
@@ -3102,7 +3104,7 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("wajib_pajak", pelaksanaanWrapper.getWpSelected());
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             
             parameter.put("penandatangan_jabatan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas().toUpperCase());
             parameter.put("penandatangan_nama", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getNamaPegawai());
@@ -3251,7 +3253,7 @@ public class ReportServiceImpl implements ReportService {
             parameter.put("wajib_pajak", pelaksanaanWrapper.getWpSelected());
             
             parameter.put("nama_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd_wajib_pajak", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             
             parameter.put("penandatangan_jabatan", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getJabatanDinas().toUpperCase());
             parameter.put("penandatangan_nama", pelaksanaanWrapper.getPersiapanWrapper().getPenandatangan().getNamaPegawai());
@@ -3345,7 +3347,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wp", pelaksanaanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd", pelaksanaanWrapper.getWpSelected().getCorrectNPWPD());
             
             parameter.put("pajak_awal", converterHelper.convertBulanIntegerIntoString(
                                pelaksanaanWrapper.getPersiapanWrapper().getMasaPajakAwalBulan()) + " " +
@@ -3442,7 +3444,7 @@ public class ReportServiceImpl implements ReportService {
             SimpleDateFormat df_tanggal_sp = new SimpleDateFormat(pattern, id);
             
             parameter.put("nama_wp", pelaporanWrapper.getWpSelected().getNamaWajibPajak());
-            parameter.put("npwpd", pelaporanWrapper.getWpSelected().getNpwpd());
+            parameter.put("npwpd", pelaporanWrapper.getWpSelected().getCorrectNPWPD());
             
             int bulanAwal = new Date(Long.valueOf(pelaporanWrapper.getSuratPerintahSelected().getMasaPajakAwal()))
                 .toInstant()
@@ -3660,6 +3662,15 @@ public class ReportServiceImpl implements ReportService {
     public void createLaporanEvaluasi(PelaporanWrapper pelaporanWrapper) {
         List<SPColumnPelaporan> sPColumnPelaporans = (List<SPColumnPelaporan>) SessionProvider.getGlobalSessionsMap().get("evaluasi_wrapper");
         Integer tahunAnggaranSK = (Integer) SessionProvider.getGlobalSessionsMap().get("tahun_anggaran");
+        
+        for (SPColumnPelaporan sPColumnPelaporan : sPColumnPelaporans) {
+            for (TimColumnPelaporan timColumnPelaporan : sPColumnPelaporan.getTimColumnPelaporans()) {
+                for (ColumnsPelaporan columnsPelaporan : timColumnPelaporan.getColumnsPelaporanList()) {
+                    columnsPelaporan.setNpwpdCorrect(ConverterHelper.correctNPWPD(columnsPelaporan.getNpwpdWajibPajak()));
+                }
+            }
+        }
+        
         try {
             String jasperPathFile = null;
             String jrxmlPathFile = null;

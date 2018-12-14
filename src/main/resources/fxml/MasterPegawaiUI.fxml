@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
@@ -8,8 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
    <children>
       <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
       <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
@@ -25,6 +28,7 @@
             <TableColumn maxWidth="197.0" minWidth="197.0" prefWidth="197.0" text="Action" />
          </columns>
       </TableView>
+      <Button layoutX="454.0" layoutY="11.0" mnemonicParsing="false" onAction="#updatePegawai" prefHeight="25.0" prefWidth="181.0" text="Update Pegawai" />
    </children>
    <padding>
       <Insets bottom="14.0" />
