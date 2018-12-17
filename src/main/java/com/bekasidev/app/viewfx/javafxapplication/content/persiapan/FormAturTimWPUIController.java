@@ -150,7 +150,7 @@ public class FormAturTimWPUIController implements Initializable {
                     stage.setTitle("Form tambah Tim WP");
                     stage.setScene(new Scene(formTambahTimWPUI));
                     
-                    stage.initStyle(StageStyle.UTILITY);
+//                    stage.initStyle(StageStyle.UTILITY);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                     
