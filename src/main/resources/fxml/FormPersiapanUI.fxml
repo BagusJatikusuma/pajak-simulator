@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -7,12 +8,15 @@
 
 <VBox fx:id="formDokumenPersiapanPane" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormPersiapanUIController">
    <children>
-      <AnchorPane fx:id="formPersiapanHead" prefHeight="40.0" prefWidth="700.0">
+      <AnchorPane fx:id="formPersiapanHead">
          <children>
-            <Label fx:id="headerFormPersiapanLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="7.0" prefHeight="17.0" prefWidth="700.0" text="FORM DOKUMEN PERSIAPAN" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label fx:id="headerFormPersiapanLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="7.0" prefHeight="17.0" prefWidth="700.0" text="FORM DOKUMEN PERSIAPAN" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
             </Label>
          </children>
       </AnchorPane>

@@ -19,8 +19,8 @@
          <children>
               <TextField fx:id="pemberiSKField" layoutX="1.0" layoutY="20.0" prefHeight="25.0" prefWidth="497.0" />
               <TextField fx:id="dasarNomorField" layoutX="1.0" layoutY="75.0" prefHeight="25.0" prefWidth="497.0" />
-              <DatePicker fx:id="dasarTanggalField" layoutX="2.0" layoutY="130.0" prefHeight="25.0" prefWidth="228.0" />
-              <TextField fx:id="dasarTahunAnggaranField" layoutX="267.0" layoutY="130.0" prefHeight="25.0" prefWidth="228.0" />
+              <DatePicker fx:id="dasarTanggalField" layoutY="135.0" prefHeight="25.0" prefWidth="228.0" />
+              <TextField fx:id="dasarTahunAnggaranField" layoutX="267.0" layoutY="130.0" prefHeight="25.0" prefWidth="231.0" />
               
               
               <ChoiceBox fx:id="masaPajakAwalBulan" layoutX="1.0" layoutY="195.0" prefHeight="25.0" prefWidth="115.0" />
@@ -29,26 +29,34 @@
               <TextField fx:id="masaPajakAkhirTahun" layoutX="399.0" layoutY="195.0" prefHeight="25.0" prefWidth="99.0" />
               <Label layoutX="1.0" layoutY="175.0" text="Masa Pajak" />
               <Label layoutX="1.0" layoutY="55.0" text="Nomor Surat Keputusan" />
-              <Label layoutX="2.0" layoutY="110.0" text="Tanggal Surat Keputusan" />
+              <Label layoutY="115.0" text="Tanggal Surat Keputusan" />
               <Label layoutX="267.0" layoutY="110.0" text="Tahun Anggaran Surat Keputusan" />
               <Label layoutX="2.0" layoutY="539.0" text="Penandatangan" />
               <Label layoutX="239.0" layoutY="199.0" prefHeight="17.0" prefWidth="19.0" text="s.d" />
               <Label layoutY="230.0" text="Tahap ke" />
-              <TextField fx:id="tahapKeField" layoutY="250.0" prefHeight="25.0" prefWidth="497.0" />
+              <TextField fx:id="tahapKeField" layoutY="250.0" prefHeight="25.0" prefWidth="498.0" />
               <TextField fx:id="lamaPelaksanaanField" layoutX="1.0" layoutY="314.0" prefHeight="25.0" prefWidth="497.0" />
-              <Label layoutX="2.0" layoutY="419.0" text="Tahun anggaran APBD" />
-              <TextField fx:id="nomorAPBDField" layoutY="384.0" prefHeight="25.0" prefWidth="497.0" />
-              <TextField fx:id="tahunAnggaranAPBDField" layoutX="2.0" layoutY="439.0" prefHeight="25.0" prefWidth="228.0" />
-              <DatePicker fx:id="tanggalAPBDField" layoutX="267.0" layoutY="439.0" prefHeight="25.0" prefWidth="228.0" />
+              <Label layoutY="419.0" text="Tahun anggaran APBD" />
+              <TextField fx:id="nomorAPBDField" layoutY="384.0" prefHeight="25.0" prefWidth="498.0" />
+              <TextField fx:id="tahunAnggaranAPBDField" layoutY="439.0" prefHeight="25.0" prefWidth="228.0" />
+              <DatePicker fx:id="tanggalAPBDField" layoutX="267.0" layoutY="439.0" prefHeight="25.0" prefWidth="231.0" />
               
               <Label layoutY="359.0" text="Nomor APBD" />
               <Label layoutX="267.0" layoutY="419.0" text="Tanggal APBD" />
               <TextField fx:id="ditetapkanDiField" layoutX="1.0" layoutY="504.0" prefHeight="25.0" prefWidth="497.0" />
               <ChoiceBox fx:id="penandatanganField" layoutX="1.0" layoutY="557.0" prefHeight="25.0" prefWidth="497.0" />
               <Label layoutX="1.0" layoutY="484.0" text="Ditetapkan di" />
-              <Button layoutX="380.0" layoutY="595.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" prefWidth="115.0" text="Selanjutnya" />
-              <Button fx:id="cancelBtn" layoutX="249.0" layoutY="595.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" prefWidth="115.0" text="Batal" />
-              <Label layoutX="3.0" layoutY="295.0" text="Lama Pelaksanaan (Dalam Satuan Hari)" />
+              <Button layoutX="397.0" layoutY="595.0" mnemonicParsing="false" onAction="#openFormAturTimWP" prefHeight="25.0" text="Selanjutnya">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </Button>
+              <Button fx:id="cancelBtn" layoutX="292.0" layoutY="595.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" text="Batal">
+               <padding>
+                  <Insets left="35.0" right="35.0" />
+               </padding>
+            </Button>
+              <Label layoutY="295.0" text="Lama Pelaksanaan (Dalam Satuan Hari)" />
             <Label layoutX="1.0" text="Pemberi Surat Keputusan" />
          </children>
       </Group>
