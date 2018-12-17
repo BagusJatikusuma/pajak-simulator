@@ -39,4 +39,9 @@ public class WajibPajakServiceImpl implements WajibPajakService {
     public void updateWajibPajak(WajibPajak wajibPajak) {
         wajibPajakDao.updateWp(wajibPajak);
     }
+
+    @Override
+    public void replace(String idWP, String namaWP) {
+        wajibPajakDao.replace(idWP, namaWP);
+    }
 }

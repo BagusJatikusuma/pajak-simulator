@@ -15,4 +15,6 @@ public interface WajibPajakService {
     WajibPajak getWajibPajakById(String idWp);
 
     void updateWajibPajak(WajibPajak wajibPajak);
+
+    void replace(String idWP, String namaWP);
 }

@@ -131,4 +131,28 @@ public class WajibPajakDaoImpl implements WajibPajakDao {
             new LogException(e);
         }
     }
+
+    @Override
+    public WajibPajak getWPLikeId(String idWP) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void replace(String idWP, String namaWP) {
+        String sql = "insert into wajib_pajak(id_wp, nama_wp) values(?,?) " +
+                "on conflict(id_wp) do update set nama_wp=?";
+
+        try(Connection conn = Connect.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, idWP);
+            pstm.setString(2, namaWP);
+            pstm.setString(3, namaWP);
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new LogException(e);
+        }
+    }
 }

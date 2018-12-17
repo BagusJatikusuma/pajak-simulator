@@ -17,4 +17,6 @@ public interface WajibPajakDao {
     void updateWp(WajibPajak wajibPajak);
 
     WajibPajak getWPLikeId(String idWP);
+
+    void replace(String idWP, String namaWP);
 }
