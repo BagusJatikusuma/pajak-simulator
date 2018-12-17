@@ -199,8 +199,8 @@ public class FormAturTimWPUIController implements Initializable {
         stage.setScene(new Scene(formTambahTimWPUI));
         
 //        stage.initStyle(StageStyle.UTILITY);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+//        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
     
     public void aturSuratPerintah() {
