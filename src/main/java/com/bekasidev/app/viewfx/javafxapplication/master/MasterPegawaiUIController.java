@@ -18,11 +18,13 @@ import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -33,6 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -46,6 +49,7 @@ import javafx.stage.StageStyle;
  */
 public class MasterPegawaiUIController implements Initializable {
     @FXML private TableView masterPegawaiTable;
+    @FXML private TextField cariPegawaiField;
     private TableColumn nip, 
                         nama, 
                         pangkat, 
@@ -53,6 +57,7 @@ public class MasterPegawaiUIController implements Initializable {
                         jabatan,
                         action;
     private ObservableList<MasterPegawaiTableWrapper> dataCollection;
+    private ObservableList<MasterPegawaiTableWrapper> filteredCollection;
     private Map<String, Pegawai> pegawaiMapper = new HashMap<>();
     private PegawaiService service;
     
@@ -68,6 +73,20 @@ public class MasterPegawaiUIController implements Initializable {
         populateData();
         associateDataWithColumn();
         masterPegawaiTable.setItems(dataCollection);
+    }
+    
+    public void cariPegawai() {
+        if (!cariPegawaiField.getText().equals("")) {
+            if (!populateDataBasedSearch().isEmpty()) {
+                masterPegawaiTable.setItems(populateDataBasedSearch());
+            }
+            masterPegawaiTable.refresh();
+        }
+    }
+    
+    public void resetTable() {
+        masterPegawaiTable.setItems(dataCollection);
+        masterPegawaiTable.refresh();
     }
 
     public void addPegawai() {
@@ -124,6 +143,20 @@ public class MasterPegawaiUIController implements Initializable {
                 = TableHelper.getTableColumnByName(masterPegawaiTable, "Jabatan");
         action 
                 = TableHelper.getTableColumnByName(masterPegawaiTable, "Action");
+    }
+    
+    private ObservableList<MasterPegawaiTableWrapper> populateDataBasedSearch() {
+        filteredCollection = FXCollections.observableArrayList();
+        String searchText = cariPegawaiField.getText().toLowerCase();
+        
+        for (Iterator it = dataCollection.iterator(); it.hasNext();) {
+            MasterPegawaiTableWrapper wrapper = (MasterPegawaiTableWrapper) it.next();
+            if (wrapper.getNama().toLowerCase().contains(searchText)) {
+                filteredCollection.add(wrapper);
+            }
+        }
+        
+        return filteredCollection;
     }
     
     private void populateData() {

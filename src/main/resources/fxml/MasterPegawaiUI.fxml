@@ -14,10 +14,10 @@
 
 <AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
    <children>
-      <Separator layoutX="249.0" layoutY="8.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="9.0" />
-      <TextField alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
-      <Button layoutX="268.0" layoutY="8.0" mnemonicParsing="false" onAction="#addPegawai" prefHeight="25.0" prefWidth="181.0" text="Tambah Pegawai" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="11.0" />
+      <Separator layoutX="340.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="9.0" />
+      <TextField fx:id="cariPegawaiField" alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariPegawai" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="356.0" layoutY="11.0" mnemonicParsing="false" onAction="#addPegawai" prefHeight="25.0" prefWidth="181.0" text="Tambah Pegawai" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="11.0" />
       <TableView fx:id="masterPegawaiTable" layoutX="10.0" layoutY="49.0" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <columns>
             <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="NIP" />
@@ -28,7 +28,8 @@
             <TableColumn maxWidth="197.0" minWidth="197.0" prefWidth="197.0" text="Action" />
          </columns>
       </TableView>
-      <Button layoutX="454.0" layoutY="11.0" mnemonicParsing="false" onAction="#updatePegawai" prefHeight="25.0" prefWidth="181.0" text="Update Pegawai" />
+      <Button layoutX="550.0" layoutY="11.0" mnemonicParsing="false" onAction="#updatePegawai" prefHeight="25.0" prefWidth="181.0" text="Update Pegawai" />
+      <Button layoutX="238.0" layoutY="8.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="25.0" prefWidth="94.0" text="reset" AnchorPane.topAnchor="11.0" />
    </children>
    <padding>
       <Insets bottom="14.0" />
