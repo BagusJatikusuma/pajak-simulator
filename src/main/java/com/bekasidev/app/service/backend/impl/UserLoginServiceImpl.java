@@ -13,7 +13,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public boolean login(String username, String password) {
         User user = userLoginDao.getUserLogin(setNip(username));
-        if(user==null) return false;
+        if(user == null) return false;
         String[] pass = user.getPassword().split("<b>");
 
         return EncryptDecrypt.verifyUserPassword(password, pass[0], pass[1]);

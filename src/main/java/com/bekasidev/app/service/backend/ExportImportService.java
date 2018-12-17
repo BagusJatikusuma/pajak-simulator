@@ -14,4 +14,5 @@ public interface ExportImportService {
     void exportDataTim(TimSP timSP);
     void importData(File file) throws IOException;
     void setExportable(String idSP);
+    void importWajibPajak(File file);
 }
