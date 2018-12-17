@@ -24,10 +24,12 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,6 +40,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -51,6 +54,7 @@ import javafx.stage.StageStyle;
  */
 public class MasterWajibPajakUIController implements Initializable {
     @FXML private TableView wajibPajakTable;
+    @FXML private TextField cariWPField;
     private TableColumn idWP, 
                         no, 
                         namaWP, 
@@ -60,6 +64,8 @@ public class MasterWajibPajakUIController implements Initializable {
                         jenisWP,
                         action;
     private ObservableList<WPMasterTableWrapper> dataCollection;
+    //digunakan sebagai penampung data hasil pencarian
+    private ObservableList<WPMasterTableWrapper> filteredCollection;
     
     private WajibPajakService service;
     private int indexTemp;
@@ -94,10 +100,17 @@ public class MasterWajibPajakUIController implements Initializable {
     }
     
     public void cariWP() {
-        System.out.println("Huut");
-        ReportService reportService = new ReportServiceImpl();
-//        reportService.createSuratPerintah();
-        reportService.createDaftarPetugasPemeriksa();
+        if (!cariWPField.getText().equals("")) {
+            if (!populateDataBasedSearch().isEmpty()) {
+                wajibPajakTable.setItems(populateDataBasedSearch());
+            }
+            wajibPajakTable.refresh();
+        }
+    }
+    
+    public void resetTable() {
+        wajibPajakTable.setItems(dataCollection);
+        wajibPajakTable.refresh();
     }
     
     private void addFromFXML() {
@@ -117,6 +130,20 @@ public class MasterWajibPajakUIController implements Initializable {
                 = TableHelper.getTableColumnByName(wajibPajakTable, "Jenis WP");
         action 
                 = TableHelper.getTableColumnByName(wajibPajakTable, "action");
+    }
+    
+    private ObservableList<WPMasterTableWrapper> populateDataBasedSearch() {
+        filteredCollection = FXCollections.observableArrayList();
+        String searchText = cariWPField.getText().toLowerCase();
+        
+        for (Iterator it = dataCollection.iterator(); it.hasNext();) {
+            WPMasterTableWrapper wrapper = (WPMasterTableWrapper) it.next();
+            if (wrapper.getNamaWajibPajak().toLowerCase().contains(searchText)) {
+                filteredCollection.add(wrapper);
+            }
+        }
+        
+        return filteredCollection;
     }
     
     private void populateData() {
