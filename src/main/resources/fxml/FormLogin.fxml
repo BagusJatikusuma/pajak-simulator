@@ -22,7 +22,7 @@
    <children>
       <HBox>
          <children>
-            <VBox alignment="CENTER" layoutY="31.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="31.0">
+            <VBox alignment="CENTER">
                <children>
                   <ImageView fx:id="logoImage" fitHeight="113.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" />
                   <Label text="APLIKASI PEMERIKSAAN PAJAK DAERAH" textFill="#eaeaea">
@@ -41,12 +41,12 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <Separator disable="true" layoutX="273.0" opacity="0.5" orientation="VERTICAL" prefHeight="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Separator disable="true" opacity="0.5" orientation="VERTICAL" prefHeight="250.0">
                <padding>
                   <Insets bottom="20.0" top="20.0" />
                </padding>
             </Separator>
-            <VBox alignment="CENTER" layoutX="273.0" layoutY="43.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="273.0" AnchorPane.topAnchor="43.0">
+            <VBox alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
