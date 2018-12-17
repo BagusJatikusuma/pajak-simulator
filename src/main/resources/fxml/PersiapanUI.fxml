@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
+<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.PersiapanUIController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addDokumenPersiapan" prefHeight="25.0" prefWidth="210.0" text="Tambah Dokumen Persiapan" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <TableView fx:id="arsipPersiapanTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <TableView fx:id="arsipPersiapanTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
          <columns>
             <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="ID" />
             <TableColumn maxWidth="500.0" minWidth="500.0" prefWidth="500.0" text="NOMOR SURAT PERINTAH" />
