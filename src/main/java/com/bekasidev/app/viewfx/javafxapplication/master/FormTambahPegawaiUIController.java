@@ -86,11 +86,11 @@ public class FormTambahPegawaiUIController implements Initializable {
                             pangkatField.getText(),
                             (pegawaiUpdate == null)?"":pegawaiUpdate.getJabatanTim(),
                             jabatanField.getText());
-            if (pegawaiUpdate == null)
+            if (pegawaiUpdate == null) {
                 service.createPegawai(pegawai);
-            else
-                service.updatePegawai(pegawai, pegawai.getNipPegawai());
-            
+            }else{
+                service.updatePegawai(pegawai, pegawaiUpdate.getNipPegawai());
+            }
             Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
             rootpane.getChildren().remove(1);
             
