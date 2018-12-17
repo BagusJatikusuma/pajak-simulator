@@ -182,8 +182,6 @@ public class PersiapanUIController implements Initializable {
     }
     
     public void openSPHandler(ActionEvent event, ArsipTablePersiapanWrapper obj) {
-        System.out.println("clicked "+obj.getId());
-        
         initDataFromService();
         
         PersiapanWrapper persiapanWrapper
