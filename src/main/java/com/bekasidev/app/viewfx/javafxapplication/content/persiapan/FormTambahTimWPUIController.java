@@ -44,7 +44,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -99,6 +101,42 @@ public class FormTambahTimWPUIController implements Initializable {
             }
         }
         PersiapanPilihWPTable.setItems(dataCollection);
+    }
+    
+    public void lihatDipilih() {
+        List<PersiapanPilihWPTableWrapper> allWPselected = new ArrayList<>();
+        
+        for (PersiapanPilihWPTableWrapper pwFilter : filteredCollection) {
+            for (PersiapanPilihWPTableWrapper pw : dataCollection) {
+                if (pw.getIdWP().equals(pwFilter.getIdWP())) {
+                    pw.getPilih().setSelected(pwFilter.getPilih().isSelected());
+                    break;
+                }
+            }
+        }
+        
+        for (PersiapanPilihWPTableWrapper pw : dataCollection) {
+            if (pw.getPilih().isSelected())
+                allWPselected.add(pw);
+        }
+        
+        SessionProvider.getGlobalSessionsMap().put("tim_wp_dipilih", allWPselected);
+        
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/WPTimDipilihUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("daftar wp yang dipilih");
+        stage.setScene(new Scene(popup));
+        
+//        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+        
     }
     
     public void tambahTimPemeriksaOperation() {
