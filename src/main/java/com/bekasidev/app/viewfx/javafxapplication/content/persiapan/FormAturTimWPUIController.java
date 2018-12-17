@@ -117,6 +117,7 @@ public class FormAturTimWPUIController implements Initializable {
                     persiapanWrapper.getTimWPWrappers().remove(timWPMapper.get(obj.getIdTim()));
                     
                     Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+                    
                     rootpaneFormPersiapan.getChildren().remove(1);
 
                     Pane contentPane = null;
@@ -205,7 +206,13 @@ public class FormAturTimWPUIController implements Initializable {
     
     public void aturSuratPerintah() {
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        rootpaneFormPersiapan.setMinHeight(159);
+        rootpaneFormPersiapan.setPrefHeight(159);
+        rootpaneFormPersiapan.setMaxHeight(159);
         rootpaneFormPersiapan.getChildren().remove(1);
+        rootpaneFormPersiapan.setMinHeight(159);
+        rootpaneFormPersiapan.setPrefHeight(159);
+        rootpaneFormPersiapan.setMaxHeight(159);
 
         Pane contentPane = null;
         try { 

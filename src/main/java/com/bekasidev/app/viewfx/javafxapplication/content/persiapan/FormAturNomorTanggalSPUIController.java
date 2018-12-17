@@ -68,6 +68,12 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
+        
+        System.out.println(rootpaneFormPersiapan.getMinHeight());
+        System.out.println(rootpaneFormPersiapan.getPrefHeight());
+        System.out.println(rootpaneFormPersiapan.getMaxHeight());
+        
         Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
                                             .get("header_form_persiapan");
         headerLabel.setText("FORM ATUR NOMOR & TANGGAL SURAT PERINTAH");
