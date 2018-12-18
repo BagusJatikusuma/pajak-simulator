@@ -80,6 +80,7 @@ public class MasterWajibPajakUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        SessionProvider.getGlobalSessionsMap().put("update_wp_selected", null);
         addFromFXML();
         populateData();
         associateDataWithColumn();
@@ -87,6 +88,14 @@ public class MasterWajibPajakUIController implements Initializable {
     }
 
     public void updateWajibPajak() {
+        WPMasterTableWrapper wrapper
+                = (WPMasterTableWrapper) wajibPajakTable.getSelectionModel().getSelectedItem();
+        if (wrapper==null) {
+            showErrorNotif();
+            return;
+        }
+        SessionProvider.getGlobalSessionsMap().put("update_wp_selected", wpMapper.get(wrapper.getNo()));
+        
         Pane formTambahWP = null;
         try {
             formTambahWP = FXMLLoader
@@ -98,12 +107,13 @@ public class MasterWajibPajakUIController implements Initializable {
         stage.setTitle("Form tambah WP");
         stage.setScene(new Scene(formTambahWP));
         
-        stage.initStyle(StageStyle.UTILITY);
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
     
     public void addWajibPajakHandle(ActionEvent actionEvent) {
+        SessionProvider.getGlobalSessionsMap().put("update_wp_selected", null);
         Pane formTambahWP = null;
         try {
             formTambahWP = FXMLLoader
@@ -115,7 +125,7 @@ public class MasterWajibPajakUIController implements Initializable {
         stage.setTitle("Form tambah WP");
         stage.setScene(new Scene(formTambahWP));
         
-        stage.initStyle(StageStyle.UTILITY);
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
@@ -251,5 +261,20 @@ public class MasterWajibPajakUIController implements Initializable {
         kecamatan.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("kecamatan"));
         action.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("button"));
         jenisWP.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("jenisWp"));
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih wajib pajak");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
 }

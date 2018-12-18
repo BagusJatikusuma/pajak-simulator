@@ -111,6 +111,10 @@ public class MasterPegawaiUIController implements Initializable {
     public void updatePegawai() {
         MasterPegawaiTableWrapper pegawai
                 = (MasterPegawaiTableWrapper) masterPegawaiTable.getSelectionModel().getSelectedItem();
+        if (pegawai==null) {
+            showErrorNotif();
+            return;
+        }
         
         SessionProvider.getGlobalSessionsMap().put("update_pegawai_selected", pegawaiMapper.get(pegawai.getNip()));
         
@@ -125,7 +129,7 @@ public class MasterPegawaiUIController implements Initializable {
         stage.setTitle("Form update Pegawai");
         stage.setScene(new Scene(formTambahPegawai));
         
-        stage.initStyle(StageStyle.UTILITY);
+//        stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
@@ -209,6 +213,21 @@ public class MasterPegawaiUIController implements Initializable {
         golongan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("golongan"));
         jabatan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("jabatan"));
         action.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("action"));
+    }
+    
+    private void showErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Anda belum memilih pegawai");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
     
 }
