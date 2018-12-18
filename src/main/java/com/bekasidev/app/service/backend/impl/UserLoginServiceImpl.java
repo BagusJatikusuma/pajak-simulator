@@ -23,7 +23,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     public void updateUser(String username, String password) {
         String salt = EncryptDecrypt.getSalt(30);
         password = EncryptDecrypt.generateSecurePassword(password, salt) + "<b>" + salt;
-        userLoginDao.updateUserLogin(new User(username, password));
+        userLoginDao.updateUserLogin(new User(setNip(username), password));
     }
 
     @Override
