@@ -1,34 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController">
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController">
    <children>
-      <TableView fx:id="AturNomorTanggalSuratPemberitahuanTable" prefHeight="300.0" prefWidth="574.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+      <TableView fx:id="AturNomorTanggalSuratPemberitahuanTable" prefHeight="300.0" prefWidth="574.0">
          <columns>
-            <TableColumn maxWidth="134.0" minWidth="100.0" prefWidth="134.0" text="ID WP" />
-            <TableColumn maxWidth="250.0" minWidth="216.0" prefWidth="216.0" text="NAMA WAJIB PAJAK" />
+            <TableColumn maxWidth="134.0" minWidth="134.0" prefWidth="134.0" text="ID WP" />
+            <TableColumn maxWidth="230.0" minWidth="230.0" prefWidth="230.0" text="NAMA WAJIB PAJAK" />
             <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="NOMOR SURAT" />
             <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="TANGGAL SURAT" />
             <TableColumn maxWidth="99.0" minWidth="99.0" prefWidth="99.0" text="ACTION" />
          </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </TableView>
-      <Button layoutX="125.0" layoutY="320.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPemberitahuan" prefHeight="25.0" prefWidth="100.0" text="Simpan" />
-      <Button fx:id="backToFormSPBtn" layoutX="15.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToFormSP" prefHeight="25.0" prefWidth="100.0" text="Kembali" />
-      <Button layoutX="501.0" layoutY="320.0" mnemonicParsing="false" onAction="#aturSuratPeminjaman" prefHeight="25.0" prefWidth="185.0" text="Selanjutnya | Surat Peminjaman" />
-      <Separator layoutX="447.0" layoutY="322.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
-      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" text="Cetak Surat Pemberitahuan" />
+      <GridPane alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="backToFormSPBtn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToFormSP" prefHeight="25.0" text="Kembali">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPemberitahuan" prefHeight="25.0" text="Simpan" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#printSuratPemberitahuan" prefHeight="25.0" text="Cetak Surat Pemberitahuan" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" GridPane.columnIndex="3" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#aturSuratPeminjaman" prefHeight="25.0" text="Selanjutnya | Surat Peminjaman" GridPane.columnIndex="4" />
+         </children>
+      </GridPane>
    </children>
    <padding>
-      <Insets bottom="10.0" />
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
    </padding>
-</AnchorPane>
+</VBox>

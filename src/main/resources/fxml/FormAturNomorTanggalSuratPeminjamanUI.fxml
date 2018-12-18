@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController">
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPeminjamanUIController">
    <children>
-      <TableView fx:id="AturNomorTanggalSuratPeminjamanTable" layoutX="5.0" layoutY="5.0" prefHeight="300.0" prefWidth="574.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+      <TableView fx:id="AturNomorTanggalSuratPeminjamanTable" prefHeight="300.0">
          <columns>
-            <TableColumn maxWidth="134.0" minWidth="100.0" prefWidth="134.0" text="ID WP" />
-            <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="NAMA WAJIB PAJAK" />
+            <TableColumn maxWidth="134.0" minWidth="134.0" prefWidth="134.0" text="ID WP" />
+            <TableColumn maxWidth="230.0" minWidth="230.0" prefWidth="230.0" text="NAMA WAJIB PAJAK" />
             <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="NOMOR SURAT" />
             <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="TANGGAL SURAT" />
             <TableColumn maxWidth="99.0" minWidth="99.0" prefWidth="99.0" text="ACTION" />
          </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </TableView>
-      <Button layoutX="84.0" layoutY="321.0" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPeminjaman" prefHeight="25.0" text="Simpan" />
-      <Button fx:id="backToFormPemberitahuanBtn" layoutX="15.0" layoutY="321.0" mnemonicParsing="false" onAction="#backToFormPemberitahuan" prefHeight="25.0" text="Kembali" />
-      <Button layoutX="150.0" layoutY="320.0" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" text="Cetak Surat Peminjaman" />
-      <Button layoutX="447.0" layoutY="320.0" mnemonicParsing="false" onAction="#aturDokumenPinjaman" prefHeight="25.0" text="Atur Dokumen Pinjaman" />
-      <Button layoutX="301.0" layoutY="320.0" mnemonicParsing="false" onAction="#printQuesioner" text="Cetak Quesioner" />
-      <Button fx:id="cancelBtn" layoutX="633.0" layoutY="320.0" mnemonicParsing="false" onAction="#cancelOperation" text="Selesai" />
-      <Separator layoutX="421.0" layoutY="320.0" orientation="VERTICAL" prefHeight="25.0" />
-      <Separator layoutX="612.0" layoutY="320.0" orientation="VERTICAL" prefHeight="25.0" />
+      <GridPane alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="backToFormPemberitahuanBtn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToFormPemberitahuan" prefHeight="25.0" text="Kembali">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#simpanNomorTanggalSuratPeminjaman" prefHeight="25.0" text="Simpan" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#printSuratPeminjaman" prefHeight="25.0" text="Cetak Surat Peminjaman" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#printQuesioner" prefHeight="25.0" text="Cetak Quesioner" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#aturDokumenPinjaman" prefHeight="25.0" text="Atur Dokumen Pinjaman" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="cancelBtn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" text="Selesai" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
    </children>
    <padding>
-      <Insets bottom="10.0" />
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
    </padding>
-</AnchorPane>
+</VBox>

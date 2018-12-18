@@ -208,8 +208,10 @@ public class PersiapanUIController implements Initializable {
         formPersiapanUI.setMaxWidth(primaryScreenBounds.getWidth()*0.513);
         formPersiapanUI.setPrefWidth(primaryScreenBounds.getWidth()*0.513);
         formPersiapanUI.setMinWidth(primaryScreenBounds.getWidth()*0.513);
+        
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
+        System.out.println("tinggi scene : " + stage.getScene().getHeight());
         stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();

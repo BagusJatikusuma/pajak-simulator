@@ -45,6 +45,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -52,6 +53,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -224,6 +226,10 @@ public class PelaksanaanUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        formPelaksanaanUI.setMaxWidth(primaryScreenBounds.getWidth()*0.513);
+        formPelaksanaanUI.setPrefWidth(primaryScreenBounds.getWidth()*0.513);
+        formPelaksanaanUI.setMinWidth(primaryScreenBounds.getWidth()*0.513);
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
         stage.resizableProperty().setValue(Boolean.FALSE);
