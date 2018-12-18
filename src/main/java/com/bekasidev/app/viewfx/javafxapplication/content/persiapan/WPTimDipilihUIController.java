@@ -16,9 +16,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -32,6 +34,7 @@ public class WPTimDipilihUIController implements Initializable {
     @FXML private TableColumn idWP;
     @FXML private TableColumn namaWP;
     @FXML private TableColumn jenisWP;
+    @FXML private Button closeBtn;
     
     private ObservableList<PersiapanWPTableWrapper> dataCollection;
     /**
@@ -70,6 +73,11 @@ public class WPTimDipilihUIController implements Initializable {
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("idWP"));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("namaWP"));
         jenisWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("jenisWP"));
+    }
+    
+    public void close() {
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
     }
     
 }
