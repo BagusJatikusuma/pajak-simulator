@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="396.0" prefWidth="493.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.DetailEvaluasiUIController">
    <children>
       <Label layoutX="190.0" layoutY="14.0" text="DETAIL EVALUASI" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="14.0">
@@ -32,8 +31,8 @@
       <Label layoutX="26.0" layoutY="47.0" text="Tahap ke" />
       <Label layoutX="119.0" layoutY="47.0" text=":" />
       <Label fx:id="tahapKeField" layoutX="132.0" layoutY="47.0" text="Null" />
-      <Label layoutX="26.0" layoutY="216.0" text="Nomor SKPDKB/SKPLD/SKPDN" />
-      <Label layoutX="26.0" layoutY="273.0" text="Tanggal SKPDKB/SKPLD/SKPDN" />
+      <Label layoutX="26.0" layoutY="216.0" text="Nomor SKPDKB/SKPDLB/SKPDN" />
+      <Label layoutX="26.0" layoutY="273.0" text="Tanggal SKPDKB/SKPDLB/SKPDN" />
       <DatePicker fx:id="tanggalSKPDField" layoutX="26.0" layoutY="293.0" prefHeight="25.0" prefWidth="450.0" />
       <TextField fx:id="temuanField" layoutX="24.0" layoutY="180.0" prefHeight="25.0" prefWidth="450.0" />
       <Label layoutX="25.0" layoutY="160.0" text="Temuan hasil pemeriksaan" />

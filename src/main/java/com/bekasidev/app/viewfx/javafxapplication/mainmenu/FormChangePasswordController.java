@@ -49,6 +49,9 @@ public class FormChangePasswordController implements Initializable {
             return;
         }
         String username = (String) SessionProvider.getGlobalSessionsMap().get("user_name");
+        
+        System.out.println("username is "+username+"; new password is "+passwordField.getText());
+        
         ServiceFactory.getUserLoginService().updateUser(username, passwordField.getText());
         showErrorNotif("password berhasil diubah");
         

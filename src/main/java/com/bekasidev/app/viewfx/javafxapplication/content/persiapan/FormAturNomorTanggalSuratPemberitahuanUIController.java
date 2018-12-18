@@ -103,25 +103,31 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
         
         DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
         
-        for (Iterator it = AturNomorTanggalSuratPemberitahuanTable.getItems().iterator(); it.hasNext();) {
-            PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
-                    = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) it.next();
-            
-            if (wrapper.getNomorSurat() != null) {
-                System.out.println("nomor "+wrapper.getNomorSurat());
-                System.out.println("tanggal "+wrapper.getTanggalSurat());
+        if (persiapanWrapper.getIdSP()!=null) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "berhasil disimpan");
+            for (Iterator it = AturNomorTanggalSuratPemberitahuanTable.getItems().iterator(); it.hasNext();) {
+                PersiapanNomorTanggalSuratPemberitahuanTableWrapper wrapper 
+                        = (PersiapanNomorTanggalSuratPemberitahuanTableWrapper) it.next();
 
-                try {
-                    nomorBerkasService.setNomorBerkas(
-                            persiapanWrapper.getIdSP(),
-                            wrapper.getIdWP(),
-                            wrapper.getNomorSurat(),
-                            String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
-                            Surat.PEMBERITAHUAN);
-                } catch (ParseException ex) {
-                    Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+                if (wrapper.getNomorSurat() != null) {
+                    System.out.println("nomor "+wrapper.getNomorSurat());
+                    System.out.println("tanggal "+wrapper.getTanggalSurat());
+
+                    try {
+                        nomorBerkasService.setNomorBerkas(
+                                persiapanWrapper.getIdSP(),
+                                wrapper.getIdWP(),
+                                wrapper.getNomorSurat(),
+                                String.valueOf(formatter.parse(wrapper.getTanggalSurat()).getTime()),
+                                Surat.PEMBERITAHUAN);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(FormAturNomorTanggalSuratPemberitahuanUIController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
+        }
+        else {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Surat Perintah belum disimpan");
         }
         
         Pane popup = null;
