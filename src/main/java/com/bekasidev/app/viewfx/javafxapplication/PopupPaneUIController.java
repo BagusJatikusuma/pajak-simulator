@@ -6,8 +6,11 @@
 package com.bekasidev.app.viewfx.javafxapplication;
 
 import com.bekasidev.app.view.util.SessionProvider;
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -49,6 +52,9 @@ public class PopupPaneUIController implements Initializable {
     }
     
     public void close() {
+        //reset message
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", null);
+        
         Stage stage = (Stage) okBtn.getScene().getWindow();
         stage.close();
     }
