@@ -202,8 +202,11 @@ public class FormPelaksanaanWPUIController implements Initializable {
 
     private void associateDataWithColumn() {
         idWP.setCellValueFactory(new PropertyValueFactory<PilihWajibPajakTableWrapper, String>("idWP"));
+        idWP.prefWidthProperty().bind(pilihWajibPajakTable.widthProperty().divide(3));
         namaWP.setCellValueFactory(new PropertyValueFactory<PilihWajibPajakTableWrapper, String>("namaWP"));
+        namaWP.prefWidthProperty().bind(pilihWajibPajakTable.widthProperty().divide(3));
         jenisWP.setCellValueFactory(new PropertyValueFactory<PilihWajibPajakTableWrapper, String>("jenisWP"));
+        jenisWP.prefWidthProperty().bind(pilihWajibPajakTable.widthProperty().divide(3));
     }
     
     private Date convertDateNumberToDate(int month, int year) {

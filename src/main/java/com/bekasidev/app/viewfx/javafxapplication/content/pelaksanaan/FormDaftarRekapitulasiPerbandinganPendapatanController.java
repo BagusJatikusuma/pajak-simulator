@@ -267,10 +267,15 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
 
     private void associateDataWithColumn() {
         no.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("no"));
+        no.prefWidthProperty().bind(arsipPelaksanaanTable.widthProperty().divide(18));
         bulan.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("bulan"));
+        bulan.prefWidthProperty().bind(arsipPelaksanaanTable.widthProperty().divide(6));
         omzetHasilPemeriksaan.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("omzethasilPemeriksaan"));
+        omzetHasilPemeriksaan.prefWidthProperty().bind(arsipPelaksanaanTable.widthProperty().divide(3));
         omzetDiLaporkan.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("omzetDiLaporkan"));
+        omzetDiLaporkan.prefWidthProperty().bind(arsipPelaksanaanTable.widthProperty().divide(3));
         action.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("action"));
+        action.prefWidthProperty().bind(arsipPelaksanaanTable.widthProperty().divide(6));
     }
     
     private void initLabel() {
