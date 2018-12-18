@@ -5,49 +5,55 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" minWidth="-Infinity" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanSPUIController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanSPUIController">
    <children>
-      <Label text="PILIH SURAT PERINTAH">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </Label>
-      <TableView fx:id="pilihSPTable">
-         <columns>
-            <TableColumn fx:id="idSP" prefWidth="162.0" text="ID SP" />
-            <TableColumn fx:id="nomorSP" prefWidth="286.0" text="NOMOR SP" />
-            <TableColumn fx:id="tanggalSP" prefWidth="203.0" text="TANGGAL SP" />
-         </columns>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </TableView>
-      <HBox alignment="CENTER_RIGHT">
+      <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="cancelBtn" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" text="Batal">
-               <padding>
-                  <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
-               </padding>
-            </Button>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#openPilihTim" prefHeight="25.0" text="Selanjutnya | Pilih Tim">
-               <padding>
-                  <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
+            <Label text="PILIH SURAT PERINTAH">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="pilihSPTable">
+               <columns>
+                  <TableColumn fx:id="idSP" prefWidth="162.0" text="ID SP" />
+                  <TableColumn fx:id="nomorSP" prefWidth="286.0" text="NOMOR SP" />
+                  <TableColumn fx:id="tanggalSP" prefWidth="203.0" text="TANGGAL SP" />
+               </columns>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="cancelBtn" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="25.0" text="Batal">
+                     <padding>
+                        <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+                     </padding>
+                  </Button>
+                  <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#openPilihTim" prefHeight="25.0" text="Selanjutnya | Pilih Tim">
+                     <padding>
+                        <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </HBox>
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-   </padding>
-</VBox>
+</AnchorPane>
