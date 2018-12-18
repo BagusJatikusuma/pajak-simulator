@@ -50,7 +50,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
-                        <Label text="Password" textFill="#eaeaea" />
+                        <Label text="Username" textFill="#eaeaea" />
                         <TextField fx:id="usernameField">
                            <HBox.margin>
                               <Insets left="34.0" />
@@ -63,10 +63,10 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
-                        <Label text="Username" textFill="#eaeaea" />
+                        <Label text="Password" textFill="#eaeaea" />
                         <PasswordField fx:id="passwordField">
                            <HBox.margin>
-                              <Insets left="30.0" />
+                              <Insets left="38.0" />
                            </HBox.margin>
                         </PasswordField>
                      </children>
