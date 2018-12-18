@@ -137,8 +137,11 @@ public class FormSuratPelaksanaanUIController implements Initializable {
 
     private void associateDataWithColumn() {
         no.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("no"));
+        no.prefWidthProperty().bind(daftarSuratTable.widthProperty().divide(18));
         namaSurat.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("namaSurat"));
+        namaSurat.prefWidthProperty().bind(daftarSuratTable.widthProperty().divide(2));
         keterangan.setCellValueFactory(new PropertyValueFactory<ArsipPelaksanaanTableWrapper, String>("keterangan"));
+        keterangan.prefWidthProperty().bind(daftarSuratTable.widthProperty().divide(2));
     }
     
     private void initLabel() {

@@ -128,7 +128,9 @@ public class FormPelaksanaanTimUIController implements Initializable {
 
     private void associateDataWithColumn() {
         idTim.setCellValueFactory(new PropertyValueFactory<PilihTimTableWrapper, String>("idTim"));
+        idTim.prefWidthProperty().bind(pilihTimTable.widthProperty().divide(2));
         namaTim.setCellValueFactory(new PropertyValueFactory<PilihTimTableWrapper, String>("namaTim"));
+        namaTim.prefWidthProperty().bind(pilihTimTable.widthProperty().divide(2));
     }
     
     private void showErrorNotif() {
