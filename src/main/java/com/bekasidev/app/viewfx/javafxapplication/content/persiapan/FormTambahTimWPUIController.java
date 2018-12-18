@@ -278,6 +278,9 @@ public class FormTambahTimWPUIController implements Initializable {
                 case 4: 
                     jenisWP = "Penerangan Jalan";
                     break;
+                case 5: 
+                    jenisWP = "Pengelolaan Sarang Burung Walet dan sejenisnya";
+                    break;
                 default:
                     jenisWP = "Unidentified";
             }
