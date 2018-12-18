@@ -25,6 +25,7 @@ public class PegawaiServiceImpl implements PegawaiService {
 
     @Override
     public void createPegawai(Pegawai pegawai) {
+        pegawai.setNipPegawai(setNip(pegawai.getNipPegawai()));
         pegawaiDao.createPegawai(pegawai);
     }
 
@@ -48,6 +49,7 @@ public class PegawaiServiceImpl implements PegawaiService {
 
     @Override
     public void updatePegawai(Pegawai pegawai, String nip) {
+        if(pegawai.getNipPegawai().length() != nip.length()) pegawai.setNipPegawai(setNip(pegawai.getNipPegawai()));
         pegawaiDao.updatePegawai(pegawai, nip);
     }
 
@@ -69,5 +71,14 @@ public class PegawaiServiceImpl implements PegawaiService {
     @Override
     public void deletePegawaiFromTim(String idPegawai, String idTim) {
         pegawaiDao.deletePegawaiFromTim(idPegawai, idTim);
+    }
+
+    private String setNip(String nip){
+        StringBuilder sb = new StringBuilder();
+        sb.append(nip);
+        sb.insert(8," ");
+        sb.insert(15," ");
+        sb.insert(17," ");
+        return sb.toString();
     }
 }
