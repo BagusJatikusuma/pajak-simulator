@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -136,7 +137,7 @@ public class PersiapanUIController implements Initializable {
         dataListFromService = new ArrayList<>();
         List<SuratPerintah> suratPerintahList
                 = suratPerintahService.getAllSuratPerintah();
-        DateFormat dateFormat = new SimpleDateFormat("dd MMMM YYYY");
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM YYYY", Locale.forLanguageTag("id-ID"));
         for (SuratPerintah sp : suratPerintahList) {
             dataListFromService.add(new ArsipTablePersiapanWrapper(
                     sp.getIdSP(),

@@ -234,6 +234,26 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 = (PersiapanWrapper) SessionProvider
                 .getGlobalSessionsMap()
                 .get("persiapan_wrapper");
+        if (persiapanWrapper.getIdSP()==null) {
+            SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Surat Perintah belum disimpan");
+            
+            Pane popup = null;
+            try {
+                popup = FXMLLoader
+                        .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            stage.setTitle("");
+            stage.setScene(new Scene(popup));
+
+            stage.initStyle(StageStyle.UTILITY);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+            
+            return;
+        }
         
         if (tanggalPengesahanField.getValue() != null
                 && !nomorSuratField.getText().equals("")) {

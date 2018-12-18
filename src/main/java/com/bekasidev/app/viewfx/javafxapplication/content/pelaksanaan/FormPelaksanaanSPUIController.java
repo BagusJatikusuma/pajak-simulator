@@ -123,8 +123,11 @@ public class FormPelaksanaanSPUIController implements Initializable {
 
     private void associateDataWithColumn() {
         idSP.setCellValueFactory(new PropertyValueFactory<PilihSPTableWrapper, String>("idSP"));
+        idSP.prefWidthProperty().bind(pilihSPTable.widthProperty().divide(3));
         nomorSP.setCellValueFactory(new PropertyValueFactory<PilihSPTableWrapper, String>("nomorSP"));
+        nomorSP.prefWidthProperty().bind(pilihSPTable.widthProperty().divide(3));
         tanggalSP.setCellValueFactory(new PropertyValueFactory<PilihSPTableWrapper, String>("tanggalSP"));
+        tanggalSP.prefWidthProperty().bind(pilihSPTable.widthProperty().divide(3));
     }
     
     private void showErrorNotif() {

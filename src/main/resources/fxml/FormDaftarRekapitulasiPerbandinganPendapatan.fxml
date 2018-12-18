@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
    <children>
-      <VBox alignment="TOP_CENTER" prefWidth="700.0">
+      <VBox alignment="TOP_CENTER" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="DAFTAR REKAPITULASI PERBANDINGAN PENDAPATAN">
                <font>
@@ -108,9 +109,9 @@
                   </Button>
             <!--      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
                   <Button fx:id="backBtn" layoutX="26.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
-                                    <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
-                                    <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
-                                    <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />-->
+                                          <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
+                                          <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
+                                          <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />-->
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
@@ -120,7 +121,7 @@
                      </padding>
                   </Button>
                   
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openPersuratan" text="Selanjutnya | Cetak Persuratan " GridPane.columnIndex="3">
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openPersuratan" text="Selanjutnya | Cetak Persuratan " GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -136,4 +137,4 @@
          </padding>
       </VBox>
    </children>
-</HBox>
+</AnchorPane>
