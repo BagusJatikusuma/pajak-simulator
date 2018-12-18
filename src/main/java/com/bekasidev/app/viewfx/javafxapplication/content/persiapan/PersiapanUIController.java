@@ -171,6 +171,10 @@ public class PersiapanUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        formPersiapanUI.setMaxWidth(primaryScreenBounds.getWidth()*0.513);
+        formPersiapanUI.setPrefWidth(primaryScreenBounds.getWidth()*0.513);
+        formPersiapanUI.setMinWidth(primaryScreenBounds.getWidth()*0.513);
         stage.setTitle("Form Persiapan Pemeriksaan WP");
         stage.setScene(new Scene(formPersiapanUI));
         stage.resizableProperty().setValue(Boolean.FALSE);
