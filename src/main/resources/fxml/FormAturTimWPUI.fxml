@@ -8,24 +8,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturTimWPUIController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturTimWPUIController">
    <children>
-      <VBox layoutX="47.0" layoutY="14.0" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="14.0">
+      <VBox prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#openNewAturTimWP" prefHeight="25.0" text="Tambah Tim">
+            <Button mnemonicParsing="false" onAction="#openNewAturTimWP" text="Tambah Tim">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
                <padding>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
                </padding>
             </Button>
-            <TableView fx:id="PersiapanTimWPTable" prefWidth="607.0">
+            <TableView fx:id="PersiapanTimWPTable">
               <columns>
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="ID TIM" />
-                <TableColumn maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="NAMA TIM" />
-                <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="TOMBOL HAPUS" />
-                  <TableColumn maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="TOMBOL ATUR" />
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="100.0" text="ID TIM" />
+                <TableColumn maxWidth="1.7976931348623157E308" prefWidth="300.0" text="NAMA TIM" />
+                <TableColumn maxWidth="1.7976931348623157E308" prefWidth="110.0" text="TOMBOL HAPUS" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="109.0" text="TOMBOL ATUR" />
               </columns>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -33,22 +34,25 @@
             </TableView>
             <HBox alignment="CENTER_RIGHT">
                <children>
-                  <Button fx:id="backToFormPersiapanBtn" mnemonicParsing="false" onAction="#backToFormPersiapan" prefHeight="25.0" text="Kembali">
+                  <Button fx:id="backToFormPersiapanBtn" mnemonicParsing="false" onAction="#backToFormPersiapan" text="Kembali">
                      <padding>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
                      </padding>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#aturSuratPerintah" prefHeight="25.0" text="Selanjutnya | Surat Perintah">
+                  <Button mnemonicParsing="false" onAction="#aturSuratPerintah" text="Selanjutnya | Surat Perintah">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                      <padding>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
                      </padding>
                   </Button>
                </children>
             </HBox>
          </children>
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
       </VBox>
    </children>
 </AnchorPane>

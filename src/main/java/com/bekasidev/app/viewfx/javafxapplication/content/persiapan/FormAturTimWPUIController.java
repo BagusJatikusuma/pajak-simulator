@@ -164,9 +164,13 @@ public class FormAturTimWPUIController implements Initializable {
     
     private void associateDataWithColumn() {
         idTim.setCellValueFactory(new PropertyValueFactory<PersiapanTimWPTableWrapper, String>("idTim"));
+        idTim.prefWidthProperty().bind(PersiapanTimWPTable.widthProperty().divide(4));
         namaTim.setCellValueFactory(new PropertyValueFactory<PersiapanTimWPTableWrapper, String>("namaTim"));
+        namaTim.prefWidthProperty().bind(PersiapanTimWPTable.widthProperty().divide(4));
         hapusAction.setCellValueFactory(new PropertyValueFactory<PersiapanTimWPTableWrapper, String>("hapusButton"));
+        hapusAction.prefWidthProperty().bind(PersiapanTimWPTable.widthProperty().divide(4));
         aturAction.setCellValueFactory(new PropertyValueFactory<PersiapanTimWPTableWrapper, String>("aturButton"));
+        aturAction.prefWidthProperty().bind(PersiapanTimWPTable.widthProperty().divide(4));
     }
     
     public void backToFormPersiapan() {

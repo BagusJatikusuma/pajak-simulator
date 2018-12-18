@@ -326,10 +326,15 @@ public class FormAturNomorTanggalSuratPemberitahuanUIController implements Initi
 
     private void associateDataWithColumn() {
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("idWP"));
+        idWP.prefWidthProperty().bind(AturNomorTanggalSuratPemberitahuanTable.widthProperty().divide(6));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("namaWP"));
+        namaWP.prefWidthProperty().bind(AturNomorTanggalSuratPemberitahuanTable.widthProperty().divide(4));
         nomorSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("nomorSurat"));
+        nomorSurat.prefWidthProperty().bind(AturNomorTanggalSuratPemberitahuanTable.widthProperty().divide(6));
         tanggalSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("tanggalSurat"));
+        tanggalSurat.prefWidthProperty().bind(AturNomorTanggalSuratPemberitahuanTable.widthProperty().divide(6));
         action.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPemberitahuanTableWrapper, String>("Action"));
+        action.prefWidthProperty().bind(AturNomorTanggalSuratPemberitahuanTable.widthProperty().divide(8));
     }
     
     private void showErrorNotif() {
