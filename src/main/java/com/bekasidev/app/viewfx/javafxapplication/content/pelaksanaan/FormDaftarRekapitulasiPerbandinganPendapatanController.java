@@ -155,8 +155,11 @@ public class FormDaftarRekapitulasiPerbandinganPendapatanController implements I
         }
         
         Pane rootpaneFormPelaksanaan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_pelaksanaan_ui");
+        
+        System.out.println("size children "+rootpaneFormPelaksanaan.getChildren().size());
         rootpaneFormPelaksanaan.getChildren().remove(0);
-
+        System.out.println("size children after remove"+rootpaneFormPelaksanaan.getChildren().size());
+        
         Pane contentPane = null;
         try { 
             contentPane

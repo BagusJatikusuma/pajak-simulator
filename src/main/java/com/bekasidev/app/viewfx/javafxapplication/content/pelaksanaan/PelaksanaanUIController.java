@@ -301,7 +301,7 @@ public class PelaksanaanUIController implements Initializable {
         }
         
         ComponentCollectorProvider
-                .addFxComponent("root_form_persiapan_ui", formPelaksanaanUI);
+                .addFxComponent("root_form_pelaksanaan_ui", formPelaksanaanUI);
         formPelaksanaanUI.getChildren().remove(0);
         formPelaksanaanUI.getChildren().add(contentPane);
         

@@ -2947,3 +2947,14 @@ Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\N
 	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:217)
 Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
 	... 6 more
+18 December 2018 11:42:07 net.sf.jasperreports.engine.JRException: Error loading object from URL: file:////home/sudoroot/GitLocalRepository/pajak-simulator/target/pajak-simulator-1.0-SNAPSHOT.jar.
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:214)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:192)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createKertasPemeriksaanPajak(ReportServiceImpl.java:1934)
+	at com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController$2.run(FormDaftarRekapitulasiPerbandinganPendapatanController.java:377)
+Caused by: java.io.StreamCorruptedException: invalid stream header: 504B0304
+	at java.io.ObjectInputStream.readStreamHeader(ObjectInputStream.java:866)
+	at java.io.ObjectInputStream.<init>(ObjectInputStream.java:358)
+	at net.sf.jasperreports.engine.util.ContextClassLoaderObjectInputStream.<init>(ContextClassLoaderObjectInputStream.java:56)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:209)
+	... 3 more
