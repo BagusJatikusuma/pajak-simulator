@@ -74,7 +74,7 @@ public class ReportServiceImpl implements ReportService {
             String jasperPathFile = "file:///D://ReportPeminjamanBuku.jasper";
             String jrxmlPathFile = "D://ReportPeminjamanBuku.jrxml";
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -171,10 +171,10 @@ public class ReportServiceImpl implements ReportService {
             String jasperPathFile = "file:///D://ReportPemberitahuanPemeriksaan.jasper";
             String jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan.jrxml";
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
             jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -288,7 +288,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -374,7 +374,7 @@ public class ReportServiceImpl implements ReportService {
             String jasperPathFile = "file:///D://ReportPeminjamanBuku.jasper";
             String jrxmlPathFile = "D://ReportPeminjamanBuku.jrxml";
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -465,7 +465,7 @@ public class ReportServiceImpl implements ReportService {
             String jasperPathFile = "file:///D://ReportPemberitahuanPemeriksaan.jasper";
             String jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan.jrxml";
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -558,7 +558,7 @@ public class ReportServiceImpl implements ReportService {
             String jasperPathFile = "file:///D://DaftarBukuPinjaman.jasper";
             String jrxmlPathFile = "D://DaftarBukuPinjaman.jrxml";
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -674,7 +674,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -885,7 +885,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
 
             JasperReport report = null;
 
@@ -993,7 +993,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
       
             JasperReport report = null;
             
@@ -1071,7 +1071,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -1140,7 +1140,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -1240,10 +1240,10 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
 //            jrxmlPathFile = "D://ReportPemberitahuanPemeriksaan_subreport1.jrxml";
-//            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+//            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -1378,7 +1378,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1481,7 +1481,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1592,7 +1592,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1677,7 +1677,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1759,7 +1759,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1851,7 +1851,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -1926,7 +1926,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -2038,7 +2038,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -2148,7 +2148,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -2318,7 +2318,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -2492,7 +2492,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
                     
             JasperReport report = null;
@@ -2620,7 +2620,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
             
                     
             JasperReport report = null;
@@ -2740,7 +2740,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -2944,7 +2944,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -3048,7 +3048,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -3170,7 +3170,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -3318,7 +3318,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -3411,7 +3411,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                               
             JasperReport report = null;
             
@@ -3528,7 +3528,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -3605,7 +3605,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -3687,7 +3687,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             
@@ -3752,7 +3752,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            JasperCompileManager.compileReportToFile(jrxmlPathFile);
+            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             

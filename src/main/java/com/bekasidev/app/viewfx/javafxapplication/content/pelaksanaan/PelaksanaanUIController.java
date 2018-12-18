@@ -307,6 +307,10 @@ public class PelaksanaanUIController implements Initializable {
         
         
         Stage stage = new Stage();
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        formPelaksanaanUI.setMaxWidth(primaryScreenBounds.getWidth()*0.513);
+        formPelaksanaanUI.setPrefWidth(primaryScreenBounds.getWidth()*0.513);
+        formPelaksanaanUI.setMinWidth(primaryScreenBounds.getWidth()*0.513);
         stage.setTitle("Form Pelaksanaan Pemeriksaan WP");
         stage.setScene(new Scene(formPelaksanaanUI));
         stage.resizableProperty().setValue(Boolean.FALSE);
