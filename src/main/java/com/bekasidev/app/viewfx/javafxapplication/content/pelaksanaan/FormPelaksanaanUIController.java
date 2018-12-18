@@ -33,7 +33,7 @@ public class FormPelaksanaanUIController implements Initializable {
         // TODO
         ComponentCollectorProvider
                 .addFxComponent("root_form_pelaksanaan_ui", formDokumenPelaksanaanPane);
-        formDokumenPelaksanaanPane.getChildren().remove(0);
+//        formDokumenPelaksanaanPane.getChildren().remove(0);
         Pane contentPane = null;
         try { 
             contentPane

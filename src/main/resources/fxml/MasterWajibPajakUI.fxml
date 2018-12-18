@@ -17,7 +17,7 @@
       <Separator layoutX="341.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="341.0" AnchorPane.topAnchor="9.0" />
       <TextField fx:id="cariWPField" alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Button layoutX="166.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariWP" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
-      <Button layoutX="357.0" layoutY="11.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="25.0" text="Tambah Wajib Pajak" AnchorPane.leftAnchor="357.0" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="348.0" layoutY="11.0" mnemonicParsing="false" onAction="#addWajibPajakHandle" prefHeight="25.0" text="Tambah Wajib Pajak" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="11.0" />
       <TableView fx:id="wajibPajakTable" layoutX="10.0" layoutY="49.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <columns>
             <TableColumn maxWidth="47.0" minWidth="47.0" prefWidth="47.0" text="No" />
@@ -31,6 +31,7 @@
          </columns>
       </TableView>
       <Button layoutX="242.0" layoutY="8.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="25.0" prefWidth="94.0" text="reset" AnchorPane.topAnchor="11.0" />
+      <Button layoutX="505.0" layoutY="11.0" mnemonicParsing="false" onAction="#updateWajibPajak" text="Update Wajib Pajak" />
    </children>
    <padding>
       <Insets bottom="14.0" />

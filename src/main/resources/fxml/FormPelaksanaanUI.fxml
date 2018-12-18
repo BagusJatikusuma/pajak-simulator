@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -7,22 +13,4 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanUIController">
-   <children>
-      <AnchorPane id="AnchorPane" fx:id="formDokumenPelaksanaanPane" prefWidth="700.0" styleClass="mainFxmlClass">
-          <stylesheets>
-              <URL value="@/styles/formpelaksanaanui.css" />
-          </stylesheets>
-         <children>
-            <Label alignment="CENTER" contentDisplay="TOP" layoutX="207.0" layoutY="7.0" text="FORM DOKUMEN PELAKSANAAN" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding>
-            </Label>
-         </children>
-      </AnchorPane>
-   </children>
-</VBox>
+<VBox fx:id="formDokumenPelaksanaanPane" alignment="TOP_CENTER" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormPelaksanaanUIController" />

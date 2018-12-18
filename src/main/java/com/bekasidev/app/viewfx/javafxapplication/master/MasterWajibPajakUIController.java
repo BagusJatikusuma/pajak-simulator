@@ -5,6 +5,8 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.master;
 
+import com.bekasidev.app.model.Pegawai;
+import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.service.reportservice.ReportService;
@@ -24,8 +26,10 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,7 +70,7 @@ public class MasterWajibPajakUIController implements Initializable {
     private ObservableList<WPMasterTableWrapper> dataCollection;
     //digunakan sebagai penampung data hasil pencarian
     private ObservableList<WPMasterTableWrapper> filteredCollection;
-    
+    private Map<String, WajibPajak> wpMapper = new HashMap<>();
     private WajibPajakService service;
     private int indexTemp;
 
@@ -80,7 +84,24 @@ public class MasterWajibPajakUIController implements Initializable {
         populateData();
         associateDataWithColumn();
         wajibPajakTable.setItems(dataCollection);
-    }    
+    }
+
+    public void updateWajibPajak() {
+        Pane formTambahWP = null;
+        try {
+            formTambahWP = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/FormTambahWPUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Form tambah WP");
+        stage.setScene(new Scene(formTambahWP));
+        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
     
     public void addWajibPajakHandle(ActionEvent actionEvent) {
         Pane formTambahWP = null;
@@ -188,6 +209,7 @@ public class MasterWajibPajakUIController implements Initializable {
                             obj.getDesa(),
                             btn
                     ));
+            wpMapper.put(String.valueOf(i), obj);
             i++;
             indexTemp = i;
         }
