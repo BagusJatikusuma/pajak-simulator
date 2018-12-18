@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -106,12 +107,30 @@ public class FormTambahPegawaiUIController implements Initializable {
             Stage stage = (Stage) cancelBtn.getScene().getWindow();
             stage.close();
         }
+        else {
+            showEmptyFieldErrorNotif();
+        }
     }
     
     public void cancelOperation() {
         System.out.println("cancel btn pressed");
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();
+    }
+    
+    private void showEmptyFieldErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Ada kolom yang kosong");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
     }
     
 }

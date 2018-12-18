@@ -9,6 +9,7 @@ import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -42,16 +44,36 @@ public class FormTambahWPUIController implements Initializable {
     @FXML private ChoiceBox jenisWPField;
     
     @FXML private Button cancelBtn;
+    @FXML private Button tambahBtn;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        populateData();
         populateJenisWP();
-    }    
+        WajibPajak wajibPajak
+                = (WajibPajak) SessionProvider.getGlobalSessionsMap().get("update_wp_selected");
+        if (wajibPajak!=null)
+            tambahBtn.setText("Update");
+    }
+
+    public void populateData() {
+        WajibPajak wajibPajak
+                = (WajibPajak) SessionProvider.getGlobalSessionsMap().get("update_wp_selected");
+        if (wajibPajak!=null) {
+            npwpdField.setText(wajibPajak.getNpwpd());
+            namaWPField.setText(wajibPajak.getNamaWajibPajak());
+            alamatWPField.setText(wajibPajak.getJalan());
+            desaWPField.setText(wajibPajak.getDesa());
+            kecamatanWPField.setText(wajibPajak.getKecamatan());
+        }
+        
+    }
     
     public void cancelOperation() {
+        SessionProvider.getGlobalSessionsMap().put("update_wp_selected", null);
         System.out.println("cancel btn pressed");
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();
@@ -59,11 +81,11 @@ public class FormTambahWPUIController implements Initializable {
     
     public void tambahWPOperation() {
         wajibPajakService = ServiceFactory.getWajibPajakService();
+        WajibPajak wajibPajakUpdate
+                = (WajibPajak) SessionProvider.getGlobalSessionsMap().get("update_wp_selected");
         
         if (!(npwpdField.getText().equals("")
                 || namaWPField.getText().equals("")
-                || desaWPField.getText().equals("")
-                || kecamatanWPField.getText().equals("")
                 || alamatWPField.getText().equals("")
                 || jenisWPField.getValue().equals(""))) {
             
@@ -89,9 +111,15 @@ public class FormTambahWPUIController implements Initializable {
                 wajibPajak.setJenisWp((short)4);
             }
             
-            wajibPajakService.createDataWP(wajibPajak);
-            System.out.println("wajib pajak berhasil dibuat");
+            if (wajibPajakUpdate == null) {
+                wajibPajakService.createDataWP(wajibPajak);
+                System.out.println("wajib pajak berhasil dibuat");
+            } else {
+                wajibPajakService.updateWajibPajak(wajibPajak);
+                System.out.println("wajib pajak berhasil diupdate");
+            }
             
+            System.out.println("proses wp finished 1");
             Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
             rootpane.getChildren().remove(1);
             
@@ -106,9 +134,12 @@ public class FormTambahWPUIController implements Initializable {
         
             Stage stage = (Stage) cancelBtn.getScene().getWindow();
             stage.close();
+            System.out.println("proses wp finished");
+            SessionProvider.getGlobalSessionsMap().put("update_wp_selected", null);
         }
         else {
             //ada field yang kosong
+            showEmptyFieldErrorNotif();
         }
     }
     
@@ -120,6 +151,42 @@ public class FormTambahWPUIController implements Initializable {
                         "Parkir",
                         "Hiburan",
                         "Penerangan Jalan"));
+        WajibPajak wajibPajakUpdate
+                = (WajibPajak) SessionProvider.getGlobalSessionsMap().get("update_wp_selected");
+        if (wajibPajakUpdate!=null) {
+            switch (wajibPajakUpdate.getJenisWp()) {
+                case 0 :
+                    jenisWPField.getSelectionModel().select(0);
+                    break;
+                case 1 :
+                    jenisWPField.getSelectionModel().select(1);
+                    break;
+                case 2 :
+                    jenisWPField.getSelectionModel().select(2);
+                    break;
+                case 3 :
+                    jenisWPField.getSelectionModel().select(3);
+                    break;
+                default: break;
+            }
+        }
     }
+    
+    private void showEmptyFieldErrorNotif() {
+        SessionProvider.getGlobalSessionsMap().put("notif_message_popup", "Ada kolom yang kosong");
+        Pane popup = null;
+        try {
+            popup = FXMLLoader
+                    .load(getClass().getClassLoader().getResource("fxml/PopupPaneUI.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(popup));
+        stage.show();
+    }
+    
+    
     
 }
