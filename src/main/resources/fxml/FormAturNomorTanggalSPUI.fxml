@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSPUIController">
+<VBox alignment="CENTER_LEFT" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSPUIController">
    <children>
       <Label text="Tanggal Pengesahan">
          <VBox.margin>
@@ -35,32 +35,44 @@
       </TextField>
       <GridPane alignment="CENTER">
          <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="131.0" minWidth="131.0" prefWidth="131.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="201.0" minWidth="201.0" prefWidth="201.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="244.0" minWidth="244.0" prefWidth="244.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="backToFormTimBtn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToFormTim" prefHeight="25.0" text="Kembali">
+            <Button fx:id="backToFormTimBtn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToFormTim" text="Kembali">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveTanggalNomorSP" prefHeight="25.0" text="Simpan" GridPane.columnIndex="1">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveTanggalNomorSP" text="Simpan" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#printSuratPerintah" prefHeight="25.0" text="Cetak Surat Perintah" GridPane.columnIndex="2">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printSuratPerintah" text="Cetak Surat Perintah" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding></Button>
             <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="9.0" GridPane.columnIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#aturSuratPemberitahuan" prefHeight="25.0" text="Selanjutnya | Surat Pemberitahuan" GridPane.columnIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#aturSuratPemberitahuan" text="Selanjutnya | Surat Pemberitahuan" GridPane.columnIndex="4">
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding></Button>
          </children>
       </GridPane>
    </children>

@@ -121,7 +121,7 @@ public class FormPersiapanContentUIController implements Initializable {
         //tampilan selanjutnya
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
         rootpaneFormPersiapan.getChildren().remove(1);
-
+        
         Pane contentPane = null;
         try { 
             contentPane
@@ -130,7 +130,6 @@ public class FormPersiapanContentUIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rootpaneFormPersiapan.getChildren().add(contentPane);
-        
     }
     
     public void populateChoiceBox() {

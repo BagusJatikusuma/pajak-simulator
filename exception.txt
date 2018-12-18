@@ -2929,3 +2929,21 @@ Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\N
 Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\LaporanEvaluasi.jasper
 	... 6 more
 >>>>>>> master
+18 December 2018 10:23:45 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2575)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:217)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more
+18 December 2018 10:24:01 net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:127)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:116)
+	at net.sf.jasperreports.engine.JasperFillManager.fillToFile(JasperFillManager.java:571)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReportToFile(JasperFillManager.java:979)
+	at com.bekasidev.app.service.reportservice.reportserviceimpl.ReportServiceImpl.createPemberitahuanPemeriksaanPerWP(ReportServiceImpl.java:2575)
+	at com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormAturNomorTanggalSuratPemberitahuanUIController$1.run(FormAturNomorTanggalSuratPemberitahuanUIController.java:217)
+Caused by: java.io.FileNotFoundException: file:\C:\Users\Bayu Arafli\Documents\NetBeansProjects\pajak-simulator\jasper\ReportPemberitahuanPemeriksaan.jasper
+	... 6 more

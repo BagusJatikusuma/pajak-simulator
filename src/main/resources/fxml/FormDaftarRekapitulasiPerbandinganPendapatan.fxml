@@ -1,38 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
-    <stylesheets>
-        <URL value="@/styles/formdaftarrekapitulasiperbandinganpendapatan.css" />
-    </stylesheets>
+<VBox alignment="TOP_CENTER" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormDaftarRekapitulasiPerbandinganPendapatanController">
    <children>
-      <Label layoutX="202.0" layoutY="14.0" text="DAFTAR REKAPITULASI PERBANDINGAN PENDAPATAN" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="14.0">
+      <Label text="DAFTAR REKAPITULASI PERBANDINGAN PENDAPATAN">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </Label>
-      <Label layoutX="24.0" layoutY="64.0" text="Tim" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="64.0" />
-      <Label layoutX="24.0" layoutY="47.0" text="Surat Perintah" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="47.0" />
-      <Label layoutX="24.0" layoutY="81.0" text="Wajib Pajak" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="81.0" />
-      <Label layoutX="23.0" layoutY="98.0" text="NPWPD" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="98.0" />
-      <Label layoutX="108.0" layoutY="47.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="47.0" />
-      <Label layoutX="108.0" layoutY="64.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="64.0" />
-      <Label layoutX="108.0" layoutY="81.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="81.0" />
-      <Label layoutX="108.0" layoutY="98.0" text=":" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="98.0" />
-      <Label fx:id="nomorTanggalSPField" layoutX="121.0" layoutY="47.0" text="Nomor Surat Perintah, tanggal surat perintah" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="47.0" />
-      <Label fx:id="namaTimLabel" layoutX="121.0" layoutY="64.0" text="Nama tim" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="64.0" />
-      <Label fx:id="namaWPLabel" layoutX="121.0" layoutY="81.0" text="Nama Wajib Pajak" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="81.0" />
-      <Label fx:id="npwpdLabel" layoutX="121.0" layoutY="98.0" text="Nomor NPWPD" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="98.0" />
-      <TableView fx:id="arsipPelaksanaanTable" layoutX="24.0" layoutY="135.0" prefHeight="300.0" prefWidth="652.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="146.0">
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="98.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="290.0" minWidth="3.0" prefWidth="18.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="565.0" minWidth="10.0" prefWidth="536.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Tim" GridPane.rowIndex="1" />
+            <Label text="Surat Perintah" />
+            <Label text="Wajib Pajak" GridPane.rowIndex="2" />
+            <Label text="NPWPD" GridPane.rowIndex="3" />
+            <Label text=":" GridPane.columnIndex="1" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="nomorTanggalSPField" text="Nomor Surat Perintah, tanggal surat perintah" GridPane.columnIndex="2" />
+            <Label fx:id="namaTimLabel" text="Nama tim" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="namaWPLabel" text="Nama Wajib Pajak" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="npwpdLabel" text="Nomor NPWPD" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </GridPane>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <Label text="Metode hitung denda :" />
+            <ChoiceBox fx:id="metodeHitungDendaField" prefHeight="25.0" prefWidth="178.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <TableView fx:id="arsipPelaksanaanTable" prefHeight="280.0">
         <columns>
           <TableColumn fx:id="no" prefWidth="35.0" text="NO" />
           <TableColumn fx:id="bulan" prefWidth="130.0" text="BULAN" />
@@ -40,22 +74,60 @@
             <TableColumn fx:id="omzetDiLaporkan" minWidth="0.0" prefWidth="193.0" text="OMZET YANG DILAPORKAN" />
             <TableColumn fx:id="action" minWidth="0.0" prefWidth="100.0" text="ACTION" />
         </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </TableView>
-<!--      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
-      <Button fx:id="backBtn" layoutX="26.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
-      <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
-      <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
-      <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />-->
-      <Button layoutX="322.0" layoutY="459.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="177.0" />
-      
-      <Button layoutX="531.0" layoutY="459.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
-      <Button fx:id="cetakCoverKKPBtn" layoutX="213.0" layoutY="459.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="383.0" />
-      <Button fx:id="backBtn" layoutX="24.0" layoutY="459.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
-      <ChoiceBox fx:id="metodeHitungDendaField" layoutX="498.0" layoutY="113.0" prefHeight="25.0" prefWidth="178.0" AnchorPane.rightAnchor="24.0" />
-      <Label layoutX="366.0" layoutY="117.0" text="Metode hitung denda :" />
-      <Button fx:id="batalBtn" layoutX="24.0" layoutY="459.0" mnemonicParsing="false" onAction="#batalEvent" prefHeight="25.0" prefWidth="71.0" text="Batal" />
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="220.0" prefWidth="220.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="backBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" text="Kembali" />
+            <Button fx:id="batalBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#batalEvent" text="Batal">
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding></Button>
+            <Button fx:id="cetakCoverKKPBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding>
+            </Button>
+      <!--      <Button layoutX="325.0" layoutY="455.0" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" AnchorPane.rightAnchor="174.0" />
+            <Button fx:id="backBtn" layoutX="26.0" layoutY="455.0" mnemonicParsing="false" onAction="#backToFormPelaksanaanContent" prefHeight="25.0" prefWidth="71.0" text="Kembali" AnchorPane.leftAnchor="24.0" />
+                        <Button layoutX="533.0" layoutY="455.0" mnemonicParsing="false" onAction="#openPersuratan" text="Lanjut Cetak Persuratan " AnchorPane.rightAnchor="24.0" />
+                        <Button fx:id="cetakCoverKKPBtn" layoutX="216.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverKKP" text="Cetak Cover KKP" AnchorPane.rightAnchor="380.0" />
+                        <Button fx:id="cetakCoverLHPBtn" layoutX="107.0" layoutY="455.0" mnemonicParsing="false" onAction="#cetakCoverLHP" text="Cetak Cover LHP" />-->
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printKKPdanSuratSurat" text="Selesai &amp; Cetak Daftar Rekapitulasi" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding>
+            </Button>
+            
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openPersuratan" text="Selanjutnya | Cetak Persuratan " GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="4.0" top="4.0" />
+               </padding>
+            </Button>
+         </children>
+      </GridPane>
    </children>
    <padding>
-      <Insets bottom="14.0" />
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
    </padding>
-</AnchorPane>
+</VBox>

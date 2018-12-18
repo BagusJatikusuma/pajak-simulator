@@ -222,6 +222,12 @@ public class FormAturTimWPUIController implements Initializable {
             Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rootpaneFormPersiapan.getChildren().add(contentPane);
+//        Stage rootStage = (Stage) rootpaneFormPersiapan.getScene().getWindow();
+//        
+//        Pane firstChild = (Pane) rootpaneFormPersiapan.getChildren().get(0);
+//        Pane secondChild = (Pane) rootpaneFormPersiapan.getChildren().get(1);
+//       
+//        rootStage.setHeight(firstChild.getPrefHeight() + secondChild.getPrefHeight());
     }
     
 }
