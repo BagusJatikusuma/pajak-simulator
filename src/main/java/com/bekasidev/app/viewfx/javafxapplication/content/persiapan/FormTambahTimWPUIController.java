@@ -9,12 +9,16 @@ import com.bekasidev.app.model.Pegawai;
 import com.bekasidev.app.model.Tim;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.BerkasPersiapanService;
 import com.bekasidev.app.service.backend.PegawaiService;
 import com.bekasidev.app.service.backend.WajibPajakService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
+import com.bekasidev.app.view.util.ConverterHelper;
+import static com.bekasidev.app.view.util.ConverterHelper.convertBulanIntegerIntoString;
 import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanPilihWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanTimWPTableWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
@@ -22,7 +26,9 @@ import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.util.TableHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
@@ -67,6 +73,7 @@ public class FormTambahTimWPUIController implements Initializable {
     private ObservableList<PersiapanPilihWPTableWrapper> filteredCollection;
     private WajibPajakService wpService;
     private PegawaiService pegawaiService;
+    private BerkasPersiapanService berkasPersiapanService;
     
     @FXML private Button cancelTambahTimPemeriksaBtn;
 
@@ -176,12 +183,14 @@ public class FormTambahTimWPUIController implements Initializable {
         timWPWrapper.setTim((Tim) pilihTimField.getSelectionModel().getSelectedItem());
         
         List<WajibPajak> wajibPajaksSelected = new ArrayList<>();
+        List<WajibPajak> wpDB = wpService.getAllWP();
         ObservableList<PersiapanPilihWPTableWrapper> varList = PersiapanPilihWPTable.getItems(); 
         for (PersiapanPilihWPTableWrapper obj : varList) {
             if (obj.getPilih().isSelected()) {
-                for (WajibPajak wp : wpService.getAllWP()) {
+                for (WajibPajak wp : wpDB) {
                     if (obj.getIdWP().equals(wp.getNpwpd())) {
                         wajibPajaksSelected.add(wp);
+                        setDefaultDokumenPinjamanWP(wp, persiapanWrapper);
                         break;
                     }
                     
@@ -412,6 +421,44 @@ public class FormTambahTimWPUIController implements Initializable {
             return false;
         }
         return true;
+    }
+    
+    private void setDefaultDokumenPinjamanWP(WajibPajak wp, PersiapanWrapper persiapanWrapper) {
+        berkasPersiapanService = ServiceFactory.getBerkasPersiapanService();
+        System.out.println("set default dokumen pinjaman wp "+wp.getNamaWajibPajak());
+        boolean isExist = false;
+        for (DokumenPinjamanWajibPajakWrapper wrapper 
+                : persiapanWrapper.getDokumenPinjamanWajibPajakWrappers()) {
+            
+            if (wrapper.getWajibPajak().getNpwpd()
+                    .equals(wp.getNpwpd())) {
+                isExist = true;
+                break;
+            }
+            
+        }
+        if (!isExist) {
+            setDokumen(wp, persiapanWrapper);
+        }
+        
+    }
+    
+    private void setDokumen(WajibPajak wp, PersiapanWrapper persiapanWrapper) {
+        if (wp.getListPinjaman().isEmpty()) {
+            System.out.println("start default dokumen pinjaman wp "+wp.getNamaWajibPajak());
+            String masaPajakAwal 
+                    = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAwalBulan())
+                        + " "
+                        +persiapanWrapper.getMasaPajakAwalTahun();
+            String masaPajakAkhir
+                    = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAkhirbulan())
+                        + " "
+                        +persiapanWrapper.getMasaPajakAkhirTahun();
+            berkasPersiapanService
+                    .getDokumenPinjaman(wp, masaPajakAwal, masaPajakAkhir);
+            persiapanWrapper.getDokumenPinjamanWajibPajakWrappers()
+                    .add(new DokumenPinjamanWajibPajakWrapper(wp, wp.getListPinjaman()));
+        }
     }
     
 }
