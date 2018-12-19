@@ -234,6 +234,19 @@ public class PelaksanaanUIController implements Initializable {
         stage.setScene(new Scene(formPelaksanaanUI));
         stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOnHiding(event -> {
+            System.out.println("close the fucking stage");
+            Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+            rootpane.getChildren().remove(1);
+            Pane content = null;
+            try {
+                content
+                        = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PelaksanaanUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rootpane.getChildren().add(content);
+        });
         stage.showAndWait();
     }
 
@@ -315,6 +328,19 @@ public class PelaksanaanUIController implements Initializable {
         stage.setScene(new Scene(formPelaksanaanUI));
         stage.resizableProperty().setValue(Boolean.FALSE);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOnHiding(event -> {
+            System.out.println("close the fucking stage");
+            Pane rootpane = ComponentCollectorProvider.getComponentFXMapper().get("root_pane");
+            rootpane.getChildren().remove(1);
+            Pane content = null;
+            try {
+                content
+                        = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/PelaksanaanUI.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rootpane.getChildren().add(content);
+        });
         stage.showAndWait();
         
     }
