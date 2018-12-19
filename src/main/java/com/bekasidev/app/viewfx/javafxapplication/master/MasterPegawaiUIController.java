@@ -100,7 +100,7 @@ public class MasterPegawaiUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form tambah Pegawai");
+        stage.setTitle("Form Tambah Pegawai");
         stage.setScene(new Scene(formTambahPegawai));
         
         stage.initStyle(StageStyle.UTILITY);
@@ -126,7 +126,7 @@ public class MasterPegawaiUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form update Pegawai");
+        stage.setTitle("Form Update Pegawai");
         stage.setScene(new Scene(formTambahPegawai));
         
 //        stage.initStyle(StageStyle.UTILITY);
@@ -208,11 +208,17 @@ public class MasterPegawaiUIController implements Initializable {
     
     private void associateDataWithColumn() {
         nip.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("nip"));
+        nip.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(6));
         nama.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("nama"));
+        nama.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(5));
         pangkat.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("pangkat"));
+        pangkat.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(6));
         golongan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("golongan"));
+        golongan.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(10));
         jabatan.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("jabatan"));
+        jabatan.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(4));
         action.setCellValueFactory(new PropertyValueFactory<MasterPegawaiTableWrapper, String>("action"));
+        action.prefWidthProperty().bind(masterPegawaiTable.widthProperty().divide(10));
     }
     
     private void showErrorNotif() {

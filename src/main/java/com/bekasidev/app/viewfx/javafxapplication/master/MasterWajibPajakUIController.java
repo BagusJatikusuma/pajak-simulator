@@ -104,7 +104,7 @@ public class MasterWajibPajakUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form tambah WP");
+        stage.setTitle("Form Update WP");
         stage.setScene(new Scene(formTambahWP));
         
 //        stage.initStyle(StageStyle.UTILITY);
@@ -122,7 +122,7 @@ public class MasterWajibPajakUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form tambah WP");
+        stage.setTitle("Form Tambah WP");
         stage.setScene(new Scene(formTambahWP));
         
 //        stage.initStyle(StageStyle.UTILITY);
@@ -254,13 +254,21 @@ public class MasterWajibPajakUIController implements Initializable {
     
     private void associateDataWithColumn() {
         no.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("no"));
+        no.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(22));
         idWP.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("idWajibPajak"));
+        idWP.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(6));
         namaWP.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("namaWajibPajak"));
+        namaWP.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(5));
         alamat.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("jalan"));
+        alamat.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(6));
         desa.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("desa"));
+        desa.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(10));
         kecamatan.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("kecamatan"));
-        action.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("button"));
+        kecamatan.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(6));
         jenisWP.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("jenisWp"));
+        jenisWP.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(10));
+        action.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("button"));
+        action.prefWidthProperty().bind(wajibPajakTable.widthProperty().divide(22));
     }
     
     private void showErrorNotif() {

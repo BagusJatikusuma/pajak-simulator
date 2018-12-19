@@ -24,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -42,6 +43,8 @@ public class FormTambahWPUIController implements Initializable {
     @FXML private TextField desaWPField;
     @FXML private TextField kecamatanWPField;
     @FXML private ChoiceBox jenisWPField;
+    
+    @FXML private Label formTitle;
     
     @FXML private Button cancelBtn;
     @FXML private Button tambahBtn;
@@ -63,6 +66,8 @@ public class FormTambahWPUIController implements Initializable {
         WajibPajak wajibPajak
                 = (WajibPajak) SessionProvider.getGlobalSessionsMap().get("update_wp_selected");
         if (wajibPajak!=null) {
+            formTitle.setText("FORM UPDATE WAJIB PAJAK");
+            
             npwpdField.setText(wajibPajak.getNpwpd());
             namaWPField.setText(wajibPajak.getNamaWajibPajak());
             alamatWPField.setText(wajibPajak.getJalan());

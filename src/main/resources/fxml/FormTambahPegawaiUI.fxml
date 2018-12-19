@@ -1,37 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="formTambahWP" prefHeight="489.0" prefWidth="574.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahPegawaiUIController">
-    <stylesheets>
-        <URL value="@/styles/formtambahpegawaiui.css" />
-    </stylesheets>
-    <children>
-      <TextField fx:id="nipField" layoutX="51.0" layoutY="87.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
-      <Label fx:id="formLabel" layoutX="199.0" layoutY="27.0" prefHeight="20.0" prefWidth="178.0" text="FORM TAMBAH PEGAWAI" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="197.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label layoutX="51.0" layoutY="61.0" text="NIP" AnchorPane.leftAnchor="51.0" />
-      <Label layoutX="51.0" layoutY="131.0" text="Nama" AnchorPane.leftAnchor="51.0" />
-      <Label layoutX="51.0" layoutY="202.0" text="Pangkat" AnchorPane.leftAnchor="51.0" />
-      <Label layoutX="51.0" layoutY="273.0" text="Golongan" AnchorPane.leftAnchor="51.0" />
-      <TextField fx:id="namaField" layoutX="51.0" layoutY="157.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
-      <TextField fx:id="pangkatField" layoutX="51.0" layoutY="227.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
-      <TextField fx:id="golonganField" layoutX="51.0" layoutY="297.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
-      <Button fx:id="tambahBtn" layoutX="401.0" layoutY="429.0" mnemonicParsing="false" onAction="#tambahOperation" prefHeight="31.0" prefWidth="116.0" text="Tambah" AnchorPane.rightAnchor="51.0" />
-      <Button fx:id="cancelBtn" layoutX="281.0" layoutY="429.0" mnemonicParsing="false" onAction="#cancelOperation" prefHeight="31.0" prefWidth="116.0" text="Batal" AnchorPane.rightAnchor="177.0" />
-      <TextField fx:id="jabatanField" layoutX="51.0" layoutY="365.0" prefHeight="31.0" prefWidth="473.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
-      <Label layoutX="51.0" layoutY="341.0" text="Jabatan" AnchorPane.leftAnchor="51.0" />
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.FormTambahPegawaiUIController">
+   <children>
+      <VBox prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="formLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="FORM TAMBAH PEGAWAI">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="NIP">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="nipField">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Nama">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="namaField">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Pangkat">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="pangkatField">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Golongan">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="golonganField">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Jabatan">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="jabatanField">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelOperation" text="Batal">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="tambahBtn" mnemonicParsing="false" onAction="#tambahOperation" text="Tambah">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="40.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>

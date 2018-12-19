@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="184.0" prefWidth="395.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.PopupPaneUIController">
-    <stylesheets>
-        <URL value="@/styles/popuppaneui.css" />
-    </stylesheets>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.PopupPaneUIController">
    <children>
-      <Button fx:id="okBtn" layoutX="113.0" layoutY="107.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="180.0" text="OK" />
-      <Label fx:id="notifLabel" layoutX="139.0" layoutY="62.0" text="Berhasil Menyimpan" />
+      <VBox alignment="CENTER" prefHeight="220.0" prefWidth="408.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="notifLabel" text="Berhasil Menyimpan">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="okBtn" mnemonicParsing="false" onAction="#close" text="OK">
+               <padding>
+                  <Insets bottom="5.0" left="75.0" right="75.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

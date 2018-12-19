@@ -71,8 +71,11 @@ public class WPTimDipilihUIController implements Initializable {
 
     private void associateDataWithColumn() {
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("idWP"));
+        idWP.prefWidthProperty().bind(PersiapanWPTable.widthProperty().divide(3));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("namaWP"));
+        namaWP.prefWidthProperty().bind(PersiapanWPTable.widthProperty().divide(3));
         jenisWP.setCellValueFactory(new PropertyValueFactory<PersiapanWPTableWrapper, String>("jenisWP"));
+        jenisWP.prefWidthProperty().bind(PersiapanWPTable.widthProperty().divide(3));
     }
     
     public void close() {

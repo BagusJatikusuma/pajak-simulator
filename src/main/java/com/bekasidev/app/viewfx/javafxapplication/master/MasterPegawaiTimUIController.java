@@ -153,9 +153,13 @@ public class MasterPegawaiTimUIController implements Initializable {
     
     private void associateDataWithColumn() {
         nip.setCellValueFactory(new PropertyValueFactory<MasterAnggotaTimTableWrapper, String>("nip"));
+        nip.prefWidthProperty().bind(masterTimAnggotaTable.widthProperty().divide(6));
         nama.setCellValueFactory(new PropertyValueFactory<MasterAnggotaTimTableWrapper, String>("nama"));
+        nama.prefWidthProperty().bind(masterTimAnggotaTable.widthProperty().divide(4));
         jabatan.setCellValueFactory(new PropertyValueFactory<MasterAnggotaTimTableWrapper, String>("jabatan"));
+        jabatan.prefWidthProperty().bind(masterTimAnggotaTable.widthProperty().divide(4));
         action.setCellValueFactory(new PropertyValueFactory<MasterAnggotaTimTableWrapper, String>("action"));
+        action.prefWidthProperty().bind(masterTimAnggotaTable.widthProperty().divide(10));
     }
     
 }
