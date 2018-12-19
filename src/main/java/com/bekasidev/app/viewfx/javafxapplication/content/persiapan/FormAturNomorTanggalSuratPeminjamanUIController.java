@@ -405,10 +405,15 @@ public class FormAturNomorTanggalSuratPeminjamanUIController implements Initiali
 
     private void associateDataWithColumn() {
         idWP.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("idWP"));
+        idWP.prefWidthProperty().bind(AturNomorTanggalSuratPeminjamanTable.widthProperty().divide(6));
         namaWP.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("namaWP"));
+        namaWP.prefWidthProperty().bind(AturNomorTanggalSuratPeminjamanTable.widthProperty().divide(4));
         nomorSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("nomorSurat"));
+        nomorSurat.prefWidthProperty().bind(AturNomorTanggalSuratPeminjamanTable.widthProperty().divide(6));
         tanggalSurat.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("tanggalSurat"));
+        tanggalSurat.prefWidthProperty().bind(AturNomorTanggalSuratPeminjamanTable.widthProperty().divide(6));
         action.setCellValueFactory(new PropertyValueFactory<PersiapanNomorTanggalSuratPeminjamanTableWrapper, String>("Action"));
+        action.prefWidthProperty().bind(AturNomorTanggalSuratPeminjamanTable.widthProperty().divide(8));
     }
     
     private void printRestoranQuessioner() {
