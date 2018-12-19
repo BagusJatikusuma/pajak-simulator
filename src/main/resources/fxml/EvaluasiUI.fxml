@@ -1,40 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController">
    <children>
-      <Button layoutX="214.0" layoutY="11.0" mnemonicParsing="false" onAction="#printKopLHP" prefHeight="25.0" prefWidth="129.0" text="Cetak Cover LHP" />
-      <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#printEvaluasi" prefHeight="25.0" prefWidth="187.0" text="Cetak Laporan Evaluasi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <TableView fx:id="evaluasiTable" layoutX="14.0" layoutY="47.0" prefHeight="589.0" prefWidth="1366.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <columns>
-            <TableColumn fx:id="no" maxWidth="120.0" minWidth="45.0" prefWidth="45.0" text="NO" visible="false" />
-            <TableColumn fx:id="tahapPemeriksaan" maxWidth="325.0" minWidth="90.0" prefWidth="91.0" text="TAHAP" />
-            <TableColumn fx:id="noSP" maxWidth="309.0" minWidth="135.0" prefWidth="246.0" text="NO SP" />
-            <TableColumn fx:id="tim" maxWidth="562.0" minWidth="156.0" prefWidth="160.0" text="TIM PEMERIKSA" />
-            <TableColumn fx:id="wp" maxWidth="632.0" minWidth="250.0" prefWidth="606.0" text="WAJIB PAJAK" />
-            <TableColumn fx:id="action" maxWidth="188.0" minWidth="166.0" prefWidth="188.0" text="Action" />
-         </columns>
-      </TableView>
-      <Separator layoutX="348.0" layoutY="11.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="2.0" />
-      <TextField fx:id="tahunAnggaranField" layoutX="357.0" layoutY="11.0" />
-      <Button layoutX="534.0" layoutY="11.0" mnemonicParsing="false" onAction="#cariSPBasedTahun" text="Tampilkan" />
+      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane alignment="TOP_CENTER" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="550.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="40.0" prefWidth="70.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Tahun Anggaran :" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printEvaluasi" text="Cetak Laporan Evaluasi">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printKopLHP" text="Cetak Cover LHP" GridPane.columnIndex="1">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField fx:id="tahunAnggaranField" GridPane.columnIndex="4" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cariSPBasedTahun" text="Tampilkan" GridPane.columnIndex="5">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </GridPane>
+            <TableView fx:id="evaluasiTable" prefHeight="589.0" prefWidth="1366.0">
+               <columns>
+                  <TableColumn fx:id="no" maxWidth="120.0" minWidth="45.0" prefWidth="45.0" text="NO" visible="false" />
+                  <TableColumn fx:id="tahapPemeriksaan" maxWidth="325.0" minWidth="90.0" prefWidth="91.0" text="TAHAP" />
+                  <TableColumn fx:id="noSP" maxWidth="309.0" minWidth="135.0" prefWidth="246.0" text="NO SP" />
+                  <TableColumn fx:id="tim" maxWidth="562.0" minWidth="156.0" prefWidth="160.0" text="TIM PEMERIKSA" />
+                  <TableColumn fx:id="wp" maxWidth="632.0" minWidth="250.0" prefWidth="606.0" text="WAJIB PAJAK" />
+                  <TableColumn fx:id="action" maxWidth="188.0" minWidth="166.0" prefWidth="188.0" text="Action" />
+               </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="14.0" />
-   </padding>
-   <stylesheets>
-      <URL value="@/styles/pelaksanaanui.css" />
-   </stylesheets>
 </AnchorPane>

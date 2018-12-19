@@ -3687,7 +3687,7 @@ public class ReportServiceImpl implements ReportService {
                 new LogException(ex);
             }
             
-            //JasperCompileManager.compileReportToFile(jrxmlPathFile);
+//            JasperCompileManager.compileReportToFile(jrxmlPathFile);
                     
             JasperReport report = null;
             

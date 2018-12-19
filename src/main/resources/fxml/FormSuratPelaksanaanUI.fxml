@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaksanaan.FormSuratPelaksanaanUIController">
    <children>
       <VBox alignment="TOP_CENTER" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -60,7 +59,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </GridPane>
-            <TableView fx:id="daftarSuratTable" prefHeight="266.0">
+            <TableView fx:id="daftarSuratTable" prefHeight="300.0">
                <columns>
                   <TableColumn fx:id="no" prefWidth="48.0" text="NO" />
                   <TableColumn fx:id="namaSurat" prefWidth="415.0" text="NAMA SURAT" />
