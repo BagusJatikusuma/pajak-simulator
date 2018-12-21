@@ -104,7 +104,7 @@ public class App extends Application
             SessionProvider.getGlobalSessionsMap().put("screen_height", primaryScreenBounds.getHeight());
 //            ServiceFactory.getExportImportService().exportData();
 //            ServiceFactory.getExportImportService().importData();
-            primaryStage.setTitle("Aplikasi Pemeriksaan Pajak");
+            primaryStage.setTitle("Aplikasi Pemeriksaan Pajak Daerah");
 //            primaryStage.setMaximized(true);
 //            primaryStage.setWidth(primaryScreenBounds.getWidth());
 //            primaryStage.setHeight(primaryScreenBounds.getHeight());

@@ -53,7 +53,7 @@ public class FormChangePasswordController implements Initializable {
         System.out.println("username is "+username+"; new password is "+passwordField.getText());
         
         ServiceFactory.getUserLoginService().updateUser(username, passwordField.getText());
-        showErrorNotif("password berhasil diubah");
+        showErrorNotif("Password berhasil diubah");
         
         Stage stage = (Stage) cancelBtn.getScene().getWindow();
         stage.close();
