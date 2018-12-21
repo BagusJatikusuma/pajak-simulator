@@ -9,6 +9,7 @@ import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
 import com.bekasidev.app.service.ServiceFactory;
+import com.bekasidev.app.service.backend.BerkasPersiapanService;
 import com.bekasidev.app.service.backend.SuratPerintahService;
 import com.bekasidev.app.service.reportservice.ReportService;
 import com.bekasidev.app.view.util.ComponentCollectorProvider;
@@ -17,6 +18,7 @@ import com.bekasidev.app.view.util.SessionProvider;
 import com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.EvaluasiUIController;
 import com.bekasidev.app.viewfx.javafxapplication.mainmenu.UIController;
 import com.bekasidev.app.viewfx.javafxapplication.master.MasterWajibPajakUIController;
+import com.bekasidev.app.viewfx.javafxapplication.model.DokumenPinjamanWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.NomorTanggalWajibPajakWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.PersiapanWrapper;
 import com.bekasidev.app.viewfx.javafxapplication.model.TimWPWrapper;
@@ -61,6 +63,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     
     private ReportService reportService;
     private SuratPerintahService suratPerintahService;
+    private BerkasPersiapanService berkasPersiapanService;
     
     /**
      * Initializes the controller class.
@@ -68,6 +71,7 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        berkasPersiapanService = ServiceFactory.getBerkasPersiapanService();
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
         
         System.out.println(rootpaneFormPersiapan.getMinHeight());
@@ -288,6 +292,8 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                 
             }
         }
+        //synchronisasi dokumen pinjaman jika ada perubahan pada beberapa attr persiapan wrapper
+        syncDokumenPinjamanList(persiapanWrapper);
         //====================================================================================//
         Pane rootpaneFormPersiapan = ComponentCollectorProvider.getComponentFXMapper().get("root_form_persiapan_ui");
         rootpaneFormPersiapan.getChildren().remove(1);
@@ -380,6 +386,25 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
         }
         
         
+    }
+    
+    private void syncDokumenPinjamanList(PersiapanWrapper persiapanWrapper) {
+        String masaPajakAwal 
+                    = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAwalBulan())
+                        + " "
+                        +persiapanWrapper.getMasaPajakAwalTahun();
+            String masaPajakAkhir
+                    = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAkhirbulan())
+                        + " "
+                        +persiapanWrapper.getMasaPajakAkhirTahun();
+        for (DokumenPinjamanWajibPajakWrapper wrapper 
+                : persiapanWrapper.getDokumenPinjamanWajibPajakWrappers()) {
+            wrapper.getWajibPajak().getListPinjaman().clear();
+            wrapper.getListPinjaman().clear();
+            berkasPersiapanService
+                    .getDokumenPinjaman(wrapper.getWajibPajak(), masaPajakAwal, masaPajakAkhir);
+            wrapper.getListPinjaman().addAll(wrapper.getWajibPajak().getListPinjaman());
+        }
     }
     
 }
