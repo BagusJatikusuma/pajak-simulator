@@ -5,23 +5,33 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterTimUIController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterTimUIController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addTim" text="Tambah Tim" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addTim" text="Tambah Tim">
+               <padding>
+                  <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <TableView fx:id="masterTimTable" prefHeight="589.0" prefWidth="1366.0">
+               <columns>
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="285.0" text="Id" />
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="666.0" text="Nama" />
+                  <TableColumn fx:id="aturAction" maxWidth="1.7976931348623157E308" minWidth="20.0" prefWidth="193.0" text="Action" />
+                  <TableColumn fx:id="hapusAction" maxWidth="1.7976931348623157E308" minWidth="20.0" prefWidth="193.0" text="Action" />
+               </columns>
+            </TableView>
+         </children>
          <padding>
-            <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
-         </padding></Button>
-      <TableView fx:id="masterTimTable" layoutX="10.0" layoutY="49.0" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <columns>
-            <TableColumn maxWidth="285.0" minWidth="285.0" prefWidth="285.0" text="Id" />
-            <TableColumn maxWidth="666.0" minWidth="666.0" prefWidth="666.0" text="Nama" />
-            <TableColumn fx:id="aturAction" maxWidth="193.0" minWidth="193.0" prefWidth="193.0" text="Action" />
-            <TableColumn fx:id="hapusAction" maxWidth="193.0" minWidth="193.0" prefWidth="193.0" text="Action" />
-         </columns>
-      </TableView>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="14.0" />
-   </padding>
 </AnchorPane>

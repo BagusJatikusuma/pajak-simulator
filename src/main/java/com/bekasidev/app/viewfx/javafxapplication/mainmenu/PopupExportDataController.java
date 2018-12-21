@@ -154,7 +154,7 @@ public class PopupExportDataController implements Initializable {
                         @Override
                         public void run() {
                             stage.close();
-                            showErrorNotif("ada masalah saat mengexport data");
+                            showErrorNotif("Ada masalah saat mengexport data");
                         }
                     });
                     
@@ -165,7 +165,7 @@ public class PopupExportDataController implements Initializable {
                     @Override
                     public void run() {
                         stage.close();
-                        showErrorNotif("export data berhasil");
+                        showErrorNotif("Export data berhasil\nData hasil export berada di folder export.");
                         Stage thisStage = (Stage) exportDataBtn.getScene().getWindow();
                         thisStage.close();
                     }

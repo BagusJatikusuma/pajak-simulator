@@ -76,7 +76,7 @@ public class MasterTimUIController implements Initializable {
         dataCollection = new ObservableArrayList<>();
         for (final Tim obj
                 : tims) {
-            Button btn = new Button("Atur anggota");
+            Button btn = new Button("Atur Anggota");
             Button hapusBtn = new Button("Hapus");
             dataCollection.add(new MasterTimTableWrapper(
                     obj.getIdTim(),
@@ -136,9 +136,13 @@ public class MasterTimUIController implements Initializable {
     
     private void associateDataWithColumn() {
         id.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("id"));
+        id.prefWidthProperty().bind(masterTimTable.widthProperty().divide(3));
         nama.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("nama"));
+        nama.prefWidthProperty().bind(masterTimTable.widthProperty().divide(3));
         aturAction.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("button"));
+        aturAction.prefWidthProperty().bind(masterTimTable.widthProperty().divide(4));
         hapusAction.setCellValueFactory(new PropertyValueFactory<WPMasterTableWrapper, String>("hapusButton"));
+        hapusAction.prefWidthProperty().bind(masterTimTable.widthProperty().divide(4));
     }
     
     public void addTim() {
@@ -150,7 +154,7 @@ public class MasterTimUIController implements Initializable {
             Logger.getLogger(MasterWajibPajakUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Stage stage = new Stage();
-        stage.setTitle("Form tambah Tim");
+        stage.setTitle("Form Tambah Tim");
         stage.setScene(new Scene(formTambahTim));
         
         stage.initStyle(StageStyle.UTILITY);

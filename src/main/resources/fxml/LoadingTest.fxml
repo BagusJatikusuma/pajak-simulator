@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="408.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.LoadingTestController">
-    <stylesheets>
-        <URL value="@/styles/loadingtest.css" />
-    </stylesheets>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.pelaporan.LoadingTestController">
    <children>
-      <Text layoutX="134.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEDANG MENCETAK..." wrappingWidth="167.7294921875">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor></Text>
+      <VBox alignment="CENTER" prefHeight="220.0" prefWidth="408.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SEDANG MENCETAK..." textAlignment="CENTER" wrappingWidth="408.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER_LEFT" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.content.persiapan.FormTambahTimWPUIController">
    <children>
       <Label alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="FORM TAMBAH TIM PEMERIKSA">
@@ -82,7 +81,7 @@
                </GridPane.margin>
             </Button>
             <Separator orientation="VERTICAL" prefHeight="31.0" prefWidth="7.0" GridPane.columnIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#lihatDipilih" prefHeight="25.0" text="Lihat Dipilih" GridPane.columnIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#lihatDipilih" prefHeight="25.0" text="Lihat Wajib Pajak Dipilih" GridPane.columnIndex="4" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" />

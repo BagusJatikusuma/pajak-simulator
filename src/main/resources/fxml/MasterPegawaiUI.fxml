@@ -1,37 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bekasidev.app.viewfx.javafxapplication.master.MasterPegawaiUIController">
    <children>
-      <Separator layoutX="340.0" layoutY="9.0" orientation="VERTICAL" prefHeight="30.0" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="9.0" />
-      <TextField fx:id="cariPegawaiField" alignment="CENTER" layoutX="11.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <Button layoutX="173.0" layoutY="8.0" mnemonicParsing="false" onAction="#cariPegawai" prefHeight="25.0" prefWidth="60.0" text="Cari" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="11.0" />
-      <Button layoutX="356.0" layoutY="11.0" mnemonicParsing="false" onAction="#addPegawai" prefHeight="25.0" prefWidth="181.0" text="Tambah Pegawai" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="11.0" />
-      <TableView fx:id="masterPegawaiTable" layoutX="10.0" layoutY="49.0" maxHeight="575.0" maxWidth="1600.0" minHeight="575.0" minWidth="1033.0" prefHeight="575.0" prefWidth="1221.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <columns>
-            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="NIP" />
-            <TableColumn maxWidth="270.0" minWidth="270.0" prefWidth="270.0" text="Nama" />
-            <TableColumn maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="Pangkat" />
-            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Golongan" />
-            <TableColumn maxWidth="320.0" minWidth="320.0" prefWidth="320.0" text="Jabatan" />
-            <TableColumn maxWidth="197.0" minWidth="197.0" prefWidth="197.0" text="Action" />
-         </columns>
-      </TableView>
-      <Button layoutX="550.0" layoutY="11.0" mnemonicParsing="false" onAction="#updatePegawai" prefHeight="25.0" prefWidth="181.0" text="Update Pegawai" />
-      <Button layoutX="238.0" layoutY="8.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="25.0" prefWidth="94.0" text="reset" AnchorPane.topAnchor="11.0" />
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="500.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="6.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="80.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="80.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPegawai" text="Tambah Pegawai">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#updatePegawai" text="Update Pegawai" GridPane.columnIndex="1">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField fx:id="cariPegawaiField" alignment="CENTER" prefHeight="25.0" prefWidth="152.0" GridPane.columnIndex="4" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cariPegawai" text="Cari" GridPane.columnIndex="5">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resetTable" text="Reset" GridPane.columnIndex="6">
+                     <padding>
+                        <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label text="Nama Pegawai :" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </GridPane>
+            <TableView fx:id="masterPegawaiTable" prefHeight="589.0" prefWidth="1366.0">
+               <columns>
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="200.0" text="NIP" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="270.0" text="Nama" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="250.0" text="Pangkat" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Golongan" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="320.0" text="Jabatan" />
+                  <TableColumn maxWidth="1.7976931348623157E308" prefWidth="197.0" text="Action" />
+               </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="14.0" />
-   </padding>
 </AnchorPane>

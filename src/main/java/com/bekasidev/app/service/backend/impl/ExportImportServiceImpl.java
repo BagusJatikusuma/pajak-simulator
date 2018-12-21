@@ -20,7 +20,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ExportImportServiceImpl implements ExportImportService {
@@ -39,7 +41,8 @@ public class ExportImportServiceImpl implements ExportImportService {
             lines.add(getSqlBerkasPersiapan(suratPerintah));
             lines.add(getSqlNomorBerkas(suratPerintah));
 //            lines.add(getSqlRekapitulasi(rekapitulasiDao.getAllRekapitulasi()));
-            Path file = Paths.get("export\\file-export-800_"+ suratPerintah.getNomorUrut() + "_Bapenda" +".sql");
+            SimpleDateFormat fd = new SimpleDateFormat("dd_MMMM_yyyy-HH_mm_ss");
+            Path file = Paths.get("export\\file-export-800_"+ suratPerintah.getNomorUrut() + "_Bapenda-"+ fd.format(new Date()) +".sql");
         try {
             Files.write(file, lines, Charset.forName("UTF-8"));
         } catch (IOException e) {
@@ -60,7 +63,8 @@ public class ExportImportServiceImpl implements ExportImportService {
         for(WajibPajak wp : timSP.getListWP()){
             lines.add(getSqlRekapitulasi(rekapitulasiDao.getRekapitulasi(timSP.getIdSP(), wp.getNpwpd()).getListRekapitulasi()));
         }
-        Path file = Paths.get("export\\file-export-"+ timSP.getNamaTim() +".sql");
+        SimpleDateFormat fd = new SimpleDateFormat("dd_MMMM_yyyy-HH_mm_ss");
+        Path file = Paths.get("export\\file-export-"+ timSP.getNamaTim() + "-"+ fd.format(new Date()) +".sql");
         try {
             Files.write(file, lines, Charset.forName("UTF-8"));
         } catch (IOException e) {
