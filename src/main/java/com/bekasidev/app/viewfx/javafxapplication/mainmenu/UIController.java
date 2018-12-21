@@ -105,7 +105,7 @@ public class UIController implements Initializable {
                         @Override
                         public void run() {
                             stage.close();
-                            showErrorNotif("ada masalah ketika mengimport data");
+                            showErrorNotif("Ada masalah ketika mengimport data");
                         }
                     });
                     Logger.getLogger(UIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,7 +115,7 @@ public class UIController implements Initializable {
                     @Override
                     public void run() {
                         stage.close();
-                        showErrorNotif("import data berhasil");
+                        showErrorNotif("Import data berhasil");
                     }
                 });
             }
