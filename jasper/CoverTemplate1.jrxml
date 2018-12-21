@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CoverTemplate1" language="groovy" pageWidth="595" pageHeight="963" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3b5bdf8-5d2c-49bd-a96f-1c574f552a1b">
-	<property name="ireport.zoom" value="0.5644739300537857"/>
+	<property name="ireport.zoom" value="0.5644739300537863"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="nama_wp" class="java.lang.String"/>
@@ -12,158 +12,158 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="923">
+		<band height="908">
 			<rectangle>
-				<reportElement x="-8" y="13" width="568" height="895" uuid="872eb94d-3f9f-476f-8b51-663a4d146664"/>
+				<reportElement x="-8" y="5" width="568" height="895" uuid="872eb94d-3f9f-476f-8b51-663a4d146664"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="-4" y="17" width="560" height="886" uuid="57137f53-a27d-4610-b773-f91ea3c44fb0"/>
+				<reportElement x="-4" y="9" width="560" height="886" uuid="57137f53-a27d-4610-b773-f91ea3c44fb0"/>
 				<graphicElement>
 					<pen lineWidth="2.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="1" y="22" width="550" height="877" uuid="714a7330-6e44-4e30-a3b4-dca0a54d25ca"/>
+				<reportElement x="1" y="14" width="550" height="877" uuid="714a7330-6e44-4e30-a3b4-dca0a54d25ca"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="22" y="773" width="173" height="20" uuid="4cb14abd-5b4f-488d-ba27-7bf8bab083c1"/>
+				<reportElement positionType="Float" x="22" y="754" width="173" height="20" uuid="4cb14abd-5b4f-488d-ba27-7bf8bab083c1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NPWPD]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="209" y="773" width="308" height="20" uuid="67f03f81-1b31-4602-8ea6-dcf8ef62a228"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="209" y="754" width="308" height="20" uuid="67f03f81-1b31-4602-8ea6-dcf8ef62a228"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{npwpd}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="22" y="751" width="173" height="20" uuid="b604f137-fa10-4b3f-92c8-aae734a158ae"/>
+				<reportElement positionType="Float" x="22" y="732" width="173" height="20" uuid="b604f137-fa10-4b3f-92c8-aae734a158ae"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[NAMA WAJIB PAJAK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="22" y="817" width="173" height="20" uuid="d4c22b8d-9771-44f2-a9e1-aa85c02a9e81"/>
+				<reportElement positionType="Float" x="22" y="798" width="173" height="20" uuid="d4c22b8d-9771-44f2-a9e1-aa85c02a9e81"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[MASA PAJAK]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="209" y="795" width="308" height="20" uuid="451f3127-d7c8-4b1e-8197-ac968b541760"/>
+				<reportElement positionType="Float" x="209" y="776" width="308" height="20" uuid="451f3127-d7c8-4b1e-8197-ac968b541760"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["PEMERIKSAAN LENGKAP"]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="209" y="751" width="308" height="20" uuid="c7b3b442-8913-4e5d-b30c-8195f2a62781"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="209" y="732" width="308" height="20" uuid="c7b3b442-8913-4e5d-b30c-8195f2a62781"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="22" y="795" width="173" height="20" uuid="1d19c924-eb91-4cfc-9d23-db53b9883323"/>
+				<reportElement positionType="Float" x="22" y="776" width="173" height="20" uuid="1d19c924-eb91-4cfc-9d23-db53b9883323"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[JENIS PEMERIKSAAN]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="209" y="817" width="308" height="20" uuid="fea38a6d-e61e-4a99-aa3f-7c1d4527f4cb"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="209" y="798" width="308" height="20" uuid="fea38a6d-e61e-4a99-aa3f-7c1d4527f4cb"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{pajak_awal} + " s/d " + $P{pajak_akhir}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="22" y="771" width="495" height="2" uuid="deb312f2-47fa-4628-a63c-4fa63e3d9b55"/>
+				<reportElement positionType="Float" x="22" y="752" width="495" height="2" uuid="deb312f2-47fa-4628-a63c-4fa63e3d9b55"/>
 				<textElement>
 					<font pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="22" y="793" width="495" height="2" uuid="9ae76e5d-cd37-41c0-85ec-6d2f73cc574b"/>
+				<reportElement positionType="Float" x="22" y="774" width="495" height="2" uuid="9ae76e5d-cd37-41c0-85ec-6d2f73cc574b"/>
 				<textElement>
 					<font pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="22" y="815" width="495" height="2" uuid="a5fd60ec-e790-4de9-bb78-d5c7371b4983"/>
+				<reportElement positionType="Float" x="22" y="796" width="495" height="2" uuid="a5fd60ec-e790-4de9-bb78-d5c7371b4983"/>
 				<textElement>
 					<font pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="45" y="298" width="470" height="35" uuid="7c548994-87e9-4a6a-9507-ef8d0ed9c572"/>
+				<reportElement positionType="Float" x="45" y="290" width="470" height="35" uuid="7c548994-87e9-4a6a-9507-ef8d0ed9c572"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="28" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[PAJAK DAERAH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="45" y="231" width="470" height="67" uuid="2450aad1-9961-4354-8a61-16ed163533b3"/>
+				<reportElement positionType="Float" x="45" y="223" width="470" height="67" uuid="2450aad1-9961-4354-8a61-16ed163533b3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="29" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[KERTAS KERJA PEMERIKSAAN  ( KKP )]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="29" y="367" width="495" height="55" uuid="bc95e37f-8f93-4729-8223-6b587e3151e0"/>
+				<reportElement positionType="Float" x="29" y="359" width="495" height="55" uuid="bc95e37f-8f93-4729-8223-6b587e3151e0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="36" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nama_wp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="195" y="751" width="14" height="20" uuid="250bbec5-bc2f-4c26-a710-eee6c0c48fa6"/>
+				<reportElement positionType="Float" x="195" y="732" width="14" height="20" uuid="250bbec5-bc2f-4c26-a710-eee6c0c48fa6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="195" y="773" width="14" height="20" uuid="23879152-2122-457a-9b71-35182b595c0e"/>
+				<reportElement positionType="Float" x="195" y="754" width="14" height="20" uuid="23879152-2122-457a-9b71-35182b595c0e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="195" y="795" width="14" height="20" uuid="68a96845-c993-46f7-aefd-63a3cb5adacd"/>
+				<reportElement positionType="Float" x="195" y="776" width="14" height="20" uuid="68a96845-c993-46f7-aefd-63a3cb5adacd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="195" y="817" width="14" height="20" uuid="468b2a52-139e-4b3a-b69c-424c2a1d4fcc"/>
+				<reportElement positionType="Float" x="195" y="798" width="14" height="20" uuid="468b2a52-139e-4b3a-b69c-424c2a1d4fcc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<image hAlign="Center" vAlign="Middle">
-				<reportElement x="9" y="68" width="126" height="86" uuid="c8c41f7f-9a90-4160-b890-f4f8ce19badf"/>
+				<reportElement x="9" y="60" width="126" height="86" uuid="c8c41f7f-9a90-4160-b890-f4f8ce19badf"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="124" y="68" width="420" height="18" uuid="01a34267-7809-47df-a157-16723e86d020"/>
+				<reportElement x="124" y="60" width="420" height="18" uuid="01a34267-7809-47df-a157-16723e86d020"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[P E M E R I N T A H  K A B U P A T E N  B E K A S I]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="113" width="420" height="50" uuid="f228b7f5-1ade-488c-b392-fdfeb1ad0350"/>
+				<reportElement x="124" y="105" width="420" height="50" uuid="f228b7f5-1ade-488c-b392-fdfeb1ad0350"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="10" isBold="false" isUnderline="false" pdfFontName="Times-Roman" isPdfEmbedded="true"/>
 				</textElement>
@@ -173,20 +173,20 @@ Telp. (021) 89971906 Fax. (021) 89970069
 www.kab-bekasi.go.id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="77" width="420" height="42" uuid="7ad703af-eb64-4321-96ad-d596ad582378"/>
+				<reportElement x="124" y="69" width="420" height="42" uuid="7ad703af-eb64-4321-96ad-d596ad582378"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="26" isBold="true" isUnderline="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[BADAN PENDAPATAN DAERAH]]></text>
 			</staticText>
 			<line>
-				<reportElement x="9" y="180" width="535" height="1" uuid="21365c90-b18b-43cb-ade7-fe990ce9a5fa"/>
+				<reportElement x="9" y="172" width="535" height="1" uuid="21365c90-b18b-43cb-ade7-fe990ce9a5fa"/>
 				<graphicElement>
 					<pen lineWidth="4.0" lineStyle="Double" lineColor="#000000"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="124" y="158" width="420" height="20" uuid="89ad0836-c032-42b3-94b9-4c2fcf9208b2"/>
+				<reportElement x="124" y="150" width="420" height="20" uuid="89ad0836-c032-42b3-94b9-4c2fcf9208b2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
 				</textElement>
