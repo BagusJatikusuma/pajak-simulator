@@ -25,6 +25,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -77,6 +78,7 @@ public class FormPersiapanContentUIController implements Initializable {
         Label headerLabel = (Label) SessionProvider.getGlobalSessionsMap()
                                             .get("header_form_persiapan");
         headerLabel.setText("FORM DOKUMEN PERSIAPAN");
+        setFieldFormat();
         populateChoiceBox();
     }
 
@@ -333,6 +335,40 @@ public class FormPersiapanContentUIController implements Initializable {
         }
         
         return true;
+    }
+    
+    private void setFieldFormat() {
+        dasarTahunAnggaranField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                dasarTahunAnggaranField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        masaPajakAwalTahun.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                masaPajakAwalTahun.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        masaPajakAkhirTahun.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                masaPajakAkhirTahun.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        tahapKeField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                tahapKeField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        lamaPelaksanaanField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                lamaPelaksanaanField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        tahunAnggaranAPBDField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                tahunAnggaranAPBDField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        
     }
     
 }
