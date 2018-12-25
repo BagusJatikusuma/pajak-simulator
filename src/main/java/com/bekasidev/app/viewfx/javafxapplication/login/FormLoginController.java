@@ -96,7 +96,7 @@ public class FormLoginController implements Initializable {
         Image img = new Image(getClass().getResourceAsStream("/images/logo_kab_bekasi.png"));
         primaryStage.getIcons().add(img);
         
-        primaryStage.setTitle("Aplikasi Pemeriksaan Pajak");
+        primaryStage.setTitle("Aplikasi Pemeriksaan Pajak Daerah");
         primaryStage.setWidth(primaryScreenBounds.getWidth());
         primaryStage.setHeight(primaryScreenBounds.getHeight());
         
