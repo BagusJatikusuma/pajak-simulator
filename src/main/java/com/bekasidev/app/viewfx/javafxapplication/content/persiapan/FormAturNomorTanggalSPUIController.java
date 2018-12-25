@@ -5,6 +5,7 @@
  */
 package com.bekasidev.app.viewfx.javafxapplication.content.persiapan;
 
+import com.bekasidev.app.model.DokumenPinjaman;
 import com.bekasidev.app.model.SuratPerintah;
 import com.bekasidev.app.model.TimSP;
 import com.bekasidev.app.model.WajibPajak;
@@ -393,17 +394,17 @@ public class FormAturNomorTanggalSPUIController implements Initializable {
                     = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAwalBulan())
                         + " "
                         +persiapanWrapper.getMasaPajakAwalTahun();
-            String masaPajakAkhir
+        String masaPajakAkhir
                     = ConverterHelper.convertBulanIntegerIntoString(persiapanWrapper.getMasaPajakAkhirbulan())
                         + " "
                         +persiapanWrapper.getMasaPajakAkhirTahun();
         for (DokumenPinjamanWajibPajakWrapper wrapper 
                 : persiapanWrapper.getDokumenPinjamanWajibPajakWrappers()) {
             wrapper.getWajibPajak().getListPinjaman().clear();
-            wrapper.getListPinjaman().clear();
+//            wrapper.getListPinjaman().clear();
             berkasPersiapanService
                     .getDokumenPinjaman(wrapper.getWajibPajak(), masaPajakAwal, masaPajakAkhir);
-            wrapper.getListPinjaman().addAll(wrapper.getWajibPajak().getListPinjaman());
+//            wrapper.getListPinjaman().addAll(wrapper.getWajibPajak().getListPinjaman());
         }
     }
     
